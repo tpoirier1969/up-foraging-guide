@@ -9,65 +9,22 @@ const els = {
   modalContent: document.getElementById("modalContent"),
   closeModalBtn: document.getElementById("closeModalBtn")
 };
-
-export function updateHeaderStats() {
-  els.versionBadge.textContent = APP_VERSION;
-}
-
-export function renderPage(html) {
-  els.pageRoot.innerHTML = html;
-}
-
-export function markActiveNav(route) {
-  document.querySelectorAll("[data-nav]").forEach(link => {
-    link.classList.toggle("active", link.dataset.nav === route);
-  });
-}
-
-export function bindDetailLinks() {
-  document.querySelectorAll("[data-detail-link]").forEach(link => {
-    link.addEventListener("click", event => {
-      event.preventDefault();
-      const slug = link.dataset.detailLink;
-      openDetail(slug);
-    });
-  });
-}
-
+export function updateHeaderStats() { els.versionBadge.textContent = APP_VERSION; }
+export function renderPage(html) { els.pageRoot.innerHTML = html; }
+export function markActiveNav(route) { document.querySelectorAll("[data-nav]").forEach(link => link.classList.toggle("active", link.dataset.nav === route)); }
+export function bindDetailLinks() { document.querySelectorAll("[data-detail-link]").forEach(link => link.addEventListener("click", event => { event.preventDefault(); openDetail(link.dataset.detailLink); })); }
 export function bindSharedActions({ onFilterChange, onClearFilters, onTimelineMonthChange }) {
-  document.querySelectorAll("[data-filter]").forEach(el => {
-    const eventName = el.tagName === "SELECT" ? "change" : "input";
-    el.addEventListener(eventName, onFilterChange);
-  });
-  document.querySelectorAll('[data-action="clear-filters"]').forEach(btn => {
-    btn.addEventListener("click", onClearFilters);
-  });
-  document.querySelectorAll("[data-timeline-month]").forEach(btn => {
-    btn.addEventListener("click", () => onTimelineMonthChange?.(btn.dataset.timelineMonth));
-  });
+  document.querySelectorAll("[data-filter]").forEach(el => el.addEventListener(el.tagName === "SELECT" ? "change" : "input", onFilterChange));
+  document.querySelectorAll('[data-action="clear-filters"]').forEach(btn => btn.addEventListener("click", onClearFilters));
+  document.querySelectorAll("[data-timeline-month]").forEach(btn => btn.addEventListener("click", () => onTimelineMonthChange?.(btn.dataset.timelineMonth, btn.dataset.timelineWeek)));
 }
-
-export function openDetail(slug) {
-  const record = state.allRecords.find(item => item.slug === slug);
-  if (!record) return;
-  els.modalContent.innerHTML = renderDetail(record);
-  els.detailModal.showModal();
-}
-
-export function closeDetail() {
-  els.detailModal.close();
-}
-
+export function openDetail(slug) { const record = state.allRecords.find(item => item.slug === slug); if (!record) return; els.modalContent.innerHTML = renderDetail(record); els.detailModal.showModal(); }
+export function closeDetail() { els.detailModal.close(); }
 export function wireModal() {
   els.closeModalBtn.addEventListener("click", closeDetail);
   els.detailModal.addEventListener("click", event => {
     const rect = els.detailModal.getBoundingClientRect();
-    const clickedInside = (
-      rect.top <= event.clientY &&
-      event.clientY <= rect.top + rect.height &&
-      rect.left <= event.clientX &&
-      event.clientX <= rect.left + rect.width
-    );
+    const clickedInside = rect.top <= event.clientY && event.clientY <= rect.top + rect.height && rect.left <= event.clientX && event.clientX <= rect.left + rect.width;
     if (!clickedInside) closeDetail();
   });
 }

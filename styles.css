@@ -276,3 +276,19 @@ input[type="search"],select{
   .main-nav a{padding:10px 12px;font-size:.92rem}
   .hero-cta-row,.button-row{display:grid;grid-template-columns:1fr}
 }
+
+.filter-note{font-size:.86rem;color:var(--muted);margin-top:2px}
+.five-up-grid{grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+.review-card-home{background:linear-gradient(150deg,#f7f0df,#fdfcf8)}
+.muted-line{color:var(--muted)}
+.week-rail{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:12px}
+.month-week-card{display:grid;gap:8px}
+.week-chip-row{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.week-chip{min-height:34px;border-radius:12px;border:1px solid var(--line);background:#fff;color:var(--muted);font-weight:700;padding:0}
+.week-chip.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.focus-pill.review{text-decoration:none;background:#f5ede0;color:#7d5a2c}
+.review-card{border-color:#e7d7b8}
+@media (max-width:900px){
+  .five-up-grid{grid-template-columns:1fr}
+  .week-rail{grid-template-columns:repeat(2,minmax(0,1fr))}
+}

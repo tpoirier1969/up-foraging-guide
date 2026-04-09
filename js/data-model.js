@@ -1,8 +1,9 @@
 import { PLANT_CATEGORIES } from "./constants.js";
 import { compactText, hasMedicinal } from "./utils.js";
+import { inferTraits } from "./trait-inference.js";
 
 export function normalizeRecord(record) {
-  return {
+  const base = {
     ...record,
     display_name: compactText(record.display_name || record.common_name, "Untitled species"),
     common_name: compactText(record.common_name || record.display_name, ""),
@@ -14,6 +15,7 @@ export function normalizeRecord(record) {
     links: Array.isArray(record.links) ? record.links : [],
     images: Array.isArray(record.images) ? record.images : []
   };
+  return { ...base, ...inferTraits(base) };
 }
 export function sortRecords(records) {
   return records.slice().sort((a,b) => a.display_name.localeCompare(b.display_name));
@@ -26,4 +28,7 @@ export function isMushroom(record) {
 }
 export function medicinalRecords(records) {
   return records.filter(hasMedicinal);
+}
+export function reviewRecords(records) {
+  return records.filter(r => (r.reviewReasons || []).length);
 }
