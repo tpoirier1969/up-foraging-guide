@@ -1,0 +1,639 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Upper Michigan Foraging · Mushroom research v0.7</title>
+<style>
+:root {
+  --bg:#f5f1e7; --ink:#23303b; --muted:#6b7167; --card:#fffdf8; --line:#d9d2c2; --accent:#35526b;
+}
+*{box-sizing:border-box}
+body{margin:0;font:16px/1.45 system-ui,Segoe UI,Roboto,sans-serif;background:var(--bg);color:var(--ink)}
+main{max-width:1100px;margin:0 auto;padding:28px 18px 50px}
+h1{font-size:2rem;margin:0 0 6px}
+p.lead{max-width:70ch;color:var(--muted)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;margin-top:20px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 4px 18px rgba(0,0,0,.05)}
+h2{margin:0 0 2px;font-size:1.1rem}
+.latin{margin:0 0 10px;color:var(--accent);font-style:italic}
+.meta-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin:14px 0}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chips span{display:inline-block;padding:4px 10px;border-radius:999px;background:#edf2f5;border:1px solid #d7e0e7;font-size:.88rem}
+ul{padding-left:18px}
+.small{font-size:.92rem;color:var(--muted)}
+header.note{padding:16px 18px;border:1px solid var(--line);background:#fff8eb;border-radius:18px}
+code{background:#f1ecdf;padding:2px 5px;border-radius:6px}
+</style>
+</head>
+<body>
+<main>
+  <h1>Mushroom research v0.7</h1>
+  <p class="lead">This page is the repo-friendly research snapshot for the mushrooms currently in the app. It is meant to be readable on phone or desktop, and to hold the structured notes that are now also embedded into <code>data/species.json</code>.</p>
+  <header class="note">
+    <strong>Important:</strong> several entries are still intentionally marked as <em>group</em> or <em>species complex</em> rather than precise species. That is not me being lazy. That is me not pretending the data is tighter than it is.
+  </header>
+  <div class="grid">
+    
+    <section class="card">
+      <h2>Rock tripe (lichen)</h2>
+      <p class="latin">Umbilicaria spp.</p>
+      <p>Actually a rock-dwelling lichen rather than a mushroom. Historically used as an emergency or famine food after extensive processing.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>emergency only</div>
+        <div><strong>Caution</strong><br>high</div>
+        <div><strong>Scope</strong><br>lichen_group</div>
+        <div><strong>Spore print</strong><br>—</div>
+      </div>
+      <div class="chips">
+        <span>Rock</span>
+      </div>
+      <div class="chips">
+        <span>None / lichen thallus</span><span>None</span><span>Leathery</span><span>Unknown</span><span>Unknown</span><span>Bitter</span>
+      </div>
+      <ul>
+        <li>Common name covers edible Umbilicaria lichens rather than a single mushroom species.</li><li>Treat as a survival food entry, not a routine edible.</li><li>Slow-growing and best not heavily harvested.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Present year-round where established.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://www.britannica.com/science/rock-tripe" target="_blank" rel="noreferrer">https://www.britannica.com/science/rock-tripe</a> · <a href="https://whatsinaname.hmnh.harvard.edu/rocktripe" target="_blank" rel="noreferrer">https://whatsinaname.hmnh.harvard.edu/rocktripe</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Reindeer lichen</h2>
+      <p class="latin">Cladonia rangiferina (and related reindeer lichens)</p>
+      <p>A lichen rather than a mushroom. Historically processed as famine food or flour extender, but bitter acids require substantial preparation.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>emergency only</div>
+        <div><strong>Caution</strong><br>high</div>
+        <div><strong>Scope</strong><br>lichen_group</div>
+        <div><strong>Spore print</strong><br>—</div>
+      </div>
+      <div class="chips">
+        <span>Ground</span>
+      </div>
+      <div class="chips">
+        <span>None / lichen thallus</span><span>None</span><span>Dry</span><span>Unknown</span><span>Unknown</span><span>Bitter</span>
+      </div>
+      <ul>
+        <li>Better treated as a lichen entry than a mushroom entry.</li><li>Known more as animal browse and famine food than as a casual wild edible.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Visible year-round in open, well-drained sites.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://www.britannica.com/science/reindeer-lichen" target="_blank" rel="noreferrer">https://www.britannica.com/science/reindeer-lichen</a> · <a href="https://www.purdue.edu/hla/sites/famine-foods/famine_food/cladonia-rangiferina-2/" target="_blank" rel="noreferrer">https://www.purdue.edu/hla/sites/famine-foods/famine_food/cladonia-rangiferina-2/</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Morel mushrooms</h2>
+      <p class="latin">Morchella spp.</p>
+      <p>True morels are prized spring mushrooms. They are hollow, pitted, and considered choice edibles, but they should be cooked thoroughly and not confused with false morels.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>choice cooked only</div>
+        <div><strong>Caution</strong><br>high</div>
+        <div><strong>Scope</strong><br>species_complex</div>
+        <div><strong>Spore print</strong><br>Cream to yellowish</div>
+      </div>
+      <div class="chips">
+        <span>Soil</span><span>Hardwood</span><span>Ash</span><span>Elm</span>
+      </div>
+      <div class="chips">
+        <span>Pits and ridges (morel cap)</span><span>None</span><span>Fleshy / firm</span><span>Mild / none</span><span>No staining</span><span>Mild</span><span>Earthy</span>
+      </div>
+      <ul>
+        <li>Use this as a group entry for true morels, not false morels.</li><li>Best paired in the app with a strong confusion warning for Gyromitra and Verpa.</li><li>Tree associations vary by region; ash and elm are common eastern search anchors.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Spring fruiting; week precision still needs local checking.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://www.mushroomexpert.com/morchellaceae.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/morchellaceae.html</a> · <a href="https://www.themeateater.com/cook/foraging/the-6-trees-every-morel-hunter-should-know" target="_blank" rel="noreferrer">https://www.themeateater.com/cook/foraging/the-6-trees-every-morel-hunter-should-know</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Black morels</h2>
+      <p class="latin">Morchella angusticeps and other black morels</p>
+      <p>Eastern black morels have vertically oriented pits and ridges that darken with age. They are choice edibles when cooked, but should never be confused with false morels.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>choice cooked only</div>
+        <div><strong>Caution</strong><br>high</div>
+        <div><strong>Scope</strong><br>species_complex</div>
+        <div><strong>Spore print</strong><br>Cream to yellowish</div>
+      </div>
+      <div class="chips">
+        <span>Soil</span><span>Hardwood</span><span>Ash</span><span>Elm</span>
+      </div>
+      <div class="chips">
+        <span>Pits and ridges (morel cap)</span><span>None</span><span>Fleshy / firm</span><span>Mild / none</span><span>No staining</span><span>Earthy</span>
+      </div>
+      <ul>
+        <li>Classic eastern black morel concept aligns with Morchella angusticeps.</li><li>Ridges typically darken with maturity and the cap meets the stem with a small groove.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Spring, often earlier than yellow morels.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://www.mushroomexpert.com/morchella_angusticeps.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/morchella_angusticeps.html</a> · <a href="https://www.first-nature.com/fungi/morchella-elata.php" target="_blank" rel="noreferrer">https://www.first-nature.com/fungi/morchella-elata.php</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Yellow morels</h2>
+      <p class="latin">Morchella americana / Morchella esculentoides group</p>
+      <p>Yellow morels have ridges that do not darken black with age. They are highly regarded edibles when cooked thoroughly.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>choice cooked only</div>
+        <div><strong>Caution</strong><br>high</div>
+        <div><strong>Scope</strong><br>species_complex</div>
+        <div><strong>Spore print</strong><br>Cream to yellowish</div>
+      </div>
+      <div class="chips">
+        <span>Soil</span><span>Hardwood</span><span>Ash</span><span>Elm</span>
+      </div>
+      <div class="chips">
+        <span>Pits and ridges (morel cap)</span><span>None</span><span>Fleshy / firm</span><span>Mild / none</span><span>No staining</span><span>Mild</span><span>Earthy</span>
+      </div>
+      <ul>
+        <li>North American yellow morel naming is messy; this entry is best treated as a complex.</li><li>Cap attaches to the stem without the obvious groove seen in black morels.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Spring; often later than black morels.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://www.mushroomexpert.com/morchella_esculentoides.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/morchella_esculentoides.html</a> · <a href="https://en.wikipedia.org/wiki/Morchella_americana" target="_blank" rel="noreferrer">https://en.wikipedia.org/wiki/Morchella_americana</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Chanterelles</h2>
+      <p class="latin">Cantharellus spp.</p>
+      <p>Chanterelles are mycorrhizal ground mushrooms recognized by blunt ridges or false gills rather than true blade-like gills. Many have a fruity or apricot-like odor.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>choice</div>
+        <div><strong>Caution</strong><br>moderate</div>
+        <div><strong>Scope</strong><br>species_complex</div>
+        <div><strong>Spore print</strong><br>Pale yellow to whitish</div>
+      </div>
+      <div class="chips">
+        <span>Soil</span><span>Hardwood</span><span>Conifer</span><span>Oak</span><span>Hemlock</span>
+      </div>
+      <div class="chips">
+        <span>Ridges / false gills</span><span>No ring</span><span>Fleshy / firm</span><span>Fruity</span><span>No staining</span><span>Mild</span><span>Earthy</span>
+      </div>
+      <ul>
+        <li>This should remain a species-complex style entry until local chanterelles are split more cleanly.</li><li>False gills are one of the best beginner-facing characters to emphasize.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Summer into early fall depending on rainfall.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://mynorth.com/2014/09/chanterelles-in-michigans-north-woods/" target="_blank" rel="noreferrer">https://mynorth.com/2014/09/chanterelles-in-michigans-north-woods/</a> · <a href="https://www.mushroomexpert.com/cantharellaceae.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/cantharellaceae.html</a> · <a href="https://www.mushroomexpert.com/cantharellus_lateritius.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/cantharellus_lateritius.html</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Russulas  | (edible species) | Many varieties/colors</h2>
+      <p class="latin">Russula spp. (edible group only)</p>
+      <p>Russulas are brittle-gilled mushrooms. Some are edible, some are acrid and cause stomach upset, and the group really needs species-level handling.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>mixed</div>
+        <div><strong>Caution</strong><br>high</div>
+        <div><strong>Scope</strong><br>group</div>
+        <div><strong>Spore print</strong><br>White, cream, or yellowish depending on species</div>
+      </div>
+      <div class="chips">
+        <span>Soil</span><span>Hardwood</span><span>Conifer</span>
+      </div>
+      <div class="chips">
+        <span>Gills</span><span>No ring</span><span>Brittle</span><span>Variable</span><span>Variable</span><span>Mild</span><span>Bitter</span><span>Peppery / spicy</span>
+      </div>
+      <ul>
+        <li>This entry is too broad for safe use as a stand-alone edible record.</li><li>Mild-tasting russulas are often the edible ones, but that is still a genus-level shortcut rather than a species ID.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Summer into fall.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://mushroomexpert.com/russula_vinacea.html" target="_blank" rel="noreferrer">https://mushroomexpert.com/russula_vinacea.html</a> · <a href="https://www.mushroomexpert.com/russula_vinacea.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/russula_vinacea.html</a> · <a href="https://www.mushroomexpert.com/russula_xerampelina.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/russula_xerampelina.html</a> · <a href="https://www.mushroomexpert.com/russula_aeruginea.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/russula_aeruginea.html</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Chicken of the woods</h2>
+      <p class="latin">Laetiporus sulphureus group</p>
+      <p>A bright orange-yellow shelf polypore with pores instead of gills. Usually found on hardwoods, especially oak, and often best when young and tender.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>edible with caution</div>
+        <div><strong>Caution</strong><br>moderate</div>
+        <div><strong>Scope</strong><br>species_complex</div>
+        <div><strong>Spore print</strong><br>White</div>
+      </div>
+      <div class="chips">
+        <span>Wood</span><span>Living tree</span><span>Dead wood</span><span>Fallen log</span><span>Stump</span><span>Hardwood</span><span>Oak</span>
+      </div>
+      <div class="chips">
+        <span>Pores</span><span>No ring</span><span>Fleshy / firm</span><span>Mild / none</span><span>No staining</span><span>Mild</span>
+      </div>
+      <ul>
+        <li>Some people react poorly to chicken of the woods, especially older specimens or some host associations.</li><li>Young edge tissue is usually the best culinary material.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Summer into fall.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://oaklandcountyblog.com/2021/09/24/the-hunt-is-on-chicken-of-the-woods/" target="_blank" rel="noreferrer">https://oaklandcountyblog.com/2021/09/24/the-hunt-is-on-chicken-of-the-woods/</a> · <a href="https://www.mushroomexpert.com/laetiporus_sulphureus.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/laetiporus_sulphureus.html</a> · <a href="https://www.mushroomexpert.com/laetiporus.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/laetiporus.html</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Black trumpet</h2>
+      <p class="latin">Craterellus fallax</p>
+      <p>A dark, funnel- to trumpet-shaped ground mushroom that is easy to miss visually but distinctive once found. The fertile surface is smooth to shallowly wrinkled rather than truly gilled.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>choice</div>
+        <div><strong>Caution</strong><br>low</div>
+        <div><strong>Scope</strong><br>species</div>
+        <div><strong>Spore print</strong><br>Pinkish orange to creamy</div>
+      </div>
+      <div class="chips">
+        <span>Soil</span><span>Hardwood</span>
+      </div>
+      <div class="chips">
+        <span>Smooth underside</span><span>No ring</span><span>Thin-fleshed</span><span>Fruity</span><span>No staining</span><span>Earthy</span>
+      </div>
+      <ul>
+        <li>Upper and lower surfaces are both dark at first; the outer fertile surface lightens somewhat with spore maturity.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Mid to late summer into fall.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://michpics.wordpress.com/2013/08/13/know-your-michigan-mushrooms-black-trumpet/" target="_blank" rel="noreferrer">https://michpics.wordpress.com/2013/08/13/know-your-michigan-mushrooms-black-trumpet/</a> · <a href="https://www.mushroomexpert.com/craterellus_fallax.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/craterellus_fallax.html</a> · <a href="https://www.mushroomexpert.com/cantharellaceae.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/cantharellaceae.html</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Meadow mushroom</h2>
+      <p class="latin">Agaricus campestris group</p>
+      <p>A classic field Agaricus with pink-then-brown free gills, a ring, and terrestrial growth in grass. It is edible, but confusion with toxic Agaricus and deadly Amanita species is a serious concern.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>edible with caution</div>
+        <div><strong>Caution</strong><br>high</div>
+        <div><strong>Scope</strong><br>species_complex</div>
+        <div><strong>Spore print</strong><br>Dark brown</div>
+      </div>
+      <div class="chips">
+        <span>Soil</span>
+      </div>
+      <div class="chips">
+        <span>Gills</span><span>Ringed</span><span>Fleshy / firm</span><span>Mild / none</span><span>No staining</span><span>Mild</span><span>Mushroomy / umami</span>
+      </div>
+      <ul>
+        <li>This app entry should be treated as campestris-like rather than a guarantee of true Agaricus campestris.</li><li>Beginner users need a warning about white-gilled Amanitas and yellow-staining or phenolic-smelling Agaricus lookalikes.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Summer into fall in grassy sites.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://www.mushroom-appreciation.com/meadow-mushroom.html" target="_blank" rel="noreferrer">https://www.mushroom-appreciation.com/meadow-mushroom.html</a> · <a href="https://www.mushroomexpert.com/agaricus_campestris.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/agaricus_campestris.html</a> · <a href="https://www.first-nature.com/fungi/~agaricaceae.php" target="_blank" rel="noreferrer">https://www.first-nature.com/fungi/~agaricaceae.php</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Boletes (porcini) | Some varieties good, some poisonous</h2>
+      <p class="latin">Boletaceae (mixed bolete group)</p>
+      <p>This is too broad to be a trustworthy edible entry. Boletes share pores instead of gills, but edibility varies from choice to bitter or problem-causing depending on the species.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>mixed</div>
+        <div><strong>Caution</strong><br>high</div>
+        <div><strong>Scope</strong><br>group</div>
+        <div><strong>Spore print</strong><br>Usually olive-brown to brown</div>
+      </div>
+      <div class="chips">
+        <span>Soil</span><span>Hardwood</span><span>Conifer</span>
+      </div>
+      <div class="chips">
+        <span>Pores</span><span>Variable</span><span>Fleshy / firm</span><span>Variable</span><span>Variable</span><span>Mild</span><span>Bitter</span>
+      </div>
+      <ul>
+        <li>This entry should be broken into specific bolete types or species.</li><li>Blue staining, bitterness, reticulation, cap texture, and host tree can all matter.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Summer into fall.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://boletes.wpamushroomclub.org/product-category/filter-set-1-regional-filters/zone-2-found-in-the-midwest/found-in-michigan/page/2/" target="_blank" rel="noreferrer">https://boletes.wpamushroomclub.org/product-category/filter-set-1-regional-filters/zone-2-found-in-the-midwest/found-in-michigan/page/2/</a> · <a href="https://www.mushroomexpert.com/boletes.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/boletes.html</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>King bolete</h2>
+      <p class="latin">Boletus edulis group</p>
+      <p>A prized porcini-type bolete with a reticulate stem, white to yellow-olive pore surface, and generally non-blue-staining flesh.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>choice</div>
+        <div><strong>Caution</strong><br>moderate</div>
+        <div><strong>Scope</strong><br>species_complex</div>
+        <div><strong>Spore print</strong><br>Olive-brown</div>
+      </div>
+      <div class="chips">
+        <span>Soil</span><span>Conifer</span><span>Hardwood</span><span>Spruce</span>
+      </div>
+      <div class="chips">
+        <span>Pores</span><span>No ring</span><span>Fleshy / firm</span><span>Mild / none</span><span>No staining</span><span>Nutty</span><span>Mild</span>
+      </div>
+      <ul>
+        <li>North American porcini-like mushrooms are complicated; this is best treated as an edulis-group entry.</li><li>Look for a stout stem, fine reticulation, and pores that start whitish and age yellow-olive.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Late summer into fall.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://practicalselfreliance.com/bolete-mushrooms/" target="_blank" rel="noreferrer">https://practicalselfreliance.com/bolete-mushrooms/</a> · <a href="https://www.mushroomexpert.com/boletus_edulis.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/boletus_edulis.html</a> · <a href="https://www.mushroomexpert.com/boletus_cf_edulis.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/boletus_cf_edulis.html</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Giant puffball</h2>
+      <p class="latin">Calvatia gigantea</p>
+      <p>Huge terrestrial puffball that is edible only while the interior is pure white and uniform. Once the interior yellows or browns, it is past eating stage.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>edible when white inside</div>
+        <div><strong>Caution</strong><br>moderate</div>
+        <div><strong>Scope</strong><br>species</div>
+        <div><strong>Spore print</strong><br>Olive-brown at maturity</div>
+      </div>
+      <div class="chips">
+        <span>Soil</span>
+      </div>
+      <div class="chips">
+        <span>None / enclosed spore mass</span><span>No ring</span><span>Fleshy / firm</span><span>Mild / none</span><span>Interior yellows/olives with age</span><span>Mild</span>
+      </div>
+      <ul>
+        <li>One of the easier edibles to understand once cut open.</li><li>Interior color is the make-or-break field clue.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Late summer into fall.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://www.mushroomexpert.com/calvatia_gigantea.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/calvatia_gigantea.html</a> · <a href="https://www.first-nature.com/fungi/calvatia-gigantea.php" target="_blank" rel="noreferrer">https://www.first-nature.com/fungi/calvatia-gigantea.php</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Shaggy mane</h2>
+      <p class="latin">Coprinus comatus</p>
+      <p>A tall, shaggy-scaled inky cap that appears in lawns and disturbed ground. Best only when young and still white before the gills liquefy into black ink.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>edible when young</div>
+        <div><strong>Caution</strong><br>moderate</div>
+        <div><strong>Scope</strong><br>species</div>
+        <div><strong>Spore print</strong><br>Black</div>
+      </div>
+      <div class="chips">
+        <span>Soil</span>
+      </div>
+      <div class="chips">
+        <span>Gills</span><span>Ringed</span><span>Shaggy</span><span>Mild / none</span><span>Blackening / deliquescing with age</span><span>Mild</span>
+      </div>
+      <ul>
+        <li>The rapid inky deliquescence is one of its best field characters.</li><li>This one is more a freshness race than a long-lasting fridge mushroom.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Summer into fall, sometimes spring.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://michpics.wordpress.com/2011/10/17/shaggy-mane-mushroom/" target="_blank" rel="noreferrer">https://michpics.wordpress.com/2011/10/17/shaggy-mane-mushroom/</a> · <a href="https://www.mushroomexpert.com/coprinus_comatus.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/coprinus_comatus.html</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Hedgehog mushrooms</h2>
+      <p class="latin">Hydnum spp.</p>
+      <p>Hedgehog mushrooms are ground-growing mycorrhizal mushrooms with soft teeth or spines under the cap instead of gills or pores.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>choice</div>
+        <div><strong>Caution</strong><br>low</div>
+        <div><strong>Scope</strong><br>species_complex</div>
+        <div><strong>Spore print</strong><br>White to cream</div>
+      </div>
+      <div class="chips">
+        <span>Soil</span><span>Hardwood</span><span>Conifer</span><span>Spruce</span><span>Beech</span>
+      </div>
+      <div class="chips">
+        <span>Teeth</span><span>No ring</span><span>Fleshy / firm</span><span>Mild / none</span><span>No staining</span><span>Mild</span><span>Nutty</span>
+      </div>
+      <ul>
+        <li>A nice beginner character is the toothed underside.</li><li>Species boundaries in Hydnum are messier than old field guides imply.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Late summer into fall.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://www.mushroomexpert.com/hydnum_repandum.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/hydnum_repandum.html</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Slippery jack</h2>
+      <p class="latin">Suillus luteus</p>
+      <p>A slimy-capped Suillus with pores and a ring, strongly associated with pines. Many foragers peel the cap cuticle before cooking.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>edible with caution</div>
+        <div><strong>Caution</strong><br>moderate</div>
+        <div><strong>Scope</strong><br>species</div>
+        <div><strong>Spore print</strong><br>Brown</div>
+      </div>
+      <div class="chips">
+        <span>Soil</span><span>Conifer</span><span>Pine</span>
+      </div>
+      <div class="chips">
+        <span>Pores</span><span>Ringed</span><span>Slimy / sticky</span><span>Fleshy / firm</span><span>Mild / none</span><span>No staining</span><span>Mild</span>
+      </div>
+      <ul>
+        <li>The sticky brown cap and developing purple shades on the ring are strong clues.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Fall under pines.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://boletes.wpamushroomclub.org/product/suillus-luteus/" target="_blank" rel="noreferrer">https://boletes.wpamushroomclub.org/product/suillus-luteus/</a> · <a href="https://www.mushroomexpert.com/suillus_luteus.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/suillus_luteus.html</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Yellowfoot chanterelle</h2>
+      <p class="latin">Craterellus tubaeformis</p>
+      <p>A small brownish chanterelle relative with yellow stem and ridged underside, often found in mossy northern conifer habitat.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>choice</div>
+        <div><strong>Caution</strong><br>low</div>
+        <div><strong>Scope</strong><br>species</div>
+        <div><strong>Spore print</strong><br>Whitish to pale buff</div>
+      </div>
+      <div class="chips">
+        <span>Soil</span><span>Moss</span><span>Dead wood</span><span>Conifer</span>
+      </div>
+      <div class="chips">
+        <span>Ridges / false gills</span><span>No ring</span><span>Fleshy / firm</span><span>Mild / none</span><span>No staining</span><span>Mild</span>
+      </div>
+      <ul>
+        <li>Often fruits in moss, including over well decayed moss-covered logs.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Late summer into fall in cool, damp conifer habitat.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://www.mushroomexpert.com/craterellus_tubaeformis.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/craterellus_tubaeformis.html</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Field mushroom</h2>
+      <p class="latin">Agaricus campestris-like field Agaricus</p>
+      <p>A grassland Agaricus concept that overlaps heavily with meadow mushroom. Good edible when correctly identified, but confusion with toxic agarics and white Amanitas is a major issue.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>edible with caution</div>
+        <div><strong>Caution</strong><br>high</div>
+        <div><strong>Scope</strong><br>group</div>
+        <div><strong>Spore print</strong><br>Dark brown</div>
+      </div>
+      <div class="chips">
+        <span>Soil</span>
+      </div>
+      <div class="chips">
+        <span>Gills</span><span>Ringed</span><span>Fleshy / firm</span><span>Mild / none</span><span>No staining</span><span>Mild</span><span>Mushroomy / umami</span>
+      </div>
+      <ul>
+        <li>This entry probably duplicates the meadow-mushroom concept and should eventually be merged or clarified.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Late summer into fall.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://www.first-nature.com/fungi/agaricus-campestris.php" target="_blank" rel="noreferrer">https://www.first-nature.com/fungi/agaricus-campestris.php</a> · <a href="https://www.mushroomexpert.com/agaricus_campestris.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/agaricus_campestris.html</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Oyster mushrooms</h2>
+      <p class="latin">Pleurotus ostreatus complex</p>
+      <p>Shelf-like clusters of decurrent-gilled mushrooms on wood. In practice this is an oyster complex rather than a single easily separated field species.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>choice</div>
+        <div><strong>Caution</strong><br>moderate</div>
+        <div><strong>Scope</strong><br>species_complex</div>
+        <div><strong>Spore print</strong><br>Whitish to lilac</div>
+      </div>
+      <div class="chips">
+        <span>Wood</span><span>Dead wood</span><span>Living tree</span><span>Fallen log</span><span>Stump</span><span>Hardwood</span><span>Conifer</span><span>Aspen</span><span>Cottonwood</span>
+      </div>
+      <div class="chips">
+        <span>Gills</span><span>No ring</span><span>Fleshy / firm</span><span>Mild / none</span><span>No staining</span><span>Mild</span><span>Mushroomy / umami</span>
+      </div>
+      <ul>
+        <li>P. ostreatus fruits in cold weather; P. pulmonarius is more of a warm-weather oyster; P. populinus is tied to aspen/cottonwood.</li><li>This app entry is best treated as an oyster complex until the species are split.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Cooler weather species in fall, winter, and spring depending on species.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://www.mushroomexpert.com/pleurotus_ostreatus.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/pleurotus_ostreatus.html</a> · <a href="https://www.mushroomexpert.com/pleurotus_populinus.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/pleurotus_populinus.html</a> · <a href="https://www.mushroomexpert.com/pleurotus_pulmonarius.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/pleurotus_pulmonarius.html</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Hen of the woods</h2>
+      <p class="latin">Grifola frondosa</p>
+      <p>A many-fronded rosette-forming polypore usually found at the base of oaks. One of the strongest tree associations in the current mushroom set.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>choice</div>
+        <div><strong>Caution</strong><br>low</div>
+        <div><strong>Scope</strong><br>species</div>
+        <div><strong>Spore print</strong><br>White</div>
+      </div>
+      <div class="chips">
+        <span>Wood</span><span>Living tree</span><span>Dead wood</span><span>Roots</span><span>Hardwood</span><span>Oak</span>
+      </div>
+      <div class="chips">
+        <span>Pores</span><span>No ring</span><span>Fleshy / firm</span><span>Mild / none</span><span>No staining</span><span>Mild</span><span>Earthy</span>
+      </div>
+      <ul>
+        <li>Often recurs at the same host tree in successive years.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Late summer into fall.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://www.mushroomexpert.com/grifola_frondosa.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/grifola_frondosa.html</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Lion&#x27;s mane</h2>
+      <p class="latin">Hericium erinaceus (entry may also be used loosely for Hericium spp.)</p>
+      <p>A toothed wood-growing mushroom with long hanging spines and no cap. Typically found on hardwoods, especially oaks, from wounds or dead wood.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>choice</div>
+        <div><strong>Caution</strong><br>low</div>
+        <div><strong>Scope</strong><br>species_complex</div>
+        <div><strong>Spore print</strong><br>White</div>
+      </div>
+      <div class="chips">
+        <span>Wood</span><span>Living tree</span><span>Dead wood</span><span>Hardwood</span><span>Oak</span>
+      </div>
+      <div class="chips">
+        <span>Teeth</span><span>No ring</span><span>Fleshy / firm</span><span>Mild / none</span><span>No staining</span><span>Mild</span>
+      </div>
+      <ul>
+        <li>If the entry is being used broadly for lion’s mane and its cousins, split Hericium species later.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Late summer into fall; can persist into winter in milder weather.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://www.mushroomexpert.com/hericium_erinaceus.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/hericium_erinaceus.html</a> · <a href="https://www.mushroomexpert.com/hericium.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/hericium.html</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Cauliflower mushroom</h2>
+      <p class="latin">Sparassis spathulata / Sparassis americana complex</p>
+      <p>A rosette of flattened or frilly branches growing from roots or the bases of trees. Eastern entries may represent more than one Sparassis species.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>choice</div>
+        <div><strong>Caution</strong><br>moderate</div>
+        <div><strong>Scope</strong><br>species_complex</div>
+        <div><strong>Spore print</strong><br>White</div>
+      </div>
+      <div class="chips">
+        <span>Soil</span><span>Roots</span><span>Wood</span><span>Stump</span><span>Hardwood</span><span>Conifer</span><span>Oak</span><span>Pine</span>
+      </div>
+      <div class="chips">
+        <span>None / branchlike surfaces</span><span>No ring</span><span>Fleshy / firm</span><span>Mild / none</span><span>No staining</span><span>Mild</span>
+      </div>
+      <ul>
+        <li>Sparassis spathulata in eastern North America can be under oaks or pines.</li><li>If the app wants precision later, split eastern S. spathulata from conifer-rooting S. americana concepts.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Late summer into fall.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://www.mushroomexpert.com/sparassis_spathulata.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/sparassis_spathulata.html</a> · <a href="https://mushroomexpert.com/fungionwood/club%20and%20coral/species%20pages/Sparassis%20spathulata.htm" target="_blank" rel="noreferrer">https://mushroomexpert.com/fungionwood/club%20and%20coral/species%20pages/Sparassis%20spathulata.htm</a> · <a href="https://mushroomexpert.com/fungionwood/club%20and%20coral/species%20pages/Sparassis%20americana.htm" target="_blank" rel="noreferrer">https://mushroomexpert.com/fungionwood/club%20and%20coral/species%20pages/Sparassis%20americana.htm</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>King oyster</h2>
+      <p class="latin">Pleurotus eryngii</p>
+      <p>A superb edible oyster, but one that is primarily a Mediterranean/Asian wild species and is commonly encountered in North America as a cultivated mushroom rather than a wild Upper Midwest find.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>choice</div>
+        <div><strong>Caution</strong><br>moderate</div>
+        <div><strong>Scope</strong><br>species</div>
+        <div><strong>Spore print</strong><br>White to lilac-gray</div>
+      </div>
+      <div class="chips">
+        <span>Soil</span>
+      </div>
+      <div class="chips">
+        <span>Gills</span><span>No ring</span><span>Fleshy / firm</span><span>Mild / none</span><span>No staining</span><span>Mild</span><span>Mushroomy / umami</span>
+      </div>
+      <ul>
+        <li>This should likely be reviewed for whether it belongs in a wild Upper Michigan app.</li><li>Wild P. eryngii is native to the Mediterranean and Asia and is tied to Apiaceae hosts rather than wood like most oyster mushrooms.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> In practice this is often a cultivated entry rather than a local wild one.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://www.mushroom-appreciation.com/king-oyster-mushrooms.html" target="_blank" rel="noreferrer">https://www.mushroom-appreciation.com/king-oyster-mushrooms.html</a> · <a href="https://foragerchef.com/king-trumpet-mushroom/" target="_blank" rel="noreferrer">https://foragerchef.com/king-trumpet-mushroom/</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Blewit mushroom</h2>
+      <p class="latin">Lepista nuda / Clitocybe nuda</p>
+      <p>A lilac to buff saprobe of leaf litter and woodland edges, often with a faint anise-like odor. Older specimens fade and can be confused with lookalikes.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>edible with caution</div>
+        <div><strong>Caution</strong><br>moderate</div>
+        <div><strong>Scope</strong><br>species</div>
+        <div><strong>Spore print</strong><br>Pinkish buff</div>
+      </div>
+      <div class="chips">
+        <span>Leaf litter</span><span>Soil</span><span>Hardwood</span><span>Conifer</span>
+      </div>
+      <div class="chips">
+        <span>Gills</span><span>No ring</span><span>Fleshy / firm</span><span>Anise-like</span><span>No staining</span><span>Mild</span>
+      </div>
+      <ul>
+        <li>The purple-lilac colors fade quickly, so scent and spore color matter.</li><li>Good candidate for a strong lookalike caution note.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Fall into early winter.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://www.mushroomexpert.com/clitocybe_nuda.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/clitocybe_nuda.html</a> · <a href="https://www.first-nature.com/fungi/lepista-nuda.php" target="_blank" rel="noreferrer">https://www.first-nature.com/fungi/lepista-nuda.php</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Larch suillus</h2>
+      <p class="latin">Suillus grevillei / Suillus clintonianus group</p>
+      <p>A larch-associated Suillus group with sticky caps, pores, and usually a ring. This is one of the clearest tree-linked entries in the app.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>edible with caution</div>
+        <div><strong>Caution</strong><br>moderate</div>
+        <div><strong>Scope</strong><br>species_complex</div>
+        <div><strong>Spore print</strong><br>Brown</div>
+      </div>
+      <div class="chips">
+        <span>Soil</span><span>Conifer</span><span>Tamarack / larch</span>
+      </div>
+      <div class="chips">
+        <span>Pores</span><span>Ringed</span><span>Slimy / sticky</span><span>Fleshy / firm</span><span>Mild / none</span><span>No staining</span><span>Mild</span>
+      </div>
+      <ul>
+        <li>North American grevillei-like material often goes by Suillus clintonianus, especially under native larches.</li><li>This is a good example of why the host-tree filter matters.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Late summer into fall under larch/tamarack.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://www.mushroomexpert.com/suillus_grevillei.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/suillus_grevillei.html</a> · <a href="https://www.mushroomexpert.com/suillus_clintonianus.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/suillus_clintonianus.html</a> · <a href="https://www.mushroomexpert.com/suillus_spectabilis.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/suillus_spectabilis.html</a></p>
+    </section>
+    
+    <section class="card">
+      <h2>Velvet foot</h2>
+      <p class="latin">Flammulina velutipes</p>
+      <p>A cold-weather wood-growing mushroom with a sticky orange-brown cap and a dark velvety stem base. Correctly identified wild velvet foot is edible, but confusion with deadly Galerina is a major caution point.</p>
+      <div class="meta-grid">
+        <div><strong>Edibility</strong><br>edible with caution</div>
+        <div><strong>Caution</strong><br>high</div>
+        <div><strong>Scope</strong><br>species</div>
+        <div><strong>Spore print</strong><br>White</div>
+      </div>
+      <div class="chips">
+        <span>Wood</span><span>Dead wood</span><span>Stump</span><span>Fallen log</span><span>Hardwood</span>
+      </div>
+      <div class="chips">
+        <span>Gills</span><span>No ring</span><span>Smooth</span><span>Velvety</span><span>Mild / none</span><span>No staining</span><span>Mild</span>
+      </div>
+      <ul>
+        <li>The white spore print and velvety dark stem help separate it from Galerina marginata, but the confusion risk still deserves bold warning language.</li>
+      </ul>
+      <p class="small"><strong>Season note:</strong> Late fall through winter.</p>
+      <p class="small"><strong>Links:</strong> <a href="https://www.mushroomexpert.com/flammulina_velutipes.html" target="_blank" rel="noreferrer">https://www.mushroomexpert.com/flammulina_velutipes.html</a> · <a href="https://www.first-nature.com/fungi/flammulina-velutipes.php" target="_blank" rel="noreferrer">https://www.first-nature.com/fungi/flammulina-velutipes.php</a> · <a href="https://www.first-nature.com/fungi/galerina-heimansii.php" target="_blank" rel="noreferrer">https://www.first-nature.com/fungi/galerina-heimansii.php</a></p>
+    </section>
+    
+  </div>
+</main>
+</body>
+</html>

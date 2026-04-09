@@ -1,4 +1,4 @@
-export const APP_VERSION = "v0.6";
+export const APP_VERSION = "v0.7";
 export const TABLE_NAME = "upper_michigan_foraging_species_v1";
 export const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 export const MONTH_SHORT = MONTHS.map(month => month.slice(0,3));

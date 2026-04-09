@@ -1,4 +1,5 @@
-import { VOCAB, flattenVocabGroups } from "./vocabulary.js";
+
+import { VOCAB } from "./vocabulary.js";
 
 function inferMulti(text, entries, { includeUnknown = false } = {}) {
   const out = [];
@@ -16,7 +17,7 @@ function inferHostTrees(text) {
   const matches = VOCAB.mushrooms.hostTrees.filter(entry => (entry.synonyms || []).some(term => lower.includes(term.toLowerCase())));
   return {
     labels: [...new Set(matches.map(entry => entry.label))],
-    broadTypes: [...new Set(matches.map(entry => entry.broadType === 'hardwood' ? 'Hardwood' : entry.broadType === 'conifer' ? 'Conifer' : entry.broadType).filter(Boolean))]
+    broadTypes: [...new Set(matches.map(entry => entry.broadType === "hardwood" ? "Hardwood" : entry.broadType === "conifer" ? "Conifer" : entry.broadType).filter(Boolean))]
   };
 }
 
@@ -24,14 +25,46 @@ function inferMedicinalTerms(text) {
   return inferMulti(text, VOCAB.medicinal.symptoms);
 }
 
+function mergeUnique(...lists) {
+  return [...new Set(lists.flat().filter(Boolean))];
+}
+
+function explicitList(record, path, fallback = []) {
+  const val = path.split(".").reduce((acc, key) => acc?.[key], record);
+  if (Array.isArray(val)) return val.filter(Boolean);
+  if (typeof val === "string" && val.trim()) return [val.trim()];
+  return fallback;
+}
+
 export function inferTraits(record) {
-  const text = [record.display_name, record.common_name, record.category, record.culinary_uses, record.medicinal_uses, record.notes].join(' ').toLowerCase();
+  const text = [
+    record.display_name,
+    record.common_name,
+    record.category,
+    record.culinary_uses,
+    record.medicinal_uses,
+    record.notes,
+    record.scientific_name,
+    record.mushroom_profile?.summary,
+    ...(record.mushroom_profile?.research_notes || [])
+  ].join(" ").toLowerCase();
+
   const hostInfo = inferHostTrees(text);
+  const explicitHostTree = explicitList(record, "mushroom_profile.host_trees");
+  const explicitWoodTypes = explicitList(record, "mushroom_profile.wood_type");
+  const explicitSubstrate = explicitList(record, "mushroom_profile.substrate");
+  const explicitRing = explicitList(record, "mushroom_profile.ring");
+  const explicitUnderside = explicitList(record, "mushroom_profile.underside");
+  const explicitTexture = explicitList(record, "mushroom_profile.texture");
+  const explicitSmell = explicitList(record, "mushroom_profile.odor");
+  const explicitStaining = explicitList(record, "mushroom_profile.staining");
+  const explicitTaste = explicitList(record, "mushroom_profile.taste");
+
   const traits = {
     habitat: inferMulti(text, VOCAB.common.habitats),
     observedPart: inferMulti(text, VOCAB.common.observedParts),
     size: inferMulti(text, VOCAB.common.sizes),
-    taste: inferMulti(text, VOCAB.common.tastes),
+    taste: mergeUnique(explicitTaste, inferMulti(text, VOCAB.common.tastes)),
     substrate: [],
     treeType: [],
     hostTree: [],
@@ -45,29 +78,34 @@ export function inferTraits(record) {
     medicinalTerms: inferMedicinalTerms(text)
   };
 
-  if (record.category === 'Mushroom') {
-    traits.substrate = inferMulti(text, VOCAB.mushrooms.substrates);
+  if (record.category === "Mushroom") {
+    traits.substrate = mergeUnique(explicitSubstrate, inferMulti(text, VOCAB.mushrooms.substrates));
     const broadWoodTypes = inferMulti(text, VOCAB.mushrooms.woodTypes);
-    traits.treeType = [...new Set([...broadWoodTypes, ...hostInfo.broadTypes])];
-    traits.hostTree = hostInfo.labels;
-    traits.ring = inferMulti(text, VOCAB.mushrooms.ringStates);
-    traits.underside = inferMulti(text, VOCAB.mushrooms.undersideTypes);
-    traits.texture = inferMulti(text, VOCAB.mushrooms.textures);
-    traits.smell = inferMulti(text, VOCAB.mushrooms.odors);
-    traits.staining = inferMulti(text, VOCAB.mushrooms.stainingColors);
+    const explicitHostBroad = explicitHostTree.map(tree => {
+      const found = VOCAB.mushrooms.hostTrees.find(entry => entry.label === tree);
+      return found?.broadType === "hardwood" ? "Hardwood" : found?.broadType === "conifer" ? "Conifer" : "";
+    }).filter(Boolean);
+    traits.treeType = mergeUnique(explicitWoodTypes, broadWoodTypes, hostInfo.broadTypes, explicitHostBroad);
+    traits.hostTree = mergeUnique(explicitHostTree, hostInfo.labels);
+    traits.ring = mergeUnique(explicitRing, inferMulti(text, VOCAB.mushrooms.ringStates));
+    traits.underside = mergeUnique(explicitUnderside, inferMulti(text, VOCAB.mushrooms.undersideTypes));
+    traits.texture = mergeUnique(explicitTexture, inferMulti(text, VOCAB.mushrooms.textures));
+    traits.smell = mergeUnique(explicitSmell, inferMulti(text, VOCAB.mushrooms.odors));
+    traits.staining = mergeUnique(explicitStaining, inferMulti(text, VOCAB.mushrooms.stainingColors));
   }
 
   const reviewReasons = [];
-  reviewReasons.push('week timing needs check');
-  if (!record.images?.length) reviewReasons.push('missing image');
-  if (!traits.habitat.length) reviewReasons.push('habitat needs detail');
-  if (record.category === 'Mushroom' && !traits.substrate.length) reviewReasons.push('substrate needs detail');
-  if ((record.medicinal_uses || '').trim() && !traits.medicinalTerms.length && !traits.medicinalAction.length) reviewReasons.push('medicinal tagging needs detail');
+  reviewReasons.push("week timing needs check");
+  if (!record.images?.length) reviewReasons.push("missing image");
+  if (!traits.habitat.length && record.category !== "Mushroom") reviewReasons.push("habitat needs detail");
+  if (record.category === "Mushroom" && !traits.substrate.length) reviewReasons.push("substrate needs detail");
+  if ((record.medicinal_uses || "").trim() && !traits.medicinalTerms.length && !traits.medicinalAction.length) reviewReasons.push("medicinal tagging needs detail");
+  for (const reason of (record.manual_review_reasons || [])) reviewReasons.push(reason);
 
   return {
     ...traits,
-    reviewReasons,
-    weekPrecision: 'month_assumed'
+    reviewReasons: [...new Set(reviewReasons)],
+    weekPrecision: "month_assumed"
   };
 }
 
