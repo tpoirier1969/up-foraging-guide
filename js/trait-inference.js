@@ -69,6 +69,14 @@ export function inferTraits(record) {
   ].join(" ").toLowerCase();
 
   const hostInfo = inferHostTrees(text);
+  const explicitHabitat = canonicalizeList(explicitList(record, "habitat"), VOCAB.common.habitats, { keepUnknown: true });
+  const explicitObservedPart = canonicalizeList(explicitList(record, "observedPart"), VOCAB.common.observedParts, { keepUnknown: true });
+  const explicitSize = canonicalizeList(explicitList(record, "size"), VOCAB.common.sizes, { keepUnknown: true });
+  const explicitTasteCommon = canonicalizeList(explicitList(record, "taste"), VOCAB.common.tastes, { keepUnknown: true });
+  const explicitMedicinalAction = canonicalizeList(explicitList(record, "medicinalAction"), VOCAB.medicinal.actions, { keepUnknown: true });
+  const explicitMedicinalSystem = canonicalizeList(explicitList(record, "medicinalSystem"), VOCAB.medicinal.bodySystems, { keepUnknown: true });
+  const explicitMedicinalTerms = canonicalizeList(explicitList(record, "medicinalTerms"), VOCAB.medicinal.symptoms, { keepUnknown: true });
+
   const explicitHostTree = canonicalizeList(
     explicitList(record, "mushroom_profile.host_trees").filter(label => !["Hardwood (general)", "Conifer (general)", "Hardwood litter", "Conifer litter", "Roots of umbellifers in native Eurasian range"].includes(label)),
     VOCAB.mushrooms.hostTrees
@@ -80,13 +88,13 @@ export function inferTraits(record) {
   const explicitTexture = canonicalizeList(explicitList(record, "mushroom_profile.texture"), VOCAB.mushrooms.textures);
   const explicitSmell = canonicalizeList(explicitList(record, "mushroom_profile.odor"), VOCAB.mushrooms.odors);
   const explicitStaining = canonicalizeList(explicitList(record, "mushroom_profile.staining"), VOCAB.mushrooms.stainingColors);
-  const explicitTaste = canonicalizeList(explicitList(record, "mushroom_profile.taste"), VOCAB.common.tastes);
+  const explicitTasteMushroom = canonicalizeList(explicitList(record, "mushroom_profile.taste"), VOCAB.common.tastes);
 
   const traits = {
-    habitat: inferMulti(text, VOCAB.common.habitats),
-    observedPart: inferMulti(text, VOCAB.common.observedParts),
-    size: inferMulti(text, VOCAB.common.sizes),
-    taste: mergeUnique(explicitTaste, inferMulti(text, VOCAB.common.tastes)),
+    habitat: mergeUnique(explicitHabitat, inferMulti(text, VOCAB.common.habitats)),
+    observedPart: mergeUnique(explicitObservedPart, inferMulti(text, VOCAB.common.observedParts)),
+    size: mergeUnique(explicitSize, inferMulti(text, VOCAB.common.sizes)),
+    taste: mergeUnique(explicitTasteCommon, explicitTasteMushroom, inferMulti(text, VOCAB.common.tastes)),
     substrate: [],
     treeType: [],
     hostTree: [],
@@ -95,9 +103,9 @@ export function inferTraits(record) {
     texture: [],
     smell: [],
     staining: [],
-    medicinalAction: inferMulti(text, VOCAB.medicinal.actions),
-    medicinalSystem: inferMulti(text, VOCAB.medicinal.bodySystems),
-    medicinalTerms: inferMedicinalTerms(text)
+    medicinalAction: mergeUnique(explicitMedicinalAction, inferMulti(text, VOCAB.medicinal.actions)),
+    medicinalSystem: mergeUnique(explicitMedicinalSystem, inferMulti(text, VOCAB.medicinal.bodySystems)),
+    medicinalTerms: mergeUnique(explicitMedicinalTerms, inferMedicinalTerms(text))
   };
 
   if (record.category === "Mushroom") {
@@ -117,17 +125,17 @@ export function inferTraits(record) {
   }
 
   const reviewReasons = [];
-  reviewReasons.push("week timing needs check");
   if (!record.images?.length) reviewReasons.push("missing image");
   if (!traits.habitat.length && record.category !== "Mushroom") reviewReasons.push("habitat needs detail");
   if (record.category === "Mushroom" && !traits.substrate.length) reviewReasons.push("substrate needs detail");
   if ((record.medicinal_uses || "").trim() && !traits.medicinalTerms.length && !traits.medicinalAction.length) reviewReasons.push("medicinal tagging needs detail");
+  if (record.weekPrecision === "needs_check" || record.timing_review_status === "needs_check") reviewReasons.push("week timing needs check");
   for (const reason of (record.manual_review_reasons || [])) reviewReasons.push(reason);
 
   return {
     ...traits,
     reviewReasons: [...new Set(reviewReasons)],
-    weekPrecision: "month_assumed"
+    weekPrecision: record.weekPrecision || "month-window-reviewed"
   };
 }
 

@@ -1,5 +1,5 @@
 export const VOCAB = {
-  "version": "v1.3",
+  "version": "v1.7",
   "common": {
     "habitats": [
       {
@@ -1030,14 +1030,18 @@ export const VOCAB = {
         "synonyms": [
           "antimicrobial",
           "antibacterial",
-          "antifungal"
+          "antifungal",
+          "antiseptic"
         ]
       },
       {
         "slug": "antioxidant",
         "label": "Antioxidant",
         "synonyms": [
-          "antioxidant"
+          "antioxidant",
+          "antioxidants",
+          "flavonoids",
+          "flavonoid"
         ]
       },
       {
@@ -1046,7 +1050,9 @@ export const VOCAB = {
         "synonyms": [
           "immune support",
           "immunomodulating",
-          "immune"
+          "immune",
+          "immune health",
+          "supports immune health"
         ]
       },
       {
@@ -1055,7 +1061,12 @@ export const VOCAB = {
         "synonyms": [
           "digestive",
           "stomachic",
-          "digestive support"
+          "digestive support",
+          "digestive aid",
+          "digestion",
+          "supports digestion",
+          "digestive tonic",
+          "gut health"
         ]
       },
       {
@@ -1064,7 +1075,10 @@ export const VOCAB = {
         "synonyms": [
           "respiratory",
           "lung",
-          "bronchial"
+          "bronchial",
+          "respiratory relief",
+          "respiratory soother",
+          "cold remedy"
         ]
       },
       {
@@ -1073,7 +1087,9 @@ export const VOCAB = {
         "synonyms": [
           "circulatory",
           "heart",
-          "cardio"
+          "cardio",
+          "cardiovascular health",
+          "heart health"
         ]
       },
       {
@@ -1089,7 +1105,9 @@ export const VOCAB = {
         "label": "Analgesic / pain relief",
         "synonyms": [
           "analgesic",
-          "pain relief"
+          "pain relief",
+          "arthritis relief",
+          "joint support"
         ]
       },
       {
@@ -1100,10 +1118,12 @@ export const VOCAB = {
         ]
       },
       {
-        "slug": "diuretic",
-        "label": "Diuretic",
+        "slug": "diuretic_urinary_support",
+        "label": "Diuretic / urinary support",
         "synonyms": [
-          "diuretic"
+          "diuretic",
+          "urinary tract support",
+          "urinary tract health"
         ]
       },
       {
@@ -1111,7 +1131,10 @@ export const VOCAB = {
         "label": "Tonic / restorative",
         "synonyms": [
           "tonic",
-          "restorative"
+          "restorative",
+          "blood purifier",
+          "energy tonic",
+          "energy source"
         ]
       },
       {
@@ -1120,7 +1143,11 @@ export const VOCAB = {
         "synonyms": [
           "vulnerary",
           "wound healing",
-          "wound support"
+          "wound support",
+          "wound poultice",
+          "poultice",
+          "skin healing",
+          "skin soothing"
         ]
       },
       {
@@ -1129,7 +1156,8 @@ export const VOCAB = {
         "synonyms": [
           "sedative",
           "calming",
-          "relaxant"
+          "relaxant",
+          "stress relief"
         ]
       },
       {
@@ -1152,6 +1180,81 @@ export const VOCAB = {
         "synonyms": [
           "cooling"
         ]
+      },
+      {
+        "slug": "antiviral",
+        "label": "Antiviral",
+        "synonyms": [
+          "antiviral"
+        ]
+      },
+      {
+        "slug": "demulcent_soothing",
+        "label": "Demulcent / soothing",
+        "synonyms": [
+          "demulcent",
+          "soothing",
+          "soothes",
+          "hydrating"
+        ]
+      },
+      {
+        "slug": "carminative_gas_relief",
+        "label": "Carminative / gas relief",
+        "synonyms": [
+          "carminative"
+        ]
+      },
+      {
+        "slug": "nutritive_nutrient_dense",
+        "label": "Nutritive / nutrient-dense",
+        "synonyms": [
+          "high in vitamins",
+          "rich in vitamins",
+          "nutrient-rich",
+          "nutrient dense",
+          "mineral-rich",
+          "rich in omega-3",
+          "protein and starch"
+        ]
+      },
+      {
+        "slug": "prebiotic_gut_support",
+        "label": "Prebiotic / gut support",
+        "synonyms": [
+          "prebiotic",
+          "prebiotics",
+          "inulin",
+          "fiber",
+          "prebiotic inulin"
+        ]
+      },
+      {
+        "slug": "liver_support",
+        "label": "Liver support",
+        "synonyms": [
+          "liver tonic",
+          "liver support",
+          "supports liver function"
+        ]
+      },
+      {
+        "slug": "women_s_health_support",
+        "label": "Women's health support",
+        "synonyms": [
+          "menstruation",
+          "menstrual support",
+          "supportive during menstruation"
+        ]
+      },
+      {
+        "slug": "expectorant_decongestant",
+        "label": "Expectorant / decongestant",
+        "synonyms": [
+          "expectorant",
+          "decongestant",
+          "congestion"
+        ]
       }
     ],
     "bodySystems": [
@@ -1162,7 +1265,8 @@ export const VOCAB = {
           "digestive",
           "stomach",
           "gut",
-          "intestinal"
+          "intestinal",
+          "digestion"
         ]
       },
       {
@@ -1173,7 +1277,8 @@ export const VOCAB = {
           "lung",
           "lungs",
           "bronchial",
-          "throat"
+          "throat",
+          "respiratory health"
         ]
       },
       {
@@ -1207,7 +1312,8 @@ export const VOCAB = {
         "synonyms": [
           "urinary",
           "kidney",
-          "bladder"
+          "bladder",
+          "urinary tract"
         ]
       },
       {
@@ -1237,6 +1343,38 @@ export const VOCAB = {
           "blood sugar",
           "metabolic",
           "endocrine"
+        ]
+      },
+      {
+        "slug": "liver_gallbladder",
+        "label": "Liver / gallbladder",
+        "synonyms": [
+          "liver"
+        ]
+      },
+      {
+        "slug": "reproductive_menstrual",
+        "label": "Reproductive / menstrual",
+        "synonyms": [
+          "menstruation",
+          "menstrual"
+        ]
+      },
+      {
+        "slug": "mouth_throat",
+        "label": "Mouth / throat",
+        "synonyms": [
+          "throat",
+          "mouth"
+        ]
+      },
+      {
+        "slug": "general_nutritive",
+        "label": "General nutritive",
+        "synonyms": [
+          "vitamins",
+          "minerals",
+          "nutrient"
         ]
       }
     ],
@@ -1317,7 +1455,9 @@ export const VOCAB = {
         "synonyms": [
           "rash",
           "skin irritation",
-          "itching"
+          "itching",
+          "skin healing",
+          "minor skin irritations"
         ]
       },
       {
@@ -1325,7 +1465,9 @@ export const VOCAB = {
         "label": "Joint pain",
         "synonyms": [
           "joint pain",
-          "arthritis"
+          "arthritis",
+          "joint support",
+          "cramps"
         ]
       },
       {
@@ -1359,7 +1501,10 @@ export const VOCAB = {
         "synonyms": [
           "urinary",
           "bladder",
-          "kidney"
+          "kidney",
+          "urinary tract",
+          "urinary tract health",
+          "urinary tract support"
         ]
       },
       {
@@ -1375,7 +1520,66 @@ export const VOCAB = {
         "label": "Immune support",
         "synonyms": [
           "immune support",
-          "immune"
+          "immune",
+          "immune health",
+          "supports immune health"
+        ]
+      },
+      {
+        "slug": "cold_flu",
+        "label": "Cold / flu",
+        "synonyms": [
+          "cold and flu",
+          "cold & flu",
+          "cold remedy"
+        ]
+      },
+      {
+        "slug": "mouth_sores",
+        "label": "Mouth sores",
+        "synonyms": [
+          "mouth sores"
+        ]
+      },
+      {
+        "slug": "menstrual_discomfort",
+        "label": "Menstrual discomfort",
+        "synonyms": [
+          "menstruation",
+          "menstrual"
+        ]
+      },
+      {
+        "slug": "arthritis",
+        "label": "Arthritis",
+        "synonyms": [
+          "arthritis"
+        ]
+      },
+      {
+        "slug": "thirst_dehydration",
+        "label": "Thirst / dehydration",
+        "synonyms": [
+          "thirst",
+          "hydrating",
+          "dehydration"
+        ]
+      },
+      {
+        "slug": "digestive_upset",
+        "label": "Digestive upset",
+        "synonyms": [
+          "digestion",
+          "digestive aid",
+          "digestive"
+        ]
+      },
+      {
+        "slug": "skin_ailments",
+        "label": "Skin ailments",
+        "synonyms": [
+          "skin ailments",
+          "skin diseases"
         ]
       }
     ]
