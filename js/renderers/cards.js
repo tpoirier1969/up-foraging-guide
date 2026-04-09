@@ -66,7 +66,7 @@ export function renderResultCard(record, context = "general") {
           <span class="category-pill">${escapeHtml(record.category)}</span>
         </div>
         <p class="one-line">${escapeHtml(summaryForContext(record, context) || "No summary imported yet.")}</p>
-        <p class="one-line muted-line">${escapeHtml(record.scientific_name || record.common_name || "")}</p>
+        <p class="one-line muted-line scientific-line">${escapeHtml(record.scientific_name || record.common_name || "")}</p>
         <div class="tag-row">${tags.filter(Boolean).slice(0,5).map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}</div>
         <div class="month-strip">${seasonStrip(record)}</div>
       </div>

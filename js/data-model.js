@@ -8,6 +8,7 @@ export function normalizeRecord(record) {
     display_name: compactText(record.display_name || record.common_name, "Untitled species"),
     common_name: compactText(record.common_name || record.display_name, ""),
     category: compactText(record.category, "Uncategorized"),
+    scientific_name: compactText(record.scientific_name, ""),
     culinary_uses: compactText(record.culinary_uses, ""),
     medicinal_uses: compactText(record.medicinal_uses, ""),
     notes: compactText(record.notes, ""),

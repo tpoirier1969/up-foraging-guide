@@ -1,5 +1,5 @@
 export const VOCAB = {
-  version: "v1.1",
+  version: "v1.2",
   common: {
     habitats: [
       { slug: "forest", label: "Forest", synonyms: ["forest", "woods", "woodland"] },
