@@ -50,8 +50,8 @@ export function inferTraits(record) {
   ].join(" ").toLowerCase();
 
   const hostInfo = inferHostTrees(text);
-  const explicitHostTree = explicitList(record, "mushroom_profile.host_trees");
-  const explicitWoodTypes = explicitList(record, "mushroom_profile.wood_type");
+  const explicitHostTree = explicitList(record, "mushroom_profile.host_trees").filter(label => !["Hardwood (general)", "Conifer (general)", "Hardwood litter", "Conifer litter", "Roots of umbellifers in native Eurasian range"].includes(label));
+  const explicitWoodTypes = explicitList(record, "mushroom_profile.wood_type").filter(Boolean);
   const explicitSubstrate = explicitList(record, "mushroom_profile.substrate");
   const explicitRing = explicitList(record, "mushroom_profile.ring");
   const explicitUnderside = explicitList(record, "mushroom_profile.underside");
@@ -79,6 +79,7 @@ export function inferTraits(record) {
   };
 
   if (record.category === "Mushroom") {
+    // Prefer explicit mushroom research fields, then fall back to text inference.
     traits.substrate = mergeUnique(explicitSubstrate, inferMulti(text, VOCAB.mushrooms.substrates));
     const broadWoodTypes = inferMulti(text, VOCAB.mushrooms.woodTypes);
     const explicitHostBroad = explicitHostTree.map(tree => {

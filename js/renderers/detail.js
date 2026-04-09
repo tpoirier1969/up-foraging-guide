@@ -1,6 +1,6 @@
-
 import { TABLE_NAME } from "../constants.js";
 import { escapeHtml } from "../utils.js";
+import { state } from "../state.js";
 
 function tagList(items, emptyText = "None noted") {
   return items?.length
@@ -22,6 +22,19 @@ function listSection(title, items, emptyText = "Not documented yet") {
   `;
 }
 
+function renderRelatedMushrooms(record) {
+  if (record.category !== "Mushroom") return "";
+  const related = (state.allRecords || []).filter(item => item.slug !== record.slug && item.mushroom_family && item.mushroom_family === record.mushroom_family);
+  if (!related.length) return "";
+  return `
+    <section class="detail-card section-block">
+      <h3>Related variants in this family</h3>
+      <div class="related-link-list">${related.map(item => `<a class="inline-chip-link" href="#detail/${encodeURIComponent(item.slug)}" data-detail-link="${escapeHtml(item.slug)}">${escapeHtml(item.display_name)}</a>`).join("")}</div>
+      <p class="small-note">Grouped here on purpose so broad buckets like boletes, russulas, chanterelles, and oysters stop pretending they are each just one mushroom.</p>
+    </section>
+  `;
+}
+
 function renderMushroomResearch(record) {
   const profile = record.mushroom_profile;
   if (!profile) return "";
@@ -33,13 +46,15 @@ function renderMushroomResearch(record) {
     <section class="detail-card section-block">
       <h3>Mushroom research</h3>
       ${line("Scientific name", record.scientific_name || "")}
-      ${line("Entry scope", profile.entry_scope || "")}
-      ${line("Edibility", profile.edibility_status || "")}
-      ${line("Caution level", profile.caution_level || "")}
+      ${line("Family grouping", record.mushroom_family || "")}
+      ${line("Entry scope", (profile.entry_scope || "").replaceAll("_", " "))}
+      ${line("Edibility", (profile.edibility_status || "").replaceAll("_", " "))}
+      ${line("Caution level", (profile.caution_level || "").replaceAll("_", " "))}
       ${line("Ecology", profile.ecology || "")}
       ${line("Summary", profile.summary || "")}
       ${line("Spore print", profile.spore_print || "")}
       ${line("Season note", profile.season_note || "")}
+      ${line("Image status", (profile.research_notes || []).find(note => note.startsWith("Image status in current repo build:"))?.replace("Image status in current repo build: ", "") || "")}
     </section>
 
     ${listSection("Substrate and host clues", [
@@ -90,6 +105,7 @@ export function renderDetail(record) {
           <h2 style="margin-top:10px;">${escapeHtml(record.display_name)}</h2>
           <p style="margin-top:8px;">${escapeHtml(record.common_name || "No alternate common name imported.")}</p>
           ${record.scientific_name ? `<p class="small-note"><strong>${escapeHtml(record.scientific_name)}</strong></p>` : ""}
+          ${record.mushroom_family ? `<p class="small-note">Mushroom family grouping: <strong>${escapeHtml(record.mushroom_family)}</strong></p>` : ""}
           <p class="small-note">Week precision: <strong>defaults to week 1 of the month until checked</strong></p>
         </section>
         <section class="detail-card section-block"><h3>Culinary uses</h3><p>${escapeHtml(record.culinary_uses || "Not provided in the imported sheet.")}</p></section>
@@ -100,6 +116,7 @@ export function renderDetail(record) {
         <section class="detail-card section-block"><h3>Seasonality</h3><div class="tag-row">${tagList(record.months_available, "No month data")}</div></section>
         <section class="detail-card section-block"><h3>Needs review</h3><div class="tag-row">${tagList(record.reviewReasons, "Nothing flagged")}</div></section>
         <section class="detail-card section-block"><h3>Notes</h3><p>${escapeHtml(record.notes || "No extra notes imported.")}</p></section>
+        ${renderRelatedMushrooms(record)}
         ${renderMushroomResearch(record)}
         ${genericLinks}
         <p class="small-note">Supabase table target: <strong>${TABLE_NAME}</strong></p>

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "version": "0.8",
+    "version": "v1.0",
     "source_files": [
       "list with a few pics.xlsx",
       "List of plants.xlsx"
@@ -94,7 +94,7 @@
       "display_name": "Sassafras root bark",
       "common_name": "Sassafras root bark",
       "category": "Tree Product",
-      "culinary_uses": "Used to flavor root beer or as fil\u00e9 powder",
+      "culinary_uses": "Used to flavor root beer or as filé powder",
       "medicinal_uses": "Traditional blood purifier; digestive tonic",
       "notes": "",
       "months_available": [
@@ -207,11 +207,17 @@
         "research_notes": [
           "Common name covers edible Umbilicaria lichens rather than a single mushroom species.",
           "Treat as a survival food entry, not a routine edible.",
-          "Slow-growing and best not heavily harvested."
+          "Slow-growing and best not heavily harvested.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: has image"
         ]
       },
       "manual_review_reasons": [
         "category should be reviewed: lichen, not mushroom"
+      ],
+      "mushroom_family": "Lichens & survival entries",
+      "related_mushroom_slugs": [
+        "reindeer-lichen"
       ]
     },
     {
@@ -288,11 +294,17 @@
         ],
         "research_notes": [
           "Better treated as a lichen entry than a mushroom entry.",
-          "Known more as animal browse and famine food than as a casual wild edible."
+          "Known more as animal browse and famine food than as a casual wild edible.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: has image"
         ]
       },
       "manual_review_reasons": [
         "category should be reviewed: lichen, not mushroom"
+      ],
+      "mushroom_family": "Lichens & survival entries",
+      "related_mushroom_slugs": [
+        "rock-tripe-lichen"
       ]
     },
     {
@@ -338,7 +350,7 @@
       "display_name": "Black morels",
       "common_name": "Black morels",
       "category": "Mushroom",
-      "culinary_uses": "Saut\u00e9ed, grilled, or added to stocks and soups for depth of flavor",
+      "culinary_uses": "Sautéed, grilled, or added to stocks and soups for depth of flavor",
       "medicinal_uses": "Adaptogenic properties; supports immune function",
       "notes": "",
       "months_available": [
@@ -372,7 +384,9 @@
         ],
         "host_trees": [
           "Ash",
-          "Elm"
+          "Elm",
+          "Apple",
+          "Tulip poplar"
         ],
         "host_certainty": "commonly_reported",
         "underside": "Pits and ridges (morel cap)",
@@ -392,16 +406,28 @@
         ],
         "research_notes": [
           "Classic eastern black morel concept aligns with Morchella angusticeps.",
-          "Ridges typically darken with maturity and the cap meets the stem with a small groove."
+          "Ridges typically darken with maturity and the cap meets the stem with a small groove.",
+          "Classic eastern black morels are frequently reported around dying elm, ash, old apple, and tulip poplar, but host patterns vary by site and year.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: needs image"
         ]
-      }
+      },
+      "mushroom_family": "Morels",
+      "related_mushroom_slugs": [
+        "yellow-morels",
+        "half-free-morels"
+      ],
+      "manual_review_reasons": [
+        "black morel image still needs to be imported",
+        "image still missing in repo build"
+      ]
     },
     {
       "slug": "yellow-morels",
       "display_name": "Yellow morels",
       "common_name": "Yellow morels",
       "category": "Mushroom",
-      "culinary_uses": "Saut\u00e9ed, grilled, or added to stocks and soups for depth of flavor",
+      "culinary_uses": "Sautéed, grilled, or added to stocks and soups for depth of flavor",
       "medicinal_uses": "Adaptogenic properties; supports immune function",
       "notes": "",
       "months_available": [
@@ -434,8 +460,10 @@
           "Hardwood"
         ],
         "host_trees": [
+          "Elm",
           "Ash",
-          "Elm"
+          "Apple",
+          "Cottonwood"
         ],
         "host_certainty": "commonly_reported",
         "underside": "Pits and ridges (morel cap)",
@@ -456,9 +484,18 @@
         ],
         "research_notes": [
           "North American yellow morel naming is messy; this entry is best treated as a complex.",
-          "Cap attaches to the stem without the obvious groove seen in black morels."
+          "Cap attaches to the stem without the obvious groove seen in black morels.",
+          "Eastern yellow morels are often reported near dying elm, ash, apple, and other hardwoods; they can also show up in mixed urban and riparian settings.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: needs image"
         ]
-      }
+      },
+      "mushroom_family": "Morels",
+      "related_mushroom_slugs": [
+        "black-morels",
+        "half-free-morels"
+      ],
+      "manual_review_reasons": []
     },
     {
       "slug": "spruce-gum",
@@ -484,7 +521,7 @@
       "display_name": "Ramps (Wild onion)",
       "common_name": "Ramps (Wild onion)",
       "category": "Root",
-      "culinary_uses": "Saut\u00e9ed, pickled, or used in pesto like garlic",
+      "culinary_uses": "Sautéed, pickled, or used in pesto like garlic",
       "medicinal_uses": "Digestive aid; antimicrobial",
       "notes": "",
       "months_available": [
@@ -522,7 +559,7 @@
       "display_name": "Dandelion greens",
       "common_name": "Dandelion greens",
       "category": "Green",
-      "culinary_uses": "Saut\u00e9ed or in salads; bitter greens",
+      "culinary_uses": "Sautéed or in salads; bitter greens",
       "medicinal_uses": "Liver tonic; diuretic",
       "notes": "",
       "months_available": [
@@ -542,7 +579,7 @@
       "common_name": "Chickweed",
       "category": "Green",
       "culinary_uses": "Used fresh in salads or pesto",
-      "medicinal_uses": "Anti\u2010inflammatory; skin healing",
+      "medicinal_uses": "Anti‐inflammatory; skin healing",
       "notes": "",
       "months_available": [
         "April",
@@ -608,7 +645,7 @@
       "common_name": "Plantain (broadleaf)",
       "category": "Green",
       "culinary_uses": "Cooked or used raw like lettuce\nseeds a source of psyllium",
-      "medicinal_uses": "Wound poultice; \nanti\u2010inflammatory;\nanalgesic\nSkin diseases\nrespiritory problems",
+      "medicinal_uses": "Wound poultice; \nanti‐inflammatory;\nanalgesic\nSkin diseases\nrespiritory problems",
       "notes": "",
       "months_available": [
         "April",
@@ -726,7 +763,7 @@
       "common_name": "Wild ginger",
       "category": "Root",
       "culinary_uses": "Used as a ginger substitute in teas and cooking",
-      "medicinal_uses": "Digestive aid; anti\u2010inflammatory",
+      "medicinal_uses": "Digestive aid; anti‐inflammatory",
       "notes": "",
       "months_available": [
         "May",
@@ -770,7 +807,7 @@
       "common_name": "Nettles",
       "category": "Green",
       "culinary_uses": "Cooked like spinach or steeped as tea",
-      "medicinal_uses": "Anti\u2010inflammatory; joint support",
+      "medicinal_uses": "Anti‐inflammatory; joint support",
       "notes": "",
       "months_available": [
         "May",
@@ -857,7 +894,7 @@
       "common_name": "Goosefoot",
       "category": "Green",
       "culinary_uses": "Cooked or raw like spinach",
-      "medicinal_uses": "Nutrient\u2010rich greens; supports overall health",
+      "medicinal_uses": "Nutrient‐rich greens; supports overall health",
       "notes": "",
       "months_available": [
         "May",
@@ -879,8 +916,8 @@
       "display_name": "Wild mustard greens",
       "common_name": "Wild mustard greens",
       "category": "Green",
-      "culinary_uses": "Saut\u00e9ed or used in pesto",
-      "medicinal_uses": "Digestive stimulant; anti\u2010inflammatory",
+      "culinary_uses": "Sautéed or used in pesto",
+      "medicinal_uses": "Digestive stimulant; anti‐inflammatory",
       "notes": "",
       "months_available": [
         "May",
@@ -923,8 +960,8 @@
       "display_name": "Fiddlehead ferns",
       "common_name": "Fiddlehead ferns",
       "category": "Green",
-      "culinary_uses": "Saut\u00e9ed or steamed; crisp texture",
-      "medicinal_uses": "Antioxidant; nutrient\u2010dense",
+      "culinary_uses": "Sautéed or steamed; crisp texture",
+      "medicinal_uses": "Antioxidant; nutrient‐dense",
       "notes": "",
       "months_available": [
         "May",
@@ -1055,7 +1092,7 @@
       "common_name": "Purslane",
       "category": "Green",
       "culinary_uses": "Eaten raw in salads or cooked; mucilaginous",
-      "medicinal_uses": "Rich in omega\u20103 fatty acids; diuretic",
+      "medicinal_uses": "Rich in omega‐3 fatty acids; diuretic",
       "notes": "",
       "months_available": [
         "June",
@@ -1095,7 +1132,7 @@
       "common_name": "Honeysuckle flowers",
       "category": "Flower",
       "culinary_uses": "Infused in teas or syrups",
-      "medicinal_uses": "Anti\u2010inflammatory; cold remedy",
+      "medicinal_uses": "Anti‐inflammatory; cold remedy",
       "notes": "",
       "months_available": [
         "June",
@@ -1118,7 +1155,7 @@
       "common_name": "Elderflowers",
       "category": "Flower",
       "culinary_uses": "Fritters, teas, or cordial",
-      "medicinal_uses": "Respiratory support; anti\u2010inflammatory",
+      "medicinal_uses": "Respiratory support; anti‐inflammatory",
       "notes": "",
       "months_available": [
         "June",
@@ -1424,7 +1461,7 @@
       "display_name": "Chicken of the woods",
       "common_name": "Chicken of the woods",
       "category": "Mushroom",
-      "culinary_uses": "Saut\u00e9ed, grilled, or added to stocks and soups for depth of flavor",
+      "culinary_uses": "Sautéed, grilled, or added to stocks and soups for depth of flavor",
       "medicinal_uses": "Adaptogenic properties; supports immune function",
       "notes": "",
       "months_available": [
@@ -1462,7 +1499,9 @@
           "Hardwood"
         ],
         "host_trees": [
-          "Oak"
+          "Oak",
+          "Cherry",
+          "Willow"
         ],
         "host_certainty": "commonly_reported",
         "underside": "Pores",
@@ -1482,16 +1521,23 @@
         ],
         "research_notes": [
           "Some people react poorly to chicken of the woods, especially older specimens or some host associations.",
-          "Young edge tissue is usually the best culinary material."
+          "Young edge tissue is usually the best culinary material.",
+          "Source coverage count in current app data: 3",
+          "Image status in current repo build: has image"
         ]
-      }
+      },
+      "mushroom_family": "Polypores & shelves",
+      "related_mushroom_slugs": [
+        "hen-of-the-woods"
+      ],
+      "manual_review_reasons": []
     },
     {
       "slug": "black-trumpet",
       "display_name": "Black trumpet",
       "common_name": "Black trumpet",
       "category": "Mushroom",
-      "culinary_uses": "Saut\u00e9ed, grilled, or added to stocks and soups for depth of flavor",
+      "culinary_uses": "Sautéed, grilled, or added to stocks and soups for depth of flavor",
       "medicinal_uses": "Adaptogenic properties; supports immune function",
       "notes": "",
       "months_available": [
@@ -1524,8 +1570,12 @@
         "wood_type": [
           "Hardwood"
         ],
-        "host_trees": [],
-        "host_certainty": "unknown",
+        "host_trees": [
+          "Oak",
+          "Beech",
+          "Maple"
+        ],
+        "host_certainty": "commonly_reported",
         "underside": "Smooth underside",
         "ring": "No ring",
         "texture": [
@@ -1542,16 +1592,28 @@
           "Cooking recommended"
         ],
         "research_notes": [
-          "Upper and lower surfaces are both dark at first; the outer fertile surface lightens somewhat with spore maturity."
+          "Upper and lower surfaces are both dark at first; the outer fertile surface lightens somewhat with spore maturity.",
+          "Eastern black trumpets are usually associated with mature deciduous woods, especially oak and beech, sometimes with maple mixed in.",
+          "Source coverage count in current app data: 3",
+          "Image status in current repo build: has image"
         ]
-      }
+      },
+      "mushroom_family": "Chanterelles & trumpets",
+      "related_mushroom_slugs": [
+        "yellow-chanterelles-hardwood-complex",
+        "yellow-chanterelles-conifer-complex",
+        "red-chanterelles",
+        "smooth-chanterelles",
+        "yellowfoot-chanterelle"
+      ],
+      "manual_review_reasons": []
     },
     {
       "slug": "meadow-mushroom",
       "display_name": "Meadow mushroom",
       "common_name": "Meadow mushroom",
       "category": "Mushroom",
-      "culinary_uses": "Saut\u00e9ed, grilled, or added to stocks and soups for depth of flavor",
+      "culinary_uses": "Sautéed, grilled, or added to stocks and soups for depth of flavor",
       "medicinal_uses": "Adaptogenic properties; supports immune function",
       "notes": "Can be difficult to identify but good",
       "months_available": [
@@ -1579,7 +1641,8 @@
         "summary": "A classic field Agaricus with pink-then-brown free gills, a ring, and terrestrial growth in grass. It is edible, but confusion with toxic Agaricus and deadly Amanita species is a serious concern.",
         "ecology": "saprobic",
         "substrate": [
-          "Soil"
+          "Soil",
+          "Grassland"
         ],
         "wood_type": [],
         "host_trees": [],
@@ -1602,9 +1665,17 @@
         ],
         "research_notes": [
           "This app entry should be treated as campestris-like rather than a guarantee of true Agaricus campestris.",
-          "Beginner users need a warning about white-gilled Amanitas and yellow-staining or phenolic-smelling Agaricus lookalikes."
+          "Beginner users need a warning about white-gilled Amanitas and yellow-staining or phenolic-smelling Agaricus lookalikes.",
+          "Source coverage count in current app data: 3",
+          "Image status in current repo build: has image"
         ]
-      }
+      },
+      "mushroom_family": "Agarics",
+      "related_mushroom_slugs": [
+        "field-mushroom",
+        "blewit-mushroom"
+      ],
+      "manual_review_reasons": []
     },
     {
       "slug": "chokeberry-aronia",
@@ -1848,7 +1919,7 @@
       "common_name": "Goldenrod flowers",
       "category": "Flower",
       "culinary_uses": "Tea or tincture for urinary tract support",
-      "medicinal_uses": "Anti\u2010inflammatory; diuretic",
+      "medicinal_uses": "Anti‐inflammatory; diuretic",
       "notes": "",
       "months_available": [
         "August",
@@ -1885,7 +1956,7 @@
       "display_name": "King bolete",
       "common_name": "King bolete",
       "category": "Mushroom",
-      "culinary_uses": "Saut\u00e9ed, grilled, or added to stocks and soups for depth of flavor",
+      "culinary_uses": "Sautéed, grilled, or added to stocks and soups for depth of flavor",
       "medicinal_uses": "Adaptogenic properties; supports immune function",
       "notes": "",
       "months_available": [
@@ -1920,9 +1991,12 @@
           "Hardwood"
         ],
         "host_trees": [
-          "Spruce"
+          "Spruce",
+          "Pine",
+          "Birch",
+          "Aspen"
         ],
-        "host_certainty": "commonly_reported",
+        "host_certainty": "group_level",
         "underside": "Pores",
         "ring": "No ring",
         "texture": [
@@ -1941,16 +2015,27 @@
         ],
         "research_notes": [
           "North American porcini-like mushrooms are complicated; this is best treated as an edulis-group entry.",
-          "Look for a stout stem, fine reticulation, and pores that start whitish and age yellow-olive."
+          "Look for a stout stem, fine reticulation, and pores that start whitish and age yellow-olive.",
+          "Source coverage count in current app data: 3",
+          "Image status in current repo build: has image"
         ]
-      }
+      },
+      "mushroom_family": "Boletes",
+      "related_mushroom_slugs": [
+        "scaber-stalk-boletes",
+        "bitter-bolete",
+        "blue-staining-red-pored-boletes"
+      ],
+      "manual_review_reasons": [
+        "bolete handling should favor field-useful groups unless a tighter ID is justified"
+      ]
     },
     {
       "slug": "giant-puffball",
       "display_name": "Giant puffball",
       "common_name": "Giant puffball",
       "category": "Mushroom",
-      "culinary_uses": "Saut\u00e9ed, grilled, or added to stocks and soups for depth of flavor",
+      "culinary_uses": "Sautéed, grilled, or added to stocks and soups for depth of flavor",
       "medicinal_uses": "Adaptogenic properties; supports immune function",
       "notes": "",
       "months_available": [
@@ -1997,16 +2082,21 @@
         ],
         "research_notes": [
           "One of the easier edibles to understand once cut open.",
-          "Interior color is the make-or-break field clue."
+          "Interior color is the make-or-break field clue.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: needs image"
         ]
-      }
+      },
+      "mushroom_family": "Puffballs",
+      "related_mushroom_slugs": [],
+      "manual_review_reasons": []
     },
     {
       "slug": "shaggy-mane",
       "display_name": "Shaggy mane",
       "common_name": "Shaggy mane",
       "category": "Mushroom",
-      "culinary_uses": "Saut\u00e9ed, grilled, or added to stocks and soups for depth of flavor",
+      "culinary_uses": "Sautéed, grilled, or added to stocks and soups for depth of flavor",
       "medicinal_uses": "Adaptogenic properties; supports immune function",
       "notes": "",
       "months_available": [
@@ -2055,16 +2145,21 @@
         ],
         "research_notes": [
           "The rapid inky deliquescence is one of its best field characters.",
-          "This one is more a freshness race than a long-lasting fridge mushroom."
+          "This one is more a freshness race than a long-lasting fridge mushroom.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: has image"
         ]
-      }
+      },
+      "mushroom_family": "Ink caps & shaggy manes",
+      "related_mushroom_slugs": [],
+      "manual_review_reasons": []
     },
     {
       "slug": "hedgehog-mushrooms",
       "display_name": "Hedgehog mushrooms",
       "common_name": "Hedgehog mushrooms",
       "category": "Mushroom",
-      "culinary_uses": "Saut\u00e9ed, grilled, or added to stocks and soups for depth of flavor",
+      "culinary_uses": "Sautéed, grilled, or added to stocks and soups for depth of flavor",
       "medicinal_uses": "Adaptogenic properties; supports immune function",
       "notes": "",
       "months_available": [
@@ -2098,9 +2193,11 @@
         ],
         "host_trees": [
           "Spruce",
-          "Beech"
+          "Beech",
+          "Oak",
+          "Birch"
         ],
-        "host_certainty": "suspected",
+        "host_certainty": "group_level",
         "underside": "Teeth",
         "ring": "No ring",
         "texture": [
@@ -2119,16 +2216,21 @@
         ],
         "research_notes": [
           "A nice beginner character is the toothed underside.",
-          "Species boundaries in Hydnum are messier than old field guides imply."
+          "Species boundaries in Hydnum are messier than old field guides imply.",
+          "Source coverage count in current app data: 1",
+          "Image status in current repo build: has image"
         ]
-      }
+      },
+      "mushroom_family": "Tooth fungi",
+      "related_mushroom_slugs": [],
+      "manual_review_reasons": []
     },
     {
       "slug": "slippery-jack",
       "display_name": "Slippery jack",
       "common_name": "Slippery jack",
       "category": "Mushroom",
-      "culinary_uses": "Saut\u00e9ed, grilled, or added to stocks and soups for depth of flavor",
+      "culinary_uses": "Sautéed, grilled, or added to stocks and soups for depth of flavor",
       "medicinal_uses": "Adaptogenic properties; supports immune function",
       "notes": "",
       "months_available": [
@@ -2182,16 +2284,25 @@
           "Often peeled before cooking"
         ],
         "research_notes": [
-          "The sticky brown cap and developing purple shades on the ring are strong clues."
+          "The sticky brown cap and developing purple shades on the ring are strong clues.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: has image"
         ]
-      }
+      },
+      "mushroom_family": "Suillus",
+      "related_mushroom_slugs": [
+        "larch-suillus"
+      ],
+      "manual_review_reasons": [
+        "bolete handling should favor field-useful groups unless a tighter ID is justified"
+      ]
     },
     {
       "slug": "yellowfoot-chanterelle",
       "display_name": "Yellowfoot chanterelle",
       "common_name": "Yellowfoot chanterelle",
       "category": "Mushroom",
-      "culinary_uses": "Saut\u00e9ed, grilled, or added to stocks and soups for depth of flavor",
+      "culinary_uses": "Sautéed, grilled, or added to stocks and soups for depth of flavor",
       "medicinal_uses": "Adaptogenic properties; supports immune function",
       "notes": "",
       "months_available": [
@@ -2224,8 +2335,11 @@
         "wood_type": [
           "Conifer"
         ],
-        "host_trees": [],
-        "host_certainty": "unknown",
+        "host_trees": [
+          "Spruce",
+          "Hemlock"
+        ],
+        "host_certainty": "commonly_reported",
         "underside": "Ridges / false gills",
         "ring": "No ring",
         "texture": [
@@ -2242,16 +2356,27 @@
           "Cooking recommended"
         ],
         "research_notes": [
-          "Often fruits in moss, including over well decayed moss-covered logs."
+          "Often fruits in moss, including over well decayed moss-covered logs.",
+          "Source coverage count in current app data: 1",
+          "Image status in current repo build: has image"
         ]
-      }
+      },
+      "mushroom_family": "Chanterelles & trumpets",
+      "related_mushroom_slugs": [
+        "yellow-chanterelles-hardwood-complex",
+        "yellow-chanterelles-conifer-complex",
+        "red-chanterelles",
+        "smooth-chanterelles",
+        "black-trumpet"
+      ],
+      "manual_review_reasons": []
     },
     {
       "slug": "field-mushroom",
       "display_name": "Field mushroom",
       "common_name": "Field mushroom",
       "category": "Mushroom",
-      "culinary_uses": "Saut\u00e9ed, grilled, or added to stocks and soups for depth of flavor",
+      "culinary_uses": "Sautéed, grilled, or added to stocks and soups for depth of flavor",
       "medicinal_uses": "Adaptogenic properties; supports immune function",
       "notes": "",
       "months_available": [
@@ -2278,7 +2403,8 @@
         "summary": "A grassland Agaricus concept that overlaps heavily with meadow mushroom. Good edible when correctly identified, but confusion with toxic agarics and white Amanitas is a major issue.",
         "ecology": "saprobic",
         "substrate": [
-          "Soil"
+          "Soil",
+          "Grassland"
         ],
         "wood_type": [],
         "host_trees": [],
@@ -2300,11 +2426,18 @@
           "Cooking recommended"
         ],
         "research_notes": [
-          "This entry probably duplicates the meadow-mushroom concept and should eventually be merged or clarified."
+          "This entry probably duplicates the meadow-mushroom concept and should eventually be merged or clarified.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: has image"
         ]
       },
       "manual_review_reasons": [
         "possible duplicate / taxonomy cleanup"
+      ],
+      "mushroom_family": "Agarics",
+      "related_mushroom_slugs": [
+        "meadow-mushroom",
+        "blewit-mushroom"
       ]
     },
     {
@@ -2449,7 +2582,7 @@
       "display_name": "Burdock root",
       "common_name": "Burdock root",
       "category": "Root",
-      "culinary_uses": "Cooked like a vegetable or used in stir\u2010fries",
+      "culinary_uses": "Cooked like a vegetable or used in stir‐fries",
       "medicinal_uses": "Blood purifier; diuretic",
       "notes": "",
       "months_available": [
@@ -2506,7 +2639,7 @@
       "display_name": "Hen of the woods",
       "common_name": "Hen of the woods",
       "category": "Mushroom",
-      "culinary_uses": "Saut\u00e9ed, grilled, or added to stocks and soups for depth of flavor",
+      "culinary_uses": "Sautéed, grilled, or added to stocks and soups for depth of flavor",
       "medicinal_uses": "Adaptogenic properties; supports immune function",
       "notes": "",
       "months_available": [
@@ -2539,7 +2672,8 @@
           "Hardwood"
         ],
         "host_trees": [
-          "Oak"
+          "Oak",
+          "Maple"
         ],
         "host_certainty": "confirmed",
         "underside": "Pores",
@@ -2559,16 +2693,23 @@
           "Cooking recommended"
         ],
         "research_notes": [
-          "Often recurs at the same host tree in successive years."
+          "Often recurs at the same host tree in successive years.",
+          "Source coverage count in current app data: 1",
+          "Image status in current repo build: needs image"
         ]
-      }
+      },
+      "mushroom_family": "Polypores & shelves",
+      "related_mushroom_slugs": [
+        "chicken-of-the-woods"
+      ],
+      "manual_review_reasons": []
     },
     {
       "slug": "lion-s-mane",
       "display_name": "Lion's mane",
       "common_name": "Lion's mane",
       "category": "Mushroom",
-      "culinary_uses": "Saut\u00e9ed, grilled, or added to stocks and soups for depth of flavor",
+      "culinary_uses": "Sautéed, grilled, or added to stocks and soups for depth of flavor",
       "medicinal_uses": "Adaptogenic properties; supports immune function",
       "notes": "",
       "months_available": [
@@ -2601,9 +2742,11 @@
           "Hardwood"
         ],
         "host_trees": [
-          "Oak"
+          "Oak",
+          "Maple",
+          "Beech"
         ],
-        "host_certainty": "confirmed",
+        "host_certainty": "commonly_reported",
         "underside": "Teeth",
         "ring": "No ring",
         "texture": [
@@ -2620,16 +2763,21 @@
           "Cooking recommended"
         ],
         "research_notes": [
-          "If the entry is being used broadly for lion\u2019s mane and its cousins, split Hericium species later."
+          "If the entry is being used broadly for lion’s mane and its cousins, split Hericium species later.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: needs image"
         ]
-      }
+      },
+      "mushroom_family": "Teeth & Hericium",
+      "related_mushroom_slugs": [],
+      "manual_review_reasons": []
     },
     {
       "slug": "cauliflower-mushroom",
       "display_name": "Cauliflower mushroom",
       "common_name": "Cauliflower mushroom",
       "category": "Mushroom",
-      "culinary_uses": "Saut\u00e9ed, grilled, or added to stocks and soups for depth of flavor",
+      "culinary_uses": "Sautéed, grilled, or added to stocks and soups for depth of flavor",
       "medicinal_uses": "Adaptogenic properties; supports immune function",
       "notes": "",
       "months_available": [
@@ -2668,7 +2816,7 @@
           "Oak",
           "Pine"
         ],
-        "host_certainty": "commonly_reported",
+        "host_certainty": "group_level",
         "underside": "None / branchlike surfaces",
         "ring": "No ring",
         "texture": [
@@ -2687,19 +2835,23 @@
         ],
         "research_notes": [
           "Sparassis spathulata in eastern North America can be under oaks or pines.",
-          "If the app wants precision later, split eastern S. spathulata from conifer-rooting S. americana concepts."
+          "If the app wants precision later, split eastern S. spathulata from conifer-rooting S. americana concepts.",
+          "Source coverage count in current app data: 3",
+          "Image status in current repo build: needs image"
         ]
       },
       "manual_review_reasons": [
         "needs species split"
-      ]
+      ],
+      "mushroom_family": "Cauliflower mushrooms",
+      "related_mushroom_slugs": []
     },
     {
       "slug": "king-oyster",
       "display_name": "King oyster",
       "common_name": "King oyster",
       "category": "Mushroom",
-      "culinary_uses": "Saut\u00e9ed, grilled, or added to stocks and soups for depth of flavor",
+      "culinary_uses": "Sautéed, grilled, or added to stocks and soups for depth of flavor",
       "medicinal_uses": "Adaptogenic properties; supports immune function",
       "notes": "",
       "months_available": [
@@ -2724,11 +2876,12 @@
         "summary": "A superb edible oyster, but one that is primarily a Mediterranean/Asian wild species and is commonly encountered in North America as a cultivated mushroom rather than a wild Upper Midwest find.",
         "ecology": "saprobic / weakly parasitic on herbaceous hosts",
         "substrate": [
-          "Soil"
+          "Soil",
+          "Roots"
         ],
         "wood_type": [],
         "host_trees": [],
-        "host_certainty": "unknown",
+        "host_certainty": "range_review",
         "underside": "Gills",
         "ring": "No ring",
         "texture": [
@@ -2747,19 +2900,26 @@
         ],
         "research_notes": [
           "This should likely be reviewed for whether it belongs in a wild Upper Michigan app.",
-          "Wild P. eryngii is native to the Mediterranean and Asia and is tied to Apiaceae hosts rather than wood like most oyster mushrooms."
+          "Wild P. eryngii is native to the Mediterranean and Asia and is tied to Apiaceae hosts rather than wood like most oyster mushrooms.",
+          "This is primarily a cultivated mushroom for North American users; keep the entry flagged until the app decides whether cultivated species belong in scope.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: needs image"
         ]
       },
       "manual_review_reasons": [
-        "range / cultivated-status review needed"
-      ]
+        "range / cultivated-status review needed",
+        "wild Upper Michigan fit needs review",
+        "cultivated / non-native context likely"
+      ],
+      "mushroom_family": "Cultivated / range review",
+      "related_mushroom_slugs": []
     },
     {
       "slug": "blewit-mushroom",
       "display_name": "Blewit mushroom",
       "common_name": "Blewit mushroom",
       "category": "Mushroom",
-      "culinary_uses": "Saut\u00e9ed, grilled, or added to stocks and soups for depth of flavor",
+      "culinary_uses": "Sautéed, grilled, or added to stocks and soups for depth of flavor",
       "medicinal_uses": "Adaptogenic properties; supports immune function",
       "notes": "",
       "months_available": [
@@ -2785,14 +2945,12 @@
         "ecology": "saprobic",
         "substrate": [
           "Leaf litter",
-          "Soil"
+          "Soil",
+          "Compost-rich ground"
         ],
-        "wood_type": [
-          "Hardwood",
-          "Conifer"
-        ],
+        "wood_type": [],
         "host_trees": [],
-        "host_certainty": "unknown",
+        "host_certainty": "habitat_association",
         "underside": "Gills",
         "ring": "No ring",
         "texture": [
@@ -2810,9 +2968,17 @@
         ],
         "research_notes": [
           "The purple-lilac colors fade quickly, so scent and spore color matter.",
-          "Good candidate for a strong lookalike caution note."
+          "Good candidate for a strong lookalike caution note.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: needs image"
         ]
-      }
+      },
+      "mushroom_family": "Agarics",
+      "related_mushroom_slugs": [
+        "meadow-mushroom",
+        "field-mushroom"
+      ],
+      "manual_review_reasons": []
     },
     {
       "slug": "crabapples",
@@ -2838,7 +3004,7 @@
       "display_name": "Larch suillus",
       "common_name": "Larch suillus",
       "category": "Mushroom",
-      "culinary_uses": "Saut\u00e9ed, grilled, or added to stocks and soups for depth of flavor",
+      "culinary_uses": "Sautéed, grilled, or added to stocks and soups for depth of flavor",
       "medicinal_uses": "Adaptogenic properties; supports immune function",
       "notes": "",
       "months_available": [
@@ -2889,9 +3055,18 @@
         ],
         "research_notes": [
           "North American grevillei-like material often goes by Suillus clintonianus, especially under native larches.",
-          "This is a good example of why the host-tree filter matters."
+          "This is a good example of why the host-tree filter matters.",
+          "Source coverage count in current app data: 3",
+          "Image status in current repo build: needs image"
         ]
-      }
+      },
+      "mushroom_family": "Suillus",
+      "related_mushroom_slugs": [
+        "slippery-jack"
+      ],
+      "manual_review_reasons": [
+        "bolete handling should favor field-useful groups unless a tighter ID is justified"
+      ]
     },
     {
       "slug": "american-persimmon",
@@ -2989,7 +3164,7 @@
       "display_name": "Velvet foot",
       "common_name": "Velvet foot",
       "category": "Mushroom",
-      "culinary_uses": "Saut\u00e9ed, grilled, or added to stocks and soups for depth of flavor",
+      "culinary_uses": "Sautéed, grilled, or added to stocks and soups for depth of flavor",
       "medicinal_uses": "Adaptogenic properties; supports immune function",
       "notes": "",
       "months_available": [
@@ -3021,8 +3196,15 @@
         "wood_type": [
           "Hardwood"
         ],
-        "host_trees": [],
-        "host_certainty": "unknown",
+        "host_trees": [
+          "Elm",
+          "Willow",
+          "Poplar",
+          "Aspen",
+          "Maple",
+          "Birch"
+        ],
+        "host_certainty": "commonly_reported",
         "underside": "Gills",
         "ring": "No ring",
         "texture": [
@@ -3040,9 +3222,14 @@
           "Cooking recommended"
         ],
         "research_notes": [
-          "The white spore print and velvety dark stem help separate it from Galerina marginata, but the confusion risk still deserves bold warning language."
+          "The white spore print and velvety dark stem help separate it from Galerina marginata, but the confusion risk still deserves bold warning language.",
+          "Source coverage count in current app data: 3",
+          "Image status in current repo build: needs image"
         ]
-      }
+      },
+      "mushroom_family": "Cold-weather wood fungi",
+      "related_mushroom_slugs": [],
+      "manual_review_reasons": []
     },
     {
       "slug": "half-free-morels",
@@ -3087,7 +3274,7 @@
           "Elm",
           "Ash",
           "Apple",
-          "Hardwood (general)"
+          "Tulip poplar"
         ],
         "host_certainty": "commonly_reported",
         "underside": "Pits and ridges (morel cap)",
@@ -3109,20 +3296,28 @@
         "research_notes": [
           "The eastern half-free morel is Morchella punctipes; the western counterpart is Morchella populiphila.",
           "Treat this as its own true-morel variant rather than hiding it under generic morels.",
-          "Strong confusion warning should still point users away from false morels like Gyromitra."
+          "Strong confusion warning should still point users away from false morels like Gyromitra.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: needs image"
         ],
         "source_links": [
           "https://www.mushroomexpert.com/morchella_punctipes.html",
           "https://www.canr.msu.edu/resources/may_is_morel_month_in_michigan_e2755"
         ]
-      }
+      },
+      "mushroom_family": "Morels",
+      "related_mushroom_slugs": [
+        "black-morels",
+        "yellow-morels"
+      ],
+      "manual_review_reasons": []
     },
     {
       "slug": "yellow-chanterelles-hardwood-complex",
       "display_name": "Yellow chanterelles (hardwood-associated complex)",
       "common_name": "Yellow chanterelles (hardwood-associated complex)",
       "category": "Mushroom",
-      "culinary_uses": "Choice chanterelles for saut\u00e9ing, drying lightly, eggs, cream sauces, and mixed wild-mushroom dishes.",
+      "culinary_uses": "Choice chanterelles for sautéing, drying lightly, eggs, cream sauces, and mixed wild-mushroom dishes.",
       "medicinal_uses": "",
       "notes": "",
       "months_available": [
@@ -3159,7 +3354,8 @@
         ],
         "host_trees": [
           "Oak",
-          "Beech"
+          "Beech",
+          "Maple"
         ],
         "host_certainty": "commonly_reported",
         "underside": "False gills / ridges",
@@ -3183,14 +3379,27 @@
         "research_notes": [
           "Michigan material appears to include more than one hardwood-associated yellow chanterelle type.",
           "Oak- and beech-associated yellows are worth separating from conifer-associated yellow chanterelles in the app.",
-          "Do not confuse chanterelle ridges with true blade-like gills."
+          "Do not confuse chanterelle ridges with true blade-like gills.",
+          "Source coverage count in current app data: 3",
+          "Image status in current repo build: needs image"
         ],
         "source_links": [
           "https://midwestmycology.org/cantharellus-species/",
           "https://www.fs.usda.gov/pnw/pubs/pnw_gtr576.pdf",
           "https://www.mushroomexpert.com/cantharellaceae.html"
         ]
-      }
+      },
+      "mushroom_family": "Chanterelles & trumpets",
+      "related_mushroom_slugs": [
+        "yellow-chanterelles-conifer-complex",
+        "red-chanterelles",
+        "smooth-chanterelles",
+        "black-trumpet",
+        "yellowfoot-chanterelle"
+      ],
+      "manual_review_reasons": [
+        "chanterelle taxonomy is still moving; field-complex treatment is intentional"
+      ]
     },
     {
       "slug": "yellow-chanterelles-conifer-complex",
@@ -3233,8 +3442,7 @@
         ],
         "host_trees": [
           "Spruce",
-          "Hemlock",
-          "Conifer (general)"
+          "Hemlock"
         ],
         "host_certainty": "commonly_reported",
         "underside": "False gills / ridges",
@@ -3256,13 +3464,26 @@
         ],
         "research_notes": [
           "Midwest American Mycological Information notes UP and northern Michigan conifer-associated yellows that likely represent different species from oak and beech associates.",
-          "Useful to split in the app even when exact species names remain unsettled."
+          "Useful to split in the app even when exact species names remain unsettled.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: needs image"
         ],
         "source_links": [
           "https://midwestmycology.org/cantharellus-species/",
           "https://www.fs.usda.gov/pnw/pubs/pnw_gtr576.pdf"
         ]
-      }
+      },
+      "mushroom_family": "Chanterelles & trumpets",
+      "related_mushroom_slugs": [
+        "yellow-chanterelles-hardwood-complex",
+        "red-chanterelles",
+        "smooth-chanterelles",
+        "black-trumpet",
+        "yellowfoot-chanterelle"
+      ],
+      "manual_review_reasons": [
+        "chanterelle taxonomy is still moving; field-complex treatment is intentional"
+      ]
     },
     {
       "slug": "red-chanterelles",
@@ -3305,12 +3526,11 @@
           "Hardwood"
         ],
         "host_trees": [
-          "Beech",
           "Oak",
-          "Aspen",
-          "Hardwood (general)"
+          "Beech",
+          "Aspen"
         ],
-        "host_certainty": "commonly_reported",
+        "host_certainty": "group_level",
         "underside": "False gills / ridges",
         "ring": "None",
         "texture": [
@@ -3329,21 +3549,34 @@
         ],
         "research_notes": [
           "MSU notes the red chanterelle is native to eastern North America.",
-          "Michigan material may include more than one red taxon, but this is still a useful field-facing entry."
+          "Michigan material may include more than one red taxon, but this is still a useful field-facing entry.",
+          "Source coverage count in current app data: 3",
+          "Image status in current repo build: needs image"
         ],
         "source_links": [
           "https://www.canr.msu.edu/news/cantharellus-cinnabarinus",
           "https://www.mushroomexpert.com/cantharellus_cinnabarinus.html",
           "https://midwestmycology.org/cantharellus-species/"
         ]
-      }
+      },
+      "mushroom_family": "Chanterelles & trumpets",
+      "related_mushroom_slugs": [
+        "yellow-chanterelles-hardwood-complex",
+        "yellow-chanterelles-conifer-complex",
+        "smooth-chanterelles",
+        "black-trumpet",
+        "yellowfoot-chanterelle"
+      ],
+      "manual_review_reasons": [
+        "chanterelle taxonomy is still moving; field-complex treatment is intentional"
+      ]
     },
     {
       "slug": "smooth-chanterelles",
       "display_name": "Smooth chanterelles",
       "common_name": "Smooth chanterelles",
       "category": "Mushroom",
-      "culinary_uses": "Choice edible chanterelle with a smoother underside and good texture in saut\u00e9s and sauces.",
+      "culinary_uses": "Choice edible chanterelle with a smoother underside and good texture in sautés and sauces.",
       "medicinal_uses": "",
       "notes": "",
       "months_available": [
@@ -3400,13 +3633,26 @@
         ],
         "research_notes": [
           "Cantharellus lateritius is a practical app entry, but MushroomExpert notes the North American smooth chanterelle complex likely needs more study.",
-          "Separate this from yellow chanterelles because the underside texture is a major field clue."
+          "Separate this from yellow chanterelles because the underside texture is a major field clue.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: needs image"
         ],
         "source_links": [
           "https://www.mushroomexpert.com/cantharellus_lateritius.html",
           "https://mdc.mo.gov/discover-nature/field-guide/smooth-chanterelle"
         ]
-      }
+      },
+      "mushroom_family": "Chanterelles & trumpets",
+      "related_mushroom_slugs": [
+        "yellow-chanterelles-hardwood-complex",
+        "yellow-chanterelles-conifer-complex",
+        "red-chanterelles",
+        "black-trumpet",
+        "yellowfoot-chanterelle"
+      ],
+      "manual_review_reasons": [
+        "chanterelle taxonomy is still moving; field-complex treatment is intentional"
+      ]
     },
     {
       "slug": "shrimp-russulas",
@@ -3451,11 +3697,11 @@
           "Conifer"
         ],
         "host_trees": [
-          "White pine",
-          "Mixed forest",
-          "Hardwood (general)"
+          "Pine",
+          "Oak",
+          "Beech"
         ],
-        "host_certainty": "varies_by_species",
+        "host_certainty": "group_level",
         "underside": "True gills",
         "ring": "None",
         "texture": [
@@ -3475,13 +3721,23 @@
         "research_notes": [
           "Best treated as a complex rather than a single species in North America.",
           "Some eastern forms are associated with eastern white pine, while others occur with different hosts.",
-          "A shrimp-like odor is the best field anchor."
+          "A shrimp-like odor is the best field anchor.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: needs image"
         ],
         "source_links": [
           "https://www.mushroomexpert.com/russula_shrimp.html",
           "https://www.mushroomexpert.com/russula_katarinae.html"
         ]
-      }
+      },
+      "mushroom_family": "Russulas",
+      "related_mushroom_slugs": [
+        "charcoal-burners",
+        "short-stemmed-russula"
+      ],
+      "manual_review_reasons": [
+        "russula group should stay field-usable, not over-precise"
+      ]
     },
     {
       "slug": "charcoal-burners",
@@ -3527,10 +3783,9 @@
         ],
         "host_trees": [
           "Oak",
-          "Hardwood (general)",
-          "Conifer (general)"
+          "Beech"
         ],
-        "host_certainty": "commonly_reported",
+        "host_certainty": "group_level",
         "underside": "True gills",
         "ring": "None",
         "texture": [
@@ -3549,13 +3804,23 @@
         ],
         "research_notes": [
           "The classic charcoal-burner concept is complicated in North America by lookalikes like Russula variata.",
-          "The flexible gills are the key practical field clue."
+          "The flexible gills are the key practical field clue.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: needs image"
         ],
         "source_links": [
           "https://www.mushroomexpert.com/russula_cyanoxantha.html",
           "https://www.mushroomexpert.com/russula_variata.html"
         ]
-      }
+      },
+      "mushroom_family": "Russulas",
+      "related_mushroom_slugs": [
+        "shrimp-russulas",
+        "short-stemmed-russula"
+      ],
+      "manual_review_reasons": [
+        "russula group should stay field-usable, not over-precise"
+      ]
     },
     {
       "slug": "short-stemmed-russula",
@@ -3601,11 +3866,11 @@
           "Conifer"
         ],
         "host_trees": [
-          "Hardwood (general)",
+          "Oak",
           "Pine",
           "Black spruce"
         ],
-        "host_certainty": "commonly_reported",
+        "host_certainty": "group_level",
         "underside": "True gills",
         "ring": "None",
         "texture": [
@@ -3624,13 +3889,23 @@
         ],
         "research_notes": [
           "Often overlooked because fruitbodies can be partly buried in litter.",
-          "Also important because Hypomyces lactifluorum can parasitize this group and create lobster mushrooms."
+          "Also important because Hypomyces lactifluorum can parasitize this group and create lobster mushrooms.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: needs image"
         ],
         "source_links": [
           "https://www.mushroomexpert.com/russula_brevipes.html",
           "https://www.fs.usda.gov/nrs/pubs/gtr/gtr_nrs79.pdf"
         ]
-      }
+      },
+      "mushroom_family": "Russulas",
+      "related_mushroom_slugs": [
+        "shrimp-russulas",
+        "charcoal-burners"
+      ],
+      "manual_review_reasons": [
+        "russula group should stay field-usable, not over-precise"
+      ]
     },
     {
       "slug": "scaber-stalk-boletes",
@@ -3677,10 +3952,10 @@
         "host_trees": [
           "Birch",
           "Aspen",
-          "Oak",
-          "Hardwood (general)"
+          "Poplar",
+          "Oak"
         ],
-        "host_certainty": "commonly_reported",
+        "host_certainty": "group_level",
         "underside": "Pores",
         "ring": "None",
         "texture": [
@@ -3699,14 +3974,25 @@
         "research_notes": [
           "The stem scabers are the main field mark.",
           "This group includes birch bolete types and aspen/orange-cap allies; species-level treatment can come later.",
-          "Use caution because Leccinum edibility varies by species and by individual tolerance."
+          "Use caution because Leccinum edibility varies by species and by individual tolerance.",
+          "Source coverage count in current app data: 3",
+          "Image status in current repo build: needs image"
         ],
         "source_links": [
           "https://www.mushroomexpert.com/leccinum.html",
           "https://boletes.wpamushroomclub.org/product/leccinum-scabrum/",
           "https://foragerchef.com/leccinum-or-scaber-stalk-mushrooms/"
         ]
-      }
+      },
+      "mushroom_family": "Boletes",
+      "related_mushroom_slugs": [
+        "king-bolete",
+        "bitter-bolete",
+        "blue-staining-red-pored-boletes"
+      ],
+      "manual_review_reasons": [
+        "bolete handling should favor field-useful groups unless a tighter ID is justified"
+      ]
     },
     {
       "slug": "bitter-bolete",
@@ -3751,7 +4037,7 @@
         ],
         "host_trees": [
           "Pine",
-          "Conifer (general)"
+          "Spruce"
         ],
         "host_certainty": "commonly_reported",
         "underside": "Pores",
@@ -3769,12 +4055,23 @@
         "processing_required": [],
         "research_notes": [
           "North American material called Tylopilus felleus may not be identical to the European species, but the field concept is still useful.",
-          "Important app entry because it is a classic king-bolete spoiler."
+          "Important app entry because it is a classic king-bolete spoiler.",
+          "Source coverage count in current app data: 1",
+          "Image status in current repo build: needs image"
         ],
         "source_links": [
           "https://www.mushroomexpert.com/tylopilus_felleus.html"
         ]
-      }
+      },
+      "mushroom_family": "Boletes",
+      "related_mushroom_slugs": [
+        "king-bolete",
+        "scaber-stalk-boletes",
+        "blue-staining-red-pored-boletes"
+      ],
+      "manual_review_reasons": [
+        "bolete handling should favor field-useful groups unless a tighter ID is justified"
+      ]
     },
     {
       "slug": "blue-staining-red-pored-boletes",
@@ -3819,10 +4116,12 @@
           "Conifer"
         ],
         "host_trees": [
-          "Hardwood (general)",
-          "Conifer (general)"
+          "Oak",
+          "Beech",
+          "Pine",
+          "Spruce"
         ],
-        "host_certainty": "varies_by_species",
+        "host_certainty": "group_level",
         "underside": "Pores",
         "ring": "Usually none",
         "texture": [
@@ -3839,13 +4138,24 @@
         "research_notes": [
           "Not a single species; this is a safety-oriented grouping.",
           "Use the app to warn beginners away from treating all boletes as edible.",
-          "A future pass should split this into actual regional species where data support exists."
+          "A future pass should split this into actual regional species where data support exists.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: needs image"
         ],
         "source_links": [
           "https://www.mushroomexpert.com/boletes.html",
           "https://www.wildfooduk.com/articles/identifying-boletus-mushrooms/"
         ]
-      }
+      },
+      "mushroom_family": "Boletes",
+      "related_mushroom_slugs": [
+        "king-bolete",
+        "scaber-stalk-boletes",
+        "bitter-bolete"
+      ],
+      "manual_review_reasons": [
+        "bolete handling should favor field-useful groups unless a tighter ID is justified"
+      ]
     },
     {
       "slug": "pearl-oyster",
@@ -3898,10 +4208,10 @@
           "Hardwood"
         ],
         "host_trees": [
-          "Hardwood (general)",
           "Aspen",
           "Maple",
-          "Beech"
+          "Beech",
+          "Willow"
         ],
         "host_certainty": "commonly_reported",
         "underside": "True gills decurrent",
@@ -3923,13 +4233,21 @@
         ],
         "research_notes": [
           "Wood-growing shelf clusters with decurrent gills remain the anchor field marks.",
-          "North American oysters are a complex; this entry is for the cool-weather pearl oyster concept."
+          "North American oysters are a complex; this entry is for the cool-weather pearl oyster concept.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: needs image"
         ],
         "source_links": [
           "https://www.mushroomexpert.com/pleurotus_ostreatus.html",
           "https://botit.botany.wisc.edu/toms_fungi/oct98.html"
         ]
-      }
+      },
+      "mushroom_family": "Oysters",
+      "related_mushroom_slugs": [
+        "phoenix-oyster",
+        "aspen-oyster"
+      ],
+      "manual_review_reasons": []
     },
     {
       "slug": "phoenix-oyster",
@@ -3978,9 +4296,11 @@
           "Hardwood"
         ],
         "host_trees": [
-          "Hardwood (general)"
+          "Elm",
+          "Beech",
+          "Maple"
         ],
-        "host_certainty": "commonly_reported",
+        "host_certainty": "group_level",
         "underside": "True gills decurrent",
         "ring": "None",
         "texture": [
@@ -4000,13 +4320,21 @@
         ],
         "research_notes": [
           "MSU notes P. pulmonarius is generally found on hardwoods in the eastern United States.",
-          "Useful to split from the cool-weather oyster in the app by season as well as species."
+          "Useful to split from the cool-weather oyster in the app by season as well as species.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: needs image"
         ],
         "source_links": [
           "https://www.mushroomexpert.com/pleurotus_pulmonarius.html",
           "https://www.canr.msu.edu/news/pleurotus-pulmonarius"
         ]
-      }
+      },
+      "mushroom_family": "Oysters",
+      "related_mushroom_slugs": [
+        "pearl-oyster",
+        "aspen-oyster"
+      ],
+      "manual_review_reasons": []
     },
     {
       "slug": "aspen-oyster",
@@ -4051,8 +4379,7 @@
         ],
         "host_trees": [
           "Aspen",
-          "Cottonwood",
-          "Populus"
+          "Cottonwood"
         ],
         "host_certainty": "confirmed",
         "underside": "True gills decurrent",
@@ -4074,13 +4401,21 @@
         ],
         "research_notes": [
           "MushroomExpert treats P. populinus as a well-established biological and phylogenetic species.",
-          "This is exactly the kind of host-specific mushroom your tree filters should be able to surface."
+          "This is exactly the kind of host-specific mushroom your tree filters should be able to surface.",
+          "Source coverage count in current app data: 2",
+          "Image status in current repo build: needs image"
         ],
         "source_links": [
           "https://www.mushroomexpert.com/pleurotus_populinus.html",
           "https://midwestmycology.org/pleurotus-ostreatus/"
         ]
-      }
+      },
+      "mushroom_family": "Oysters",
+      "related_mushroom_slugs": [
+        "pearl-oyster",
+        "phoenix-oyster"
+      ],
+      "manual_review_reasons": []
     }
   ]
 }

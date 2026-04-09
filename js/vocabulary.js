@@ -1,5 +1,5 @@
 export const VOCAB = {
-  version: "v0.6",
+  version: "v1.0",
   common: {
     habitats: [
       { slug: "forest", label: "Forest", synonyms: ["forest", "woods", "woodland"] },
@@ -78,11 +78,14 @@ export const VOCAB = {
       { slug: "cherry", label: "Cherry", broadType: "hardwood", synonyms: ["cherry", "black cherry", "wild cherry"] },
       { slug: "elm", label: "Elm", broadType: "hardwood", synonyms: ["elm"] },
       { slug: "ash", label: "Ash", broadType: "hardwood", synonyms: ["ash"] },
+      { slug: "apple", label: "Apple", broadType: "hardwood", synonyms: ["apple", "apple tree", "old orchard"] },
+      { slug: "tulip_poplar", label: "Tulip poplar", broadType: "hardwood", synonyms: ["tulip poplar", "tulip tree", "yellow poplar"] },
       { slug: "basswood", label: "Basswood", broadType: "hardwood", synonyms: ["basswood", "linden"] },
       { slug: "willow", label: "Willow", broadType: "hardwood", synonyms: ["willow"] },
       { slug: "alder", label: "Alder", broadType: "hardwood", synonyms: ["alder"] },
       { slug: "pine", label: "Pine", broadType: "conifer", synonyms: ["pine"] },
       { slug: "spruce", label: "Spruce", broadType: "conifer", synonyms: ["spruce"] },
+      { slug: "black_spruce", label: "Black spruce", broadType: "conifer", synonyms: ["black spruce"] },
       { slug: "fir", label: "Fir", broadType: "conifer", synonyms: ["fir"] },
       { slug: "hemlock", label: "Hemlock", broadType: "conifer", synonyms: ["hemlock"] },
       { slug: "cedar", label: "Cedar", broadType: "conifer", synonyms: ["cedar"] },
