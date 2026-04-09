@@ -1,17 +1,17 @@
 import { MONTHS } from "./constants.js";
 import { medicinalRecords, isMushroom, isPlant } from "./data-model.js";
 import { renderResultCard } from "./renderers/cards.js";
-import { renderTimelineRows } from "./renderers/timeline.js";
+import { renderInteractiveTimeline } from "./renderers/timeline.js";
 import { escapeHtml } from "./utils.js";
 
-function renderFilterPanel({title, intro, categoryOptions, records, route, filters}) {
+function renderFilterPanel({title, intro, categoryOptions, records, filters}) {
   const categoriesHtml = ['<option value="">All categories</option>']
     .concat(categoryOptions.map(cat => `<option value="${escapeHtml(cat)}" ${filters.category === cat ? "selected" : ""}>${escapeHtml(cat)}</option>`))
     .join("");
   const resultsHtml = records.length ? records.map(renderResultCard).join("") : '<div class="panel empty-state"><h3>No matches</h3><p>Try a different search or month.</p></div>';
   return `
     <section class="page-grid">
-      <aside class="panel">
+      <aside class="panel filter-panel">
         <h2>${escapeHtml(title)}</h2>
         <p>${escapeHtml(intro)}</p>
         <div class="filter-stack" style="margin-top:14px">
@@ -32,7 +32,7 @@ function renderFilterPanel({title, intro, categoryOptions, records, route, filte
           </div>
         </div>
       </aside>
-      <section class="panel">
+      <section class="panel results-panel">
         <div class="result-header">
           <div>
             <h2>${escapeHtml(title)} results</h2>
@@ -47,34 +47,52 @@ function renderFilterPanel({title, intro, categoryOptions, records, route, filte
 }
 
 export function renderHome(records) {
-  const medicinalCount = medicinalRecords(records).length;
-  const mushroomCount = records.filter(isMushroom).length;
-  const plantCount = records.filter(isPlant).length;
+  const currentMonth = MONTHS[new Date().getMonth()];
+  const currentCount = records.filter(record => (record.months_available || []).includes(currentMonth)).length;
   return `
-    <section class="home-grid">
-      <article class="panel">
-        <h2>What changed in v0.3</h2>
-        <div class="feature-list">
-          <div class="feature-item"><strong>Phase 1:</strong> compact cards, clickable titles, detail modal, cleaner phone/tablet behavior, and modular JS files.</div>
-          <div class="feature-item"><strong>Phase 2:</strong> separate sections for Home, Plants, Mushrooms, Medicinal Uses, and Timeline.</div>
-          <div class="feature-item"><strong>Lists are shorter on purpose:</strong> key facts on the card, longer notes inside the detail view.</div>
+    <section class="home-hero panel">
+      <div class="hero-copy">
+        <p class="eyebrow subtle">Field guide on screen</p>
+        <h2>Choose your path</h2>
+        <p>Browse known species, open a focused timeline, or jump straight into medicinal entries. The home page should feel like a trailhead, not a list of office links.</p>
+        <div class="hero-cta-row">
+          <a class="buttonish primary large" href="#/timeline">Open seasonal timeline</a>
+          <a class="buttonish large" href="#/plants">Browse plants</a>
         </div>
-        <div class="quick-links">
-          <a class="buttonish primary" href="#/plants">Browse plants</a>
-          <a class="buttonish primary" href="#/mushrooms">Browse mushrooms</a>
-          <a class="buttonish" href="#/medicinal">Browse medicinal uses</a>
-          <a class="buttonish" href="#/timeline">Open seasonal timeline</a>
-        </div>
-      </article>
-      <article class="panel">
-        <h2>Current catalog snapshot</h2>
-        <div class="feature-list">
-          <div class="feature-item"><strong>${records.length}</strong> total records imported so far.</div>
-          <div class="feature-item"><strong>${plantCount}</strong> plant-side entries.</div>
-          <div class="feature-item"><strong>${mushroomCount}</strong> mushroom entries.</div>
-          <div class="feature-item"><strong>${medicinalCount}</strong> entries carrying medicinal-use text.</div>
-        </div>
-      </article>
+      </div>
+      <div class="hero-now-card">
+        <span class="tiny-label">In focus right now</span>
+        <strong>${escapeHtml(currentMonth)}</strong>
+        <p>${currentCount} imported entries show activity in this month.</p>
+        <a class="buttonish" href="#/timeline">See what comes into focus</a>
+      </div>
+    </section>
+
+    <section class="home-card-grid">
+      <a class="nav-card plants-card" href="#/plants">
+        <span class="nav-kicker">Plants</span>
+        <h3>Greens, flowers, fruits, roots, and tree products</h3>
+        <p>Compact cards, thumbnails, and quick filters for the plant side of the guide.</p>
+        <span class="nav-action">Open Plants</span>
+      </a>
+      <a class="nav-card mushroom-card" href="#/mushrooms">
+        <span class="nav-kicker">Mushrooms</span>
+        <h3>Browse the mushroom catalog without the spreadsheet sprawl</h3>
+        <p>Short list cards now, richer ID questions later when the trait schema lands.</p>
+        <span class="nav-action">Open Mushrooms</span>
+      </a>
+      <a class="nav-card medicinal-card" href="#/medicinal">
+        <span class="nav-kicker">Medicinal Uses</span>
+        <h3>Entries carrying medicinal-use text gathered into one lane</h3>
+        <p>Useful when you want the medicinal angle without wading through everything else.</p>
+        <span class="nav-action">Open Medicinal</span>
+      </a>
+      <a class="nav-card timeline-card" href="#/timeline">
+        <span class="nav-kicker">Timeline</span>
+        <h3>Time first. Species second.</h3>
+        <p>Choose a month, let the season lead, and watch the available entries sharpen underneath.</p>
+        <span class="nav-action">Open Timeline</span>
+      </a>
     </section>
   `;
 }
@@ -84,10 +102,9 @@ export function renderPlants(records, filters) {
   const categories = [...new Set(source.map(r => r.category))].sort((a,b) => a.localeCompare(b));
   return renderFilterPanel({
     title: "Plants",
-    intro: "Plants, flowers, fruits, roots, and tree products. This page is compact now so it does not turn into a spreadsheet parade.",
+    intro: "Plants, flowers, fruits, roots, and tree products. Kept concise so the page scans fast on phone or tablet.",
     categoryOptions: categories,
     records: source,
-    route: "plants",
     filters
   });
 }
@@ -95,10 +112,9 @@ export function renderPlants(records, filters) {
 export function renderMushrooms(records, filters) {
   return renderFilterPanel({
     title: "Mushrooms",
-    intro: "Mushroom results kept concise. Richer ID questions can be layered in later without rebuilding the whole page.",
+    intro: "The mushroom lane stays compact for now. Trait-driven identification can layer in later without tearing the page apart.",
     categoryOptions: ["Mushroom"],
     records: records.filter(isMushroom),
-    route: "mushrooms",
     filters
   });
 }
@@ -111,27 +127,10 @@ export function renderMedicinal(records, filters) {
     intro: "Entries with medicinal-use text imported from the source sheets.",
     categoryOptions: categories,
     records: source,
-    route: "medicinal",
     filters
   });
 }
 
-export function renderTimeline(records) {
-  return `
-    <section class="panel">
-      <div class="result-header">
-        <div>
-          <h2>Seasonal timeline</h2>
-          <p class="results-meta">Its own beast, just like requested.</p>
-        </div>
-        <div class="button-row">
-          <a class="buttonish" href="#/plants">Plants</a>
-          <a class="buttonish" href="#/mushrooms">Mushrooms</a>
-        </div>
-      </div>
-      <div class="timeline-rows">
-        ${renderTimelineRows(records)}
-      </div>
-    </section>
-  `;
+export function renderTimeline(records, selectedMonth) {
+  return renderInteractiveTimeline(records, selectedMonth);
 }

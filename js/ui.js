@@ -4,24 +4,14 @@ import { renderDetail } from "./renderers/detail.js";
 
 const els = {
   pageRoot: document.getElementById("pageRoot"),
-  topSummary: document.getElementById("topSummary"),
   versionBadge: document.getElementById("versionBadge"),
   detailModal: document.getElementById("detailModal"),
   modalContent: document.getElementById("modalContent"),
   closeModalBtn: document.getElementById("closeModalBtn")
 };
 
-export function updateHeaderStats(records) {
-  const images = records.reduce((sum, record) => sum + (record.images?.length || 0), 0);
-  const categories = new Set(records.map(record => record.category)).size;
-  const medicinal = records.filter(record => record.medicinal_uses).length;
+export function updateHeaderStats() {
   els.versionBadge.textContent = APP_VERSION;
-  els.topSummary.innerHTML = `
-    <div class="summary-stat"><span class="num">${records.length}</span><span class="label">species entries</span></div>
-    <div class="summary-stat"><span class="num">${images}</span><span class="label">images</span></div>
-    <div class="summary-stat"><span class="num">${categories}</span><span class="label">categories</span></div>
-    <div class="summary-stat"><span class="num">${medicinal}</span><span class="label">medicinal entries</span></div>
-  `;
 }
 
 export function renderPage(html) {
@@ -44,13 +34,16 @@ export function bindDetailLinks() {
   });
 }
 
-export function bindSharedActions({ onFilterChange, onClearFilters }) {
+export function bindSharedActions({ onFilterChange, onClearFilters, onTimelineMonthChange }) {
   document.querySelectorAll("[data-filter]").forEach(el => {
     const eventName = el.tagName === "SELECT" ? "change" : "input";
     el.addEventListener(eventName, onFilterChange);
   });
   document.querySelectorAll('[data-action="clear-filters"]').forEach(btn => {
     btn.addEventListener("click", onClearFilters);
+  });
+  document.querySelectorAll("[data-timeline-month]").forEach(btn => {
+    btn.addEventListener("click", () => onTimelineMonthChange?.(btn.dataset.timelineMonth));
   });
 }
 

@@ -2,6 +2,7 @@ import { loadLocalData, loadSupabaseData } from "./api.js";
 import { sortRecords, normalizeRecord, isPlant, isMushroom, medicinalRecords } from "./data-model.js";
 import { state } from "./state.js";
 import { parseRoute } from "./router.js";
+import { MONTHS } from "./constants.js";
 import { renderHome, renderPlants, renderMushrooms, renderMedicinal, renderTimeline } from "./pages.js";
 import { updateHeaderStats, renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui.js";
 
@@ -10,6 +11,8 @@ const filterState = {
   mushrooms: { search: "", category: "", month: "", image: "" },
   medicinal: { search: "", category: "", month: "", image: "" }
 };
+
+let selectedTimelineMonth = MONTHS[new Date().getMonth()] || MONTHS[0];
 
 function queryMatches(record, filters) {
   const query = (filters.search || "").trim().toLowerCase();
@@ -59,7 +62,7 @@ function renderCurrentRoute() {
   } else if (route.page === "medicinal") {
     renderPage(renderMedicinal(filteredForPage("medicinal"), filterState.medicinal));
   } else if (route.page === "timeline") {
-    renderPage(renderTimeline(state.allRecords));
+    renderPage(renderTimeline(state.allRecords, selectedTimelineMonth));
   } else {
     renderPage(renderHome(state.allRecords));
     state.route = "home";
@@ -79,6 +82,11 @@ function renderCurrentRoute() {
       const page = state.route;
       if (!filterState[page]) return;
       filterState[page] = { search: "", category: "", month: "", image: "" };
+      renderCurrentRoute();
+    },
+    onTimelineMonthChange: month => {
+      if (!month) return;
+      selectedTimelineMonth = month;
       renderCurrentRoute();
     }
   });
