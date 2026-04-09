@@ -6,7 +6,9 @@ import { MONTHS } from "./constants.js";
 import { renderDashboard } from "./pages.js";
 import { updateHeaderStats, renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui.js";
 
-const CURRENT_MONTH = MONTHS[new Date().getMonth()] || MONTHS[0];
+const focusDate = new Date();
+focusDate.setDate(focusDate.getDate() + 14);
+const CURRENT_MONTH = MONTHS[focusDate.getMonth()] || MONTHS[0];
 const emptyFilter = (page = '') => ({ search: "", month: page === 'home' ? CURRENT_MONTH : "", category: "", habitat: "", part: "", size: "", taste: "", substrate: "", treeType: "", hostTree: "", ring: "", texture: "", smell: "", staining: "", medicinalAction: "", medicinalSystem: "", medicinalTerm: "", reviewReason: "" });
 const filterState = { home: emptyFilter('home'), plants: emptyFilter(), mushrooms: emptyFilter(), medicinal: emptyFilter(), review: emptyFilter() };
 const paneMode = { home: 'results', plants: 'results', mushrooms: 'results', medicinal: 'results', timeline: 'results', review: 'results' };
@@ -55,6 +57,10 @@ function renderCurrentRoute() {
   const route = parseRoute(location.hash || "#/home");
   const allowedPages = ['home','plants','mushrooms','medicinal','timeline','review'];
   const activePage = route.page === 'detail' ? (state.route || 'home') : (allowedPages.includes(route.page) ? route.page : 'home');
+  if (route.focus && filterState[activePage]) {
+    filterState[activePage] = { ...filterState[activePage], month: CURRENT_MONTH };
+    if (activePage === "timeline") selectedTimelineMonth = CURRENT_MONTH;
+  }
   state.route = activePage;
   markActiveNav(activePage);
 
