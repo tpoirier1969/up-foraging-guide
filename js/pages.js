@@ -1,6 +1,6 @@
 import { MONTHS } from "./constants.js";
 import { medicinalRecords, isMushroom, isPlant, reviewRecords } from "./data-model.js";
-import { uniqueTraitValues } from "./trait-inference.js";
+import { VOCAB } from "./vocabulary.js";
 import { renderResultCard } from "./renderers/cards.js";
 import { renderInteractiveTimeline } from "./renderers/timeline.js";
 import { escapeHtml } from "./utils.js";
@@ -10,15 +10,27 @@ function optionHtml(values, current, label) {
     .concat(values.map(v => `<option value="${escapeHtml(v)}" ${current === v ? 'selected' : ''}>${escapeHtml(v)}</option>`)).join('');
 }
 
+function vocabLabels(entries) {
+  return (entries || []).map(entry => entry.label);
+}
+
 function categoryOptions(records, current) {
   const categories = [...new Set((records || []).map(record => record.category).filter(Boolean))].sort((a, b) => a.localeCompare(b));
   return optionHtml(categories, current, 'Any category');
 }
 
+function hostTreeLabels(treeType) {
+  const all = VOCAB.mushrooms.hostTrees || [];
+  if (!treeType) return all.map(entry => entry.label);
+  if (treeType === 'Hardwood') return all.filter(entry => entry.broadType === 'hardwood').map(entry => entry.label);
+  if (treeType === 'Conifer / softwood') return all.filter(entry => entry.broadType === 'conifer').map(entry => entry.label);
+  return all.map(entry => entry.label);
+}
+
 function renderResultList(records, context = 'general') {
   return records.length
     ? records.map(record => renderResultCard(record, context)).join("")
-    : '<div class="panel empty-state"><h3>No matches</h3><p>Try a different filter mix.</p></div>';
+    : '<div class="panel empty-state"><h3>No matches</h3><p>All filter options stay visible on purpose now, even when a combination catches nothing.</p></div>';
 }
 
 function renderFilterForm({ page, filters, extraFilters = [], scopeRecords, title }) {
@@ -26,10 +38,10 @@ function renderFilterForm({ page, filters, extraFilters = [], scopeRecords, titl
     <section class="panel workspace-pane filter-pane-card">
       <div class="section-heading-block">
         <h3>${escapeHtml(title)} filters</h3>
-        <p>Trim the list first, then flip back to results.</p>
+        <p>All options stay visible all the time. Zero results is allowed. That is a field guide, not a disappearing-act dropdown.</p>
       </div>
       <div class="filter-form-grid">
-        <label><span>Search</span><input type="search" data-filter="search" value="${escapeHtml(filters.search || '')}" placeholder="Search names, notes, uses"></label>
+        <label><span>Search</span><input type="search" data-filter="search" value="${escapeHtml(filters.search || '')}" placeholder="Search names, Latin names, notes, uses"></label>
         <label><span>Month</span><select data-filter="month">${optionHtml(MONTHS, filters.month, 'Any month')}</select></label>
         ${page === 'home' ? `<label><span>Category</span><select data-filter="category">${categoryOptions(scopeRecords, filters.category)}</select></label>` : ''}
         ${extraFilters.join('')}
@@ -131,17 +143,17 @@ export function renderDashboard({ page, allRecords, currentRecords, filters, sel
     workspaceHtml = renderWorkspace({
       page: 'plants',
       title: 'Plants',
-      intro: 'Leaf shape, habitat, size, and taste do the heavy lifting here without wasting half the screen.',
+      intro: 'Leaf shape, habitat, size, taste, and Latin names do the heavy lifting here without wasting half the screen.',
       records: currentRecords,
       filters,
       context: 'general',
       paneMode,
       scopeRecords: source,
       extraFilters: [
-        `<label><span>Habitat</span><select data-filter="habitat">${optionHtml(uniqueTraitValues(source,'habitat'), filters.habitat, 'Any habitat')}</select></label>`,
-        `<label><span>Part seen</span><select data-filter="part">${optionHtml(uniqueTraitValues(source,'observedPart'), filters.part, 'Any part')}</select></label>`,
-        `<label><span>Size</span><select data-filter="size">${optionHtml(uniqueTraitValues(source,'size'), filters.size, 'Any size')}</select></label>`,
-        `<label><span>Taste</span><select data-filter="taste">${optionHtml(uniqueTraitValues(source,'taste'), filters.taste, 'Any taste')}</select></label>`
+        `<label><span>Habitat</span><select data-filter="habitat">${optionHtml(vocabLabels(VOCAB.common.habitats), filters.habitat, 'Any habitat')}</select></label>`,
+        `<label><span>Part seen</span><select data-filter="part">${optionHtml(vocabLabels(VOCAB.common.observedParts), filters.part, 'Any part')}</select></label>`,
+        `<label><span>Size</span><select data-filter="size">${optionHtml(vocabLabels(VOCAB.common.sizes), filters.size, 'Any size')}</select></label>`,
+        `<label><span>Taste</span><select data-filter="taste">${optionHtml(vocabLabels(VOCAB.common.tastes), filters.taste, 'Any taste')}</select></label>`
       ]
     });
   } else if (activePage === 'mushrooms') {
@@ -149,21 +161,21 @@ export function renderDashboard({ page, allRecords, currentRecords, filters, sel
     workspaceHtml = renderWorkspace({
       page: 'mushrooms',
       title: 'Mushrooms',
-      intro: 'Substrate, tree type, host tree, texture, smell, staining, and taste now work like a field checklist instead of a wall of shrugging.',
+      intro: 'Substrate, hardwood versus softwood, host tree, texture, smell, staining, and taste now behave like a field checklist instead of a wall of shrugging.',
       records: currentRecords,
       filters,
       context: 'mushrooms',
       paneMode,
       scopeRecords: source,
       extraFilters: [
-        `<label><span>Growing on</span><select data-filter="substrate">${optionHtml(uniqueTraitValues(source,'substrate'), filters.substrate, 'Any substrate')}</select></label>`,
-        `<label><span>Tree type</span><select data-filter="treeType">${optionHtml(uniqueTraitValues(source,'treeType'), filters.treeType, 'Any tree type')}</select></label>`,
-        `<label><span>Host tree</span><select data-filter="hostTree">${optionHtml(uniqueTraitValues(source,'hostTree'), filters.hostTree, 'Any host tree')}</select></label>`,
-        `<label><span>Ring</span><select data-filter="ring">${optionHtml(uniqueTraitValues(source,'ring'), filters.ring, 'Any ring state')}</select></label>`,
-        `<label><span>Texture</span><select data-filter="texture">${optionHtml(uniqueTraitValues(source,'texture'), filters.texture, 'Any texture')}</select></label>`,
-        `<label><span>Smell</span><select data-filter="smell">${optionHtml(uniqueTraitValues(source,'smell'), filters.smell, 'Any smell')}</select></label>`,
-        `<label><span>Staining</span><select data-filter="staining">${optionHtml(uniqueTraitValues(source,'staining'), filters.staining, 'Any staining')}</select></label>`,
-        `<label><span>Taste</span><select data-filter="taste">${optionHtml(uniqueTraitValues(source,'taste'), filters.taste, 'Any taste')}</select></label>`
+        `<label><span>Substrate</span><select data-filter="substrate">${optionHtml(vocabLabels(VOCAB.mushrooms.substrates), filters.substrate, 'Any substrate')}</select></label>`,
+        `<label><span>Tree type</span><select data-filter="treeType">${optionHtml(vocabLabels(VOCAB.mushrooms.woodTypes), filters.treeType, 'Any tree type')}</select></label>`,
+        `<label><span>Host tree</span><select data-filter="hostTree">${optionHtml(hostTreeLabels(filters.treeType), filters.hostTree, 'Any host tree')}</select></label>`,
+        `<label><span>Ring</span><select data-filter="ring">${optionHtml(vocabLabels(VOCAB.mushrooms.ringStates), filters.ring, 'Any ring state')}</select></label>`,
+        `<label><span>Texture</span><select data-filter="texture">${optionHtml(vocabLabels(VOCAB.mushrooms.textures), filters.texture, 'Any texture')}</select></label>`,
+        `<label><span>Smell</span><select data-filter="smell">${optionHtml(vocabLabels(VOCAB.mushrooms.odors), filters.smell, 'Any smell')}</select></label>`,
+        `<label><span>Staining</span><select data-filter="staining">${optionHtml(vocabLabels(VOCAB.mushrooms.stainingColors), filters.staining, 'Any staining')}</select></label>`,
+        `<label><span>Taste</span><select data-filter="taste">${optionHtml(vocabLabels(VOCAB.common.tastes), filters.taste, 'Any taste')}</select></label>`
       ]
     });
   } else if (activePage === 'medicinal') {
@@ -171,22 +183,23 @@ export function renderDashboard({ page, allRecords, currentRecords, filters, sel
     workspaceHtml = renderWorkspace({
       page: 'medicinal',
       title: 'Medicinal',
-      intro: 'Search by action, body system, or medicinal terms without the culinary side constantly elbowing into the room.',
+      intro: 'Search by action, body system, or medical term without the culinary side constantly elbowing into the room.',
       records: currentRecords,
       filters,
       context: 'medicinal',
       paneMode,
       scopeRecords: source,
       extraFilters: [
-        `<label><span>Medicinal action</span><select data-filter="medicinalAction">${optionHtml(uniqueTraitValues(source,'medicinalAction'), filters.medicinalAction, 'Any action')}</select></label>`,
-        `<label><span>Body system</span><select data-filter="medicinalSystem">${optionHtml(uniqueTraitValues(source,'medicinalSystem'), filters.medicinalSystem, 'Any body system')}</select></label>`,
-        `<label><span>Medical term</span><select data-filter="medicinalTerm">${optionHtml(uniqueTraitValues(source,'medicinalTerms'), filters.medicinalTerm, 'Any search term')}</select></label>`,
-        `<label><span>Part seen</span><select data-filter="part">${optionHtml(uniqueTraitValues(source,'observedPart'), filters.part, 'Any part')}</select></label>`,
-        `<label><span>Taste</span><select data-filter="taste">${optionHtml(uniqueTraitValues(source,'taste'), filters.taste, 'Any taste')}</select></label>`
+        `<label><span>Medicinal action</span><select data-filter="medicinalAction">${optionHtml(vocabLabels(VOCAB.medicinal.actions), filters.medicinalAction, 'Any action')}</select></label>`,
+        `<label><span>Body system</span><select data-filter="medicinalSystem">${optionHtml(vocabLabels(VOCAB.medicinal.bodySystems), filters.medicinalSystem, 'Any body system')}</select></label>`,
+        `<label><span>Medical term</span><select data-filter="medicinalTerm">${optionHtml(vocabLabels(VOCAB.medicinal.symptoms), filters.medicinalTerm, 'Any medical term')}</select></label>`,
+        `<label><span>Part seen</span><select data-filter="part">${optionHtml(vocabLabels(VOCAB.common.observedParts), filters.part, 'Any part')}</select></label>`,
+        `<label><span>Taste</span><select data-filter="taste">${optionHtml(vocabLabels(VOCAB.common.tastes), filters.taste, 'Any taste')}</select></label>`
       ]
     });
   } else if (activePage === 'review') {
     const source = reviewRecords(allRecords);
+    const reviewReasons = [...new Set(source.flatMap(record => record.reviewReasons || []))].sort((a, b) => a.localeCompare(b));
     workspaceHtml = renderWorkspace({
       page: 'review',
       title: 'Needs Review',
@@ -197,7 +210,7 @@ export function renderDashboard({ page, allRecords, currentRecords, filters, sel
       paneMode,
       scopeRecords: source,
       extraFilters: [
-        `<label><span>Review reason</span><select data-filter="reviewReason">${optionHtml(uniqueTraitValues(source,'reviewReasons'), filters.reviewReason, 'Any review reason')}</select></label>`
+        `<label><span>Review reason</span><select data-filter="reviewReason">${optionHtml(reviewReasons, filters.reviewReason, 'Any review reason')}</select></label>`
       ]
     });
   } else if (activePage === 'timeline') {

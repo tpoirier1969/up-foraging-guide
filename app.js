@@ -1,5 +1,5 @@
 
-const APP_VERSION = "v1.2";
+const APP_VERSION = "v1.3";
 const TABLE_NAME = "upper_michigan_foraging_species_v1";
 const MONTHS = ["January","February","March","April","May","June","July","August","September","October","November","December"];
 

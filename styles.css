@@ -449,3 +449,25 @@ input[type="search"],select{
 
 .scientific-line{font-style:italic}
 .thumb{object-position:center}
+
+
+/* v1.3 compact timeline and narrow-phone cleanup */
+.timeline-pill{min-width:84px;min-height:46px;font-size:.92rem}
+.timeline-shift-btn{width:38px;min-width:38px;min-height:38px}
+.timeline-selector-card{padding:14px}
+.timeline-toolbar p,.timeline-selector-card p{max-width:64ch}
+@media (max-width: 760px){
+  .timeline-selector-card{padding:12px}
+  .timeline-pill{min-width:72px;min-height:40px;border-radius:14px;font-size:.84rem}
+  .timeline-pill-rail{gap:8px;padding-inline:8px}
+  .timeline-week-row{gap:6px}
+  .week-chip{min-height:30px;font-size:.84rem}
+}
+@media (max-width: 520px){
+  .filter-form-grid{grid-template-columns:1fr}
+  .focus-now-copy p,.timeline-toolbar p,.filter-note{font-size:.88rem}
+  .timeline-pill{min-width:64px;min-height:38px;font-size:.8rem}
+  .timeline-focus-pills{gap:4px}
+  .focus-pill{padding:5px 8px;font-size:.72rem}
+  .timeline-filter-summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}

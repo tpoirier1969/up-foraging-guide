@@ -1,191 +1,1383 @@
 export const VOCAB = {
-  version: "v1.2",
-  common: {
-    habitats: [
-      { slug: "forest", label: "Forest", synonyms: ["forest", "woods", "woodland"] },
-      { slug: "hardwood_forest", label: "Hardwood forest", synonyms: ["hardwood forest", "hardwood woods"] },
-      { slug: "conifer_forest", label: "Conifer forest", synonyms: ["conifer forest", "spruce forest", "pine forest", "cedar swamp"] },
-      { slug: "mixed_forest", label: "Mixed forest", synonyms: ["mixed forest", "mixed woods"] },
-      { slug: "forest_edge", label: "Forest edge", synonyms: ["forest edge", "edge habitat"] },
-      { slug: "meadow", label: "Meadow / field", synonyms: ["meadow", "field", "open field"] },
-      { slug: "wetland", label: "Wetland / marsh", synonyms: ["wetland", "marsh", "swamp", "muck", "cattail"] },
-      { slug: "bog", label: "Bog", synonyms: ["bog"] },
-      { slug: "shoreline", label: "Shoreline / riverbank", synonyms: ["shoreline", "riverbank", "streambank", "lakeshore", "creek"] },
-      { slug: "roadside", label: "Roadside / disturbed", synonyms: ["roadside", "disturbed ground", "disturbed"] },
-      { slug: "yard", label: "Yard / garden", synonyms: ["yard", "lawn", "garden"] },
-      { slug: "sandy_upland", label: "Sandy / dry upland", synonyms: ["sand", "sandy", "dry upland"] }
+  "version": "v1.3",
+  "common": {
+    "habitats": [
+      {
+        "slug": "hardwood_forest",
+        "label": "Hardwoods",
+        "synonyms": [
+          "hardwood forest",
+          "hardwood woods",
+          "hardwood",
+          "deciduous forest",
+          "oak woods",
+          "maple forest",
+          "beech-maple"
+        ]
+      },
+      {
+        "slug": "conifer_forest",
+        "label": "Evergreens / conifers",
+        "synonyms": [
+          "conifer forest",
+          "spruce forest",
+          "pine forest",
+          "cedar swamp",
+          "hemlock forest",
+          "conifer",
+          "softwood",
+          "evergreen"
+        ]
+      },
+      {
+        "slug": "mixed_forest",
+        "label": "Mixed woods",
+        "synonyms": [
+          "mixed forest",
+          "mixed woods",
+          "hardwood-conifer mix"
+        ]
+      },
+      {
+        "slug": "forest_edge",
+        "label": "Forest edge / openings",
+        "synonyms": [
+          "forest edge",
+          "edge habitat",
+          "opening",
+          "woodland edge",
+          "thicket edge"
+        ]
+      },
+      {
+        "slug": "meadow",
+        "label": "Field / meadow / prairie",
+        "synonyms": [
+          "meadow",
+          "field",
+          "open field",
+          "prairie",
+          "grassland"
+        ]
+      },
+      {
+        "slug": "wetland",
+        "label": "Wetland / marsh / swamp",
+        "synonyms": [
+          "wetland",
+          "marsh",
+          "swamp",
+          "muck",
+          "cattail",
+          "wet woods"
+        ]
+      },
+      {
+        "slug": "bog",
+        "label": "Bog / fen",
+        "synonyms": [
+          "bog",
+          "fen",
+          "peatland"
+        ]
+      },
+      {
+        "slug": "shoreline",
+        "label": "Shoreline / riverbank",
+        "synonyms": [
+          "shoreline",
+          "riverbank",
+          "streambank",
+          "lakeshore",
+          "creek",
+          "riparian"
+        ]
+      },
+      {
+        "slug": "roadside",
+        "label": "Roadside / disturbed",
+        "synonyms": [
+          "roadside",
+          "disturbed ground",
+          "disturbed",
+          "trailside",
+          "waste ground"
+        ]
+      },
+      {
+        "slug": "yard",
+        "label": "Yard / garden / orchard",
+        "synonyms": [
+          "yard",
+          "lawn",
+          "garden",
+          "orchard",
+          "landscaping"
+        ]
+      },
+      {
+        "slug": "sandy_upland",
+        "label": "Sandy / dry upland",
+        "synonyms": [
+          "sand",
+          "sandy",
+          "dry upland",
+          "dry ridge",
+          "jack pine barrens"
+        ]
+      }
     ],
-    observedParts: [
-      { slug: "whole_plant", label: "Whole plant", synonyms: ["whole plant", "whole mushroom"] },
-      { slug: "leaf", label: "Leaf", synonyms: ["leaf", "leaves", "foliage"] },
-      { slug: "flower", label: "Flower", synonyms: ["flower", "flowers", "blossom", "blossoms"] },
-      { slug: "fruit", label: "Fruit / berry", synonyms: ["fruit", "berry", "berries", "cherry", "plum", "apple"] },
-      { slug: "seed", label: "Seed / cone / nut", synonyms: ["seed", "seeds", "nut", "nuts", "cone", "cones"] },
-      { slug: "stem", label: "Stem", synonyms: ["stem", "stalk"] },
-      { slug: "bark", label: "Bark", synonyms: ["bark"] },
-      { slug: "root", label: "Root / rhizome", synonyms: ["root", "roots", "rhizome", "rhizomes", "tuber", "tubers"] },
-      { slug: "sap", label: "Sap / resin", synonyms: ["sap", "resin", "gum"] },
-      { slug: "pollen", label: "Pollen", synonyms: ["pollen"] },
-      { slug: "mushroom", label: "Mushroom", synonyms: ["mushroom", "cap", "fruiting body"] }
+    "observedParts": [
+      {
+        "slug": "whole_plant",
+        "label": "Whole plant / whole mushroom",
+        "synonyms": [
+          "whole plant",
+          "whole mushroom"
+        ]
+      },
+      {
+        "slug": "leaf",
+        "label": "Leaf",
+        "synonyms": [
+          "leaf",
+          "leaves",
+          "foliage"
+        ]
+      },
+      {
+        "slug": "flower",
+        "label": "Flower",
+        "synonyms": [
+          "flower",
+          "flowers",
+          "blossom",
+          "blossoms"
+        ]
+      },
+      {
+        "slug": "fruit",
+        "label": "Fruit / berry",
+        "synonyms": [
+          "fruit",
+          "berry",
+          "berries",
+          "cherry",
+          "plum",
+          "apple"
+        ]
+      },
+      {
+        "slug": "seed",
+        "label": "Seed / cone / nut",
+        "synonyms": [
+          "seed",
+          "seeds",
+          "nut",
+          "nuts",
+          "cone",
+          "cones",
+          "acorn",
+          "acorns"
+        ]
+      },
+      {
+        "slug": "stem",
+        "label": "Stem / stalk",
+        "synonyms": [
+          "stem",
+          "stalk"
+        ]
+      },
+      {
+        "slug": "bark",
+        "label": "Bark / cambium",
+        "synonyms": [
+          "bark",
+          "cambium"
+        ]
+      },
+      {
+        "slug": "root",
+        "label": "Root / rhizome / tuber",
+        "synonyms": [
+          "root",
+          "roots",
+          "rhizome",
+          "rhizomes",
+          "tuber",
+          "tubers"
+        ]
+      },
+      {
+        "slug": "sap",
+        "label": "Sap / resin",
+        "synonyms": [
+          "sap",
+          "resin",
+          "gum"
+        ]
+      },
+      {
+        "slug": "pollen",
+        "label": "Pollen",
+        "synonyms": [
+          "pollen"
+        ]
+      },
+      {
+        "slug": "mushroom",
+        "label": "Mushroom fruiting body",
+        "synonyms": [
+          "mushroom",
+          "cap",
+          "fruiting body"
+        ]
+      }
     ],
-    tastes: [
-      { slug: "mild", label: "Mild", synonyms: ["mild"] },
-      { slug: "sweet", label: "Sweet", synonyms: ["sweet", "sugary", "honeyed"] },
-      { slug: "bitter", label: "Bitter", synonyms: ["bitter"] },
-      { slug: "sour", label: "Sour / tart", synonyms: ["tart", "sour", "acidic"] },
-      { slug: "peppery", label: "Peppery / spicy", synonyms: ["spicy", "peppery"] },
-      { slug: "nutty", label: "Nutty", synonyms: ["nutty"] },
-      { slug: "earthy", label: "Earthy", synonyms: ["earthy"] },
-      { slug: "aromatic", label: "Aromatic", synonyms: ["aromatic", "fragrant"] },
-      { slug: "cucumber", label: "Cucumber-like", synonyms: ["cucumber"] },
-      { slug: "mushroomy", label: "Mushroomy / umami", synonyms: ["mushroomy", "umami"] },
-      { slug: "unpleasant", label: "Unpleasant", synonyms: ["unpleasant", "bad taste"] },
-      { slug: "unknown", label: "Unknown", synonyms: [] }
+    "tastes": [
+      {
+        "slug": "mild",
+        "label": "Mild",
+        "synonyms": [
+          "mild"
+        ]
+      },
+      {
+        "slug": "sweet",
+        "label": "Sweet",
+        "synonyms": [
+          "sweet",
+          "sugary",
+          "honeyed"
+        ]
+      },
+      {
+        "slug": "sour",
+        "label": "Tart / sour",
+        "synonyms": [
+          "tart",
+          "sour",
+          "acidic"
+        ]
+      },
+      {
+        "slug": "bitter",
+        "label": "Bitter",
+        "synonyms": [
+          "bitter"
+        ]
+      },
+      {
+        "slug": "astringent",
+        "label": "Astringent",
+        "synonyms": [
+          "astringent",
+          "drying"
+        ]
+      },
+      {
+        "slug": "nutty",
+        "label": "Nutty",
+        "synonyms": [
+          "nutty"
+        ]
+      },
+      {
+        "slug": "onion_garlic",
+        "label": "Onion / garlic",
+        "synonyms": [
+          "onion",
+          "garlic",
+          "garlicky"
+        ]
+      },
+      {
+        "slug": "minty",
+        "label": "Minty / aromatic",
+        "synonyms": [
+          "minty",
+          "aromatic",
+          "fragrant"
+        ]
+      },
+      {
+        "slug": "peppery",
+        "label": "Peppery / spicy",
+        "synonyms": [
+          "spicy",
+          "peppery",
+          "hot"
+        ]
+      },
+      {
+        "slug": "resinous",
+        "label": "Resinous / piney",
+        "synonyms": [
+          "resinous",
+          "piney",
+          "turpentine"
+        ]
+      },
+      {
+        "slug": "earthy",
+        "label": "Earthy / mushroomy",
+        "synonyms": [
+          "earthy",
+          "mushroomy",
+          "umami"
+        ]
+      },
+      {
+        "slug": "bland",
+        "label": "Bland / starchy",
+        "synonyms": [
+          "bland",
+          "starchy"
+        ]
+      },
+      {
+        "slug": "unpleasant",
+        "label": "Unpleasant",
+        "synonyms": [
+          "unpleasant",
+          "bad taste"
+        ]
+      }
     ],
-    sizes: [
-      { slug: "tiny", label: "Tiny", synonyms: ["tiny", "smallest", "under 2"] },
-      { slug: "small", label: "Small", synonyms: ["small", "2-6", "2 to 6"] },
-      { slug: "medium", label: "Medium", synonyms: ["medium", "6-24", "6 to 24"] },
-      { slug: "large", label: "Large", synonyms: ["large", "2-6 ft", "2 to 6 ft"] },
-      { slug: "giant", label: "Giant", synonyms: ["giant", "huge", "tree-sized"] }
+    "sizes": [
+      {
+        "slug": "ground_hugging",
+        "label": "Ground-hugging (0 to 3 in / 0 to 8 cm)",
+        "synonyms": [
+          "ground hugging",
+          "ground-hugging",
+          "mat-forming",
+          "prostrate",
+          "under 3 in",
+          "under 8 cm"
+        ]
+      },
+      {
+        "slug": "low",
+        "label": "Low (3 to 12 in / 8 to 30 cm)",
+        "synonyms": [
+          "low",
+          "3 to 12 in",
+          "8 to 30 cm"
+        ]
+      },
+      {
+        "slug": "medium",
+        "label": "Medium (1 to 3 ft / 30 to 90 cm)",
+        "synonyms": [
+          "medium",
+          "1 to 3 ft",
+          "30 to 90 cm"
+        ]
+      },
+      {
+        "slug": "tall",
+        "label": "Tall (3 to 6 ft / 0.9 to 1.8 m)",
+        "synonyms": [
+          "tall",
+          "3 to 6 ft",
+          "0.9 to 1.8 m"
+        ]
+      },
+      {
+        "slug": "shrub",
+        "label": "Shrub (3 to 10 ft / 0.9 to 3 m)",
+        "synonyms": [
+          "shrub",
+          "3 to 10 ft",
+          "0.9 to 3 m",
+          "bush"
+        ]
+      },
+      {
+        "slug": "tree",
+        "label": "Tree (10+ ft / 3+ m)",
+        "synonyms": [
+          "tree",
+          "10+ ft",
+          "3+ m",
+          "tree-sized"
+        ]
+      },
+      {
+        "slug": "vine",
+        "label": "Vine / climbing (variable)",
+        "synonyms": [
+          "vine",
+          "climbing",
+          "twining"
+        ]
+      }
     ]
   },
-  mushrooms: {
-    substrates: [
-      { slug: "soil", label: "Soil", synonyms: ["soil", "ground"] },
-      { slug: "wood", label: "Wood", synonyms: ["wood"] },
-      { slug: "dead_wood", label: "Dead wood", synonyms: ["dead wood", "rotting wood", "fallen wood"] },
-      { slug: "living_tree", label: "Living tree", synonyms: ["living tree", "living wood"] },
-      { slug: "stump", label: "Stump", synonyms: ["stump"] },
-      { slug: "fallen_log", label: "Fallen log", synonyms: ["fallen log", "log"] },
-      { slug: "moss", label: "Moss", synonyms: ["moss"] },
-      { slug: "leaf_litter", label: "Leaf litter", synonyms: ["leaf litter", "litter"] },
-      { slug: "unknown", label: "Unknown", synonyms: [] }
+  "mushrooms": {
+    "substrates": [
+      {
+        "slug": "soil",
+        "label": "Soil",
+        "synonyms": [
+          "soil",
+          "ground"
+        ]
+      },
+      {
+        "slug": "leaf_litter",
+        "label": "Leaf litter",
+        "synonyms": [
+          "leaf litter",
+          "litter"
+        ]
+      },
+      {
+        "slug": "moss",
+        "label": "Moss",
+        "synonyms": [
+          "moss"
+        ]
+      },
+      {
+        "slug": "dung",
+        "label": "Dung / manure",
+        "synonyms": [
+          "dung",
+          "manure"
+        ]
+      },
+      {
+        "slug": "burn_site",
+        "label": "Burn site",
+        "synonyms": [
+          "burn site",
+          "burned ground",
+          "after fire"
+        ]
+      },
+      {
+        "slug": "hardwood_wood",
+        "label": "Hardwood wood / log / stump",
+        "synonyms": [
+          "hardwood",
+          "hardwood wood",
+          "hardwood log",
+          "hardwood stump",
+          "deciduous wood",
+          "log",
+          "stump",
+          "fallen log",
+          "dead wood",
+          "standing dead wood",
+          "rotting wood"
+        ]
+      },
+      {
+        "slug": "softwood_wood",
+        "label": "Softwood / conifer wood",
+        "synonyms": [
+          "softwood",
+          "conifer wood",
+          "conifer log",
+          "softwood log",
+          "pine log",
+          "spruce log",
+          "fir log"
+        ]
+      },
+      {
+        "slug": "living_hardwood",
+        "label": "Living hardwood tree",
+        "synonyms": [
+          "living hardwood",
+          "living tree",
+          "living wood",
+          "on hardwood"
+        ]
+      },
+      {
+        "slug": "living_conifer",
+        "label": "Living conifer tree",
+        "synonyms": [
+          "living conifer",
+          "on conifer",
+          "on pine",
+          "on spruce",
+          "on fir",
+          "on hemlock"
+        ]
+      },
+      {
+        "slug": "unknown",
+        "label": "Unknown",
+        "synonyms": []
+      }
     ],
-    woodTypes: [
-      { slug: "hardwood", label: "Hardwood", synonyms: ["hardwood", "deciduous wood"] },
-      { slug: "conifer", label: "Conifer", synonyms: ["conifer", "softwood"] },
-      { slug: "unknown", label: "Unknown", synonyms: [] }
+    "woodTypes": [
+      {
+        "slug": "hardwood",
+        "label": "Hardwood",
+        "synonyms": [
+          "hardwood",
+          "deciduous wood"
+        ]
+      },
+      {
+        "slug": "conifer",
+        "label": "Conifer / softwood",
+        "synonyms": [
+          "conifer",
+          "softwood"
+        ]
+      },
+      {
+        "slug": "mixed",
+        "label": "Mixed / unknown wood",
+        "synonyms": [
+          "mixed",
+          "unknown"
+        ]
+      }
     ],
-    hostTrees: [
-      { slug: "birch", label: "Birch", broadType: "hardwood", synonyms: ["birch"] },
-      { slug: "aspen", label: "Aspen", broadType: "hardwood", synonyms: ["aspen"] },
-      { slug: "poplar", label: "Poplar", broadType: "hardwood", synonyms: ["poplar"] },
-      { slug: "cottonwood", label: "Cottonwood", broadType: "hardwood", synonyms: ["cottonwood"] },
-      { slug: "maple", label: "Maple", broadType: "hardwood", synonyms: ["maple"] },
-      { slug: "oak", label: "Oak", broadType: "hardwood", synonyms: ["oak"] },
-      { slug: "beech", label: "Beech", broadType: "hardwood", synonyms: ["beech"] },
-      { slug: "cherry", label: "Cherry", broadType: "hardwood", synonyms: ["cherry", "black cherry", "wild cherry"] },
-      { slug: "elm", label: "Elm", broadType: "hardwood", synonyms: ["elm"] },
-      { slug: "ash", label: "Ash", broadType: "hardwood", synonyms: ["ash"] },
-      { slug: "apple", label: "Apple", broadType: "hardwood", synonyms: ["apple", "apple tree", "old orchard"] },
-      { slug: "tulip_poplar", label: "Tulip poplar", broadType: "hardwood", synonyms: ["tulip poplar", "tulip tree", "yellow poplar"] },
-      { slug: "basswood", label: "Basswood", broadType: "hardwood", synonyms: ["basswood", "linden"] },
-      { slug: "willow", label: "Willow", broadType: "hardwood", synonyms: ["willow"] },
-      { slug: "alder", label: "Alder", broadType: "hardwood", synonyms: ["alder"] },
-      { slug: "pine", label: "Pine", broadType: "conifer", synonyms: ["pine"] },
-      { slug: "spruce", label: "Spruce", broadType: "conifer", synonyms: ["spruce"] },
-      { slug: "black_spruce", label: "Black spruce", broadType: "conifer", synonyms: ["black spruce"] },
-      { slug: "fir", label: "Fir", broadType: "conifer", synonyms: ["fir"] },
-      { slug: "hemlock", label: "Hemlock", broadType: "conifer", synonyms: ["hemlock"] },
-      { slug: "cedar", label: "Cedar", broadType: "conifer", synonyms: ["cedar"] },
-      { slug: "tamarack", label: "Tamarack / larch", broadType: "conifer", synonyms: ["tamarack", "larch"] }
+    "hostTrees": [
+      {
+        "slug": "birch",
+        "label": "Birch",
+        "broadType": "hardwood",
+        "synonyms": [
+          "birch"
+        ]
+      },
+      {
+        "slug": "aspen",
+        "label": "Aspen",
+        "broadType": "hardwood",
+        "synonyms": [
+          "aspen"
+        ]
+      },
+      {
+        "slug": "poplar",
+        "label": "Poplar",
+        "broadType": "hardwood",
+        "synonyms": [
+          "poplar"
+        ]
+      },
+      {
+        "slug": "cottonwood",
+        "label": "Cottonwood",
+        "broadType": "hardwood",
+        "synonyms": [
+          "cottonwood"
+        ]
+      },
+      {
+        "slug": "maple",
+        "label": "Maple",
+        "broadType": "hardwood",
+        "synonyms": [
+          "maple"
+        ]
+      },
+      {
+        "slug": "oak",
+        "label": "Oak",
+        "broadType": "hardwood",
+        "synonyms": [
+          "oak"
+        ]
+      },
+      {
+        "slug": "beech",
+        "label": "Beech",
+        "broadType": "hardwood",
+        "synonyms": [
+          "beech"
+        ]
+      },
+      {
+        "slug": "cherry",
+        "label": "Cherry",
+        "broadType": "hardwood",
+        "synonyms": [
+          "cherry",
+          "black cherry",
+          "wild cherry"
+        ]
+      },
+      {
+        "slug": "elm",
+        "label": "Elm",
+        "broadType": "hardwood",
+        "synonyms": [
+          "elm"
+        ]
+      },
+      {
+        "slug": "ash",
+        "label": "Ash",
+        "broadType": "hardwood",
+        "synonyms": [
+          "ash"
+        ]
+      },
+      {
+        "slug": "apple",
+        "label": "Apple",
+        "broadType": "hardwood",
+        "synonyms": [
+          "apple",
+          "apple tree",
+          "old orchard"
+        ]
+      },
+      {
+        "slug": "basswood",
+        "label": "Basswood / linden",
+        "broadType": "hardwood",
+        "synonyms": [
+          "basswood",
+          "linden"
+        ]
+      },
+      {
+        "slug": "willow",
+        "label": "Willow",
+        "broadType": "hardwood",
+        "synonyms": [
+          "willow"
+        ]
+      },
+      {
+        "slug": "alder",
+        "label": "Alder",
+        "broadType": "hardwood",
+        "synonyms": [
+          "alder"
+        ]
+      },
+      {
+        "slug": "pine",
+        "label": "Pine",
+        "broadType": "conifer",
+        "synonyms": [
+          "pine"
+        ]
+      },
+      {
+        "slug": "spruce",
+        "label": "Spruce",
+        "broadType": "conifer",
+        "synonyms": [
+          "spruce"
+        ]
+      },
+      {
+        "slug": "fir",
+        "label": "Fir",
+        "broadType": "conifer",
+        "synonyms": [
+          "fir"
+        ]
+      },
+      {
+        "slug": "hemlock",
+        "label": "Hemlock",
+        "broadType": "conifer",
+        "synonyms": [
+          "hemlock"
+        ]
+      },
+      {
+        "slug": "cedar",
+        "label": "Cedar",
+        "broadType": "conifer",
+        "synonyms": [
+          "cedar"
+        ]
+      },
+      {
+        "slug": "tamarack",
+        "label": "Tamarack / larch",
+        "broadType": "conifer",
+        "synonyms": [
+          "tamarack",
+          "larch"
+        ]
+      }
     ],
-    hostCertainty: [
-      { slug: "confirmed", label: "Confirmed" },
-      { slug: "commonly_reported", label: "Commonly reported" },
-      { slug: "suspected", label: "Suspected" },
-      { slug: "unknown", label: "Unknown" }
+    "hostCertainty": [
+      {
+        "slug": "confirmed",
+        "label": "Confirmed"
+      },
+      {
+        "slug": "commonly_reported",
+        "label": "Commonly reported"
+      },
+      {
+        "slug": "suspected",
+        "label": "Suspected"
+      },
+      {
+        "slug": "unknown",
+        "label": "Unknown"
+      }
     ],
-    ringStates: [
-      { slug: "ringed", label: "Ringed", synonyms: ["ring", "annulus", "skirt"] },
-      { slug: "ringless", label: "No ring", synonyms: ["no ring", "ringless"] },
-      { slug: "unknown", label: "Unknown", synonyms: [] }
+    "ringStates": [
+      {
+        "slug": "ringed",
+        "label": "Ringed",
+        "synonyms": [
+          "ring",
+          "annulus",
+          "skirt"
+        ]
+      },
+      {
+        "slug": "ringless",
+        "label": "No ring",
+        "synonyms": [
+          "no ring",
+          "ringless"
+        ]
+      },
+      {
+        "slug": "unknown",
+        "label": "Unknown",
+        "synonyms": []
+      }
     ],
-    undersideTypes: [
-      { slug: "gills", label: "Gills", synonyms: ["gill", "gills"] },
-      { slug: "pores", label: "Pores", synonyms: ["pore", "pores"] },
-      { slug: "teeth", label: "Teeth", synonyms: ["teeth", "tooth", "spines"] },
-      { slug: "ridges", label: "Ridges / false gills", synonyms: ["ridges", "false gills"] },
-      { slug: "smooth", label: "Smooth underside", synonyms: ["smooth underside"] }
+    "undersideTypes": [
+      {
+        "slug": "gills",
+        "label": "Gills",
+        "synonyms": [
+          "gill",
+          "gills"
+        ]
+      },
+      {
+        "slug": "pores",
+        "label": "Pores",
+        "synonyms": [
+          "pore",
+          "pores"
+        ]
+      },
+      {
+        "slug": "teeth",
+        "label": "Teeth",
+        "synonyms": [
+          "teeth",
+          "tooth",
+          "spines"
+        ]
+      },
+      {
+        "slug": "ridges",
+        "label": "Ridges / false gills",
+        "synonyms": [
+          "ridges",
+          "false gills"
+        ]
+      },
+      {
+        "slug": "smooth",
+        "label": "Smooth underside",
+        "synonyms": [
+          "smooth underside"
+        ]
+      }
     ],
-    textures: [
-      { slug: "smooth", label: "Smooth", synonyms: ["smooth"] },
-      { slug: "slimy", label: "Slimy / sticky", synonyms: ["slimy", "sticky"] },
-      { slug: "dry", label: "Dry", synonyms: ["dry"] },
-      { slug: "velvety", label: "Velvety", synonyms: ["velvety"] },
-      { slug: "scaly", label: "Scaly", synonyms: ["scaly", "scales"] },
-      { slug: "shaggy", label: "Shaggy", synonyms: ["shaggy"] },
-      { slug: "brittle", label: "Brittle", synonyms: ["brittle"] },
-      { slug: "leathery", label: "Leathery", synonyms: ["leathery"] },
-      { slug: "gelatinous", label: "Gelatinous / jelly", synonyms: ["gelatinous", "jelly"] },
-      { slug: "fleshy", label: "Fleshy / firm", synonyms: ["fleshy", "firm"] }
+    "textures": [
+      {
+        "slug": "smooth",
+        "label": "Smooth",
+        "synonyms": [
+          "smooth"
+        ]
+      },
+      {
+        "slug": "slimy",
+        "label": "Slimy / sticky",
+        "synonyms": [
+          "slimy",
+          "sticky"
+        ]
+      },
+      {
+        "slug": "dry",
+        "label": "Dry",
+        "synonyms": [
+          "dry"
+        ]
+      },
+      {
+        "slug": "velvety",
+        "label": "Velvety",
+        "synonyms": [
+          "velvety"
+        ]
+      },
+      {
+        "slug": "scaly",
+        "label": "Scaly",
+        "synonyms": [
+          "scaly",
+          "scales"
+        ]
+      },
+      {
+        "slug": "shaggy",
+        "label": "Shaggy",
+        "synonyms": [
+          "shaggy"
+        ]
+      },
+      {
+        "slug": "brittle",
+        "label": "Brittle",
+        "synonyms": [
+          "brittle"
+        ]
+      },
+      {
+        "slug": "leathery",
+        "label": "Leathery",
+        "synonyms": [
+          "leathery"
+        ]
+      },
+      {
+        "slug": "gelatinous",
+        "label": "Gelatinous / jelly",
+        "synonyms": [
+          "gelatinous",
+          "jelly"
+        ]
+      },
+      {
+        "slug": "fleshy",
+        "label": "Fleshy / firm",
+        "synonyms": [
+          "fleshy",
+          "firm"
+        ]
+      }
     ],
-    odors: [
-      { slug: "mild", label: "Mild / none", synonyms: ["mild odor", "little odor", "no odor"] },
-      { slug: "fruity", label: "Fruity", synonyms: ["fruity"] },
-      { slug: "anise", label: "Anise-like", synonyms: ["anise"] },
-      { slug: "cucumber", label: "Cucumber-like", synonyms: ["cucumber"] },
-      { slug: "flour", label: "Flour / mealy", synonyms: ["flour", "mealy"] },
-      { slug: "spicy", label: "Spicy", synonyms: ["spicy"] },
-      { slug: "foul", label: "Foul", synonyms: ["foul", "stink", "fetid"] },
-      { slug: "fishy", label: "Fishy", synonyms: ["fishy"] },
-      { slug: "earthy", label: "Earthy", synonyms: ["earthy"] },
-      { slug: "sweet", label: "Sweet", synonyms: ["sweet smell"] }
+    "odors": [
+      {
+        "slug": "mild",
+        "label": "Mild / none",
+        "synonyms": [
+          "mild odor",
+          "little odor",
+          "no odor"
+        ]
+      },
+      {
+        "slug": "fruity",
+        "label": "Fruity",
+        "synonyms": [
+          "fruity"
+        ]
+      },
+      {
+        "slug": "anise",
+        "label": "Anise-like",
+        "synonyms": [
+          "anise"
+        ]
+      },
+      {
+        "slug": "cucumber",
+        "label": "Cucumber-like",
+        "synonyms": [
+          "cucumber"
+        ]
+      },
+      {
+        "slug": "flour",
+        "label": "Flour / mealy",
+        "synonyms": [
+          "flour",
+          "mealy"
+        ]
+      },
+      {
+        "slug": "piney",
+        "label": "Piney / resinous",
+        "synonyms": [
+          "piney",
+          "resinous",
+          "resin"
+        ]
+      },
+      {
+        "slug": "spicy",
+        "label": "Spicy",
+        "synonyms": [
+          "spicy"
+        ]
+      },
+      {
+        "slug": "foul",
+        "label": "Foul",
+        "synonyms": [
+          "foul",
+          "stink",
+          "fetid"
+        ]
+      },
+      {
+        "slug": "fishy",
+        "label": "Fishy",
+        "synonyms": [
+          "fishy"
+        ]
+      },
+      {
+        "slug": "earthy",
+        "label": "Earthy",
+        "synonyms": [
+          "earthy"
+        ]
+      },
+      {
+        "slug": "sweet",
+        "label": "Sweet",
+        "synonyms": [
+          "sweet smell"
+        ]
+      }
     ],
-    stainingColors: [
-      { slug: "none", label: "No staining", synonyms: ["no staining", "does not stain"] },
-      { slug: "blue", label: "Blue staining", synonyms: ["blue stain", "blue bruising", "stains blue"] },
-      { slug: "yellow", label: "Yellow staining", synonyms: ["yellow stain", "stains yellow"] },
-      { slug: "red", label: "Red / pink staining", synonyms: ["red stain", "pink stain"] },
-      { slug: "brown", label: "Brown staining", synonyms: ["brown stain", "browns when handled"] },
-      { slug: "black", label: "Black staining", synonyms: ["black stain", "blackens"] },
-      { slug: "unknown", label: "Unknown", synonyms: [] }
+    "stainingColors": [
+      {
+        "slug": "none",
+        "label": "No staining",
+        "synonyms": [
+          "no staining",
+          "does not stain"
+        ]
+      },
+      {
+        "slug": "blue",
+        "label": "Blue staining",
+        "synonyms": [
+          "blue stain",
+          "blue bruising",
+          "stains blue"
+        ]
+      },
+      {
+        "slug": "yellow",
+        "label": "Yellow staining",
+        "synonyms": [
+          "yellow stain",
+          "stains yellow"
+        ]
+      },
+      {
+        "slug": "red",
+        "label": "Red / pink staining",
+        "synonyms": [
+          "red stain",
+          "pink stain"
+        ]
+      },
+      {
+        "slug": "brown",
+        "label": "Brown staining",
+        "synonyms": [
+          "brown stain",
+          "browns when handled"
+        ]
+      },
+      {
+        "slug": "black",
+        "label": "Black staining",
+        "synonyms": [
+          "black stain",
+          "blackens"
+        ]
+      },
+      {
+        "slug": "unknown",
+        "label": "Unknown",
+        "synonyms": []
+      }
     ]
   },
-  medicinal: {
-    actions: [
-      { slug: "astringent", label: "Astringent", synonyms: ["astringent"] },
-      { slug: "cooling", label: "Cooling", synonyms: ["cooling"] },
-      { slug: "warming", label: "Warming", synonyms: ["warming"] },
-      { slug: "bitter", label: "Bitter", synonyms: ["bitter"] },
-      { slug: "carminative", label: "Carminative", synonyms: ["carminative"] },
-      { slug: "diuretic", label: "Diuretic", synonyms: ["diuretic"] },
-      { slug: "expectorant", label: "Expectorant", synonyms: ["expectorant"] },
-      { slug: "tonic", label: "Tonic", synonyms: ["tonic"] },
-      { slug: "antiinflammatory", label: "Anti-inflammatory", synonyms: ["anti-inflammatory", "anti inflammatory", "inflammation"] },
-      { slug: "antimicrobial", label: "Antimicrobial", synonyms: ["antimicrobial", "antibacterial", "antiseptic"] },
-      { slug: "vulnerary", label: "Vulnerary", synonyms: ["wound healing", "vulnerary"] },
-      { slug: "styptic", label: "Styptic", synonyms: ["styptic"] }
+  "medicinal": {
+    "actions": [
+      {
+        "slug": "anti_inflammatory",
+        "label": "Anti-inflammatory",
+        "synonyms": [
+          "anti-inflammatory",
+          "anti inflammatory",
+          "inflammation"
+        ]
+      },
+      {
+        "slug": "antimicrobial",
+        "label": "Antimicrobial",
+        "synonyms": [
+          "antimicrobial",
+          "antibacterial",
+          "antifungal"
+        ]
+      },
+      {
+        "slug": "antioxidant",
+        "label": "Antioxidant",
+        "synonyms": [
+          "antioxidant"
+        ]
+      },
+      {
+        "slug": "immune_support",
+        "label": "Immune support",
+        "synonyms": [
+          "immune support",
+          "immunomodulating",
+          "immune"
+        ]
+      },
+      {
+        "slug": "digestive",
+        "label": "Digestive support",
+        "synonyms": [
+          "digestive",
+          "stomachic",
+          "digestive support"
+        ]
+      },
+      {
+        "slug": "respiratory",
+        "label": "Respiratory support",
+        "synonyms": [
+          "respiratory",
+          "lung",
+          "bronchial"
+        ]
+      },
+      {
+        "slug": "circulatory",
+        "label": "Circulatory support",
+        "synonyms": [
+          "circulatory",
+          "heart",
+          "cardio"
+        ]
+      },
+      {
+        "slug": "nervous",
+        "label": "Nervous system support",
+        "synonyms": [
+          "nervous system",
+          "nerve tonic"
+        ]
+      },
+      {
+        "slug": "analgesic",
+        "label": "Analgesic / pain relief",
+        "synonyms": [
+          "analgesic",
+          "pain relief"
+        ]
+      },
+      {
+        "slug": "astringent",
+        "label": "Astringent",
+        "synonyms": [
+          "astringent"
+        ]
+      },
+      {
+        "slug": "diuretic",
+        "label": "Diuretic",
+        "synonyms": [
+          "diuretic"
+        ]
+      },
+      {
+        "slug": "tonic",
+        "label": "Tonic / restorative",
+        "synonyms": [
+          "tonic",
+          "restorative"
+        ]
+      },
+      {
+        "slug": "vulnerary",
+        "label": "Vulnerary / wound support",
+        "synonyms": [
+          "vulnerary",
+          "wound healing",
+          "wound support"
+        ]
+      },
+      {
+        "slug": "sedative",
+        "label": "Sedative / calming",
+        "synonyms": [
+          "sedative",
+          "calming",
+          "relaxant"
+        ]
+      },
+      {
+        "slug": "stimulant",
+        "label": "Stimulant",
+        "synonyms": [
+          "stimulant"
+        ]
+      },
+      {
+        "slug": "warming",
+        "label": "Warming",
+        "synonyms": [
+          "warming"
+        ]
+      },
+      {
+        "slug": "cooling",
+        "label": "Cooling",
+        "synonyms": [
+          "cooling"
+        ]
+      }
     ],
-    bodySystems: [
-      { slug: "digestive", label: "Digestive", synonyms: ["stomach", "digestive", "nausea", "gas", "diarrhea", "constipation"] },
-      { slug: "respiratory", label: "Respiratory", synonyms: ["cough", "cold", "respiratory", "sore throat"] },
-      { slug: "skin", label: "Skin", synonyms: ["skin", "rash", "wound", "burn"] },
-      { slug: "oral", label: "Oral / dental", synonyms: ["toothache", "mouth", "gum", "oral"] },
-      { slug: "nervous", label: "Nervous system", synonyms: ["headache", "nerves", "calming", "anxiety"] },
-      { slug: "urinary", label: "Urinary", synonyms: ["urinary", "kidney", "bladder"] },
-      { slug: "musculoskeletal", label: "Musculoskeletal", synonyms: ["joint", "muscle", "pain"] },
-      { slug: "immune", label: "Immune", synonyms: ["immune", "fever", "infection"] }
+    "bodySystems": [
+      {
+        "slug": "digestive",
+        "label": "Digestive",
+        "synonyms": [
+          "digestive",
+          "stomach",
+          "gut",
+          "intestinal"
+        ]
+      },
+      {
+        "slug": "respiratory",
+        "label": "Respiratory",
+        "synonyms": [
+          "respiratory",
+          "lung",
+          "lungs",
+          "bronchial",
+          "throat"
+        ]
+      },
+      {
+        "slug": "cardiovascular",
+        "label": "Circulatory / cardiovascular",
+        "synonyms": [
+          "circulatory",
+          "cardiovascular",
+          "heart"
+        ]
+      },
+      {
+        "slug": "nervous",
+        "label": "Nervous system",
+        "synonyms": [
+          "nervous system",
+          "nerve"
+        ]
+      },
+      {
+        "slug": "immune",
+        "label": "Immune system",
+        "synonyms": [
+          "immune system",
+          "immune"
+        ]
+      },
+      {
+        "slug": "urinary",
+        "label": "Urinary",
+        "synonyms": [
+          "urinary",
+          "kidney",
+          "bladder"
+        ]
+      },
+      {
+        "slug": "musculoskeletal",
+        "label": "Muscles / joints",
+        "synonyms": [
+          "joint",
+          "joints",
+          "muscle",
+          "muscles",
+          "musculoskeletal"
+        ]
+      },
+      {
+        "slug": "skin",
+        "label": "Skin / topical",
+        "synonyms": [
+          "skin",
+          "topical",
+          "wound"
+        ]
+      },
+      {
+        "slug": "endocrine",
+        "label": "Metabolic / endocrine",
+        "synonyms": [
+          "blood sugar",
+          "metabolic",
+          "endocrine"
+        ]
+      }
     ],
-    symptoms: [
-      { slug: "stomach", label: "Stomach", synonyms: ["stomach", "upset stomach", "stomach ache", "digestive"] },
-      { slug: "headache", label: "Headache", synonyms: ["headache"] },
-      { slug: "toothache", label: "Toothache", synonyms: ["toothache"] },
-      { slug: "cough", label: "Cough", synonyms: ["cough"] },
-      { slug: "sore_throat", label: "Sore throat", synonyms: ["sore throat"] },
-      { slug: "nausea", label: "Nausea", synonyms: ["nausea"] },
-      { slug: "pain", label: "Pain", synonyms: ["pain"] },
-      { slug: "rash", label: "Rash", synonyms: ["rash"] },
-      { slug: "wound", label: "Wound care", synonyms: ["wound"] },
-      { slug: "fever", label: "Fever", synonyms: ["fever"] },
-      { slug: "inflammation", label: "Inflammation", synonyms: ["inflammation"] },
-      { slug: "cooling", label: "Cooling", synonyms: ["cooling"] },
-      { slug: "astringent", label: "Astringent", synonyms: ["astringent"] }
+    "symptoms": [
+      {
+        "slug": "cough",
+        "label": "Cough",
+        "synonyms": [
+          "cough"
+        ]
+      },
+      {
+        "slug": "sore_throat",
+        "label": "Sore throat",
+        "synonyms": [
+          "sore throat",
+          "throat"
+        ]
+      },
+      {
+        "slug": "congestion",
+        "label": "Congestion",
+        "synonyms": [
+          "congestion",
+          "stuffy",
+          "sinus"
+        ]
+      },
+      {
+        "slug": "fever",
+        "label": "Fever",
+        "synonyms": [
+          "fever"
+        ]
+      },
+      {
+        "slug": "nausea",
+        "label": "Nausea",
+        "synonyms": [
+          "nausea",
+          "queasy"
+        ]
+      },
+      {
+        "slug": "diarrhea",
+        "label": "Diarrhea",
+        "synonyms": [
+          "diarrhea"
+        ]
+      },
+      {
+        "slug": "constipation",
+        "label": "Constipation",
+        "synonyms": [
+          "constipation"
+        ]
+      },
+      {
+        "slug": "wounds",
+        "label": "Wounds",
+        "synonyms": [
+          "wound",
+          "wounds",
+          "cuts"
+        ]
+      },
+      {
+        "slug": "burns",
+        "label": "Burns",
+        "synonyms": [
+          "burn",
+          "burns"
+        ]
+      },
+      {
+        "slug": "rash",
+        "label": "Rash / skin irritation",
+        "synonyms": [
+          "rash",
+          "skin irritation",
+          "itching"
+        ]
+      },
+      {
+        "slug": "joint_pain",
+        "label": "Joint pain",
+        "synonyms": [
+          "joint pain",
+          "arthritis"
+        ]
+      },
+      {
+        "slug": "headache",
+        "label": "Headache",
+        "synonyms": [
+          "headache",
+          "migraine"
+        ]
+      },
+      {
+        "slug": "anxiety",
+        "label": "Anxiety / stress",
+        "synonyms": [
+          "anxiety",
+          "stress",
+          "nerves"
+        ]
+      },
+      {
+        "slug": "sleep",
+        "label": "Sleep",
+        "synonyms": [
+          "sleep",
+          "insomnia"
+        ]
+      },
+      {
+        "slug": "urinary",
+        "label": "Urinary issues",
+        "synonyms": [
+          "urinary",
+          "bladder",
+          "kidney"
+        ]
+      },
+      {
+        "slug": "blood_sugar",
+        "label": "Blood sugar support",
+        "synonyms": [
+          "blood sugar",
+          "glucose"
+        ]
+      },
+      {
+        "slug": "immune",
+        "label": "Immune support",
+        "synonyms": [
+          "immune support",
+          "immune"
+        ]
+      }
     ]
   }
 };
-
-export function flattenVocabGroups(groups) {
-  return groups.flatMap(group => Array.isArray(group) ? group : []);
-}

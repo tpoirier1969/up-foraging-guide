@@ -1,23 +1,42 @@
-
 import { VOCAB } from "./vocabulary.js";
 
-function inferMulti(text, entries, { includeUnknown = false } = {}) {
+function inferMulti(text, entries) {
   const out = [];
   const lower = text.toLowerCase();
   for (const entry of entries) {
-    const synonyms = entry.synonyms || [];
-    if (!synonyms.length && !includeUnknown) continue;
-    if (synonyms.some(term => lower.includes(term.toLowerCase()))) out.push(entry.label);
+    const terms = [entry.label, ...(entry.synonyms || [])].filter(Boolean).map(term => term.toLowerCase());
+    if (terms.some(term => lower.includes(term))) out.push(entry.label);
+  }
+  return [...new Set(out)];
+}
+
+function canonicalizeList(values, entries, { keepUnknown = false } = {}) {
+  const out = [];
+  for (const raw of values || []) {
+    const lower = String(raw || '').trim().toLowerCase();
+    if (!lower) continue;
+    let matched = false;
+    for (const entry of entries) {
+      const terms = [entry.label, ...(entry.synonyms || [])].filter(Boolean).map(term => term.toLowerCase());
+      if (terms.some(term => lower === term || lower.includes(term) || term.includes(lower))) {
+        out.push(entry.label);
+        matched = true;
+      }
+    }
+    if (!matched && keepUnknown) out.push(String(raw).trim());
   }
   return [...new Set(out)];
 }
 
 function inferHostTrees(text) {
   const lower = text.toLowerCase();
-  const matches = VOCAB.mushrooms.hostTrees.filter(entry => (entry.synonyms || []).some(term => lower.includes(term.toLowerCase())));
+  const matches = VOCAB.mushrooms.hostTrees.filter(entry => {
+    const terms = [entry.label, ...(entry.synonyms || [])].filter(Boolean).map(term => term.toLowerCase());
+    return terms.some(term => lower.includes(term));
+  });
   return {
     labels: [...new Set(matches.map(entry => entry.label))],
-    broadTypes: [...new Set(matches.map(entry => entry.broadType === "hardwood" ? "Hardwood" : entry.broadType === "conifer" ? "Conifer" : entry.broadType).filter(Boolean))]
+    broadTypes: [...new Set(matches.map(entry => entry.broadType === "hardwood" ? "Hardwood" : entry.broadType === "conifer" ? "Conifer / softwood" : "Mixed / unknown wood").filter(Boolean))]
   };
 }
 
@@ -50,15 +69,18 @@ export function inferTraits(record) {
   ].join(" ").toLowerCase();
 
   const hostInfo = inferHostTrees(text);
-  const explicitHostTree = explicitList(record, "mushroom_profile.host_trees").filter(label => !["Hardwood (general)", "Conifer (general)", "Hardwood litter", "Conifer litter", "Roots of umbellifers in native Eurasian range"].includes(label));
-  const explicitWoodTypes = explicitList(record, "mushroom_profile.wood_type").filter(Boolean);
-  const explicitSubstrate = explicitList(record, "mushroom_profile.substrate");
-  const explicitRing = explicitList(record, "mushroom_profile.ring");
-  const explicitUnderside = explicitList(record, "mushroom_profile.underside");
-  const explicitTexture = explicitList(record, "mushroom_profile.texture");
-  const explicitSmell = explicitList(record, "mushroom_profile.odor");
-  const explicitStaining = explicitList(record, "mushroom_profile.staining");
-  const explicitTaste = explicitList(record, "mushroom_profile.taste");
+  const explicitHostTree = canonicalizeList(
+    explicitList(record, "mushroom_profile.host_trees").filter(label => !["Hardwood (general)", "Conifer (general)", "Hardwood litter", "Conifer litter", "Roots of umbellifers in native Eurasian range"].includes(label)),
+    VOCAB.mushrooms.hostTrees
+  );
+  const explicitWoodTypes = canonicalizeList(explicitList(record, "mushroom_profile.wood_type"), VOCAB.mushrooms.woodTypes);
+  const explicitSubstrate = canonicalizeList(explicitList(record, "mushroom_profile.substrate"), VOCAB.mushrooms.substrates, { keepUnknown: false });
+  const explicitRing = canonicalizeList(explicitList(record, "mushroom_profile.ring"), VOCAB.mushrooms.ringStates);
+  const explicitUnderside = canonicalizeList(explicitList(record, "mushroom_profile.underside"), VOCAB.mushrooms.undersideTypes);
+  const explicitTexture = canonicalizeList(explicitList(record, "mushroom_profile.texture"), VOCAB.mushrooms.textures);
+  const explicitSmell = canonicalizeList(explicitList(record, "mushroom_profile.odor"), VOCAB.mushrooms.odors);
+  const explicitStaining = canonicalizeList(explicitList(record, "mushroom_profile.staining"), VOCAB.mushrooms.stainingColors);
+  const explicitTaste = canonicalizeList(explicitList(record, "mushroom_profile.taste"), VOCAB.common.tastes);
 
   const traits = {
     habitat: inferMulti(text, VOCAB.common.habitats),
@@ -79,14 +101,13 @@ export function inferTraits(record) {
   };
 
   if (record.category === "Mushroom") {
-    // Prefer explicit mushroom research fields, then fall back to text inference.
     traits.substrate = mergeUnique(explicitSubstrate, inferMulti(text, VOCAB.mushrooms.substrates));
     const broadWoodTypes = inferMulti(text, VOCAB.mushrooms.woodTypes);
     const explicitHostBroad = explicitHostTree.map(tree => {
       const found = VOCAB.mushrooms.hostTrees.find(entry => entry.label === tree);
-      return found?.broadType === "hardwood" ? "Hardwood" : found?.broadType === "conifer" ? "Conifer" : "";
+      return found?.broadType === "hardwood" ? "Hardwood" : found?.broadType === "conifer" ? "Conifer / softwood" : "Mixed / unknown wood";
     }).filter(Boolean);
-    traits.treeType = mergeUnique(explicitWoodTypes, broadWoodTypes, hostInfo.broadTypes, explicitHostBroad);
+    traits.treeType = mergeUnique(explicitWoodTypes, broadWoodTypes, hostInfo.broadTypes);
     traits.hostTree = mergeUnique(explicitHostTree, hostInfo.labels);
     traits.ring = mergeUnique(explicitRing, inferMulti(text, VOCAB.mushrooms.ringStates));
     traits.underside = mergeUnique(explicitUnderside, inferMulti(text, VOCAB.mushrooms.undersideTypes));

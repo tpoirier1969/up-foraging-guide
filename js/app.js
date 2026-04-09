@@ -20,7 +20,7 @@ function arrayFilterMatch(record, key, value) {
 
 function queryMatches(record, filters) {
   const query = (filters.search || "").trim().toLowerCase();
-  const haystack = [record.display_name, record.common_name, record.category, record.culinary_uses, record.medicinal_uses, record.notes, ...(record.links || []), ...(record.reviewReasons || [])].join(" ").toLowerCase();
+  const haystack = [record.display_name, record.common_name, record.scientific_name, record.category, record.culinary_uses, record.medicinal_uses, record.notes, ...(record.links || []), ...(record.reviewReasons || [])].join(" ").toLowerCase();
   const monthMatch = !filters.month || (record.months_available || []).includes(filters.month);
   const searchMatch = !query || haystack.includes(query);
   const categoryMatch = !filters.category || record.category === filters.category;
@@ -92,6 +92,7 @@ function renderCurrentRoute() {
       const page = state.route;
       if (!filterState[page]) return;
       filterState[page][target.dataset.filter] = target.value;
+      if (target.dataset.filter === 'treeType') filterState[page].hostTree = '';
       renderCurrentRoute();
     },
     onClearFilters: () => {
