@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Upper Michigan Foraging · Mushroom split notes v0.8</title>
+<style>
+body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;line-height:1.5;margin:0;background:#f7f3eb;color:#1f2a2e}
+main{max-width:1100px;margin:0 auto;padding:32px 20px 56px}
+h1{margin:.2rem 0 .3rem;font-size:2rem}
+.lead{font-size:1.05rem;color:#47545c;max-width:70ch}
+.banner{background:#fff;border:1px solid #d8d2c6;border-radius:18px;padding:22px 24px;box-shadow:0 8px 24px rgba(0,0,0,.04)}
+ul.summary{padding-left:1.2rem}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:20px}
+.card{background:#fff;border:1px solid #d8d2c6;border-radius:16px;padding:18px 18px 14px;margin-top:18px;box-shadow:0 6px 20px rgba(0,0,0,.03)}
+.meta{color:#5f6b72;font-style:italic;margin-bottom:8px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:10px 16px;margin:12px 0}
+.small{font-size:.92rem;color:#5f6b72}
+a{color:#245d6b}
+summary{cursor:pointer;font-weight:600}
+code{background:#eef3f4;padding:1px 5px;border-radius:6px}
+</style>
+</head>
+<body>
+<main>
+  <section class="banner">
+    <div class="small">Patch reference · v0.8</div>
+    <h1>Mushroom breakup notes</h1>
+    <p class="lead">This revision replaces several too-broad mushroom buckets with field-useful species groups or complexes. The goal is to stop flattening things like boletes, russulas, chanterelles, and oysters into mushy one-size-fits-all entries.</p>
+    <div class="grid2">
+      <div><strong>Morels</strong><br>Removed the generic “morel mushrooms” bucket and added half-free morels as their own eastern true-morel entry. Black morels and yellow morels stay separate.</div><div><strong>Chanterelles</strong><br>Replaced the generic chanterelle bucket with hardwood yellow chanterelles, conifer yellow chanterelles, red chanterelles, and smooth chanterelles. Yellowfoot and black trumpet stay as their own entries.</div><div><strong>Russulas</strong><br>Replaced the generic edible-russula bucket with shrimp russulas, charcoal burners / mild flexible-gill russulas, and short-stemmed russula.</div><div><strong>Boletes</strong><br>Replaced the generic bolete bucket with scaber-stalk boletes, bitter bolete, and a blue-staining / red-pored caution group. King bolete, slippery jack, and larch suillus remain separate.</div><div><strong>Oysters</strong><br>Replaced the generic oyster bucket with pearl oyster, phoenix oyster, and aspen oyster.</div>
+    </div>
+    <p class="small">Practical rule: when current taxonomy is unsettled or regional data are messy, the app now prefers a named <em>complex</em> or <em>field group</em> over pretending one exact species name is settled.</p>
+  </section>
+  
+<section class="card">
+  <h2>Half-free morels</h2>
+  <div class="meta">Morchella punctipes (eastern half-free morel)</div>
+  <p>A true morel with the cap attached only about halfway down the stem, leaving the lower half hanging free. Excellent edible when thoroughly cooked.</p>
+  <div class="grid">
+    <div><strong>Scope</strong><br>species_complex</div>
+    <div><strong>Edibility</strong><br>choice_cooked_only</div>
+    <div><strong>Caution</strong><br>high</div>
+    <div><strong>Host trees</strong><br>Elm, Ash, Apple, Hardwood (general)</div>
+    <div><strong>Wood type</strong><br>Hardwood</div>
+    <div><strong>Underside</strong><br>Pits and ridges (morel cap)</div>
+    <div><strong>Odor</strong><br>Mild / none</div>
+    <div><strong>Taste</strong><br>Mild, Earthy</div>
+  </div>
+  <p><strong>Why this split:</strong> listed separately because eastern half-free morels are a recognizable true-morel type in hardwood forests east of the Great Plains</p>
+  <details><summary>Research notes</summary><ul><li>The eastern half-free morel is Morchella punctipes; the western counterpart is Morchella populiphila.</li><li>Treat this as its own true-morel variant rather than hiding it under generic morels.</li><li>Strong confusion warning should still point users away from false morels like Gyromitra.</li></ul></details>
+  <details><summary>Sources</summary><ul><li><a href="https://www.mushroomexpert.com/morchella_punctipes.html">https://www.mushroomexpert.com/morchella_punctipes.html</a></li><li><a href="https://www.canr.msu.edu/resources/may_is_morel_month_in_michigan_e2755">https://www.canr.msu.edu/resources/may_is_morel_month_in_michigan_e2755</a></li></ul></details>
+</section>
+
+<section class="card">
+  <h2>Yellow chanterelles (hardwood-associated complex)</h2>
+  <div class="meta">Cantharellus spp. (hardwood-associated yellow chanterelles)</div>
+  <p>Golden to yellow chanterelles associated with hardwoods, especially oak and beech. Fruity, apricot-like aroma and decurrent false gills are key field marks.</p>
+  <div class="grid">
+    <div><strong>Scope</strong><br>species_complex</div>
+    <div><strong>Edibility</strong><br>choice</div>
+    <div><strong>Caution</strong><br>moderate</div>
+    <div><strong>Host trees</strong><br>Oak, Beech</div>
+    <div><strong>Wood type</strong><br>Hardwood</div>
+    <div><strong>Underside</strong><br>False gills / ridges</div>
+    <div><strong>Odor</strong><br>Fruity / apricot</div>
+    <div><strong>Taste</strong><br>Mild, Fruity, Peppery (sometimes slight)</div>
+  </div>
+  <p><strong>Why this split:</strong> listed as a hardwood-associated complex because Michigan yellow chanterelles include multiple closely related hardwood-linked taxa</p>
+  <details><summary>Research notes</summary><ul><li>Michigan material appears to include more than one hardwood-associated yellow chanterelle type.</li><li>Oak- and beech-associated yellows are worth separating from conifer-associated yellow chanterelles in the app.</li><li>Do not confuse chanterelle ridges with true blade-like gills.</li></ul></details>
+  <details><summary>Sources</summary><ul><li><a href="https://midwestmycology.org/cantharellus-species/">https://midwestmycology.org/cantharellus-species/</a></li><li><a href="https://www.fs.usda.gov/pnw/pubs/pnw_gtr576.pdf">https://www.fs.usda.gov/pnw/pubs/pnw_gtr576.pdf</a></li><li><a href="https://www.mushroomexpert.com/cantharellaceae.html">https://www.mushroomexpert.com/cantharellaceae.html</a></li></ul></details>
+</section>
+
+<section class="card">
+  <h2>Yellow chanterelles (conifer-associated complex)</h2>
+  <div class="meta">Cantharellus spp. (conifer-associated yellow chanterelles)</div>
+  <p>Yellow chanterelles associated with conifers such as spruce and hemlock. In Michigan they seem smaller and squatter than hardwood-associated yellow chanterelles.</p>
+  <div class="grid">
+    <div><strong>Scope</strong><br>species_complex</div>
+    <div><strong>Edibility</strong><br>choice</div>
+    <div><strong>Caution</strong><br>moderate</div>
+    <div><strong>Host trees</strong><br>Spruce, Hemlock, Conifer (general)</div>
+    <div><strong>Wood type</strong><br>Conifer</div>
+    <div><strong>Underside</strong><br>False gills / ridges</div>
+    <div><strong>Odor</strong><br>Fruity / apricot</div>
+    <div><strong>Taste</strong><br>Mild, Fruity</div>
+  </div>
+  <p><strong>Why this split:</strong> listed as a conifer-associated complex because Michigan conifer chanterelles appear distinct from oak/beech associates but taxonomy is still being worked out</p>
+  <details><summary>Research notes</summary><ul><li>Midwest American Mycological Information notes UP and northern Michigan conifer-associated yellows that likely represent different species from oak and beech associates.</li><li>Useful to split in the app even when exact species names remain unsettled.</li></ul></details>
+  <details><summary>Sources</summary><ul><li><a href="https://midwestmycology.org/cantharellus-species/">https://midwestmycology.org/cantharellus-species/</a></li><li><a href="https://www.fs.usda.gov/pnw/pubs/pnw_gtr576.pdf">https://www.fs.usda.gov/pnw/pubs/pnw_gtr576.pdf</a></li></ul></details>
+</section>
+
+<section class="card">
+  <h2>Red chanterelles / cinnabars</h2>
+  <div class="meta">Cantharellus cinnabarinus group</div>
+  <p>Small flamingo-pink to cinnabar-red chanterelles with false gills, usually in eastern hardwood forests.</p>
+  <div class="grid">
+    <div><strong>Scope</strong><br>species_complex</div>
+    <div><strong>Edibility</strong><br>choice</div>
+    <div><strong>Caution</strong><br>moderate</div>
+    <div><strong>Host trees</strong><br>Beech, Oak, Aspen, Hardwood (general)</div>
+    <div><strong>Wood type</strong><br>Hardwood</div>
+    <div><strong>Underside</strong><br>False gills / ridges</div>
+    <div><strong>Odor</strong><br>Mild fruity</div>
+    <div><strong>Taste</strong><br>Mild</div>
+  </div>
+  <p><strong>Why this split:</strong> listed as a recognizable red chanterelle type; exact Michigan taxonomy may include close relatives but the field form is coherent</p>
+  <details><summary>Research notes</summary><ul><li>MSU notes the red chanterelle is native to eastern North America.</li><li>Michigan material may include more than one red taxon, but this is still a useful field-facing entry.</li></ul></details>
+  <details><summary>Sources</summary><ul><li><a href="https://www.canr.msu.edu/news/cantharellus-cinnabarinus">https://www.canr.msu.edu/news/cantharellus-cinnabarinus</a></li><li><a href="https://www.mushroomexpert.com/cantharellus_cinnabarinus.html">https://www.mushroomexpert.com/cantharellus_cinnabarinus.html</a></li><li><a href="https://midwestmycology.org/cantharellus-species/">https://midwestmycology.org/cantharellus-species/</a></li></ul></details>
+</section>
+
+<section class="card">
+  <h2>Smooth chanterelles</h2>
+  <div class="meta">Cantharellus lateritius complex</div>
+  <p>A medium to large chanterelle with a smooth to only shallowly wrinkled underside rather than strongly developed false gills.</p>
+  <div class="grid">
+    <div><strong>Scope</strong><br>species_complex</div>
+    <div><strong>Edibility</strong><br>choice</div>
+    <div><strong>Caution</strong><br>moderate</div>
+    <div><strong>Host trees</strong><br>Oak</div>
+    <div><strong>Wood type</strong><br>Hardwood</div>
+    <div><strong>Underside</strong><br>Smooth to shallowly wrinkled</div>
+    <div><strong>Odor</strong><br>Fruity / apricot</div>
+    <div><strong>Taste</strong><br>Mild, Fruity</div>
+  </div>
+  <p><strong>Why this split:</strong> listed separately because the smooth underside is a practical field distinction, even though the complex likely needs more study</p>
+  <details><summary>Research notes</summary><ul><li>Cantharellus lateritius is a practical app entry, but MushroomExpert notes the North American smooth chanterelle complex likely needs more study.</li><li>Separate this from yellow chanterelles because the underside texture is a major field clue.</li></ul></details>
+  <details><summary>Sources</summary><ul><li><a href="https://www.mushroomexpert.com/cantharellus_lateritius.html">https://www.mushroomexpert.com/cantharellus_lateritius.html</a></li><li><a href="https://mdc.mo.gov/discover-nature/field-guide/smooth-chanterelle">https://mdc.mo.gov/discover-nature/field-guide/smooth-chanterelle</a></li></ul></details>
+</section>
+
+<section class="card">
+  <h2>Shrimp russulas</h2>
+  <div class="meta">Russula xerampelina group and allies</div>
+  <p>A complex of russulas with a characteristic shrimp- or fish-like odor, brownish staining, and a dull yellow spore print.</p>
+  <div class="grid">
+    <div><strong>Scope</strong><br>species_complex</div>
+    <div><strong>Edibility</strong><br>good</div>
+    <div><strong>Caution</strong><br>moderate</div>
+    <div><strong>Host trees</strong><br>White pine, Mixed forest, Hardwood (general)</div>
+    <div><strong>Wood type</strong><br>Hardwood, Conifer</div>
+    <div><strong>Underside</strong><br>True gills</div>
+    <div><strong>Odor</strong><br>Shrimp / fishy</div>
+    <div><strong>Taste</strong><br>Mild</div>
+  </div>
+  <p><strong>Why this split:</strong> listed as a species complex because multiple North American shrimp-russulas share a distinctive odor and similar field marks</p>
+  <details><summary>Research notes</summary><ul><li>Best treated as a complex rather than a single species in North America.</li><li>Some eastern forms are associated with eastern white pine, while others occur with different hosts.</li><li>A shrimp-like odor is the best field anchor.</li></ul></details>
+  <details><summary>Sources</summary><ul><li><a href="https://www.mushroomexpert.com/russula_shrimp.html">https://www.mushroomexpert.com/russula_shrimp.html</a></li><li><a href="https://www.mushroomexpert.com/russula_katarinae.html">https://www.mushroomexpert.com/russula_katarinae.html</a></li></ul></details>
+</section>
+
+<section class="card">
+  <h2>Charcoal burners / mild flexible-gill russulas</h2>
+  <div class="meta">Russula cyanoxantha group / Russula variata group</div>
+  <p>Mild-tasting russulas with unusually flexible, soft gills and often mixed green-purple cap colors.</p>
+  <div class="grid">
+    <div><strong>Scope</strong><br>species_complex</div>
+    <div><strong>Edibility</strong><br>good</div>
+    <div><strong>Caution</strong><br>moderate</div>
+    <div><strong>Host trees</strong><br>Oak, Hardwood (general), Conifer (general)</div>
+    <div><strong>Wood type</strong><br>Hardwood, Conifer</div>
+    <div><strong>Underside</strong><br>True gills</div>
+    <div><strong>Odor</strong><br>Mild / none</div>
+    <div><strong>Taste</strong><br>Mild</div>
+  </div>
+  <p><strong>Why this split:</strong> listed as a field-facing mild complex because North American lookalikes complicate exact species naming</p>
+  <details><summary>Research notes</summary><ul><li>The classic charcoal-burner concept is complicated in North America by lookalikes like Russula variata.</li><li>The flexible gills are the key practical field clue.</li></ul></details>
+  <details><summary>Sources</summary><ul><li><a href="https://www.mushroomexpert.com/russula_cyanoxantha.html">https://www.mushroomexpert.com/russula_cyanoxantha.html</a></li><li><a href="https://www.mushroomexpert.com/russula_variata.html">https://www.mushroomexpert.com/russula_variata.html</a></li></ul></details>
+</section>
+
+<section class="card">
+  <h2>Short-stemmed russula</h2>
+  <div class="meta">Russula brevipes group</div>
+  <p>A sturdy white to pale russula with a short stem in proportion to the cap, often partly hidden under leaves or needles.</p>
+  <div class="grid">
+    <div><strong>Scope</strong><br>species_group</div>
+    <div><strong>Edibility</strong><br>edible_mediocre</div>
+    <div><strong>Caution</strong><br>moderate</div>
+    <div><strong>Host trees</strong><br>Hardwood (general), Pine, Black spruce</div>
+    <div><strong>Wood type</strong><br>Hardwood, Conifer</div>
+    <div><strong>Underside</strong><br>True gills</div>
+    <div><strong>Odor</strong><br>Mild / none</div>
+    <div><strong>Taste</strong><br>Mild to slightly bitter</div>
+  </div>
+  <p><strong>Why this split:</strong> listed separately because it is a widespread, recognizable white russula in eastern forests</p>
+  <details><summary>Research notes</summary><ul><li>Often overlooked because fruitbodies can be partly buried in litter.</li><li>Also important because Hypomyces lactifluorum can parasitize this group and create lobster mushrooms.</li></ul></details>
+  <details><summary>Sources</summary><ul><li><a href="https://www.mushroomexpert.com/russula_brevipes.html">https://www.mushroomexpert.com/russula_brevipes.html</a></li><li><a href="https://www.fs.usda.gov/nrs/pubs/gtr/gtr_nrs79.pdf">https://www.fs.usda.gov/nrs/pubs/gtr/gtr_nrs79.pdf</a></li></ul></details>
+</section>
+
+<section class="card">
+  <h2>Scaber-stalk boletes / birch-aspen boletes</h2>
+  <div class="meta">Leccinum spp.</div>
+  <p>Boletes with peppered or scabered stems, often associated with birch, aspen, and other hardwoods. Several are edible but must be cooked very well and some people react poorly to them.</p>
+  <div class="grid">
+    <div><strong>Scope</strong><br>genus_group</div>
+    <div><strong>Edibility</strong><br>edible_with_caution</div>
+    <div><strong>Caution</strong><br>high</div>
+    <div><strong>Host trees</strong><br>Birch, Aspen, Oak, Hardwood (general)</div>
+    <div><strong>Wood type</strong><br>Hardwood</div>
+    <div><strong>Underside</strong><br>Pores</div>
+    <div><strong>Odor</strong><br>Mild / none</div>
+    <div><strong>Taste</strong><br>Mild</div>
+  </div>
+  <p><strong>Why this split:</strong> listed as a prudent group because several Leccinum occur in the region and are better grouped by the scabered stem trait unless species-level work is done</p>
+  <details><summary>Research notes</summary><ul><li>The stem scabers are the main field mark.</li><li>This group includes birch bolete types and aspen/orange-cap allies; species-level treatment can come later.</li><li>Use caution because Leccinum edibility varies by species and by individual tolerance.</li></ul></details>
+  <details><summary>Sources</summary><ul><li><a href="https://www.mushroomexpert.com/leccinum.html">https://www.mushroomexpert.com/leccinum.html</a></li><li><a href="https://boletes.wpamushroomclub.org/product/leccinum-scabrum/">https://boletes.wpamushroomclub.org/product/leccinum-scabrum/</a></li><li><a href="https://foragerchef.com/leccinum-or-scaber-stalk-mushrooms/">https://foragerchef.com/leccinum-or-scaber-stalk-mushrooms/</a></li></ul></details>
+</section>
+
+<section class="card">
+  <h2>Bitter bolete</h2>
+  <div class="meta">Tylopilus felleus group</div>
+  <p>A porcini lookalike with pinkish pores, a netted stem, and an extremely bitter taste.</p>
+  <div class="grid">
+    <div><strong>Scope</strong><br>species_group</div>
+    <div><strong>Edibility</strong><br>inedible_bitter</div>
+    <div><strong>Caution</strong><br>moderate</div>
+    <div><strong>Host trees</strong><br>Pine, Conifer (general)</div>
+    <div><strong>Wood type</strong><br>Conifer</div>
+    <div><strong>Underside</strong><br>Pores</div>
+    <div><strong>Odor</strong><br>Mild / none</div>
+    <div><strong>Taste</strong><br>Bitter</div>
+  </div>
+  <p><strong>Why this split:</strong> listed separately because it is a common porcini lookalike that can ruin meals</p>
+  <details><summary>Research notes</summary><ul><li>North American material called Tylopilus felleus may not be identical to the European species, but the field concept is still useful.</li><li>Important app entry because it is a classic king-bolete spoiler.</li></ul></details>
+  <details><summary>Sources</summary><ul><li><a href="https://www.mushroomexpert.com/tylopilus_felleus.html">https://www.mushroomexpert.com/tylopilus_felleus.html</a></li></ul></details>
+</section>
+
+<section class="card">
+  <h2>Blue-staining / red-pored boletes (caution group)</h2>
+  <div class="meta">Several Boletaceae genera</div>
+  <p>A caution bucket for boletes with red pores and/or strong blue staining. Some are edible, some are not recommended, and the group is too risky to flatten into one edible entry.</p>
+  <div class="grid">
+    <div><strong>Scope</strong><br>caution_group</div>
+    <div><strong>Edibility</strong><br>review_required</div>
+    <div><strong>Caution</strong><br>high</div>
+    <div><strong>Host trees</strong><br>Hardwood (general), Conifer (general)</div>
+    <div><strong>Wood type</strong><br>Hardwood, Conifer</div>
+    <div><strong>Underside</strong><br>Pores</div>
+    <div><strong>Odor</strong><br>Variable</div>
+    <div><strong>Taste</strong><br>Variable</div>
+  </div>
+  <p><strong>Why this split:</strong> kept as a caution group because several red-pored or strongly blue-staining boletes are difficult for beginners and should not be collapsed into edible porcini-type boletes</p>
+  <details><summary>Research notes</summary><ul><li>Not a single species; this is a safety-oriented grouping.</li><li>Use the app to warn beginners away from treating all boletes as edible.</li><li>A future pass should split this into actual regional species where data support exists.</li></ul></details>
+  <details><summary>Sources</summary><ul><li><a href="https://www.mushroomexpert.com/boletes.html">https://www.mushroomexpert.com/boletes.html</a></li><li><a href="https://www.wildfooduk.com/articles/identifying-boletus-mushrooms/">https://www.wildfooduk.com/articles/identifying-boletus-mushrooms/</a></li></ul></details>
+</section>
+
+<section class="card">
+  <h2>Pearl oyster</h2>
+  <div class="meta">Pleurotus ostreatus</div>
+  <p>The classic cool-weather oyster mushroom, usually brownish to gray and growing in overlapping clusters on hardwood.</p>
+  <div class="grid">
+    <div><strong>Scope</strong><br>species_group</div>
+    <div><strong>Edibility</strong><br>choice</div>
+    <div><strong>Caution</strong><br>moderate</div>
+    <div><strong>Host trees</strong><br>Hardwood (general), Aspen, Maple, Beech</div>
+    <div><strong>Wood type</strong><br>Hardwood</div>
+    <div><strong>Underside</strong><br>True gills decurrent</div>
+    <div><strong>Odor</strong><br>Mild anise or none</div>
+    <div><strong>Taste</strong><br>Mild, Savory</div>
+  </div>
+  <p><strong>Why this split:</strong> listed separately from other oysters because season and host patterns differ meaningfully from other Pleurotus in North America</p>
+  <details><summary>Research notes</summary><ul><li>Wood-growing shelf clusters with decurrent gills remain the anchor field marks.</li><li>North American oysters are a complex; this entry is for the cool-weather pearl oyster concept.</li></ul></details>
+  <details><summary>Sources</summary><ul><li><a href="https://www.mushroomexpert.com/pleurotus_ostreatus.html">https://www.mushroomexpert.com/pleurotus_ostreatus.html</a></li><li><a href="https://botit.botany.wisc.edu/toms_fungi/oct98.html">https://botit.botany.wisc.edu/toms_fungi/oct98.html</a></li></ul></details>
+</section>
+
+<section class="card">
+  <h2>Phoenix oyster / summer oyster</h2>
+  <div class="meta">Pleurotus pulmonarius</div>
+  <p>A paler, warm-weather oyster on hardwoods, usually fruiting from late spring through summer.</p>
+  <div class="grid">
+    <div><strong>Scope</strong><br>species_group</div>
+    <div><strong>Edibility</strong><br>good</div>
+    <div><strong>Caution</strong><br>moderate</div>
+    <div><strong>Host trees</strong><br>Hardwood (general)</div>
+    <div><strong>Wood type</strong><br>Hardwood</div>
+    <div><strong>Underside</strong><br>True gills decurrent</div>
+    <div><strong>Odor</strong><br>Mild / none</div>
+    <div><strong>Taste</strong><br>Mild, Savory</div>
+  </div>
+  <p><strong>Why this split:</strong> listed separately because it is a warm-weather oyster distinct from the classic cool-weather pearl oyster</p>
+  <details><summary>Research notes</summary><ul><li>MSU notes P. pulmonarius is generally found on hardwoods in the eastern United States.</li><li>Useful to split from the cool-weather oyster in the app by season as well as species.</li></ul></details>
+  <details><summary>Sources</summary><ul><li><a href="https://www.mushroomexpert.com/pleurotus_pulmonarius.html">https://www.mushroomexpert.com/pleurotus_pulmonarius.html</a></li><li><a href="https://www.canr.msu.edu/news/pleurotus-pulmonarius">https://www.canr.msu.edu/news/pleurotus-pulmonarius</a></li></ul></details>
+</section>
+
+<section class="card">
+  <h2>Aspen oyster</h2>
+  <div class="meta">Pleurotus populinus</div>
+  <p>A North American oyster that fruits on quaking aspen, cottonwood, and related Populus wood.</p>
+  <div class="grid">
+    <div><strong>Scope</strong><br>species_group</div>
+    <div><strong>Edibility</strong><br>good</div>
+    <div><strong>Caution</strong><br>moderate</div>
+    <div><strong>Host trees</strong><br>Aspen, Cottonwood, Populus</div>
+    <div><strong>Wood type</strong><br>Hardwood</div>
+    <div><strong>Underside</strong><br>True gills decurrent</div>
+    <div><strong>Odor</strong><br>Mild / none</div>
+    <div><strong>Taste</strong><br>Mild, Savory</div>
+  </div>
+  <p><strong>Why this split:</strong> listed separately because it is a distinct North American oyster tied to Populus hosts</p>
+  <details><summary>Research notes</summary><ul><li>MushroomExpert treats P. populinus as a well-established biological and phylogenetic species.</li><li>This is exactly the kind of host-specific mushroom your tree filters should be able to surface.</li></ul></details>
+  <details><summary>Sources</summary><ul><li><a href="https://www.mushroomexpert.com/pleurotus_populinus.html">https://www.mushroomexpert.com/pleurotus_populinus.html</a></li><li><a href="https://midwestmycology.org/pleurotus-ostreatus/">https://midwestmycology.org/pleurotus-ostreatus/</a></li></ul></details>
+</section>
+
+</main>
+</body>
+</html>
