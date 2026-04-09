@@ -1,131 +1,94 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Upper Michigan Foraging Guide</title>
-  <link rel="stylesheet" href="styles.css" />
-  <script src="config.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="site-header">
-    <div>
-      <h1>Upper Michigan Foraging Guide</h1>
-      <p class="tagline">Seasonal wild foods, field notes, and future mushroom trouble. Version v0.1</p>
-    </div>
-    <div class="version-badge">v0.1</div>
-  </header>
-
-  <main class="app-shell">
-    <aside class="sidebar card">
-      <h2>Filters</h2>
-      <label>
-        Search
-        <input type="search" id="searchInput" placeholder="Search name, use, season..." />
-      </label>
-
-      <label>
-        Category
-        <select id="categoryFilter">
-          <option value="all">All</option>
-          <option value="plant">Plants</option>
-          <option value="mushroom">Mushrooms</option>
-        </select>
-      </label>
-
-      <label>
-        Season
-        <select id="seasonFilter">
-          <option value="all">All seasons</option>
-          <option value="early spring">Early spring</option>
-          <option value="late spring">Late spring</option>
-          <option value="summer">Summer</option>
-          <option value="fall">Fall</option>
-        </select>
-      </label>
-
-      <label>
-        Use
-        <select id="useFilter">
-          <option value="all">All uses</option>
-          <option value="culinary">Culinary</option>
-          <option value="medicinal">Medicinal</option>
-          <option value="culinary, medicinal">Culinary + Medicinal</option>
-        </select>
-      </label>
-
-      <button id="resetFilters" class="button secondary">Reset filters</button>
-
-      <section class="status-box">
-        <h3>Connection</h3>
-        <p id="connectionStatus">Loading sample data...</p>
-      </section>
-
-      <section class="status-box">
-        <h3>What this first build includes</h3>
-        <ul>
-          <li>Starter data model</li>
-          <li>Search and filter UI</li>
-          <li>Seasonal browse cards</li>
-          <li>Supabase-ready wiring</li>
-          <li>Fallback sample entries</li>
-        </ul>
-      </section>
-    </aside>
-
-    <section class="content-area">
-      <section class="hero card">
-        <h2>Starter field guide</h2>
-        <p>This build converts the project from printable guide to web app structure. It uses sample entries from the material we already discussed, so you can start testing structure now and pour in the rest of the catalog later.</p>
-      </section>
-
-      <section class="summary-grid">
-        <article class="summary card">
-          <h3 id="entryCount">0</h3>
-          <p>Entries shown</p>
-        </article>
-        <article class="summary card">
-          <h3 id="plantCount">0</h3>
-          <p>Plants</p>
-        </article>
-        <article class="summary card">
-          <h3 id="mushroomCount">0</h3>
-          <p>Mushrooms</p>
-        </article>
-        <article class="summary card">
-          <h3 id="seasonCount">0</h3>
-          <p>Season buckets</p>
-        </article>
-      </section>
-
-      <section class="card">
-        <div class="list-header">
-          <h2>Guide entries</h2>
-          <p id="resultsLabel">0 results</p>
+  <div class="shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Upper Michigan Foraging Guide <span id="versionBadge" class="version-pill">v0.2</span></p>
+        <h1>Field-guide starter app</h1>
+        <p class="lede">A first web build from your spreadsheets, with Supabase-ready plumbing and local fallback data so you can preview it immediately on GitHub Pages.</p>
+        <div class="hero-stats">
+          <div class="stat"><span id="speciesCount">0</span><label>species entries</label></div>
+          <div class="stat"><span id="imageCount">0</span><label>images</label></div>
+          <div class="stat"><span id="categoryCount">0</span><label>categories</label></div>
         </div>
-        <div id="entryGrid" class="entry-grid"></div>
-      </section>
-    </section>
-  </main>
-
-  <template id="entryCardTemplate">
-    <article class="entry-card">
-      <div class="entry-topline">
-        <span class="pill category-pill"></span>
-        <span class="pill season-pill"></span>
       </div>
-      <h3 class="entry-name"></h3>
-      <p class="entry-scientific"></p>
-      <p class="entry-description"></p>
-      <dl class="entry-meta">
-        <div><dt>Use</dt><dd class="entry-use"></dd></div>
-        <div><dt>Edible parts</dt><dd class="entry-parts"></dd></div>
-        <div><dt>Notes</dt><dd class="entry-notes"></dd></div>
-      </dl>
-    </article>
-  </template>
+      <div class="hero-note">
+        <h2>What this build is</h2>
+        <ul>
+          <li>Plain HTML/CSS/JS. No build tools, no nonsense.</li>
+          <li>Specific Supabase table name to avoid collisions with your other projects.</li>
+          <li>Local JSON fallback, so the app still works before Supabase is wired in.</li>
+        </ul>
+      </div>
+    </header>
 
+    <section class="controls">
+      <label class="search-wrap">
+        <span>Search</span>
+        <input id="searchInput" type="search" placeholder="Search species, uses, notes...">
+      </label>
+
+      <label>
+        <span>Category</span>
+        <select id="categoryFilter">
+          <option value="">All categories</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Season / month</span>
+        <select id="monthFilter">
+          <option value="">Any month</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Images</span>
+        <select id="imageFilter">
+          <option value="">All entries</option>
+          <option value="with-images">With images only</option>
+          <option value="without-images">Without images only</option>
+        </select>
+      </label>
+
+      <button id="clearFiltersBtn" class="ghost-btn" type="button">Clear filters</button>
+    </section>
+
+    <section class="status-row">
+      <div id="dataSourceBadge" class="data-source-badge">Loading data...</div>
+      <div id="resultsSummary" class="results-summary"></div>
+    </section>
+
+    <section id="monthChips" class="month-chips"></section>
+
+    <main>
+      <section id="speciesGrid" class="species-grid" aria-live="polite"></section>
+      <div id="emptyState" class="empty-state hidden">
+        <h3>Nothing matched the current filters.</h3>
+        <p>Try a different month, category, or looser search phrase.</p>
+      </div>
+    </main>
+  </div>
+
+  <dialog id="detailModal" class="detail-modal">
+    <article class="modal-card">
+      <button id="closeModalBtn" class="close-btn" type="button" aria-label="Close">×</button>
+      <div id="modalContent"></div>
+    </article>
+  </dialog>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
   <script src="app.js"></script>
 </body>
 </html>
