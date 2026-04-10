@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "version": "v1.9",
+    "version": "v2.0",
     "source_files": [
       "list with a few pics.xlsx",
       "List of plants.xlsx"
@@ -11,8 +11,8 @@
     "image_count": 195,
     "source": "Local JSON fallback / merged reference",
     "image_audit": "v1.8",
-    "app_version": "v1.9",
-    "vocab_version": "v1.9",
+    "app_version": "v2.0",
+    "vocab_version": "v2.0",
     "updated_for_build": "v1.9",
     "timing_bias_note": "Home and In Focus views bias about 14 days later than the current date to better match real-world emergence."
   },
@@ -542,7 +542,10 @@
       "medicinalTerms": [
         "Immune support"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "look_alikes": [
+        "False morel / Gyromitra group"
+      ]
     },
     {
       "slug": "yellow-morels",
@@ -2653,7 +2656,10 @@
       "medicinalTerms": [
         "Immune support"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "look_alikes": [
+        "Destroying angel"
+      ]
     },
     {
       "slug": "chokeberry-aronia",
@@ -3757,7 +3763,10 @@
       "medicinalTerms": [
         "Immune support"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "look_alikes": [
+        "Destroying angel"
+      ]
     },
     {
       "slug": "lowbush-cranberries",
@@ -4774,7 +4783,9 @@
         11
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/plants/chicory-flowers-1.jpg"
+      ],
       "scientific_name": "Cichorium intybus",
       "habitat": [
         "Roadside / disturbed",
@@ -5028,7 +5039,10 @@
         "yellow-morels"
       ],
       "manual_review_reasons": [],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "look_alikes": [
+        "False morel / Gyromitra group"
+      ]
     },
     {
       "slug": "yellow-chanterelles-hardwood-complex",
@@ -5388,7 +5402,10 @@
       "manual_review_reasons": [
         "chanterelle taxonomy is still moving; field-complex treatment is intentional"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "look_alikes": [
+        "Jack-o'-lantern"
+      ]
     },
     {
       "slug": "shrimp-russulas",
@@ -6208,7 +6225,12 @@
         6
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms/dryad-s-saddle-pheasant-back-v20-1.jpg",
+        "assets/images/mushrooms/dryad-s-saddle-pheasant-back-v20-2.jpg",
+        "assets/images/mushrooms/dryad-s-saddle-pheasant-back-v20-3.jpg",
+        "assets/images/mushrooms/dryad-s-saddle-pheasant-back-v20-4.jpg"
+      ],
       "scientific_name": "Cerioporus squamosus",
       "mushroom_profile": {
         "scientific_name": "Cerioporus squamosus",
@@ -6250,7 +6272,8 @@
         ],
         "research_notes": [
           "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Changes with age: Starts as thick young shelves with tender pale margins. Expands into large broad brackets with coarser pores and tougher flesh.",
+          "Edibility detail: This is one of the classic “young only” fungi. Many people enjoy the tender early stage, while mature brackets quickly cross into chewy shoe-leather territory."
         ]
       },
       "mushroom_family": "Polypores & brackets",
@@ -6259,7 +6282,16 @@
         "hen-of-the-woods"
       ],
       "manual_review_reasons": [],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "non_edible_severity": "Edible young only",
+      "affected_systems": [
+        "Digestive system"
+      ],
+      "effects_on_body": "Young margins are the part most often harvested. Older fruiting bodies become tough, fibrous, and more useful for study than the frying pan.",
+      "edibility_detail": "This is one of the classic “young only” fungi. Many people enjoy the tender early stage, while mature brackets quickly cross into chewy shoe-leather territory.",
+      "changes_over_time": "Starts as thick young shelves with tender pale margins. Expands into large broad brackets with coarser pores and tougher flesh.",
+      "other_uses": "",
+      "look_alikes": []
     },
     {
       "slug": "lobster-mushroom",
@@ -6280,7 +6312,12 @@
         9
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms-2/lobster-mushroom-v20-1.jpg",
+        "assets/images/mushrooms-2/lobster-mushroom-v20-2.jpg",
+        "assets/images/mushrooms-2/lobster-mushroom-v20-3.jpg",
+        "assets/images/mushrooms-2/lobster-mushroom-v20-4.jpg"
+      ],
       "scientific_name": "Hypomyces lactifluorum",
       "mushroom_profile": {
         "scientific_name": "Hypomyces lactifluorum",
@@ -6324,7 +6361,8 @@
         ],
         "research_notes": [
           "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Changes with age: Young specimens are dense and vividly orange-red. Mature examples become thicker, more contorted, and eventually soften or crack.",
+          "Edibility detail: This category is based on the parasite-overrun form commonly harvested as “lobster mushroom.” Quality depends heavily on firmness and condition."
         ]
       },
       "mushroom_family": "Parasites & oddballs",
@@ -6333,7 +6371,16 @@
         "charcoal-burners"
       ],
       "manual_review_reasons": [],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "non_edible_severity": "Choice",
+      "affected_systems": [
+        "Digestive system"
+      ],
+      "effects_on_body": "Well-regarded when fresh, firm, and not buggy. Avoid badly softened, decayed, or foul-smelling specimens.",
+      "edibility_detail": "This category is based on the parasite-overrun form commonly harvested as “lobster mushroom.” Quality depends heavily on firmness and condition.",
+      "changes_over_time": "Young specimens are dense and vividly orange-red. Mature examples become thicker, more contorted, and eventually soften or crack.",
+      "other_uses": "",
+      "look_alikes": []
     },
     {
       "slug": "birch-polypore",
@@ -6356,7 +6403,9 @@
         11
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms/birch-polypore-v20-1.jpg"
+      ],
       "scientific_name": "Fomitopsis betulina",
       "mushroom_profile": {
         "scientific_name": "Fomitopsis betulina",
@@ -6391,7 +6440,9 @@
         "processing_required": [],
         "research_notes": [
           "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Changes with age: Young fruiting bodies are softer, smoother, and more rounded. Older brackets harden, discolor, and become much tougher.",
+          "Edibility detail: Listed as inedible in the culinary sense because texture quickly turns leathery and cork-like, though it has a history of traditional utility uses.",
+          "Other uses: Traditional strop, tinder, and utility fungus in historical use."
         ]
       },
       "mushroom_family": "Polypores & brackets",
@@ -6399,7 +6450,16 @@
         "chaga"
       ],
       "manual_review_reasons": [],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "non_edible_severity": "Inedible",
+      "affected_systems": [
+        "Digestive system"
+      ],
+      "effects_on_body": "Generally considered too tough and corky for normal food use, especially once mature.",
+      "edibility_detail": "Listed as inedible in the culinary sense because texture quickly turns leathery and cork-like, though it has a history of traditional utility uses.",
+      "changes_over_time": "Young fruiting bodies are softer, smoother, and more rounded. Older brackets harden, discolor, and become much tougher.",
+      "other_uses": "Traditional strop, tinder, and utility fungus in historical use.",
+      "look_alikes": []
     },
     {
       "slug": "chaga",
@@ -6438,7 +6498,9 @@
         12
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms/chaga-v20-1.jpg"
+      ],
       "scientific_name": "Inonotus obliquus",
       "mushroom_profile": {
         "scientific_name": "Inonotus obliquus",
@@ -6475,7 +6537,9 @@
         ],
         "research_notes": [
           "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Changes with age: Starts as smaller black crusted growth and expands into a larger charcoal-like canker over years.",
+          "Edibility detail: Rated inedible as food. It is a sterile conk-like mass, not a tender culinary mushroom.",
+          "Other uses: Excellent tinder and fire-starting material when dried; also widely used for tea-like brews."
         ]
       },
       "mushroom_family": "Medicinal / conks",
@@ -6483,7 +6547,16 @@
         "birch-polypore"
       ],
       "manual_review_reasons": [],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "non_edible_severity": "Inedible",
+      "affected_systems": [
+        "Digestive system"
+      ],
+      "effects_on_body": "Not eaten like a mushroom. Usually used in chunks, shavings, or tea-like preparations rather than as table fare.",
+      "edibility_detail": "Rated inedible as food. It is a sterile conk-like mass, not a tender culinary mushroom.",
+      "changes_over_time": "Starts as smaller black crusted growth and expands into a larger charcoal-like canker over years.",
+      "other_uses": "Excellent tinder and fire-starting material when dried; also widely used for tea-like brews.",
+      "look_alikes": []
     },
     {
       "slug": "artists-conk",
@@ -6522,7 +6595,9 @@
         12
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms/artist-s-conk-v20-1.jpg"
+      ],
       "scientific_name": "Ganoderma applanatum complex",
       "mushroom_profile": {
         "scientific_name": "Ganoderma applanatum complex",
@@ -6560,7 +6635,9 @@
         "processing_required": [],
         "research_notes": [
           "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Changes with age: Young margins are paler and actively growing. Old conks become thicker, harder, darker, and can persist for years.",
+          "Edibility detail: Inedible because it is tough and perennial, not because it is a classic poisoning mushroom.",
+          "Other uses: Can be etched / drawn on underneath, giving it the common name artist’s conk."
         ]
       },
       "mushroom_family": "Medicinal / conks",
@@ -6568,7 +6645,16 @@
         "turkey-tail"
       ],
       "manual_review_reasons": [],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "non_edible_severity": "Inedible",
+      "affected_systems": [
+        "Digestive system"
+      ],
+      "effects_on_body": "Hard, woody bracket not suited to normal cooking or chewing.",
+      "edibility_detail": "Inedible because it is tough and perennial, not because it is a classic poisoning mushroom.",
+      "changes_over_time": "Young margins are paler and actively growing. Old conks become thicker, harder, darker, and can persist for years.",
+      "other_uses": "Can be etched / drawn on underneath, giving it the common name artist’s conk.",
+      "look_alikes": []
     },
     {
       "slug": "red-belted-conk",
@@ -6607,7 +6693,11 @@
         12
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms/red-belted-conk-v20-1.jpg",
+        "assets/images/mushrooms/red-belted-conk-v20-2.jpg",
+        "assets/images/mushrooms-2/red-belted-conk-v20-3.jpg"
+      ],
       "scientific_name": "Fomitopsis pinicola group",
       "mushroom_profile": {
         "scientific_name": "Fomitopsis pinicola group",
@@ -6645,8 +6735,7 @@
         "season_note": "Perennial, visible year-round.",
         "processing_required": [],
         "research_notes": [
-          "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Added in v1.9 Upper Michigan mushroom expansion."
         ]
       },
       "mushroom_family": "Polypores & brackets",
@@ -6673,7 +6762,12 @@
         10
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms-2/honey-mushrooms-v20-1.jpg",
+        "assets/images/mushrooms-2/honey-mushrooms-v20-2.jpg",
+        "assets/images/mushrooms-2/honey-mushrooms-v20-3.jpg",
+        "assets/images/mushrooms-2/honey-mushrooms-v20-4.jpg"
+      ],
       "scientific_name": "Armillaria mellea group and allies",
       "mushroom_profile": {
         "scientific_name": "Armillaria mellea group and allies",
@@ -6719,7 +6813,9 @@
         ],
         "research_notes": [
           "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Changes with age: Buttons are tighter and more rounded. Mature caps flatten, scales may wear away, rings may shred, and the flesh becomes more fibrous with age.",
+          "Edibility detail: Placed in the caution category because many people eat thoroughly cooked Armillaria, but others react badly. Old, waterlogged, or undercooked mushrooms raise the risk.",
+          "Other uses: Important root-rot fungus in forests and woodlots, which can matter for tree health notes."
         ]
       },
       "mushroom_family": "Gilled woodland mushrooms",
@@ -6727,7 +6823,18 @@
         "jack-o-lantern"
       ],
       "manual_review_reasons": [],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "non_edible_severity": "Poisonous to some / edible with caution",
+      "affected_systems": [
+        "Digestive system"
+      ],
+      "effects_on_body": "Can cause nausea, vomiting, diarrhea, and cramps in sensitive people, especially if undercooked or eaten from poor-quality specimens.",
+      "edibility_detail": "Placed in the caution category because many people eat thoroughly cooked Armillaria, but others react badly. Old, waterlogged, or undercooked mushrooms raise the risk.",
+      "changes_over_time": "Buttons are tighter and more rounded. Mature caps flatten, scales may wear away, rings may shred, and the flesh becomes more fibrous with age.",
+      "other_uses": "Important root-rot fungus in forests and woodlots, which can matter for tree health notes.",
+      "look_alikes": [
+        "Jack-o'-lantern"
+      ]
     },
     {
       "slug": "hemlock-varnish-shelf-reishi",
@@ -6748,7 +6855,11 @@
         8
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms/hemlock-varnish-shelf-reishi-v20-1.jpg",
+        "assets/images/mushrooms/hemlock-varnish-shelf-reishi-v20-2.jpg",
+        "assets/images/mushrooms/hemlock-varnish-shelf-reishi-v20-3.jpg"
+      ],
       "scientific_name": "Ganoderma tsugae",
       "mushroom_profile": {
         "scientific_name": "Ganoderma tsugae",
@@ -6784,7 +6895,9 @@
         ],
         "research_notes": [
           "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Changes with age: Young caps are paler at the margin and can be softer. Mature fruiting bodies become harder, shinier, and more lacquered-looking.",
+          "Edibility detail: Classified as non-culinary because texture and bitterness make it a preparation mushroom, not a sauté mushroom.",
+          "Other uses: Tea, tincture, and traditional tonic use are the main non-food notes."
         ]
       },
       "mushroom_family": "Medicinal / conks",
@@ -6793,7 +6906,16 @@
         "turkey-tail"
       ],
       "manual_review_reasons": [],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "non_edible_severity": "Non-culinary / tea",
+      "affected_systems": [
+        "Digestive system"
+      ],
+      "effects_on_body": "Too woody and bitter for normal food use. Usually sliced, dried, or extracted rather than eaten as a mushroom.",
+      "edibility_detail": "Classified as non-culinary because texture and bitterness make it a preparation mushroom, not a sauté mushroom.",
+      "changes_over_time": "Young caps are paler at the margin and can be softer. Mature fruiting bodies become harder, shinier, and more lacquered-looking.",
+      "other_uses": "Tea, tincture, and traditional tonic use are the main non-food notes.",
+      "look_alikes": []
     },
     {
       "slug": "jack-o-lantern",
@@ -6814,7 +6936,12 @@
         9
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms-2/jack-o-lantern-v20-1.jpg",
+        "assets/images/mushrooms-2/jack-o-lantern-v20-2.jpg",
+        "assets/images/mushrooms-2/jack-o-lantern-v20-3.jpg",
+        "assets/images/mushrooms-2/jack-o-lantern-v20-4.jpg"
+      ],
       "scientific_name": "Omphalotus illudens group",
       "mushroom_profile": {
         "scientific_name": "Omphalotus illudens group",
@@ -6850,7 +6977,9 @@
         "processing_required": [],
         "research_notes": [
           "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Changes with age: Young clusters are tight with more rounded caps. Mature fruiting bodies broaden, flatten, and can overlap in shelves. Older specimens may fade slightly and become more brittle while still retaining orange gills.",
+          "Edibility detail: Poisonous orange wood-growing clusters often confused with chanterelles at a glance. True gills, clustered growth from wood, and a more pumpkin-orange look help separate it from edible chanterelles.",
+          "Other uses: Sometimes noted for faint bioluminescence in darkness."
         ]
       },
       "mushroom_family": "Poisonous lookalikes",
@@ -6859,7 +6988,19 @@
         "smooth-chanterelles"
       ],
       "manual_review_reasons": [],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "non_edible_severity": "Poisonous",
+      "affected_systems": [
+        "Digestive system"
+      ],
+      "effects_on_body": "Commonly causes intense nausea, vomiting, diarrhea, and cramping. Symptoms are usually not deadly but can be severe and miserable.",
+      "edibility_detail": "Poisonous orange wood-growing clusters often confused with chanterelles at a glance. True gills, clustered growth from wood, and a more pumpkin-orange look help separate it from edible chanterelles.",
+      "changes_over_time": "Young clusters are tight with more rounded caps. Mature fruiting bodies broaden, flatten, and can overlap in shelves. Older specimens may fade slightly and become more brittle while still retaining orange gills.",
+      "other_uses": "Sometimes noted for faint bioluminescence in darkness.",
+      "look_alikes": [
+        "Smooth chanterelles",
+        "Honey mushrooms"
+      ]
     },
     {
       "slug": "destroying-angel",
@@ -6880,7 +7021,12 @@
         9
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms/destroying-angel-v20-1.jpg",
+        "assets/images/mushrooms/destroying-angel-v20-2.jpg",
+        "assets/images/mushrooms/destroying-angel-v20-3.jpg",
+        "assets/images/mushrooms/destroying-angel-v20-4.jpg"
+      ],
       "scientific_name": "Amanita bisporigera group / destroying angel complex",
       "mushroom_profile": {
         "scientific_name": "Amanita bisporigera group / destroying angel complex",
@@ -6924,7 +7070,8 @@
         "processing_required": [],
         "research_notes": [
           "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Changes with age: Buttons begin enclosed in a universal veil. As the mushroom expands, the ring becomes clearer and the volva at the base is easier to see. Older caps may flatten and lose some pristine whiteness, making careful base checks even more important.",
+          "Edibility detail: Deadly white Amanita. The danger rating is based on amatoxin poisoning documented from this group. The white cap, white gills, ring, and sac-like volva can fool people who focus on cap color alone."
         ]
       },
       "mushroom_family": "Poisonous Amanitas",
@@ -6932,7 +7079,21 @@
         "yellow-fly-agaric-guessowii"
       ],
       "manual_review_reasons": [],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "non_edible_severity": "Deadly",
+      "affected_systems": [
+        "Digestive system",
+        "Liver",
+        "Kidneys"
+      ],
+      "effects_on_body": "May cause a deceptive quiet period after early nausea and vomiting, followed by severe liver and kidney failure. This is a medical emergency.",
+      "edibility_detail": "Deadly white Amanita. The danger rating is based on amatoxin poisoning documented from this group. The white cap, white gills, ring, and sac-like volva can fool people who focus on cap color alone.",
+      "changes_over_time": "Buttons begin enclosed in a universal veil. As the mushroom expands, the ring becomes clearer and the volva at the base is easier to see. Older caps may flatten and lose some pristine whiteness, making careful base checks even more important.",
+      "other_uses": "",
+      "look_alikes": [
+        "Field mushroom",
+        "Meadow mushroom"
+      ]
     },
     {
       "slug": "yellow-fly-agaric-guessowii",
@@ -6953,7 +7114,11 @@
         10
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms-2/yellow-fly-agaric-guessowii-v20-1.jpg",
+        "assets/images/mushrooms-2/yellow-fly-agaric-guessowii-v20-2.jpg",
+        "assets/images/mushrooms-2/yellow-fly-agaric-guessowii-v20-3.jpg"
+      ],
       "scientific_name": "Amanita muscaria var. guessowii concept / related North American yellow fly-agaric complex",
       "mushroom_profile": {
         "scientific_name": "Amanita muscaria var. guessowii concept / related North American yellow fly-agaric complex",
@@ -6994,7 +7159,8 @@
         "processing_required": [],
         "research_notes": [
           "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Changes with age: Young specimens are more rounded and heavily warted. Mature caps flatten and the yellow can shift toward orange or washed-out buff, especially after rain removes veil patches.",
+          "Edibility detail: This is treated as poisonous because it contains ibotenic acid and muscimol. Reports of ritual or carefully processed use do not make it a foraging-safe edible mushroom."
         ]
       },
       "mushroom_family": "Poisonous Amanitas",
@@ -7004,7 +7170,17 @@
       "manual_review_reasons": [
         "taxonomy still moves around this North American yellow fly-agaric concept"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "non_edible_severity": "Poisonous",
+      "affected_systems": [
+        "Nervous system",
+        "Digestive system"
+      ],
+      "effects_on_body": "Can cause confusion, agitation, drowsiness, vomiting, sweating, and altered perception. Severity varies with dose and individual response.",
+      "edibility_detail": "This is treated as poisonous because it contains ibotenic acid and muscimol. Reports of ritual or carefully processed use do not make it a foraging-safe edible mushroom.",
+      "changes_over_time": "Young specimens are more rounded and heavily warted. Mature caps flatten and the yellow can shift toward orange or washed-out buff, especially after rain removes veil patches.",
+      "other_uses": "",
+      "look_alikes": []
     },
     {
       "slug": "old-man-of-the-woods",
@@ -7025,7 +7201,12 @@
         9
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms-2/old-man-of-the-woods-v20-1.jpg",
+        "assets/images/mushrooms-2/old-man-of-the-woods-v20-2.jpg",
+        "assets/images/mushrooms-2/old-man-of-the-woods-v20-3.jpg",
+        "assets/images/mushrooms-2/old-man-of-the-woods-v20-4.jpg"
+      ],
       "scientific_name": "Strobilomyces strobilaceus group",
       "mushroom_profile": {
         "scientific_name": "Strobilomyces strobilaceus group",
@@ -7069,7 +7250,8 @@
         ],
         "research_notes": [
           "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Changes with age: Young caps are lighter and more compact. Mature fruiting bodies darken, shag up, and quickly become soft or insect-damaged.",
+          "Edibility detail: Edibility is technically acceptable but quality is highly age-dependent. This species can get soft and soggy fast, so young firm specimens matter."
         ]
       },
       "mushroom_family": "Boletes",
@@ -7078,7 +7260,16 @@
         "bay-bolete"
       ],
       "manual_review_reasons": [],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "non_edible_severity": "Edible",
+      "affected_systems": [
+        "Digestive system"
+      ],
+      "effects_on_body": "Usually not poisonous, but many people find older specimens unpleasant, waterlogged, or buggy.",
+      "edibility_detail": "Edibility is technically acceptable but quality is highly age-dependent. This species can get soft and soggy fast, so young firm specimens matter.",
+      "changes_over_time": "Young caps are lighter and more compact. Mature fruiting bodies darken, shag up, and quickly become soft or insect-damaged.",
+      "other_uses": "",
+      "look_alikes": []
     },
     {
       "slug": "ash-tree-bolete",
@@ -7099,7 +7290,9 @@
         9
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms/ash-tree-bolete-v20-1.jpg"
+      ],
       "scientific_name": "Boletinellus merulioides",
       "mushroom_profile": {
         "scientific_name": "Boletinellus merulioides",
@@ -7134,8 +7327,7 @@
           "Not a priority edible"
         ],
         "research_notes": [
-          "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Added in v1.9 Upper Michigan mushroom expansion."
         ]
       },
       "mushroom_family": "Boletes",
@@ -7164,7 +7356,11 @@
         10
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms/bay-bolete-v20-1.jpg",
+        "assets/images/mushrooms/bay-bolete-v20-2.jpg",
+        "assets/images/mushrooms/bay-bolete-v20-3.jpg"
+      ],
       "scientific_name": "Imleria badia",
       "mushroom_profile": {
         "scientific_name": "Imleria badia",
@@ -7204,8 +7400,7 @@
           "Cook thoroughly"
         ],
         "research_notes": [
-          "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Added in v1.9 Upper Michigan mushroom expansion."
         ]
       },
       "mushroom_family": "Boletes",
@@ -7253,7 +7448,10 @@
         12
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms-2/turkey-tail-v20-1.jpg",
+        "assets/images/mushrooms-2/turkey-tail-v20-2.jpg"
+      ],
       "scientific_name": "Trametes versicolor",
       "mushroom_profile": {
         "scientific_name": "Trametes versicolor",
@@ -7292,7 +7490,9 @@
         ],
         "research_notes": [
           "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Changes with age: Fresh shelves are more pliable and vividly zoned. Old brackets fade, stiffen, and weather at the edges.",
+          "Edibility detail: Not a practical edible. People usually value it for tea, extracts, or craft/identification interest rather than food texture.",
+          "Other uses: Tea / extract use and natural dye interest."
         ]
       },
       "mushroom_family": "Medicinal / polypores",
@@ -7300,7 +7500,16 @@
         "artists-conk"
       ],
       "manual_review_reasons": [],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "non_edible_severity": "Inedible",
+      "affected_systems": [
+        "Digestive system"
+      ],
+      "effects_on_body": "Too thin, leathery, and tough for normal table use.",
+      "edibility_detail": "Not a practical edible. People usually value it for tea, extracts, or craft/identification interest rather than food texture.",
+      "changes_over_time": "Fresh shelves are more pliable and vividly zoned. Old brackets fade, stiffen, and weather at the edges.",
+      "other_uses": "Tea / extract use and natural dye interest.",
+      "look_alikes": []
     },
     {
       "slug": "bears-head-tooth",
@@ -7321,7 +7530,11 @@
         10
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms/bear-s-head-tooth-v20-1.jpg",
+        "assets/images/mushrooms/bear-s-head-tooth-v20-2.jpg",
+        "assets/images/mushrooms/bear-s-head-tooth-v20-3.jpg"
+      ],
       "scientific_name": "Hericium americanum",
       "mushroom_profile": {
         "scientific_name": "Hericium americanum",
@@ -7360,7 +7573,8 @@
         ],
         "research_notes": [
           "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Changes with age: Begins as compact white pom-poms, then develops longer hanging teeth. Older fruiting bodies yellow, dry, or begin to brown at the tips.",
+          "Edibility detail: Best when fresh and white. Overripe specimens can soften, yellow, and lose quality."
         ]
       },
       "mushroom_family": "Teeth & Hericium",
@@ -7368,7 +7582,16 @@
         "lion-s-mane"
       ],
       "manual_review_reasons": [],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "non_edible_severity": "Choice",
+      "affected_systems": [
+        "Digestive system"
+      ],
+      "effects_on_body": "",
+      "edibility_detail": "Best when fresh and white. Overripe specimens can soften, yellow, and lose quality.",
+      "changes_over_time": "Begins as compact white pom-poms, then develops longer hanging teeth. Older fruiting bodies yellow, dry, or begin to brown at the tips.",
+      "other_uses": "",
+      "look_alikes": []
     },
     {
       "slug": "coral-tooth-fungus",
@@ -7389,7 +7612,11 @@
         10
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms/coral-tooth-fungus-v20-1.jpg",
+        "assets/images/mushrooms/coral-tooth-fungus-v20-2.jpg",
+        "assets/images/mushrooms/coral-tooth-fungus-v20-3.jpg"
+      ],
       "scientific_name": "Hericium coralloides",
       "mushroom_profile": {
         "scientific_name": "Hericium coralloides",
@@ -7427,7 +7654,8 @@
         ],
         "research_notes": [
           "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Changes with age: Young clusters are compact and bright white. They spread into looser branching masses and eventually yellow, dry, or become brittle.",
+          "Edibility detail: Best when still white and tender."
         ]
       },
       "mushroom_family": "Teeth & Hericium",
@@ -7436,7 +7664,16 @@
         "bears-head-tooth"
       ],
       "manual_review_reasons": [],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "non_edible_severity": "Choice",
+      "affected_systems": [
+        "Digestive system"
+      ],
+      "effects_on_body": "",
+      "edibility_detail": "Best when still white and tender.",
+      "changes_over_time": "Young clusters are compact and bright white. They spread into looser branching masses and eventually yellow, dry, or become brittle.",
+      "other_uses": "",
+      "look_alikes": []
     },
     {
       "slug": "tinder-conk-hoof-fungus",
@@ -7475,7 +7712,9 @@
         12
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms-2/tinder-conk-hoof-fungus-v20-1.jpg"
+      ],
       "scientific_name": "Fomes fomentarius",
       "mushroom_profile": {
         "scientific_name": "Fomes fomentarius",
@@ -7511,7 +7750,9 @@
         "processing_required": [],
         "research_notes": [
           "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Changes with age: Small shelves thicken into hard perennial brackets and add tube layers over time. Older conks become heavier, darker, and more hoof-shaped.",
+          "Edibility detail: Rated inedible because of texture rather than classic poisoning. It is a perennial conk that becomes dense, fibrous, and hoof-like.",
+          "Other uses: Traditional tinder / amadou material when properly processed."
         ]
       },
       "mushroom_family": "Polypores & brackets",
@@ -7520,7 +7761,16 @@
         "chaga"
       ],
       "manual_review_reasons": [],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "non_edible_severity": "Inedible",
+      "affected_systems": [
+        "Digestive system"
+      ],
+      "effects_on_body": "Too hard and woody to be a practical food mushroom. Not known as a culinary species.",
+      "edibility_detail": "Rated inedible because of texture rather than classic poisoning. It is a perennial conk that becomes dense, fibrous, and hoof-like.",
+      "changes_over_time": "Small shelves thicken into hard perennial brackets and add tube layers over time. Older conks become heavier, darker, and more hoof-shaped.",
+      "other_uses": "Traditional tinder / amadou material when properly processed.",
+      "look_alikes": []
     },
     {
       "slug": "shrimp-of-the-woods-aborted-entoloma",
@@ -7539,7 +7789,10 @@
         10
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms-2/shrimp-of-the-woods-aborted-entoloma-v20-1.jpg",
+        "assets/images/mushrooms-2/shrimp-of-the-woods-aborted-entoloma-v20-2.jpg"
+      ],
       "scientific_name": "Entoloma abortivum + Armillaria interaction",
       "mushroom_profile": {
         "scientific_name": "Entoloma abortivum + Armillaria interaction",
@@ -7582,7 +7835,8 @@
         ],
         "research_notes": [
           "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Changes with age: Young aborted forms are dense and white. As they age they discolor, soften, hollow, and become much less appealing.",
+          "Edibility detail: The edible reputation applies to the dense white aborted forms, not the host Entoloma stage in general. Quality and correct stage matter."
         ]
       },
       "mushroom_family": "Parasites & oddballs",
@@ -7592,7 +7846,16 @@
       "manual_review_reasons": [
         "advanced-ID edible; keep caution language strong"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "non_edible_severity": "Questionable / conditionally edible",
+      "affected_systems": [
+        "Digestive system"
+      ],
+      "effects_on_body": "Only the firm white aborted stage is commonly considered edible by some foragers. Soft, brown, or obviously decaying material can cause stomach upset or be misidentified.",
+      "edibility_detail": "The edible reputation applies to the dense white aborted forms, not the host Entoloma stage in general. Quality and correct stage matter.",
+      "changes_over_time": "Young aborted forms are dense and white. As they age they discolor, soften, hollow, and become much less appealing.",
+      "other_uses": "",
+      "look_alikes": []
     },
     {
       "slug": "false-morel-gyromitra-group",
@@ -7611,7 +7874,11 @@
         5
       ],
       "links": [],
-      "images": [],
+      "images": [
+        "assets/images/mushrooms/false-morel-gyromitra-group-v20-1.jpg",
+        "assets/images/mushrooms/false-morel-gyromitra-group-v20-2.jpg",
+        "assets/images/mushrooms/false-morel-gyromitra-group-v20-3.jpg"
+      ],
       "scientific_name": "Gyromitra esculenta group and allies",
       "mushroom_profile": {
         "scientific_name": "Gyromitra esculenta group and allies",
@@ -7650,7 +7917,8 @@
         "processing_required": [],
         "research_notes": [
           "Added in v1.9 Upper Michigan mushroom expansion.",
-          "Needs image."
+          "Changes with age: Spring false morels often start compact and brain-like, then become broader, looser, and more folded with age. Older specimens can darken, soften, and become more insect-ridden.",
+          "Edibility detail: This category is kept in the danger zone because raw or undercooked Gyromitra species contain gyromitrin-related toxins. Some traditions parboil them, but anecdotal edibility does not erase the poisoning risk or variable toxin levels."
         ]
       },
       "mushroom_family": "Poisonous lookalikes",
@@ -7660,7 +7928,21 @@
         "half-free-morels"
       ],
       "manual_review_reasons": [],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "non_edible_severity": "Potentially deadly",
+      "affected_systems": [
+        "Digestive system",
+        "Nervous system",
+        "Liver"
+      ],
+      "effects_on_body": "May cause vomiting, diarrhea, dizziness, headache, tremors, seizures, liver injury, and in serious cases death. Toxins can also build up from repeated exposure.",
+      "edibility_detail": "This category is kept in the danger zone because raw or undercooked Gyromitra species contain gyromitrin-related toxins. Some traditions parboil them, but anecdotal edibility does not erase the poisoning risk or variable toxin levels.",
+      "changes_over_time": "Spring false morels often start compact and brain-like, then become broader, looser, and more folded with age. Older specimens can darken, soften, and become more insect-ridden.",
+      "other_uses": "",
+      "look_alikes": [
+        "Black morels",
+        "Half-free morels"
+      ]
     }
   ]
 }

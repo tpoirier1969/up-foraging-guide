@@ -1,6 +1,6 @@
-import { TABLE_NAME } from "../constants.js";
-import { escapeHtml } from "../utils.js";
-import { state } from "../state.js";
+import { TABLE_NAME } from "../constants.js?v=v2.0";
+import { escapeHtml } from "../utils.js?v=v2.0";
+import { state } from "../state.js?v=v2.0";
 
 function tagList(items, emptyText = "None noted") {
   return items?.length
@@ -35,6 +35,18 @@ function renderRelatedMushrooms(record) {
   `;
 }
 
+function renderLookAlikes(record) {
+  const related = (record.look_alikes || []).map(name => (state.allRecords || []).find(item => item.display_name === name || item.slug === name)).filter(Boolean);
+  if (!related.length) return '';
+  return `
+    <section class="detail-card section-block">
+      <h3>Look-alikes / linked matches</h3>
+      <div class="related-link-list">${related.map(item => `<a class="inline-chip-link" href="#detail/${encodeURIComponent(item.slug)}" data-detail-link="${escapeHtml(item.slug)}">${escapeHtml(item.display_name)}</a>`).join('')}</div>
+      <p class="small-note">These are linked both ways when the confusion is important.</p>
+    </section>
+  `;
+}
+
 function renderMushroomResearch(record) {
   const profile = record.mushroom_profile;
   if (!profile) return "";
@@ -54,7 +66,6 @@ function renderMushroomResearch(record) {
       ${line("Summary", profile.summary || "")}
       ${line("Spore print", profile.spore_print || "")}
       ${line("Season note", profile.season_note || "")}
-      ${line("Image status", (profile.research_notes || []).find(note => note.startsWith("Image status in current repo build:"))?.replace("Image status in current repo build: ", "") || "")}
     </section>
 
     ${listSection("Substrate and host clues", [
@@ -106,16 +117,21 @@ export function renderDetail(record) {
           <p style="margin-top:8px;">${escapeHtml(record.common_name || "No alternate common name imported.")}</p>
           ${record.scientific_name ? `<p class="small-note"><strong>${escapeHtml(record.scientific_name)}</strong></p>` : ""}
           ${record.mushroom_family ? `<p class="small-note">Mushroom family grouping: <strong>${escapeHtml(record.mushroom_family)}</strong></p>` : ""}
-          <p class="small-note">Week precision: <strong>defaults to week 1 of the month until checked</strong></p>
+          <p class="small-note">Week precision: <strong>${escapeHtml(record.weekPrecision || 'month-window-reviewed')}</strong></p>
         </section>
         <section class="detail-card section-block"><h3>Culinary uses</h3><p>${escapeHtml(record.culinary_uses || "Not provided in the imported sheet.")}</p></section>
         <section class="detail-card section-block"><h3>Medicinal uses</h3><p>${escapeHtml(record.medicinal_uses || "Not provided in the imported sheet.")}</p></section>
+        ${record.edibility_detail ? `<section class="detail-card section-block"><h3>Edibility detail</h3><p>${escapeHtml(record.edibility_detail)}</p></section>` : ''}
+        ${record.other_uses ? `<section class="detail-card section-block"><h3>Other uses</h3><p>${escapeHtml(record.other_uses)}</p></section>` : ''}
+        ${record.changes_over_time ? `<section class="detail-card section-block"><h3>Changes over time</h3><p>${escapeHtml(record.changes_over_time)}</p></section>` : ''}
+        ${(record.non_edible_severity || record.effects_on_body) ? `<section class="detail-card section-block"><h3>Risk / body effects</h3>${line('Severity', record.non_edible_severity || '')}${line('Affected systems', (record.affected_systems || []).join(', '))}${line('Effects', record.effects_on_body || '')}</section>` : ''}
         <section class="detail-card section-block"><h3>Field clues</h3><div class="tag-row">${tagList([...(record.habitat||[]), ...(record.observedPart||[]), ...(record.size||[]), ...(record.taste||[])], "No field traits tagged yet")}</div></section>
         <section class="detail-card section-block"><h3>Mushroom clues</h3><div class="tag-row">${tagList([...(record.substrate||[]), ...(record.treeType||[]), ...(record.hostTree||[]), ...(record.ring||[]), ...(record.underside||[]), ...(record.texture||[]), ...(record.smell||[]), ...(record.staining||[])], "No mushroom traits tagged yet")}</div></section>
         <section class="detail-card section-block"><h3>Medicinal tags</h3><div class="tag-row">${tagList([...(record.medicinalAction||[]), ...(record.medicinalSystem||[]), ...(record.medicinalTerms||[])], "No medicinal tags yet")}</div></section>
         <section class="detail-card section-block"><h3>Seasonality</h3><div class="tag-row">${tagList(record.months_available, "No month data")}</div></section>
         <section class="detail-card section-block"><h3>Needs review</h3><div class="tag-row">${tagList(record.reviewReasons, "Nothing flagged")}</div></section>
         <section class="detail-card section-block"><h3>Notes</h3><p>${escapeHtml(record.notes || "No extra notes imported.")}</p></section>
+        ${renderLookAlikes(record)}
         ${renderRelatedMushrooms(record)}
         ${renderMushroomResearch(record)}
         ${genericLinks}

@@ -1,6 +1,5 @@
-
-import { MONTH_SHORT, MONTHS } from "../constants.js";
-import { escapeHtml } from "../utils.js";
+import { MONTH_SHORT, MONTHS } from "../constants.js?v=v2.0";
+import { escapeHtml } from "../utils.js?v=v2.0";
 
 function seasonStrip(record) {
   const active = new Set(record.months_available || []);
@@ -10,7 +9,7 @@ function seasonStrip(record) {
 function mushroomSummary(record) {
   const profile = record.mushroom_profile || {};
   const bits = [
-    profile.edibility_status ? `Edibility: ${profile.edibility_status.replaceAll("_", " ")}` : "",
+    record.non_edible_severity ? `Risk: ${record.non_edible_severity}` : (profile.edibility_status ? `Edibility: ${profile.edibility_status.replaceAll("_", " ")}` : ""),
     record.substrate?.[0],
     record.treeType?.[0],
     record.hostTree?.[0],
@@ -22,6 +21,7 @@ function mushroomSummary(record) {
 function summaryForContext(record, context = "general") {
   if (context === "medicinal") return record.medicinal_uses || record.notes || record.culinary_uses;
   if (context === "mushrooms") return mushroomSummary(record);
+  if (context === "lookalikes") return record.edibility_detail || record.effects_on_body || (record.look_alikes || []).join(" · ") || record.notes;
   if (context === "review") return (record.reviewReasons || []).join(" · ");
   const bits = [record.category, record.habitat?.[0], record.observedPart?.[0], record.taste?.[0]].filter(Boolean);
   return bits.join(" · ") || record.culinary_uses || record.notes || record.medicinal_uses;
@@ -43,6 +43,10 @@ export function renderResultCard(record, context = "general") {
     if (record.medicinalAction?.[0]) tags.push(record.medicinalAction[0]);
     if (record.medicinalSystem?.[0]) tags.push(record.medicinalSystem[0]);
     if (record.medicinalTerms?.[0]) tags.push(record.medicinalTerms[0]);
+  } else if (context === "lookalikes") {
+    if (record.non_edible_severity) tags.push(record.non_edible_severity);
+    if (record.affected_systems?.[0]) tags.push(record.affected_systems[0]);
+    if ((record.look_alikes || []).length) tags.push(`${record.look_alikes.length} linked match${record.look_alikes.length===1?'':'es'}`);
   } else if (context === "review") {
     tags.push(...(record.reviewReasons || []).slice(0,3));
   } else {

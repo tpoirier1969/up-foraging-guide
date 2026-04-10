@@ -1,6 +1,6 @@
-import { PLANT_CATEGORIES } from "./constants.js";
-import { compactText, hasMedicinal } from "./utils.js";
-import { inferTraits } from "./trait-inference.js";
+import { PLANT_CATEGORIES } from "./constants.js?v=v2.0";
+import { compactText, hasMedicinal } from "./utils.js?v=v2.0";
+import { inferTraits } from "./trait-inference.js?v=v2.0";
 
 export function normalizeRecord(record) {
   const base = {
@@ -32,4 +32,8 @@ export function medicinalRecords(records) {
 }
 export function reviewRecords(records) {
   return records.filter(r => (r.reviewReasons || []).length);
+}
+
+export function lookalikeRecords(records) {
+  return records.filter(r => (r.look_alikes || []).length || !!r.non_edible_severity);
 }

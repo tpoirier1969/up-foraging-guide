@@ -1,9 +1,9 @@
-import { MONTHS } from "./constants.js";
-import { medicinalRecords, isMushroom, isPlant, reviewRecords } from "./data-model.js";
-import { VOCAB } from "./vocabulary.js";
-import { renderResultCard } from "./renderers/cards.js";
-import { renderInteractiveTimeline } from "./renderers/timeline.js";
-import { escapeHtml } from "./utils.js";
+import { ACTIVE_NOW_LABEL, MONTHS } from "./constants.js?v=v2.0";
+import { medicinalRecords, isMushroom, isPlant, reviewRecords, lookalikeRecords } from "./data-model.js?v=v2.0";
+import { VOCAB } from "./vocabulary.js?v=v2.0";
+import { renderResultCard } from "./renderers/cards.js?v=v2.0";
+import { renderInteractiveTimeline } from "./renderers/timeline.js?v=v2.0";
+import { escapeHtml } from "./utils.js?v=v2.0";
 
 function optionHtml(values, current, label) {
   return [`<option value="">${label}</option>`]
@@ -34,6 +34,7 @@ function renderResultList(records, context = 'general') {
 }
 
 function renderFilterForm({ page, filters, extraFilters = [], scopeRecords, title }) {
+  const inSeasonHref = page === 'timeline' ? '#/focus/timeline' : `#/focus/${page}`;
   return `
     <section class="panel workspace-pane filter-pane-card">
       <div class="section-heading-block">
@@ -48,6 +49,7 @@ function renderFilterForm({ page, filters, extraFilters = [], scopeRecords, titl
       </div>
       <div class="workspace-actions">
         <button type="button" data-action="clear-filters">Clear filters</button>
+        ${page !== 'review' ? `<a class="buttonish" href="${inSeasonHref}">${ACTIVE_NOW_LABEL}</a>` : ''}
         <a class="buttonish" href="#/review">Needs Review</a>
       </div>
       <p class="filter-note">Timeline week detail still defaults to week 1 until specific week data gets verified.</p>
@@ -57,6 +59,7 @@ function renderFilterForm({ page, filters, extraFilters = [], scopeRecords, titl
 
 function renderWorkspace({ page, title, intro, records, filters, context = 'general', extraFilters = [], paneMode = 'results', scopeRecords }) {
   const filterHtml = renderFilterForm({ page, filters, extraFilters, scopeRecords, title });
+  const inSeasonHref = page === 'timeline' ? '#/focus/timeline' : `#/focus/${page}`;
   const resultsHtml = `
     <section class="panel workspace-pane results-pane-card">
       <div class="result-header compact-result-header">
@@ -64,7 +67,10 @@ function renderWorkspace({ page, title, intro, records, filters, context = 'gene
           <h3>${escapeHtml(title)} results</h3>
           <p class="results-meta">${records.length} match${records.length === 1 ? '' : 'es'}</p>
         </div>
-        <a class="buttonish" href="#/review">Needs Review</a>
+        <div class="result-actions">
+          ${page !== 'review' ? `<a class="buttonish" href="${inSeasonHref}">${ACTIVE_NOW_LABEL}</a>` : ''}
+          <a class="buttonish" href="#/review">Needs Review</a>
+        </div>
       </div>
       <div class="result-list">${renderResultList(records, context)}</div>
     </section>
@@ -94,6 +100,7 @@ function renderSectionNav(activePage) {
     ['plants', 'Plants'],
     ['mushrooms', 'Mushrooms'],
     ['medicinal', 'Medicinal'],
+    ['lookalikes', 'Look-Alikes'],
     ['timeline', 'Timeline'],
     ['review', 'Needs Review']
   ];
@@ -104,29 +111,44 @@ function renderSectionNav(activePage) {
   `;
 }
 
-function renderFocusHero(allRecords, activePage) {
-  const currentMonth = MONTHS[new Date().getMonth()];
+function renderSeasonHero(allRecords, activePage) {
+  const focusDate = new Date();
+  focusDate.setDate(focusDate.getDate() + 14);
+  const currentMonth = MONTHS[focusDate.getMonth()];
   const activeNow = allRecords.filter(record => (record.months_available || []).includes(currentMonth));
   const plantCount = activeNow.filter(isPlant).length;
   const mushroomCount = activeNow.filter(isMushroom).length;
   const medicinalCount = medicinalRecords(activeNow).length;
+  const lookCount = lookalikeRecords(activeNow).length;
   const reviewCount = reviewRecords(allRecords).length;
+
+  const heroLinks = [
+    ['home','All in season'],
+    ['plants','Plants in season'],
+    ['mushrooms','Mushrooms in season'],
+    ['medicinal','Medicinal in season'],
+    ['lookalikes','Look-alikes in season']
+  ];
 
   return `
     <section class="focus-now-panel panel">
       <div class="focus-now-grid">
         <div class="focus-now-copy">
-          <p class="eyebrow subtle">In focus right now</p>
+          <p class="eyebrow subtle">In season now</p>
           <h2>${escapeHtml(currentMonth)}</h2>
-          <p>${activeNow.length} entries show activity this month. Pick a section and it opens right here instead of sending you on a scavenger hunt.</p>
+          <p>${activeNow.length} entries line up with the current seasonal window. These links jump to month-filtered results, not the full pile.</p>
         </div>
         <div class="focus-stat-strip" aria-label="Current month summary">
-          <div><strong>${activeNow.length}</strong><span>active now</span></div>
+          <div><strong>${activeNow.length}</strong><span>in season</span></div>
           <div><strong>${plantCount}</strong><span>plants</span></div>
           <div><strong>${mushroomCount}</strong><span>mushrooms</span></div>
           <div><strong>${medicinalCount}</strong><span>medicinal</span></div>
+          <div><strong>${lookCount}</strong><span>look-alikes</span></div>
           <div><strong>${reviewCount}</strong><span>needs review</span></div>
         </div>
+      </div>
+      <div class="section-chip-row" aria-label="Seasonal section chooser">
+        ${heroLinks.map(([slug,label]) => `<a class="section-chip ${activePage === slug ? 'active' : ''}" href="#/focus/${slug}">${escapeHtml(label)}</a>`).join('')}
       </div>
       ${renderSectionNav(activePage)}
     </section>
@@ -134,7 +156,7 @@ function renderFocusHero(allRecords, activePage) {
 }
 
 export function renderDashboard({ page, allRecords, currentRecords, filters, selectedMonth, selectedWeek, paneMode }) {
-  const activePage = ['home','plants','mushrooms','medicinal','timeline','review'].includes(page) ? page : 'home';
+  const activePage = ['home','plants','mushrooms','medicinal','lookalikes','timeline','review'].includes(page) ? page : 'home';
 
   let workspaceHtml = '';
 
@@ -197,6 +219,22 @@ export function renderDashboard({ page, allRecords, currentRecords, filters, sel
         `<label><span>Taste</span><select data-filter="taste">${optionHtml(vocabLabels(VOCAB.common.tastes), filters.taste, 'Any taste')}</select></label>`
       ]
     });
+  } else if (activePage === 'lookalikes') {
+    const source = lookalikeRecords(allRecords);
+    const severities = [...new Set(source.map(r => r.non_edible_severity).filter(Boolean))];
+    workspaceHtml = renderWorkspace({
+      page: 'lookalikes',
+      title: 'Look-Alikes',
+      intro: 'This is the danger room: non-edible, poisonous, or deadly confusions, plus the edible species most often mistaken for them.',
+      records: currentRecords,
+      filters,
+      context: 'lookalikes',
+      paneMode,
+      scopeRecords: source,
+      extraFilters: [
+        `<label><span>Severity</span><select data-filter="severity">${optionHtml(severities, filters.severity, 'Any severity')}</select></label>`
+      ]
+    });
   } else if (activePage === 'review') {
     const source = reviewRecords(allRecords);
     const reviewReasons = [...new Set(source.flatMap(record => record.reviewReasons || []))].sort((a, b) => a.localeCompare(b));
@@ -245,7 +283,7 @@ export function renderDashboard({ page, allRecords, currentRecords, filters, sel
   }
 
   return `
-    ${renderFocusHero(allRecords, activePage)}
+    ${renderSeasonHero(allRecords, activePage)}
     ${workspaceHtml}
   `;
 }
