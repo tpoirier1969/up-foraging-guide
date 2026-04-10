@@ -1,10 +1,10 @@
-import { loadLocalData, loadSupabaseData } from "./api.js";
-import { sortRecords, normalizeRecord, isPlant, isMushroom, medicinalRecords, reviewRecords } from "./data-model.js";
-import { state } from "./state.js";
-import { parseRoute } from "./router.js";
-import { MONTHS } from "./constants.js";
-import { renderDashboard } from "./pages.js";
-import { updateHeaderStats, renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui.js";
+import { loadLocalData, loadSupabaseData } from "./api.js?v=v1.8";
+import { sortRecords, normalizeRecord, isPlant, isMushroom, medicinalRecords, reviewRecords } from "./data-model.js?v=v1.8";
+import { state } from "./state.js?v=v1.8";
+import { parseRoute } from "./router.js?v=v1.8";
+import { MONTHS } from "./constants.js?v=v1.8";
+import { renderDashboard } from "./pages.js?v=v1.8";
+import { updateHeaderStats, renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui.js?v=v1.8";
 
 const focusDate = new Date();
 focusDate.setDate(focusDate.getDate() + 14);

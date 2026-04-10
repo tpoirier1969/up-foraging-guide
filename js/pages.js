@@ -88,7 +88,7 @@ function renderWorkspace({ page, title, intro, records, filters, context = 'gene
   `;
 }
 
-function renderSectionNav(activePage, focusMode = false) {
+function renderSectionNav(activePage) {
   const items = [
     ['home', 'Home'],
     ['plants', 'Plants'],
@@ -105,9 +105,7 @@ function renderSectionNav(activePage, focusMode = false) {
 }
 
 function renderFocusHero(allRecords, activePage) {
-  const focusDate = new Date();
-  focusDate.setDate(focusDate.getDate() + 14);
-  const currentMonth = MONTHS[focusDate.getMonth()];
+  const currentMonth = MONTHS[new Date().getMonth()];
   const activeNow = allRecords.filter(record => (record.months_available || []).includes(currentMonth));
   const plantCount = activeNow.filter(isPlant).length;
   const mushroomCount = activeNow.filter(isMushroom).length;
@@ -120,7 +118,7 @@ function renderFocusHero(allRecords, activePage) {
         <div class="focus-now-copy">
           <p class="eyebrow subtle">In focus right now</p>
           <h2>${escapeHtml(currentMonth)}</h2>
-          <p>${activeNow.length} entries show activity in the roughly two-weeks-ahead window for ${escapeHtml(currentMonth)}. These section links open prefiltered results for that month.</p>
+          <p>${activeNow.length} entries show activity this month. Pick a section and it opens right here instead of sending you on a scavenger hunt.</p>
         </div>
         <div class="focus-stat-strip" aria-label="Current month summary">
           <div><strong>${activeNow.length}</strong><span>active now</span></div>
@@ -130,7 +128,7 @@ function renderFocusHero(allRecords, activePage) {
           <div><strong>${reviewCount}</strong><span>needs review</span></div>
         </div>
       </div>
-      ${renderSectionNav(activePage, true)}
+      ${renderSectionNav(activePage)}
     </section>
   `;
 }
@@ -205,7 +203,7 @@ export function renderDashboard({ page, allRecords, currentRecords, filters, sel
     workspaceHtml = renderWorkspace({
       page: 'review',
       title: 'Needs Review',
-      intro: 'This is the triage queue for timing assumptions, habitat gaps, missing images, and medicinal cleanup. You can work through it here, or ask me to review a reason or section in batches.',
+      intro: 'Timing assumptions, habitat gaps, missing images, and medicinal cleanup all land here in one queue.',
       records: currentRecords,
       filters,
       context: 'review',
