@@ -17,6 +17,18 @@ function mergeOverridePayloads(basePayload, extraPayload) {
     }
   };
 }
+function mergeCreditsPayloads(basePayload, extraPayload) {
+  return {
+    metadata: {
+      version: extraPayload?.metadata?.version || basePayload?.metadata?.version || 'none',
+      source: [basePayload?.metadata?.source, extraPayload?.metadata?.source].filter(Boolean).join(' + ') || 'none'
+    },
+    credits: {
+      ...(basePayload?.credits || {}),
+      ...(extraPayload?.credits || {})
+    }
+  };
+}
 async function loadOverrides() {
   try {
     const [basePayload, extraPayload] = await Promise.all([
@@ -26,6 +38,17 @@ async function loadOverrides() {
     return mergeOverridePayloads(basePayload, extraPayload);
   } catch {
     return { metadata: { version: 'none', source: 'none' }, overrides: {} };
+  }
+}
+async function loadCredits() {
+  try {
+    const [basePayload, extraPayload] = await Promise.all([
+      loadJson('data/wikimedia-image-credits.json').catch(() => ({ metadata: { version: 'none', source: 'none' }, credits: {} })),
+      Promise.resolve({ metadata: { version: 'none', source: 'none' }, credits: {} })
+    ]);
+    return mergeCreditsPayloads(basePayload, extraPayload);
+  } catch {
+    return { metadata: { version: 'none', source: 'none' }, credits: {} };
   }
 }
 function applyOverrides(payload, overridePayload) {
@@ -38,10 +61,11 @@ function applyOverrides(payload, overridePayload) {
   return { ...payload, metadata: { ...(payload.metadata || {}), app_version: APP_VERSION, image_override_layer: overridePayload?.metadata?.version || 'none', image_override_source: overridePayload?.metadata?.source || 'none' }, records };
 }
 export async function loadLocalData() {
-  const [response, overridePayload] = await Promise.all([fetch('data/species.json', { cache: 'no-store' }), loadOverrides()]);
+  const [response, overridePayload, creditsPayload] = await Promise.all([fetch('data/species.json', { cache: 'no-store' }), loadOverrides(), loadCredits()]);
   if (!response.ok) throw new Error(`Local JSON load failed: ${response.status}`);
   const payload = await response.json();
-  return applyOverrides(payload, overridePayload);
+  const applied = applyOverrides(payload, overridePayload);
+  return { ...applied, creditsPayload };
 }
 export async function loadSupabaseData() {
   const cfg = window.FORAGING_APP_CONFIG || {};
@@ -52,6 +76,10 @@ export async function loadSupabaseData() {
   const { data, error } = await client.from(TABLE_NAME).select('species_slug,display_name,common_name,category,culinary_uses,medicinal_uses,notes,months_available,source_links,image_paths').order('display_name', { ascending: true });
   if (error) throw error;
   const payload = { metadata: { project: 'Upper Michigan Foraging Guide', version: APP_VERSION, source: 'Supabase + local reference merge + Wikimedia override layer' }, records: (data || []).map(row => { const ref = refBySlug.get(row.species_slug) || {}; const mergedImages = [...new Set([...(row.image_paths || []), ...(ref.images || [])])]; const mergedLinks = [...new Set([...(row.source_links || []), ...(ref.links || [])])]; return { ...ref, slug: row.species_slug, display_name: row.display_name || ref.display_name || row.common_name || ref.common_name || row.species_slug, common_name: row.common_name || ref.common_name || row.display_name || ref.display_name || '', category: row.category || ref.category || '', scientific_name: ref.scientific_name || '', culinary_uses: row.culinary_uses || ref.culinary_uses || '', medicinal_uses: row.medicinal_uses || ref.medicinal_uses || '', notes: row.notes || ref.notes || '', months_available: row.months_available || ref.months_available || [], links: mergedLinks, images: mergedImages }; }) };
-  return applyOverrides(payload, await loadOverrides());
+  const applied = applyOverrides(payload, await loadOverrides());
+  return { ...applied, creditsPayload: localPayload.creditsPayload };
 }
-export async function loadOverridePayload() { return loadOverrides(); }
+export async function loadOverridePayload() {
+  const [overridePayload, creditsPayload] = await Promise.all([loadOverrides(), loadCredits()]);
+  return { ...overridePayload, creditsPayload };
+}

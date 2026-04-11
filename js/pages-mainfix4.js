@@ -60,11 +60,25 @@ function resultSection(title, records, context) {
 }
 function renderCreditsPage(allRecords, overridePayload) {
   const overrides = overridePayload?.overrides || {};
-  const entries = Object.entries(overrides).map(([slug, value]) => {
+  const creditsBySlug = overridePayload?.creditsPayload?.credits || {};
+  const allSlugs = [...new Set([...Object.keys(overrides), ...Object.keys(creditsBySlug)])];
+  const entries = allSlugs.map(slug => {
     const record = allRecords.find(item => item.slug === slug);
     const label = record?.display_name || formatLabelFromSlug(slug);
-    const links = (value?.images || []).map((url, index) => `<li><a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">Image ${index + 1}</a></li>`).join('');
-    return `<article class="panel"><h3>${escapeHtml(label)}</h3><ul>${links}</ul></article>`;
+    const credits = creditsBySlug[slug] || [];
+    const imageLinks = (overrides[slug]?.images || []).map((url, index) => `<li><a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">Image ${index + 1}</a></li>`).join('');
+    const creditDetails = credits.map(item => `
+      <div class="credit-detail-block">
+        <p><strong>${escapeHtml(item.filename || 'Image file')}</strong></p>
+        ${item.title ? `<p>${escapeHtml(item.title)}</p>` : ''}
+        ${item.creator ? `<p>Creator: ${escapeHtml(item.creator)}</p>` : ''}
+        ${item.license ? `<p>License: ${escapeHtml(item.license)}</p>` : ''}
+        ${item.date ? `<p>Date: ${escapeHtml(item.date)}</p>` : ''}
+        ${item.dimensions ? `<p>Dimensions: ${escapeHtml(item.dimensions)}</p>` : ''}
+        ${item.mime_type ? `<p>Type: ${escapeHtml(item.mime_type)}</p>` : ''}
+        ${item.quality_note ? `<p>${escapeHtml(item.quality_note)}</p>` : ''}
+      </div>`).join('');
+    return `<article class="panel"><h3>${escapeHtml(label)}</h3>${creditDetails || ''}${imageLinks ? `<ul>${imageLinks}</ul>` : ''}</article>`;
   }).join('');
   return entries || '<section class="panel empty-state"><h3>No credits loaded</h3></section>';
 }
