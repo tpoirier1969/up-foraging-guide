@@ -1,10 +1,10 @@
-import { loadLocalData, loadSupabaseData, loadOverridePayload } from "./api-mainfix4.js?v=v2.1-mainfix4";
+import { loadLocalData, loadSupabaseData, loadOverridePayload } from "./api-mainfix4.js?v=v2.1-mainfix5";
 import { sortRecords, normalizeRecord, isPlant, isForagingMushroom, medicinalRecords, reviewRecords, avoidRecords } from "./data-model-mainfix4.js?v=v2.1-mainfix4";
 import { state } from "./state.js?v=v2.0";
 import { parseRoute } from "./router.js?v=v2.0";
 import { MONTHS } from "./constants-mainfix.js?v=v2.1-mainfix";
-import { renderDashboard } from "./pages-mainfix4.js?v=v2.1-mainfix4";
-import { updateHeaderStats, renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui-mainfix.js?v=v2.1-mainfix";
+import { renderDashboard } from "./pages-mainfix4.js?v=v2.1-mainfix5";
+import { updateHeaderStats, renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui-mainfix.js?v=v2.1-mainfix5";
 
 const focusDate = new Date();
 focusDate.setDate(focusDate.getDate() + 14);
@@ -37,12 +37,74 @@ function renderCurrentRoute(){
   const route = parseRoute(location.hash||'#/home');
   const allowedPages = ['home','search','identification','plants','mushrooms','medicinal','lookalikes','timeline','review','credits'];
   const activePage = route.page==='detail' ? (state.route||'home') : (allowedPages.includes(route.page)?route.page:'home');
-  if(route.focus && filterState[activePage]){ filterState[activePage] = { ...filterState[activePage], month: CURRENT_MONTH }; if(activePage==='timeline') selectedTimelineMonth = CURRENT_MONTH; }
-  state.route = activePage; markActiveNav(activePage);
-  if(route.page==='detail' && route.slug){ if(!document.getElementById('pageRoot').innerHTML.trim()){ renderPage(renderDashboard({ page: activePage, allRecords: state.allRecords, currentRecords: filteredForPage(activePage), filters: filterState[activePage]||emptyFilter(activePage), selectedMonth: selectedTimelineMonth, selectedWeek: selectedTimelineWeek, overridePayload })); } bindDetailLinks(); openDetail(route.slug); return; }
+  state.route = activePage;
+  markActiveNav(activePage);
+  if(route.page==='detail' && route.slug){
+    if(!document.getElementById('pageRoot').innerHTML.trim()) {
+      renderPage(renderDashboard({ page: activePage, allRecords: state.allRecords, currentRecords: filteredForPage(activePage), filters: filterState[activePage]||emptyFilter(activePage), selectedMonth: selectedTimelineMonth, selectedWeek: selectedTimelineWeek, overridePayload }));
+    }
+    bindDetailLinks();
+    openDetail(route.slug);
+    return;
+  }
   renderPage(renderDashboard({ page: activePage, allRecords: state.allRecords, currentRecords: filteredForPage(activePage), filters: filterState[activePage]||emptyFilter(activePage), selectedMonth: selectedTimelineMonth, selectedWeek: selectedTimelineWeek, overridePayload }));
   bindDetailLinks();
-  bindSharedActions({ onFilterChange: event => { const target = event.currentTarget; const page = state.route; if(!filterState[page]) return; filterState[page][target.dataset.filter] = target.value; if(target.dataset.filter==='treeType') filterState[page].hostTree=''; renderCurrentRoute(); }, onClearFilters: ()=>{ const page = state.route; if(!filterState[page]) return; filterState[page] = emptyFilter(page); renderCurrentRoute(); }, onTimelineMonthChange: (month,week)=>{ if(!month) return; selectedTimelineMonth=month; selectedTimelineWeek=Number(week||1); renderCurrentRoute(); }, onPaneModeChange: ()=>{}, onTimelineShift: direction => { const index = MONTHS.indexOf(selectedTimelineMonth); if(index<0) return; const delta = direction==='prev' ? -1 : 1; selectedTimelineMonth = MONTHS[(index+delta+MONTHS.length)%MONTHS.length]; renderCurrentRoute(); } });
+  bindSharedActions({
+    onFilterChange: event => {
+      const target = event.currentTarget;
+      const page = state.route;
+      if(!filterState[page]) return;
+      filterState[page][target.dataset.filter] = target.value;
+      if(target.dataset.filter==='treeType') filterState[page].hostTree='';
+      renderCurrentRoute();
+    },
+    onClearFilters: ()=>{
+      const page = state.route;
+      if(!filterState[page]) return;
+      filterState[page] = emptyFilter(page);
+      renderCurrentRoute();
+    },
+    onTimelineMonthChange: (month,week)=>{
+      if(!month) return;
+      selectedTimelineMonth=month;
+      selectedTimelineWeek=Number(week||1);
+      renderCurrentRoute();
+    },
+    onPaneModeChange: ()=>{},
+    onTimelineShift: direction => {
+      const index = MONTHS.indexOf(selectedTimelineMonth);
+      if(index<0) return;
+      const delta = direction==='prev' ? -1 : 1;
+      selectedTimelineMonth = MONTHS[(index+delta+MONTHS.length)%MONTHS.length];
+      renderCurrentRoute();
+    },
+    onToggleInSeason: page => {
+      if(!filterState[page]) return;
+      filterState[page].month = filterState[page].month === CURRENT_MONTH ? '' : CURRENT_MONTH;
+      renderCurrentRoute();
+    }
+  });
 }
-async function init(){ wireModal(); try{ overridePayload = await loadOverridePayload(); let payload; try{ payload = await loadSupabaseData(); state.dataSource = 'Supabase live data + Wikimedia override'; } catch(e){ payload = await loadLocalData(); state.dataSource = 'Local JSON fallback + Wikimedia override'; console.info('Supabase not used for this run:', e?.message || e); } state.allRecords = sortRecords((payload.records||[]).map(normalizeRecord)); updateHeaderStats(); renderCurrentRoute(); window.addEventListener('hashchange', renderCurrentRoute); } catch(error){ console.error(error); renderPage(`<section class="panel empty-state"><h2>Data load failed</h2><p>${String(error.message||error)}</p></section>`); } }
+async function init(){
+  wireModal();
+  try{
+    overridePayload = await loadOverridePayload();
+    let payload;
+    try{
+      payload = await loadSupabaseData();
+      state.dataSource = 'Supabase live data + Wikimedia override';
+    } catch(e){
+      payload = await loadLocalData();
+      state.dataSource = 'Local JSON fallback + Wikimedia override';
+      console.info('Supabase not used for this run:', e?.message || e);
+    }
+    state.allRecords = sortRecords((payload.records||[]).map(normalizeRecord));
+    updateHeaderStats();
+    renderCurrentRoute();
+    window.addEventListener('hashchange', renderCurrentRoute);
+  } catch(error){
+    console.error(error);
+    renderPage(`<section class="panel empty-state"><h2>Data load failed</h2><p>${String(error.message||error)}</p></section>`);
+  }
+}
 init();

@@ -13,12 +13,27 @@ export function updateHeaderStats() { if (els.versionBadge) els.versionBadge.tex
 export function renderPage(html) { els.pageRoot.innerHTML = html; }
 export function markActiveNav(route) { document.querySelectorAll("[data-nav]").forEach(link => link.classList.toggle("active", link.dataset.nav === route)); }
 export function bindDetailLinks() { document.querySelectorAll("[data-detail-link]").forEach(link => link.addEventListener("click", event => { event.preventDefault(); openDetail(link.dataset.detailLink); })); }
-export function bindSharedActions({ onFilterChange, onClearFilters, onTimelineMonthChange, onPaneModeChange, onTimelineShift }) {
-  document.querySelectorAll("[data-filter]").forEach(el => el.addEventListener(el.tagName === "SELECT" ? "change" : "input", onFilterChange));
+export function bindSharedActions({ onFilterChange, onClearFilters, onTimelineMonthChange, onPaneModeChange, onTimelineShift, onToggleInSeason }) {
+  document.querySelectorAll("[data-filter]").forEach(el => {
+    const isSearch = el.tagName === "INPUT" && el.getAttribute("type") === "search";
+    if (el.tagName === "SELECT") {
+      el.addEventListener("change", onFilterChange);
+    } else if (isSearch) {
+      el.addEventListener("keydown", event => {
+        if (event.key === "Enter") {
+          event.preventDefault();
+          onFilterChange?.({ currentTarget: el });
+        }
+      });
+    } else {
+      el.addEventListener("change", onFilterChange);
+    }
+  });
   document.querySelectorAll('[data-action="clear-filters"]').forEach(btn => btn.addEventListener("click", onClearFilters));
   document.querySelectorAll("[data-timeline-month]").forEach(btn => btn.addEventListener("click", () => onTimelineMonthChange?.(btn.dataset.timelineMonth, btn.dataset.timelineWeek)));
   document.querySelectorAll('[data-action="set-pane-mode"]').forEach(btn => btn.addEventListener("click", () => onPaneModeChange?.(btn.dataset.page, btn.dataset.paneMode)));
   document.querySelectorAll('[data-action="timeline-shift"]').forEach(btn => btn.addEventListener("click", () => onTimelineShift?.(btn.dataset.direction)));
+  document.querySelectorAll('[data-action="toggle-in-season"]').forEach(btn => btn.addEventListener("click", () => onToggleInSeason?.(btn.dataset.page)));
   const activeTimeline = document.querySelector('.timeline-pill.active');
   if (activeTimeline) activeTimeline.scrollIntoView({ inline: 'center', block: 'nearest' });
 }
