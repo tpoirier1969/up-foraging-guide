@@ -6,9 +6,28 @@ const FORAGING_MUSHROOM_STATUSES = new Set(["choice","choice_cooked_only","edibl
 const AVOID_MUSHROOM_STATUSES = new Set(["emergency_only","inedible_tough","inedible_bitter","nonculinary_tea","poisonous","deadly_poisonous","toxic_or_psychoactive","toxic_or_dangerous","review_required","questionable_or_mediocre"]);
 function severityText(record) { return String(record?.non_edible_severity || '').trim().toLowerCase(); }
 function edibleStatus(record) { return String(record?.mushroom_profile?.edibility_status || '').trim().toLowerCase(); }
+function asList(value) {
+  if (Array.isArray(value)) return value.filter(Boolean).map(v => String(v).trim()).filter(Boolean);
+  if (typeof value === 'string' && value.trim()) return [value.trim()];
+  return [];
+}
+function mergedReviewReasons(base, inferred) {
+  const manual = [
+    ...asList(base.manual_review_reasons),
+    ...asList(base.manualReviewReasons),
+    ...asList(base.review_reasons),
+    ...asList(base.reviewReasons)
+  ];
+  let merged = [...new Set([...manual, ...asList(inferred.reviewReasons)])];
+  if (base.slug === 'rock-tripe') {
+    merged = merged.filter(reason => !/substrate/i.test(reason));
+  }
+  return merged;
+}
 export function normalizeRecord(record) {
   const base = {...record, display_name: compactText(record.display_name || record.common_name, 'Untitled species'), common_name: compactText(record.common_name || record.display_name, ''), category: compactText(record.category, 'Uncategorized'), scientific_name: compactText(record.scientific_name, ''), culinary_uses: compactText(record.culinary_uses, ''), medicinal_uses: compactText(record.medicinal_uses, ''), notes: compactText(record.notes, ''), months_available: Array.isArray(record.months_available) ? record.months_available : [], links: Array.isArray(record.links) ? record.links : [], images: Array.isArray(record.images) ? record.images : []};
-  return {...base, ...inferTraits(base)};
+  const inferred = inferTraits(base);
+  return {...base, ...inferred, reviewReasons: mergedReviewReasons(base, inferred)};
 }
 export function sortRecords(records) { return records.slice().sort((a,b) => a.display_name.localeCompare(b.display_name)); }
 export function isPlant(record) { return PLANT_CATEGORIES.has(record.category); }

@@ -43,7 +43,8 @@ function inSeasonSubset(allRecords, type) {
 function compactSeasonPanel(allRecords, type) {
   const month = currentMonthName();
   const records = inSeasonSubset(allRecords, type);
-  return `<section class="panel compact-season-panel"><div class="compact-season-head"><span class="eyebrow subtle">In-season</span><strong>${escapeHtml(type === 'plants' ? 'Plants' : 'Mushrooms')} · ${escapeHtml(month)}</strong><span class="tag">${records.length}</span></div></section>`;
+  const route = type === 'plants' ? '#/focus/plants' : '#/focus/mushrooms';
+  return `<section class="panel compact-season-panel"><div class="compact-season-head"><strong>${escapeHtml(type === 'plants' ? 'Plants' : 'Mushrooms')}</strong><a class="buttonish compact-quick-filter" href="${route}">In-season (${records.length})</a><span class="compact-month">${escapeHtml(month)}</span></div></section>`;
 }
 function selectFilter(label, key, values, current, blank) {
   return `<label class="compact-filter"><span>${escapeHtml(label)}</span><select data-filter="${escapeHtml(key)}">${optionHtml(values, current, blank)}</select></label>`;
@@ -71,10 +72,21 @@ function renderCreditsPage(allRecords, overridePayload) {
 export function renderDashboard({ page, allRecords, currentRecords, filters, selectedMonth, selectedWeek, overridePayload }) {
   if (page === 'home') {
     const seasonRecords = inSeasonForagingRecords(allRecords);
-    return `<section class="panel section-intro-slim"><h2>In-Season Species</h2></section>${resultSection('In-season species', seasonRecords, 'general')}`;
+    return `${resultSection('In-Season Species', seasonRecords, 'general')}`;
   }
   if (page === 'search') {
-    return `${filterBlock([searchFilter('search', filters.search, 'Search all species')])}${resultSection('Search results', currentRecords, 'general')}`;
+    return `${filterBlock([searchFilter('search', filters.search, 'Search all species')])}${resultSection('Search', currentRecords, 'general')}`;
+  }
+  if (page === 'identification') {
+    return `${filterBlock([
+      selectFilter('Part / trait','part',vocabLabels(VOCAB.common.observedParts),filters.part,'Any part / trait'),
+      selectFilter('Flower color','flowerColor',FLOWER_COLORS,filters.flowerColor,'Any flower color'),
+      selectFilter('Leaf shape','leafShape',LEAF_SHAPES,filters.leafShape,'Any leaf shape'),
+      selectFilter('Leaf points','leafPointCount',LEAF_POINT_COUNTS,filters.leafPointCount,'Any leaf points'),
+      selectFilter('Stem surface','stemSurface',STEM_SURFACES,filters.stemSurface,'Any stem surface'),
+      selectFilter('Habitat','habitat',vocabLabels(VOCAB.common.habitats),filters.habitat,'Any habitat'),
+      selectFilter('Month','month',MONTHS,filters.month,'Any month')
+    ])}${resultSection('Identification', currentRecords, 'general')}`;
   }
   if (page === 'plants') {
     return `${compactSeasonPanel(allRecords,'plants')}${filterBlock([

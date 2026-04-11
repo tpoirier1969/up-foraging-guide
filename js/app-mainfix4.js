@@ -10,7 +10,7 @@ const focusDate = new Date();
 focusDate.setDate(focusDate.getDate() + 14);
 const CURRENT_MONTH = MONTHS[focusDate.getMonth()] || MONTHS[0];
 const emptyFilter = (page='') => ({ search:'', month: page==='home'?CURRENT_MONTH:'', habitat:'', part:'', size:'', taste:'', substrate:'', treeType:'', hostTree:'', ring:'', texture:'', smell:'', staining:'', medicinalAction:'', medicinalSystem:'', medicinalTerm:'', reviewReason:'', severity:'', flowerColor:'', leafShape:'', stemSurface:'', leafPointCount:'' });
-const filterState = { home: emptyFilter('home'), search: emptyFilter(), plants: emptyFilter(), mushrooms: emptyFilter(), medicinal: emptyFilter(), lookalikes: emptyFilter(), review: emptyFilter(), credits: emptyFilter() };
+const filterState = { home: emptyFilter('home'), search: emptyFilter(), identification: emptyFilter(), plants: emptyFilter(), mushrooms: emptyFilter(), medicinal: emptyFilter(), lookalikes: emptyFilter(), review: emptyFilter(), credits: emptyFilter() };
 let selectedTimelineMonth = CURRENT_MONTH;
 let selectedTimelineWeek = 1;
 let overridePayload = { overrides:{}, metadata:{} };
@@ -24,6 +24,7 @@ function queryMatches(record, filters) {
 function filteredForPage(page){
   if(page==='home') return state.allRecords.filter(record => (isPlant(record) || isForagingMushroom(record)) && (record.months_available||[]).includes(CURRENT_MONTH));
   if(page==='search') return state.allRecords.filter(record => queryMatches(record, filterState.search));
+  if(page==='identification') return state.allRecords.filter(record => (isPlant(record) || isForagingMushroom(record)) && queryMatches(record, filterState.identification));
   if(page==='plants') return state.allRecords.filter(isPlant).filter(record => queryMatches(record, filterState.plants));
   if(page==='mushrooms') return state.allRecords.filter(isForagingMushroom).filter(record => queryMatches(record, filterState.mushrooms));
   if(page==='medicinal') return medicinalRecords(state.allRecords).filter(record => queryMatches(record, filterState.medicinal));
@@ -34,7 +35,7 @@ function filteredForPage(page){
 }
 function renderCurrentRoute(){
   const route = parseRoute(location.hash||'#/home');
-  const allowedPages = ['home','search','plants','mushrooms','medicinal','lookalikes','timeline','review','credits'];
+  const allowedPages = ['home','search','identification','plants','mushrooms','medicinal','lookalikes','timeline','review','credits'];
   const activePage = route.page==='detail' ? (state.route||'home') : (allowedPages.includes(route.page)?route.page:'home');
   if(route.focus && filterState[activePage]){ filterState[activePage] = { ...filterState[activePage], month: CURRENT_MONTH }; if(activePage==='timeline') selectedTimelineMonth = CURRENT_MONTH; }
   state.route = activePage; markActiveNav(activePage);
