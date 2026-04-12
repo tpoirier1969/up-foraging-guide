@@ -1,5 +1,5 @@
-import { APP_VERSION } from "./constants-mainfix.js?v=v2.1-mainfix8";
-import { state } from "./state.js?v=v2.0";
+import { APP_VERSION } from "./constants-mainfix.js?v=v2.1-mainfix20";
+import { state } from "./state.js?v=v2.1-mainfix16";
 import { renderDetail } from "./renderers/detail.js?v=v2.0";
 
 const els = {
@@ -9,10 +9,21 @@ const els = {
   modalContent: document.getElementById("modalContent"),
   closeModalBtn: document.getElementById("closeModalBtn")
 };
+let detailDelegationBound = false;
+
 export function updateHeaderStats() { if (els.versionBadge) els.versionBadge.textContent = APP_VERSION; }
 export function renderPage(html) { els.pageRoot.innerHTML = html; }
 export function markActiveNav(route) { document.querySelectorAll("[data-nav]").forEach(link => link.classList.toggle("active", link.dataset.nav === route)); }
-export function bindDetailLinks() { document.querySelectorAll("[data-detail-link]").forEach(link => link.addEventListener("click", event => { event.preventDefault(); openDetail(link.dataset.detailLink); })); }
+export function bindDetailLinks() {
+  if (detailDelegationBound) return;
+  document.addEventListener("click", event => {
+    const link = event.target?.closest?.("[data-detail-link]");
+    if (!link) return;
+    event.preventDefault();
+    openDetail(link.dataset.detailLink);
+  });
+  detailDelegationBound = true;
+}
 export function bindSharedActions({ onFilterChange, onClearFilters, onTimelineMonthChange, onPaneModeChange, onTimelineShift, onToggleInSeason }) {
   document.querySelectorAll("[data-filter]").forEach(el => {
     const isSearch = el.tagName === "INPUT" && el.getAttribute("type") === "search";
@@ -37,9 +48,33 @@ export function bindSharedActions({ onFilterChange, onClearFilters, onTimelineMo
   const activeTimeline = document.querySelector('.timeline-pill.active');
   if (activeTimeline) activeTimeline.scrollIntoView({ inline: 'center', block: 'nearest' });
 }
-export function openDetail(slug) { const record = state.allRecords.find(item => item.slug === slug); if (!record) return; els.modalContent.innerHTML = renderDetail(record); els.detailModal.showModal(); }
-export function closeDetail() { els.detailModal.close(); }
+function showDetailModal() {
+  if (!els.detailModal) return;
+  if (typeof els.detailModal.showModal === 'function') {
+    try {
+      els.detailModal.showModal();
+      return;
+    } catch {}
+  }
+  els.detailModal.setAttribute('open', 'open');
+  els.detailModal.classList.add('dialog-open-fallback');
+}
+export function openDetail(slug) {
+  const record = state.allRecords.find(item => item.slug === slug);
+  if (!record || !els.modalContent) return;
+  els.modalContent.innerHTML = renderDetail(record);
+  showDetailModal();
+}
+export function closeDetail() {
+  if (!els.detailModal) return;
+  if (typeof els.detailModal.close === 'function') {
+    try { els.detailModal.close(); } catch {}
+  }
+  els.detailModal.classList.remove('dialog-open-fallback');
+  els.detailModal.removeAttribute('open');
+}
 export function wireModal() {
+  if (!els.detailModal || !els.closeModalBtn) return;
   els.closeModalBtn.addEventListener("click", closeDetail);
   els.detailModal.addEventListener("click", event => {
     const card = els.detailModal.querySelector('.modal-card');
