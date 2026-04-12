@@ -1,7 +1,7 @@
-import { MONTHS } from "./constants-mainfix.js?v=v2.1-mainfix21";
+import { MONTHS } from "./constants-mainfix.js?v=v2.1-mainfix22";
 import { medicinalRecords, isPlant, reviewRecords, avoidRecords, isForagingMushroom } from "./data-model-mainfix4.js?v=v2.1-mainfix21";
 import { VOCAB } from "./vocabulary.js?v=v2.0";
-import { renderResultCard } from "./renderers/cards-mainfix.js?v=v2.1-mainfix8";
+import { renderResultCard } from "./renderers/cards-mainfix.js?v=v2.1-mainfix22";
 import { renderInteractiveTimeline } from "./renderers/timeline.js?v=v2.1-mainfix21";
 import { escapeHtml } from "./utils.js?v=v2.0";
 

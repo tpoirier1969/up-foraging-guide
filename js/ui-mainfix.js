@@ -1,6 +1,6 @@
-import { APP_VERSION } from "./constants-mainfix.js?v=v2.1-mainfix21";
+import { APP_VERSION } from "./constants-mainfix.js?v=v2.1-mainfix22";
 import { state } from "./state.js?v=v2.1-mainfix21";
-import { renderDetail } from "./renderers/detail.js?v=v2.1-mainfix21";
+import { renderDetail } from "./renderers/detail.js?v=v2.1-mainfix22";
 
 const els = { pageRoot: document.getElementById("pageRoot"), versionBadge: document.getElementById("versionBadge"), detailModal: document.getElementById("detailModal"), modalContent: document.getElementById("modalContent"), closeModalBtn: document.getElementById("closeModalBtn") };
 let detailDelegationBound = false;

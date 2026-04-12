@@ -2,9 +2,9 @@ import { loadLocalData, loadSupabaseData, loadOverridePayload } from "./api-main
 import { sortRecords, normalizeRecord, isPlant, isForagingMushroom, medicinalRecords, reviewRecords, avoidRecords } from "./data-model-mainfix4.js?v=v2.1-mainfix21";
 import { state } from "./state.js?v=v2.1-mainfix21";
 import { parseRoute } from "./router.js?v=v2.0";
-import { MONTHS } from "./constants-mainfix.js?v=v2.1-mainfix21";
-import { renderDashboard } from "./pages-mainfix4.js?v=v2.1-mainfix21";
-import { updateHeaderStats, renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui-mainfix.js?v=v2.1-mainfix21";
+import { MONTHS } from "./constants-mainfix.js?v=v2.1-mainfix22";
+import { renderDashboard } from "./pages-mainfix4.js?v=v2.1-mainfix22";
+import { updateHeaderStats, renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui-mainfix.js?v=v2.1-mainfix22";
 
 const focusDate = new Date();
 focusDate.setDate(focusDate.getDate() + 14);
