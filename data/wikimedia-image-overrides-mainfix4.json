@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "version": "v2.1-mainfix17",
+    "version": "v2.1-mainfix23",
     "source": "Wikimedia Commons additional overrides",
     "notes": [
       "Additional overrides for front-door build.",
       "Birch sap uses birch bark/tree imagery per user instruction.",
-      "Missing local plant image references were cleared to stop 404 errors until replacement images are added."
+      "Missing local plant image references were cleared to stop 404 errors until replacement images are added.",
+      "Species-specific image cleanup to prevent duplicate-looking photos on the same page."
     ]
   },
   "overrides": {
@@ -28,6 +29,16 @@
     },
     "spruce-tips": {
       "images": []
+    },
+    "acorns-leached": {
+      "images": [
+        "assets/images/plants-2/acorns-leached-be064d.jpg"
+      ]
+    },
+    "barberries": {
+      "images": [
+        "assets/images/plants-2/barberries-05f459.jpg"
+      ]
     }
   }
 }
