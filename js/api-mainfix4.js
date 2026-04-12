@@ -1,4 +1,4 @@
-import { APP_VERSION, TABLE_NAME } from "./constants-mainfix.js?v=v2.1-mainfix16";
+import { APP_VERSION, TABLE_NAME } from "./constants-mainfix.js?v=v2.1-mainfix17";
 
 async function loadJson(path) {
   const response = await fetch(path, { cache: "no-store" });
