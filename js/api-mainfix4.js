@@ -1,4 +1,4 @@
-import { APP_VERSION, TABLE_NAME } from "./constants-mainfix.js?v=v2.1-mainfix20";
+import { APP_VERSION, TABLE_NAME } from "./constants-mainfix.js?v=v2.1-mainfix21";
 
 async function loadJson(path) {
   const response = await fetch(path, { cache: "no-store" });
@@ -85,7 +85,16 @@ function applyOverrides(payload, overridePayload) {
     if (!override) return record;
     return { ...record, images: Array.isArray(override.images) ? override.images : (record.images || []) };
   });
-  return { ...payload, metadata: { ...(payload.metadata || {}), app_version: APP_VERSION, image_override_layer: overridePayload?.metadata?.version || 'none', image_override_source: overridePayload?.metadata?.source || 'none' }, records };
+  return {
+    ...payload,
+    metadata: {
+      ...(payload.metadata || {}),
+      app_version: APP_VERSION,
+      image_override_layer: overridePayload?.metadata?.version || 'none',
+      image_override_source: overridePayload?.metadata?.source || 'none'
+    },
+    records
+  };
 }
 export async function loadLocalData() {
   const [response, additionsPayload, overridePayload, creditsPayload, references] = await Promise.all([
