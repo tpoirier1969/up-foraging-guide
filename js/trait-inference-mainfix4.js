@@ -7,6 +7,37 @@ const PLANT_ID = {
   leafPointCounts: ["1-point","3-point","5-point","Many-lobed"]
 };
 
+const EXPLICIT_FLOWER_COLOR_MAP = {
+  'dandelion-flowers':['Yellow'],
+  'violet-flowers':['Purple','Blue'],
+  'clover-flowers':['Pink','White'],
+  'honeysuckle-flowers':['White','Yellow','Pink'],
+  'elderflowers':['White'],
+  'chicory-flowers':['Blue'],
+  'basswood-linden-flowers':['Yellow','White'],
+  'daylily-flowers':['Yellow'],
+  'bee-balm-wild-bergamot':['Pink','Purple'],
+  'goldenrod-flowers':['Yellow'],
+  'cattail-pollen':['Yellow'],
+  'wild-hop-cones':['Green'],
+  'wood-sorrel-yellow-woodsorrel':['Yellow'],
+  'yellow-pond-lily-bulbs':['Yellow'],
+  'jerusalem-artichoke':['Yellow'],
+  'wild-carrot':['White'],
+  'garlic-mustard':['White'],
+  'wild-mustard-greens':['Yellow'],
+  'chickweed':['White'],
+  'wood-sorrel':['Yellow'],
+  'red-sorrel':['Red'],
+  'miner-s-lettuce-winter-purslane':['White'],
+  'wild-ginger':['Red','Brown'],
+  'sweet-cicely':['White'],
+  'fiddlehead-ferns':[],
+  'plantain-broadleaf':['Green'],
+  'ramps-wild-onion':['White'],
+  'wild-leek-ramp':['White']
+};
+
 function inferMulti(text, entries) {
   const out = [];
   const lower = text.toLowerCase();
@@ -64,9 +95,40 @@ function inferLeafPointCounts(text) {
   if (/(many lobed|deeply lobed|several lobes)/.test(lower)) out.push('Many-lobed');
   return out;
 }
+function inferFlowerColors(record, text) {
+  const lower = text.toLowerCase();
+  const out = [];
+  const slugMap = EXPLICIT_FLOWER_COLOR_MAP[record.slug] || [];
+  out.push(...slugMap);
+  const cues = [
+    ['Yellow', /(yellow|golden|gold|daylily|dandelion|mustard|woodsorrel|goldenrod|linden)/],
+    ['Pink', /(pink|rose|clover|bee balm|bergamot|honeysuckle)/],
+    ['Blue', /(blue|azure|chicory|violet)/],
+    ['Purple', /(purple|violet|bergamot|bee balm|lavender)/],
+    ['White', /(white|elderflower|elderflowers|chickweed|wild carrot|queen anne|garlic mustard|basswood)/],
+    ['Red', /(red|scarlet|crimson|ginger flower|red sorrel)/],
+    ['Green', /(green flower|greenish|hop cones|catkin)/]
+  ];
+  for (const [label, pattern] of cues) {
+    if (pattern.test(lower)) out.push(label);
+  }
+  return [...new Set(out.filter(Boolean))];
+}
 
 export function inferTraits(record) {
-  const text = [record.display_name,record.common_name,record.category,record.culinary_uses,record.medicinal_uses,record.notes,record.scientific_name,record.mushroom_profile?.summary,...(record.mushroom_profile?.research_notes || [])].join(' ').toLowerCase();
+  const text = [
+    record.slug,
+    record.display_name,
+    record.common_name,
+    record.category,
+    record.culinary_uses,
+    record.medicinal_uses,
+    record.notes,
+    record.scientific_name,
+    ...(record.images || []),
+    record.mushroom_profile?.summary,
+    ...(record.mushroom_profile?.research_notes || [])
+  ].join(' ').toLowerCase();
   const hostInfo = inferHostTrees(text);
   const explicitHabitat = canonicalizeList(explicitList(record,'habitat'), VOCAB.common.habitats, {keepUnknown:true});
   const explicitObservedPart = canonicalizeList(explicitList(record,'observedPart'), VOCAB.common.observedParts, {keepUnknown:true});
@@ -94,7 +156,7 @@ export function inferTraits(record) {
     medicinalAction: mergeUnique(explicitMedicinalAction, inferMulti(text, VOCAB.medicinal.actions)),
     medicinalSystem: mergeUnique(explicitMedicinalSystem, inferMulti(text, VOCAB.medicinal.bodySystems)),
     medicinalTerms: mergeUnique(explicitMedicinalTerms, inferMedicinalTerms(text)),
-    flowerColor: inferSimpleLabels(text, PLANT_ID.flowerColors),
+    flowerColor: inferFlowerColors(record, text),
     leafShape: inferSimpleLabels(text, PLANT_ID.leafShapes),
     stemSurface: inferSimpleLabels(text, PLANT_ID.stemSurfaces),
     leafPointCount: inferLeafPointCounts(text)

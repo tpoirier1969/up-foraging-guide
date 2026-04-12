@@ -1,5 +1,5 @@
-import { MONTHS } from "./constants-mainfix.js?v=v2.1-mainfix8";
-import { medicinalRecords, isPlant, reviewRecords, avoidRecords, isForagingMushroom } from "./data-model-mainfix4.js?v=v2.1-mainfix5";
+import { MONTHS } from "./constants-mainfix.js?v=v2.1-mainfix10";
+import { medicinalRecords, isPlant, reviewRecords, avoidRecords, isForagingMushroom } from "./data-model-mainfix4.js?v=v2.1-mainfix10";
 import { VOCAB } from "./vocabulary.js?v=v2.0";
 import { renderResultCard } from "./renderers/cards-mainfix.js?v=v2.1-mainfix8";
 import { renderInteractiveTimeline } from "./renderers/timeline.js?v=v2.0";
@@ -40,7 +40,14 @@ function compactSeasonPanel(allRecords, type, activeMonth = '') {
 }
 function selectFilter(label, key, values, current, blank) { return `<label class="compact-filter"><span>${escapeHtml(label)}</span><select data-filter="${escapeHtml(key)}">${optionHtml(values, current, blank)}</select></label>`; }
 function searchFilter(key, current, placeholder) { return `<label class="compact-filter compact-search"><input type="search" data-filter="${escapeHtml(key)}" value="${escapeHtml(current || '')}" placeholder="${escapeHtml(placeholder)}"></label>`; }
-function filterBlock(extraFilters = []) { return `<section class="panel filter-stack"><div class="tight-filter-grid">${extraFilters.join('')}</div></section>`; }
+function multiChipFilter(label, key, values, currentValues = []) {
+  const selected = new Set(Array.isArray(currentValues) ? currentValues : []);
+  return `<fieldset class="compact-multi-group"><legend>${escapeHtml(label)}</legend><div class="multi-chip-grid">${values.map(value => `<label class="multi-chip"><input type="checkbox" data-filter="${escapeHtml(key)}" value="${escapeHtml(value)}" ${selected.has(value) ? 'checked' : ''}><span>${escapeHtml(value)}</span></label>`).join('')}</div></fieldset>`;
+}
+function filterBlock(extraFilters = [], allowClear = true) {
+  const clear = allowClear ? `<div class="filter-actions"><button class="buttonish" type="button" data-action="clear-filters">Clear all filters</button></div>` : '';
+  return `<section class="panel filter-stack"><div class="tight-filter-grid">${extraFilters.join('')}</div>${clear}</section>`;
+}
 function resultSection(title, records, context, metaText = '') {
   const finalMeta = metaText || `${records.length} match${records.length === 1 ? '' : 'es'}`;
   return `<section class="panel workspace-pane results-pane-card"><div class="result-header compact-result-header"><div class="result-title-row"><h3>${escapeHtml(title)}</h3><p class="results-meta">${escapeHtml(finalMeta)}</p></div></div><div class="result-list">${renderResultList(records, context)}</div></section>`;
@@ -48,14 +55,25 @@ function resultSection(title, records, context, metaText = '') {
 function renderCreditsPage(allRecords, overridePayload) {
   const overrides = overridePayload?.overrides || {};
   const creditsBySlug = overridePayload?.creditsPayload?.credits || {};
+  const photographerMap = new Map();
+  Object.entries(creditsBySlug).forEach(([slug, items]) => {
+    const record = allRecords.find(item => item.slug === slug);
+    const label = record?.display_name || formatLabelFromSlug(slug);
+    (items || []).forEach(item => {
+      const creator = item.creator || 'Unknown creator';
+      const bucket = photographerMap.get(creator) || [];
+      bucket.push({ label, filename: item.filename || 'Image file', license: item.license || '', title: item.title || '', slug });
+      photographerMap.set(creator, bucket);
+    });
+  });
+  const grouped = [...photographerMap.entries()].sort((a,b) => a[0].localeCompare(b[0])).map(([creator, items]) => `<section class="credit-group"><h4>${escapeHtml(creator)}</h4><ul>${items.map(item => `<li><strong>${escapeHtml(item.label)}</strong>${item.title ? ` — ${escapeHtml(item.title)}` : ''}${item.license ? ` — ${escapeHtml(item.license)}` : ''}</li>`).join('')}</ul></section>`).join('');
+  if (grouped) return `<section class="panel">${grouped}</section>`;
   const allSlugs = [...new Set([...Object.keys(overrides), ...Object.keys(creditsBySlug)])];
   const entries = allSlugs.map(slug => {
     const record = allRecords.find(item => item.slug === slug);
     const label = record?.display_name || formatLabelFromSlug(slug);
-    const credits = creditsBySlug[slug] || [];
     const imageLinks = (overrides[slug]?.images || []).map((url, index) => `<li><a href="${escapeHtml(url)}" target="_blank" rel="noreferrer">Image ${index + 1}</a></li>`).join('');
-    const creditDetails = credits.map(item => `<div class="credit-detail-block"><p><strong>${escapeHtml(item.filename || 'Image file')}</strong></p>${item.title ? `<p>${escapeHtml(item.title)}</p>` : ''}${item.creator ? `<p>Creator: ${escapeHtml(item.creator)}</p>` : ''}${item.license ? `<p>License: ${escapeHtml(item.license)}</p>` : ''}${item.date ? `<p>Date: ${escapeHtml(item.date)}</p>` : ''}${item.dimensions ? `<p>Dimensions: ${escapeHtml(item.dimensions)}</p>` : ''}${item.mime_type ? `<p>Type: ${escapeHtml(item.mime_type)}</p>` : ''}${item.quality_note ? `<p>${escapeHtml(item.quality_note)}</p>` : ''}</div>`).join('');
-    return `<article class="panel"><h3>${escapeHtml(label)}</h3>${creditDetails || ''}${imageLinks ? `<ul>${imageLinks}</ul>` : ''}</article>`;
+    return `<article class="panel"><h3>${escapeHtml(label)}</h3>${imageLinks ? `<ul>${imageLinks}</ul>` : ''}</article>`;
   }).join('');
   return entries || '<section class="panel empty-state"><h3>No credits loaded</h3></section>';
 }
@@ -68,18 +86,23 @@ export function renderDashboard({ page, allRecords, currentRecords, filters, sel
   }
   if (page === 'search') return `${filterBlock([searchFilter('search', filters.search, 'Search all species'), `<div class="filter-hint">Press Enter to search</div>`])}${resultSection('Search', currentRecords, 'general')}`;
   if (page === 'identification') {
-    const part = String(filters.part || '').toLowerCase();
-    const controls = [selectFilter('Part','part',vocabLabels(VOCAB.common.observedParts),filters.part,'Any part'), selectFilter('Habitat','habitat',vocabLabels(VOCAB.common.habitats),filters.habitat,'Any habitat'), selectFilter('Month','month',MONTHS,filters.month,'Any month')];
-    if (part.includes('leaf')) controls.push(selectFilter('Leaf shape','leafShape',LEAF_SHAPES,filters.leafShape,'Any leaf shape'), selectFilter('Leaf points','leafPointCount',LEAF_POINT_COUNTS,filters.leafPointCount,'Any leaf points'));
-    if (part.includes('flower')) controls.push(selectFilter('Flower color','flowerColor',FLOWER_COLORS,filters.flowerColor,'Any flower color'));
-    if (part.includes('stem')) controls.push(selectFilter('Stem surface','stemSurface',STEM_SURFACES,filters.stemSurface,'Any stem surface'));
+    const controls = [
+      multiChipFilter('Habitat','habitat',vocabLabels(VOCAB.common.habitats),filters.habitat),
+      multiChipFilter('Month','month',MONTHS,filters.month),
+      multiChipFilter('Part / trait','part',vocabLabels(VOCAB.common.observedParts),filters.part),
+      multiChipFilter('Flower color','flowerColor',FLOWER_COLORS,filters.flowerColor),
+      multiChipFilter('Leaf shape','leafShape',LEAF_SHAPES,filters.leafShape),
+      multiChipFilter('Leaf points','leafPointCount',LEAF_POINT_COUNTS,filters.leafPointCount),
+      multiChipFilter('Stem surface','stemSurface',STEM_SURFACES,filters.stemSurface),
+      `<div class="identification-helper">Mix clues together. Across categories the app narrows results; within a category it accepts multiple possibilities.</div>`
+    ];
     return `${filterBlock(controls)}${resultSection('Identification', currentRecords, 'general')}`;
   }
   if (page === 'plants') return `${compactSeasonPanel(allRecords,'plants',filters.month)}${filterBlock([selectFilter('Habitat','habitat',vocabLabels(VOCAB.common.habitats),filters.habitat,'Any habitat'), selectFilter('Part / trait','part',vocabLabels(VOCAB.common.observedParts),filters.part,'Any part / trait'), selectFilter('Flower color','flowerColor',FLOWER_COLORS,filters.flowerColor,'Any flower color'), selectFilter('Leaf shape','leafShape',LEAF_SHAPES,filters.leafShape,'Any leaf shape'), selectFilter('Leaf points','leafPointCount',LEAF_POINT_COUNTS,filters.leafPointCount,'Any leaf points'), selectFilter('Stem surface','stemSurface',STEM_SURFACES,filters.stemSurface,'Any stem surface'), selectFilter('Size','size',vocabLabels(VOCAB.common.sizes),filters.size,'Any size'), selectFilter('Taste','taste',vocabLabels(VOCAB.common.tastes),filters.taste,'Any taste'), selectFilter('Month','month',MONTHS,filters.month,'Any month')])}${resultSection('Plants', currentRecords, 'general')}`;
   if (page === 'mushrooms') return `${compactSeasonPanel(allRecords,'mushrooms',filters.month)}${filterBlock([selectFilter('Substrate','substrate',vocabLabels(VOCAB.mushrooms.substrates),filters.substrate,'Any substrate'), selectFilter('Tree type','treeType',vocabLabels(VOCAB.mushrooms.woodTypes),filters.treeType,'Any tree type'), selectFilter('Host tree','hostTree',hostTreeLabels(filters.treeType),filters.hostTree,'Any host tree'), selectFilter('Ring','ring',vocabLabels(VOCAB.mushrooms.ringStates),filters.ring,'Any ring'), selectFilter('Texture','texture',vocabLabels(VOCAB.mushrooms.textures),filters.texture,'Any texture'), selectFilter('Smell','smell',vocabLabels(VOCAB.mushrooms.odors),filters.smell,'Any smell'), selectFilter('Staining','staining',vocabLabels(VOCAB.mushrooms.stainingColors),filters.staining,'Any staining'), selectFilter('Taste','taste',vocabLabels(VOCAB.common.tastes),filters.taste,'Any taste'), selectFilter('Month','month',MONTHS,filters.month,'Any month')])}${resultSection('Mushrooms', currentRecords, 'mushrooms')}`;
   if (page === 'medicinal') return `${filterBlock([selectFilter('Action','medicinalAction',vocabLabels(VOCAB.medicinal.actions),filters.medicinalAction,'Any action'), selectFilter('Body system','medicinalSystem',vocabLabels(VOCAB.medicinal.bodySystems),filters.medicinalSystem,'Any body system'), selectFilter('Medical term','medicinalTerm',vocabLabels(VOCAB.medicinal.symptoms),filters.medicinalTerm,'Any medical term'), selectFilter('Month','month',MONTHS,filters.month,'Any month')])}${resultSection('Medicinal', currentRecords, 'medicinal')}`;
-  if (page === 'lookalikes') { const severities = [...new Set(currentRecords.map(r => r.non_edible_severity).filter(Boolean))]; return `${compactSeasonPanel(allRecords,'lookalikes',filters.month)}${filterBlock([selectFilter('Severity','severity',severities,filters.severity,'Any severity'), selectFilter('Month','month',MONTHS,filters.month,'Any month')])}${resultSection('Non-edible look-alikes', currentRecords, 'lookalikes')}`; }
-  if (page === 'review') { const reviewReasons = [...new Set(currentRecords.flatMap(record => record.reviewReasons || []))].sort((a,b)=>a.localeCompare(b)); return `${filterBlock([selectFilter('Review reason','reviewReason',reviewReasons,filters.reviewReason,'Any review reason')])}${resultSection('Needs Review', currentRecords, 'review')}`; }
+  if (page === 'lookalikes') { const severities = [...new Set(allRecords.map(r => r.non_edible_severity).filter(Boolean))].sort((a,b)=>a.localeCompare(b)); return `${compactSeasonPanel(allRecords,'lookalikes',filters.month)}${filterBlock([selectFilter('Severity','severity',severities,filters.severity,'Any severity'), selectFilter('Month','month',MONTHS,filters.month,'Any month')])}${resultSection('Non-edible look-alikes', currentRecords, 'lookalikes')}`; }
+  if (page === 'review') { const reviewReasons = [...new Set(allRecords.flatMap(record => record.reviewReasons || []))].sort((a,b)=>a.localeCompare(b)); return `${filterBlock([selectFilter('Review reason','reviewReason',reviewReasons,filters.reviewReason,'Any review reason')])}${resultSection('Needs Review', currentRecords, 'review')}`; }
   if (page === 'timeline') {
     const eligible = allRecords.filter(record => !!String(record.medicinal_uses || '').trim() || isForagingMushroom(record) || (isPlant(record) && !!String(record.culinary_uses || '').trim()));
     return `${renderInteractiveTimeline(eligible, selectedMonth, selectedWeek, 'results')}`;
