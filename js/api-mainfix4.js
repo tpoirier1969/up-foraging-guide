@@ -1,4 +1,4 @@
-import { APP_VERSION, TABLE_NAME } from "./constants-mainfix.js?v=v2.1-mainfix8";
+import { APP_VERSION, TABLE_NAME } from "./constants-mainfix.js?v=v2.1-mainfix13";
 
 async function loadJson(path) {
   const response = await fetch(path, { cache: "no-store" });
@@ -29,6 +29,19 @@ function mergeCreditsPayloads(basePayload, extraPayload) {
     }
   };
 }
+function mergeSpeciesPayloads(basePayload, extraPayload) {
+  const bySlug = new Map();
+  (basePayload?.records || []).forEach(record => bySlug.set(record.slug, record));
+  (extraPayload?.records || []).forEach(record => bySlug.set(record.slug, { ...(bySlug.get(record.slug) || {}), ...record }));
+  return {
+    metadata: {
+      ...(basePayload?.metadata || {}),
+      additions_version: extraPayload?.metadata?.version || 'none',
+      additions_source: extraPayload?.metadata?.source || 'none'
+    },
+    records: [...bySlug.values()]
+  };
+}
 async function loadOverrides() {
   try {
     const [basePayload, extraPayload] = await Promise.all([
@@ -51,6 +64,13 @@ async function loadCredits() {
     return { metadata: { version: 'none', source: 'none' }, credits: {} };
   }
 }
+async function loadSpeciesAdditions() {
+  try {
+    return await loadJson('data/species-additions-mainfix13.json');
+  } catch {
+    return { metadata: { version: 'none', source: 'none' }, records: [] };
+  }
+}
 function applyOverrides(payload, overridePayload) {
   const overrides = overridePayload?.overrides || {};
   const records = (payload.records || []).map(record => {
@@ -61,10 +81,16 @@ function applyOverrides(payload, overridePayload) {
   return { ...payload, metadata: { ...(payload.metadata || {}), app_version: APP_VERSION, image_override_layer: overridePayload?.metadata?.version || 'none', image_override_source: overridePayload?.metadata?.source || 'none' }, records };
 }
 export async function loadLocalData() {
-  const [response, overridePayload, creditsPayload] = await Promise.all([fetch('data/species.json', { cache: 'no-store' }), loadOverrides(), loadCredits()]);
+  const [response, additionsPayload, overridePayload, creditsPayload] = await Promise.all([
+    fetch('data/species.json', { cache: 'no-store' }),
+    loadSpeciesAdditions(),
+    loadOverrides(),
+    loadCredits()
+  ]);
   if (!response.ok) throw new Error(`Local JSON load failed: ${response.status}`);
   const payload = await response.json();
-  const applied = applyOverrides(payload, overridePayload);
+  const merged = mergeSpeciesPayloads(payload, additionsPayload);
+  const applied = applyOverrides(merged, overridePayload);
   return { ...applied, creditsPayload };
 }
 export async function loadSupabaseData() {
@@ -75,7 +101,36 @@ export async function loadSupabaseData() {
   const client = window.supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY);
   const { data, error } = await client.from(TABLE_NAME).select('species_slug,display_name,common_name,category,culinary_uses,medicinal_uses,notes,months_available,source_links,image_paths').order('display_name', { ascending: true });
   if (error) throw error;
-  const payload = { metadata: { project: 'Upper Michigan Foraging Guide', version: APP_VERSION, source: 'Supabase + local reference merge + Wikimedia override layer' }, records: (data || []).map(row => { const ref = refBySlug.get(row.species_slug) || {}; const mergedImages = [...new Set([...(row.image_paths || []), ...(ref.images || [])])]; const mergedLinks = [...new Set([...(row.source_links || []), ...(ref.links || [])])]; return { ...ref, slug: row.species_slug, display_name: row.display_name || ref.display_name || row.common_name || ref.common_name || row.species_slug, common_name: row.common_name || ref.common_name || row.display_name || ref.display_name || '', category: row.category || ref.category || '', scientific_name: ref.scientific_name || '', culinary_uses: row.culinary_uses || ref.culinary_uses || '', medicinal_uses: row.medicinal_uses || ref.medicinal_uses || '', notes: row.notes || ref.notes || '', months_available: row.months_available || ref.months_available || [], links: mergedLinks, images: mergedImages }; }) };
+  const seen = new Set();
+  const supabaseRecords = (data || []).map(row => {
+    const ref = refBySlug.get(row.species_slug) || {};
+    seen.add(row.species_slug);
+    const mergedImages = [...new Set([...(row.image_paths || []), ...(ref.images || [])])];
+    const mergedLinks = [...new Set([...(row.source_links || []), ...(ref.links || [])])];
+    return {
+      ...ref,
+      slug: row.species_slug,
+      display_name: row.display_name || ref.display_name || row.common_name || ref.common_name || row.species_slug,
+      common_name: row.common_name || ref.common_name || row.display_name || ref.display_name || '',
+      category: row.category || ref.category || '',
+      scientific_name: ref.scientific_name || '',
+      culinary_uses: row.culinary_uses || ref.culinary_uses || '',
+      medicinal_uses: row.medicinal_uses || ref.medicinal_uses || '',
+      notes: row.notes || ref.notes || '',
+      months_available: row.months_available || ref.months_available || [],
+      links: mergedLinks,
+      images: mergedImages
+    };
+  });
+  const localOnlyRecords = (localPayload.records || []).filter(record => !seen.has(record.slug));
+  const payload = {
+    metadata: {
+      project: 'Upper Michigan Foraging Guide',
+      version: APP_VERSION,
+      source: 'Supabase + local reference merge + local species additions + Wikimedia override layer'
+    },
+    records: [...supabaseRecords, ...localOnlyRecords]
+  };
   const applied = applyOverrides(payload, await loadOverrides());
   return { ...applied, creditsPayload: localPayload.creditsPayload };
 }
