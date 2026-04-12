@@ -1,6 +1,6 @@
-import { PLANT_CATEGORIES } from "./constants-mainfix.js?v=v2.1-mainfix10";
+import { PLANT_CATEGORIES } from "./constants-mainfix.js?v=v2.1-mainfix11";
 import { compactText, hasMedicinal } from "./utils.js?v=v2.0";
-import { inferTraits } from "./trait-inference-mainfix4.js?v=v2.1-mainfix10";
+import { inferTraits } from "./trait-inference-mainfix4.js?v=v2.1-mainfix11";
 
 const FORAGING_MUSHROOM_STATUSES = new Set(["choice","choice_cooked_only","edible","edible_with_caution","edible_when_young","edible_when_white_inside","edible_mediocre","choice_with_precision","good","edible_young_only"]);
 const AVOID_MUSHROOM_STATUSES = new Set(["emergency_only","inedible_tough","inedible_bitter","nonculinary_tea","poisonous","deadly_poisonous","toxic_or_psychoactive","toxic_or_dangerous","review_required","questionable_or_mediocre"]);
@@ -12,16 +12,9 @@ function asList(value) {
   return [];
 }
 function mergedReviewReasons(base, inferred) {
-  const manual = [
-    ...asList(base.manual_review_reasons),
-    ...asList(base.manualReviewReasons),
-    ...asList(base.review_reasons),
-    ...asList(base.reviewReasons)
-  ];
+  const manual = [...asList(base.manual_review_reasons),...asList(base.manualReviewReasons),...asList(base.review_reasons),...asList(base.reviewReasons)];
   let merged = [...new Set([...manual, ...asList(inferred.reviewReasons)])];
-  if (base.slug === 'rock-tripe') {
-    merged = merged.filter(reason => !/substrate/i.test(reason));
-  }
+  if (base.slug === 'rock-tripe') merged = merged.filter(reason => !/substrate/i.test(reason));
   return merged;
 }
 export function normalizeRecord(record) {
