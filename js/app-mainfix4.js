@@ -1,9 +1,9 @@
-import { loadLocalData, loadSupabaseData, loadOverridePayload } from "./api-mainfix4.js?v=v2.1-mainfix13";
+import { loadLocalData, loadSupabaseData, loadOverridePayload } from "./api-mainfix4.js?v=v2.1-mainfix15";
 import { sortRecords, normalizeRecord, isPlant, isForagingMushroom, medicinalRecords, reviewRecords, avoidRecords } from "./data-model-mainfix4.js?v=v2.1-mainfix14";
-import { state } from "./state.js?v=v2.0";
+import { state } from "./state.js?v=v2.1-mainfix16";
 import { parseRoute } from "./router.js?v=v2.0";
-import { MONTHS } from "./constants-mainfix.js?v=v2.1-mainfix14";
-import { renderDashboard } from "./pages-mainfix4.js?v=v2.1-mainfix12";
+import { MONTHS } from "./constants-mainfix.js?v=v2.1-mainfix16";
+import { renderDashboard } from "./pages-mainfix4.js?v=v2.1-mainfix16";
 import { updateHeaderStats, renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui-mainfix.js?v=v2.1-mainfix8";
 
 const focusDate = new Date();
@@ -15,10 +15,10 @@ const emptyFilter = (page='') => {
   if (page === 'identification') MULTI_FILTER_KEYS.forEach(key => { base[key] = []; });
   return base;
 };
-const filterState = { home: emptyFilter('home'), search: emptyFilter(), identification: emptyFilter('identification'), plants: emptyFilter(), mushrooms: emptyFilter(), medicinal: emptyFilter(), lookalikes: emptyFilter(), review: emptyFilter(), credits: emptyFilter() };
+const filterState = { home: emptyFilter('home'), search: emptyFilter(), identification: emptyFilter('identification'), plants: emptyFilter(), mushrooms: emptyFilter(), medicinal: emptyFilter(), lookalikes: emptyFilter(), review: emptyFilter(), credits: emptyFilter(), references: emptyFilter() };
 let selectedTimelineMonth = CURRENT_MONTH;
 let selectedTimelineWeek = 1;
-let overridePayload = { overrides:{}, metadata:{} };
+let overridePayload = { overrides:{}, metadata:{}, references:[] };
 function arrayFilterMatch(record,key,value){ const hay = Array.isArray(record[key]) ? record[key] : []; if (Array.isArray(value)) { const selected = value.filter(Boolean); if (!selected.length) return true; return selected.some(item => hay.includes(item)); } if(!value) return true; return hay.includes(value); }
 function queryMatches(record, filters) {
   const query = (filters.search||'').trim().toLowerCase();
@@ -36,22 +36,22 @@ function filteredForPage(page){
   if(page==='medicinal') return medicinalRecords(state.allRecords).filter(record => queryMatches(record, filterState.medicinal));
   if(page==='lookalikes') return avoidRecords(state.allRecords).filter(record => queryMatches(record, filterState.lookalikes));
   if(page==='review') return reviewRecords(state.allRecords).filter(record => queryMatches(record, filterState.review));
-  if(page==='credits') return state.allRecords;
+  if(page==='credits' || page==='references') return state.allRecords;
   return state.allRecords;
 }
 function renderCurrentRoute(){
   const route = parseRoute(location.hash||'#/home');
-  const allowedPages = ['home','search','identification','plants','mushrooms','medicinal','lookalikes','timeline','review','credits'];
+  const allowedPages = ['home','search','identification','plants','mushrooms','medicinal','lookalikes','timeline','review','credits','references'];
   const activePage = route.page==='detail' ? (state.route||'home') : (allowedPages.includes(route.page)?route.page:'home');
   state.route = activePage;
   markActiveNav(activePage);
   if(route.page==='detail' && route.slug){
-    if(!document.getElementById('pageRoot').innerHTML.trim()) renderPage(renderDashboard({ page: activePage, allRecords: state.allRecords, currentRecords: filteredForPage(activePage), filters: filterState[activePage]||emptyFilter(activePage), selectedMonth: selectedTimelineMonth, selectedWeek: selectedTimelineWeek, overridePayload }));
+    if(!document.getElementById('pageRoot').innerHTML.trim()) renderPage(renderDashboard({ page: activePage, allRecords: state.allRecords, currentRecords: filteredForPage(activePage), filters: filterState[activePage]||emptyFilter(activePage), selectedMonth: selectedTimelineMonth, selectedWeek: selectedTimelineWeek, overridePayload, references: state.references }));
     bindDetailLinks(); openDetail(route.slug); return;
   }
-  renderPage(renderDashboard({ page: activePage, allRecords: state.allRecords, currentRecords: filteredForPage(activePage), filters: filterState[activePage]||emptyFilter(activePage), selectedMonth: selectedTimelineMonth, selectedWeek: selectedTimelineWeek, overridePayload }));
+  renderPage(renderDashboard({ page: activePage, allRecords: state.allRecords, currentRecords: filteredForPage(activePage), filters: filterState[activePage]||emptyFilter(activePage), selectedMonth: selectedTimelineMonth, selectedWeek: selectedTimelineWeek, overridePayload, references: state.references }));
   bindDetailLinks();
   bindSharedActions({ onFilterChange: event => { const target = event.currentTarget; const page = state.route; if(!filterState[page]) return; const key = target.dataset.filter; if (target.type === 'checkbox') { const current = Array.isArray(filterState[page][key]) ? filterState[page][key] : []; filterState[page][key] = target.checked ? [...new Set([...current, target.value])] : current.filter(value => value !== target.value); } else { filterState[page][key] = target.value; if(target.dataset.filter==='treeType') filterState[page].hostTree=''; } renderCurrentRoute(); }, onClearFilters: ()=>{ const page = state.route; if(!filterState[page]) return; filterState[page] = emptyFilter(page); renderCurrentRoute(); }, onTimelineMonthChange: (month,week)=>{ if(!month) return; selectedTimelineMonth=month; selectedTimelineWeek=Number(week||1); renderCurrentRoute(); }, onPaneModeChange: ()=>{}, onTimelineShift: direction => { const index = MONTHS.indexOf(selectedTimelineMonth); if(index<0) return; const delta = direction==='prev' ? -1 : 1; selectedTimelineMonth = MONTHS[(index+delta+MONTHS.length)%MONTHS.length]; renderCurrentRoute(); }, onToggleInSeason: page => { if(!filterState[page]) return; filterState[page].month = filterState[page].month === CURRENT_MONTH ? '' : CURRENT_MONTH; renderCurrentRoute(); } });
 }
-async function init(){ wireModal(); try{ overridePayload = await loadOverridePayload(); let payload; try{ payload = await loadSupabaseData(); state.dataSource = 'Supabase live data + local species additions + Wikimedia override'; } catch(e){ payload = await loadLocalData(); state.dataSource = 'Local JSON + local species additions + Wikimedia override'; console.info('Supabase not used for this run:', e?.message || e); } state.allRecords = sortRecords((payload.records||[]).map(normalizeRecord)); updateHeaderStats(); renderCurrentRoute(); window.addEventListener('hashchange', renderCurrentRoute); } catch(error){ console.error(error); renderPage(`<section class="panel empty-state"><h2>Data load failed</h2><p>${String(error.message||error)}</p></section>`); } }
+async function init(){ wireModal(); try{ overridePayload = await loadOverridePayload(); let payload; try{ payload = await loadSupabaseData(); state.dataSource = 'Supabase live data + local species additions + Wikimedia override'; } catch(e){ payload = await loadLocalData(); state.dataSource = 'Local JSON + local species additions + Wikimedia override'; console.info('Supabase not used for this run:', e?.message || e); } state.allRecords = sortRecords((payload.records||[]).map(normalizeRecord)); state.references = payload.references || overridePayload.references || []; updateHeaderStats(); renderCurrentRoute(); window.addEventListener('hashchange', renderCurrentRoute); } catch(error){ console.error(error); renderPage(`<section class="panel empty-state"><h2>Data load failed</h2><p>${String(error.message||error)}</p></section>`); } }
 init();

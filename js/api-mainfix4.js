@@ -1,4 +1,4 @@
-import { APP_VERSION, TABLE_NAME } from "./constants-mainfix.js?v=v2.1-mainfix13";
+import { APP_VERSION, TABLE_NAME } from "./constants-mainfix.js?v=v2.1-mainfix16";
 
 async function loadJson(path) {
   const response = await fetch(path, { cache: "no-store" });
@@ -71,6 +71,13 @@ async function loadSpeciesAdditions() {
     return { metadata: { version: 'none', source: 'none' }, records: [] };
   }
 }
+async function loadReferences() {
+  try {
+    return await loadJson('data/references-mainfix15.json');
+  } catch {
+    return [];
+  }
+}
 function applyOverrides(payload, overridePayload) {
   const overrides = overridePayload?.overrides || {};
   const records = (payload.records || []).map(record => {
@@ -81,17 +88,18 @@ function applyOverrides(payload, overridePayload) {
   return { ...payload, metadata: { ...(payload.metadata || {}), app_version: APP_VERSION, image_override_layer: overridePayload?.metadata?.version || 'none', image_override_source: overridePayload?.metadata?.source || 'none' }, records };
 }
 export async function loadLocalData() {
-  const [response, additionsPayload, overridePayload, creditsPayload] = await Promise.all([
+  const [response, additionsPayload, overridePayload, creditsPayload, references] = await Promise.all([
     fetch('data/species.json', { cache: 'no-store' }),
     loadSpeciesAdditions(),
     loadOverrides(),
-    loadCredits()
+    loadCredits(),
+    loadReferences()
   ]);
   if (!response.ok) throw new Error(`Local JSON load failed: ${response.status}`);
   const payload = await response.json();
   const merged = mergeSpeciesPayloads(payload, additionsPayload);
   const applied = applyOverrides(merged, overridePayload);
-  return { ...applied, creditsPayload };
+  return { ...applied, creditsPayload, references };
 }
 export async function loadSupabaseData() {
   const cfg = window.FORAGING_APP_CONFIG || {};
@@ -132,9 +140,9 @@ export async function loadSupabaseData() {
     records: [...supabaseRecords, ...localOnlyRecords]
   };
   const applied = applyOverrides(payload, await loadOverrides());
-  return { ...applied, creditsPayload: localPayload.creditsPayload };
+  return { ...applied, creditsPayload: localPayload.creditsPayload, references: localPayload.references || [] };
 }
 export async function loadOverridePayload() {
-  const [overridePayload, creditsPayload] = await Promise.all([loadOverrides(), loadCredits()]);
-  return { ...overridePayload, creditsPayload };
+  const [overridePayload, creditsPayload, references] = await Promise.all([loadOverrides(), loadCredits(), loadReferences()]);
+  return { ...overridePayload, creditsPayload, references };
 }
