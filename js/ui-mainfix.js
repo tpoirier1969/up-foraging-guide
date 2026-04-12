@@ -1,4 +1,4 @@
-import { APP_VERSION } from "./constants-mainfix.js?v=v2.1-mainfix";
+import { APP_VERSION } from "./constants-mainfix.js?v=v2.1-mainfix8";
 import { state } from "./state.js?v=v2.0";
 import { renderDetail } from "./renderers/detail.js?v=v2.0";
 

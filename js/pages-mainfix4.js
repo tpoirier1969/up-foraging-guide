@@ -1,7 +1,7 @@
-import { MONTHS } from "./constants-mainfix.js?v=v2.1-mainfix";
+import { MONTHS } from "./constants-mainfix.js?v=v2.1-mainfix8";
 import { medicinalRecords, isPlant, reviewRecords, avoidRecords, isForagingMushroom } from "./data-model-mainfix4.js?v=v2.1-mainfix5";
 import { VOCAB } from "./vocabulary.js?v=v2.0";
-import { renderResultCard } from "./renderers/cards-mainfix.js?v=v2.1-mainfix5";
+import { renderResultCard } from "./renderers/cards-mainfix.js?v=v2.1-mainfix8";
 import { renderInteractiveTimeline } from "./renderers/timeline.js?v=v2.0";
 import { escapeHtml } from "./utils.js?v=v2.0";
 
@@ -41,7 +41,10 @@ function compactSeasonPanel(allRecords, type, activeMonth = '') {
 function selectFilter(label, key, values, current, blank) { return `<label class="compact-filter"><span>${escapeHtml(label)}</span><select data-filter="${escapeHtml(key)}">${optionHtml(values, current, blank)}</select></label>`; }
 function searchFilter(key, current, placeholder) { return `<label class="compact-filter compact-search"><input type="search" data-filter="${escapeHtml(key)}" value="${escapeHtml(current || '')}" placeholder="${escapeHtml(placeholder)}"></label>`; }
 function filterBlock(extraFilters = []) { return `<section class="panel filter-stack"><div class="tight-filter-grid">${extraFilters.join('')}</div></section>`; }
-function resultSection(title, records, context) { return `<section class="panel workspace-pane results-pane-card"><div class="result-header compact-result-header"><div><h3>${escapeHtml(title)}</h3><p class="results-meta">${records.length} match${records.length === 1 ? '' : 'es'}</p></div></div><div class="result-list">${renderResultList(records, context)}</div></section>`; }
+function resultSection(title, records, context, metaText = '') {
+  const finalMeta = metaText || `${records.length} match${records.length === 1 ? '' : 'es'}`;
+  return `<section class="panel workspace-pane results-pane-card"><div class="result-header compact-result-header"><div class="result-title-row"><h3>${escapeHtml(title)}</h3><p class="results-meta">${escapeHtml(finalMeta)}</p></div></div><div class="result-list">${renderResultList(records, context)}</div></section>`;
+}
 function renderCreditsPage(allRecords, overridePayload) {
   const overrides = overridePayload?.overrides || {};
   const creditsBySlug = overridePayload?.creditsPayload?.credits || {};
@@ -58,7 +61,11 @@ function renderCreditsPage(allRecords, overridePayload) {
 }
 
 export function renderDashboard({ page, allRecords, currentRecords, filters, selectedMonth, selectedWeek, overridePayload }) {
-  if (page === 'home') return `${resultSection('In-Season Species', inSeasonForagingRecords(allRecords), 'general')}`;
+  if (page === 'home') {
+    const inSeason = inSeasonForagingRecords(allRecords);
+    const totalForaging = allRecords.filter(record => isPlant(record) || isForagingMushroom(record)).length;
+    return `${resultSection('In-Season Species', inSeason, 'general', `${inSeason.length} matches out of ${totalForaging} total`)}`;
+  }
   if (page === 'search') return `${filterBlock([searchFilter('search', filters.search, 'Search all species'), `<div class="filter-hint">Press Enter to search</div>`])}${resultSection('Search', currentRecords, 'general')}`;
   if (page === 'identification') {
     const part = String(filters.part || '').toLowerCase();

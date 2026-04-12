@@ -1,15 +1,12 @@
-import { MONTH_SHORT, MONTHS } from "../constants-mainfix.js?v=v2.1-mainfix";
+import { MONTH_SHORT, MONTHS } from "../constants-mainfix.js?v=v2.1-mainfix8";
 import { escapeHtml } from "../utils.js?v=v2.0";
 
 function seasonStrip(record) {
   const active = new Set(record.months_available || []);
   return MONTHS.map((month, index) => `<span class="month ${active.has(month) ? "on" : ""}">${MONTH_SHORT[index]}</span>`).join("");
 }
-function iconSvg(type) {
-  if (type === 'edible') return `<svg class="badge-icon edible" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 2h2v9H4zm4 0h2v9H8zm6 0h2v20h-2zm4 0h2v20h-2zM12 2h10v2H12zm0 4h10v2H12zm0 4h10v2H12z"/></svg>`;
-  if (type === 'medicinal') return `<svg class="badge-icon medicinal" viewBox="0 0 24 24" aria-hidden="true"><path d="M10 2h4v8h8v4h-8v8h-4v-8H2v-4h8z"/></svg>`;
-  if (type === 'poisonous') return `<svg class="badge-icon poisonous" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm0 3a2 2 0 1 1-2 2 2 2 0 0 1 2-2Zm0 13c-3 0-5.5-1.6-6.5-4 1.1-.8 2.4-1.3 3.8-1.3h5.4c1.4 0 2.7.5 3.8 1.3-1 2.4-3.5 4-6.5 4Z"/></svg>`;
-  return `<svg class="badge-icon neutral" viewBox="0 0 24 24" aria-hidden="true"><text x="12" y="16" text-anchor="middle" font-size="10" font-family="Arial, sans-serif">N/A</text></svg>`;
+function statusPill(label, type) {
+  return `<span class="status-pill ${escapeHtml(type)}">${escapeHtml(label)}</span>`;
 }
 function badgesForRecord(record) {
   const badges = [];
@@ -18,10 +15,9 @@ function badgesForRecord(record) {
     : !!String(record.culinary_uses || '').trim();
   const medicinal = !!String(record.medicinal_uses || '').trim();
   const poisonous = /(deadly|poison|toxic)/i.test(String(record.non_edible_severity || '')) || /(poison|toxic|deadly)/i.test(String(record.effects_on_body || ''));
-  if (edible) badges.push(iconSvg('edible'));
-  if (medicinal) badges.push(iconSvg('medicinal'));
-  if (poisonous) badges.push(iconSvg('poisonous'));
-  if (!badges.length) badges.push(iconSvg('neutral'));
+  if (edible) badges.push(statusPill('Edible', 'edible'));
+  if (medicinal) badges.push(statusPill('Medicinal', 'medicinal'));
+  if (poisonous) badges.push(statusPill('Poisonous', 'poisonous'));
   return badges.join('');
 }
 function mushroomSummary(record) {
@@ -64,5 +60,6 @@ export function renderResultCard(record, context = "general") {
     if (record.observedPart?.[0]) tags.push(record.observedPart[0]);
     if (record.size?.[0]) tags.push(record.size[0]);
   }
-  return `<article class="result-card ${context === "review" ? "review-card" : ""}">${imageHtml}<div class="card-main"><div class="card-topline"><a class="card-title-link" style="text-decoration:underline; text-underline-offset:2px;" href="#detail/${encodeURIComponent(record.slug)}" data-detail-link="${escapeHtml(record.slug)}">${escapeHtml(record.display_name)}</a><span class="title-badges">${badgesForRecord(record)}</span></div><p class="one-line">${escapeHtml(summaryForContext(record, context) || "No summary imported yet.")}</p><p class="one-line muted-line scientific-line">${escapeHtml(record.scientific_name || record.common_name || "")}</p><div class="tag-row">${tags.filter(Boolean).slice(0,4).map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}</div><div class="month-strip">${seasonStrip(record)}</div></div></article>`;
+  const badgeHtml = badgesForRecord(record);
+  return `<article class="result-card ${context === "review" ? "review-card" : ""}">${imageHtml}<div class="card-main"><div class="card-topline"><a class="card-title-link" style="text-decoration:underline; text-underline-offset:2px;" href="#detail/${encodeURIComponent(record.slug)}" data-detail-link="${escapeHtml(record.slug)}">${escapeHtml(record.display_name)}</a>${badgeHtml ? `<span class="title-badges">${badgeHtml}</span>` : ''}</div><p class="one-line">${escapeHtml(summaryForContext(record, context) || "No summary imported yet.")}</p><p class="one-line muted-line scientific-line">${escapeHtml(record.scientific_name || record.common_name || "")}</p><div class="tag-row">${tags.filter(Boolean).slice(0,4).map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join("")}</div><div class="month-strip">${seasonStrip(record)}</div></div></article>`;
 }
