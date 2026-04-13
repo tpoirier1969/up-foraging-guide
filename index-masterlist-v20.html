@@ -30,7 +30,12 @@
 <div id="tagBarMount"></div>
 <main id="pageRoot"></main>
 </div>
-<dialog id="detailModal"><div id="modalContent"></div></dialog>
+<dialog id="detailModal" class="detail-modal">
+  <article class="modal-card">
+    <button id="closeModalBtn" class="close-btn" type="button" aria-label="Close">×</button>
+    <div id="modalContent"></div>
+  </article>
+</dialog>
 <script type="module" src="js/app-mainfix4-masterlist-v21.js"></script>
 </body>
 </html>
