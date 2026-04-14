@@ -58,7 +58,7 @@ async function loadCommonnessRatings() {
 
 async function loadClassificationOverrides() {
   try {
-    const response = await fetch('data/classification-curated-v1.json?v=v1');
+    const response = await fetch('data/classification-curated-v1.json?v=v2');
     if (!response.ok) return {};
     const payload = await response.json();
     return payload?.overrides || {};

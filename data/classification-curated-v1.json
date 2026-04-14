@@ -1,209 +1,93 @@
 {
   "metadata": {
-    "version": "v1",
-    "scope": "Initial curated food-use classification overrides",
+    "version": "v2",
+    "scope": "Expanded curated food-use classification overrides",
     "notes": [
       "Used to separate food species from medicinal-only, tea/extract-only, emergency-only, and avoid entries.",
-      "Overrides are explicit and should win over vague copy in descriptive fields."
+      "Overrides are explicit and should win over vague copy in descriptive fields.",
+      "Expanded plant-side food-quality coverage for choice-food sorting."
     ]
   },
   "overrides": {
-    "american-hazelnut": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "choice",
-      "classification_note": "Primary use is food; do not treat generic nutrient language as medicinal classification."
-    },
-    "turkey-tail": {
-      "primary_use": "medicinal",
-      "food_role": "medicinal_only",
-      "classification_note": "Not a food mushroom page entry; medicinal/extract context only."
-    },
-    "artists-conk": {
-      "primary_use": "medicinal",
-      "food_role": "medicinal_only",
-      "classification_note": "Medicinal/art context only, not a food list species."
-    },
-    "birch-polypore": {
-      "primary_use": "medicinal",
-      "food_role": "medicinal_only",
-      "classification_note": "Traditional medicinal use discussion exists, but not a food page species."
-    },
-    "red-belted-conk": {
-      "primary_use": "medicinal",
-      "food_role": "medicinal_only",
-      "classification_note": "Not a culinary species for the food pages."
-    },
-    "hemlock-varnish-shelf-reishi": {
-      "primary_use": "medicinal",
-      "food_role": "medicinal_only",
-      "classification_note": "Medicinal reishi context only."
-    },
-    "chaga": {
-      "primary_use": "medicinal",
-      "food_role": "tea_extract_only",
-      "classification_note": "Tea/extract use only; do not place on food mushroom page."
-    },
-    "dryad-saddle-pheasant-back": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "fair",
-      "classification_note": "Food species when very young; older specimens are too tough."
-    },
-    "chicken-of-the-woods": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "choice"
-    },
-    "hen-of-the-woods": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "choice"
-    },
-    "lion-s-mane": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "choice"
-    },
-    "bears-head-tooth": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "good"
-    },
-    "coral-tooth-fungus": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "good"
-    },
-    "wood-ear": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "good"
-    },
-    "witchs-butter": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "fair"
-    },
-    "giant-puffball": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "choice"
-    },
-    "gem-studded-puffball": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "fair"
-    },
-    "pear-shaped-puffball": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "fair"
-    },
-    "slippery-jack": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "fair"
-    },
-    "saffron-milk-cap": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "good"
-    },
-    "beefsteak-fungus": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "good"
-    },
-    "black-trumpet": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "choice"
-    },
-    "yellow-chanterelles-hardwood-complex": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "choice"
-    },
-    "yellow-chanterelles-conifer-complex": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "choice"
-    },
-    "yellowfoot-chanterelle": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "good"
-    },
-    "red-chanterelles": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "good"
-    },
-    "smooth-chanterelles": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "good"
-    },
-    "king-bolete": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "choice"
-    },
-    "hedgehog-mushrooms": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "choice"
-    },
-    "shaggy-mane": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "good"
-    },
-    "meadow-mushroom": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "good"
-    },
-    "field-mushroom": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "good"
-    },
-    "cauliflower-mushroom": {
-      "primary_use": "food",
-      "food_role": "food",
-      "food_quality": "choice"
-    },
-    "destroying-angel": {
-      "primary_use": "avoid",
-      "food_role": "avoid",
-      "classification_note": "Deadly poisonous."
-    },
-    "jack-o-lantern": {
-      "primary_use": "avoid",
-      "food_role": "avoid",
-      "classification_note": "Poisonous lookalike; keep off food pages."
-    },
-    "false-morel-gyromitra-group": {
-      "primary_use": "avoid",
-      "food_role": "avoid",
-      "classification_note": "Do not present as a food species."
-    },
-    "blue-staining-red-pored-boletes": {
-      "primary_use": "avoid",
-      "food_role": "avoid",
-      "classification_note": "Keep out of food lists as a caution bucket."
-    },
-    "rock-tripe-lichen": {
-      "primary_use": "emergency",
-      "food_role": "emergency_only",
-      "classification_note": "Survival/emergency use rather than a normal food-page entry."
-    },
-    "reindeer-lichen": {
-      "primary_use": "emergency",
-      "food_role": "emergency_only",
-      "classification_note": "Do not feature as a normal edible species."
-    }
+    "american-hazelnut": {"primary_use": "food", "food_role": "food", "food_quality": "choice", "classification_note": "Primary use is food; do not treat generic nutrient language as medicinal classification."},
+    "beaked-hazelnut": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "serviceberry": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "juneberry": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "saskatoon-serviceberry": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "wild-strawberry": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "thimbleberry": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "red-raspberry": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "black-raspberry": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "blackberry": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "dewberry": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "blueberry": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "lowbush-blueberry": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "highbush-blueberry": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "cranberry": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "american-elderberry": {"primary_use": "food", "food_role": "food", "food_quality": "good", "classification_note": "Fruit is a food use when properly prepared; raw plant parts are not a general food-page recommendation."},
+    "nannyberry": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "chokecherry": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "pin-cherry": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "black-cherry": {"primary_use": "food", "food_role": "food", "food_quality": "good", "classification_note": "Fruit use only; pits and wilted foliage are not food use."},
+    "wild-plum": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "highbush-cranberry": {"primary_use": "food", "food_role": "food", "food_quality": "fair", "classification_note": "Edible but generally not a top-tier fresh-eating fruit."},
+    "cattail": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "wild-leek": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "ramps": {"primary_use": "food", "food_role": "food", "food_quality": "choice", "classification_note": "Food species, but harvest restrictions and sustainability concerns still matter."},
+    "ostrich-fern-fiddleheads": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "common-milkweed": {"primary_use": "food", "food_role": "food", "food_quality": "good", "classification_note": "Food use requires proper stage and preparation."},
+    "basswood-leaves": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "dandelion": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "lambs-quarters": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "stinging-nettle": {"primary_use": "food", "food_role": "food", "food_quality": "good", "classification_note": "Food use after proper preparation only."},
+    "purslane": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "wood-sorrel": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "wintergreen": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "spruce-tips": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "pine-nuts": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "birch-sap": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "maple-sap": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "acorns-leached": {"primary_use": "food", "food_role": "food", "food_quality": "fair", "classification_note": "Edible after substantial processing, not a casual choice food."},
+    "beech-nuts": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "black-walnut": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "butternut": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "turkey-tail": {"primary_use": "medicinal", "food_role": "medicinal_only", "classification_note": "Not a food mushroom page entry; medicinal/extract context only."},
+    "artists-conk": {"primary_use": "medicinal", "food_role": "medicinal_only", "classification_note": "Medicinal/art context only, not a food list species."},
+    "birch-polypore": {"primary_use": "medicinal", "food_role": "medicinal_only", "classification_note": "Traditional medicinal use discussion exists, but not a food page species."},
+    "red-belted-conk": {"primary_use": "medicinal", "food_role": "medicinal_only", "classification_note": "Not a culinary species for the food pages."},
+    "hemlock-varnish-shelf-reishi": {"primary_use": "medicinal", "food_role": "medicinal_only", "classification_note": "Medicinal reishi context only."},
+    "chaga": {"primary_use": "medicinal", "food_role": "tea_extract_only", "classification_note": "Tea/extract use only; do not place on food mushroom page."},
+    "dryad-saddle-pheasant-back": {"primary_use": "food", "food_role": "food", "food_quality": "fair", "classification_note": "Food species when very young; older specimens are too tough."},
+    "chicken-of-the-woods": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "hen-of-the-woods": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "lion-s-mane": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "bears-head-tooth": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "coral-tooth-fungus": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "wood-ear": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "witchs-butter": {"primary_use": "food", "food_role": "food", "food_quality": "fair"},
+    "giant-puffball": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "gem-studded-puffball": {"primary_use": "food", "food_role": "food", "food_quality": "fair"},
+    "pear-shaped-puffball": {"primary_use": "food", "food_role": "food", "food_quality": "fair"},
+    "slippery-jack": {"primary_use": "food", "food_role": "food", "food_quality": "fair"},
+    "saffron-milk-cap": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "beefsteak-fungus": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "black-trumpet": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "yellow-chanterelles-hardwood-complex": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "yellow-chanterelles-conifer-complex": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "yellowfoot-chanterelle": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "red-chanterelles": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "smooth-chanterelles": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "king-bolete": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "hedgehog-mushrooms": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "shaggy-mane": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "meadow-mushroom": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "field-mushroom": {"primary_use": "food", "food_role": "food", "food_quality": "good"},
+    "cauliflower-mushroom": {"primary_use": "food", "food_role": "food", "food_quality": "choice"},
+    "destroying-angel": {"primary_use": "avoid", "food_role": "avoid", "classification_note": "Deadly poisonous."},
+    "jack-o-lantern": {"primary_use": "avoid", "food_role": "avoid", "classification_note": "Poisonous lookalike; keep off food pages."},
+    "false-morel-gyromitra-group": {"primary_use": "avoid", "food_role": "avoid", "classification_note": "Do not present as a food species."},
+    "blue-staining-red-pored-boletes": {"primary_use": "avoid", "food_role": "avoid", "classification_note": "Keep out of food lists as a caution bucket."},
+    "rock-tripe-lichen": {"primary_use": "emergency", "food_role": "emergency_only", "classification_note": "Survival/emergency use rather than a normal food-page entry."},
+    "reindeer-lichen": {"primary_use": "emergency", "food_role": "emergency_only", "classification_note": "Do not feature as a normal edible species."}
   }
 }
