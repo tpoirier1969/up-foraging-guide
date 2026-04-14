@@ -1,10 +1,10 @@
 import { MONTHS } from "./constants-mainfix.js?v=v2.1-mainfix22";
-import { medicinalRecords, isPlant, reviewRecords, avoidRecords, isForagingMushroom } from "./data-model-mainfix4.js?v=v2.1-mainfix21";
+import { medicinalRecords, isPlant, reviewRecords, avoidRecords, isForagingMushroom } from "./data-model-mainfix4.js?v=v2.3-classfix1";
 import { VOCAB } from "./vocabulary.js?v=v2.0";
 import { renderResultCard } from "./renderers/cards-mainfix-common.js";
 import { renderInteractiveTimeline } from "./renderers/timeline.js?v=v2.1-mainfix21";
-import { escapeHtml } from "./utils.js?v=v2.0";
-import { sortLabel } from "./lib/commonness-sort-v2.js";
+import { escapeHtml } from "./utils.js?v=v2.1-medfix1";
+import { sortLabel } from "./lib/commonness-sort-v3.js?v=v2.4-sortfix1";
 
 const FLOWER_COLORS = ["White","Purple","Pink","Yellow","Blue","Red","Green"];
 const LEAF_SHAPES = ["Round","Oval","Heart-shaped","Lance-shaped","Pointed","Lobed","Compound","Needle-like"];
@@ -13,6 +13,8 @@ const STEM_SURFACES = ["Smooth","Hairy","Rough","Fuzzy","Prickly"];
 const LEAF_POINT_COUNTS = ["1-point","3-point","5-point","Many-lobed"];
 const SORT_OPTIONS = [
   { value: '', label: 'Default sort' },
+  { value: 'food-quality-desc', label: 'Choice foods first' },
+  { value: 'food-quality-asc', label: 'Lower food quality first' },
   { value: 'common-desc', label: 'Most common first' },
   { value: 'common-asc', label: 'Least common first' }
 ];
