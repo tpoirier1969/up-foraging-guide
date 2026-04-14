@@ -1,11 +1,25 @@
 import { TABLE_NAME } from "../constants-mainfix.js?v=v2.1-mainfix22";
-import { escapeHtml } from "../utils.js?v=v2.0";
+import { escapeHtml } from "../utils.js?v=v2.1-medfix1";
 import { state } from "../state.js?v=v2.1-mainfix21";
 
+function cleanText(value) {
+  const text = String(value || '').replace(/\s+/g, ' ').trim();
+  if (!text) return '';
+  if (/not provided in the imported sheet/i.test(text)) return '';
+  if (/no extra notes imported/i.test(text)) return '';
+  if (/no summary imported yet/i.test(text)) return '';
+  return text;
+}
+function isGenericCaution(text) {
+  return /^edible with caution[.! ]*$/i.test(String(text || '').trim());
+}
+function uniqueStrings(items = []) {
+  return [...new Set((items || []).map(item => String(item || '').trim()).filter(Boolean))];
+}
 function tagList(items, emptyText = "None noted") {
   return items?.length ? items.map(item => `<span class="tag">${escapeHtml(item)}</span>`).join("") : `<span class="tag">${escapeHtml(emptyText)}</span>`;
 }
-function line(label, value) { if (!value) return ""; return `<p><strong>${escapeHtml(label)}:</strong> ${escapeHtml(value)}</p>`; }
+function line(label, value) { const clean = cleanText(value); if (!clean) return ""; return `<p><strong>${escapeHtml(label)}:</strong> ${escapeHtml(clean)}</p>`; }
 function listSection(title, items, emptyText = "Not documented yet") { return `<section class="detail-card section-block"><h3>${escapeHtml(title)}</h3><div class="tag-row">${tagList(items, emptyText)}</div></section>`; }
 function canonicalImageKey(url) {
   const raw = String(url || '').trim();
@@ -42,41 +56,145 @@ function renderLookAlikes(record) {
   }).join('');
   return `<section class="detail-card section-block"><h3>Look-alikes / species to avoid</h3><div class="related-link-list">${rendered}</div></section>`;
 }
-function renderMushroomResearch(record) {
-  const profile = record.mushroom_profile;
-  if (!profile) return "";
-  const sourceLinks = (record.links || []).map(link => `<li><a href="${escapeHtml(link)}" target="_blank" rel="noreferrer">${escapeHtml(link)}</a></li>`).join("");
-  return `<section class="detail-card section-block"><h3>Mushroom research</h3>${line("Scientific name", record.scientific_name || "")}${line("Family grouping", record.mushroom_family || "")}${line("Entry scope", (profile.entry_scope || "").replaceAll("_", " "))}${line("Edibility", (profile.edibility_status || "").replaceAll("_", " "))}${line("Caution level", (profile.caution_level || "").replaceAll("_", " "))}${line("Ecology", profile.ecology || "")}${line("Summary", profile.summary || "")}${line("Spore print", profile.spore_print || "")}${line("Season note", profile.season_note || "")}</section>${listSection("Substrate and host clues", [...(profile.substrate || []), ...(profile.wood_type || []), ...(profile.host_trees || []), profile.host_certainty ? `Host certainty: ${profile.host_certainty.replaceAll("_", " ")}` : ""].filter(Boolean), "No substrate or host clues added yet")}${listSection("Structure clues", [...(profile.underside ? [profile.underside] : []), ...(profile.ring ? [profile.ring] : []), ...(profile.texture || []), ...(profile.odor ? [profile.odor] : []), ...(profile.staining ? [profile.staining] : []), ...(profile.taste || [])].filter(Boolean), "No structure clues added yet")}${profile.processing_required?.length ? listSection("Processing / handling", profile.processing_required) : ""}<section class="detail-card section-block"><h3>Research notes</h3><ul>${(profile.research_notes || []).map(note => `<li>${escapeHtml(note)}</li>`).join("") || "<li>No extra mushroom notes yet.</li>"}</ul></section><section class="detail-card section-block"><h3>Sources</h3><ul>${sourceLinks || "<li>No source links imported.</li>"}</ul></section>`;
-}
 function renderImageCredits(record) {
   const credits = state.credits?.[record.slug] || [];
   if (!credits.length) return "";
   return `<section class="detail-card section-block image-credit-block"><h3>Image credits</h3><ul>${credits.map(item => `<li><strong>${escapeHtml(item.creator || 'Unknown creator')}</strong>${item.title ? ` — ${escapeHtml(item.title)}` : ''}${item.license ? ` — ${escapeHtml(item.license)}` : ''}</li>`).join('')}</ul></section>`;
 }
 function renderEdibilityWarning(record) {
-  const detail = String(record.edibility_detail || '').toLowerCase();
-  const effects = String(record.effects_on_body || '').toLowerCase();
-  const needsCooking = /(must be cooked|not edible raw|cook thoroughly|raw .*irrit|proper boiling|boiled|processed before eating)/.test(detail);
-  const toxic = /(poison|toxic|deadly)/.test(String(record.non_edible_severity || '').toLowerCase()) || /(poison|toxic|deadly)/.test(effects);
+  const detail = cleanText(record.edibility_detail).toLowerCase();
+  const effects = cleanText(record.effects_on_body).toLowerCase();
+  const severity = cleanText(record.non_edible_severity).toLowerCase();
+  const needsCooking = /(must be cooked|not edible raw|cook thoroughly|raw .*irrit|proper boiling|boiled|processed before eating|parboil|leach|leached)/.test(detail);
+  const toxic = /(poison|toxic|deadly)/.test(severity) || /(poison|toxic|deadly)/.test(effects);
   if (!needsCooking && !toxic) return '';
-  const message = needsCooking ? 'Preparation warning: not for raw eating.' : 'Safety warning: use caution before consumption.';
+  const message = toxic
+    ? cleanText(record.effects_on_body) || cleanText(record.edibility_detail) || cleanText(record.non_edible_severity) || 'This species has significant safety concerns.'
+    : cleanText(record.edibility_detail) || 'Proper preparation is required before eating.';
   return `<section class="detail-card section-block safety-callout ${toxic ? 'danger' : 'warning'}"><h3>${toxic ? 'Safety warning' : 'Preparation warning'}</h3><p>${escapeHtml(message)}</p></section>`;
 }
-function renderFieldClues(record) {
-  return `<section class="detail-card section-block"><h3>Field clues</h3><div class="tag-row">${tagList([...(record.habitat||[]), ...(record.observedPart||[]), ...(record.size||[]), ...(record.taste||[])], "No field traits tagged yet")}</div></section>`;
-}
-function renderPlantClues(record) {
-  const items = [...(record.flowerColor||[]), ...(record.leafShape||[]), ...(record.leafArrangement||[]), ...(record.stemSurface||[]), ...(record.leafPointCount||[])].filter(Boolean);
+function renderIdentificationClues(record) {
+  const base = [
+    ...(record.habitat || []),
+    ...(record.observedPart || []),
+    ...(record.size || []),
+    ...(record.taste || [])
+  ];
+  const specific = record.category === 'Mushroom'
+    ? [
+        ...(record.substrate || []),
+        ...(record.treeType || []),
+        ...(record.hostTree || []),
+        ...(record.ring || []),
+        ...(record.underside || []),
+        ...(record.texture || []),
+        ...(record.smell || []),
+        ...(record.staining || [])
+      ]
+    : [
+        ...(record.flowerColor || []),
+        ...(record.leafShape || []),
+        ...(record.leafArrangement || []),
+        ...(record.stemSurface || []),
+        ...(record.leafPointCount || [])
+      ];
+  const items = uniqueStrings([...base, ...specific]);
   if (!items.length) return '';
-  return `<section class="detail-card section-block"><h3>Plant clues</h3><div class="tag-row">${tagList(items, "No plant traits tagged yet")}</div></section>`;
+  return `<section class="detail-card section-block"><h3>Identification clues</h3><div class="tag-row">${tagList(items, "No identification clues tagged yet")}</div></section>`;
 }
-function renderMushroomClues(record) {
-  if (record.category !== 'Mushroom') return '';
-  return `<section class="detail-card section-block"><h3>Mushroom clues</h3><div class="tag-row">${tagList([...(record.substrate||[]), ...(record.treeType||[]), ...(record.hostTree||[]), ...(record.ring||[]), ...(record.underside||[]), ...(record.texture||[]), ...(record.smell||[]), ...(record.staining||[])], "No mushroom traits tagged yet")}</div></section>`;
+function combinedCulinaryText(record) {
+  const parts = [];
+  const culinary = cleanText(record.culinary_uses);
+  const edibility = cleanText(record.edibility_detail);
+  if (culinary) parts.push(culinary);
+  if (edibility && !isGenericCaution(edibility) && !parts.some(p => p.toLowerCase() === edibility.toLowerCase())) parts.push(edibility);
+  return parts.join(' ');
+}
+function renderCulinarySection(record) {
+  const text = combinedCulinaryText(record);
+  if (!text) return '';
+  return `<section class="detail-card section-block"><h3>Culinary uses</h3><p>${escapeHtml(text)}</p></section>`;
+}
+function renderMedicinalSection(record) {
+  const text = cleanText(record.medicinal_uses);
+  if (!text) return '';
+  return `<section class="detail-card section-block"><h3>Medicinal uses</h3><p>${escapeHtml(text)}</p></section>`;
+}
+function renderOtherSections(record) {
+  const blocks = [];
+  const otherUses = cleanText(record.other_uses);
+  const changes = cleanText(record.changes_over_time);
+  const notes = cleanText(record.notes);
+  if (otherUses) blocks.push(`<section class="detail-card section-block"><h3>Other uses</h3><p>${escapeHtml(otherUses)}</p></section>`);
+  if (changes) blocks.push(`<section class="detail-card section-block"><h3>Changes over time</h3><p>${escapeHtml(changes)}</p></section>`);
+  if (notes) blocks.push(`<section class="detail-card section-block"><h3>Notes</h3><p>${escapeHtml(notes)}</p></section>`);
+  return blocks.join('');
+}
+function renderSafetyEffects(record) {
+  const severity = cleanText(record.non_edible_severity);
+  const effects = cleanText(record.effects_on_body);
+  const affected = uniqueStrings(record.affected_systems || []);
+  if (!severity && !effects && !affected.length) return '';
+  return `<section class="detail-card section-block"><h3>Safety / body effects</h3>${line('Severity', severity)}${affected.length ? line('Affected systems', affected.join(', ')) : ''}${line('Effects', effects)}</section>`;
+}
+function renderMedicinalTags(record) {
+  const items = uniqueStrings([...(record.medicinalAction || []), ...(record.medicinalSystem || []), ...(record.medicinalTerms || [])]);
+  if (!items.length) return '';
+  return `<section class="detail-card section-block"><h3>Medicinal tags</h3><div class="tag-row">${tagList(items, "No medicinal tags yet")}</div></section>`;
+}
+function renderSeasonality(record) {
+  const items = uniqueStrings(record.months_available || []);
+  if (!items.length) return '';
+  return `<section class="detail-card section-block"><h3>Seasonality</h3><div class="tag-row">${tagList(items, "No month data")}</div></section>`;
+}
+function renderMushroomResearch(record) {
+  const profile = record.mushroom_profile;
+  if (!profile) return "";
+  const summaryParts = [
+    cleanText(profile.summary),
+    cleanText(profile.ecology),
+    cleanText(profile.season_note)
+  ].filter(Boolean);
+  const sourceLinks = uniqueStrings(record.links || []).map(link => `<li><a href="${escapeHtml(link)}" target="_blank" rel="noreferrer">${escapeHtml(link)}</a></li>`).join("");
+  const details = [
+    line("Scientific name", record.scientific_name || ""),
+    line("Family grouping", record.mushroom_family || ""),
+    line("Entry scope", cleanText((profile.entry_scope || "").replaceAll("_", " "))),
+    line("Edibility", cleanText((profile.edibility_status || "").replaceAll("_", " "))),
+    line("Caution level", cleanText((profile.caution_level || "").replaceAll("_", " "))),
+    line("Spore print", profile.spore_print || "")
+  ].join('');
+  const substrate = uniqueStrings([
+    ...(profile.substrate || []),
+    ...(profile.wood_type || []),
+    ...(profile.host_trees || []),
+    profile.host_certainty ? `Host certainty: ${String(profile.host_certainty).replaceAll('_', ' ')}` : ''
+  ]);
+  const structure = uniqueStrings([
+    ...(profile.underside ? [profile.underside] : []),
+    ...(profile.ring ? [profile.ring] : []),
+    ...(profile.texture || []),
+    ...(profile.odor ? [profile.odor] : []),
+    ...(profile.staining ? [profile.staining] : []),
+    ...(profile.taste || [])
+  ]);
+  return `<section class="detail-card section-block"><h3>Mushroom research</h3>${summaryParts.length ? summaryParts.map(p => `<p>${escapeHtml(p)}</p>`).join('') : ''}${details}</section>${substrate.length ? listSection("Substrate and host clues", substrate, "No substrate or host clues added yet") : ''}${structure.length ? listSection("Structure clues", structure, "No structure clues added yet") : ''}${profile.processing_required?.length ? listSection("Processing / handling", uniqueStrings(profile.processing_required)) : ""}${sourceLinks ? `<section class="detail-card section-block"><h3>Sources</h3><ul>${sourceLinks}</ul></section>` : ''}`;
+}
+function renderExternalReferenceLinks(record) {
+  const sci = cleanText(record.scientific_name);
+  const name = cleanText(record.display_name || record.common_name);
+  const query = encodeURIComponent(sci || name);
+  if (!query) return '';
+  const plantLink = `https://plants.usda.gov/home/search?query=${query}`;
+  const fungusLink = `https://www.fs.usda.gov/wildflowers/features/fungi/index.shtml`;
+  const extra = record.category === 'Mushroom'
+    ? `<li><a href="${fungusLink}" target="_blank" rel="noreferrer">U.S. Forest Service fungi resources</a></li>`
+    : `<li><a href="${plantLink}" target="_blank" rel="noreferrer">USDA PLANTS search for this species</a></li>`;
+  return `<section class="detail-card section-block"><h3>More references</h3><ul>${extra}</ul></section>`;
 }
 export function renderDetail(record) {
   const images = uniqueImages(record.images || []);
   const gallery = images.length ? images.map(path => `<img src="${encodeURI(path)}" alt="${escapeHtml(record.display_name)}">`).join("") : `<div class="thumb placeholder" style="width:100%;height:220px;">No image imported</div>`;
-  const genericLinks = !record.mushroom_profile && record.links?.length ? `<section class="detail-card section-block"><h3>Source links</h3><ul>${record.links.map(link => `<li><a href="${escapeHtml(link)}" target="_blank" rel="noreferrer">${escapeHtml(link)}</a></li>`).join("")}</ul></section>` : "";
-  return `<div class="detail-layout"><div class="detail-gallery">${gallery}${renderImageCredits(record)}</div><div class="detail-grid"><section class="detail-card"><span class="category-pill">${escapeHtml(record.category)}</span><h2 style="margin-top:10px;">${escapeHtml(record.display_name)}</h2><p style="margin-top:8px;">${escapeHtml(record.common_name || "No alternate common name imported.")}</p>${record.scientific_name ? `<p class="small-note"><strong>${escapeHtml(record.scientific_name)}</strong></p>` : ""}</section>${renderEdibilityWarning(record)}<section class="detail-card section-block"><h3>Culinary uses</h3><p>${escapeHtml(record.culinary_uses || "Not provided in the imported sheet.")}</p></section><section class="detail-card section-block"><h3>Medicinal uses</h3><p>${escapeHtml(record.medicinal_uses || "Not provided in the imported sheet.")}</p></section>${record.edibility_detail ? `<section class="detail-card section-block"><h3>Edibility detail</h3><p>${escapeHtml(record.edibility_detail)}</p></section>` : ''}${record.other_uses ? `<section class="detail-card section-block"><h3>Other uses</h3><p>${escapeHtml(record.other_uses)}</p></section>` : ''}${record.changes_over_time ? `<section class="detail-card section-block"><h3>Changes over time</h3><p>${escapeHtml(record.changes_over_time)}</p></section>` : ''}${(record.non_edible_severity || record.effects_on_body) ? `<section class="detail-card section-block"><h3>Risk / body effects</h3>${line('Severity', record.non_edible_severity || '')}${line('Affected systems', (record.affected_systems || []).join(', '))}${line('Effects', record.effects_on_body || '')}</section>` : ''}${renderFieldClues(record)}${renderPlantClues(record)}${renderMushroomClues(record)}<section class="detail-card section-block"><h3>Medicinal tags</h3><div class="tag-row">${tagList([...(record.medicinalAction||[]), ...(record.medicinalSystem||[]), ...(record.medicinalTerms||[])], "No medicinal tags yet")}</div></section><section class="detail-card section-block"><h3>Seasonality</h3><div class="tag-row">${tagList(record.months_available, "No month data")}</div></section><section class="detail-card section-block"><h3>Needs review</h3><div class="tag-row">${tagList(record.reviewReasons, "Nothing flagged")}</div></section><section class="detail-card section-block"><h3>Notes</h3><p>${escapeHtml(record.notes || "No extra notes imported.")}</p></section>${renderLookAlikes(record)}${renderRelatedMushrooms(record)}${renderMushroomResearch(record)}${genericLinks}<p class="small-note">Supabase table target: <strong>${TABLE_NAME}</strong></p></div></div>`;
+  const genericLinks = !record.mushroom_profile && record.links?.length ? `<section class="detail-card section-block"><h3>Source links</h3><ul>${uniqueStrings(record.links).map(link => `<li><a href="${escapeHtml(link)}" target="_blank" rel="noreferrer">${escapeHtml(link)}</a></li>`).join("")}</ul></section>` : "";
+  return `<div class="detail-layout"><div class="detail-gallery">${gallery}${renderImageCredits(record)}</div><div class="detail-grid"><section class="detail-card"><span class="category-pill">${escapeHtml(record.category)}</span><h2 style="margin-top:10px;">${escapeHtml(record.display_name)}</h2><p style="margin-top:8px;">${escapeHtml(cleanText(record.common_name) || "")}</p>${record.scientific_name ? `<p class="small-note"><strong>${escapeHtml(record.scientific_name)}</strong></p>` : ""}</section>${record.category === 'Mushroom' ? renderMushroomResearch(record) : ''}${renderEdibilityWarning(record)}${renderCulinarySection(record)}${renderMedicinalSection(record)}${renderSafetyEffects(record)}${renderIdentificationClues(record)}${renderMedicinalTags(record)}${renderSeasonality(record)}${renderOtherSections(record)}${renderLookAlikes(record)}${renderRelatedMushrooms(record)}${record.category !== 'Mushroom' ? renderExternalReferenceLinks(record) : renderExternalReferenceLinks(record)}${genericLinks}<p class="small-note">Supabase table target: <strong>${TABLE_NAME}</strong></p></div></div>`;
 }
