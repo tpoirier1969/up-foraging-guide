@@ -19,6 +19,10 @@ const LOOKALIKE_ALIASES = {
   'honey mushrooms': 'honey-mushrooms'
 };
 
+const ALT_NAMES_BY_SLUG = {
+  'red-belted-conk': ['Red Bracket Fungi', 'Red-belted bracket', 'Red-banded polypore']
+};
+
 const USDA_PLANT_PROFILE_BY_SLUG = {
   'birch-sap': 'https://plants.sc.egov.usda.gov/plant-profile/BEPE3',
   'wild-strawberries': 'https://plants.sc.egov.usda.gov/home/plantProfile?symbol=FRVI',
@@ -53,7 +57,7 @@ function resolveLinkedRecord(name) {
   const aliasSlug = LOOKALIKE_ALIASES[normalized];
   if (aliasSlug) return (state.allRecords || []).find(item => item.slug === aliasSlug) || null;
   return (state.allRecords || []).find(item => {
-    const candidates = [item.display_name, item.common_name, item.slug, item.scientific_name]
+    const candidates = [item.display_name, item.common_name, item.slug, item.scientific_name, ...((ALT_NAMES_BY_SLUG[item.slug] || []))]
       .map(normalizeName)
       .filter(Boolean);
     return candidates.includes(normalized);
@@ -216,7 +220,8 @@ function renderExternalReferenceLinks(record) {
 }
 export function renderDetail(record) {
   const images = uniqueImages(record.images || []);
+  const altNames = ALT_NAMES_BY_SLUG[record.slug] || [];
   const gallery = images.length ? images.map(path => `<img src="${encodeURI(path)}" alt="${escapeHtml(record.display_name)}">`).join("") : `<div class="thumb placeholder" style="width:100%;height:220px;">No image imported</div>`;
   const genericLinks = !record.mushroom_profile && record.links?.length ? `<section class="detail-card section-block"><h3>Source links</h3><ul>${uniqueStrings(record.links).map(link => `<li><a href="${escapeHtml(link)}" target="_blank" rel="noreferrer">${escapeHtml(link)}</a></li>`).join("")}</ul></section>` : "";
-  return `<div class="detail-layout"><div class="detail-gallery">${gallery}${renderImageCredits(record)}</div><div class="detail-grid"><section class="detail-card"><span class="category-pill">${escapeHtml(record.category)}</span><h2 style="margin-top:10px;">${escapeHtml(record.display_name)}</h2><p style="margin-top:8px;">${escapeHtml(cleanText(record.common_name) || "")}</p>${record.scientific_name ? `<p class="small-note"><strong>${escapeHtml(record.scientific_name)}</strong></p>` : ""}</section>${record.category === 'Mushroom' ? renderMushroomResearch(record) : ''}${renderEdibilityWarning(record)}${renderCulinarySection(record)}${renderMedicinalSection(record)}${renderSafetyEffects(record)}${renderIdentificationClues(record)}${renderMedicinalTags(record)}${renderSeasonality(record)}${renderOtherSections(record)}${renderLookAlikes(record)}${renderRelatedMushrooms(record)}${renderExternalReferenceLinks(record)}${genericLinks}<p class="small-note">Supabase table target: <strong>${TABLE_NAME}</strong></p></div></div>`;
+  return `<div class="detail-layout"><div class="detail-gallery">${gallery}${renderImageCredits(record)}</div><div class="detail-grid"><section class="detail-card"><span class="category-pill">${escapeHtml(record.category)}</span><h2 style="margin-top:10px;">${escapeHtml(record.display_name)}</h2><p style="margin-top:8px;">${escapeHtml(cleanText(record.common_name) || "")}</p>${altNames.length ? `<p class="small-note"><strong>Also called:</strong> ${escapeHtml(altNames.join(', '))}</p>` : ''}${record.scientific_name ? `<p class="small-note"><strong>${escapeHtml(record.scientific_name)}</strong></p>` : ""}</section>${record.category === 'Mushroom' ? renderMushroomResearch(record) : ''}${renderEdibilityWarning(record)}${renderCulinarySection(record)}${renderMedicinalSection(record)}${renderSafetyEffects(record)}${renderIdentificationClues(record)}${renderMedicinalTags(record)}${renderSeasonality(record)}${renderOtherSections(record)}${renderLookAlikes(record)}${renderRelatedMushrooms(record)}${renderExternalReferenceLinks(record)}${genericLinks}<p class="small-note">Supabase table target: <strong>${TABLE_NAME}</strong></p></div></div>`;
 }
