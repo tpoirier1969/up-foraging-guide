@@ -6,7 +6,7 @@ import { state } from "./state.js?v=v2.1-mainfix21";
 import { parseRoute } from "./router.js?v=v2.0";
 import { MONTHS } from "./constants-mainfix.js?v=v2.1-mainfix23";
 import { renderDashboard } from "./pages-mainfix4-commonness-v3.js?v=v2.4-sortfix1";
-import { renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui-mainfix-v2.js";
+import { renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui-mainfix-v2.js?v=v2.6-usdalinkfix1";
 import { applyCommonnessSort } from "./lib/commonness-sort-v3.js?v=v2.4-sortfix1";
 
 const focusDate = new Date();
