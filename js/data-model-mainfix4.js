@@ -4,8 +4,11 @@ import { inferTraits } from "./trait-inference-mainfix4.js?v=v2.1-mainfix14";
 
 const FORAGING_MUSHROOM_STATUSES = new Set(["choice","choice_cooked_only","edible","edible_with_caution","edible_when_young","edible_when_white_inside","edible_mediocre","choice_with_precision","good","edible_young_only"]);
 const AVOID_MUSHROOM_STATUSES = new Set(["emergency_only","inedible_tough","inedible_bitter","nonculinary_tea","poisonous","deadly_poisonous","toxic_or_psychoactive","toxic_or_dangerous","review_required","questionable_or_mediocre"]);
+const NON_FOOD_PLANT_PATTERNS = /(poison|toxic|deadly|inedible|do not eat|not edible|non-culinary|ornamental only)/;
+
 function severityText(record) { return String(record?.non_edible_severity || '').trim().toLowerCase(); }
 function edibleStatus(record) { return String(record?.mushroom_profile?.edibility_status || '').trim().toLowerCase(); }
+function culinaryText(record) { return String(record?.culinary_uses || '').trim().toLowerCase(); }
 function asList(value) {
   if (Array.isArray(value)) return value.filter(Boolean).map(v => String(v).trim()).filter(Boolean);
   if (typeof value === 'string' && value.trim()) return [value.trim()];
@@ -39,6 +42,15 @@ export function normalizeRecord(record) {
 export function sortRecords(records) { return records.slice().sort((a,b) => a.display_name.localeCompare(b.display_name)); }
 export function isPlant(record) { return PLANT_CATEGORIES.has(record.category); }
 export function isMushroom(record) { return record.category === 'Mushroom'; }
+export function isEdiblePlant(record) {
+  if (!isPlant(record)) return false;
+  const culinary = culinaryText(record);
+  const severity = severityText(record);
+  if (!culinary) return false;
+  if (NON_FOOD_PLANT_PATTERNS.test(culinary)) return false;
+  if (severity && NON_FOOD_PLANT_PATTERNS.test(severity)) return false;
+  return true;
+}
 export function isForagingMushroom(record) {
   if (!isMushroom(record)) return false;
   const status = edibleStatus(record);
@@ -50,7 +62,7 @@ export function isForagingMushroom(record) {
     if (/poison/.test(severity) && !/edible|choice/.test(severity)) return false;
     if (/edible|choice/.test(severity)) return true;
   }
-  return true;
+  return false;
 }
 export function medicinalRecords(records) { return records.filter(hasMedicinal); }
 export function reviewRecords(records) { return records.filter(r => (r.reviewReasons || []).length); }
