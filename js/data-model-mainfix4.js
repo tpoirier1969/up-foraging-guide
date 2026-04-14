@@ -1,5 +1,5 @@
 import { PLANT_CATEGORIES } from "./constants-mainfix.js?v=v2.1-mainfix21";
-import { compactText, hasMedicinal } from "./utils.js?v=v2.0";
+import { compactText, hasMedicinal } from "./utils.js?v=v2.1-medfix1";
 import { inferTraits } from "./trait-inference-mainfix4.js?v=v2.1-mainfix14";
 
 const FORAGING_MUSHROOM_STATUSES = new Set(["choice","choice_cooked_only","edible","edible_with_caution","edible_when_young","edible_when_white_inside","edible_mediocre","choice_with_precision","good","edible_young_only"]);
