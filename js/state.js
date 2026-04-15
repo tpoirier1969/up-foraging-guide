@@ -5,5 +5,7 @@ export const state = {
   credits: {},
   route: "home",
   dataSource: "Local JSON fallback",
-  detailSlug: null
+  detailSlug: null,
+  rareSpecies: [],
+  rareSightings: []
 };
