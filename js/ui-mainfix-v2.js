@@ -1,5 +1,5 @@
-import { APP_VERSION } from "./constants-mainfix.js?v=v2.12-rare-detailfix";
-import { state } from "./state.js?v=v2.12-rare-detailfix";
+import { APP_VERSION } from "./constants-mainfix.js?v=v2.13.2-rare-cachefix";
+import { state } from "./state.js?v=v2.13.2-rare-cachefix";
 import { renderDetail } from "./renderers/detail-v2.js?v=v2.6-usdalinkfix1";
 
 const els = {

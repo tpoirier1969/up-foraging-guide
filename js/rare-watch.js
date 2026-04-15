@@ -1,6 +1,6 @@
-import { FORAGING_RARE_SIGHTINGS_TABLE } from "./constants-mainfix.js?v=v2.13-rare-rebuild1";
-import { state } from "./state.js?v=v2.13-rare-rebuild1";
-import { openHtmlModal } from "./ui-mainfix-v2.js?v=v2.13-rare-rebuild1";
+import { FORAGING_RARE_SIGHTINGS_TABLE } from "./constants-mainfix.js?v=v2.13.2-rare-cachefix";
+import { state } from "./state.js?v=v2.13.2-rare-cachefix";
+import { openHtmlModal } from "./ui-mainfix-v2.js?v=v2.13.2-rare-cachefix";
 
 const LOCAL_KEY = "foraging_rare_sightings_local_v1";
 const UP_CENTER = [46.5, -87.4];
