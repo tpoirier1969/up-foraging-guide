@@ -1,0 +1,5 @@
+v2.13.3-rare-recursionfix
+- Fixed rare thumbnail recursion bug that could trigger 'Too much recursion' when a rare species had no image.
+- Added safer rare-page init error logging instead of silent failure.
+- Header revision badge is now actively updated from APP_VERSION during init.
+- Cache-busted index and JS imports to force fresh load.

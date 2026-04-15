@@ -2,13 +2,13 @@ import { loadLocalData, loadSupabaseData, loadOverridePayload } from "./api-main
 import { loadLocalDataWithMasterV5 } from "./api-masterlist-v5.js";
 import { applyAuditCorrections } from "./api-masterlist-v7.js";
 import { sortRecords, normalizeRecord, isPlant, isForagingMushroom, medicinalRecords, reviewRecords, avoidRecords } from "./data-model-mainfix4.js?v=v2.1-mainfix21";
-import { state } from "./state.js?v=v2.13.2-rare-cachefix";
+import { state } from "./state.js?v=v2.13.3-rare-recursionfix";
 import { parseRoute } from "./router.js?v=v2.0";
-import { MONTHS } from "./constants-mainfix.js?v=v2.13.2-rare-cachefix";
-import { renderDashboard } from "./pages-mainfix4-commonness-v3.js?v=v2.13.2-rare-cachefix";
-import { renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui-mainfix-v2.js?v=v2.13.2-rare-cachefix";
+import { MONTHS } from "./constants-mainfix.js?v=v2.13.3-rare-recursionfix";
+import { renderDashboard } from "./pages-mainfix4-commonness-v3.js?v=v2.13.3-rare-recursionfix";
+import { renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail, updateHeaderStats } from "./ui-mainfix-v2.js?v=v2.13.3-rare-recursionfix";
 import { applyCommonnessSort } from "./lib/commonness-sort-v3.js?v=v2.4-sortfix1";
-import { loadRareSpecies, loadRareSightings, wireRarePage } from "./rare-watch.js?v=v2.13.2-rare-cachefix";
+import { loadRareSpecies, loadRareSightings, wireRarePage } from "./rare-watch.js?v=v2.13.3-rare-recursionfix";
 
 const focusDate = new Date();
 focusDate.setDate(focusDate.getDate() + 14);
@@ -274,7 +274,7 @@ function renderCurrentRoute() {
   }
 
   renderPage(renderDashboard({ page: activePage, allRecords: state.allRecords, currentRecords: filteredForPage(activePage), filters: filterState[activePage] || emptyFilter(activePage), selectedMonth: selectedTimelineMonth, overridePayload, references: state.references }));
-  if (activePage === "rare") wireRarePage();
+  if (activePage === "rare") wireRarePage().catch(error => console.error("Rare page init failed", error));
   mountTagBar(activePage);
   bindDetailLinks();
   bindSharedActions({
@@ -315,6 +315,7 @@ function renderCurrentRoute() {
 
 async function init() {
   wireModal();
+  updateHeaderStats();
   injectTagStyles();
   try {
     overridePayload = await loadOverridePayload();

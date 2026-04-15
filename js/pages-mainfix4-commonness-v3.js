@@ -1,12 +1,12 @@
-import { MONTHS } from "./constants-mainfix.js?v=v2.13.2-rare-cachefix";
+import { MONTHS } from "./constants-mainfix.js?v=v2.13.3-rare-recursionfix";
 import { medicinalRecords, isPlant, reviewRecords, avoidRecords, isForagingMushroom } from "./data-model-mainfix4.js?v=v2.3-classfix1";
 import { VOCAB } from "./vocabulary.js?v=v2.0";
 import { renderResultCard } from "./renderers/cards-mainfix-common.js";
 import { renderInteractiveTimeline } from "./renderers/timeline.js?v=v2.1-mainfix21";
 import { escapeHtml } from "./utils.js?v=v2.1-medfix1";
 import { sortLabel } from "./lib/commonness-sort-v3.js?v=v2.4-sortfix1";
-import { state } from "./state.js?v=v2.13.2-rare-cachefix";
-import { renderRarePageHtml } from "./rare-watch.js?v=v2.13.2-rare-cachefix";
+import { state } from "./state.js?v=v2.13.3-rare-recursionfix";
+import { renderRarePageHtml } from "./rare-watch.js?v=v2.13.3-rare-recursionfix";
 
 const FLOWER_COLORS = ["White","Purple","Pink","Yellow","Blue","Red","Green"];
 const LEAF_SHAPES = ["Round","Oval","Heart-shaped","Lance-shaped","Pointed","Lobed","Compound","Needle-like"];
