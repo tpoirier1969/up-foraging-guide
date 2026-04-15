@@ -1,6 +1,19 @@
-.rare-columns,.rare-sighting-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.rare-card-list{display:grid;gap:12px}
+.rare-result-card{align-items:start}
+.rare-thumb{background:#efe8da;color:#5e5a52;font-weight:800;display:grid;place-items:center;text-align:center}
+.rare-hero-panel{background:linear-gradient(145deg, rgba(255,253,249,.98), rgba(245,240,229,.92))}
+.rare-sighting-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .rare-species-list{display:grid;gap:10px}
-.rare-species-item,.rare-sighting-item{border:1px solid rgba(47,93,70,.18);border-radius:16px;padding:12px 14px;background:#fff}
-.rare-map{width:100%;min-height:360px;border-radius:16px;overflow:hidden;border:1px solid rgba(47,93,70,.18)}
-#rareExportText,#rareNotes{width:100%;box-sizing:border-box;font:inherit}
-@media (max-width:800px){.rare-columns,.rare-sighting-grid{grid-template-columns:minmax(0,1fr)}.rare-map{min-height:280px}}
+.rare-sighting-item,.rare-mini-sighting{border:1px solid rgba(47,93,70,.18);border-radius:16px;padding:12px 14px;background:#fff}
+.rare-mini-sighting{display:grid;gap:4px}
+.rare-inline-sightings{display:grid;gap:10px}
+.rare-map{width:100%;min-height:360px;border-radius:16px;overflow:hidden;border:1px solid rgba(47,93,70,.18);margin-top:8px}
+.rare-detail-picker-map{min-height:300px}
+.rare-detail-shell h2{margin:.2rem 0 .25rem}
+.rare-detail-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.rare-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.rare-detail-sighting-box{margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
+.rare-modal-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.rare-hidden{display:none!important}
+#rareDetailNotes{width:100%;box-sizing:border-box;font:inherit}
+@media (max-width:900px){.rare-sighting-grid,.rare-detail-grid,.rare-modal-form-grid{grid-template-columns:minmax(0,1fr)}.rare-map{min-height:280px}}
