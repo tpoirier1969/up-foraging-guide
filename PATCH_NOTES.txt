@@ -1,16 +1,14 @@
-Included in this patch
-- data/wikimedia-image-overrides-mainfix4.json
-- data/wikimedia-image-credits.json
+Patch package for up-foraging-guide
 
-What was added
-- 24 mushroom slugs now have Wikimedia override image arrays.
-- Credit records were added for those image files.
+Changed files:
+- index.html
+- index-masterlist-v3.html
+- js/constants-mainfix.js
+- js/app-mainfix4-masterlist-v2.js
 
-Not included yet
-- No taxonomy/content text changes to species records.
-- No JS loader changes.
-- No UI changes.
-- No plant-side reference additions.
-
-Caution items intentionally skipped
-- Sparassis_brevipes_-_Robichaux.jpg was not used because the filename/description labeling was shaky.
+Purpose:
+- point site root to index-masterlist-v3.html
+- fix redirect link text
+- set version badge source to "masterlist v3"
+- align VOCAB_VERSION to v1.7
+- cache-bust the active JS/module chain with ?v=2026-04-15-2
