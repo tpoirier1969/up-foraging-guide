@@ -17,3 +17,12 @@
 .rare-hidden{display:none!important}
 #rareDetailNotes{width:100%;box-sizing:border-box;font:inherit}
 @media (max-width:900px){.rare-sighting-grid,.rare-detail-grid,.rare-modal-form-grid{grid-template-columns:minmax(0,1fr)}.rare-map{min-height:280px}}
+
+.rare-thumb{background-size:cover;background-position:center}
+.rare-detail-top{display:grid;grid-template-columns:minmax(260px,360px) minmax(0,1fr);gap:14px;align-items:start;margin-top:14px}
+.rare-detail-gallery{display:grid;gap:8px}
+.rare-detail-main-image{width:100%;border-radius:16px;display:block;object-fit:cover;min-height:240px;max-height:360px;border:1px solid rgba(47,93,70,.18);background:#f3efe6}
+.rare-detail-gallery-strip{display:flex;flex-wrap:wrap;gap:8px}
+.rare-detail-gallery-thumb{width:84px;height:84px;border-radius:12px;object-fit:cover;border:1px solid rgba(47,93,70,.18);background:#f3efe6}
+.rare-detail-summary-card{height:100%}
+@media (max-width:800px){.rare-detail-top{grid-template-columns:minmax(0,1fr)}.rare-detail-main-image{max-height:none}}

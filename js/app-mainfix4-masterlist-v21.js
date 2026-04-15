@@ -2,13 +2,13 @@ import { loadLocalData, loadSupabaseData, loadOverridePayload } from "./api-main
 import { loadLocalDataWithMasterV5 } from "./api-masterlist-v5.js";
 import { applyAuditCorrections } from "./api-masterlist-v7.js";
 import { sortRecords, normalizeRecord, isPlant, isForagingMushroom, medicinalRecords, reviewRecords, avoidRecords } from "./data-model-mainfix4.js?v=v2.1-mainfix21";
-import { state } from "./state.js?v=v2.12-rare-detailfix";
+import { state } from "./state.js?v=v2.13-rare-rebuild1";
 import { parseRoute } from "./router.js?v=v2.0";
-import { MONTHS } from "./constants-mainfix.js?v=v2.12-rare-detailfix";
-import { renderDashboard } from "./pages-mainfix4-commonness-v3.js?v=v2.12-rare-detailfix";
-import { renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui-mainfix-v2.js?v=v2.12-rare-detailfix";
+import { MONTHS } from "./constants-mainfix.js?v=v2.13-rare-rebuild1";
+import { renderDashboard } from "./pages-mainfix4-commonness-v3.js?v=v2.13-rare-rebuild1";
+import { renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui-mainfix-v2.js?v=v2.13-rare-rebuild1";
 import { applyCommonnessSort } from "./lib/commonness-sort-v3.js?v=v2.4-sortfix1";
-import { loadRareSpecies, loadRareSightings, wireRarePage } from "./rare-watch.js?v=v2.12-rare-detailfix";
+import { loadRareSpecies, loadRareSightings, wireRarePage } from "./rare-watch.js?v=v2.13-rare-rebuild1";
 
 const focusDate = new Date();
 focusDate.setDate(focusDate.getDate() + 14);
@@ -224,9 +224,9 @@ function mountTagBar(page) {
 
   mount.innerHTML = `
     <section class="panel tag-bar-panel">
-      <div class="tag-bar-topline">
+      <div class="tag-bar-inline-row">
+        <strong class="tag-bar-title">Use tags:</strong>
         <div class="tag-button-row">
-          <strong class="tag-bar-title">Use tags:</strong>
           <button type="button" data-tag="" class="tag-filter-btn${current === "" ? " active" : ""}">All</button>
           ${TAGS.map(tag => `<button type="button" data-tag="${tag}" class="tag-filter-btn${current === tag ? " active" : ""}">${tag}</button>`).join("")}
         </div>

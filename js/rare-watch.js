@@ -1,6 +1,6 @@
-import { FORAGING_RARE_SIGHTINGS_TABLE } from "./constants-mainfix.js?v=v2.12-rare-detailfix";
-import { state } from "./state.js?v=v2.12-rare-detailfix";
-import { openHtmlModal } from "./ui-mainfix-v2.js?v=v2.12-rare-detailfix";
+import { FORAGING_RARE_SIGHTINGS_TABLE } from "./constants-mainfix.js?v=v2.13-rare-rebuild1";
+import { state } from "./state.js?v=v2.13-rare-rebuild1";
+import { openHtmlModal } from "./ui-mainfix-v2.js?v=v2.13-rare-rebuild1";
 
 const LOCAL_KEY = "foraging_rare_sightings_local_v1";
 const UP_CENTER = [46.5, -87.4];
@@ -97,6 +97,26 @@ function recentSightingsForSpecies(slug) {
   return (state.rareSightings || []).filter(item => item.species_slug === slug).slice(0, 5);
 }
 
+
+function firstRareImage(record) {
+  return Array.isArray(record.images) && record.images.length ? record.images[0] : "";
+}
+function renderRareThumb(record) {
+  const image = firstRareImage(record);
+  if (!image) return `${renderRareThumb(record)}`;
+  return `<div class="thumb rare-thumb" style="background-image:url('${image}')"></div>`;
+}
+function renderRareGallery(record) {
+  const images = Array.isArray(record.images) ? record.images.filter(Boolean) : [];
+  if (!images.length) return `<div class="thumb placeholder rare-detail-main-image">No image loaded</div>`;
+  return `
+    <div class="rare-detail-gallery">
+      <img class="rare-detail-main-image" src="${images[0]}" alt="${esc(record.common_name)}">
+      ${images.length > 1 ? `<div class="rare-detail-gallery-strip">${images.slice(1).map(src => `<img class="rare-detail-gallery-thumb" src="${src}" alt="${esc(record.common_name)} detail view">`).join("")}</div>` : ""}
+    </div>
+  `;
+}
+
 function renderSightingsList(sightings) {
   if (!sightings.length) return '<p class="small-note">No sightings saved yet.</p>';
   return sightings.map(item => {
@@ -109,7 +129,7 @@ function renderRareCard(record) {
   const sightings = recentSightingsForSpecies(record.slug);
   return `
     <article class="result-card rare-result-card">
-      <div class="thumb placeholder rare-thumb">${esc(groupLabel(record.group))}</div>
+      ${renderRareThumb(record)}
       <div class="card-main">
         <div class="card-topline">
           <a href="#" class="card-title-link" data-rare-detail="${esc(record.slug)}">${esc(record.common_name)}</a>
@@ -220,11 +240,20 @@ function renderRareDetail(record, expandForm = false) {
         </div>
       </div>
 
-      <div class="rare-detail-grid">
-        <section class="detail-card">
-          <h3>Why it is on the list</h3>
+      <div class="rare-detail-top">
+        ${renderRareGallery(record)}
+        <section class="detail-card rare-detail-summary-card">
+          <h3>At a glance</h3>
           <p>${esc(record.reason || "No summary loaded.")}</p>
+          <div class="tag-row">
+            <span class="tag">${esc(record.up_relevance || "UP relevance pending")}</span>
+            ${record.sensitive_location ? '<span class="tag">Sensitive location</span>' : '<span class="tag">Location sensitivity not flagged</span>'}
+          </div>
+          <p class="small-note">${esc(sensitivityLabel(record))}</p>
         </section>
+      </div>
+
+      <div class="rare-detail-grid">
         <section class="detail-card">
           <h3>Habitat</h3>
           <p>${esc(record.habitat || "No habitat note loaded.")}</p>

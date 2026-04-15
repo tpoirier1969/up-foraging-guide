@@ -1,12 +1,12 @@
-import { MONTHS } from "./constants-mainfix.js?v=v2.12-rare-detailfix";
+import { MONTHS } from "./constants-mainfix.js?v=v2.13-rare-rebuild1";
 import { medicinalRecords, isPlant, reviewRecords, avoidRecords, isForagingMushroom } from "./data-model-mainfix4.js?v=v2.3-classfix1";
 import { VOCAB } from "./vocabulary.js?v=v2.0";
 import { renderResultCard } from "./renderers/cards-mainfix-common.js";
 import { renderInteractiveTimeline } from "./renderers/timeline.js?v=v2.1-mainfix21";
 import { escapeHtml } from "./utils.js?v=v2.1-medfix1";
 import { sortLabel } from "./lib/commonness-sort-v3.js?v=v2.4-sortfix1";
-import { state } from "./state.js?v=v2.12-rare-detailfix";
-import { renderRarePageHtml } from "./rare-watch.js?v=v2.12-rare-detailfix";
+import { state } from "./state.js?v=v2.13-rare-rebuild1";
+import { renderRarePageHtml } from "./rare-watch.js?v=v2.13-rare-rebuild1";
 
 const FLOWER_COLORS = ["White","Purple","Pink","Yellow","Blue","Red","Green"];
 const LEAF_SHAPES = ["Round","Oval","Heart-shaped","Lance-shaped","Pointed","Lobed","Compound","Needle-like"];
@@ -63,7 +63,7 @@ function homeHub() {
         </div>
         <p>I built this as a hobby forager who wanted a more user-friendly field reference that is easier to carry around than a stack of books. It was developed with the help of AI and shared as a practical quick-reference tool for other foragers.</p>
         <p>I am not an expert, and this app should not be treated as expert advice. If there is any question about an identification, use additional sources and verify carefully. Some species can be difficult to identify and may be confused with harmful lookalikes.</p>
-        <p>The Use Tags legend now rides with the Use Tags bar instead of floating off by itself.</p>
+        <p>The Use Tags legend now sits directly in the same strip as the Use Tags buttons.</p>
       </section>
     </section>
   `;
