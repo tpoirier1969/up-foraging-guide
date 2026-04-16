@@ -1,6 +1,6 @@
-import { FORAGING_RARE_SIGHTINGS_TABLE } from "./constants-mainfix.js?v=v2.13.3-rare-recursionfix";
+import { FORAGING_RARE_SIGHTINGS_TABLE } from "./constants-mainfix.js";
 import { state } from "./state.js";
-import { openHtmlModal } from "./ui-mainfix-v2.js?v=v2.13.3-rare-recursionfix";
+import { openHtmlModal } from "./ui-mainfix.js";
 
 const LOCAL_KEY = "foraging_rare_sightings_local_v1";
 const UP_CENTER = [46.5, -87.4];

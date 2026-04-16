@@ -1,21 +1,12 @@
-UP FORAGING GUIDE FIX PACKAGE
+Replace these files in your site with the ones in this package.
 
-What is in this zip
-- js/state.js
-- js/pages-mainfix4-commonness-v3.js
-- js/rare-watch.js
+Included fixes:
+- single visible version number normalized to v3.1.1
+- Rare / Endangered restored in the live v3 shell and app route
+- mushrooms page now includes a visible Start here section
+- sort controls restored on search/plants/mushrooms/medicinal/lookalikes/review
+- References search no longer shows Clear all filters
+- shared singleton imports normalized for state/constants to stop mixed-version flashes and split state behavior
 
-What these fix
-1. Restores the Rare / Endangered page by fixing the rare-page render call.
-2. Adds defaults so the rare page will not crash if sightings data is missing.
-3. Makes state shared through a global singleton so different ?v= module imports stop splitting the app into separate states.
-4. Adds a "Start here" section to the Mushrooms page.
-
-How to use
-- Unzip this package.
-- Copy the included js files over the matching files in your existing site.
-- Do not change your other files unless you want to layer on more cleanup later.
-
-Important
-This is a targeted fix package built around the broken files I could verify directly.
-It is not a full mirror of the entire repo.
+This package is built against the live v3 shell files I could inspect in the repo.
+It replaces the front door and the core JS wiring rather than just patching one widget.
