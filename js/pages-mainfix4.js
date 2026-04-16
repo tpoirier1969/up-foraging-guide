@@ -51,36 +51,27 @@ function homeHub(allRecords) {
   const month = currentMonthName();
   const inSeasonPlants = allRecords.filter((record) => isPlant(record) && (record.months_available || []).includes(month)).length;
   const inSeasonMushrooms = allRecords.filter((record) => isForagingMushroom(record) && (record.months_available || []).includes(month)).length;
+  const totalPlants = allRecords.filter((record) => isPlant(record)).length;
+  const totalMushrooms = allRecords.filter((record) => isForagingMushroom(record)).length;
+  const totalMedicinal = medicinalRecords(allRecords).length;
   const rareCount = (state.rareSpecies || []).length;
   return `
     <section class="panel home-hub">
-      <div class="result-header compact-result-header"><div class="result-title-row"><h3>Start here</h3><p class="results-meta">Search or identify</p></div></div>
-      <div class="home-card-grid">
-        <a class="home-card" href="#/search"><strong>Search</strong><span>Search all species by name, notes, or traits.</span></a>
-        <a class="home-card" href="#/plants"><strong>Plants</strong><span>Use plant-specific criteria only.</span></a>
-        <a class="home-card" href="#/mushrooms"><strong>Mushrooms</strong><span>Use mushroom-specific paths and filters.</span></a>
-        <a class="home-card" href="#/references"><strong>References</strong><span>Safety, toxicity, and article links.</span></a>
-        <a class="home-card" href="#/rare"><strong>Rare / Endangered</strong><span>Protected plants, fungi watchlist, private sightings, and map.</span></a>
-      </div>
-    </section>
-    <section class="panel home-hub">
-      <div class="result-header compact-result-header"><div class="result-title-row"><h3>In focus right now</h3><p class="results-meta">${escapeHtml(month)}</p></div></div>
+      <div class="result-header compact-result-header"><div class="result-title-row"><h3>In Focus Right Now</h3><p class="results-meta">${escapeHtml(month)}</p></div></div>
       <div class="tag-row">
         <span class="tag">${inSeasonPlants} plants in season</span>
         <span class="tag">${inSeasonMushrooms} mushrooms in season</span>
+        <span class="tag">${totalPlants} total plants</span>
+        <span class="tag">${totalMushrooms} total mushrooms</span>
+        <span class="tag">${totalMedicinal} medicinal species</span>
         <span class="tag">${rareCount} rare / endangered entries</span>
-      </div>
-      <div class="home-card-grid" style="margin-top:.7rem">
-        <a class="home-card" href="#/plants"><strong>Plants in season</strong><span>Jump into plants and use the in-season filter.</span></a>
-        <a class="home-card" href="#/mushrooms"><strong>Mushrooms by underside</strong><span>Go straight to gills, sponge-like, or other.</span></a>
-        <a class="home-card" href="#/rare"><strong>Rare watch</strong><span>Review protected species and private sightings.</span></a>
       </div>
     </section>`;
 }
 function mushroomLaneNav(active = "all") {
   const cards = [
     { key: "gills", href: "#/mushrooms-gilled", title: "Gills", text: "Thin blade-like structures under the cap." },
-    { key: "sponge", href: "#/boletes", title: "Sponge-like", text: "Soft pores / sponge underside. Hard shelves on wood are not boletes." },
+    { key: "sponge", href: "#/boletes", title: "Sponge-like (boletes)", text: "Soft pores / sponge underside. Most of these are boletes." },
     { key: "other", href: "#/mushrooms-other", title: "Other", text: "Ridges, teeth, shelves, blobs, coral, jelly, and oddballs." }
   ];
   return `
@@ -122,7 +113,7 @@ function resultSection(title, records, context, filters = {}, metaText = "", sor
 function renderMushroomLandingPage(allRecords) {
   const month = currentMonthName();
   const inSeasonRecords = allRecords.filter((record) => isForagingMushroom(record) && (record.months_available || []).includes(month));
-  const metaText = `${inSeasonRecords.length} in season · ${escapeHtml(month)} · Use Gills, Sponge-like, or Other for full filtering`;
+  const metaText = `${inSeasonRecords.length} in season · ${escapeHtml(month)} · Use Gills, Sponge-like (boletes), or Other for full filtering`;
   return `${mushroomLaneNav("all")}${resultSection("MUSHROOMS IN SEASON NOW", inSeasonRecords, "mushrooms", {}, metaText)}`;
 }
 function renderCreditsPage(allRecords, overridePayload) {
@@ -153,8 +144,8 @@ export function renderDashboard({ page, allRecords, currentRecords, filters, sel
   if (page === "plants") return `${compactSeasonPanel(allRecords, "plants", filters.month)}${filterBlock([sortFilter(filters.sort), selectFilter("Habitat", "habitat", vocabLabels(VOCAB.common.habitats), filters.habitat, "Any habitat"), selectFilter("Part / trait", "part", vocabLabels(VOCAB.common.observedParts), filters.part, "Any part / trait"), selectFilter("Flower color", "flowerColor", FLOWER_COLORS, filters.flowerColor, "Any flower color"), selectFilter("Leaf arrangement", "leafArrangement", LEAF_ARRANGEMENTS, filters.leafArrangement, "Any leaf arrangement"), selectFilter("Leaf shape", "leafShape", LEAF_SHAPES, filters.leafShape, "Any leaf shape"), selectFilter("Leaf points", "leafPointCount", LEAF_POINT_COUNTS, filters.leafPointCount, "Any leaf points"), selectFilter("Stem surface", "stemSurface", STEM_SURFACES, filters.stemSurface, "Any stem surface"), selectFilter("Size", "size", vocabLabels(VOCAB.common.sizes), filters.size, "Any size"), selectFilter("Taste", "taste", vocabLabels(VOCAB.common.tastes), filters.taste, "Any taste"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Plants", currentRecords, "general", filters)}`;
   if (page === "mushrooms") return renderMushroomLandingPage(allRecords);
   if (page === "mushrooms-gilled") return `${mushroomLaneNav("gills")}${compactSeasonPanel(allRecords, "mushrooms", filters.month)}${filterBlock([sortFilter(filters.sort), selectFilter("Substrate", "substrate", vocabLabels(VOCAB.mushrooms.substrates), filters.substrate, "Any substrate"), selectFilter("Ring", "ring", vocabLabels(VOCAB.mushrooms.ringStates), filters.ring, "Any ring"), selectFilter("Smell", "smell", vocabLabels(VOCAB.mushrooms.odors), filters.smell, "Any smell"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Gilled mushrooms", currentRecords, "mushrooms", filters)}`;
-  if (page === "boletes") return `${mushroomLaneNav("sponge")}${compactSeasonPanel(allRecords, "mushrooms", filters.month)}${filterBlock([sortFilter(filters.sort), selectFilter("Tree type", "treeType", vocabLabels(VOCAB.mushrooms.woodTypes), filters.treeType, "Any tree type"), selectFilter("Host tree", "hostTree", hostTreeLabels(filters.treeType), filters.hostTree, "Any host tree"), selectFilter("Texture", "texture", vocabLabels(VOCAB.mushrooms.textures), filters.texture, "Any texture"), selectFilter("Staining", "staining", vocabLabels(VOCAB.mushrooms.stainingColors), filters.staining, "Any staining"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Sponge-like mushrooms / boletes", currentRecords, "mushrooms", filters)}`;
-  if (page === "mushrooms-other") return `${mushroomLaneNav("other")}${compactSeasonPanel(allRecords, "mushrooms", filters.month)}${filterBlock([sortFilter(filters.sort), selectFilter("Substrate", "substrate", vocabLabels(VOCAB.mushrooms.substrates), filters.substrate, "Any substrate"), selectFilter("Texture", "texture", vocabLabels(VOCAB.mushrooms.textures), filters.texture, "Any texture"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Other non-gilled mushrooms", currentRecords, "mushrooms", filters)}`;
+  if (page === "boletes") return `${mushroomLaneNav("sponge")}${compactSeasonPanel(allRecords, "mushrooms", filters.month)}${filterBlock([sortFilter(filters.sort), selectFilter("Tree type", "treeType", vocabLabels(VOCAB.mushrooms.woodTypes), filters.treeType, "Any tree type"), selectFilter("Host tree", "hostTree", hostTreeLabels(filters.treeType), filters.hostTree, "Any host tree"), selectFilter("Texture", "texture", vocabLabels(VOCAB.mushrooms.textures), filters.texture, "Any texture"), selectFilter("Staining", "staining", vocabLabels(VOCAB.mushrooms.stainingColors), filters.staining, "Any staining"), selectFilter("Smell", "smell", vocabLabels(VOCAB.mushrooms.odors), filters.smell, "Any smell"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Sponge-like mushrooms (boletes)", currentRecords, "mushrooms", filters)}`;
+  if (page === "mushrooms-other") return `${mushroomLaneNav("other")}${compactSeasonPanel(allRecords, "mushrooms", filters.month)}${filterBlock([sortFilter(filters.sort), selectFilter("Substrate", "substrate", vocabLabels(VOCAB.mushrooms.substrates), filters.substrate, "Any substrate"), selectFilter("Texture", "texture", vocabLabels(VOCAB.mushrooms.textures), filters.texture, "Any texture"), selectFilter("Smell", "smell", vocabLabels(VOCAB.mushrooms.odors), filters.smell, "Any smell"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Other non-gilled mushrooms", currentRecords, "mushrooms", filters)}`;
   if (page === "medicinal") return `${filterBlock([sortFilter(filters.sort, MEDICINAL_SORT_OPTIONS), selectFilter("Action", "medicinalAction", vocabLabels(VOCAB.medicinal.actions), filters.medicinalAction, "Any action"), selectFilter("Body system", "medicinalSystem", vocabLabels(VOCAB.medicinal.bodySystems), filters.medicinalSystem, "Any body system"), selectFilter("Medical term", "medicinalTerm", vocabLabels(VOCAB.medicinal.symptoms), filters.medicinalTerm, "Any medical term"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Medicinal", currentRecords, "medicinal", filters, "", MEDICINAL_SORT_OPTIONS)}`;
   if (page === "rare") return renderRarePageHtml(state.rareSpecies || [], state.rareSightings || []);
   if (page === "lookalikes") { const severities = [...new Set(allRecords.map((r) => r.non_edible_severity).filter(Boolean))].sort((a, b) => a.localeCompare(b)); return `${compactSeasonPanel(allRecords, "lookalikes", filters.month)}${filterBlock([sortFilter(filters.sort), selectFilter("Severity", "severity", severities, filters.severity, "Any severity"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Non-edible species", currentRecords, "lookalikes", filters)}`; }
