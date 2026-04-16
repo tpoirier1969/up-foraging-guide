@@ -82,6 +82,48 @@ function deriveFoodQuality(record, foodRole) {
   if (status === 'edible_mediocre') return 'fair';
   return '';
 }
+function mushroomHasPores(record) {
+  return asList(record?.underside || record?.mushroom_profile?.underside).some((value) => String(value).toLowerCase().includes('pore'));
+}
+function mushroomGenus(record) {
+  return String(record?.scientific_name || '').trim().split(/\s+/)[0].toLowerCase();
+}
+function deriveBoleteGroup(record) {
+  if (record?.category !== 'Mushroom' || !mushroomHasPores(record)) return [];
+  const genus = mushroomGenus(record);
+  const text = `${record?.display_name || ''} ${record?.common_name || ''} ${record?.notes || ''}`.toLowerCase();
+  if (genus === 'suillus') return ['Suillus / slippery jacks'];
+  if (genus === 'leccinum') return ['Leccinum / scaber stalks'];
+  if (genus === 'tylopilus') return ['Tylopilus / bitter boletes'];
+  if (genus === 'strobilomyces') return ['Oddballs / shaggy boletes'];
+  if (['baorangia','butyriboletus','xerocomellus'].includes(genus) || /stain|blue|red|yellow/.test(text)) return ['Red & staining boletes'];
+  if (['aureoboletus','hemileccinum','imleria'].includes(genus)) return ['Brown / king allies'];
+  return ['Brown / king allies'];
+}
+function derivePoreColor(record) {
+  if (record?.category !== 'Mushroom' || !mushroomHasPores(record)) return [];
+  const genus = mushroomGenus(record);
+  const slug = String(record?.slug || '').toLowerCase();
+  if (genus === 'suillus') return ['Yellow'];
+  if (genus === 'leccinum') return ['White / cream'];
+  if (genus === 'tylopilus') return ['Pinkish'];
+  if (genus === 'strobilomyces') return ['Gray / black'];
+  if (['baorangia','butyriboletus'].includes(genus)) return ['Yellow', 'Red / orange'];
+  if (genus === 'imleria' || genus === 'xerocomellus' || slug.includes('bay-bolete') || slug.includes('red-cracking')) return ['Yellow', 'Olive'];
+  if (['aureoboletus','hemileccinum'].includes(genus)) return ['Yellow'];
+  return [];
+}
+function deriveStemFeature(record) {
+  if (record?.category !== 'Mushroom' || !mushroomHasPores(record)) return [];
+  const genus = mushroomGenus(record);
+  const slug = String(record?.slug || '').toLowerCase();
+  if (genus === 'suillus') return ['Glandular dots'];
+  if (genus === 'leccinum') return ['Scabers / rough dots'];
+  if (genus === 'strobilomyces' || slug.includes('shaggy-stalked')) return ['Shaggy / scaly'];
+  if (slug.includes('frosts-bolete') || slug.includes('admirable-bolete')) return ['Reticulate / netted'];
+  if (genus === 'aureoboletus') return ['Reticulate / netted'];
+  return ['Smooth'];
+}
 export function normalizeRecord(record) {
   const base = {
     ...record,
@@ -104,7 +146,10 @@ export function normalizeRecord(record) {
   const food_role = deriveFoodRole(merged);
   const primary_use = derivePrimaryUse(merged, food_role);
   const food_quality = deriveFoodQuality(merged, food_role);
-  return { ...merged, food_role, primary_use, food_quality };
+  const boleteGroup = deriveBoleteGroup(merged);
+  const poreColor = derivePoreColor(merged);
+  const stemFeature = deriveStemFeature(merged);
+  return { ...merged, food_role, primary_use, food_quality, boleteGroup, poreColor, stemFeature };
 }
 export function sortRecords(records) { return records.slice().sort((a,b) => a.display_name.localeCompare(b.display_name)); }
 export function isPlant(record) { return PLANT_CATEGORIES.has(record.category); }
