@@ -12,6 +12,29 @@ const LEAF_SHAPES = ["Round", "Oval", "Heart-shaped", "Lance-shaped", "Pointed",
 const LEAF_ARRANGEMENTS = ["Alternate", "Opposite", "Basal rosette", "Whorled", "Needle clusters"];
 const STEM_SURFACES = ["Smooth", "Hairy", "Rough", "Fuzzy", "Prickly"];
 const LEAF_POINT_COUNTS = ["1-point", "3-point", "5-point", "Many-lobed"];
+const BOLETE_GROUPS = [
+  "Brown / king allies",
+  "Red & staining boletes",
+  "Suillus / slippery jacks",
+  "Leccinum / scaber stalks",
+  "Tylopilus / bitter boletes",
+  "Oddballs / shaggy boletes"
+];
+const BOLETE_PORE_COLORS = [
+  "White / cream",
+  "Yellow",
+  "Olive",
+  "Pinkish",
+  "Red / orange",
+  "Gray / black"
+];
+const BOLETE_STEM_FEATURES = [
+  "Smooth",
+  "Reticulate / netted",
+  "Scabers / rough dots",
+  "Glandular dots",
+  "Shaggy / scaly"
+];
 const SORT_OPTIONS = [
   { value: "", label: "Default sort" },
   { value: "food-quality-desc", label: "Choice foods first" },
@@ -146,7 +169,20 @@ export function renderDashboard({ page, allRecords, currentRecords, filters, sel
   }
   if (page === "boletes") {
     const inSeasonCount = allRecords.filter((record) => isForagingMushroom(record) && (record.underside || []).includes("Pores") && (record.months_available || []).includes(currentMonthName())).length;
-    return `${mushroomLaneNav("sponge")}${filterBlock([seasonToggleFilter("boletes", inSeasonCount, filters.month), sortFilter(filters.sort), selectFilter("Substrate", "substrate", vocabLabels(VOCAB.mushrooms.substrates), filters.substrate, "Any substrate"), selectFilter("Tree type", "treeType", vocabLabels(VOCAB.mushrooms.woodTypes), filters.treeType, "Any tree type"), selectFilter("Host tree", "hostTree", hostTreeLabels(filters.treeType), filters.hostTree, "Any host tree"), selectFilter("Texture", "texture", vocabLabels(VOCAB.mushrooms.textures), filters.texture, "Any texture"), selectFilter("Staining", "staining", vocabLabels(VOCAB.mushrooms.stainingColors), filters.staining, "Any staining"), selectFilter("Taste", "taste", vocabLabels(VOCAB.common.tastes), filters.taste, "Any taste"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Sponge-like mushrooms (boletes)", currentRecords, "mushrooms", filters)}`;
+    return `${mushroomLaneNav("sponge")}${filterBlock([
+      seasonToggleFilter("boletes", inSeasonCount, filters.month),
+      sortFilter(filters.sort),
+      selectFilter("Bolete family / type", "boleteGroup", BOLETE_GROUPS, filters.boleteGroup, "Any bolete family / type"),
+      selectFilter("Substrate", "substrate", vocabLabels(VOCAB.mushrooms.substrates), filters.substrate, "Any substrate"),
+      selectFilter("Tree type", "treeType", vocabLabels(VOCAB.mushrooms.woodTypes), filters.treeType, "Any tree type"),
+      selectFilter("Host tree", "hostTree", hostTreeLabels(filters.treeType), filters.hostTree, "Any host tree"),
+      selectFilter("Pore color", "poreColor", BOLETE_PORE_COLORS, filters.poreColor, "Any pore color"),
+      selectFilter("Stem feature", "stemFeature", BOLETE_STEM_FEATURES, filters.stemFeature, "Any stem feature"),
+      selectFilter("Cap surface", "texture", vocabLabels(VOCAB.mushrooms.textures), filters.texture, "Any cap surface"),
+      selectFilter("Staining", "staining", vocabLabels(VOCAB.mushrooms.stainingColors), filters.staining, "Any staining"),
+      selectFilter("Taste", "taste", vocabLabels(VOCAB.common.tastes), filters.taste, "Any taste"),
+      selectFilter("Month", "month", MONTHS, filters.month, "Any month")
+    ])}${resultSection("Sponge-like mushrooms (boletes)", currentRecords, "mushrooms", filters)}`;
   }
   if (page === "mushrooms-other") {
     const inSeasonCount = allRecords.filter((record) => isForagingMushroom(record) && !(record.underside || []).includes("Gills") && !(record.underside || []).includes("Pores") && (record.months_available || []).includes(currentMonthName())).length;
