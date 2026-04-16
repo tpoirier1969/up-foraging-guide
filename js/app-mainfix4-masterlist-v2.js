@@ -43,6 +43,38 @@ function applyImageOverridesToRecords(records = [], overrides = {}) {
     return { ...record, images: Array.isArray(override.images) ? override.images : (record.images || []) };
   });
 }
+function uniqueList(values = []) {
+  return [...new Set((values || []).filter(Boolean))];
+}
+function mergeDuplicateRecords(a, b) {
+  const merged = { ...a, ...b };
+  const arrayKeys = [
+    'images','links','months_available','habitat','observedPart','size','taste','substrate','treeType','hostTree','ring','texture','smell','staining','medicinalAction','medicinalSystem','medicinalTerms','reviewReasons','flowerColor','leafShape','leafArrangement','stemSurface','leafPointCount','look_alikes','use_tags','affected_systems'
+  ];
+  arrayKeys.forEach((key) => {
+    merged[key] = uniqueList([...(a[key] || []), ...(b[key] || [])]);
+    if (!merged[key].length) delete merged[key];
+  });
+  if (a.mushroom_profile || b.mushroom_profile) {
+    merged.mushroom_profile = { ...(a.mushroom_profile || {}), ...(b.mushroom_profile || {}) };
+  }
+  const preferLonger = ['display_name','common_name','scientific_name','culinary_uses','medicinal_uses','notes','commonness','food_quality'];
+  preferLonger.forEach((key) => {
+    const av = String(a[key] || '');
+    const bv = String(b[key] || '');
+    merged[key] = bv.length >= av.length ? (b[key] || a[key]) : (a[key] || b[key]);
+  });
+  return merged;
+}
+function dedupeBySlug(records = []) {
+  const bySlug = new Map();
+  for (const record of records || []) {
+    const key = record.slug || `${record.category || ''}|${record.display_name || ''}|${record.scientific_name || ''}`;
+    if (bySlug.has(key)) bySlug.set(key, mergeDuplicateRecords(bySlug.get(key), record));
+    else bySlug.set(key, record);
+  }
+  return [...bySlug.values()];
+}
 function loadReleasedReviewSlugs() {
   try { releasedReviewSlugs = new Set(JSON.parse(localStorage.getItem(RELEASED_REVIEW_KEY) || "[]")); } catch { releasedReviewSlugs = new Set(); }
 }
@@ -73,7 +105,7 @@ function rankCommonness(record){
 function rankFoodQuality(record){
   const numeric = Number(record.food_quality_score ?? record.foodQualityScore ?? 0);
   if (Number.isFinite(numeric) && numeric > 0) return numeric;
-  const text = normSortText(record.food_quality || record.foodQuality || '');
+  const text = normSortText(record.food_quality || record.foodQuality || record.mushroom_profile?.edibility_status || '');
   return FOOD_QUALITY_ORDER[text] || 0;
 }
 function sortWithRating(records, scoreFn, direction = 'desc'){
@@ -206,8 +238,8 @@ async function init(){
       state.dataSource='Local JSON + local species additions + master species additions + Wikimedia override';
     }
     const boletePack = applyImageOverridesToRecords(await loadBoletePack(), overridePayload?.overrides || {});
-    const mergedRecords = [...(payload.records || []), ...boletePack];
-    state.allRecords=sortRecords(mergedRecords.map(normalizeRecord));
+    const mergedRecords = dedupeBySlug([...(payload.records || []), ...boletePack]).map(normalizeRecord);
+    state.allRecords=sortRecords(mergedRecords);
     state.references=payload.references||overridePayload.references||[];
     state.credits=payload.creditsPayload?.credits||overridePayload.creditsPayload?.credits||{};
     state.rareSpecies=await loadRareSpecies();
