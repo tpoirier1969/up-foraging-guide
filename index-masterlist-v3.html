@@ -11,8 +11,18 @@
   <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
   <link rel="manifest" href="site.webmanifest?v=2026-04-15-2">
   <link rel="stylesheet" href="styles.css?v=v2.0">
-  <link rel="stylesheet" href="styles-mainfix4.css?v=v3.1.5">
-  <link rel="stylesheet" href="styles-rare-v2.css?v=v3.1.5">
+  <link rel="stylesheet" href="styles-mainfix4.css?v=v3.1.6">
+  <link rel="stylesheet" href="styles-rare-v2.css?v=v3.1.6">
+  <style>
+    .mushroom-lane-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.6rem}
+    .mushroom-lane-card{display:flex;flex-direction:column;gap:.35rem;padding:.8rem;border:2px solid rgba(0,0,0,.08);border-radius:.8rem;text-decoration:none;color:inherit;background:rgba(255,255,255,.75)}
+    .mushroom-lane-card.active{border-color:#2f5d46;box-shadow:0 0 0 2px rgba(47,93,70,.12) inset}
+    .rare-card-list{display:grid;grid-template-columns:1fr;gap:.6rem}
+    .rare-result-card{display:grid;grid-template-columns:120px minmax(0,1fr);gap:.8rem;align-items:start}
+    .rare-thumb{width:120px;height:96px;border-radius:.75rem;background-size:cover;background-position:center;background-repeat:no-repeat;background-color:#e9e4d7;border:1px solid rgba(0,0,0,.08)}
+    .rare-thumb.placeholder{display:flex;align-items:center;justify-content:center;font-size:.8rem;color:#666}
+    @media (max-width:700px){.rare-result-card{grid-template-columns:1fr}.rare-thumb{width:100%;height:180px}}
+  </style>
 </head>
 <body>
   <div class="app-shell">
@@ -22,14 +32,13 @@
         <div class="brand-content">
           <div class="brand-topline">
             <p class="eyebrow">Upper Michigan Foraging Guide</p>
-            <span id="versionBadge" class="version-pill">v3.1.5</span>
+            <span id="versionBadge" class="version-pill">v3.1.6</span>
           </div>
         </div>
       </div>
       <nav class="main-nav" aria-label="Primary">
         <a href="#/home" data-nav="home">Home</a>
         <a href="#/search" data-nav="search">Search</a>
-        <a href="#/identification" data-nav="identification">Identification</a>
         <a href="#/plants" data-nav="plants">Plants</a>
         <a href="#/mushrooms" data-nav="mushrooms">Mushrooms</a>
         <a href="#/medicinal" data-nav="medicinal">Medicinal</a>
@@ -49,6 +58,6 @@
       <div id="modalContent"></div>
     </article>
   </dialog>
-  <script type="module" src="js/app-mainfix4-masterlist-v2.js?v=v3.1.5"></script>
+  <script type="module" src="js/app-mainfix4-masterlist-v2.js?v=v3.1.6"></script>
 </body>
 </html>
