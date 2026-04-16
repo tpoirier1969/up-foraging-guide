@@ -46,6 +46,12 @@
 .home-card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.6rem}
 .home-card{display:flex;flex-direction:column;gap:.35rem;padding:.8rem;border:1px solid rgba(0,0,0,.12);border-radius:.75rem;text-decoration:none;color:inherit;background:rgba(255,255,255,.75)}
 .home-card strong{font-size:1rem}
+.mushroom-lane-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.7rem}
+.mushroom-lane-card{display:flex;flex-direction:column;gap:.35rem;padding:.9rem 1rem;border:1px solid rgba(47,93,70,.22);border-radius:.85rem;text-decoration:none;color:inherit;background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(240,247,242,.92));box-shadow:0 1px 3px rgba(0,0,0,.06);min-height:108px;justify-content:center}
+.mushroom-lane-card strong{font-size:1.02rem;line-height:1.1}
+.mushroom-lane-card span{font-size:.9rem;line-height:1.25;opacity:.92}
+.mushroom-lane-card:hover,.mushroom-lane-card:focus-visible{border-color:#2f5d46;box-shadow:0 0 0 3px rgba(47,93,70,.12);outline:none;transform:translateY(-1px)}
+.mushroom-lane-card.active{border-color:#2f5d46;background:linear-gradient(180deg,rgba(232,243,236,.98),rgba(220,237,227,.96));box-shadow:0 0 0 2px rgba(47,93,70,.14)}
 .image-credit-block ul{margin:.25rem 0 0 1rem;padding:0}
 .safety-callout.warning{border-left:4px solid #a06b00}.safety-callout.danger{border-left:4px solid #9b1c1c}
 .lede{display:none}
@@ -56,4 +62,4 @@
 .tag-legend-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .tag-legend-item strong{font-weight:800}
 .tag-bar-panel .tag{background:#f3ede0}
-@media (max-width:640px){.compact-result-header .result-title-row{align-items:flex-start}.compact-result-header .results-meta{white-space:normal}.brand-topline{flex-wrap:wrap;gap:.45rem}.eyebrow{max-width:none}.tag-bar-inline-row,.tag-button-row,.tag-legend-row{gap:6px}}
+@media (max-width:640px){.compact-result-header .result-title-row{align-items:flex-start}.compact-result-header .results-meta{white-space:normal}.brand-topline{flex-wrap:wrap;gap:.45rem}.eyebrow{max-width:none}.tag-bar-inline-row,.tag-button-row,.tag-legend-row{gap:6px}.mushroom-lane-grid{grid-template-columns:1fr}}
