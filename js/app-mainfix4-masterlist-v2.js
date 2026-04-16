@@ -1,10 +1,10 @@
-import { loadLocalData, loadSupabaseData, loadOverridePayload } from "./api-mainfix4.js?v=v3.1.2";
-import { loadLocalDataWithMaster } from "./api-masterlist.js?v=v3.1.2";
-import { sortRecords, normalizeRecord, isPlant, isForagingMushroom, medicinalRecords, reviewRecords, avoidRecords } from "./data-model-mainfix4.js?v=v3.1.2";
+import { loadLocalData, loadSupabaseData, loadOverridePayload } from "./api-mainfix4.js?v=v3.1.3";
+import { loadLocalDataWithMaster } from "./api-masterlist.js?v=v3.1.3";
+import { sortRecords, normalizeRecord, isPlant, isForagingMushroom, medicinalRecords, reviewRecords, avoidRecords } from "./data-model-mainfix4.js?v=v3.1.3";
 import { state } from "./state.js";
 import { parseRoute } from "./router.js";
 import { MONTHS } from "./constants-mainfix.js";
-import { renderDashboard } from "./pages-mainfix4.js?v=v3.1.2";
+import { renderDashboard } from "./pages-mainfix4.js?v=v3.1.3";
 import { updateHeaderStats, renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui-mainfix.js";
 import { loadRareSpecies, loadRareSightings, wireRarePage } from "./rare-watch.js";
 
