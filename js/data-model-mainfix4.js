@@ -1,4 +1,4 @@
-import { PLANT_CATEGORIES } from "./constants-mainfix.js?v=v2.1-mainfix21";
+import { PLANT_CATEGORIES } from "./constants-mainfix.js";
 import { compactText, hasMedicinal } from "./utils.js?v=v2.1-medfix1";
 import { inferTraits } from "./trait-inference-mainfix4.js?v=v2.1-mainfix14";
 
@@ -6,6 +6,7 @@ const FORAGING_MUSHROOM_STATUSES = new Set(["choice","choice_cooked_only","edibl
 const AVOID_MUSHROOM_STATUSES = new Set(["emergency_only","inedible_tough","inedible_bitter","nonculinary_tea","poisonous","deadly_poisonous","toxic_or_psychoactive","toxic_or_dangerous","review_required","questionable_or_mediocre"]);
 const NON_FOOD_PLANT_PATTERNS = /(poison|toxic|deadly|inedible|do not eat|not edible|non-culinary|ornamental only)/;
 const TEA_PATTERNS = /(tea|infusion|tisane|decoction|extract|tincture)/;
+const IMAGE_REVIEW_PATTERNS = /(missing image|image needs|needs image|image import|needs to be imported|import image)/i;
 
 function severityText(record) { return String(record?.non_edible_severity || '').trim().toLowerCase(); }
 function edibleStatus(record) { return String(record?.mushroom_profile?.edibility_status || '').trim().toLowerCase(); }
@@ -97,7 +98,9 @@ export function normalizeRecord(record) {
     look_alikes: uniqueStrings(Array.isArray(record.look_alikes) ? record.look_alikes : [])
   };
   const inferred = inferTraits(base);
-  const merged = { ...base, ...inferred, reviewReasons: mergedReviewReasons(base) };
+  let reviewReasons = [...new Set([...mergedReviewReasons(base), ...(inferred.reviewReasons || [])])];
+  if (base.images.length) reviewReasons = reviewReasons.filter((reason) => !IMAGE_REVIEW_PATTERNS.test(String(reason || '')));
+  const merged = { ...base, ...inferred, reviewReasons };
   const food_role = deriveFoodRole(merged);
   const primary_use = derivePrimaryUse(merged, food_role);
   const food_quality = deriveFoodQuality(merged, food_role);

@@ -1,7 +1,7 @@
 import { MONTHS } from "./constants-mainfix.js";
-import { medicinalRecords, isPlant, reviewRecords, avoidRecords, isForagingMushroom } from "./data-model-mainfix4.js?v=2026-04-15-2";
+import { medicinalRecords, isPlant, reviewRecords, avoidRecords, isForagingMushroom } from "./data-model-mainfix4.js?v=2026-04-16-1";
 import { VOCAB } from "./vocabulary.js?v=v2.0";
-import { renderResultCard } from "./renderers/cards-mainfix.js";
+import { renderResultCard } from "./renderers/cards-mainfix.js?v=2026-04-16-1";
 import { renderInteractiveTimeline } from "./renderers/timeline.js?v=2026-04-15-2";
 import { escapeHtml } from "./utils.js?v=2026-04-15-2";
 import { state } from "./state.js";
@@ -19,7 +19,7 @@ const SORT_OPTIONS = [
   { value: "common-desc", label: "Most common first" },
   { value: "common-asc", label: "Least common first" }
 ];
-const COMMON_ONLY_SORT_OPTIONS = [
+const MEDICINAL_SORT_OPTIONS = [
   { value: "", label: "Default sort" },
   { value: "common-desc", label: "Most common first" },
   { value: "common-asc", label: "Least common first" }
@@ -47,33 +47,48 @@ function currentMonthName() {
   d.setDate(d.getDate() + 14);
   return MONTHS[d.getMonth()];
 }
-function homeHub(allRecords = []) {
+function homeHub(allRecords) {
   const month = currentMonthName();
-  const plants = allRecords.filter((record) => isPlant(record) && (record.months_available || []).includes(month)).length;
-  const mushrooms = allRecords.filter((record) => isForagingMushroom(record) && (record.months_available || []).includes(month)).length;
-  const rare = (state.rareSpecies || []).length;
-  const review = reviewRecords(allRecords).length;
+  const inSeasonPlants = allRecords.filter((record) => isPlant(record) && (record.months_available || []).includes(month)).length;
+  const inSeasonMushrooms = allRecords.filter((record) => isForagingMushroom(record) && (record.months_available || []).includes(month)).length;
+  const rareCount = (state.rareSpecies || []).length;
   return `
     <section class="panel home-hub">
+      <div class="result-header compact-result-header"><div class="result-title-row"><h3>Start here</h3><p class="results-meta">Search or identify</p></div></div>
+      <div class="home-card-grid">
+        <a class="home-card" href="#/search"><strong>Search</strong><span>Search all species by name, notes, or traits.</span></a>
+        <a class="home-card" href="#/plants"><strong>Plants</strong><span>Use plant-specific criteria only.</span></a>
+        <a class="home-card" href="#/mushrooms"><strong>Mushrooms</strong><span>Use mushroom-specific paths and filters.</span></a>
+        <a class="home-card" href="#/references"><strong>References</strong><span>Safety, toxicity, and article links.</span></a>
+        <a class="home-card" href="#/rare"><strong>Rare / Endangered</strong><span>Protected plants, fungi watchlist, private sightings, and map.</span></a>
+      </div>
+    </section>
+    <section class="panel home-hub">
       <div class="result-header compact-result-header"><div class="result-title-row"><h3>In focus right now</h3><p class="results-meta">${escapeHtml(month)}</p></div></div>
-      <div class="home-focus-grid">
-        <a class="home-card" href="#/plants"><strong>Plants in season</strong><span>${plants} plant listings for ${escapeHtml(month)}</span></a>
-        <a class="home-card" href="#/mushrooms"><strong>Mushrooms in season</strong><span>${mushrooms} mushroom listings for ${escapeHtml(month)}</span></a>
-        <a class="home-card" href="#/rare"><strong>Rare / Endangered</strong><span>${rare} protected species with watchlist details</span></a>
-        <a class="home-card" href="#/review"><strong>Needs Review</strong><span>${review} listings still flagged for cleanup</span></a>
+      <div class="tag-row">
+        <span class="tag">${inSeasonPlants} plants in season</span>
+        <span class="tag">${inSeasonMushrooms} mushrooms in season</span>
+        <span class="tag">${rareCount} rare / endangered entries</span>
+      </div>
+      <div class="home-card-grid" style="margin-top:.7rem">
+        <a class="home-card" href="#/plants"><strong>Plants in season</strong><span>Jump into plants and use the in-season filter.</span></a>
+        <a class="home-card" href="#/mushrooms"><strong>Mushrooms by underside</strong><span>Go straight to gills, sponge-like, or other.</span></a>
+        <a class="home-card" href="#/rare"><strong>Rare watch</strong><span>Review protected species and private sightings.</span></a>
       </div>
     </section>`;
 }
-function mushroomLaneNav(activeLane = "all") {
+function mushroomLaneNav(active = "all") {
+  const cards = [
+    { key: "gills", href: "#/mushrooms-gilled", title: "Gills", text: "Thin blade-like structures under the cap." },
+    { key: "sponge", href: "#/boletes", title: "Sponge-like", text: "Soft pores / sponge underside. Hard shelves on wood are not boletes." },
+    { key: "other", href: "#/mushrooms-other", title: "Other", text: "Ridges, teeth, shelves, blobs, coral, jelly, and oddballs." }
+  ];
   return `
-    <section class="panel">
-      <div class="result-header compact-result-header"><div class="result-title-row"><h3>Mushroom paths</h3><p class="results-meta">Use the underside first</p></div></div>
+    <section class="panel home-hub">
+      <div class="result-header compact-result-header"><div class="result-title-row"><h3>Start here</h3><p class="results-meta">Flip it over</p></div></div>
       <div class="mushroom-lane-grid">
-        <a class="mushroom-lane-card ${activeLane === "gills" ? "active" : ""}" href="#/mushrooms-gilled"><strong>Gills</strong><span>True blade-like gills under the cap.</span></a>
-        <a class="mushroom-lane-card ${activeLane === "sponge" ? "active" : ""}" href="#/boletes"><strong>Sponge-like</strong><span>Soft pores / bolete-type underside.</span></a>
-        <a class="mushroom-lane-card ${activeLane === "other" ? "active" : ""}" href="#/mushrooms-other"><strong>Other</strong><span>False gills, teeth, shelves, coral, jelly, puffballs.</span></a>
+        ${cards.map((card) => `<a class="mushroom-lane-card ${active === card.key ? "active" : ""}" href="${card.href}"><strong>${card.title}</strong><span>${card.text}</span></a>`).join("")}
       </div>
-      <p class="small-note" style="margin-top:.55rem">Flip it over. True gills go to Gills. Soft sponge-like pores go to Sponge-like. Everything else goes to Other.</p>
     </section>`;
 }
 function compactSeasonPanel(allRecords, type, activeMonth = "") {
@@ -93,17 +108,15 @@ function selectFilter(label, key, values, current, blank) {
 function searchFilter(key, current, placeholder) {
   return `<label class="compact-filter compact-search"><input type="search" data-filter="${escapeHtml(key)}" value="${escapeHtml(current || "")}" placeholder="${escapeHtml(placeholder)}"></label>`;
 }
-function sortFilter(current, mode = "all") {
-  const options = mode === "common-only" ? COMMON_ONLY_SORT_OPTIONS : SORT_OPTIONS;
+function sortFilter(current, options = SORT_OPTIONS) {
   return `<label class="compact-filter"><span>Sort</span><select data-filter="sort">${options.map((opt) => `<option value="${escapeHtml(opt.value)}" ${current === opt.value ? "selected" : ""}>${escapeHtml(opt.label)}</option>`).join("")}</select></label>`;
 }
 function filterBlock(extraFilters = [], allowClear = true) {
   const clear = allowClear ? `<div class="filter-actions"><button class="buttonish" type="button" data-action="clear-filters">Clear all filters</button></div>` : "";
   return `<section class="panel filter-stack"><div class="tight-filter-grid">${extraFilters.join("")}</div>${clear}</section>`;
 }
-function resultSection(title, records, context, filters = {}, metaText = "", sortMode = "all") {
-  const options = sortMode === "common-only" ? COMMON_ONLY_SORT_OPTIONS : SORT_OPTIONS;
-  const finalMeta = metaText || `${records.length} match${records.length === 1 ? "" : "es"}${filters.sort ? ` · ${escapeHtml(options.find((opt)=>opt.value===filters.sort)?.label || "")}` : ""}`;
+function resultSection(title, records, context, filters = {}, metaText = "", sortOptions = SORT_OPTIONS) {
+  const finalMeta = metaText || `${records.length} match${records.length === 1 ? "" : "es"}${filters.sort ? ` · ${escapeHtml(sortOptions.find((opt)=>opt.value===filters.sort)?.label || "")}` : ""}`;
   return `<section class="panel workspace-pane results-pane-card"><div class="result-header compact-result-header"><div class="result-title-row"><h3>${escapeHtml(title)}</h3><p class="results-meta">${finalMeta}</p></div></div><div class="result-list">${renderResultList(records, context)}</div></section>`;
 }
 function renderCreditsPage(allRecords, overridePayload) {
@@ -132,24 +145,15 @@ export function renderDashboard({ page, allRecords, currentRecords, filters, sel
   if (page === "home") return homeHub(allRecords);
   if (page === "search") return `${filterBlock([searchFilter("search", filters.search, "Search all species"), sortFilter(filters.sort), `<div class="filter-hint">Press Enter to search</div>`])}${resultSection("Search", currentRecords, "general", filters)}`;
   if (page === "plants") return `${compactSeasonPanel(allRecords, "plants", filters.month)}${filterBlock([sortFilter(filters.sort), selectFilter("Habitat", "habitat", vocabLabels(VOCAB.common.habitats), filters.habitat, "Any habitat"), selectFilter("Part / trait", "part", vocabLabels(VOCAB.common.observedParts), filters.part, "Any part / trait"), selectFilter("Flower color", "flowerColor", FLOWER_COLORS, filters.flowerColor, "Any flower color"), selectFilter("Leaf arrangement", "leafArrangement", LEAF_ARRANGEMENTS, filters.leafArrangement, "Any leaf arrangement"), selectFilter("Leaf shape", "leafShape", LEAF_SHAPES, filters.leafShape, "Any leaf shape"), selectFilter("Leaf points", "leafPointCount", LEAF_POINT_COUNTS, filters.leafPointCount, "Any leaf points"), selectFilter("Stem surface", "stemSurface", STEM_SURFACES, filters.stemSurface, "Any stem surface"), selectFilter("Size", "size", vocabLabels(VOCAB.common.sizes), filters.size, "Any size"), selectFilter("Taste", "taste", vocabLabels(VOCAB.common.tastes), filters.taste, "Any taste"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Plants", currentRecords, "general", filters)}`;
-  if (page === "mushrooms") return `${mushroomLaneNav("all")}${compactSeasonPanel(allRecords, "mushrooms", filters.month)}${resultSection("Mushrooms", currentRecords, "mushrooms", filters, "Choose a lane above to narrow mushrooms faster.")}`;
-  if (page === "mushrooms-gilled") return `${mushroomLaneNav("gills")}${compactSeasonPanel(allRecords, "mushrooms", filters.month)}${filterBlock([sortFilter(filters.sort), selectFilter("Substrate", "substrate", vocabLabels(VOCAB.mushrooms.substrates), filters.substrate, "Any substrate"), selectFilter("Tree type", "treeType", vocabLabels(VOCAB.mushrooms.woodTypes), filters.treeType, "Any tree type"), selectFilter("Host tree", "hostTree", hostTreeLabels(filters.treeType), filters.hostTree, "Any host tree"), selectFilter("Ring", "ring", vocabLabels(VOCAB.mushrooms.ringStates), filters.ring, "Any ring"), selectFilter("Texture", "texture", vocabLabels(VOCAB.mushrooms.textures), filters.texture, "Any texture"), selectFilter("Smell", "smell", vocabLabels(VOCAB.mushrooms.odors), filters.smell, "Any smell"), selectFilter("Staining", "staining", vocabLabels(VOCAB.mushrooms.stainingColors), filters.staining, "Any staining"), selectFilter("Taste", "taste", vocabLabels(VOCAB.common.tastes), filters.taste, "Any taste"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Gilled mushrooms", currentRecords, "mushrooms", filters)}`;
-  if (page === "boletes") return `${mushroomLaneNav("sponge")}${compactSeasonPanel(allRecords, "mushrooms", filters.month)}${filterBlock([sortFilter(filters.sort), selectFilter("Substrate", "substrate", vocabLabels(VOCAB.mushrooms.substrates), filters.substrate, "Any substrate"), selectFilter("Tree type", "treeType", vocabLabels(VOCAB.mushrooms.woodTypes), filters.treeType, "Any tree type"), selectFilter("Host tree", "hostTree", hostTreeLabels(filters.treeType), filters.hostTree, "Any host tree"), selectFilter("Staining", "staining", vocabLabels(VOCAB.mushrooms.stainingColors), filters.staining, "Any staining"), selectFilter("Texture", "texture", vocabLabels(VOCAB.mushrooms.textures), filters.texture, "Any texture"), selectFilter("Taste", "taste", vocabLabels(VOCAB.common.tastes), filters.taste, "Any taste"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Boletes", currentRecords, "mushrooms", filters)}`;
-  if (page === "mushrooms-other") return `${mushroomLaneNav("other")}${compactSeasonPanel(allRecords, "mushrooms", filters.month)}${filterBlock([sortFilter(filters.sort), selectFilter("Substrate", "substrate", vocabLabels(VOCAB.mushrooms.substrates), filters.substrate, "Any substrate"), selectFilter("Tree type", "treeType", vocabLabels(VOCAB.mushrooms.woodTypes), filters.treeType, "Any tree type"), selectFilter("Host tree", "hostTree", hostTreeLabels(filters.treeType), filters.hostTree, "Any host tree"), selectFilter("Texture", "texture", vocabLabels(VOCAB.mushrooms.textures), filters.texture, "Any texture"), selectFilter("Smell", "smell", vocabLabels(VOCAB.mushrooms.odors), filters.smell, "Any smell"), selectFilter("Taste", "taste", vocabLabels(VOCAB.common.tastes), filters.taste, "Any taste"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Other non-gilled mushrooms", currentRecords, "mushrooms", filters)}`;
-  if (page === "medicinal") return `${filterBlock([sortFilter(filters.sort, "common-only"), selectFilter("Action", "medicinalAction", vocabLabels(VOCAB.medicinal.actions), filters.medicinalAction, "Any action"), selectFilter("Body system", "medicinalSystem", vocabLabels(VOCAB.medicinal.bodySystems), filters.medicinalSystem, "Any body system"), selectFilter("Medical term", "medicinalTerm", vocabLabels(VOCAB.medicinal.symptoms), filters.medicinalTerm, "Any medical term"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Medicinal", currentRecords, "medicinal", filters, "", "common-only")}`;
+  if (page === "mushrooms") return `${mushroomLaneNav("all")}${compactSeasonPanel(allRecords, "mushrooms", filters.month)}${filterBlock([sortFilter(filters.sort), selectFilter("Substrate", "substrate", vocabLabels(VOCAB.mushrooms.substrates), filters.substrate, "Any substrate"), selectFilter("Tree type", "treeType", vocabLabels(VOCAB.mushrooms.woodTypes), filters.treeType, "Any tree type"), selectFilter("Host tree", "hostTree", hostTreeLabels(filters.treeType), filters.hostTree, "Any host tree"), selectFilter("Ring", "ring", vocabLabels(VOCAB.mushrooms.ringStates), filters.ring, "Any ring"), selectFilter("Texture", "texture", vocabLabels(VOCAB.mushrooms.textures), filters.texture, "Any texture"), selectFilter("Smell", "smell", vocabLabels(VOCAB.mushrooms.odors), filters.smell, "Any smell"), selectFilter("Staining", "staining", vocabLabels(VOCAB.mushrooms.stainingColors), filters.staining, "Any staining"), selectFilter("Taste", "taste", vocabLabels(VOCAB.common.tastes), filters.taste, "Any taste"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Mushrooms", currentRecords, "mushrooms", filters)}`;
+  if (page === "mushrooms-gilled") return `${mushroomLaneNav("gills")}${compactSeasonPanel(allRecords, "mushrooms", filters.month)}${filterBlock([sortFilter(filters.sort), selectFilter("Substrate", "substrate", vocabLabels(VOCAB.mushrooms.substrates), filters.substrate, "Any substrate"), selectFilter("Ring", "ring", vocabLabels(VOCAB.mushrooms.ringStates), filters.ring, "Any ring"), selectFilter("Smell", "smell", vocabLabels(VOCAB.mushrooms.odors), filters.smell, "Any smell"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Gilled mushrooms", currentRecords, "mushrooms", filters)}`;
+  if (page === "boletes") return `${mushroomLaneNav("sponge")}${compactSeasonPanel(allRecords, "mushrooms", filters.month)}${filterBlock([sortFilter(filters.sort), selectFilter("Tree type", "treeType", vocabLabels(VOCAB.mushrooms.woodTypes), filters.treeType, "Any tree type"), selectFilter("Host tree", "hostTree", hostTreeLabels(filters.treeType), filters.hostTree, "Any host tree"), selectFilter("Texture", "texture", vocabLabels(VOCAB.mushrooms.textures), filters.texture, "Any texture"), selectFilter("Staining", "staining", vocabLabels(VOCAB.mushrooms.stainingColors), filters.staining, "Any staining"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Sponge-like mushrooms / boletes", currentRecords, "mushrooms", filters)}`;
+  if (page === "mushrooms-other") return `${mushroomLaneNav("other")}${compactSeasonPanel(allRecords, "mushrooms", filters.month)}${filterBlock([sortFilter(filters.sort), selectFilter("Substrate", "substrate", vocabLabels(VOCAB.mushrooms.substrates), filters.substrate, "Any substrate"), selectFilter("Texture", "texture", vocabLabels(VOCAB.mushrooms.textures), filters.texture, "Any texture"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Other non-gilled mushrooms", currentRecords, "mushrooms", filters)}`;
+  if (page === "medicinal") return `${filterBlock([sortFilter(filters.sort, MEDICINAL_SORT_OPTIONS), selectFilter("Action", "medicinalAction", vocabLabels(VOCAB.medicinal.actions), filters.medicinalAction, "Any action"), selectFilter("Body system", "medicinalSystem", vocabLabels(VOCAB.medicinal.bodySystems), filters.medicinalSystem, "Any body system"), selectFilter("Medical term", "medicinalTerm", vocabLabels(VOCAB.medicinal.symptoms), filters.medicinalTerm, "Any medical term"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Medicinal", currentRecords, "medicinal", filters, "", MEDICINAL_SORT_OPTIONS)}`;
   if (page === "rare") return renderRarePageHtml(state.rareSpecies || [], state.rareSightings || []);
-  if (page === "lookalikes") {
-    const severities = [...new Set(allRecords.map((r) => r.non_edible_severity).filter(Boolean))].sort((a, b) => a.localeCompare(b));
-    return `${compactSeasonPanel(allRecords, "lookalikes", filters.month)}${filterBlock([sortFilter(filters.sort, "common-only"), selectFilter("Severity", "severity", severities, filters.severity, "Any severity"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Non-edible species", currentRecords, "lookalikes", filters, "", "common-only")}`;
-  }
-  if (page === "review") {
-    const reviewReasons = [...new Set(allRecords.flatMap((record) => record.reviewReasons || []))].sort((a, b) => a.localeCompare(b));
-    return `${filterBlock([sortFilter(filters.sort, "common-only"), selectFilter("Review reason", "reviewReason", reviewReasons, filters.reviewReason, "Any review reason")])}${resultSection("Needs Review", currentRecords, "review", filters, "", "common-only")}`;
-  }
-  if (page === "timeline") {
-    const eligible = allRecords.filter((record) => !!String(record.medicinal_uses || "").trim() || isForagingMushroom(record) || (isPlant(record) && !!String(record.culinary_uses || "").trim()));
-    return `${renderInteractiveTimeline(eligible, selectedMonth, "results")}`;
-  }
+  if (page === "lookalikes") { const severities = [...new Set(allRecords.map((r) => r.non_edible_severity).filter(Boolean))].sort((a, b) => a.localeCompare(b)); return `${compactSeasonPanel(allRecords, "lookalikes", filters.month)}${filterBlock([sortFilter(filters.sort), selectFilter("Severity", "severity", severities, filters.severity, "Any severity"), selectFilter("Month", "month", MONTHS, filters.month, "Any month")])}${resultSection("Non-edible species", currentRecords, "lookalikes", filters)}`; }
+  if (page === "review") { const reviewReasons = [...new Set(allRecords.flatMap((record) => record.reviewReasons || []))].sort((a, b) => a.localeCompare(b)); return `${filterBlock([sortFilter(filters.sort), selectFilter("Review reason", "reviewReason", reviewReasons, filters.reviewReason, "Any review reason")])}${resultSection("Needs Review", currentRecords, "review", filters)}`; }
+  if (page === "timeline") { const eligible = allRecords.filter((record) => !!String(record.medicinal_uses || "").trim() || isForagingMushroom(record) || (isPlant(record) && !!String(record.culinary_uses || "").trim())); return `${renderInteractiveTimeline(eligible, selectedMonth, "results")}`; }
   if (page === "credits") return renderCreditsPage(allRecords, overridePayload);
   if (page === "references") return renderReferencesPage(references, filters.search || "");
   return "";
