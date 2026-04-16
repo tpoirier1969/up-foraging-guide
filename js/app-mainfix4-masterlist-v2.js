@@ -1,10 +1,10 @@
-import { APP_VERSION, MONTHS } from "./constants-mainfix.js";
+import { APP_VERSION, MONTHS } from "./constants-mainfix.js?v=2026-04-16-5";
 import { loadLocalData, loadSupabaseData, loadOverridePayload } from "./api-mainfix4.js?v=v3.2.0";
 import { loadLocalDataWithMaster } from "./api-masterlist.js?v=v3.1.3";
 import { sortRecords, normalizeRecord, isPlant, isForagingMushroom, medicinalRecords, reviewRecords, avoidRecords } from "./data-model-mainfix4.js?v=v3.2.0";
 import { state } from "./state.js";
 import { parseRoute } from "./router.js";
-import { renderDashboard } from "./pages-mainfix4.js?v=2026-04-16-2";
+import { renderDashboard } from "./pages-mainfix4.js?v=2026-04-16-4";
 import { updateHeaderStats, renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui-mainfix.js";
 import { loadRareSpecies, loadRareSightings, wireRarePage } from "./rare-watch.js";
 
@@ -27,7 +27,6 @@ let selectedTimelineMonth = CURRENT_MONTH;
 let overridePayload = { overrides:{}, metadata:{}, references:[], creditsPayload:{credits:{}} };
 let releasedReviewSlugs = new Set();
 
-
 async function loadBoletePack(){
   try{
     const response = await fetch("data/boletes-v1.json", { cache: "no-store" });
@@ -37,7 +36,13 @@ async function loadBoletePack(){
     return [];
   }
 }
-
+function applyImageOverridesToRecords(records = [], overrides = {}) {
+  return (records || []).map((record) => {
+    const override = overrides?.[record.slug];
+    if (!override) return record;
+    return { ...record, images: Array.isArray(override.images) ? override.images : (record.images || []) };
+  });
+}
 function loadReleasedReviewSlugs() {
   try { releasedReviewSlugs = new Set(JSON.parse(localStorage.getItem(RELEASED_REVIEW_KEY) || "[]")); } catch { releasedReviewSlugs = new Set(); }
 }
@@ -200,7 +205,7 @@ async function init(){
       payload=await loadLocalDataWithMaster(loadLocalData);
       state.dataSource='Local JSON + local species additions + master species additions + Wikimedia override';
     }
-    const boletePack = await loadBoletePack();
+    const boletePack = applyImageOverridesToRecords(await loadBoletePack(), overridePayload?.overrides || {});
     const mergedRecords = [...(payload.records || []), ...boletePack];
     state.allRecords=sortRecords(mergedRecords.map(normalizeRecord));
     state.references=payload.references||overridePayload.references||[];
