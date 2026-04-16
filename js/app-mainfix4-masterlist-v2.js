@@ -1,10 +1,10 @@
 import { APP_VERSION, MONTHS } from "./constants-mainfix.js";
-import { loadLocalData, loadSupabaseData, loadOverridePayload } from "./api-mainfix4.js?v=2026-04-16-1";
+import { loadLocalData, loadSupabaseData, loadOverridePayload } from "./api-mainfix4.js?v=v3.2.0";
 import { loadLocalDataWithMaster } from "./api-masterlist.js?v=v3.1.3";
-import { sortRecords, normalizeRecord, isPlant, isForagingMushroom, medicinalRecords, reviewRecords, avoidRecords } from "./data-model-mainfix4.js?v=2026-04-16-1";
+import { sortRecords, normalizeRecord, isPlant, isForagingMushroom, medicinalRecords, reviewRecords, avoidRecords } from "./data-model-mainfix4.js?v=v3.2.0";
 import { state } from "./state.js";
 import { parseRoute } from "./router.js";
-import { renderDashboard } from "./pages-mainfix4.js?v=2026-04-16-1";
+import { renderDashboard } from "./pages-mainfix4.js?v=v3.2.0";
 import { updateHeaderStats, renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui-mainfix.js";
 import { loadRareSpecies, loadRareSightings, wireRarePage } from "./rare-watch.js";
 
@@ -26,6 +26,17 @@ const filterState = { home:emptyFilter('home'), search:emptyFilter(), plants:emp
 let selectedTimelineMonth = CURRENT_MONTH;
 let overridePayload = { overrides:{}, metadata:{}, references:[], creditsPayload:{credits:{}} };
 let releasedReviewSlugs = new Set();
+
+
+async function loadBoletePack(){
+  try{
+    const response = await fetch("data/boletes-v1.json", { cache: "no-store" });
+    const payload = await response.json();
+    return Array.isArray(payload?.records) ? payload.records : [];
+  }catch{
+    return [];
+  }
+}
 
 function loadReleasedReviewSlugs() {
   try { releasedReviewSlugs = new Set(JSON.parse(localStorage.getItem(RELEASED_REVIEW_KEY) || "[]")); } catch { releasedReviewSlugs = new Set(); }
@@ -189,7 +200,9 @@ async function init(){
       payload=await loadLocalDataWithMaster(loadLocalData);
       state.dataSource='Local JSON + local species additions + master species additions + Wikimedia override';
     }
-    state.allRecords=sortRecords((payload.records||[]).map(normalizeRecord));
+    const boletePack = await loadBoletePack();
+    const mergedRecords = [...(payload.records || []), ...boletePack];
+    state.allRecords=sortRecords(mergedRecords.map(normalizeRecord));
     state.references=payload.references||overridePayload.references||[];
     state.credits=payload.creditsPayload?.credits||overridePayload.creditsPayload?.credits||{};
     state.rareSpecies=await loadRareSpecies();

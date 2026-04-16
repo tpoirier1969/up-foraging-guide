@@ -1,5 +1,5 @@
 import { MONTH_SHORT, MONTHS } from "../constants-mainfix.js";
-import { escapeHtml } from "../utils.js?v=v2.0";
+import { escapeHtml } from "../utils.js?v=v3.2.0";
 
 function seasonStrip(record) {
   const active = new Set(record.months_available || []);

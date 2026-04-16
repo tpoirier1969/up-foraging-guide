@@ -1,9 +1,9 @@
 import { MONTHS } from "./constants-mainfix.js";
-import { medicinalRecords, isPlant, reviewRecords, avoidRecords, isForagingMushroom } from "./data-model-mainfix4.js?v=2026-04-16-1";
+import { medicinalRecords, isPlant, reviewRecords, avoidRecords, isForagingMushroom } from "./data-model-mainfix4.js?v=v3.2.0";
 import { VOCAB } from "./vocabulary.js?v=v2.0";
-import { renderResultCard } from "./renderers/cards-mainfix.js?v=2026-04-16-1";
-import { renderInteractiveTimeline } from "./renderers/timeline.js?v=2026-04-15-2";
-import { escapeHtml } from "./utils.js?v=2026-04-15-2";
+import { renderResultCard } from "./renderers/cards-mainfix.js?v=v3.2.0";
+import { renderInteractiveTimeline } from "./renderers/timeline.js?v=v3.2.0";
+import { escapeHtml } from "./utils.js?v=v3.2.0";
 import { state } from "./state.js";
 import { renderRarePageHtml } from "./rare-watch.js";
 
@@ -85,7 +85,7 @@ function mushroomLaneNav(active = "all") {
   ];
   return `
     <section class="panel home-hub">
-      <div class="result-header compact-result-header"><div class="result-title-row"><h3>Start here</h3><p class="results-meta">Flip it over</p></div></div>
+      <div class="result-header compact-result-header"><div class="result-title-row"><h3>Start here</h3><p class="results-meta">Choose a section</p></div></div>
       <div class="mushroom-lane-grid">
         ${cards.map((card) => `<a class="mushroom-lane-card ${active === card.key ? "active" : ""}" href="${card.href}"><strong>${card.title}</strong><span>${card.text}</span></a>`).join("")}
       </div>
