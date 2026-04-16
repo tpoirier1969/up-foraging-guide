@@ -5,7 +5,7 @@ import { renderResultCard } from "./renderers/cards-mainfix-common.js";
 import { renderInteractiveTimeline } from "./renderers/timeline.js?v=v2.1-mainfix21";
 import { escapeHtml } from "./utils.js?v=v2.1-medfix1";
 import { sortLabel } from "./lib/commonness-sort-v3.js?v=v2.4-sortfix1";
-import { state } from "./state.js?v=v2.11-rare-detail";
+import { state } from "./state.js";
 import { renderRarePageHtml } from "./rare-watch.js?v=v2.11-rare-detail";
 
 const FLOWER_COLORS = ["White", "Purple", "Pink", "Yellow", "Blue", "Red", "Green"];
@@ -163,6 +163,54 @@ function identificationHub() {
           <span>Substrate, tree type, host tree, ring, texture, smell, staining, and season.</span>
         </a>
       </div>
+    </section>
+  `;
+}
+
+function mushroomStartHere() {
+  const current = currentMonthName();
+  return `
+    <section class="panel home-hub">
+      <div class="result-header compact-result-header">
+        <div class="result-title-row">
+          <h3>Start here</h3>
+          <p class="results-meta">Narrow mushrooms fast</p>
+        </div>
+      </div>
+
+      <div class="home-card-grid">
+        <a class="home-card" href="#/identification">
+          <strong>Identification hub</strong>
+          <span>Back up and split the search path if you are not sure what you have.</span>
+        </a>
+
+        <a class="home-card" href="#/lookalikes">
+          <strong>Non-edible / caution</strong>
+          <span>Check dangerous and misleading species before trusting a match.</span>
+        </a>
+
+        <a class="home-card" href="#/references">
+          <strong>References</strong>
+          <span>Safety, toxicity, handling, and article links.</span>
+        </a>
+      </div>
+
+      <section class="panel" style="margin-top:14px">
+        <div class="result-header compact-result-header">
+          <div class="result-title-row">
+            <h3>Best narrowing order</h3>
+            <p class="results-meta">Use high-signal filters first</p>
+          </div>
+        </div>
+        <div class="tag-row">
+          <span class="tag">1. Month: ${escapeHtml(current)}</span>
+          <span class="tag">2. Substrate</span>
+          <span class="tag">3. Tree type / host tree</span>
+          <span class="tag">4. Ring / texture / smell</span>
+          <span class="tag">5. Staining + notes</span>
+        </div>
+        <p class="small-note">Never trust a single trait. Cross-check multiple features before treating anything as edible.</p>
+      </section>
     </section>
   `;
 }
@@ -363,7 +411,7 @@ export function renderDashboard({ page, allRecords, currentRecords, filters, sel
   }
 
   if (page === "mushrooms") {
-    return `${compactSeasonPanel(allRecords, "mushrooms", filters.month)}${filterBlock([
+    return `${mushroomStartHere()}${compactSeasonPanel(allRecords, "mushrooms", filters.month)}${filterBlock([
       sortFilter(filters.sort),
       selectFilter("Substrate", "substrate", vocabLabels(VOCAB.mushrooms.substrates), filters.substrate, "Any substrate"),
       selectFilter("Tree type", "treeType", vocabLabels(VOCAB.mushrooms.woodTypes), filters.treeType, "Any tree type"),
@@ -388,7 +436,7 @@ export function renderDashboard({ page, allRecords, currentRecords, filters, sel
   }
 
   if (page === "rare") {
-    return renderRarePageHtml(state.rareSpecies || []);
+    return renderRarePageHtml(state.rareSpecies || [], state.rareSightings || []);
   }
 
   if (page === "lookalikes") {

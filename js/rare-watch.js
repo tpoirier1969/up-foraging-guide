@@ -1,5 +1,5 @@
 import { FORAGING_RARE_SIGHTINGS_TABLE } from "./constants-mainfix.js?v=v2.13.3-rare-recursionfix";
-import { state } from "./state.js?v=v2.13.3-rare-recursionfix";
+import { state } from "./state.js";
 import { openHtmlModal } from "./ui-mainfix-v2.js?v=v2.13.3-rare-recursionfix";
 
 const LOCAL_KEY = "foraging_rare_sightings_local_v1";
@@ -97,7 +97,6 @@ function recentSightingsForSpecies(slug) {
   return (state.rareSightings || []).filter(item => item.species_slug === slug).slice(0, 5);
 }
 
-
 function firstRareImage(record) {
   return Array.isArray(record.images) && record.images.length ? record.images[0] : "";
 }
@@ -117,7 +116,7 @@ function renderRareGallery(record) {
   `;
 }
 
-function renderSightingsList(sightings) {
+function renderSightingsList(sightings = []) {
   if (!sightings.length) return '<p class="small-note">No sightings saved yet.</p>';
   return sightings.map(item => {
     const view = rounded(item.latitude, item.longitude, item.precision_mode || "approximate");
@@ -154,7 +153,7 @@ function renderRareCard(record) {
   `;
 }
 
-function renderRareSummary(records, sightings) {
+function renderRareSummary(records = [], sightings = []) {
   const plants = records.filter(r => r.group === "plant").length;
   const fungi = records.filter(r => r.group === "fungus").length;
   return `
@@ -175,7 +174,7 @@ function renderRareSummary(records, sightings) {
   `;
 }
 
-function renderRareSpeciesSection(records) {
+function renderRareSpeciesSection(records = []) {
   return `
     <section class="panel">
       <div class="result-header compact-result-header">
@@ -191,7 +190,7 @@ function renderRareSpeciesSection(records) {
   `;
 }
 
-function renderOverviewPanel(sightings) {
+function renderOverviewPanel(sightings = []) {
   return `
     <section class="panel">
       <div class="result-header compact-result-header">
@@ -461,7 +460,7 @@ async function wireRareDetailModal(record, expandForm = false) {
   }
 }
 
-export function renderRarePageHtml(records, sightings) {
+export function renderRarePageHtml(records = [], sightings = []) {
   return renderRareSummary(records, sightings) + renderRareSpeciesSection(records) + renderOverviewPanel(sightings);
 }
 
