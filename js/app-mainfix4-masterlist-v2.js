@@ -1,11 +1,11 @@
-import { APP_VERSION, MONTHS } from "./constants-mainfix.js?v=2026-04-17-35";
-import { loadLocalData, loadSupabaseData, loadOverridePayload } from "./api-mainfix4.js?v=2026-04-17-35";
+import { APP_VERSION, MONTHS } from "./constants-mainfix.js?v=2026-04-17-37";
+import { loadLocalData, loadSupabaseData, loadOverridePayload } from "./api-mainfix4.js?v=2026-04-17-37";
 import { loadLocalDataWithMaster } from "./api-masterlist.js?v=v3.1.3";
 import { sortRecords, normalizeRecord, isPlant, isForagingMushroom, medicinalRecords, reviewRecords, avoidRecords } from "./data-model-mainfix4.js?v=v3.2.0";
 import { state } from "./state.js";
 import { parseRoute } from "./router.js";
-import { renderDashboard } from "./pages-mainfix4.js?v=2026-04-17-35";
-import { updateHeaderStats, renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui-mainfix.js?v=2026-04-16-9";
+import { renderDashboard } from "./pages-mainfix4.js?v=2026-04-17-37";
+import { updateHeaderStats, renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui-mainfix.js?v=2026-04-17-37";
 import { loadRareSpecies, loadRareSightings, wireRarePage } from "./rare-watch.js";
 
 const focusDate = new Date();
