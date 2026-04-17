@@ -74,24 +74,34 @@ function recordImage(record) {
   const images = Array.isArray(record?.images) ? record.images : [];
   return images.find(Boolean) || "";
 }
+function isEdibleMushroomRecord(record) {
+  if (!isForagingMushroom(record)) return false;
+  const nonEdible = String(record?.non_edible_severity || "").trim().toLowerCase();
+  if (nonEdible) return false;
+  const culinary = String(record?.culinary_uses || "").trim();
+  const edibleStatus = String(record?.mushroom_profile?.edibility_status || "").trim().toLowerCase();
+  if (culinary) return true;
+  return ["choice", "excellent", "very good", "good", "edible", "edible_with_caution", "edible_mediocre"].includes(edibleStatus);
+}
 function homeHub(allRecords) {
   const month = currentMonthName();
-  const inSeasonPlants = allRecords.filter((record) => isPlant(record) && (record.months_available || []).includes(month)).length;
-  const inSeasonMushrooms = allRecords.filter((record) => isForagingMushroom(record) && (record.months_available || []).includes(month)).length;
-  const totalPlants = allRecords.filter((record) => isPlant(record)).length;
-  const totalMushrooms = allRecords.filter((record) => isForagingMushroom(record)).length;
-  const totalMedicinal = medicinalRecords(allRecords).length;
+  const inedibleSlugs = new Set(avoidRecords(allRecords).map((record) => record.slug));
+  const safeInSeasonPlants = allRecords.filter((record) => isPlant(record) && !inedibleSlugs.has(record.slug) && (record.months_available || []).includes(month));
+  const safeInSeasonMushrooms = allRecords.filter((record) => isEdibleMushroomRecord(record) && !inedibleSlugs.has(record.slug) && (record.months_available || []).includes(month));
+  const totalPlants = allRecords.filter((record) => isPlant(record) && !inedibleSlugs.has(record.slug)).length;
+  const totalMushrooms = allRecords.filter((record) => isEdibleMushroomRecord(record) && !inedibleSlugs.has(record.slug)).length;
+  const totalMedicinal = medicinalRecords(allRecords).filter((record) => !inedibleSlugs.has(record.slug)).length;
   const rareCount = (state.rareSpecies || []).length;
-  const highlights = allRecords
-    .filter((record) => (record.months_available || []).includes(month) && recordImage(record))
+  const highlights = [...safeInSeasonMushrooms, ...safeInSeasonPlants]
+    .filter((record) => recordImage(record))
     .slice(0, 2);
   return `
     <section class="panel home-hub in-focus-feature">
       <div class="result-header compact-result-header"><div class="result-title-row"><h3>In Focus Right Now</h3><p class="results-meta">${escapeHtml(month)}</p></div></div>
       <div class="in-focus-layout">
         <div class="in-focus-stats">
-          <div class="in-focus-stat-card"><strong>${inSeasonPlants}</strong><span>plants in season</span></div>
-          <div class="in-focus-stat-card"><strong>${inSeasonMushrooms}</strong><span>mushrooms in season</span></div>
+          <div class="in-focus-stat-card"><strong>${safeInSeasonPlants.length}</strong><span>plants in season</span></div>
+          <div class="in-focus-stat-card"><strong>${safeInSeasonMushrooms.length}</strong><span>mushrooms in season</span></div>
           <div class="in-focus-stat-card"><strong>${totalPlants}</strong><span>total plants</span></div>
           <div class="in-focus-stat-card"><strong>${totalMushrooms}</strong><span>total mushrooms</span></div>
           <div class="in-focus-stat-card"><strong>${totalMedicinal}</strong><span>medicinal species</span></div>
@@ -101,11 +111,10 @@ function homeHub(allRecords) {
           ${highlights.map((record) => {
             const image = recordImage(record);
             return `<a class="in-focus-card" href="#/detail/${escapeHtml(record.slug)}">
-              <img src="${escapeHtml(image)}" alt="${escapeHtml(record.display_name || record.common_name || "In-season species")}" loading="lazy">
-              <div class="in-focus-caption">
+              <div class="in-focus-caption in-focus-caption-top">
                 <strong>${escapeHtml(record.display_name || record.common_name || "Untitled")}</strong>
-                <span>${escapeHtml((record.category || []).join ? (Array.isArray(record.category) ? record.category.join(", ") : record.category) : (record.category || "In season"))}</span>
               </div>
+              <img src="${escapeHtml(image)}" alt="${escapeHtml(record.display_name || record.common_name || "In-season species")}" loading="lazy">
             </a>`;
           }).join("")}
         </div>
@@ -187,7 +196,7 @@ function quickCheckPanel(filters) {
 }
 function renderMushroomLandingPage(allRecords) {
   const month = currentMonthName();
-  const inSeasonRecords = allRecords.filter((record) => isForagingMushroom(record) && (record.months_available || []).includes(month));
+  const inSeasonRecords = allRecords.filter((record) => isEdibleMushroomRecord(record) && (record.months_available || []).includes(month));
   const metaText = `${inSeasonRecords.length} in season · ${escapeHtml(month)} · Use Gills, Sponge-like (boletes), or Other for full filtering`;
   return `${mushroomLaneNav("all")}${resultSection("MUSHROOMS IN SEASON NOW", inSeasonRecords, "mushrooms", {}, metaText)}`;
 }

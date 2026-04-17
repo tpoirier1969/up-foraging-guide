@@ -1,4 +1,7 @@
 
+.main-nav{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.main-nav-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;width:100%}
+.main-nav-row a{flex:0 0 auto}
 .in-focus-feature .in-focus-layout{display:grid;grid-template-columns:minmax(220px,320px) minmax(0,1fr);gap:18px;align-items:start}
 .in-focus-feature .in-focus-stats{display:grid;grid-template-columns:1fr;gap:14px}
 .in-focus-feature .in-focus-stat-card{padding:14px 16px;border:1px solid rgba(0,0,0,.10);border-radius:12px;background:rgba(255,255,255,.72)}
@@ -9,6 +12,10 @@
 .in-focus-feature .in-focus-card img{width:140px;height:100px;object-fit:cover;border-radius:10px;border:1px solid rgba(0,0,0,.10)}
 .in-focus-feature .in-focus-caption-top{font-size:.88rem;line-height:1.1}
 .in-focus-feature .in-focus-caption-top strong{display:block}
+@media (max-width:900px){
+  .main-nav{align-items:stretch}
+  .main-nav-row{justify-content:flex-start}
+}
 @media (max-width:760px){
   .in-focus-feature .in-focus-layout{grid-template-columns:1fr}
 }
