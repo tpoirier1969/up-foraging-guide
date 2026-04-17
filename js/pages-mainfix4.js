@@ -1,7 +1,7 @@
-import { MONTHS } from "./constants-mainfix.js";
-import { medicinalRecords, isPlant, reviewRecords, avoidRecords, isForagingMushroom } from "./data-model-mainfix4.js?v=v3.2.0";
+import { MONTHS } from "./constants-mainfix.js?v=2026-04-17-34";
+import { medicinalRecords, isPlant, reviewRecords, avoidRecords, isForagingMushroom } from "./data-model-mainfix4.js?v=2026-04-17-34";
 import { VOCAB } from "./vocabulary.js?v=v2.0";
-import { renderResultCard } from "./renderers/cards-mainfix.js?v=2026-04-16-34";
+import { renderResultCard } from "./renderers/cards-mainfix.js?v=2026-04-17-34";
 import { renderInteractiveTimeline } from "./renderers/timeline.js?v=v3.2.0";
 import { escapeHtml } from "./utils.js?v=v3.2.0";
 import { state } from "./state.js";
@@ -67,7 +67,6 @@ function renderResultList(records, context = "general") {
 }
 function currentMonthName() {
   const d = new Date();
-  d.setDate(d.getDate() + 14);
   return MONTHS[d.getMonth()];
 }
 function recordImage(record) {

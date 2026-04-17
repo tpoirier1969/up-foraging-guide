@@ -1,4 +1,4 @@
-import { PLANT_CATEGORIES } from "./constants-mainfix.js";
+import { PLANT_CATEGORIES } from "./constants-mainfix.js?v=2026-04-17-34";
 import { compactText, hasMedicinal } from "./utils.js?v=v3.2.0";
 import { inferTraits } from "./trait-inference-mainfix4.js?v=v3.2.0";
 
@@ -23,6 +23,10 @@ function mergedReviewReasons(base) {
 }
 function uniqueStrings(values) {
   return [...new Set((values || []).filter(Boolean).map(value => String(value).trim()).filter(Boolean))];
+}
+function hasRealLookalikes(record) {
+  const lookalikes = asList(record?.look_alikes).map(v => String(v).trim().toLowerCase());
+  return lookalikes.some(v => v && !v.includes('none documented') && !v.includes('none specifically documented'));
 }
 function normalizeFoodRole(value) {
   const text = String(value || '').trim().toLowerCase();
@@ -163,6 +167,6 @@ export function avoidRecords(records) {
   return records.filter(record => {
     if (record?.food_role === 'avoid' || record?.food_role === 'emergency_only' || record?.food_role === 'tea_extract_only' || record?.food_role === 'medicinal_only') return true;
     if (!isMushroom(record) && !!record.non_edible_severity) return true;
-    return (record.look_alikes || []).length > 0;
+    return hasRealLookalikes(record) && (record?.food_role === 'avoid' || record?.primary_use === 'avoid' || !!record.non_edible_severity);
   });
 }
