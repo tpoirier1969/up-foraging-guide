@@ -1,7 +1,7 @@
 import { MONTHS } from "./constants-mainfix.js";
 import { medicinalRecords, isPlant, reviewRecords, avoidRecords, isForagingMushroom } from "./data-model-mainfix4.js?v=v3.2.0";
 import { VOCAB } from "./vocabulary.js?v=v2.0";
-import { renderResultCard } from "./renderers/cards-mainfix.js?v=v3.2.0";
+import { renderResultCard } from "./renderers/cards-mainfix.js?v=2026-04-16-34";
 import { renderInteractiveTimeline } from "./renderers/timeline.js?v=v3.2.0";
 import { escapeHtml } from "./utils.js?v=v3.2.0";
 import { state } from "./state.js";
@@ -172,27 +172,15 @@ function suggestedBoleteGroups(filters) {
   if (!groups.size && filters.quickBlueStain === "no" && filters.quickRedCapPores === "no" && filters.quickStickyCap === "no" && filters.quickRoughStalk === "no" && filters.quickPinkPoresBitter === "no") groups.add("Brown / king allies");
   return [...groups];
 }
-function quickCheckPanel(filters) {
-  const suggestions = suggestedBoleteGroups(filters);
-  const currentLabel = filters.boleteGroup ? BOLETE_GROUP_LABELS[filters.boleteGroup] : "Any bolete type";
-  return `
-    <section class="panel home-hub">
-      <div class="result-header compact-result-header"><div class="result-title-row"><h3>Bolete quick check</h3><p class="results-meta">Answer a few yes / no questions to narrow the group</p></div></div>
-      <div class="tight-filter-grid">
-        <div class="compact-filter"><span>Blue stain when bruised or cut?</span>${yesNoButtons("quickBlueStain", filters.quickBlueStain)}</div>
-        <div class="compact-filter"><span>Red cap or red / orange pores?</span>${yesNoButtons("quickRedCapPores", filters.quickRedCapPores)}</div>
-        <div class="compact-filter"><span>Sticky / slimy cap?</span>${yesNoButtons("quickStickyCap", filters.quickStickyCap)}</div>
-        <div class="compact-filter"><span>Rough dotted stalk (scabers)?</span>${yesNoButtons("quickRoughStalk", filters.quickRoughStalk)}</div>
-        <div class="compact-filter"><span>Pinkish pores or bitter taste?</span>${yesNoButtons("quickPinkPoresBitter", filters.quickPinkPoresBitter)}</div>
-        <div class="compact-filter"><span>Shaggy / dark oddball?</span>${yesNoButtons("quickShaggyOddball", filters.quickShaggyOddball)}</div>
-      </div>
-      <div class="tag-row">
-        <span class="tag">Likely group: ${escapeHtml(currentLabel)}</span>
-        ${suggestions.map((group) => `<button class="buttonish ${filters.boleteGroup === group ? "active" : ""}" type="button" data-action="set-bolete-group" data-value="${escapeHtml(group)}">${escapeHtml(group)}</button>`).join("")}
-        ${!suggestions.length ? `<span class="tag">No likely group yet</span>` : ""}
-        <button class="buttonish" type="button" data-action="clear-bolete-quickcheck">Clear quick check</button>
-      </div>
-    </section>`;
+function quickCheckInlineFilters(filters) {
+  return [
+    `<div class="compact-filter quick-check-filter"><span>Blue stain when bruised or cut?</span>${yesNoButtons("quickBlueStain", filters.quickBlueStain)}</div>`,
+    `<div class="compact-filter quick-check-filter"><span>Red cap or red / orange pores?</span>${yesNoButtons("quickRedCapPores", filters.quickRedCapPores)}</div>`,
+    `<div class="compact-filter quick-check-filter"><span>Sticky / slimy cap?</span>${yesNoButtons("quickStickyCap", filters.quickStickyCap)}</div>`,
+    `<div class="compact-filter quick-check-filter"><span>Rough dotted stalk (scabers)?</span>${yesNoButtons("quickRoughStalk", filters.quickRoughStalk)}</div>`,
+    `<div class="compact-filter quick-check-filter"><span>Pinkish pores or bitter taste?</span>${yesNoButtons("quickPinkPoresBitter", filters.quickPinkPoresBitter)}</div>`,
+    `<div class="compact-filter quick-check-filter"><span>Shaggy / dark oddball?</span>${yesNoButtons("quickShaggyOddball", filters.quickShaggyOddball)}</div>`
+  ];
 }
 function renderMushroomLandingPage(allRecords) {
   const month = currentMonthName();
@@ -203,6 +191,7 @@ function renderMushroomLandingPage(allRecords) {
 function renderBoleteGuide(currentRecords, filters, allRecords) {
   const inSeasonCount = allRecords.filter((record) => isForagingMushroom(record) && (record.underside || []).includes("Pores") && (record.months_available || []).includes(currentMonthName())).length;
   const filterPanel = `${filterBlock([
+      ...quickCheckInlineFilters(filters),
       seasonToggleFilter("boletes", inSeasonCount, filters.month),
       sortFilter(filters.sort),
       selectFilter("Bolete group", "boleteGroup", Object.values(BOLETE_GROUP_LABELS), filters.boleteGroup, "Any bolete type"),
@@ -219,7 +208,7 @@ function renderBoleteGuide(currentRecords, filters, allRecords) {
     ])}`;
 
   const resultTitle = filters.boleteGroup || "Sponge-like mushrooms (boletes)";
-  return `${mushroomLaneNav("sponge")}${quickCheckPanel(filters)}${filterPanel}${resultSection(resultTitle, currentRecords, "mushrooms", filters)}`;
+  return `${mushroomLaneNav("sponge")}${filterPanel}${resultSection(resultTitle, currentRecords, "mushrooms", filters)}`;
 }
 function renderCreditsPage(allRecords, overridePayload) {
   const creditsBySlug = overridePayload?.creditsPayload?.credits || {};

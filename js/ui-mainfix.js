@@ -1,6 +1,6 @@
 import { APP_VERSION } from "./constants-mainfix.js";
 import { state } from "./state.js";
-import { renderDetail } from "./renderers/detail.js?v=2026-04-15-2";
+import { renderDetail } from "./renderers/detail.js?v=2026-04-16-34";
 
 const els = {
   pageRoot: document.getElementById("pageRoot"),

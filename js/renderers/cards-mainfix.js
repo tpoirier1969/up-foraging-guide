@@ -6,17 +6,21 @@ function seasonStrip(record) {
   return MONTHS.map((month, index) => `<span class="month ${active.has(month) ? "on" : ""}">${MONTH_SHORT[index]}</span>`).join("");
 }
 function statusPill(label, type) { return `<span class="status-pill ${escapeHtml(type)}">${escapeHtml(label)}</span>`; }
+function normalizeEdibleStatus(value) {
+  return String(value || "").trim().toLowerCase().replace(/\s+/g, "_");
+}
 function badgesForRecord(record) {
   const badges = [];
-  const edible = record.category === 'Mushroom'
-    ? /(choice|edible|good)/i.test(String(record.mushroom_profile?.edibility_status || '')) || /edible|choice/i.test(String(record.non_edible_severity || ''))
-    : !!String(record.culinary_uses || '').trim();
+  const edibleStatuses = new Set(["choice","excellent","very_good","good","edible","edible_with_caution","edible_mediocre"]);
+  const edible = record.category === "Mushroom"
+    ? edibleStatuses.has(normalizeEdibleStatus(record.mushroom_profile?.edibility_status))
+    : !!String(record.culinary_uses || "").trim();
   const medicinal = !!String(record.medicinal_uses || '').trim();
   const poisonous = /(deadly|poison|toxic)/i.test(String(record.non_edible_severity || '')) || /(poison|toxic|deadly)/i.test(String(record.effects_on_body || ''));
   if (edible) badges.push(statusPill('Edible', 'edible'));
   if (medicinal) badges.push(statusPill('Medicinal', 'medicinal'));
   if (poisonous) badges.push(statusPill('Poisonous', 'poisonous'));
-  return badges.join('');
+  return badges.join(' ');
 }
 function mushroomSummary(record) {
   const profile = record.mushroom_profile || {};
@@ -54,7 +58,7 @@ function uniqueImages(images) {
   }
   return out;
 }
-function resolvedImageUrl(url, width = 400) {
+function resolvedThumbUrl(url, width = 320) {
   const raw = String(url || '').trim();
   if (!raw) return '';
   const decoded = decodeURIComponent(raw);
@@ -66,7 +70,7 @@ function resolvedImageUrl(url, width = 400) {
 }
 export function renderResultCard(record, context = "general") {
   const firstImage = uniqueImages(record.images || [])[0];
-  const thumbSrc = firstImage ? resolvedImageUrl(firstImage, 320) : '';
+  const thumbSrc = firstImage ? resolvedThumbUrl(firstImage, 320) : '';
   const imageHtml = thumbSrc
     ? `<a class="thumb thumb-link" href="#detail/${encodeURIComponent(record.slug)}" data-detail-link="${escapeHtml(record.slug)}" aria-label="Open ${escapeHtml(record.display_name)} details"><div class="thumb" style="background-image:url('${encodeURI(thumbSrc)}')"></div></a>`
     : `<a class="thumb thumb-link" href="#detail/${encodeURIComponent(record.slug)}" data-detail-link="${escapeHtml(record.slug)}" aria-label="Open ${escapeHtml(record.display_name)} details"><div class="thumb placeholder">No image</div></a>`;
