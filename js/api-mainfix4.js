@@ -1,4 +1,4 @@
-import { APP_VERSION, TABLE_NAME } from "./constants-mainfix.js?v=2026-04-17-35";
+import { APP_VERSION, TABLE_NAME } from "./constants-mainfix.js?v=2026-04-17-37";
 
 async function loadJson(path) {
   const response = await fetch(path, { cache: "no-store" });
@@ -66,6 +66,10 @@ async function loadSpeciesAuditFixes() {
   try { return await loadJson('data/species-audit-mainfix35.json'); }
   catch { return { metadata: { version: 'none', source: 'none' }, records: [] }; }
 }
+async function loadSpeciesAuditPatch() {
+  try { return await loadJson('data/species-audit-mainfix37.json'); }
+  catch { return { metadata: { version: 'none', source: 'none' }, records: [] }; }
+}
 async function loadReferences() {
   try { return await loadJson('data/references-mainfix15.json'); }
   catch { return []; }
@@ -89,17 +93,18 @@ function applyOverrides(payload, overridePayload) {
   };
 }
 export async function loadLocalData() {
-  const [response, additionsPayload, auditPayload, overridePayload, creditsPayload, references] = await Promise.all([
+  const [response, additionsPayload, auditPayload, auditPatchPayload, overridePayload, creditsPayload, references] = await Promise.all([
     fetch('data/species.json', { cache: 'no-store' }),
     loadSpeciesAdditions(),
     loadSpeciesAuditFixes(),
+    loadSpeciesAuditPatch(),
     loadOverrides(),
     loadCredits(),
     loadReferences()
   ]);
   if (!response.ok) throw new Error(`Local JSON load failed: ${response.status}`);
   const payload = await response.json();
-  const merged = mergeSpeciesPayloads(mergeSpeciesPayloads(payload, additionsPayload), auditPayload);
+  const merged = mergeSpeciesPayloads(mergeSpeciesPayloads(mergeSpeciesPayloads(payload, additionsPayload), auditPayload), auditPatchPayload);
   const applied = applyOverrides(merged, overridePayload);
   return { ...applied, creditsPayload, references };
 }
@@ -137,7 +142,7 @@ export async function loadSupabaseData() {
     metadata: {
       project: 'Upper Michigan Foraging Guide',
       version: APP_VERSION,
-      source: 'Supabase + local reference merge + local species additions + audit fixes + Wikimedia override layer'
+      source: 'Supabase + local reference merge + local species additions + audit fixes + safety patch + Wikimedia override layer'
     },
     records: [...supabaseRecords, ...localOnlyRecords]
   };
