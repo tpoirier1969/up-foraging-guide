@@ -1,10 +1,10 @@
-import { APP_VERSION, MONTHS } from "./constants-mainfix.js?v=2026-04-16-9";
+import { APP_VERSION, MONTHS } from "./constants-mainfix.js?v=2026-04-16-11";
 import { loadLocalData, loadSupabaseData, loadOverridePayload } from "./api-mainfix4.js?v=v3.2.0";
 import { loadLocalDataWithMaster } from "./api-masterlist.js?v=v3.1.3";
 import { sortRecords, normalizeRecord, isPlant, isForagingMushroom, medicinalRecords, reviewRecords, avoidRecords } from "./data-model-mainfix4.js?v=v3.2.0";
 import { state } from "./state.js";
 import { parseRoute } from "./router.js";
-import { renderDashboard } from "./pages-mainfix4.js?v=2026-04-16-9";
+import { renderDashboard } from "./pages-mainfix4.js?v=2026-04-16-11";
 import { updateHeaderStats, renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui-mainfix.js?v=2026-04-16-9";
 import { loadRareSpecies, loadRareSightings, wireRarePage } from "./rare-watch.js";
 
@@ -21,7 +21,7 @@ const COMMONNESS_ORDER = {
   "rare": 1, "very rare": 1, "sparse": 1, "isolated": 1
 };
 const FOOD_QUALITY_ORDER = { "choice": 5, "excellent": 5, "very good": 4, "good": 3, "fair": 2, "poor": 1, "not worth foraging": 0 };
-const emptyFilter = (page = '') => ({ search:'', month: page==='home' ? CURRENT_MONTH : '', habitat:'', part:'', size:'', taste:'', substrate:'', treeType:'', hostTree:'', ring:'', texture:'', smell:'', staining:'', boleteGroup:'', poreColor:'', stemFeature:'', medicinalAction:'', medicinalSystem:'', medicinalTerm:'', reviewReason:'', severity:'', flowerColor:'', leafShape:'', leafArrangement:'', stemSurface:'', leafPointCount:'', sort:'' });
+const emptyFilter = (page = '') => ({ search:'', month: page==='home' ? CURRENT_MONTH : '', habitat:'', part:'', size:'', taste:'', substrate:'', treeType:'', hostTree:'', ring:'', texture:'', smell:'', staining:'', boleteGroup:'', boleteSubgroup:'', poreColor:'', stemFeature:'', medicinalAction:'', medicinalSystem:'', medicinalTerm:'', reviewReason:'', severity:'', flowerColor:'', leafShape:'', leafArrangement:'', stemSurface:'', leafPointCount:'', sort:'' });
 const filterState = { home:emptyFilter('home'), search:emptyFilter(), plants:emptyFilter(), mushrooms:emptyFilter(), "mushrooms-gilled":emptyFilter(), boletes:emptyFilter(), "mushrooms-other":emptyFilter(), medicinal:emptyFilter(), rare:emptyFilter(), lookalikes:emptyFilter(), timeline:emptyFilter(), review:emptyFilter(), credits:emptyFilter(), references:emptyFilter() };
 let selectedTimelineMonth = CURRENT_MONTH;
 let overridePayload = { overrides:{}, metadata:{}, references:[], creditsPayload:{credits:{}} };
@@ -49,7 +49,7 @@ function uniqueList(values = []) {
 function mergeDuplicateRecords(a, b) {
   const merged = { ...a, ...b };
   const arrayKeys = [
-    'images','links','months_available','habitat','observedPart','size','taste','substrate','treeType','hostTree','ring','texture','smell','staining','boleteGroup','poreColor','stemFeature','medicinalAction','medicinalSystem','medicinalTerms','reviewReasons','flowerColor','leafShape','leafArrangement','stemSurface','leafPointCount','look_alikes','use_tags','affected_systems'
+    'images','links','months_available','habitat','observedPart','size','taste','substrate','treeType','hostTree','ring','texture','smell','staining','boleteGroup','boleteSubgroup','poreColor','stemFeature','medicinalAction','medicinalSystem','medicinalTerms','reviewReasons','flowerColor','leafShape','leafArrangement','stemSurface','leafPointCount','look_alikes','use_tags','affected_systems'
   ];
   arrayKeys.forEach((key) => {
     merged[key] = uniqueList([...(a[key] || []), ...(b[key] || [])]);
@@ -129,7 +129,7 @@ function applyCustomSort(records, sortValue){
 function queryMatches(record,filters){
   const query=(filters.search||'').trim().toLowerCase();
   const haystack=[record.display_name,record.common_name,record.scientific_name,record.category,record.culinary_uses,record.medicinal_uses,record.notes,record.other_uses,record.changes_over_time,record.edibility_detail,record.effects_on_body,record.use_tags?.join(' '),...(record.links||[]),...(record.reviewReasons||[]),...(record.affected_systems||[]),...(record.look_alikes||[]),...(record.mushroom_profile?.research_notes||[]),record.mushroom_profile?.summary,record.mushroom_profile?.ecology,record.mushroom_profile?.season_note].join(' ').toLowerCase();
-  return (!query||haystack.includes(query))&&(!filters.month||(record.months_available||[]).includes(filters.month))&&(!filters.severity||(record.non_edible_severity||'')===filters.severity)&&arrayFilterMatch(record,'habitat',filters.habitat)&&arrayFilterMatch(record,'observedPart',filters.part)&&arrayFilterMatch(record,'size',filters.size)&&arrayFilterMatch(record,'taste',filters.taste)&&arrayFilterMatch(record,'substrate',filters.substrate)&&arrayFilterMatch(record,'treeType',filters.treeType)&&arrayFilterMatch(record,'hostTree',filters.hostTree)&&arrayFilterMatch(record,'ring',filters.ring)&&arrayFilterMatch(record,'texture',filters.texture)&&arrayFilterMatch(record,'smell',filters.smell)&&arrayFilterMatch(record,'staining',filters.staining)&&arrayFilterMatch(record,'boleteGroup',filters.boleteGroup)&&arrayFilterMatch(record,'poreColor',filters.poreColor)&&arrayFilterMatch(record,'stemFeature',filters.stemFeature)&&arrayFilterMatch(record,'medicinalAction',filters.medicinalAction)&&arrayFilterMatch(record,'medicinalSystem',filters.medicinalSystem)&&arrayFilterMatch(record,'medicinalTerms',filters.medicinalTerm)&&arrayFilterMatch(record,'flowerColor',filters.flowerColor)&&arrayFilterMatch(record,'leafShape',filters.leafShape)&&arrayFilterMatch(record,'leafArrangement',filters.leafArrangement)&&arrayFilterMatch(record,'stemSurface',filters.stemSurface)&&arrayFilterMatch(record,'leafPointCount',filters.leafPointCount)&&(!filters.reviewReason||(record.reviewReasons||[]).includes(filters.reviewReason));
+  return (!query||haystack.includes(query))&&(!filters.month||(record.months_available||[]).includes(filters.month))&&(!filters.severity||(record.non_edible_severity||'')===filters.severity)&&arrayFilterMatch(record,'habitat',filters.habitat)&&arrayFilterMatch(record,'observedPart',filters.part)&&arrayFilterMatch(record,'size',filters.size)&&arrayFilterMatch(record,'taste',filters.taste)&&arrayFilterMatch(record,'substrate',filters.substrate)&&arrayFilterMatch(record,'treeType',filters.treeType)&&arrayFilterMatch(record,'hostTree',filters.hostTree)&&arrayFilterMatch(record,'ring',filters.ring)&&arrayFilterMatch(record,'texture',filters.texture)&&arrayFilterMatch(record,'smell',filters.smell)&&arrayFilterMatch(record,'staining',filters.staining)&&arrayFilterMatch(record,'boleteGroup',filters.boleteGroup)&&arrayFilterMatch(record,'boleteSubgroup',filters.boleteSubgroup)&&arrayFilterMatch(record,'poreColor',filters.poreColor)&&arrayFilterMatch(record,'stemFeature',filters.stemFeature)&&arrayFilterMatch(record,'medicinalAction',filters.medicinalAction)&&arrayFilterMatch(record,'medicinalSystem',filters.medicinalSystem)&&arrayFilterMatch(record,'medicinalTerms',filters.medicinalTerm)&&arrayFilterMatch(record,'flowerColor',filters.flowerColor)&&arrayFilterMatch(record,'leafShape',filters.leafShape)&&arrayFilterMatch(record,'leafArrangement',filters.leafArrangement)&&arrayFilterMatch(record,'stemSurface',filters.stemSurface)&&arrayFilterMatch(record,'leafPointCount',filters.leafPointCount)&&(!filters.reviewReason||(record.reviewReasons||[]).includes(filters.reviewReason));
 }
 function mushroomLane(record){
   const slug = String(record.slug || '').toLowerCase();
@@ -171,6 +171,29 @@ function bindCustomActions(){
       if (!slug) return;
       releasedReviewSlugs.add(slug);
       saveReleasedReviewSlugs();
+      renderCurrentRoute();
+    });
+  });
+  document.querySelectorAll('[data-action="set-bolete-group"]').forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      event.preventDefault();
+      filterState.boletes.boleteGroup = btn.dataset.value || '';
+      filterState.boletes.boleteSubgroup = '';
+      renderCurrentRoute();
+    });
+  });
+  document.querySelectorAll('[data-action="set-bolete-subgroup"]').forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      event.preventDefault();
+      filterState.boletes.boleteSubgroup = btn.dataset.value || '';
+      renderCurrentRoute();
+    });
+  });
+  document.querySelectorAll('[data-action="clear-bolete-group"]').forEach((btn) => {
+    btn.addEventListener('click', (event) => {
+      event.preventDefault();
+      filterState.boletes.boleteGroup = '';
+      filterState.boletes.boleteSubgroup = '';
       renderCurrentRoute();
     });
   });
