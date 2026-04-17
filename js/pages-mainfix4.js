@@ -12,74 +12,6 @@ const LEAF_SHAPES = ["Round", "Oval", "Heart-shaped", "Lance-shaped", "Pointed",
 const LEAF_ARRANGEMENTS = ["Alternate", "Opposite", "Basal rosette", "Whorled", "Needle clusters"];
 const STEM_SURFACES = ["Smooth", "Hairy", "Rough", "Fuzzy", "Prickly"];
 const LEAF_POINT_COUNTS = ["1-point", "3-point", "5-point", "Many-lobed"];
-const BOLETE_FAMILIES = [
-  {
-    key: "Brown / king allies",
-    title: "Brown / king allies",
-    text: "Thicker, brown-toned boletes including king bolete / porcini types and similar non-red species.",
-    examples: "Examples: porcini, reticulate-stem browns, dark-capped brown boletes"
-  },
-  {
-    key: "Red & staining boletes",
-    title: "Red & staining boletes",
-    text: "Red-capped or red-pored boletes and species that often bruise or stain blue.",
-    examples: "Examples: bicolor bolete, Frost's bolete, red pores / blue staining"
-  },
-  {
-    key: "Suillus / slippery jacks",
-    title: "Suillus / slippery jacks",
-    text: "Usually sticky or slimy-capped boletes, often associated with pines or larch and sometimes with glandular dots or a ring.",
-    examples: "Examples: chicken fat mushroom, slippery jacks, larch bolete"
-  },
-  {
-    key: "Leccinum / scaber stalks",
-    title: "Leccinum / scaber stalks",
-    text: "Boletes with rough dotted stalks (scabers), often associated with birch, aspen, or other hardwoods.",
-    examples: "Examples: birch bolete, orange birch bolete, aspen bolete"
-  },
-  {
-    key: "Tylopilus / bitter boletes",
-    title: "Tylopilus / bitter boletes",
-    text: "Usually brownish boletes with pinkish pore surfaces and bitter flesh; some are not worth eating.",
-    examples: "Examples: pink-pored or brown-capped bitters"
-  },
-  {
-    key: "Oddballs / shaggy boletes",
-    title: "Oddballs / shaggy boletes",
-    text: "Unusual or shaggy boletes such as Old Man of the Woods and similar odd-looking species.",
-    examples: "Examples: Old Man of the Woods, shaggy / scaly oddballs"
-  }
-];
-const BOLETE_SUBGROUPS = {
-  "Brown / king allies": [
-    { key: "King bolete / porcini", title: "King bolete / porcini", text: "Chunky, brown-capped boletes with pale to yellowish pores and stout stems; the best-known edible kings." },
-    { key: "Reticulate-stem browns", title: "Reticulate-stem browns", text: "Brown boletes with net-like patterning (reticulation) on the stem." },
-    { key: "Dark-capped brown boletes", title: "Dark-capped brown boletes", text: "Browns, bays, and similar darker capped boletes without the red/staining look of the red group." }
-  ],
-  "Red & staining boletes": [
-    { key: "Red-capped boletes", title: "Red-capped boletes", text: "Species with red or reddish caps but not necessarily red pores." },
-    { key: "Blue-staining yellow pores", title: "Blue-staining yellow pores", text: "Yellow-pored boletes that bruise or stain blue." },
-    { key: "Red pores / strong blue staining", title: "Red pores / strong blue staining", text: "Red or orange pores and/or strong blue staining, often striking in the field." }
-  ],
-  "Suillus / slippery jacks": [
-    { key: "With ring", title: "With ring", text: "Sticky-cap Suillus species with a ring on the stem." },
-    { key: "Without ring", title: "Without ring", text: "Sticky-cap Suillus species lacking a ring." },
-    { key: "Pine associates", title: "Pine associates", text: "Species usually growing with pine or other conifers." }
-  ],
-  "Leccinum / scaber stalks": [
-    { key: "Birch associates", title: "Birch associates", text: "Scaber-stalk boletes associated with birch." },
-    { key: "Aspen / poplar associates", title: "Aspen / poplar associates", text: "Scaber-stalk boletes associated with aspen or poplar." },
-    { key: "Orange-capped scabers", title: "Orange-capped scabers", text: "Leccinum with orange caps and rough dotted stalks." }
-  ],
-  "Tylopilus / bitter boletes": [
-    { key: "Pink-pored bitters", title: "Pink-pored bitters", text: "Bitter boletes with pinkish pore surfaces." },
-    { key: "Brown-capped bitters", title: "Brown-capped bitters", text: "Duller brown bitter boletes, usually not red or staining like the red group." }
-  ],
-  "Oddballs / shaggy boletes": [
-    { key: "Old Man of the Woods", title: "Old Man of the Woods", text: "Dark, shaggy, often blackish boletes in the Strobilomyces line." },
-    { key: "Shaggy / scaly oddballs", title: "Shaggy / scaly oddballs", text: "Other odd or rough-looking boletes with shaggy / scaly features." }
-  ]
-};
 const BOLETE_PORE_COLORS = [
   "White / cream",
   "Yellow",
@@ -95,6 +27,14 @@ const BOLETE_STEM_FEATURES = [
   "Glandular dots",
   "Shaggy / scaly"
 ];
+const BOLETE_GROUP_LABELS = {
+  "Brown / king allies": "Brown / king allies",
+  "Red & staining boletes": "Red & staining boletes",
+  "Suillus / slippery jacks": "Suillus / slippery jacks",
+  "Leccinum / scaber stalks": "Leccinum / scaber stalks",
+  "Tylopilus / bitter boletes": "Tylopilus / bitter boletes",
+  "Oddballs / shaggy boletes": "Oddballs / shaggy boletes"
+};
 const SORT_OPTIONS = [
   { value: "", label: "Default sort" },
   { value: "food-quality-desc", label: "Choice foods first" },
@@ -118,9 +58,6 @@ function hostTreeLabels(treeType) {
   if (treeType === "Hardwood") return all.filter((entry) => entry.broadType === "hardwood").map((entry) => entry.label);
   if (treeType === "Conifer / softwood") return all.filter((entry) => entry.broadType === "conifer").map((entry) => entry.label);
   return all.map((entry) => entry.label);
-}
-function boleteSubgroupCards(group) {
-  return BOLETE_SUBGROUPS[group] || [];
 }
 function formatLabelFromSlug(slug) {
   return String(slug || "").replace(/-/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase());
@@ -190,6 +127,43 @@ function resultSection(title, records, context, filters = {}, metaText = "", sor
   const finalMeta = metaText || `${records.length} match${records.length === 1 ? "" : "es"}${filters.sort ? ` · ${escapeHtml(sortOptions.find((opt)=>opt.value===filters.sort)?.label || "")}` : ""}`;
   return `<section class="panel workspace-pane results-pane-card"><div class="result-header compact-result-header"><div class="result-title-row"><h3>${escapeHtml(title)}</h3><p class="results-meta">${finalMeta}</p></div></div><div class="result-list">${renderResultList(records, context)}</div></section>`;
 }
+function yesNoButtons(key, value) {
+  const yesActive = value === "yes";
+  const noActive = value === "no";
+  return `<div class="tag-row"><button type="button" class="buttonish ${yesActive ? "active" : ""}" data-action="set-quick-filter" data-key="${escapeHtml(key)}" data-value="yes">Yes</button><button type="button" class="buttonish ${noActive ? "active" : ""}" data-action="set-quick-filter" data-key="${escapeHtml(key)}" data-value="no">No</button></div>`;
+}
+function suggestedBoleteGroups(filters) {
+  const groups = new Set();
+  if (filters.quickRoughStalk === "yes") groups.add("Leccinum / scaber stalks");
+  if (filters.quickStickyCap === "yes") groups.add("Suillus / slippery jacks");
+  if (filters.quickBlueStain === "yes" || filters.quickRedCapPores === "yes") groups.add("Red & staining boletes");
+  if (filters.quickPinkPoresBitter === "yes") groups.add("Tylopilus / bitter boletes");
+  if (filters.quickShaggyOddball === "yes") groups.add("Oddballs / shaggy boletes");
+  if (!groups.size && filters.quickBlueStain === "no" && filters.quickRedCapPores === "no" && filters.quickStickyCap === "no" && filters.quickRoughStalk === "no" && filters.quickPinkPoresBitter === "no") groups.add("Brown / king allies");
+  return [...groups];
+}
+function quickCheckPanel(filters) {
+  const suggestions = suggestedBoleteGroups(filters);
+  const currentLabel = filters.boleteGroup ? BOLETE_GROUP_LABELS[filters.boleteGroup] : "Any bolete type";
+  return `
+    <section class="panel home-hub">
+      <div class="result-header compact-result-header"><div class="result-title-row"><h3>Bolete quick check</h3><p class="results-meta">Answer a few yes / no questions to narrow the group</p></div></div>
+      <div class="tight-filter-grid">
+        <div class="compact-filter"><span>Blue stain when bruised or cut?</span>${yesNoButtons("quickBlueStain", filters.quickBlueStain)}</div>
+        <div class="compact-filter"><span>Red cap or red / orange pores?</span>${yesNoButtons("quickRedCapPores", filters.quickRedCapPores)}</div>
+        <div class="compact-filter"><span>Sticky / slimy cap?</span>${yesNoButtons("quickStickyCap", filters.quickStickyCap)}</div>
+        <div class="compact-filter"><span>Rough dotted stalk (scabers)?</span>${yesNoButtons("quickRoughStalk", filters.quickRoughStalk)}</div>
+        <div class="compact-filter"><span>Pinkish pores or bitter taste?</span>${yesNoButtons("quickPinkPoresBitter", filters.quickPinkPoresBitter)}</div>
+        <div class="compact-filter"><span>Shaggy / dark oddball?</span>${yesNoButtons("quickShaggyOddball", filters.quickShaggyOddball)}</div>
+      </div>
+      <div class="tag-row">
+        <span class="tag">Likely group: ${escapeHtml(currentLabel)}</span>
+        ${suggestions.map((group) => `<button class="buttonish ${filters.boleteGroup === group ? "active" : ""}" type="button" data-action="set-bolete-group" data-value="${escapeHtml(group)}">${escapeHtml(group)}</button>`).join("")}
+        ${!suggestions.length ? `<span class="tag">No likely group yet</span>` : ""}
+        <button class="buttonish" type="button" data-action="clear-bolete-quickcheck">Clear quick check</button>
+      </div>
+    </section>`;
+}
 function renderMushroomLandingPage(allRecords) {
   const month = currentMonthName();
   const inSeasonRecords = allRecords.filter((record) => isForagingMushroom(record) && (record.months_available || []).includes(month));
@@ -198,26 +172,10 @@ function renderMushroomLandingPage(allRecords) {
 }
 function renderBoleteGuide(currentRecords, filters, allRecords) {
   const inSeasonCount = allRecords.filter((record) => isForagingMushroom(record) && (record.underside || []).includes("Pores") && (record.months_available || []).includes(currentMonthName())).length;
-  const familyGuide = `
-    <section class="panel home-hub">
-      <div class="result-header compact-result-header"><div class="result-title-row"><h3>Choose a bolete family / type</h3><p class="results-meta">Start by what you see, not by already knowing the names</p></div></div>
-      <div class="mushroom-lane-grid">
-        ${BOLETE_FAMILIES.map((family) => `<button type="button" class="mushroom-lane-card ${filters.boleteGroup === family.key ? "active" : ""}" data-action="set-bolete-group" data-value="${escapeHtml(family.key)}"><strong>${escapeHtml(family.title)}</strong><span>${escapeHtml(family.text)}</span><span class="muted-line">${escapeHtml(family.examples)}</span></button>`).join("")}
-      </div>
-    </section>`;
-
-  const subgroupGuide = filters.boleteGroup ? `
-    <section class="panel home-hub">
-      <div class="result-header compact-result-header"><div class="result-title-row"><h3>${escapeHtml(filters.boleteGroup)}</h3><p class="results-meta">Choose the closer match below</p></div></div>
-      <div class="mushroom-lane-grid">
-        ${boleteSubgroupCards(filters.boleteGroup).map((subgroup) => `<button type="button" class="mushroom-lane-card ${filters.boleteSubgroup === subgroup.key ? "active" : ""}" data-action="set-bolete-subgroup" data-value="${escapeHtml(subgroup.key)}"><strong>${escapeHtml(subgroup.title)}</strong><span>${escapeHtml(subgroup.text)}</span></button>`).join("")}
-      </div>
-      <div class="tag-row"><button class="buttonish" type="button" data-action="clear-bolete-group">Choose a different bolete family / type</button></div>
-    </section>` : "";
-
   const filterPanel = `${filterBlock([
       seasonToggleFilter("boletes", inSeasonCount, filters.month),
       sortFilter(filters.sort),
+      selectFilter("Bolete group", "boleteGroup", Object.values(BOLETE_GROUP_LABELS), filters.boleteGroup, "Any bolete type"),
       selectFilter("Substrate", "substrate", vocabLabels(VOCAB.mushrooms.substrates), filters.substrate, "Any substrate"),
       selectFilter("Tree type", "treeType", vocabLabels(VOCAB.mushrooms.woodTypes), filters.treeType, "Any tree type"),
       selectFilter("Host tree", "hostTree", hostTreeLabels(filters.treeType), filters.hostTree, "Any host tree"),
@@ -225,12 +183,13 @@ function renderBoleteGuide(currentRecords, filters, allRecords) {
       selectFilter("Stem feature", "stemFeature", BOLETE_STEM_FEATURES, filters.stemFeature, "Any stem feature"),
       selectFilter("Cap surface", "texture", vocabLabels(VOCAB.mushrooms.textures), filters.texture, "Any cap surface"),
       selectFilter("Staining", "staining", vocabLabels(VOCAB.mushrooms.stainingColors), filters.staining, "Any staining"),
+      selectFilter("Ring", "ring", vocabLabels(VOCAB.mushrooms.ringStates), filters.ring, "Any ring"),
       selectFilter("Taste", "taste", vocabLabels(VOCAB.common.tastes), filters.taste, "Any taste"),
       selectFilter("Month", "month", MONTHS, filters.month, "Any month")
     ])}`;
 
-  const resultTitle = filters.boleteSubgroup ? filters.boleteSubgroup : (filters.boleteGroup || "Sponge-like mushrooms (boletes)");
-  return `${mushroomLaneNav("sponge")}${familyGuide}${subgroupGuide}${filterPanel}${resultSection(resultTitle, currentRecords, "mushrooms", filters)}`;
+  const resultTitle = filters.boleteGroup || "Sponge-like mushrooms (boletes)";
+  return `${mushroomLaneNav("sponge")}${quickCheckPanel(filters)}${filterPanel}${resultSection(resultTitle, currentRecords, "mushrooms", filters)}`;
 }
 function renderCreditsPage(allRecords, overridePayload) {
   const creditsBySlug = overridePayload?.creditsPayload?.credits || {};

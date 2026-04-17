@@ -1,10 +1,10 @@
-import { APP_VERSION, MONTHS } from "./constants-mainfix.js?v=2026-04-16-11";
+import { APP_VERSION, MONTHS } from "./constants-mainfix.js?v=2026-04-16-12";
 import { loadLocalData, loadSupabaseData, loadOverridePayload } from "./api-mainfix4.js?v=v3.2.0";
 import { loadLocalDataWithMaster } from "./api-masterlist.js?v=v3.1.3";
 import { sortRecords, normalizeRecord, isPlant, isForagingMushroom, medicinalRecords, reviewRecords, avoidRecords } from "./data-model-mainfix4.js?v=v3.2.0";
 import { state } from "./state.js";
 import { parseRoute } from "./router.js";
-import { renderDashboard } from "./pages-mainfix4.js?v=2026-04-16-11";
+import { renderDashboard } from "./pages-mainfix4.js?v=2026-04-16-12";
 import { updateHeaderStats, renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui-mainfix.js?v=2026-04-16-9";
 import { loadRareSpecies, loadRareSightings, wireRarePage } from "./rare-watch.js";
 
@@ -21,7 +21,7 @@ const COMMONNESS_ORDER = {
   "rare": 1, "very rare": 1, "sparse": 1, "isolated": 1
 };
 const FOOD_QUALITY_ORDER = { "choice": 5, "excellent": 5, "very good": 4, "good": 3, "fair": 2, "poor": 1, "not worth foraging": 0 };
-const emptyFilter = (page = '') => ({ search:'', month: page==='home' ? CURRENT_MONTH : '', habitat:'', part:'', size:'', taste:'', substrate:'', treeType:'', hostTree:'', ring:'', texture:'', smell:'', staining:'', boleteGroup:'', boleteSubgroup:'', poreColor:'', stemFeature:'', medicinalAction:'', medicinalSystem:'', medicinalTerm:'', reviewReason:'', severity:'', flowerColor:'', leafShape:'', leafArrangement:'', stemSurface:'', leafPointCount:'', sort:'' });
+const emptyFilter = (page = '') => ({ search:'', month: page==='home' ? CURRENT_MONTH : '', habitat:'', part:'', size:'', taste:'', substrate:'', treeType:'', hostTree:'', ring:'', texture:'', smell:'', staining:'', boleteGroup:'', boleteSubgroup:'', poreColor:'', stemFeature:'', quickBlueStain:'', quickRedCapPores:'', quickStickyCap:'', quickRoughStalk:'', quickPinkPoresBitter:'', quickShaggyOddball:'', medicinalAction:'', medicinalSystem:'', medicinalTerm:'', reviewReason:'', severity:'', flowerColor:'', leafShape:'', leafArrangement:'', stemSurface:'', leafPointCount:'', sort:'' });
 const filterState = { home:emptyFilter('home'), search:emptyFilter(), plants:emptyFilter(), mushrooms:emptyFilter(), "mushrooms-gilled":emptyFilter(), boletes:emptyFilter(), "mushrooms-other":emptyFilter(), medicinal:emptyFilter(), rare:emptyFilter(), lookalikes:emptyFilter(), timeline:emptyFilter(), review:emptyFilter(), credits:emptyFilter(), references:emptyFilter() };
 let selectedTimelineMonth = CURRENT_MONTH;
 let overridePayload = { overrides:{}, metadata:{}, references:[], creditsPayload:{credits:{}} };
@@ -145,6 +145,21 @@ function mushroomLane(record){
   if (poreLike && (boleteNamed || !woody)) return 'sponge';
   return 'other';
 }
+function applyQuickBoleteGroup() {
+  const f = filterState.boletes;
+  const suggestions = new Set();
+  if (f.quickRoughStalk === 'yes') suggestions.add('Leccinum / scaber stalks');
+  if (f.quickStickyCap === 'yes') suggestions.add('Suillus / slippery jacks');
+  if (f.quickBlueStain === 'yes' || f.quickRedCapPores === 'yes') suggestions.add('Red & staining boletes');
+  if (f.quickPinkPoresBitter === 'yes') suggestions.add('Tylopilus / bitter boletes');
+  if (f.quickShaggyOddball === 'yes') suggestions.add('Oddballs / shaggy boletes');
+  if (!suggestions.size && f.quickBlueStain === 'no' && f.quickRedCapPores === 'no' && f.quickStickyCap === 'no' && f.quickRoughStalk === 'no' && f.quickPinkPoresBitter === 'no') suggestions.add('Brown / king allies');
+  if (suggestions.size === 1) {
+    f.boleteGroup = [...suggestions][0];
+  } else if (f.boleteGroup && !suggestions.has(f.boleteGroup)) {
+    f.boleteGroup = '';
+  }
+}
 function filteredForPage(page){
   let records;
   if(page==='home'||page==='credits'||page==='references'||page==='rare') records = state.allRecords.filter((record)=>queryMatches(record, filterState[page]||emptyFilter(page)));
@@ -178,22 +193,30 @@ function bindCustomActions(){
     btn.addEventListener('click', (event) => {
       event.preventDefault();
       filterState.boletes.boleteGroup = btn.dataset.value || '';
-      filterState.boletes.boleteSubgroup = '';
       renderCurrentRoute();
     });
   });
-  document.querySelectorAll('[data-action="set-bolete-subgroup"]').forEach((btn) => {
+  document.querySelectorAll('[data-action="set-quick-filter"]').forEach((btn) => {
     btn.addEventListener('click', (event) => {
       event.preventDefault();
-      filterState.boletes.boleteSubgroup = btn.dataset.value || '';
+      const key = btn.dataset.key || '';
+      const value = btn.dataset.value || '';
+      if (!key) return;
+      filterState.boletes[key] = filterState.boletes[key] === value ? '' : value;
+      applyQuickBoleteGroup();
       renderCurrentRoute();
     });
   });
-  document.querySelectorAll('[data-action="clear-bolete-group"]').forEach((btn) => {
+  document.querySelectorAll('[data-action="clear-bolete-quickcheck"]').forEach((btn) => {
     btn.addEventListener('click', (event) => {
       event.preventDefault();
+      filterState.boletes.quickBlueStain = '';
+      filterState.boletes.quickRedCapPores = '';
+      filterState.boletes.quickStickyCap = '';
+      filterState.boletes.quickRoughStalk = '';
+      filterState.boletes.quickPinkPoresBitter = '';
+      filterState.boletes.quickShaggyOddball = '';
       filterState.boletes.boleteGroup = '';
-      filterState.boletes.boleteSubgroup = '';
       renderCurrentRoute();
     });
   });
