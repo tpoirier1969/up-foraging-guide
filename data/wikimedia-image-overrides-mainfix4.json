@@ -1,11 +1,12 @@
 {
   "metadata": {
-    "version": "v2.1-mainfix27",
-    "source": "Wikimedia Commons / repo image overrides pruned for accuracy + bolete broken-link fixes",
+    "version": "v2.1-mainfix28",
+    "source": "Wikimedia Commons / repo image overrides pruned for accuracy",
     "notes": [
-      "Conservative accuracy pass kept intact.",
-      "Explicit file-path overrides added for the bolete / related mushrooms the user reported as having broken image links and no thumbnails.",
-      "Included a few alternate slug variants (e.g. Frost's/Frosts, orange birch, red-crakcing typo) to catch probable naming mismatches."
+      "Any mushroom overrides not clearly matching the target species were removed.",
+      "This is a conservative pass favoring correctness over coverage.",
+      "More generic or potentially mismatched images (for example broad 'oyster' or 'morel' matches, or uncertain North American / European species substitutions) were stripped.",
+      "Added Old Man of the Woods image override and left conservative accuracy filtering in place."
     ]
   },
   "overrides": {
@@ -206,7 +207,7 @@
     },
     "old-man-of-the-woods": {
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%201.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus.jpg"
       ]
     },
     "split-gill": {
@@ -272,101 +273,6 @@
     "inky-cap": {
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinopsis%20atramentaria%2035949.jpg"
-      ]
-    },
-    "admirable-bolete": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20mirabilis%20133294.jpg"
-      ]
-    },
-    "aspen-bolete": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20aurantiacum%2014142571.jpg"
-      ]
-    },
-    "birch-bolete": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20scabrum%20jpg"
-      ]
-    },
-    "brown-and-white-bolete": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20265582.jpg"
-      ]
-    },
-    "chicken-fat-mushroom": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20americanus%20Maine.jpg"
-      ]
-    },
-    "frost-s-bolete": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Exsudoporus%20frostii%20%28formerly%20Boletus%20frostii%29.jpg"
-      ]
-    },
-    "frosts-bolete": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Exsudoporus%20frostii%20%28formerly%20Boletus%20frostii%29.jpg"
-      ]
-    },
-    "larch-bolete": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20grevillei%2017932321.jpg"
-      ]
-    },
-    "orange-birch-bolete": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20versipelle%20313.jpg"
-      ]
-    },
-    "orange-birch": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20versipelle%20313.jpg"
-      ]
-    },
-    "orange-oak-bolete": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinellum%20crocipodium%20LdM.jpg"
-      ]
-    },
-    "orange-oak": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinellum%20crocipodium%20LdM.jpg"
-      ]
-    },
-    "painted-suillus": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20spraguei%20%2816153953394%29.jpg"
-      ]
-    },
-    "red-cracking-bolete": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Xerocomellus%20chrysenteron%20G3.jpg"
-      ]
-    },
-    "red-crakcing-bolete": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Xerocomellus%20chrysenteron%20G3.jpg"
-      ]
-    },
-    "shaggy-stalked-bolete": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Heimioporus%20betula%20%2817932435%29.jpg"
-      ]
-    },
-    "shaggy-stalked": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Heimioporus%20betula%20%2817932435%29.jpg"
-      ]
-    },
-    "short-stemmed-slippery-jack": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%20%283996429599%29.jpg"
-      ]
-    },
-    "white-suillus": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20placidus%2073323.jpg"
       ]
     }
   }
