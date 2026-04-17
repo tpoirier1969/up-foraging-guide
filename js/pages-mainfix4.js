@@ -1,7 +1,7 @@
-import { MONTHS } from "./constants-mainfix.js?v=2026-04-17-34";
-import { medicinalRecords, isPlant, reviewRecords, avoidRecords, isForagingMushroom } from "./data-model-mainfix4.js?v=2026-04-17-34";
+import { MONTHS } from "./constants-mainfix.js?v=2026-04-17-37";
+import { medicinalRecords, isPlant, reviewRecords, avoidRecords, isForagingMushroom } from "./data-model-mainfix4.js?v=2026-04-17-37";
 import { VOCAB } from "./vocabulary.js?v=v2.0";
-import { renderResultCard } from "./renderers/cards-mainfix.js?v=2026-04-17-34";
+import { renderResultCard } from "./renderers/cards-mainfix.js?v=2026-04-17-37";
 import { renderInteractiveTimeline } from "./renderers/timeline.js?v=v3.2.0";
 import { escapeHtml } from "./utils.js?v=v3.2.0";
 import { state } from "./state.js";
@@ -80,7 +80,7 @@ function isEdibleMushroomRecord(record) {
   const culinary = String(record?.culinary_uses || "").trim();
   const edibleStatus = String(record?.mushroom_profile?.edibility_status || "").trim().toLowerCase();
   if (culinary) return true;
-  return ["choice", "excellent", "very good", "good", "edible", "edible_with_caution", "edible_mediocre"].includes(edibleStatus);
+  return ["choice", "excellent", "very good", "good", "edible", "edible_with_caution", "edible_mediocre", "edible_when_young", "edible_when_white_inside", "choice_cooked_only"].includes(edibleStatus);
 }
 function homeHub(allRecords) {
   const month = currentMonthName();
@@ -97,6 +97,11 @@ function homeHub(allRecords) {
   return `
     <section class="panel home-hub in-focus-feature">
       <div class="result-header compact-result-header"><div class="result-title-row"><h3>In Focus Right Now</h3><p class="results-meta">${escapeHtml(month)}</p></div></div>
+      <section class="detail-card section-block safety-callout warning">
+        <h3>Use this guide carefully</h3>
+        <p>This guide was put together by an amateur forager, not a scientist. All mushrooms must be correctly identified before eating.</p>
+        <p>I built it for myself as a reminder tool. I know just enough to be dangerous, and I do not use this knowledge often enough to keep every detail committed to memory.</p>
+      </section>
       <div class="in-focus-layout">
         <div class="in-focus-stats">
           <div class="in-focus-stat-card"><strong>${safeInSeasonPlants.length}</strong><span>plants in season</span></div>
@@ -160,16 +165,6 @@ function yesNoButtons(key, value) {
   const yesActive = value === "yes";
   const noActive = value === "no";
   return `<div class="tag-row"><button type="button" class="buttonish ${yesActive ? "active" : ""}" data-action="set-quick-filter" data-key="${escapeHtml(key)}" data-value="yes">Yes</button><button type="button" class="buttonish ${noActive ? "active" : ""}" data-action="set-quick-filter" data-key="${escapeHtml(key)}" data-value="no">No</button></div>`;
-}
-function suggestedBoleteGroups(filters) {
-  const groups = new Set();
-  if (filters.quickRoughStalk === "yes") groups.add("Leccinum / scaber stalks");
-  if (filters.quickStickyCap === "yes") groups.add("Suillus / slippery jacks");
-  if (filters.quickBlueStain === "yes" || filters.quickRedCapPores === "yes") groups.add("Red & staining boletes");
-  if (filters.quickPinkPoresBitter === "yes") groups.add("Tylopilus / bitter boletes");
-  if (filters.quickShaggyOddball === "yes") groups.add("Oddballs / shaggy boletes");
-  if (!groups.size && filters.quickBlueStain === "no" && filters.quickRedCapPores === "no" && filters.quickStickyCap === "no" && filters.quickRoughStalk === "no" && filters.quickPinkPoresBitter === "no") groups.add("Brown / king allies");
-  return [...groups];
 }
 function quickCheckInlineFilters(filters) {
   return [
