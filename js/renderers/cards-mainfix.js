@@ -1,4 +1,4 @@
-import { MONTH_SHORT, MONTHS } from "../constants-mainfix.js?v=2026-04-17-33";
+import { MONTH_SHORT, MONTHS } from "../constants-mainfix.js?v=2026-04-17-35";
 import { escapeHtml } from "../utils.js?v=v3.2.0";
 
 function seasonStrip(record) {

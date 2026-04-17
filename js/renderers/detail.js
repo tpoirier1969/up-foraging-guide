@@ -1,4 +1,4 @@
-import { TABLE_NAME } from "../constants-mainfix.js?v=2026-04-17-33";
+import { TABLE_NAME } from "../constants-mainfix.js?v=2026-04-17-35";
 import { escapeHtml } from "../utils.js?v=v2.0";
 import { state } from "../state.js?v=v2.1-mainfix21";
 

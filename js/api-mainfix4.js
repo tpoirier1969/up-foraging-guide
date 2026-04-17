@@ -1,4 +1,4 @@
-import { APP_VERSION, TABLE_NAME } from "./constants-mainfix.js?v=2026-04-17-33";
+import { APP_VERSION, TABLE_NAME } from "./constants-mainfix.js?v=2026-04-17-35";
 
 async function loadJson(path) {
   const response = await fetch(path, { cache: "no-store" });
@@ -63,7 +63,7 @@ async function loadSpeciesAdditions() {
   catch { return { metadata: { version: 'none', source: 'none' }, records: [] }; }
 }
 async function loadSpeciesAuditFixes() {
-  try { return await loadJson('data/species-audit-mainfix33.json'); }
+  try { return await loadJson('data/species-audit-mainfix35.json'); }
   catch { return { metadata: { version: 'none', source: 'none' }, records: [] }; }
 }
 async function loadReferences() {
