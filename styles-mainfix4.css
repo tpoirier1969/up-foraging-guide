@@ -2,6 +2,56 @@
 .main-nav{display:flex;flex-direction:column;align-items:flex-end;gap:10px}
 .main-nav-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end;width:100%}
 .main-nav-row a{flex:0 0 auto}
+
+.mushroom-lane-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px}
+.mushroom-lane-card{
+  display:flex;
+  flex-direction:column;
+  gap:6px;
+  padding:14px 16px;
+  border:1px solid rgba(47,93,70,.22);
+  border-radius:14px;
+  text-decoration:none;
+  color:inherit;
+  background:linear-gradient(180deg,rgba(255,255,255,.98),rgba(240,247,242,.92));
+  box-shadow:0 1px 3px rgba(0,0,0,.06);
+  min-height:108px;
+  justify-content:center;
+}
+button.mushroom-lane-card{
+  appearance:none;
+  -webkit-appearance:none;
+  font:inherit;
+  text-align:left;
+  cursor:pointer;
+}
+.mushroom-lane-card strong{font-size:1.02rem;line-height:1.1}
+.mushroom-lane-card span{font-size:.9rem;line-height:1.25;opacity:.92}
+.mushroom-lane-card:hover,
+.mushroom-lane-card:focus-visible{
+  border-color:#2f5d46;
+  box-shadow:0 0 0 3px rgba(47,93,70,.12);
+  outline:none;
+  transform:translateY(-1px);
+}
+.mushroom-lane-card.active{
+  border-color:#2f5d46;
+  background:#2f5d46;
+  color:#fff;
+  box-shadow:0 0 0 2px rgba(47,93,70,.18);
+}
+.mushroom-lane-card.active span{opacity:1;color:#fff}
+
+.buttonish.active,
+.compact-quick-filter.active{
+  background:#2f5d46 !important;
+  color:#fff !important;
+  border-color:#2f5d46 !important;
+}
+.tag-row .buttonish.active{
+  box-shadow:0 0 0 2px rgba(47,93,70,.18);
+}
+
 .in-focus-feature .in-focus-layout{display:grid;grid-template-columns:minmax(220px,320px) minmax(0,1fr);gap:18px;align-items:start}
 .in-focus-feature .in-focus-stats{display:grid;grid-template-columns:1fr;gap:14px}
 .in-focus-feature .in-focus-stat-card{padding:14px 16px;border:1px solid rgba(0,0,0,.10);border-radius:12px;background:rgba(255,255,255,.72)}
@@ -12,10 +62,12 @@
 .in-focus-feature .in-focus-card img{width:140px;height:100px;object-fit:cover;border-radius:10px;border:1px solid rgba(0,0,0,.10)}
 .in-focus-feature .in-focus-caption-top{font-size:.88rem;line-height:1.1}
 .in-focus-feature .in-focus-caption-top strong{display:block}
+
 @media (max-width:900px){
   .main-nav{align-items:stretch}
   .main-nav-row{justify-content:flex-start}
 }
 @media (max-width:760px){
   .in-focus-feature .in-focus-layout{grid-template-columns:1fr}
+  .mushroom-lane-grid{grid-template-columns:1fr}
 }
