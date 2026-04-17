@@ -54,10 +54,21 @@ function uniqueImages(images) {
   }
   return out;
 }
+function resolvedImageUrl(url, width = 400) {
+  const raw = String(url || '').trim();
+  if (!raw) return '';
+  const decoded = decodeURIComponent(raw);
+  const specialFile = decoded.match(/https?:\/\/commons\.wikimedia\.org\/wiki\/Special:FilePath\/(.+)$/i);
+  if (specialFile?.[1]) {
+    return `https://commons.wikimedia.org/wiki/Special:Redirect/file/${encodeURIComponent(specialFile[1])}?width=${width}`;
+  }
+  return raw;
+}
 export function renderResultCard(record, context = "general") {
   const firstImage = uniqueImages(record.images || [])[0];
-  const imageHtml = firstImage
-    ? `<a class="thumb thumb-link" href="#detail/${encodeURIComponent(record.slug)}" data-detail-link="${escapeHtml(record.slug)}" aria-label="Open ${escapeHtml(record.display_name)} details"><div class="thumb" style="background-image:url('${encodeURI(firstImage)}')"></div></a>`
+  const thumbSrc = firstImage ? resolvedImageUrl(firstImage, 320) : '';
+  const imageHtml = thumbSrc
+    ? `<a class="thumb thumb-link" href="#detail/${encodeURIComponent(record.slug)}" data-detail-link="${escapeHtml(record.slug)}" aria-label="Open ${escapeHtml(record.display_name)} details"><div class="thumb" style="background-image:url('${encodeURI(thumbSrc)}')"></div></a>`
     : `<a class="thumb thumb-link" href="#detail/${encodeURIComponent(record.slug)}" data-detail-link="${escapeHtml(record.slug)}" aria-label="Open ${escapeHtml(record.display_name)} details"><div class="thumb placeholder">No image</div></a>`;
   const tags = [];
   if (context === "mushrooms") { if (record.substrate?.[0]) tags.push(record.substrate[0]); if (record.treeType?.[0]) tags.push(record.treeType[0]); if (record.hostTree?.[0]) tags.push(record.hostTree[0]); if (record.underside?.[0]) tags.push(record.underside[0]); }
