@@ -61,6 +61,7 @@ function findLinkedRecord(name) {
     if (needle.includes('galerina') && candidates.some((value) => value.includes('galerina'))) return true;
     if (needle.includes('jack o lantern') && candidates.some((value) => value.includes('jack o lantern'))) return true;
     if (needle.includes('destroying angel') && candidates.some((value) => value.includes('destroying angel'))) return true;
+    if (needle.includes('green spored parasol') && candidates.some((value) => value.includes('green spored parasol'))) return true;
     return false;
   }) || null;
 }
@@ -73,8 +74,8 @@ function prettyEdibilityStatus(status) {
     edible_mediocre: 'Edible, but not especially worthwhile',
     edible_when_young: 'Edible only when young',
     edible_when_white_inside: 'Edible only while the interior is still solid white',
-    choice_cooked_only: 'Choice edible, but only with exact identification and proper handling',
-    edible_with_caution: 'Not recommended for beginners; misidentification or personal reactions are real concerns',
+    choice_cooked_only: 'Not for beginners; exact identification matters and mistakes have consequences',
+    edible_with_caution: 'Not recommended for beginners; misidentification or individual reactions are real concerns',
     review_required: 'Do not treat this as an edible target without deeper verification',
     inedible_bitter: 'Inedible because of bitterness or very poor food quality',
     poisonous: 'Poisonous',
@@ -85,6 +86,30 @@ function prettyEdibilityStatus(status) {
     nonculinary_tea: 'Tea / extract use only'
   };
   return map[key] || String(status || '').replaceAll('_', ' ');
+}
+function stripCookingBoilerplate(value) {
+  return String(value || '')
+    .replace(/\bCook thoroughly\.?/gi, '')
+    .replace(/\bProper cooking matters\.?/gi, '')
+    .replace(/\bnot edible raw\.?/gi, '')
+    .replace(/\bmust be cooked\.?/gi, '')
+    .replace(/\bafter thorough cooking\b/gi, '')
+    .replace(/\bwith proper handling\b/gi, '')
+    .replace(/\s{2,}/g, ' ')
+    .replace(/\s+\./g, '.')
+    .trim();
+}
+function normalizeMushroomCulinaryText(record) {
+  const status = String(record?.mushroom_profile?.edibility_status || '').toLowerCase();
+  const original = stripCookingBoilerplate(record.culinary_uses || '');
+  if (status === 'edible_with_caution') {
+    if (/not recommended for foraging|not a good beginner/i.test(original)) return original;
+    return original ? `${original} This is not a beginner mushroom.` : 'This is not a beginner mushroom.';
+  }
+  if (status === 'choice_cooked_only') {
+    return original ? `${original} Exact identification matters; do not treat this as an easy edible.` : 'Exact identification matters; do not treat this as an easy edible.';
+  }
+  return original;
 }
 function renderImageCredits(record) {
   const credits = state.credits?.[record.slug] || [];
@@ -142,7 +167,7 @@ function mergedIdentificationTips(record) {
 }
 function combinedNotes(record) {
   const parts = [];
-  if (record.notes) parts.push(record.notes);
+  if (record.notes) parts.push(stripCookingBoilerplate(record.notes));
   if (record.habitat_detail) parts.push(record.habitat_detail);
   if (record.commonness) parts.push(`Commonness: ${record.commonness}${record.commonness_basis ? ` — ${record.commonness_basis}` : ''}.`);
   if (record.other_uses) parts.push(`Other uses: ${record.other_uses}`);
@@ -167,10 +192,10 @@ function renderMushroomOverview(record) {
   const profile = record.mushroom_profile || {};
   const caution = String(profile.caution_level || '').replaceAll('_', ' ');
   const edibility = prettyEdibilityStatus(profile.edibility_status || '');
-  return `<section class="detail-card section-block"><h3>Mushroom</h3>${line('Scientific name', record.scientific_name || '')}${line('Family grouping', record.mushroom_family || '')}${line('Entry scope', String(profile.entry_scope || '').replaceAll('_', ' '))}${line('Edibility', edibility)}${line('Caution level', caution)}${line('Ecology', profile.ecology || '')}${line('Summary', profile.summary || '')}${line('Spore print', profile.spore_print || '')}${line('Season note', profile.season_note || '')}${(record.non_edible_severity || record.effects_on_body) ? `${line('Severity', record.non_edible_severity || '')}${line('Affected systems', (record.affected_systems || []).join(', '))}${line('Effects', record.effects_on_body || '')}` : ''}</section>`;
+  return `<section class="detail-card section-block"><h3>Mushroom</h3>${line('Scientific name', record.scientific_name || '')}${line('Family grouping', record.mushroom_family || '')}${line('Entry scope', String(profile.entry_scope || '').replaceAll('_', ' '))}${line('Edibility', edibility)}${line('Caution level', caution)}${line('Ecology', profile.ecology || '')}${line('Summary', profile.summary || '')}${line('Spore print', profile.spore_print || '')}${line('Season note', stripCookingBoilerplate(profile.season_note || ''))}${(record.non_edible_severity || record.effects_on_body) ? `${line('Severity', record.non_edible_severity || '')}${line('Affected systems', (record.affected_systems || []).join(', '))}${line('Effects', record.effects_on_body || '')}` : ''}</section>`;
 }
 function renderGeneralDetail(record, header, gallery, genericLinks) {
-  return `<div class="detail-layout"><div class="detail-gallery">${gallery}${renderImageCredits(record)}</div><div class="detail-grid">${header}${paragraphSection('Culinary uses', record.culinary_uses, 'Not provided in the imported sheet.')}${paragraphSection('Medicinal uses', mergedMedicinalText(record), 'Not provided in the imported sheet.')}${tagSection('Identification tips', uniqueStrings([...(record.habitat || []), ...(record.observedPart || []), ...(record.size || []), ...(record.taste || [])]), 'No identification tips tagged yet')}${paragraphSection('Notes', combinedNotes(record), 'No extra notes imported.')}${tagSection('Seasonality', record.months_available, 'No month data')}${renderLookAlikes(record)}${genericLinks}<p class="small-note">Supabase table target: <strong>${TABLE_NAME}</strong></p></div></div>`;
+  return `<div class="detail-layout"><div class="detail-gallery">${gallery}${renderImageCredits(record)}</div><div class="detail-grid">${header}${paragraphSection('Culinary uses', stripCookingBoilerplate(record.culinary_uses), 'Not provided in the imported sheet.')}${paragraphSection('Medicinal uses', mergedMedicinalText(record), 'Not provided in the imported sheet.')}${tagSection('Identification tips', uniqueStrings([...(record.habitat || []), ...(record.observedPart || []), ...(record.size || []), ...(record.taste || [])]), 'No identification tips tagged yet')}${paragraphSection('Notes', combinedNotes(record), 'No extra notes imported.')}${tagSection('Seasonality', record.months_available, 'No month data')}${renderLookAlikes(record)}${genericLinks}<p class="small-note">Supabase table target: <strong>${TABLE_NAME}</strong></p></div></div>`;
 }
 export function renderDetail(record) {
   const images = uniqueImages(record.images || []);
@@ -180,5 +205,5 @@ export function renderDetail(record) {
 
   if (record.category !== 'Mushroom') return renderGeneralDetail(record, header, gallery, genericLinks);
 
-  return `<div class="detail-layout"><div class="detail-gallery">${gallery}${renderImageCredits(record)}</div><div class="detail-grid">${header}${renderSafetyWarning(record)}${renderMushroomOverview(record)}${paragraphSection('Culinary uses', record.culinary_uses, 'Not provided in the imported sheet.')}${paragraphSection('Medicinal uses', mergedMedicinalText(record), 'Not provided in the imported sheet.')}${tagSection('Identification tips', mergedIdentificationTips(record), 'No identification tips tagged yet')}${paragraphSection('Notes', combinedNotes(record), 'No extra notes imported.')}${tagSection('Seasonality', record.months_available, 'No month data')}${renderLookAlikes(record)}${renderRelatedMushrooms(record)}${genericLinks}<p class="small-note">Supabase table target: <strong>${TABLE_NAME}</strong></p></div></div>`;
+  return `<div class="detail-layout"><div class="detail-gallery">${gallery}${renderImageCredits(record)}</div><div class="detail-grid">${header}${renderSafetyWarning(record)}${renderMushroomOverview(record)}${paragraphSection('Culinary uses', normalizeMushroomCulinaryText(record), 'Not provided in the imported sheet.')}${paragraphSection('Medicinal uses', mergedMedicinalText(record), 'Not provided in the imported sheet.')}${tagSection('Identification tips', mergedIdentificationTips(record), 'No identification tips tagged yet')}${paragraphSection('Notes', combinedNotes(record), 'No extra notes imported.')}${tagSection('Seasonality', record.months_available, 'No month data')}${renderLookAlikes(record)}${renderRelatedMushrooms(record)}${genericLinks}<p class="small-note">Supabase table target: <strong>${TABLE_NAME}</strong></p></div></div>`;
 }
