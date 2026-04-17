@@ -6,21 +6,24 @@ function seasonStrip(record) {
   return MONTHS.map((month, index) => `<span class="month ${active.has(month) ? "on" : ""}">${MONTH_SHORT[index]}</span>`).join("");
 }
 function statusPill(label, type) { return `<span class="status-pill ${escapeHtml(type)}">${escapeHtml(label)}</span>`; }
-function normalizeEdibleStatus(value) {
-  return String(value || "").trim().toLowerCase().replace(/\s+/g, "_");
+function normalizeToken(value) {
+  return String(value || "").trim().toLowerCase().replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
 }
 function badgesForRecord(record) {
   const badges = [];
-  const edibleStatuses = new Set(["choice","excellent","very_good","good","edible","edible_with_caution","edible_mediocre"]);
+  const edibleStatuses = new Set(["choice","choice_cooked_only","edible","edible_with_caution","edible_when_young","edible_when_white_inside","edible_mediocre","choice_with_precision","good","edible_young_only"]);
+  const poisonousStatuses = new Set(["poisonous","deadly_poisonous","toxic_or_psychoactive","toxic_or_dangerous"]);
+  const poisonousSeverities = new Set(["poisonous","deadly","potentially_deadly","toxic"]);
   const edible = record.category === "Mushroom"
-    ? edibleStatuses.has(normalizeEdibleStatus(record.mushroom_profile?.edibility_status))
+    ? edibleStatuses.has(normalizeToken(record.mushroom_profile?.edibility_status))
     : !!String(record.culinary_uses || "").trim();
-  const medicinal = !!String(record.medicinal_uses || '').trim();
-  const poisonous = /(deadly|poison|toxic)/i.test(String(record.non_edible_severity || '')) || /(poison|toxic|deadly)/i.test(String(record.effects_on_body || ''));
-  if (edible) badges.push(statusPill('Edible', 'edible'));
-  if (medicinal) badges.push(statusPill('Medicinal', 'medicinal'));
-  if (poisonous) badges.push(statusPill('Poisonous', 'poisonous'));
-  return badges.join(' ');
+  const medicinal = !!String(record.medicinal_uses || "").trim();
+  const poisonous = poisonousStatuses.has(normalizeToken(record.mushroom_profile?.edibility_status))
+    || poisonousSeverities.has(normalizeToken(record.non_edible_severity));
+  if (edible) badges.push(statusPill("Edible", "edible"));
+  if (medicinal) badges.push(statusPill("Medicinal", "medicinal"));
+  if (poisonous) badges.push(statusPill("Poisonous", "poisonous"));
+  return badges.join(" ");
 }
 function mushroomSummary(record) {
   const profile = record.mushroom_profile || {};

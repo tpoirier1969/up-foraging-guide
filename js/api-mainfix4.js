@@ -1,4 +1,4 @@
-import { APP_VERSION, TABLE_NAME } from "./constants-mainfix.js?v=v2.1-mainfix23";
+import { APP_VERSION, TABLE_NAME } from "./constants-mainfix.js?v=2026-04-16-35";
 
 async function loadJson(path) {
   const response = await fetch(path, { cache: "no-store" });
@@ -71,6 +71,13 @@ async function loadSpeciesAdditions() {
     return { metadata: { version: 'none', source: 'none' }, records: [] };
   }
 }
+async function loadSpeciesAuditFixes() {
+  try {
+    return await loadJson('data/species-audit-mainfix29.json');
+  } catch {
+    return { metadata: { version: 'none', source: 'none' }, records: [] };
+  }
+}
 async function loadReferences() {
   try {
     return await loadJson('data/references-mainfix15.json');
@@ -97,16 +104,17 @@ function applyOverrides(payload, overridePayload) {
   };
 }
 export async function loadLocalData() {
-  const [response, additionsPayload, overridePayload, creditsPayload, references] = await Promise.all([
+  const [response, additionsPayload, auditPayload, overridePayload, creditsPayload, references] = await Promise.all([
     fetch('data/species.json', { cache: 'no-store' }),
     loadSpeciesAdditions(),
+    loadSpeciesAuditFixes(),
     loadOverrides(),
     loadCredits(),
     loadReferences()
   ]);
   if (!response.ok) throw new Error(`Local JSON load failed: ${response.status}`);
   const payload = await response.json();
-  const merged = mergeSpeciesPayloads(payload, additionsPayload);
+  const merged = mergeSpeciesPayloads(mergeSpeciesPayloads(payload, additionsPayload), auditPayload);
   const applied = applyOverrides(merged, overridePayload);
   return { ...applied, creditsPayload, references };
 }
@@ -144,7 +152,7 @@ export async function loadSupabaseData() {
     metadata: {
       project: 'Upper Michigan Foraging Guide',
       version: APP_VERSION,
-      source: 'Supabase + local reference merge + local species additions + Wikimedia override layer'
+      source: 'Supabase + local reference merge + local species additions + audit fixes + Wikimedia override layer'
     },
     records: [...supabaseRecords, ...localOnlyRecords]
   };

@@ -1,0 +1,43 @@
+{
+  "metadata": {
+    "version": "v1.0-mainfix29",
+    "source": "Mushroom contradiction audit cleanup",
+    "notes": [
+      "First audit pass focused on mushroom records carrying contradictory edible/poisonous signals in shipped data.",
+      "Clears misuse of non_edible_severity where positive edibility labels had been stored in a danger field.",
+      "Leaves true poisoning / danger records intact."
+    ]
+  },
+  "records": [
+    {
+      "slug": "honey-mushrooms",
+      "non_edible_severity": "",
+      "edibility_detail": "Edible with caution after thorough cooking, but some people still react badly. Old, waterlogged, or undercooked mushrooms raise the risk."
+    },
+    {
+      "slug": "dryad-saddle-pheasant-back",
+      "non_edible_severity": "",
+      "edibility_detail": "Edible young only. Use only tender margins; mature brackets become tough and fibrous."
+    },
+    {
+      "slug": "lobster-mushroom",
+      "non_edible_severity": "",
+      "edibility_detail": "Choice only when the classic firm white-orange aborted form is fresh, solid, and correctly identified."
+    },
+    {
+      "slug": "old-man-of-the-woods",
+      "non_edible_severity": "",
+      "edibility_detail": "Edible, but quality drops fast with age. Best when young, firm, and not bug-ridden."
+    },
+    {
+      "slug": "bears-head-tooth",
+      "non_edible_severity": "",
+      "edibility_detail": "Choice edible when fresh and white. Overripe specimens yellow, soften, and lose quality."
+    },
+    {
+      "slug": "coral-tooth-fungus",
+      "non_edible_severity": "",
+      "edibility_detail": "Choice edible when still white and tender."
+    }
+  ]
+}
