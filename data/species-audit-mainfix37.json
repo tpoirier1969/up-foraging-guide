@@ -1,0 +1,132 @@
+{
+  "metadata": {
+    "version": "v3.2.37",
+    "source": "Follow-up audit patch for mushroom safety wording, missing poisonous look-alike entries, and detail-page cleanup support",
+    "notes": [
+      "Adds missing poisonous look-alike entries that edible mushrooms refer to.",
+      "Strengthens caution wording for beginner-risk mushrooms.",
+      "Promotes real look-alike links for chanterelle, parasol, meadow mushroom, and velvet foot style entries."
+    ]
+  },
+  "records": [
+    {
+      "slug": "galerina",
+      "display_name": "Galerina",
+      "common_name": "Deadly galerina / funeral bell",
+      "scientific_name": "Galerina marginata",
+      "category": "Mushroom",
+      "mushroom_family": "Brown gilled wood fungi",
+      "mushroom_profile": {
+        "entry_scope": "species_group",
+        "edibility_status": "deadly_poisonous",
+        "caution_level": "high",
+        "substrate": ["Wood", "Dead wood", "Log", "Stump"],
+        "wood_type": ["Hardwood", "Conifer"],
+        "host_trees": ["Maple", "Birch", "Aspen", "Pine", "Spruce"],
+        "host_certainty": "group_level",
+        "summary": "Deadly brown wood-growing mushroom containing amatoxins. Grows on decaying hardwood and conifer wood.",
+        "spore_print": "Rusty brown",
+        "season_note": "Treat as a major danger species, not a food mushroom.",
+        "research_notes": []
+      },
+      "primary_use": "avoid",
+      "food_role": "avoid",
+      "classification_note": "Deadly poisonous amatoxin mushroom.",
+      "culinary_uses": "Do not eat. Even small amounts can cause delayed but life-threatening poisoning.",
+      "medicinal_uses": "None for food or amateur medicinal use.",
+      "non_edible_severity": "Deadly poisonous",
+      "affected_systems": ["Digestive system", "Liver"],
+      "effects_on_body": "Contains amatoxins that can cause delayed vomiting and diarrhea followed by severe liver injury and possible death.",
+      "look_alikes": ["Velvet Foot", "Honey mushrooms"],
+      "comparison_notes": "Velvet foot has a white spore print and lacks a persistent ring. Galerina shows rusty brown spores, yellow-brown to rusty gills, and usually a ring or ring zone.",
+      "habitat_detail": "Look for this mushroom on dead wood, logs, and stumps in both hardwood and conifer settings. Small brown wood mushrooms should not be guessed at.",
+      "months_available": ["September", "October", "November"],
+      "links": [
+        "https://mdc.mo.gov/discover-nature/field-guide/deadly-galerina",
+        "https://namyco.org/interests/toxicology/mushroom-poisoning-syndromes/"
+      ],
+      "reviewReasons": ["Needs 2–3 different photos"]
+    },
+    {
+      "slug": "green-spored-parasol",
+      "display_name": "Green-spored parasol",
+      "common_name": "False parasol",
+      "scientific_name": "Chlorophyllum molybdites",
+      "category": "Mushroom",
+      "mushroom_family": "Parasols & dapperlings",
+      "mushroom_profile": {
+        "entry_scope": "species",
+        "edibility_status": "poisonous",
+        "caution_level": "high",
+        "substrate": ["Soil", "Grassland"],
+        "wood_type": [],
+        "host_trees": [],
+        "host_certainty": "unknown",
+        "summary": "Poisonous lawn and open-ground parasol often confused with edible parasol types.",
+        "spore_print": "Green to gray-green",
+        "season_note": "Treat as a major GI-risk look-alike.",
+        "research_notes": []
+      },
+      "primary_use": "avoid",
+      "food_role": "avoid",
+      "culinary_uses": "Do not eat.",
+      "medicinal_uses": "None for amateur foraging use.",
+      "non_edible_severity": "Poisonous",
+      "affected_systems": ["Digestive system"],
+      "effects_on_body": "Can cause intense gastrointestinal distress and is a classic dangerous parasol look-alike.",
+      "look_alikes": ["Parasol mushroom", "Shaggy parasol"],
+      "comparison_notes": "Parasol mushrooms do not produce the green spore print that gives this mushroom its name.",
+      "habitat_detail": "Look for this mushroom in lawns, grassy edges, and disturbed open ground. Large parasol mushrooms from open ground need a spore-print check if there is any doubt.",
+      "links": [
+        "https://namyco.org/interests/toxicology/mushroom-poisoning-syndromes/"
+      ],
+      "reviewReasons": ["Needs 2–3 different photos"]
+    },
+    {
+      "slug": "velvet-foot",
+      "culinary_uses": "Technically edible, but not recommended for foraging because it can be confused with deadly Galerina. This is not a good beginner mushroom.",
+      "edibility_detail": "Avoid treating this as a casual edible. The real risk is deadly confusion with Galerina and other small brown wood mushrooms.",
+      "look_alikes": ["Galerina"],
+      "comparison_notes": "Deadly galerina usually shows a ring or ring zone and rusty-brown spores and gills. Velvet foot lacks a persistent ring and has a white spore print.",
+      "reviewReasons": ["Needs 2–3 different photos"]
+    },
+    {
+      "slug": "honey-mushrooms",
+      "edibility_detail": "Not a beginner mushroom. Some people get significant GI upset even from correctly identified and properly prepared honey mushrooms, and the genus also overlaps dangerous wood-growing look-alikes.",
+      "look_alikes": ["Galerina", "Jack-o'-lantern", "Other small brown wood-growing mushrooms"],
+      "reviewReasons": ["Needs source links", "Needs 2–3 different photos"]
+    },
+    {
+      "slug": "smooth-chanterelles",
+      "look_alikes": ["Jack-o'-lantern"],
+      "comparison_notes": "Jack-o'-lantern grows from wood, has true gills, and is poisonous. Smooth chanterelles grow from the ground and have blunt ridges instead of knife-like true gills."
+    },
+    {
+      "slug": "golden-chanterelles",
+      "look_alikes": ["Jack-o'-lantern"],
+      "comparison_notes": "Jack-o'-lantern grows from wood and has sharp true gills. True chanterelles grow from the ground and have blunt forked ridges rather than blade-like gills."
+    },
+    {
+      "slug": "parasol-mushroom",
+      "look_alikes": ["Shaggy parasol", "Green-spored parasol"],
+      "comparison_notes": "Green-spored parasol is a poisonous look-alike. Large lawn parasols should not be eaten without a correct spore print and full structural match."
+    },
+    {
+      "slug": "shaggy-parasol",
+      "look_alikes": ["Green-spored parasol", "Parasol mushroom"],
+      "comparison_notes": "Green-spored parasol is poisonous and can look deceptively similar. Do not trust big parasol-type mushrooms from open ground without a full ID."
+    },
+    {
+      "slug": "field-mushroom",
+      "edibility_detail": "Only for experienced collectors. White-gilled or young button-stage mushrooms can be confused with deadly white Amanitas, so this is not a beginner edible.",
+      "look_alikes": ["Destroying angel"],
+      "comparison_notes": "Destroying angel keeps white gills and has a volva at the base. Field mushrooms should develop pink to chocolate-brown gills and must be checked from top to base."
+    },
+    {
+      "slug": "meadow-mushroom",
+      "edibility_detail": "Only for experienced collectors. The danger here is confusion with deadly white Amanitas while still young or poorly examined.",
+      "look_alikes": ["Destroying angel"],
+      "comparison_notes": "Destroying angel has white gills and a sac-like base. Meadow mushrooms should show pink to brown maturing gills and must be checked carefully from cap to base."
+    }
+  ]
+}
