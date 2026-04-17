@@ -1,11 +1,11 @@
 {
   "metadata": {
     "version": "v3.2.37",
-    "source": "Follow-up audit patch for mushroom safety wording, missing poisonous look-alike entries, and detail-page cleanup support",
+    "source": "Complete hand sweep patch for mushroom safety wording, poisonous look-alikes, and full starter bolete wording pass",
     "notes": [
       "Adds missing poisonous look-alike entries that edible mushrooms refer to.",
       "Strengthens caution wording for beginner-risk mushrooms.",
-      "Promotes real look-alike links for chanterelle, parasol, meadow mushroom, velvet foot, and selected bolete entries."
+      "Provides a full by-hand wording sweep across the starter bolete pack."
     ]
   },
   "records": [
@@ -77,9 +77,7 @@
       "look_alikes": ["Parasol mushroom", "Shaggy parasol"],
       "comparison_notes": "Parasol mushrooms do not produce the green spore print that gives this mushroom its name.",
       "habitat_detail": "Look for this mushroom in lawns, grassy edges, and disturbed open ground. Large parasol mushrooms from open ground need a spore-print check if there is any doubt.",
-      "links": [
-        "https://namyco.org/interests/toxicology/mushroom-poisoning-syndromes/"
-      ],
+      "links": ["https://namyco.org/interests/toxicology/mushroom-poisoning-syndromes/"],
       "reviewReasons": ["Needs 2–3 different photos"]
     },
     {
@@ -96,49 +94,32 @@
       "look_alikes": ["Galerina", "Jack-o'-lantern", "Other small brown wood-growing mushrooms"],
       "reviewReasons": ["Needs source links", "Needs 2–3 different photos"]
     },
-    {
-      "slug": "smooth-chanterelles",
-      "look_alikes": ["Jack-o'-lantern"],
-      "comparison_notes": "Jack-o'-lantern grows from wood, has true gills, and is poisonous. Smooth chanterelles grow from the ground and have blunt ridges instead of knife-like true gills."
-    },
-    {
-      "slug": "golden-chanterelles",
-      "look_alikes": ["Jack-o'-lantern"],
-      "comparison_notes": "Jack-o'-lantern grows from wood and has sharp true gills. True chanterelles grow from the ground and have blunt forked ridges rather than blade-like gills."
-    },
-    {
-      "slug": "parasol-mushroom",
-      "look_alikes": ["Shaggy parasol", "Green-spored parasol"],
-      "comparison_notes": "Green-spored parasol is a poisonous look-alike. Large lawn parasols should not be eaten without a correct spore print and full structural match."
-    },
-    {
-      "slug": "shaggy-parasol",
-      "look_alikes": ["Green-spored parasol", "Parasol mushroom"],
-      "comparison_notes": "Green-spored parasol is poisonous and can look deceptively similar. Do not trust big parasol-type mushrooms from open ground without a full ID."
-    },
-    {
-      "slug": "field-mushroom",
-      "edibility_detail": "Only for experienced collectors. White-gilled or young button-stage mushrooms can be confused with deadly white Amanitas, so this is not a beginner edible.",
-      "look_alikes": ["Destroying angel"],
-      "comparison_notes": "Destroying angel keeps white gills and has a volva at the base. Field mushrooms should develop pink to chocolate-brown gills and must be checked from top to base."
-    },
-    {
-      "slug": "meadow-mushroom",
-      "edibility_detail": "Only for experienced collectors. The danger here is confusion with deadly white Amanitas while still young or poorly examined.",
-      "look_alikes": ["Destroying angel"],
-      "comparison_notes": "Destroying angel has white gills and a sac-like base. Meadow mushrooms should show pink to brown maturing gills and must be checked carefully from cap to base."
-    },
-    {
-      "slug": "frosts-bolete",
-      "culinary_uses": "Not recommended for beginners. Red-pored blue-staining boletes are easy to mishandle if you do not already know the group well.",
-      "edibility_detail": "Treat this as an advanced-ID bolete, not a casual edible. The issue is not that it is automatically poisonous, but that red-pored boletes are a confusion-prone group.",
-      "look_alikes": ["Blue-staining red-pored boletes"],
-      "comparison_notes": "Use the whole mushroom, not the cap color alone. Red pores, strong blue staining, and the broader dangerous red-pored bolete group all matter here."
-    },
-    {
-      "slug": "scaber-stalk-boletes",
-      "edibility_detail": "This group has edible members, but it is not ideal for beginners because host tree, bruising changes, and species-level differences matter more than people think.",
-      "comparison_notes": "Rough dotted stalks alone are not enough. Use host tree, cap color, flesh color changes, and the whole structure before trusting a scaber-stalk bolete ID."
-    }
+    {"slug": "smooth-chanterelles", "look_alikes": ["Jack-o'-lantern"], "comparison_notes": "Jack-o'-lantern grows from wood, has true gills, and is poisonous. Smooth chanterelles grow from the ground and have blunt ridges instead of knife-like true gills."},
+    {"slug": "golden-chanterelles", "look_alikes": ["Jack-o'-lantern"], "comparison_notes": "Jack-o'-lantern grows from wood and has sharp true gills. True chanterelles grow from the ground and have blunt forked ridges rather than blade-like gills."},
+    {"slug": "parasol-mushroom", "look_alikes": ["Shaggy parasol", "Green-spored parasol"], "comparison_notes": "Green-spored parasol is a poisonous look-alike. Large lawn parasols should not be eaten without a correct spore print and full structural match."},
+    {"slug": "shaggy-parasol", "look_alikes": ["Green-spored parasol", "Parasol mushroom"], "comparison_notes": "Green-spored parasol is poisonous and can look deceptively similar. Do not trust big parasol-type mushrooms from open ground without a full ID."},
+    {"slug": "field-mushroom", "edibility_detail": "Only for experienced collectors. White-gilled or young button-stage mushrooms can be confused with deadly white Amanitas, so this is not a beginner edible.", "look_alikes": ["Destroying angel"], "comparison_notes": "Destroying angel keeps white gills and has a volva at the base. Field mushrooms should develop pink to chocolate-brown gills and must be checked from top to base."},
+    {"slug": "meadow-mushroom", "edibility_detail": "Only for experienced collectors. The danger here is confusion with deadly white Amanitas while still young or poorly examined.", "look_alikes": ["Destroying angel"], "comparison_notes": "Destroying angel has white gills and a sac-like base. Meadow mushrooms should show pink to brown maturing gills and must be checked carefully from cap to base."},
+    {"slug":"bicolor-bolete","culinary_uses":"Good edible when correctly identified.","edibility_detail":"A solid edible, but still part of the red-and-staining bolete crowd. Use the full mushroom and rule out harsher red-pored boletes rather than trusting cap color alone.","look_alikes":["Frost's Bolete","Other red or blue-staining boletes"],"comparison_notes":"Check pore color, how strongly the flesh blues when bruised, and whether the stalk is smooth or netted. Red-and-yellow boletes should be treated as a group that rewards careful comparison, not casual guessing."},
+    {"slug":"frosts-bolete","culinary_uses":"Not recommended for beginners. Red-pored blue-staining boletes are easy to mishandle if you do not already know the group well.","edibility_detail":"Treat this as an advanced-ID bolete, not a casual edible. The issue is not that it is automatically poisonous, but that red-pored boletes are a confusion-prone group.","look_alikes":["Bicolor Bolete","Other red or blue-staining boletes"],"comparison_notes":"Use the whole mushroom, not the cap color alone. Red pores, strong blue staining, heavy netting on the stalk, and the broader dangerous red-pored bolete group all matter here."},
+    {"slug":"admirable-bolete","culinary_uses":"Good edible when correctly identified.","edibility_detail":"A worthwhile bolete, but still one to confirm fully. Brown boletes should be checked for bitter taste, stalk netting, staining, and host association before they are trusted.","look_alikes":["King Bolete","Bay Bolete","Brown-and-white Bolete"],"comparison_notes":"Check for the long stalk, yellow pores, netting, and a mild rather than bitter taste. Do not trust a brown cap alone."},
+    {"slug":"chicken-fat-mushroom","culinary_uses":"Edible Suillus with soft texture; many foragers consider it acceptable rather than exceptional.","edibility_detail":"Usually treated as edible, but Suillus species can be a mixed bag in texture and personal tolerance. The real work here is confirming the pine association and the glandular-dotted stalk.","look_alikes":["Weeping Bolete","Dotted-stem Suillus","Short-stemmed Slippery Jack"],"comparison_notes":"Check the pine host, sticky yellow cap, yellow pores, and dotted stalk. Separate ringed from ringless Suillus and do not assume every sticky yellow bolete is the same species."},
+    {"slug":"weeping-bolete","culinary_uses":"Edible Suillus with soft flesh.","edibility_detail":"Edible, but mainly for people already comfortable with Suillus. Host tree, ring absence, pore droplets when young, and glandular dots on the stalk matter more than people think.","look_alikes":["Chicken Fat Mushroom","Dotted-stem Suillus","Short-stemmed Slippery Jack"],"comparison_notes":"Look for a pine associate with a sticky cap, glandular dots, and no true ring. Compare carefully against the other ringless Suillus species in the same habitat."},
+    {"slug":"white-suillus","culinary_uses":"Edible, but mostly of interest to people already sorting white-pine Suillus species.","edibility_detail":"This is not a beginner bolete. Pale sticky Suillus species need to be tied to host tree and stalk details rather than treated as interchangeable.","look_alikes":["Short-stemmed Slippery Jack","Other pale Suillus species"],"comparison_notes":"Use the white-pine association, pale cap and pore surface, and glandular dots on the stalk. A pale sticky cap alone is not enough."},
+    {"slug":"painted-suillus","culinary_uses":"Edible, though more notable visually than gastronomically.","edibility_detail":"A pine-associated Suillus that is easier to recognize than some of its cousins, but still best confirmed by patterning, host tree, and pore surface rather than cap color alone.","look_alikes":["Chicken Fat Mushroom","Other pine-associated Suillus species"],"comparison_notes":"The dry, patterned reddish cap helps, but confirm the pore surface and pine association before trusting it."},
+    {"slug":"short-stemmed-slippery-jack","culinary_uses":"Edible Suillus with soft texture.","edibility_detail":"Usually edible, but still part of a slippery, pine-loving group that needs host-tree and stalk-detail work. Not the best bolete for lazy identification.","look_alikes":["Chicken Fat Mushroom","Weeping Bolete","Dotted-stem Suillus"],"comparison_notes":"Short stalk, sticky cap, yellow pores, and pine association help. Compare carefully against other ringless Suillus species with glandular dots or soft yellow pore surfaces."},
+    {"slug":"larch-bolete","culinary_uses":"Edible Suillus tied to tamarack / larch.","edibility_detail":"A decent edible if correctly identified, but the host tree is part of the identification. A ringed sticky yellow Suillus should still be checked carefully instead of assumed.","look_alikes":["Other ringed Suillus species"],"comparison_notes":"The tamarack / larch association and the ring matter. Do not collapse every sticky yellow ringed Suillus into one bucket."},
+    {"slug":"dotted-stem-suillus","culinary_uses":"Edible Suillus, but not one to trust casually.","edibility_detail":"This is a ringless pine-associated Suillus that needs host-tree and stalk-detail confirmation. It stays in the advanced-interest category until image coverage improves.","look_alikes":["Chicken Fat Mushroom","Weeping Bolete","Short-stemmed Slippery Jack"],"comparison_notes":"Use the dotted stalk, pore surface, sticky cap, and pine association. Right now this entry especially needs full-structure comparison rather than faith."},
+    {"slug":"ash-tree-bolete","culinary_uses":"Good edible when correctly identified.","edibility_detail":"A yellowish hardwood bolete that still needs a full brown-bolete check: host tree, staining, pore color, and taste all matter.","look_alikes":["Admirable Bolete","Bay Bolete","Other mild brown boletes"],"comparison_notes":"Use the ash association, yellow pores, and overall mild brown-bolete profile. A plain brown cap never proves anything by itself."},
+    {"slug":"bay-bolete","culinary_uses":"Good edible when correctly identified.","edibility_detail":"A respected edible, but still one that should be checked for blue bruising, smooth stalk, and mild taste. Brown boletes only look simple from across the room.","look_alikes":["Admirable Bolete","Bicolor Bolete","Brown-and-white Bolete"],"comparison_notes":"Look for the bay-brown cap, yellow to olive pores, blue bruising, and smooth stalk. Separate it from bitter Tylopilus-type boletes and from netted-stalk brown boletes."},
+    {"slug":"birch-bolete","culinary_uses":"Edible Leccinum for experienced collectors.","edibility_detail":"Not ideal for beginners. Leccinum species are edible for many people, but host tree, bruising changes, and species-level differences matter more than people think.","look_alikes":["Orange Birch Bolete","Aspen Bolete","Eastern Orange Bolete","Other scaber-stalk boletes"],"comparison_notes":"The rough dotted stalk is only the start. Use host tree, cap color, pore color, and flesh-color changes before trusting a Leccinum."},
+    {"slug":"orange-birch-bolete","culinary_uses":"Edible Leccinum for experienced collectors.","edibility_detail":"An orange-capped scaber-stalk bolete, but still not one to treat casually. Host tree and flesh-color changes matter, and the whole Leccinum group deserves patience.","look_alikes":["Birch Bolete","Aspen Bolete","Eastern Orange Bolete","Orange Oak Bolete"],"comparison_notes":"Use the birch association, orange cap, and scabered stalk together. Orange cap plus rough stalk is not enough by itself."},
+    {"slug":"aspen-bolete","culinary_uses":"Edible Leccinum for experienced collectors.","edibility_detail":"A real edible, but not a beginner mushroom. Aspen-associated orange-capped Leccinum species need host-tree and bruising checks, not just a glance at the cap.","look_alikes":["Eastern Orange Bolete","Orange Birch Bolete","Orange Oak Bolete"],"comparison_notes":"Use the aspen association, orange cap, and rough stalk, then compare flesh-color changes and the exact host tree."},
+    {"slug":"orange-oak-bolete","culinary_uses":"Edible Leccinum for experienced collectors.","edibility_detail":"Another orange-capped scaber-stalk bolete that needs host-tree confidence and whole-mushroom comparison. This is not a plug-and-play edible.","look_alikes":["Orange Birch Bolete","Aspen Bolete","Eastern Orange Bolete"],"comparison_notes":"Use the oak or hardwood association, orange cap, and scabers, then separate it from other orange-capped Leccinum by the full structure and host."},
+    {"slug":"eastern-orange-bolete","culinary_uses":"Edible Leccinum for experienced collectors.","edibility_detail":"This stays in the advanced-interest category until image coverage improves. It belongs to a look-alike-heavy scaber-stalk group where host tree and bruising patterns matter.","look_alikes":["Aspen Bolete","Orange Birch Bolete","Orange Oak Bolete"],"comparison_notes":"Treat this as a species that needs full confirmation, especially because the current visual coverage is thin. Compare host tree, stalk scabers, cap tone, and flesh-color changes."},
+    {"slug":"red-cracking-bolete","culinary_uses":"Edible, but usually considered mediocre rather than a prize species.","edibility_detail":"Worth learning more as an identification exercise than as a top food target. The cracked cap and mixed staining traits can be confusing within the broader xerocomoid boletes.","look_alikes":["Other red-cracking or blue-bruising boletes"],"comparison_notes":"Use the cracked cap showing reddish flesh, softer yellow to olive pores, and the overall smaller xerocomoid build. Do not overrate it as a food mushroom."},
+    {"slug":"brown-and-white-bolete","culinary_uses":"Edible when correctly identified.","edibility_detail":"This is one of the Tylopilus-type boletes where pore color and taste matter. Brown cap alone is worthless; you need the whole set of traits.","look_alikes":["Admirable Bolete","Bay Bolete","Other Tylopilus species"],"comparison_notes":"Check for pinkish pores, netting on the stalk, and whether the taste stays mild instead of distinctly bitter. Brown boletes split fast once you start checking those details."},
+    {"slug":"shaggy-stalked-bolete","culinary_uses":"Edible when young, but mainly memorable as an oddball bolete rather than a major food prize.","edibility_detail":"Easy-looking only because it is weird. Age matters, texture matters, and this one is best treated as a distinctive specialty bolete rather than a default edible.","look_alikes":["Old Man of the Woods"],"comparison_notes":"The shaggy dark cap and stalk, gray-black pore aging, and odd heavy build make it stand out. Confirm the overall dark scaly look rather than a single feature."},
+    {"slug":"scaber-stalk-boletes","culinary_uses":"Several are edible, but this is not a beginner group.","edibility_detail":"This group has edible members, but it is not ideal for beginners because host tree, bruising changes, and species-level differences matter more than people think.","look_alikes":["Birch Bolete","Aspen Bolete","Orange Birch Bolete","Eastern Orange Bolete","Orange Oak Bolete"],"comparison_notes":"Rough dotted stalks alone are not enough. Use host tree, cap color, flesh color changes, and the whole structure before trusting a scaber-stalk bolete ID."}
   ]
 }
