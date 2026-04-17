@@ -70,6 +70,10 @@ function currentMonthName() {
   d.setDate(d.getDate() + 14);
   return MONTHS[d.getMonth()];
 }
+function recordImage(record) {
+  const images = Array.isArray(record?.images) ? record.images : [];
+  return images.find(Boolean) || "";
+}
 function homeHub(allRecords) {
   const month = currentMonthName();
   const inSeasonPlants = allRecords.filter((record) => isPlant(record) && (record.months_available || []).includes(month)).length;
@@ -78,16 +82,33 @@ function homeHub(allRecords) {
   const totalMushrooms = allRecords.filter((record) => isForagingMushroom(record)).length;
   const totalMedicinal = medicinalRecords(allRecords).length;
   const rareCount = (state.rareSpecies || []).length;
+  const highlights = allRecords
+    .filter((record) => (record.months_available || []).includes(month) && recordImage(record))
+    .slice(0, 2);
   return `
-    <section class="panel home-hub">
+    <section class="panel home-hub in-focus-feature">
       <div class="result-header compact-result-header"><div class="result-title-row"><h3>In Focus Right Now</h3><p class="results-meta">${escapeHtml(month)}</p></div></div>
-      <div class="tag-row">
-        <span class="tag">${inSeasonPlants} plants in season</span>
-        <span class="tag">${inSeasonMushrooms} mushrooms in season</span>
-        <span class="tag">${totalPlants} total plants</span>
-        <span class="tag">${totalMushrooms} total mushrooms</span>
-        <span class="tag">${totalMedicinal} medicinal species</span>
-        <span class="tag">${rareCount} rare / endangered entries</span>
+      <div class="in-focus-layout">
+        <div class="in-focus-stats">
+          <div class="in-focus-stat-card"><strong>${inSeasonPlants}</strong><span>plants in season</span></div>
+          <div class="in-focus-stat-card"><strong>${inSeasonMushrooms}</strong><span>mushrooms in season</span></div>
+          <div class="in-focus-stat-card"><strong>${totalPlants}</strong><span>total plants</span></div>
+          <div class="in-focus-stat-card"><strong>${totalMushrooms}</strong><span>total mushrooms</span></div>
+          <div class="in-focus-stat-card"><strong>${totalMedicinal}</strong><span>medicinal species</span></div>
+          <div class="in-focus-stat-card"><strong>${rareCount}</strong><span>rare / endangered entries</span></div>
+        </div>
+        <div class="in-focus-highlights">
+          ${highlights.map((record) => {
+            const image = recordImage(record);
+            return `<a class="in-focus-card" href="#/detail/${escapeHtml(record.slug)}">
+              <img src="${escapeHtml(image)}" alt="${escapeHtml(record.display_name || record.common_name || "In-season species")}" loading="lazy">
+              <div class="in-focus-caption">
+                <strong>${escapeHtml(record.display_name || record.common_name || "Untitled")}</strong>
+                <span>${escapeHtml((record.category || []).join ? (Array.isArray(record.category) ? record.category.join(", ") : record.category) : (record.category || "In season"))}</span>
+              </div>
+            </a>`;
+          }).join("")}
+        </div>
       </div>
     </section>`;
 }
