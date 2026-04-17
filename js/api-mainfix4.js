@@ -1,4 +1,4 @@
-import { APP_VERSION, TABLE_NAME } from "./constants-mainfix.js?v=2026-04-16-35";
+import { APP_VERSION, TABLE_NAME } from "./constants-mainfix.js?v=2026-04-16-36";
 
 async function loadJson(path) {
   const response = await fetch(path, { cache: "no-store" });
@@ -11,10 +11,7 @@ function mergeOverridePayloads(basePayload, extraPayload) {
       version: extraPayload?.metadata?.version || basePayload?.metadata?.version || 'none',
       source: [basePayload?.metadata?.source, extraPayload?.metadata?.source].filter(Boolean).join(' + ') || 'none'
     },
-    overrides: {
-      ...(basePayload?.overrides || {}),
-      ...(extraPayload?.overrides || {})
-    }
+    overrides: { ...(basePayload?.overrides || {}), ...(extraPayload?.overrides || {}) }
   };
 }
 function mergeCreditsPayloads(basePayload, extraPayload) {
@@ -23,10 +20,7 @@ function mergeCreditsPayloads(basePayload, extraPayload) {
       version: extraPayload?.metadata?.version || basePayload?.metadata?.version || 'none',
       source: [basePayload?.metadata?.source, extraPayload?.metadata?.source].filter(Boolean).join(' + ') || 'none'
     },
-    credits: {
-      ...(basePayload?.credits || {}),
-      ...(extraPayload?.credits || {})
-    }
+    credits: { ...(basePayload?.credits || {}), ...(extraPayload?.credits || {}) }
   };
 }
 function mergeSpeciesPayloads(basePayload, extraPayload) {
@@ -65,25 +59,16 @@ async function loadCredits() {
   }
 }
 async function loadSpeciesAdditions() {
-  try {
-    return await loadJson('data/species-additions-mainfix13.json');
-  } catch {
-    return { metadata: { version: 'none', source: 'none' }, records: [] };
-  }
+  try { return await loadJson('data/species-additions-mainfix13.json'); }
+  catch { return { metadata: { version: 'none', source: 'none' }, records: [] }; }
 }
 async function loadSpeciesAuditFixes() {
-  try {
-    return await loadJson('data/species-audit-mainfix29.json');
-  } catch {
-    return { metadata: { version: 'none', source: 'none' }, records: [] };
-  }
+  try { return await loadJson('data/species-audit-mainfix30.json'); }
+  catch { return { metadata: { version: 'none', source: 'none' }, records: [] }; }
 }
 async function loadReferences() {
-  try {
-    return await loadJson('data/references-mainfix15.json');
-  } catch {
-    return [];
-  }
+  try { return await loadJson('data/references-mainfix15.json'); }
+  catch { return []; }
 }
 function applyOverrides(payload, overridePayload) {
   const overrides = overridePayload?.overrides || {};

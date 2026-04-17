@@ -1,0 +1,397 @@
+{
+  "metadata": {
+    "version": "v1.1-mainfix30",
+    "source": "Broad species audit overlay",
+    "notes": [
+      "First broad pass across plants, mushrooms, tree products, roots, flowers, and fruit.",
+      "Targets contradictions, duplicate concepts, category issues, unsafe wording, and missing critical caution text.",
+      "This is not the final complete audit, but it is a real cross-category cleanup layer rather than mushroom-only patching."
+    ]
+  },
+  "records": [
+    {
+      "slug": "artists-conk",
+      "non_edible_severity": "Inedible",
+      "edibility_detail": "Inedible because it is hard and perennial, not because it is a classic poisoning mushroom."
+    },
+    {
+      "slug": "dryad-saddle-pheasant-back",
+      "non_edible_severity": "",
+      "edibility_detail": "Edible young only. Use only tender margins; mature brackets become tough and fibrous."
+    },
+    {
+      "slug": "lobster-mushroom",
+      "non_edible_severity": "",
+      "edibility_detail": "Choice only when the classic firm white-orange aborted form is fresh, solid, and correctly identified."
+    },
+    {
+      "slug": "honey-mushrooms",
+      "non_edible_severity": "",
+      "edibility_detail": "Edible with caution after thorough cooking, but some people still react badly. Old, waterlogged, or undercooked mushrooms raise the risk."
+    },
+    {
+      "slug": "old-man-of-the-woods",
+      "non_edible_severity": "",
+      "edibility_detail": "Edible, but quality is strongly age-dependent. Best when young, firm, and not bug-ridden."
+    },
+    {
+      "slug": "bears-head-tooth",
+      "non_edible_severity": "",
+      "edibility_detail": "Choice edible when fresh and white. Overripe specimens yellow, soften, and lose quality."
+    },
+    {
+      "slug": "coral-tooth-fungus",
+      "non_edible_severity": "",
+      "edibility_detail": "Choice edible when still white and tender."
+    },
+    {
+      "slug": "hemlock-varnish-shelf-reishi",
+      "non_edible_severity": "Non-culinary / tea",
+      "edibility_detail": "Classified as non-culinary because texture and bitterness make it a preparation mushroom, not a saut\u00e9 mushroom."
+    },
+    {
+      "slug": "turkey-tail",
+      "non_edible_severity": "Inedible",
+      "edibility_detail": "Not a practical edible. People usually value it for tea, extracts, dye, or identification interest rather than food texture."
+    },
+    {
+      "slug": "birch-polypore",
+      "non_edible_severity": "Inedible",
+      "edibility_detail": "Listed as inedible in the culinary sense because texture quickly turns leathery and cork-like, though it has a history of traditional utility uses."
+    },
+    {
+      "slug": "chaga",
+      "non_edible_severity": "Inedible",
+      "edibility_detail": "Rated inedible as food. It is a sterile conk-like mass, usually used for tea-like preparations rather than as a table mushroom."
+    },
+    {
+      "slug": "tinder-conk-hoof-fungus",
+      "non_edible_severity": "Inedible",
+      "edibility_detail": "Rated inedible because of texture rather than classic poisoning. It is a perennial conk that becomes dense, fibrous, and hoof-like."
+    },
+    {
+      "slug": "shrimp-of-the-woods-aborted-entoloma",
+      "non_edible_severity": "Questionable / conditionally edible",
+      "edibility_detail": "Only the firm white aborted form is commonly considered edible by experienced foragers. Soft, brown, or obviously decaying material should be avoided."
+    },
+    {
+      "slug": "rock-tripe-lichen",
+      "notes": "Actually a lichen rather than a true mushroom. Keep mainly as a survival / emergency food reference, not a normal edible target.",
+      "manual_review_reasons": [
+        "category should be reviewed: lichen, not mushroom"
+      ]
+    },
+    {
+      "slug": "reindeer-lichen",
+      "notes": "Actually a lichen rather than a true mushroom. Keep mainly as a survival / emergency food reference, not a normal edible target.",
+      "manual_review_reasons": [
+        "category should be reviewed: lichen, not mushroom"
+      ]
+    },
+    {
+      "slug": "king-oyster",
+      "manual_review_reasons": [
+        "range / cultivated-status review needed",
+        "wild Upper Michigan fit needs review",
+        "cultivated / non-native context likely"
+      ]
+    },
+    {
+      "slug": "ramps-wild-onion",
+      "notes": "Duplicate concept with wild leek / ramp. Keep one field-facing ramp entry later and merge duplicate records during deeper audit.",
+      "manual_review_reasons": [
+        "duplicate concept with wild leek / ramp"
+      ]
+    },
+    {
+      "slug": "wild-leek-ramp",
+      "notes": "Duplicate concept with ramps / wild onion. Keep one field-facing ramp entry later and merge duplicate records during deeper audit.",
+      "manual_review_reasons": [
+        "duplicate concept with ramps / wild onion"
+      ]
+    },
+    {
+      "slug": "fiddlehead-ferns",
+      "notes": "Generic fiddlehead record overlaps ostrich fern fiddleheads and risks encouraging unsafe generalization. Prefer ostrich fern entry for beginner-facing edible guidance.",
+      "manual_review_reasons": [
+        "generic fiddlehead entry overlaps safer ostrich fern-specific entry"
+      ]
+    },
+    {
+      "slug": "ostrich-fern-fiddleheads",
+      "edibility_detail": "Cook thoroughly before eating. Do not eat raw fiddleheads. Use only true ostrich fern, not generic fiddleheads."
+    },
+    {
+      "slug": "wild-carrot",
+      "notes": "Strong lookalike caution needed. Wild carrot can be confused with poison hemlock and other dangerous Apiaceae.",
+      "look_alikes": [
+        "Poison hemlock",
+        "Water hemlock"
+      ]
+    },
+    {
+      "slug": "sweet-cicely",
+      "look_alikes": [
+        "Poison hemlock",
+        "Water hemlock",
+        "Cow parsnip"
+      ],
+      "edibility_detail": "Use only with very strong identification confidence. Apiaceae mistakes can be serious."
+    },
+    {
+      "slug": "cow-parsnip-shoots",
+      "edibility_detail": "Traditional food use exists for very young peeled shoots, but this plant needs careful identification and skin protection because sap can irritate sun-exposed skin."
+    },
+    {
+      "slug": "milkweed-shoots",
+      "edibility_detail": "Not edible raw. Use only with correct species identification and proper boiling / cooking; avoid confusing it with dogbane."
+    },
+    {
+      "slug": "marsh-marigold",
+      "edibility_detail": "Not edible raw. Historical use involved careful preparation; this is not a casual beginner plant."
+    },
+    {
+      "slug": "miners-lettuce-winter-purslane",
+      "edibility_detail": "Mild salad green, but like spinach and sorrel it contains oxalates and is best not treated as an unlimited bulk food."
+    },
+    {
+      "slug": "wood-sorrel",
+      "edibility_detail": "Tangy edible herb in small amounts, but the oxalic acid content means it is better used as a garnish than a bulk green."
+    },
+    {
+      "slug": "wood-sorrel-yellow-woodsorrel",
+      "edibility_detail": "Tangy edible herb in small amounts, but the oxalic acid content means it is better used as a garnish than a bulk green."
+    },
+    {
+      "slug": "daylily-flowers",
+      "edibility_detail": "Only true daylilies (Hemerocallis) belong here. Some people get digestive upset even from true daylilies, especially in quantity."
+    },
+    {
+      "slug": "elderberries",
+      "edibility_detail": "Ripe cooked berries are the usual food form. Raw berries and especially stems, leaves, and seeds can cause digestive upset."
+    },
+    {
+      "slug": "elderflowers",
+      "edibility_detail": "Flowers are widely used for fritters, teas, and cordials, but avoid heavy use of green stems or leaves."
+    },
+    {
+      "slug": "ground-cherries",
+      "edibility_detail": "Eat only ripe fruits inside mature husks. Unripe fruits and green plant parts should be avoided."
+    },
+    {
+      "slug": "pokeweed-shoots",
+      "manual_review_reasons": [
+        "missing from current audit target if present elsewhere"
+      ]
+    },
+    {
+      "slug": "wintergreen-berries",
+      "medicinal_uses": "Traditionally used in small amounts; the plant is aromatic and salicylate-related, so it should not be treated as a casual bulk food or medicine."
+    },
+    {
+      "slug": "sassafras-root-bark",
+      "medicinal_uses": "Traditional flavoring and historical medicinal plant; modern use is usually conservative rather than high-volume medicinal use."
+    },
+    {
+      "slug": "wild-ginger",
+      "medicinal_uses": "Traditional digestive herb, but not a plant for heavy medicinal use."
+    },
+    {
+      "slug": "plantain-broadleaf",
+      "medicinal_uses": "Traditional wound and skin-support plant; also used in teas for mild soothing support."
+    },
+    {
+      "slug": "huckleberries",
+      "notes": "This entry needs regional fit review. True Gaylussacia huckleberries are not the same thing as all northern Vaccinium berries.",
+      "manual_review_reasons": [
+        "regional fit / exact northern occurrence review recommended"
+      ]
+    },
+    {
+      "slug": "pawpaw",
+      "manual_review_reasons": [
+        "regional fit review recommended for Upper Michigan wild-scope app"
+      ]
+    },
+    {
+      "slug": "american-persimmon",
+      "manual_review_reasons": [
+        "regional fit review recommended for Upper Michigan wild-scope app"
+      ]
+    },
+    {
+      "slug": "juneberries-serviceberries",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "wild-strawberries",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "thimbleberries",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "pin-cherries",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "raspberries",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "wild-blackberries",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "wild-plums",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "wintergreen-berries",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "pine-nuts",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "black-morels",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "yellow-morels",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "giant-puffball",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "hen-of-the-woods",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "lion-s-mane",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "cauliflower-mushroom",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "velvet-foot",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "yellow-chanterelles-hardwood-complex",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "yellow-chanterelles-conifer-complex",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "red-chanterelles",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "smooth-chanterelles",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "shrimp-russulas",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "charcoal-burners",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "short-stemmed-russula",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "scaber-stalk-boletes",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "bitter-bolete",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "blue-staining-red-pored-boletes",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "pearl-oyster",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "phoenix-oyster",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    },
+    {
+      "slug": "aspen-oyster",
+      "manual_review_reasons": [
+        "image still missing in repo build"
+      ]
+    }
+  ]
+}
