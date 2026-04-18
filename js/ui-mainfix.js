@@ -1,6 +1,6 @@
-import { APP_VERSION } from "./constants-mainfix.js?v=2026-04-17-37";
+import { APP_VERSION } from "./constants-mainfix.js?v=2026-04-17-38";
 import { state } from "./state.js";
-import { renderDetail } from "./renderers/detail.js?v=2026-04-17-37";
+import { renderDetail } from "./renderers/detail.js?v=2026-04-17-38";
 
 const els = {
   pageRoot: document.getElementById("pageRoot"),
@@ -11,12 +11,56 @@ const els = {
 };
 let detailDelegationBound = false;
 
+function parseFallbackSources(img) {
+  const raw = String(img.dataset.fallbackSources || '').trim();
+  if (!raw) return [];
+  return raw.split('|').map((part) => decodeURIComponent(part)).filter(Boolean);
+}
+function applyImageFailureFallback(img) {
+  const sources = parseFallbackSources(img);
+  const currentIndex = Number(img.dataset.fallbackIndex || '0');
+  if (currentIndex + 1 < sources.length) {
+    img.dataset.fallbackIndex = String(currentIndex + 1);
+    img.src = sources[currentIndex + 1];
+    return;
+  }
+  if (img.classList.contains('thumb-img')) {
+    const wrapper = img.closest('.thumb-link');
+    if (wrapper) {
+      wrapper.innerHTML = '<div class="thumb placeholder">No image</div>';
+      return;
+    }
+  }
+  if (img.closest('.in-focus-card')) {
+    img.style.display = 'none';
+    return;
+  }
+  if (img.closest('.detail-gallery')) {
+    const gallery = img.closest('.detail-gallery');
+    img.remove();
+    if (gallery && !gallery.querySelector('img')) {
+      gallery.insertAdjacentHTML('afterbegin', '<div class="thumb placeholder" style="width:100%;height:220px;">No image imported</div>');
+    }
+    return;
+  }
+  img.style.display = 'none';
+}
+function wireImageFallbacks(root = document) {
+  root.querySelectorAll('img[data-fallback-sources], .detail-gallery img').forEach((img) => {
+    if (img.dataset.fallbackBound === '1') return;
+    img.dataset.fallbackBound = '1';
+    if (img.dataset.fallbackSources && !img.dataset.fallbackIndex) img.dataset.fallbackIndex = '0';
+    img.addEventListener('error', () => applyImageFailureFallback(img), { once: false });
+  });
+}
+
 export function updateHeaderStats() {
   if (els.versionBadge) els.versionBadge.textContent = APP_VERSION;
 }
 
 export function renderPage(html) {
   els.pageRoot.innerHTML = html;
+  wireImageFallbacks(els.pageRoot);
 }
 
 export function markActiveNav(route) {
@@ -71,6 +115,7 @@ function showDetailModal() {
 export function openHtmlModal(html) {
   if (!els.modalContent) return;
   els.modalContent.innerHTML = html;
+  wireImageFallbacks(els.modalContent);
   showDetailModal();
 }
 
@@ -78,6 +123,7 @@ export function openDetail(slug) {
   const record = state.allRecords.find(item => item.slug === slug);
   if (!record || !els.modalContent) return;
   els.modalContent.innerHTML = renderDetail(record);
+  wireImageFallbacks(els.modalContent);
   showDetailModal();
 }
 
