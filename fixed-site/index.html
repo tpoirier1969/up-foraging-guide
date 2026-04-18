@@ -2,48 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>Upper Michigan Foraging Guide — Clean Build v2</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Upper Michigan Foraging Guide — Clean Import</title>
+  <meta name="theme-color" content="#274c3f">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div class="shell">
-  <header>
-    <p class="eyebrow">Upper Michigan Foraging Guide</p>
-    <h1>Clean Build <span>v2</span></h1>
-    <p class="sub">Plants and mushrooms are separate canonical files. Medicinal and non-edible are derived views. Rare / endangered stays separate.</p>
-  </header>
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="brand-block">
+        <div>
+          <p class="eyebrow">Upper Michigan Foraging Guide</p>
+          <h1>Clean species import</h1>
+        </div>
+        <span class="version-pill" id="versionBadge">v-clean-import-1.0</span>
+      </div>
+      <nav class="main-nav" id="mainNav" aria-label="Primary"></nav>
+    </header>
 
-  <section class="warning">
-    <h2>Use This Guide Carefully</h2>
-    <p>This guide was put together by an amateur forager, not a scientist. I made it to be a reminder of things I've known, not a one-stop app for all things foraging.</p>
-    <p>Treat all plants, especially mushrooms, as potentially inedible and dangerous. Do not eat anything until you know the species and know how to prepare it.</p>
-  </section>
+    <main class="page-root" id="pageRoot" aria-live="polite">
+      <section class="panel loading-panel">
+        <h2>Loading species</h2>
+        <p>Pulling the current species files from your repo and merging them into the clean app.</p>
+      </section>
+    </main>
+  </div>
 
-  <nav id="nav">
-    <button data-view="home" class="active">Home</button>
-    <button data-view="plants">Plants</button>
-    <button data-view="mushrooms">Mushrooms</button>
-    <button data-view="medicinal">Medicinal</button>
-    <button data-view="nonedible">Non-edible</button>
-    <button data-view="rare">Rare / Endangered</button>
-  </nav>
+  <dialog id="detailModal" class="detail-modal">
+    <article class="modal-card">
+      <button id="closeModalBtn" class="close-btn" type="button" aria-label="Close">×</button>
+      <div id="modalContent"></div>
+    </article>
+  </dialog>
 
-  <section class="toolbar">
-    <input id="search" type="search" placeholder="Search species, scientific name, notes...">
-    <span id="meta"></span>
-  </section>
-
-  <main id="app"></main>
-</div>
-
-<dialog id="detailModal">
-  <article class="modal">
-    <button id="closeModal" class="close">×</button>
-    <div id="modalContent"></div>
-  </article>
-</dialog>
-
-<script src="app.js"></script>
+  <script type="module" src="app.js"></script>
 </body>
 </html>
