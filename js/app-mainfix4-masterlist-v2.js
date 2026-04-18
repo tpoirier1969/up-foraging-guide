@@ -1,10 +1,11 @@
-import { APP_VERSION, MONTHS } from "./constants-mainfix.js?v=2026-04-17-37";
-import { loadLocalData, loadSupabaseData, loadOverridePayload } from "./api-mainfix4.js?v=2026-04-17-37";
+import { APP_VERSION, MONTHS } from "./constants-mainfix.js?v=2026-04-17-38";
+import { loadLocalData, loadSupabaseData, loadOverridePayload } from "./api-mainfix4.js?v=2026-04-17-38";
 import { loadLocalDataWithMaster } from "./api-masterlist.js?v=v3.1.3";
 import { sortRecords, normalizeRecord, isPlant, isForagingMushroom, medicinalRecords, reviewRecords, avoidRecords } from "./data-model-mainfix4.js?v=v3.2.0";
+import { applyCustomSort as applyStableSort } from "./sort-utils-mainfix.js?v=2026-04-17-38";
 import { state } from "./state.js";
 import { parseRoute } from "./router.js";
-import { renderDashboard } from "./pages-mainfix4.js?v=2026-04-17-37";
+import { renderDashboard } from "./pages-mainfix4.js?v=2026-04-17-38";
 import { updateHeaderStats, renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui-mainfix.js?v=2026-04-17-37";
 import { loadRareSpecies, loadRareSightings, wireRarePage } from "./rare-watch.js";
 
@@ -173,7 +174,7 @@ function filteredForPage(page){
   else if(page==='lookalikes') records = avoidRecords(state.allRecords).filter((record)=>queryMatches(record, filterState.lookalikes));
   else if(page==='review') records = reviewRecords(state.allRecords).filter((record)=>!releasedReviewSlugs.has(record.slug)).filter((record)=>queryMatches(record, filterState.review));
   else records = state.allRecords;
-  return applyCustomSort(records, (filterState[page] || emptyFilter(page)).sort);
+  return applyStableSort(records, (filterState[page] || emptyFilter(page)).sort);
 }
 function navForPage(page){
   return ['mushrooms','mushrooms-gilled','boletes','mushrooms-other'].includes(page) ? 'mushrooms' : page;
