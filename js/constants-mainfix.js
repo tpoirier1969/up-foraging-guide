@@ -1,4 +1,4 @@
-export const APP_VERSION = "v3.2.37";
+export const APP_VERSION = "v3.2.38";
 export const TABLE_NAME = "upper_michigan_foraging_species_v1";
 export const FORAGING_RARE_SPECIES_TABLE = "foraging_rare_species_v1";
 export const FORAGING_RARE_SIGHTINGS_TABLE = "foraging_rare_sightings_v1";
