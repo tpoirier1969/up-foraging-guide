@@ -1,4 +1,4 @@
-import { TABLE_NAME } from "../constants-mainfix.js?v=2026-04-17-37";
+import { TABLE_NAME } from "../constants-mainfix.js?v=2026-04-17-38";
 import { escapeHtml } from "../utils.js?v=v2.0";
 import { state } from "../state.js?v=v2.1-mainfix21";
 
@@ -47,6 +47,9 @@ function resolvedImageUrl(url, width = 1200) {
     return `https://commons.wikimedia.org/wiki/Special:Redirect/file/${encodeURIComponent(specialFile[1])}?width=${width}`;
   }
   return raw;
+}
+function serializeDetailFallbackSources(images, width = 1200) {
+  return uniqueImages(images).map((url) => encodeURIComponent(resolvedImageUrl(url, width))).join('|');
 }
 function normalizedMatchText(value) {
   return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
@@ -199,7 +202,8 @@ function renderGeneralDetail(record, header, gallery, genericLinks) {
 }
 export function renderDetail(record) {
   const images = uniqueImages(record.images || []);
-  const gallery = images.length ? images.map(path => `<img src="${encodeURI(resolvedImageUrl(path, 1200))}" alt="${escapeHtml(record.display_name)}">`).join("") : `<div class="thumb placeholder" style="width:100%;height:220px;">No image imported</div>`;
+  const fallbackSources = serializeDetailFallbackSources(images, 1200);
+  const gallery = images.length ? images.map((path, index) => `<img src="${encodeURI(resolvedImageUrl(path, 1200))}" ${index === 0 ? `data-fallback-sources="${fallbackSources}" data-fallback-index="0"` : ''} alt="${escapeHtml(record.display_name)}">`).join("") : `<div class="thumb placeholder" style="width:100%;height:220px;">No image imported</div>`;
   const genericLinks = record.links?.length ? `<section class="detail-card section-block"><h3>Sources</h3><ul>${record.links.map(link => `<li><a href="${escapeHtml(link)}" target="_blank" rel="noreferrer">${escapeHtml(link)}</a></li>`).join("")}</ul></section>` : "";
   const header = `<section class="detail-card"><span class="category-pill">${escapeHtml(record.category)}</span><h2 style="margin-top:10px;">${escapeHtml(record.display_name)}</h2><p style="margin-top:8px;">${escapeHtml(record.common_name || "No alternate common name imported.")}</p>${record.scientific_name ? `<p class="small-note"><strong>${escapeHtml(record.scientific_name)}</strong></p>` : ""}</section>`;
 
