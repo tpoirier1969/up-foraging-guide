@@ -28,6 +28,45 @@ let selectedTimelineMonth = CURRENT_MONTH;
 let overridePayload = { overrides:{}, metadata:{}, references:[], creditsPayload:{credits:{}} };
 let releasedReviewSlugs = new Set();
 
+const IMAGE_OVERRIDE_NAME_ALIASES = {
+  'butyriboletus frostii': 'frosts-bolete',
+  'frost s bolete': 'frosts-bolete',
+  'frosts bolete': 'frosts-bolete',
+  'suillus grevillei': 'larch-bolete',
+  'larch bolete': 'larch-bolete',
+  'strobilomyces strobilaceus': 'old-man-of-the-woods',
+  'old man of the woods': 'old-man-of-the-woods',
+  'leccinum versipelle': 'orange-birch-bolete',
+  'orange birch bolete': 'orange-birch-bolete',
+  'leccinum aurantiacum': 'orange-oak-bolete',
+  'orange oak bolete': 'orange-oak-bolete',
+  'suillus spraguei': 'painted-suillus',
+  'painted suillus': 'painted-suillus',
+  'xerocomellus chrysenteron': 'red-cracking-bolete',
+  'red cracking bolete': 'red-cracking-bolete',
+  'suillus punctipes': 'dotted-stem-suillus',
+  'dotted stem suillus': 'dotted-stem-suillus',
+  'leccinum pseudoinsigne': 'eastern-orange-bolete',
+  'eastern orange bolete': 'eastern-orange-bolete',
+  'aureoboletus projectellus': 'admirable-bolete',
+  'admirable bolete': 'admirable-bolete',
+  'strobilomyces strobilaceus group': 'shaggy-stalked-bolete',
+  'shaggy stalked bolete': 'shaggy-stalked-bolete'
+};
+function normalizeKey(value) {
+  return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+}
+function findOverrideForRecord(record, overrides = {}) {
+  if (!record) return null;
+  if (record.slug && overrides[record.slug]) return overrides[record.slug];
+  const keys = [record.scientific_name, record.display_name, record.common_name].map(normalizeKey).filter(Boolean);
+  for (const key of keys) {
+    const alias = IMAGE_OVERRIDE_NAME_ALIASES[key];
+    if (alias && overrides[alias]) return overrides[alias];
+  }
+  return null;
+}
+
 async function loadBoletePack(){
   try{
     const response = await fetch("data/boletes-v1.json", { cache: "no-store" });
@@ -39,7 +78,7 @@ async function loadBoletePack(){
 }
 function applyImageOverridesToRecords(records = [], overrides = {}) {
   return (records || []).map((record) => {
-    const override = overrides?.[record.slug];
+    const override = findOverrideForRecord(record, overrides);
     if (!override) return record;
     return { ...record, images: Array.isArray(override.images) ? override.images : (record.images || []) };
   });
