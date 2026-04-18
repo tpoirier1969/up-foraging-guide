@@ -1,0 +1,70 @@
+:root{
+  --bg:#f5f5f1;
+  --panel:#ffffff;
+  --ink:#203026;
+  --muted:#5f6d63;
+  --accent:#2f5d46;
+  --line:#d7ddd8;
+  --warn:#9d5a15;
+  --danger:#8f2f2f;
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
+a{color:inherit}
+.app-shell{max-width:1240px;margin:0 auto;padding:16px}
+.site-header{display:grid;gap:14px;margin-bottom:16px}
+.brand-row{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+.brand-row h1{margin:0;font-size:1.8rem;line-height:1.1}
+.subhead{margin:.3rem 0 0;color:var(--muted)}
+.version-pill{background:var(--accent);color:#fff;border-radius:999px;padding:8px 12px;font-size:.9rem;white-space:nowrap}
+.main-nav{display:flex;flex-wrap:wrap;gap:8px}
+.main-nav a{display:inline-flex;align-items:center;justify-content:center;padding:10px 14px;border:1px solid var(--line);border-radius:999px;text-decoration:none;background:#fff}
+.main-nav a.active{background:var(--accent);color:#fff;border-color:var(--accent)}
+.page-root{display:grid;gap:16px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);padding:16px}
+.panel h2,.panel h3{margin-top:0}
+.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.grid-4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.stat-card{background:#f8faf8;border:1px solid var(--line);border-radius:12px;padding:14px}
+.stat-card .num{font-size:1.5rem;font-weight:700}
+.controls{display:grid;gap:10px}
+.control-row{display:flex;flex-wrap:wrap;gap:10px}
+input[type="search"],select,button,textarea{font:inherit}
+input[type="search"],select{padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink)}
+button,.buttonish{padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
+button.primary,.buttonish.primary{background:var(--accent);color:#fff;border-color:var(--accent)}
+button.warn{background:#fff7ec;border-color:#efcfaa;color:var(--warn)}
+button.danger{background:#fff1f1;border-color:#e7c0c0;color:var(--danger)}
+.muted{color:var(--muted)}
+.small{font-size:.9rem}
+.status-log{margin:0;padding-left:18px}
+.status-log li{margin:.3rem 0}
+.record-list{display:grid;gap:12px}
+.record-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}
+.record-card h3{margin:.1rem 0 .4rem}
+.record-meta{display:flex;flex-wrap:wrap;gap:8px;margin:.2rem 0 .6rem}
+.tag{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:4px 9px;background:#fafcfa;font-size:.85rem}
+.tag.warn{background:#fff7ec;color:var(--warn);border-color:#efcfaa}
+.tag.danger{background:#fff1f1;color:var(--danger);border-color:#e7c0c0}
+.tag.good{background:#eff9f1;color:#1f6a32;border-color:#c9e6cf}
+.empty-state{color:var(--muted)}
+.detail-grid{display:grid;gap:12px}
+.detail-block{padding:12px;border:1px solid var(--line);border-radius:10px;background:#fafcfa}
+.detail-block h4{margin:.1rem 0 .6rem}
+.kv{display:grid;grid-template-columns:160px 1fr;gap:8px 12px}
+.kv dt{font-weight:700}
+.kv dd{margin:0}
+.list-tight{margin:.2rem 0;padding-left:18px}
+.detail-modal{border:none;padding:0;background:transparent}
+.detail-modal::backdrop{background:rgba(0,0,0,.4)}
+.modal-card{width:min(900px,92vw);max-height:88vh;overflow:auto;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;position:relative}
+.close-btn{position:sticky;top:0;float:right;z-index:2}
+.error-box{background:#fff1f1;border:1px solid #e7c0c0;color:#6e2020;border-radius:12px;padding:14px}
+.codeish{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:.9rem;word-break:break-word}
+@media (max-width: 900px){
+  .grid-4,.grid-3,.grid-2{grid-template-columns:1fr}
+  .kv{grid-template-columns:1fr}
+  .brand-row{flex-direction:column}
+}
