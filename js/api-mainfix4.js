@@ -1,5 +1,9 @@
 import { APP_VERSION, TABLE_NAME } from "./constants-mainfix.js?v=2026-04-17-37";
 
+const BAD_SOURCE_LINKS = new Set([
+  'https://www.fda.gov/food/chemical-contaminants-pesticides/natural-toxins-food'
+]);
+
 async function loadJson(path) {
   const response = await fetch(path, { cache: "no-store" });
   if (!response.ok) throw new Error(`Load failed: ${path} ${response.status}`);
@@ -7,6 +11,12 @@ async function loadJson(path) {
 }
 function normalizeKey(value) {
   return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+}
+function sanitizeLinks(links = []) {
+  return [...new Set((links || []).filter(Boolean).map((v) => String(v).trim()).filter((v) => !BAD_SOURCE_LINKS.has(v)))];
+}
+function sanitizeRecord(record) {
+  return { ...record, links: sanitizeLinks(record?.links || []) };
 }
 const IMAGE_OVERRIDE_NAME_ALIASES = {
   'butyriboletus frostii': 'frosts-bolete',
@@ -61,8 +71,8 @@ function mergeCreditsPayloads(basePayload, extraPayload) {
 }
 function mergeSpeciesPayloads(basePayload, extraPayload) {
   const bySlug = new Map();
-  (basePayload?.records || []).forEach(record => bySlug.set(record.slug, record));
-  (extraPayload?.records || []).forEach(record => bySlug.set(record.slug, { ...(bySlug.get(record.slug) || {}), ...record }));
+  (basePayload?.records || []).forEach(record => bySlug.set(record.slug, sanitizeRecord(record)));
+  (extraPayload?.records || []).forEach(record => bySlug.set(record.slug, sanitizeRecord({ ...(bySlug.get(record.slug) || {}), ...record })));
   return {
     metadata: {
       ...(basePayload?.metadata || {}),
@@ -118,8 +128,8 @@ function applyOverrides(payload, overridePayload) {
   const overrides = overridePayload?.overrides || {};
   const records = (payload.records || []).map(record => {
     const override = findOverrideForRecord(record, overrides);
-    if (!override) return record;
-    return { ...record, images: Array.isArray(override.images) ? override.images : (record.images || []) };
+    if (!override) return sanitizeRecord(record);
+    return sanitizeRecord({ ...record, images: Array.isArray(override.images) ? override.images : (record.images || []) });
   });
   return {
     ...payload,
@@ -162,8 +172,8 @@ export async function loadSupabaseData() {
     const ref = refBySlug.get(row.species_slug) || {};
     seen.add(row.species_slug);
     const mergedImages = [...new Set([...(row.image_paths || []), ...(ref.images || [])])];
-    const mergedLinks = [...new Set([...(row.source_links || []), ...(ref.links || [])])];
-    return {
+    const mergedLinks = sanitizeLinks([...(row.source_links || []), ...(ref.links || [])]);
+    return sanitizeRecord({
       ...ref,
       slug: row.species_slug,
       display_name: row.display_name || ref.display_name || row.common_name || ref.common_name || row.species_slug,
@@ -176,9 +186,9 @@ export async function loadSupabaseData() {
       months_available: row.months_available || ref.months_available || [],
       links: mergedLinks,
       images: mergedImages
-    };
+    });
   });
-  const localOnlyRecords = (localPayload.records || []).filter(record => !seen.has(record.slug));
+  const localOnlyRecords = (localPayload.records || []).filter(record => !seen.has(record.slug)).map(sanitizeRecord);
   const payload = {
     metadata: {
       project: 'Upper Michigan Foraging Guide',
