@@ -5,6 +5,42 @@ async function loadJson(path) {
   if (!response.ok) throw new Error(`Load failed: ${path} ${response.status}`);
   return await response.json();
 }
+function normalizeKey(value) {
+  return String(value || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+}
+const IMAGE_OVERRIDE_NAME_ALIASES = {
+  'butyriboletus frostii': 'frosts-bolete',
+  'frost s bolete': 'frosts-bolete',
+  'frosts bolete': 'frosts-bolete',
+  'suillus grevillei': 'larch-bolete',
+  'larch bolete': 'larch-bolete',
+  'strobilomyces strobilaceus': 'old-man-of-the-woods',
+  'old man of the woods': 'old-man-of-the-woods',
+  'leccinum versipelle': 'orange-birch-bolete',
+  'orange birch bolete': 'orange-birch-bolete',
+  'leccinum aurantiacum': 'orange-oak-bolete',
+  'orange oak bolete': 'orange-oak-bolete',
+  'suillus spraguei': 'painted-suillus',
+  'painted suillus': 'painted-suillus',
+  'xerocomellus chrysenteron': 'red-cracking-bolete',
+  'red cracking bolete': 'red-cracking-bolete',
+  'suillus punctipes': 'dotted-stem-suillus',
+  'dotted stem suillus': 'dotted-stem-suillus',
+  'leccinum pseudoinsigne': 'eastern-orange-bolete',
+  'eastern orange bolete': 'eastern-orange-bolete',
+  'aureoboletus projectellus': 'admirable-bolete',
+  'admirable bolete': 'admirable-bolete'
+};
+function findOverrideForRecord(record, overrides = {}) {
+  if (!record) return null;
+  if (record.slug && overrides[record.slug]) return overrides[record.slug];
+  const keys = [record.scientific_name, record.display_name, record.common_name].map(normalizeKey).filter(Boolean);
+  for (const key of keys) {
+    const alias = IMAGE_OVERRIDE_NAME_ALIASES[key];
+    if (alias && overrides[alias]) return overrides[alias];
+  }
+  return null;
+}
 function mergeOverridePayloads(basePayload, extraPayload) {
   return {
     metadata: {
@@ -77,7 +113,7 @@ async function loadReferences() {
 function applyOverrides(payload, overridePayload) {
   const overrides = overridePayload?.overrides || {};
   const records = (payload.records || []).map(record => {
-    const override = overrides[record.slug];
+    const override = findOverrideForRecord(record, overrides);
     if (!override) return record;
     return { ...record, images: Array.isArray(override.images) ? override.images : (record.images || []) };
   });
