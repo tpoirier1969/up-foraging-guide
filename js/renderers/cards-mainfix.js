@@ -1,4 +1,4 @@
-import { MONTH_SHORT, MONTHS } from "../constants-mainfix.js?v=2026-04-17-35";
+import { MONTH_SHORT, MONTHS } from "../constants-mainfix.js?v=2026-04-17-38";
 import { escapeHtml } from "../utils.js?v=v3.2.0";
 
 function seasonStrip(record) {
@@ -61,7 +61,7 @@ function uniqueImages(images) {
   }
   return out;
 }
-function resolvedThumbUrl(url, width = 320) {
+function resolvedThumbUrl(url, width = 220) {
   const raw = String(url || '').trim();
   if (!raw) return '';
   const decoded = decodeURIComponent(raw);
@@ -73,9 +73,9 @@ function resolvedThumbUrl(url, width = 320) {
 }
 export function renderResultCard(record, context = "general") {
   const firstImage = uniqueImages(record.images || [])[0];
-  const thumbSrc = firstImage ? resolvedThumbUrl(firstImage, 320) : '';
+  const thumbSrc = firstImage ? resolvedThumbUrl(firstImage, 220) : '';
   const imageHtml = thumbSrc
-    ? `<a class="thumb thumb-link" href="#detail/${encodeURIComponent(record.slug)}" data-detail-link="${escapeHtml(record.slug)}" aria-label="Open ${escapeHtml(record.display_name)} details"><div class="thumb" style="background-image:url('${encodeURI(thumbSrc)}')"></div></a>`
+    ? `<a class="thumb thumb-link" href="#detail/${encodeURIComponent(record.slug)}" data-detail-link="${escapeHtml(record.slug)}" aria-label="Open ${escapeHtml(record.display_name)} details"><img class="thumb-img" src="${encodeURI(thumbSrc)}" alt="${escapeHtml(record.display_name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer"></a>`
     : `<a class="thumb thumb-link" href="#detail/${encodeURIComponent(record.slug)}" data-detail-link="${escapeHtml(record.slug)}" aria-label="Open ${escapeHtml(record.display_name)} details"><div class="thumb placeholder">No image</div></a>`;
   const tags = [];
   if (context === "mushrooms") { if (record.substrate?.[0]) tags.push(record.substrate[0]); if (record.treeType?.[0]) tags.push(record.treeType[0]); if (record.hostTree?.[0]) tags.push(record.hostTree[0]); if (record.underside?.[0]) tags.push(record.underside[0]); }
