@@ -1,279 +1,104 @@
 {
   "metadata": {
-    "version": "v2.1-mainfix28",
+    "version": "v2.2-mainfix38",
     "source": "Wikimedia Commons / repo image overrides pruned for accuracy",
     "notes": [
       "Any mushroom overrides not clearly matching the target species were removed.",
       "This is a conservative pass favoring correctness over coverage.",
       "More generic or potentially mismatched images (for example broad 'oyster' or 'morel' matches, or uncertain North American / European species substitutions) were stripped.",
-      "Added Old Man of the Woods image override and left conservative accuracy filtering in place."
+      "Added stable bolete overrides and plant-image fallbacks for arrowhead-type tuber entries."
     ]
   },
   "overrides": {
-    "birch-sap": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Betula_papyrifera-bark.jpg"
-      ]
-    },
-    "pine-nuts": {
-      "images": []
-    },
-    "pine-needles-tea": {
-      "images": []
-    },
-    "pine-resin-gum": {
-      "images": []
-    },
-    "maple-sap": {
-      "images": []
-    },
-    "spruce-tips": {
-      "images": []
-    },
-    "acorns-leached": {
-      "images": [
-        "assets/images/plants-2/acorns-leached-be064d.jpg"
-      ]
-    },
-    "barberries": {
-      "images": [
-        "assets/images/plants-2/barberries-05f459.jpg"
-      ]
-    },
-    "chicken-of-the-woods": {
-      "images": [
-        "assets/images/mushrooms/chicken-of-the-woods-1.jpg"
-      ]
-    },
-    "hen-of-the-woods": {
-      "images": [
-        "assets/images/mushrooms/hen-of-the-woods-1.jpg"
-      ]
-    },
-    "lion-s-mane": {
-      "images": [
-        "assets/images/mushrooms/lion-s-mane-1.jpg"
-      ]
-    },
-    "bear-s-head-tooth": {
-      "images": [
-        "assets/images/mushrooms/bear-s-head-tooth-v20-1.jpg"
-      ]
-    },
-    "giant-puffball": {
-      "images": [
-        "assets/images/mushrooms/giant-puffball-1.webp"
-      ]
-    },
-    "shaggy-mane": {
-      "images": [
-        "assets/images/mushrooms/shaggy-mane-1.jpg"
-      ]
-    },
-    "black-trumpet": {
-      "images": [
-        "assets/images/mushrooms/black-trumpet-1.jpg"
-      ]
-    },
-    "cauliflower-mushroom": {
-      "images": [
-        "assets/images/mushrooms/cauliflower-mushroom-1.jpg"
-      ]
-    },
-    "shrimp-of-the-woods": {
-      "images": [
-        "assets/images/mushrooms-2/shrimp-of-the-woods-aborted-entoloma-v20-1.jpg"
-      ]
-    },
-    "king-bolete": {
-      "images": [
-        "assets/images/mushrooms/king-bolete-1.jpg"
-      ]
-    },
-    "slippery-jack": {
-      "images": [
-        "assets/images/mushrooms/slippery-jack-1.jpg"
-      ]
-    },
-    "meadow-mushroom": {
-      "images": [
-        "assets/images/mushrooms/meadow-mushroom-1.jpg"
-      ]
-    },
-    "turkey-tail": {
-      "images": [
-        "assets/images/mushrooms-2/turkey-tail-v20-1.jpg"
-      ]
-    },
-    "blewits": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda.jpg"
-      ]
-    },
-    "elm-oyster": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Hypsizygus%20ulmarius.jpg"
-      ]
-    },
-    "artist-s-conk": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%20Pers.jpg"
-      ]
-    },
-    "birch-polypore": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Piptoporus%20betulinus%20-%20Lindsey.jpg"
-      ]
-    },
-    "dryad-s-saddle": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus%20%2847161022212%29.jpg"
-      ]
-    },
-    "pheasant-back": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus%20%2847161022212%29.jpg"
-      ]
-    },
-    "aspen-oyster": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus.jpg"
-      ]
-    },
-    "late-fall-oyster": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Sarcomyxa%20serotina.jpg"
-      ]
-    },
-    "golden-oyster": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20citrinopileatus%20crop.jpg"
-      ]
-    },
-    "black-morel": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%20%28Mey.%29%20Pers.jpg"
-      ]
-    },
-    "half-free-morel": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%2018477.jpg"
-      ]
-    },
-    "false-morel": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Gyromitra%20esculenta.jpg"
-      ]
-    },
-    "honey-mushroom": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20mellea%20Umela.png"
-      ]
-    },
-    "ringless-honey-mushroom": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20tabescens.jpg"
-      ]
-    },
-    "enoki": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20natural%20light.jpg"
-      ]
-    },
-    "velvet-foot": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20natural%20light.jpg"
-      ]
-    },
-    "witch-s-butter": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Tremella%20mesenterica%20G4.jpg"
-      ]
-    },
-    "amber-jelly-roll": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Exidia%20recisa%2031446385.jpg"
-      ]
-    },
-    "jelly-ear": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Auricularia%20auricula-judae%20(%28Bull.%29%20Qu%C3%A9l.)%20Wet.%20Auriculariales.jpg"
-      ]
-    },
-    "dead-man-s-fingers": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Xylaria%20polymorpha%20-%20Flickr%20-%20pellaea.jpg"
-      ]
-    },
-    "old-man-of-the-woods": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus.jpg"
-      ]
-    },
-    "split-gill": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Schizophyllum%20commune%20Basidiocarps.jpg"
-      ]
-    },
-    "resinous-polypore": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Ischnoderma%20resinosum%20-208113.jpg"
-      ]
-    },
-    "reishi": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20The%20hemlock%20varnish%20shelf.jpg"
-      ]
-    },
-    "hemlock-varnish-shelf": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20The%20hemlock%20varnish%20shelf.jpg"
-      ]
-    },
-    "orange-peel-fungus": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Aleuria%20aurantia%20oranje%20bekerzwam.jpg"
-      ]
-    },
-    "scarlet-cup": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Sarcoscypha%20austriaca%20(1).jpg"
-      ]
-    },
-    "sulfur-tuft": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Hypholoma%20fasciculare%20-%20Lindsey.jpg"
-      ]
-    },
-    "jack-o-lantern": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%2033893.jpg"
-      ]
-    },
-    "green-spored-parasol": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Chlorophyllum%20molybdites%20Illinois.jpg"
-      ]
-    },
-    "destroying-angel": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%201083.jpg"
-      ]
-    },
-    "fly-agaric": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%203%20vliegenzwammen%20op%20rij.jpg"
-      ]
-    },
-    "common-ink-cap": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinopsis%20atramentaria%2035949.jpg"
-      ]
-    },
-    "inky-cap": {
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinopsis%20atramentaria%2035949.jpg"
-      ]
-    }
+    "birch-sap": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Betula_papyrifera-bark.jpg"]},
+    "pine-nuts": {"images": []},
+    "pine-needles-tea": {"images": []},
+    "pine-resin-gum": {"images": []},
+    "maple-sap": {"images": []},
+    "spruce-tips": {"images": []},
+    "acorns-leached": {"images": ["assets/images/plants-2/acorns-leached-be064d.jpg"]},
+    "barberries": {"images": ["assets/images/plants-2/barberries-05f459.jpg"]},
+    "chicken-of-the-woods": {"images": ["assets/images/mushrooms/chicken-of-the-woods-1.jpg"]},
+    "hen-of-the-woods": {"images": ["assets/images/mushrooms/hen-of-the-woods-1.jpg"]},
+    "lion-s-mane": {"images": ["assets/images/mushrooms/lion-s-mane-1.jpg"]},
+    "bear-s-head-tooth": {"images": ["assets/images/mushrooms/bear-s-head-tooth-v20-1.jpg"]},
+    "giant-puffball": {"images": ["assets/images/mushrooms/giant-puffball-1.webp"]},
+    "shaggy-mane": {"images": ["assets/images/mushrooms/shaggy-mane-1.jpg"]},
+    "black-trumpet": {"images": ["assets/images/mushrooms/black-trumpet-1.jpg"]},
+    "cauliflower-mushroom": {"images": ["assets/images/mushrooms/cauliflower-mushroom-1.jpg"]},
+    "shrimp-of-the-woods": {"images": ["assets/images/mushrooms-2/shrimp-of-the-woods-aborted-entoloma-v20-1.jpg"]},
+    "king-bolete": {"images": ["assets/images/mushrooms/king-bolete-1.jpg"]},
+    "slippery-jack": {"images": ["assets/images/mushrooms/slippery-jack-1.jpg"]},
+    "meadow-mushroom": {"images": ["assets/images/mushrooms/meadow-mushroom-1.jpg"]},
+    "turkey-tail": {"images": ["assets/images/mushrooms-2/turkey-tail-v20-1.jpg"]},
+    "blewits": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda.jpg"]},
+    "elm-oyster": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Hypsizygus%20ulmarius.jpg"]},
+    "artist-s-conk": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%20Pers.jpg"]},
+    "birch-polypore": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Piptoporus%20betulinus%20-%20Lindsey.jpg"]},
+    "dryad-s-saddle": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus%20%2847161022212%29.jpg"]},
+    "pheasant-back": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus%20%2847161022212%29.jpg"]},
+    "aspen-oyster": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus.jpg"]},
+    "late-fall-oyster": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Sarcomyxa%20serotina.jpg"]},
+    "golden-oyster": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20citrinopileatus%20crop.jpg"]},
+    "black-morel": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%20%28Mey.%29%20Pers.jpg"]},
+    "half-free-morel": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%2018477.jpg"]},
+    "false-morel": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Gyromitra%20esculenta.jpg"]},
+    "honey-mushroom": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20mellea%20Umela.png"]},
+    "ringless-honey-mushroom": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20tabescens.jpg"]},
+    "enoki": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20natural%20light.jpg"]},
+    "velvet-foot": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20natural%20light.jpg"]},
+    "witch-s-butter": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Tremella%20mesenterica%20G4.jpg"]},
+    "amber-jelly-roll": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Exidia%20recisa%2031446385.jpg"]},
+    "jelly-ear": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Auricularia%20auricula-judae%20(%28Bull.%29%20Qu%C3%A9l.)%20Wet.%20Auriculariales.jpg"]},
+    "dead-man-s-fingers": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Xylaria%20polymorpha%20-%20Flickr%20-%20pellaea.jpg"]},
+    "old-man-of-the-woods": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus.jpg"]},
+    "split-gill": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Schizophyllum%20commune%20Basidiocarps.jpg"]},
+    "resinous-polypore": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Ischnoderma%20resinosum%20-208113.jpg"]},
+    "reishi": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20The%20hemlock%20varnish%20shelf.jpg"]},
+    "hemlock-varnish-shelf": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20The%20hemlock%20varnish%20shelf.jpg"]},
+    "orange-peel-fungus": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Aleuria%20aurantia%20oranje%20bekerzwam.jpg"]},
+    "scarlet-cup": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Sarcoscypha%20austriaca%20(1).jpg"]},
+    "sulfur-tuft": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Hypholoma%20fasciculare%20-%20Lindsey.jpg"]},
+    "jack-o-lantern": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%2033893.jpg"]},
+    "green-spored-parasol": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Chlorophyllum%20molybdites%20Illinois.jpg"]},
+    "destroying-angel": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%201083.jpg"]},
+    "fly-agaric": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%203%20vliegenzwammen%20op%20rij.jpg"]},
+    "common-ink-cap": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Coprinopsis%20atramentaria%2035949.jpg"]},
+    "inky-cap": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Coprinopsis%20atramentaria%2035949.jpg"]},
+    "admirable-bolete": {"images": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20projectellus.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20projectellus%2095627394.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20projectellus%2097356138.jpg"
+    ]},
+    "frosts-bolete": {"images": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus%20frostii.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20frostii%20282485.jpg"
+    ]},
+    "chicken-fat-mushroom": {"images": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20americanus.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20americanus%2061328.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20americanus%2060342.jpg"
+    ]},
+    "birch-bolete": {"images": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20scabrum%20%281%29.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20scabrum%20%2845362415272%29.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/LeccinumScabrum.JPG"
+    ]},
+    "aspen-bolete": {"images": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20insigne%20100%2C783.jpg",
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Aspen%20scaber-stalk%20Leccinum%20insigne%20-%20Flickr%20-%20gailhampshire%20%281%29.jpg"
+    ]},
+    "brown-and-white-bolete": {"images": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20badiceps%20%28Peck%29%20A.H.%20Sm.%20%26%20Thiers%20646142.jpg"
+    ]},
+    "arrowhead-tubers": {"images": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Sagittaria%20latifolia.jpg"
+    ]},
+    "duck-potato": {"images": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Sagittaria%20latifolia.jpg"
+    ]},
+    "wapato": {"images": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Sagittaria%20latifolia%20%289099856881%29.jpg"
+    ]}
   }
 }
