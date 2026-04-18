@@ -1,13 +1,14 @@
 {
   "metadata": {
-    "version": "v2.2-mainfix39",
+    "version": "v2.2-mainfix40",
     "source": "Wikimedia Commons / repo image overrides pruned for accuracy",
     "notes": [
       "Any mushroom overrides not clearly matching the target species were removed.",
       "This is a conservative pass favoring correctness over coverage.",
       "More generic or potentially mismatched images (for example broad 'oyster' or 'morel' matches, or uncertain North American / European species substitutions) were stripped.",
       "Added stable bolete overrides and plant-image fallbacks for arrowhead-type tuber entries.",
-      "Filled the two remaining missing-image bolete entries with species-specific sources."
+      "Filled the remaining missing-image bolete entries with species-specific sources.",
+      "Forced explicit overrides for visible bolete species cards that were still rendering as no-image."
     ]
   },
   "overrides": {
@@ -53,6 +54,7 @@
     "jelly-ear": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Auricularia%20auricula-judae%20(%28Bull.%29%20Qu%C3%A9l.)%20Wet.%20Auriculariales.jpg"]},
     "dead-man-s-fingers": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Xylaria%20polymorpha%20-%20Flickr%20-%20pellaea.jpg"]},
     "old-man-of-the-woods": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus.jpg"]},
+    "shaggy-stalked-bolete": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus.jpg"]},
     "split-gill": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Schizophyllum%20commune%20Basidiocarps.jpg"]},
     "resinous-polypore": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Ischnoderma%20resinosum%20-208113.jpg"]},
     "reishi": {"images": ["https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20The%20hemlock%20varnish%20shelf.jpg"]},
@@ -74,6 +76,21 @@
     "frosts-bolete": {"images": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus%20frostii.jpg",
       "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20frostii%20282485.jpg"
+    ]},
+    "larch-bolete": {"images": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20grevillei.jpg"
+    ]},
+    "painted-suillus": {"images": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20spraguei%2058269.jpg"
+    ]},
+    "red-cracking-bolete": {"images": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Xerocomellus%20chrysenteron%20311627756.jpg"
+    ]},
+    "orange-birch-bolete": {"images": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20versipelle%20LC0366.jpg"
+    ]},
+    "orange-oak-bolete": {"images": [
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20aurantiacum.jpg"
     ]},
     "chicken-fat-mushroom": {"images": [
       "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20americanus.jpg",
