@@ -1,1 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Upper Michigan Foraging Guide — Clean Build v2</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="shell">
+  <header>
+    <p class="eyebrow">Upper Michigan Foraging Guide</p>
+    <h1>Clean Build <span>v2</span></h1>
+    <p class="sub">Plants and mushrooms are separate canonical files. Medicinal and non-edible are derived views. Rare / endangered stays separate.</p>
+  </header>
 
+  <section class="warning">
+    <h2>Use This Guide Carefully</h2>
+    <p>This guide was put together by an amateur forager, not a scientist. I made it to be a reminder of things I've known, not a one-stop app for all things foraging.</p>
+    <p>Treat all plants, especially mushrooms, as potentially inedible and dangerous. Do not eat anything until you know the species and know how to prepare it.</p>
+  </section>
+
+  <nav id="nav">
+    <button data-view="home" class="active">Home</button>
+    <button data-view="plants">Plants</button>
+    <button data-view="mushrooms">Mushrooms</button>
+    <button data-view="medicinal">Medicinal</button>
+    <button data-view="nonedible">Non-edible</button>
+    <button data-view="rare">Rare / Endangered</button>
+  </nav>
+
+  <section class="toolbar">
+    <input id="search" type="search" placeholder="Search species, scientific name, notes...">
+    <span id="meta"></span>
+  </section>
+
+  <main id="app"></main>
+</div>
+
+<dialog id="detailModal">
+  <article class="modal">
+    <button id="closeModal" class="close">×</button>
+    <div id="modalContent"></div>
+  </article>
+</dialog>
+
+<script src="app.js"></script>
+</body>
+</html>
