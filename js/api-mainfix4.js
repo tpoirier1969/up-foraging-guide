@@ -98,6 +98,10 @@ async function loadSpeciesAdditions() {
   try { return await loadJson('data/species-additions-mainfix13.json'); }
   catch { return { metadata: { version: 'none', source: 'none' }, records: [] }; }
 }
+async function loadRescuedBoletes() {
+  try { return await loadJson('data/boletes-rescued-mainfix40.json'); }
+  catch { return { metadata: { version: 'none', source: 'none' }, records: [] }; }
+}
 async function loadSpeciesAuditFixes() {
   try { return await loadJson('data/species-audit-mainfix35.json'); }
   catch { return { metadata: { version: 'none', source: 'none' }, records: [] }; }
@@ -129,9 +133,10 @@ function applyOverrides(payload, overridePayload) {
   };
 }
 export async function loadLocalData() {
-  const [response, additionsPayload, auditPayload, auditPatchPayload, overridePayload, creditsPayload, references] = await Promise.all([
+  const [response, additionsPayload, rescuedBoletesPayload, auditPayload, auditPatchPayload, overridePayload, creditsPayload, references] = await Promise.all([
     fetch('data/species.json', { cache: 'no-store' }),
     loadSpeciesAdditions(),
+    loadRescuedBoletes(),
     loadSpeciesAuditFixes(),
     loadSpeciesAuditPatch(),
     loadOverrides(),
@@ -140,7 +145,7 @@ export async function loadLocalData() {
   ]);
   if (!response.ok) throw new Error(`Local JSON load failed: ${response.status}`);
   const payload = await response.json();
-  const merged = mergeSpeciesPayloads(mergeSpeciesPayloads(mergeSpeciesPayloads(payload, additionsPayload), auditPayload), auditPatchPayload);
+  const merged = mergeSpeciesPayloads(mergeSpeciesPayloads(mergeSpeciesPayloads(mergeSpeciesPayloads(payload, additionsPayload), rescuedBoletesPayload), auditPayload), auditPatchPayload);
   const applied = applyOverrides(merged, overridePayload);
   return { ...applied, creditsPayload, references };
 }
@@ -178,7 +183,7 @@ export async function loadSupabaseData() {
     metadata: {
       project: 'Upper Michigan Foraging Guide',
       version: APP_VERSION,
-      source: 'Supabase + local reference merge + local species additions + audit fixes + safety patch + Wikimedia override layer'
+      source: 'Supabase + local reference merge + local species additions + rescued boletes + audit fixes + safety patch + Wikimedia override layer'
     },
     records: [...supabaseRecords, ...localOnlyRecords]
   };
