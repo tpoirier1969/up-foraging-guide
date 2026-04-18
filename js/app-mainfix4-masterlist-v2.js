@@ -13,6 +13,16 @@ const focusDate = new Date();
 focusDate.setDate(focusDate.getDate() + 14);
 const CURRENT_MONTH = MONTHS[focusDate.getMonth()] || MONTHS[0];
 const RELEASED_REVIEW_KEY = "foraging_released_review_slugs_v1";
+const RESCUED_BOLETE_SLUGS = new Set([
+  'frosts-bolete',
+  'larch-bolete',
+  'old-man-of-the-woods',
+  'orange-birch-bolete',
+  'orange-oak-bolete',
+  'painted-suillus',
+  'red-cracking-bolete',
+  'shaggy-stalked-bolete'
+]);
 
 const COMMONNESS_ORDER = {
   "very common": 5, "abundant": 5, "plentiful": 5, "widespread": 5, "extremely common": 5,
@@ -71,7 +81,8 @@ async function loadBoletePack(){
   try{
     const response = await fetch("data/boletes-v1.json", { cache: "no-store" });
     const payload = await response.json();
-    return Array.isArray(payload?.records) ? payload.records : [];
+    const records = Array.isArray(payload?.records) ? payload.records : [];
+    return records.filter((record) => !RESCUED_BOLETE_SLUGS.has(record.slug));
   }catch{
     return [];
   }
