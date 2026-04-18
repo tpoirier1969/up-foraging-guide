@@ -1,12 +1,6 @@
 import { classifyRecord } from "../lib/merge.js";
-
-function esc(value) {
-  return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;");
-}
+import { esc } from "../lib/escape.js";
+import { renderImageSlot } from "../lib/image-resolver.js";
 
 function makeMeta(record) {
   const bits = [];
@@ -39,13 +33,16 @@ export function filterRecords(records, route, search = "") {
 export function renderRecordCards(records) {
   if (!records.length) return `<section class="panel empty-state"><h3>No matches</h3></section>`;
   return `<section class="record-list">${records.map(record => `
-    <article class="record-card">
-      <h3>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</h3>
-      <p class="muted small">${esc(record.scientific_name || "")}</p>
-      <div class="record-meta">${makeMeta(record)}</div>
-      <p>${esc(record.short_reason || record.classification_note || record.notes || record.habitat_detail || "").slice(0, 240)}</p>
-      <div class="control-row">
-        <button class="primary" type="button" data-detail="${esc(record.slug)}">Open details</button>
+    <article class="record-card with-image">
+      ${renderImageSlot(record, 'card')}
+      <div class="record-card-body">
+        <h3>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</h3>
+        <p class="muted small">${esc(record.scientific_name || "")}</p>
+        <div class="record-meta">${makeMeta(record)}</div>
+        <p>${esc(record.short_reason || record.classification_note || record.notes || record.habitat_detail || "").slice(0, 240)}</p>
+        <div class="control-row">
+          <button class="primary" type="button" data-detail="${esc(record.slug)}">Open details</button>
+        </div>
       </div>
     </article>
   `).join("")}</section>`;

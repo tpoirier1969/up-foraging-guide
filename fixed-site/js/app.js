@@ -1,5 +1,12 @@
 import { APP_VERSION } from "./config.js";
-import { state, setRoute, setSpecies, setRareSpecies, setReferences, logBoot } from "./state.js";
+import {
+  state,
+  setRoute,
+  setSpecies,
+  setRareSpecies,
+  setReferences,
+  logBoot
+} from "./state.js";
 import { loadAppData } from "./data/load-app-data.js";
 import { renderPage, openModal, closeModal, els } from "./ui/dom.js";
 import { markActiveNav } from "./ui/nav.js";
@@ -8,14 +15,9 @@ import { filterRecords, renderRecordCards } from "./ui/render-list.js";
 import { renderHome } from "./ui/render-home.js";
 import { renderRarePage } from "./ui/render-rare.js";
 import { renderReferencesPage } from "./ui/render-references.js";
-
-function esc(value) {
-  return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;");
-}
+import { renderCreditsPage } from "./ui/render-credits.js";
+import { installLazyImages } from "./lib/image-resolver.js";
+import { esc } from "./lib/escape.js";
 
 function parseRoute() {
   const raw = String(location.hash || "#/home").replace(/^#\/?/, "");
@@ -53,6 +55,7 @@ function routeTitle(route) {
     rare: "Rare",
     lookalikes: "Non-edible",
     references: "References",
+    credits: "Credits",
     search: "Search"
   }[route] || "Home";
 }
@@ -64,7 +67,6 @@ function renderSpeciesRoute(route) {
     ${controlsHtml(route, route === "search" ? "Search all species" : `Search ${routeTitle(route).toLowerCase()}`)}
     <section class="panel">
       <h2>${esc(title)}</h2>
-      <p class="muted">Version ${esc(APP_VERSION)}</p>
     </section>
     ${renderRecordCards(filtered)}
   `);
@@ -95,6 +97,12 @@ function renderCurrentRoute() {
 
   if (route === "references") {
     renderPage(renderReferencesPage(state.references, state.filters.search));
+    wirePageEvents(route);
+    return;
+  }
+
+  if (route === "credits") {
+    renderPage(renderCreditsPage(state.species, state.imageCredits, state.filters.search));
     wirePageEvents(route);
     return;
   }
@@ -154,13 +162,28 @@ function wirePageEvents(route) {
     }
   });
 
+  const creditsSearch = document.getElementById("creditsSearch");
+  document.getElementById("creditsSearchBtn")?.addEventListener("click", () => {
+    state.filters.search = creditsSearch?.value || "";
+    renderCurrentRoute();
+  });
+  creditsSearch?.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      state.filters.search = creditsSearch?.value || "";
+      renderCurrentRoute();
+    }
+  });
+
   document.querySelectorAll("[data-detail]").forEach(btn => {
     btn.addEventListener("click", () => {
       const record = getRecordBySlug(btn.dataset.detail);
       if (!record) return;
       openModal(renderDetail(record));
+      installLazyImages(els.modalContent, getRecordBySlug);
     });
   });
+
+  installLazyImages(els.pageRoot, getRecordBySlug);
 }
 
 async function boot() {
@@ -206,5 +229,7 @@ els.modal?.addEventListener("click", (event) => {
   const inside = rect.left <= event.clientX && event.clientX <= rect.right && rect.top <= event.clientY && event.clientY <= rect.bottom;
   if (!inside) closeModal();
 });
+
+document.getElementById('versionBadge')?.replaceChildren(document.createTextNode(APP_VERSION));
 
 boot();

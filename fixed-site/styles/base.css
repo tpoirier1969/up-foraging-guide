@@ -68,3 +68,22 @@ button.danger{background:#fff1f1;border-color:#e7c0c0;color:var(--danger)}
   .kv{grid-template-columns:1fr}
   .brand-row{flex-direction:column}
 }
+
+.record-card.with-image{display:grid;grid-template-columns:minmax(180px,240px) 1fr;gap:14px;align-items:start}
+.record-card-body{min-width:0}
+.record-image-slot{display:grid;gap:8px;margin:0}
+.record-image-slot.card{max-width:240px}
+.record-image-slot.detail{max-width:420px}
+.record-image{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border:1px solid var(--line);border-radius:12px;background:#eef3ef}
+.record-image.detail{aspect-ratio:16/10}
+.image-meta-line{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.image-source-badge{display:inline-flex;align-items:center;border:1px solid var(--line);border-radius:999px;padding:4px 9px;background:#fafcfa;font-size:.85rem}
+.detail-hero{display:grid;grid-template-columns:minmax(260px,420px) 1fr;gap:16px;align-items:start}
+.credit-list{display:grid;gap:12px}
+.credit-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px}
+.compact-card p{margin:.4rem 0}
+.control-row.compact .buttonish{padding:8px 10px}
+@media (max-width: 900px){
+  .record-card.with-image,.detail-hero{grid-template-columns:1fr}
+  .record-image-slot.card,.record-image-slot.detail{max-width:none}
+}

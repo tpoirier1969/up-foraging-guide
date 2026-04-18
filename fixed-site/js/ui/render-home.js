@@ -9,7 +9,7 @@ export function renderHome(species, rareSpecies, errors) {
   return `
     <section class="panel">
       <h2>Clean modular build</h2>
-      <p>This build keeps the scripts split into separate files and loads repo data through explicit source modules instead of one giant startup blob.</p>
+      <p>This build keeps the scripts split into smaller modules, uses a single global version flag in the upper right, and resolves photos with a local-first path that can fall back to Wikimedia Commons.</p>
       <div class="grid-4">
         <div class="stat-card"><div class="num">${species.length}</div><div>Total species records</div></div>
         <div class="stat-card"><div class="num">${plants}</div><div>Plants</div></div>

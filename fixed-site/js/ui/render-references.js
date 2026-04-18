@@ -1,10 +1,4 @@
-function esc(value) {
-  return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;");
-}
+import { esc } from "../lib/escape.js";
 
 export function renderReferencesPage(records, search = "") {
   const q = String(search || "").trim().toLowerCase();
