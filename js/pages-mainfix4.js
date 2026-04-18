@@ -80,8 +80,9 @@ function homeHub(allRecords) {
       <div class="result-header compact-result-header"><div class="result-title-row"><h3>In Focus Right Now</h3><p class="results-meta">${escapeHtml(month)}</p></div></div>
       <section class="detail-card section-block safety-callout warning">
         <h3>Use this guide carefully</h3>
-        <p>This guide was put together by an amateur forager, not a scientist. All mushrooms must be correctly identified before eating.</p>
-        <p>I built it for myself as a reminder tool. I know just enough to be dangerous, and I do not use this knowledge often enough to keep every detail committed to memory.</p>
+        <p>This guide was put together by an amateur forager, not a scientist. I made it to be a reminder of things I've known, it is not intended to be a one-stop-app for all things foraging.</p>
+        <p>Treat all plants, especially mushrooms, as potentially inedible and dangerous, don't eat anything until you know the species and know how to prepare it. Foraging can be a fun and rewarding way to make some great meals, just do it wisely.</p>
+        <p>The guide includes sections on plants, mushrooms, medicinals, and non-edible look alikes to be aware of. There's a timeline that will show you the different species you'll likely find in the woods each month, a sheet of reference materials, and as a bonus I added a section on Rare and Endangered species of Upper Michigan that also enables you to save your sightings.</p>
       </section>
       <div class="in-focus-layout">
         <div class="in-focus-stats">
