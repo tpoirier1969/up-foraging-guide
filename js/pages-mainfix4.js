@@ -47,6 +47,26 @@ function hostTreeLabels(treeType) {
 function formatLabelFromSlug(slug) { return String(slug || "").replace(/-/g, " ").replace(/\b\w/g, (ch) => ch.toUpperCase()); }
 function renderResultList(records, context = "general") { return records.length ? records.map((record) => renderResultCard(record, context)).join("") : '<div class="panel empty-state"><h3>No matches</h3></div>'; }
 function currentMonthName() { const d = new Date(); return MONTHS[d.getMonth()]; }
+function canonicalImageKey(url) {
+  const raw = String(url || '').trim();
+  if (!raw) return '';
+  const noQuery = raw.split('?')[0].split('#')[0];
+  const decoded = decodeURIComponent(noQuery);
+  const specialFile = decoded.match(/Special:FilePath\/(.+)$/i);
+  const tail = specialFile ? specialFile[1] : decoded.split('/').pop();
+  return String(tail || decoded).trim().toLowerCase();
+}
+function uniqueImages(images) {
+  const seen = new Set();
+  const out = [];
+  for (const image of images || []) {
+    const key = canonicalImageKey(image);
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    out.push(image);
+  }
+  return out;
+}
 function recordImage(record) { const images = Array.isArray(record?.images) ? record.images : []; return images.find(Boolean) || ""; }
 function resolvedHomeImageUrl(url, width = 260) {
   const raw = String(url || '').trim();
@@ -55,6 +75,9 @@ function resolvedHomeImageUrl(url, width = 260) {
   const specialFile = decoded.match(/https?:\/\/commons\.wikimedia\.org\/wiki\/Special:FilePath\/(.+)$/i);
   if (specialFile?.[1]) return `https://commons.wikimedia.org/wiki/Special:Redirect/file/${encodeURIComponent(specialFile[1])}?width=${width}`;
   return raw;
+}
+function serializeHomeFallbackSources(images, width = 260) {
+  return uniqueImages(images).map((url) => encodeURIComponent(resolvedHomeImageUrl(url, width))).join('|');
 }
 function isEdibleMushroomRecord(record) {
   if (!isForagingMushroom(record)) return false;
@@ -95,8 +118,10 @@ function homeHub(allRecords) {
         </div>
         <div class="in-focus-highlights">
           ${highlights.map((record) => {
-            const image = resolvedHomeImageUrl(recordImage(record), 260);
-            return `<a class="in-focus-card" href="#/detail/${escapeHtml(record.slug)}"><div class="in-focus-caption in-focus-caption-top"><strong>${escapeHtml(record.display_name || record.common_name || "Untitled")}</strong></div><img src="${encodeURI(image)}" alt="${escapeHtml(record.display_name || record.common_name || "In-season species")}" loading="lazy" decoding="async" referrerpolicy="no-referrer"></a>`;
+            const allImages = uniqueImages(record.images || []);
+            const image = resolvedHomeImageUrl(allImages[0], 260);
+            const fallbackSources = serializeHomeFallbackSources(allImages, 260);
+            return `<a class="in-focus-card" href="#/detail/${escapeHtml(record.slug)}"><div class="in-focus-caption in-focus-caption-top"><strong>${escapeHtml(record.display_name || record.common_name || "Untitled")}</strong></div><img src="${encodeURI(image)}" data-fallback-sources="${fallbackSources}" data-fallback-index="0" alt="${escapeHtml(record.display_name || record.common_name || "In-season species")}" loading="lazy" decoding="async" referrerpolicy="no-referrer"></a>`;
           }).join("")}
         </div>
       </div>
