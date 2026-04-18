@@ -71,11 +71,16 @@ function resolvedThumbUrl(url, width = 220) {
   }
   return raw;
 }
+function serializeFallbackSources(images, width = 220) {
+  return uniqueImages(images).map((url) => encodeURIComponent(resolvedThumbUrl(url, width))).join('|');
+}
 export function renderResultCard(record, context = "general") {
-  const firstImage = uniqueImages(record.images || [])[0];
+  const allImages = uniqueImages(record.images || []);
+  const firstImage = allImages[0];
   const thumbSrc = firstImage ? resolvedThumbUrl(firstImage, 220) : '';
+  const fallbackSources = serializeFallbackSources(allImages, 220);
   const imageHtml = thumbSrc
-    ? `<a class="thumb thumb-link" href="#detail/${encodeURIComponent(record.slug)}" data-detail-link="${escapeHtml(record.slug)}" aria-label="Open ${escapeHtml(record.display_name)} details"><img class="thumb-img" src="${encodeURI(thumbSrc)}" alt="${escapeHtml(record.display_name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer"></a>`
+    ? `<a class="thumb thumb-link" href="#detail/${encodeURIComponent(record.slug)}" data-detail-link="${escapeHtml(record.slug)}" aria-label="Open ${escapeHtml(record.display_name)} details"><img class="thumb-img" src="${encodeURI(thumbSrc)}" data-fallback-sources="${fallbackSources}" data-fallback-index="0" alt="${escapeHtml(record.display_name)}" loading="lazy" decoding="async" referrerpolicy="no-referrer"></a>`
     : `<a class="thumb thumb-link" href="#detail/${encodeURIComponent(record.slug)}" data-detail-link="${escapeHtml(record.slug)}" aria-label="Open ${escapeHtml(record.display_name)} details"><div class="thumb placeholder">No image</div></a>`;
   const tags = [];
   if (context === "mushrooms") { if (record.substrate?.[0]) tags.push(record.substrate[0]); if (record.treeType?.[0]) tags.push(record.treeType[0]); if (record.hostTree?.[0]) tags.push(record.hostTree[0]); if (record.underside?.[0]) tags.push(record.underside[0]); }
