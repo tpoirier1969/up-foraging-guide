@@ -6,7 +6,8 @@ export const state = {
   rareSpecies: [],
   references: [],
   filters: {
-    search: ""
+    search: "",
+    sort: "alpha"
   },
   loadErrors: [],
   imageCache: new Map(),
