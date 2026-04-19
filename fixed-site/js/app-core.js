@@ -11,6 +11,7 @@ import { loadCoreSpecies, loadRareSpecies, loadReferences } from "./data/load-ap
 import { renderPage, openModal, closeModal, els } from "./ui/dom.js";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
+import { seedImageCacheFromStorage, auditAllSpeciesPhotos } from "./lib/photo-audit.js";
 
 const moduleCache = new Map();
 let renderToken = 0;
@@ -335,10 +336,20 @@ export async function startApp() {
       renderPage(statusHtml("Loading app…", state.bootLog, "Core species load first. Rare, Credits, and References stay lazy until opened."));
     });
     setSpecies(result.species);
+    seedImageCacheFromStorage();
     state.loadErrors = result.errors;
     state.loading = false;
     await renderCurrentRoute();
     preloadCommonModules();
+    queueIdle(() => {
+      auditAllSpeciesPhotos(state.species, ({ completed, total, slug, status }) => {
+        if (completed <= 6 || completed % 20 === 0 || completed === total) {
+          logBoot(`[photos] ${completed}/${total} ${slug} ${status}`);
+        }
+      }).then(() => {
+        if (state.route === "credits") renderCurrentRoute();
+      }).catch(() => {});
+    }, 120);
   } catch (err) {
     state.loading = false;
     renderPage(`

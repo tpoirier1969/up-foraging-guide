@@ -1,6 +1,6 @@
 import { state, rememberImageCredit, rememberImageFailure, rememberImageResult } from "../state.js";
 import { resolveCommonsImages } from "./commons.js";
-import { buildRepoCandidateItems } from "./repo-images.js";
+import { loadStoredManifest } from "./photo-audit.js";
 
 function placeholderSvg(label) {
   const text = String(label || 'No image').slice(0, 42);
@@ -29,17 +29,18 @@ function setSourceLink(container, href, label = 'source') {
 async function ensureGallery(record) {
   const cached = state.imageCache.get(record.slug);
   if (cached?.items?.length) return cached.items;
-  const repoItems = buildRepoCandidateItems(record);
-  let commonsItems = [];
-  try {
-    commonsItems = await resolveCommonsImages(record, 3);
-  } catch (err) {}
-  const items = [...repoItems, ...commonsItems];
-  if (!items.length) {
+  const manifest = loadStoredManifest();
+  const stored = Array.isArray(manifest[record.slug]) ? manifest[record.slug] : [];
+  if (stored.length) {
+    rememberImageResult(record.slug, { source: 'stored-commons', items: stored });
+    return stored;
+  }
+  const commonsItems = await resolveCommonsImages(record, 3);
+  if (!commonsItems.length) {
     rememberImageFailure(record.slug);
     return [];
   }
-  rememberImageResult(record.slug, { source: 'mixed', items });
+  rememberImageResult(record.slug, { source: 'commons', items: commonsItems });
   for (const item of commonsItems) {
     rememberImageCredit(record.slug, {
       slug: record.slug,
@@ -55,7 +56,7 @@ async function ensureGallery(record) {
       query: item.query
     });
   }
-  return items;
+  return commonsItems;
 }
 
 function loadCandidateSequence(img, container, orderedItems, record, index) {
@@ -72,13 +73,11 @@ function loadCandidateSequence(img, container, orderedItems, record, index) {
       return;
     }
     img.onload = () => {
-      img.dataset.resolvedSource = item.source || 'photo';
-      setBadge(container, index === 0 ? 'Photo 1' : `Photo ${index + 1}`);
-      setSourceLink(container, item.sourcePage, item.source === 'repo' ? 'Repo' : 'Commons');
+      img.dataset.resolvedSource = item.source || 'wikimedia';
+      setBadge(container, `Photo ${index + 1}`);
+      setSourceLink(container, item.sourcePage, 'Commons');
     };
-    img.onerror = () => {
-      tryNext();
-    };
+    img.onerror = () => { tryNext(); };
     img.src = item.src;
   };
   tryNext();
@@ -97,25 +96,21 @@ async function hydrateImage(img, record) {
 export function installLazyImages(root, getRecordBySlug) {
   const images = Array.from(root.querySelectorAll('img[data-record-image]'));
   if (!images.length) return;
-
   const hydrate = (img) => {
     if (img.dataset.hydrated === '1') return;
     img.dataset.hydrated = '1';
     const record = getRecordBySlug(img.dataset.slug || '');
     if (!record) return;
-    if (!img.getAttribute('src') || img.getAttribute('src').endsWith('AQABAAAAACw=')) {
+    if (!img.getAttribute('src') || img.getAttribute('src').startsWith('data:image/svg+xml')) {
       img.src = placeholderSvg(`${record.display_name || record.common_name || record.slug} loading photo`);
     }
     hydrateImage(img, record);
   };
-
   if (typeof IntersectionObserver !== 'function') {
     images.forEach(hydrate);
     return;
   }
-
   images.slice(0, 18).forEach(hydrate);
-
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (!entry.isIntersecting) return;
@@ -123,6 +118,5 @@ export function installLazyImages(root, getRecordBySlug) {
       hydrate(entry.target);
     });
   }, { rootMargin: '240px 0px' });
-
   images.forEach(img => { if (img.dataset.hydrated !== '1') observer.observe(img); });
 }
