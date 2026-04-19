@@ -5,7 +5,10 @@ export const els = {
   closeModalBtn: document.getElementById("closeModalBtn")
 };
 
-export function renderPage(html) { els.pageRoot.innerHTML = html; }
+export function renderPage(html) {
+  els.pageRoot.innerHTML = html;
+}
+
 export function openModal(html) {
   els.modalContent.innerHTML = html;
   if (typeof els.modal.showModal === "function") {
@@ -13,6 +16,7 @@ export function openModal(html) {
   }
   els.modal.setAttribute("open", "open");
 }
+
 export function closeModal() {
   if (typeof els.modal.close === "function") {
     try { els.modal.close(); } catch {}
