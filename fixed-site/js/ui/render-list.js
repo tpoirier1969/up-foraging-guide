@@ -1,6 +1,6 @@
 import { classifyRecord } from "../lib/merge.js";
 import { esc } from "../lib/escape.js";
-import { renderImageSlot } from "../lib/image-resolver.js";
+import { renderImageSlot } from "../lib/image-slot.js";
 
 function makeMeta(record) {
   const bits = [];

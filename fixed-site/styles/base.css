@@ -87,3 +87,14 @@ button.danger{background:#fff1f1;border-color:#e7c0c0;color:var(--danger)}
   .record-card.with-image,.detail-hero{grid-template-columns:1fr}
   .record-image-slot.card,.record-image-slot.detail{max-width:none}
 }
+
+
+.record-image-slot.gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:none}
+.record-image-cell{margin:0;display:grid;gap:6px}
+.record-image-slot.single{display:grid;grid-template-columns:1fr}
+.record-image-slot.single .record-image-cell{max-width:240px}
+.record-image-slot.detail.single .record-image-cell,.record-image-slot.detail .record-image-cell{max-width:none}
+.record-image.detail{aspect-ratio:4/3}
+@media (max-width: 900px){
+  .record-image-slot.gallery{grid-template-columns:1fr}
+}

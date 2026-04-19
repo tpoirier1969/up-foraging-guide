@@ -1,5 +1,5 @@
 import { esc } from "../lib/escape.js";
-import { renderImageSlot } from "../lib/image-resolver.js";
+import { renderImageSlot } from "../lib/image-slot.js";
 
 export function renderRarePage(records, search = "") {
   const q = String(search || "").trim().toLowerCase();

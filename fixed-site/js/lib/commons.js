@@ -20,7 +20,7 @@ function stripHtml(value) {
 function cleanName(value) {
   return String(value || "")
     .replace(/\([^)]*\)/g, " ")
-    .replace(/(?:spp?|group|complex|allies|entry|field|concept|var|cf|aff)\.?/gi, " ")
+    .replace(/\b(?:spp?|group|complex|allies|entry|field|concept|var|cf|aff)\.?\b/gi, " ")
     .replace(/[|/]+/g, " ")
     .replace(/\s+/g, " ")
     .trim();
@@ -54,19 +54,42 @@ export function buildCommonsQueries(record) {
   return queries.slice(0, 4);
 }
 
-function scoreCandidate(page, queries) {
-  const title = String(page?.title || "").toLowerCase();
+const BAD_TERMS = [
+  'illustration', 'drawing', 'sketch', 'diagram', 'painting', 'watercolor', 'icon', 'logo', 'seal',
+  'coat of arms', 'map', 'herbarium', 'poster', 'flag', 'symbol', 'avatar', 'cartoon', 'engraving',
+  'line art', 'line drawing', 'pencil'
+];
+
+function hasBadArtWords(text) {
+  const hay = String(text || '').toLowerCase();
+  return BAD_TERMS.some(term => hay.includes(term));
+}
+
+function tokenize(text) {
+  return String(text || '').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean);
+}
+
+function scoreCandidate(page, queries, description = '') {
+  const title = String(page?.title || '').toLowerCase();
+  const desc = String(description || '').toLowerCase();
   let score = 0;
   for (const q of queries) {
     const query = q.toLowerCase();
     if (!query) continue;
-    if (title.includes(query)) score += 5;
-    for (const token of query.split(/\s+/).filter(Boolean)) {
-      if (title.includes(token)) score += 1;
+    if (title.includes(query)) score += 8;
+    if (desc.includes(query)) score += 4;
+    for (const token of tokenize(query)) {
+      if (title.includes(token)) score += 2;
+      if (desc.includes(token)) score += 1;
     }
   }
-  if (/illustration|drawing|icon|logo|map|diagram/i.test(title)) score -= 3;
+  if (/\b(photo|photograph|photographed)\b/.test(desc)) score += 3;
+  if (hasBadArtWords(title) || hasBadArtWords(desc)) score -= 20;
   return score;
+}
+
+function mediaSearchQuery(query) {
+  return `${query} filemime:bitmap -illustration -drawing -sketch -diagram -painting -logo -icon -coat -arms -map`;
 }
 
 async function mediaWikiSearch(query) {
@@ -77,11 +100,11 @@ async function mediaWikiSearch(query) {
   url.searchParams.set('origin', '*');
   url.searchParams.set('generator', 'search');
   url.searchParams.set('gsrnamespace', '6');
-  url.searchParams.set('gsrsearch', query);
+  url.searchParams.set('gsrsearch', mediaSearchQuery(query));
   url.searchParams.set('gsrlimit', String(IMAGE_SEARCH_LIMIT));
   url.searchParams.set('prop', 'imageinfo|info');
-  url.searchParams.set('iiprop', 'url|extmetadata');
-  url.searchParams.set('iiurlwidth', '900');
+  url.searchParams.set('iiprop', 'url|extmetadata|mime');
+  url.searchParams.set('iiurlwidth', '1200');
   url.searchParams.set('inprop', 'url');
 
   const res = await withTimeout(fetch(url.toString(), { cache: 'no-store' }), FETCH_TIMEOUT_MS, query);
@@ -97,31 +120,61 @@ function makeSearchUrl(query) {
   return url.toString();
 }
 
-export async function resolveCommonsImage(record) {
+function normalizeCandidate(page, query, queries) {
+  const info = Array.isArray(page?.imageinfo) ? page.imageinfo[0] || {} : {};
+  const meta = info.extmetadata || {};
+  const title = String(page?.title || '').replace(/^File:/i, '');
+  const description = stripHtml(meta.ImageDescription?.value || meta.ObjectName?.value || '');
+  const mime = String(info.mime || '').toLowerCase();
+  const sourcePage = page.fullurl || makeSearchUrl(query);
+  return {
+    source: 'wikimedia',
+    src: info.thumburl || info.url || '',
+    fullImageUrl: info.url || '',
+    sourcePage,
+    title,
+    author: stripHtml(meta.Artist?.value || meta.Credit?.value || ''),
+    credit: stripHtml(meta.Credit?.value || ''),
+    license: stripHtml(meta.LicenseShortName?.value || meta.License?.value || ''),
+    licenseUrl: stripHtml(meta.LicenseUrl?.value || ''),
+    description,
+    mime,
+    query,
+    score: scoreCandidate(page, queries, description)
+  };
+}
+
+function isAcceptablePhoto(candidate) {
+  if (!candidate?.src) return false;
+  if (candidate.mime && !/^image\/(jpeg|jpg|png|webp|gif)$/i.test(candidate.mime)) return false;
+  if (hasBadArtWords(candidate.title) || hasBadArtWords(candidate.description)) return false;
+  return true;
+}
+
+export async function resolveCommonsImages(record, count = 3) {
   const queries = buildCommonsQueries(record);
+  const seen = new Set();
+  const candidates = [];
+
   for (const query of queries) {
     const pages = await mediaWikiSearch(query);
-    const filtered = pages
-      .filter(page => Array.isArray(page?.imageinfo) && page.imageinfo[0]?.thumburl)
-      .sort((a, b) => scoreCandidate(b, queries) - scoreCandidate(a, queries));
-    const page = filtered[0];
-    if (!page) continue;
-    const info = page.imageinfo[0] || {};
-    const meta = info.extmetadata || {};
-    return {
-      source: 'wikimedia',
-      src: info.thumburl || info.url || '',
-      fullImageUrl: info.url || '',
-      sourcePage: page.fullurl || makeSearchUrl(query),
-      title: String(page.title || '').replace(/^File:/i, ''),
-      author: stripHtml(meta.Artist?.value || meta.Credit?.value || ''),
-      credit: stripHtml(meta.Credit?.value || ''),
-      license: stripHtml(meta.LicenseShortName?.value || meta.License?.value || ''),
-      licenseUrl: stripHtml(meta.LicenseUrl?.value || ''),
-      query
-    };
+    for (const page of pages) {
+      const candidate = normalizeCandidate(page, query, queries);
+      const key = candidate.title || candidate.sourcePage || candidate.src;
+      if (!key || seen.has(key)) continue;
+      seen.add(key);
+      if (!isAcceptablePhoto(candidate)) continue;
+      candidates.push(candidate);
+    }
   }
-  return null;
+
+  candidates.sort((a, b) => b.score - a.score || String(a.title).localeCompare(String(b.title)));
+  return candidates.slice(0, count);
+}
+
+export async function resolveCommonsImage(record) {
+  const items = await resolveCommonsImages(record, 1);
+  return items[0] || null;
 }
 
 export function getCommonsSearchUrl(record) {

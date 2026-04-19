@@ -1,5 +1,5 @@
 import { esc } from "../lib/escape.js";
-import { renderImageSlot } from "../lib/image-resolver.js";
+import { renderImageSlot } from "../lib/image-slot.js";
 
 function lineIf(label, value) {
   if (value === undefined || value === null || value === "") return "";

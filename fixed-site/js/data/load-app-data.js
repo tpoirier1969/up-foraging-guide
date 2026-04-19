@@ -2,56 +2,62 @@ import { fetchJsonFromRepo } from "../lib/fetch-json.js";
 import { mergeRecordLayers } from "../lib/merge.js";
 import { SPECIES_PATHS, OPTIONAL_PATHS } from "./sources.js";
 
+let rareCachePromise = null;
+let referencesCachePromise = null;
+
 function asRecords(payload) {
   return Array.isArray(payload?.records) ? payload.records : [];
 }
 
-export async function loadAppData(log) {
-  const speciesPayloads = [];
+async function fetchPath(path, log) {
+  log?.(`Loading ${path}`);
+  const payload = await fetchJsonFromRepo(path);
+  log?.(`Loaded ${path} (${asRecords(payload).length || (Array.isArray(payload) ? payload.length : 0)} records)`);
+  return payload;
+}
+
+export async function loadCoreSpecies(log) {
   const errors = [];
-
-  for (const path of SPECIES_PATHS) {
+  const results = await Promise.all(SPECIES_PATHS.map(async (path) => {
     try {
-      log(`Loading ${path}`);
-      const payload = await fetchJsonFromRepo(path);
-      speciesPayloads.push(payload);
-      log(`Loaded ${path} (${asRecords(payload).length} records)`);
+      const payload = await fetchPath(path, log);
+      return { path, payload };
     } catch (err) {
-      errors.push({ path, error: err.message });
-      log(`Failed ${path}: ${err.message}`);
+      const message = err?.message || String(err);
+      errors.push({ path, error: message });
+      log?.(`Failed ${path}: ${message}`);
+      return { path, payload: null };
     }
-  }
+  }));
 
+  const speciesPayloads = results.filter(item => item.payload).map(item => item.payload);
   if (!speciesPayloads.length) {
     const detail = errors.map(item => `${item.path}: ${item.error}`).join("\n");
     throw new Error(`No species data layers loaded.\n${detail}`);
   }
 
-  let references = [];
-  let rareSpecies = [];
-
-  try {
-    log(`Loading ${OPTIONAL_PATHS[0]}`);
-    references = await fetchJsonFromRepo(OPTIONAL_PATHS[0]);
-    if (!Array.isArray(references)) references = references?.records || [];
-    log(`Loaded ${OPTIONAL_PATHS[0]} (${references.length || 0} records)`);
-  } catch (err) {
-    errors.push({ path: OPTIONAL_PATHS[0], error: err.message });
-    log(`Failed ${OPTIONAL_PATHS[0]}: ${err.message}`);
-  }
-
-  try {
-    log(`Loading ${OPTIONAL_PATHS[1]}`);
-    const rarePayload = await fetchJsonFromRepo(OPTIONAL_PATHS[1]);
-    rareSpecies = rarePayload?.records || [];
-    log(`Loaded ${OPTIONAL_PATHS[1]} (${rareSpecies.length || 0} records)`);
-  } catch (err) {
-    errors.push({ path: OPTIONAL_PATHS[1], error: err.message });
-    log(`Failed ${OPTIONAL_PATHS[1]}: ${err.message}`);
-  }
-
   const species = mergeRecordLayers(...speciesPayloads);
-  log(`Merged ${species.length} species records`);
+  log?.(`Merged ${species.length} species records`);
+  return { species, errors };
+}
 
-  return { species, rareSpecies, references, errors };
+export function loadRareSpecies(log) {
+  if (!rareCachePromise) {
+    rareCachePromise = (async () => {
+      const payload = await fetchPath(OPTIONAL_PATHS[1], log);
+      return Array.isArray(payload?.records) ? payload.records : [];
+    })();
+  }
+  return rareCachePromise;
+}
+
+export function loadReferences(log) {
+  if (!referencesCachePromise) {
+    referencesCachePromise = (async () => {
+      const payload = await fetchPath(OPTIONAL_PATHS[0], log);
+      if (Array.isArray(payload)) return payload;
+      return Array.isArray(payload?.records) ? payload.records : [];
+    })();
+  }
+  return referencesCachePromise;
 }

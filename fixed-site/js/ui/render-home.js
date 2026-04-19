@@ -1,6 +1,6 @@
 import { classifyRecord } from "../lib/merge.js";
 
-export function renderHome(species, rareSpecies, errors) {
+export function renderHome(species, errors) {
   const plants = species.filter(r => classifyRecord(r).isPlant).length;
   const mushrooms = species.filter(r => classifyRecord(r).isMushroom).length;
   const medicinal = species.filter(r => classifyRecord(r).medicinal).length;
@@ -9,7 +9,7 @@ export function renderHome(species, rareSpecies, errors) {
   return `
     <section class="panel">
       <h2>Clean modular build</h2>
-      <p>This build keeps the scripts split into smaller modules, uses a single global version flag in the upper right, and resolves photos with a local-first path that can fall back to Wikimedia Commons.</p>
+      <p>This standalone build boots the shell first, loads local species records from inside the package, and then quietly preloads the common page modules in the background. Rare, References, and Credits stay lazy until you actually open them.</p>
       <div class="grid-4">
         <div class="stat-card"><div class="num">${species.length}</div><div>Total species records</div></div>
         <div class="stat-card"><div class="num">${plants}</div><div>Plants</div></div>
@@ -21,8 +21,8 @@ export function renderHome(species, rareSpecies, errors) {
     <section class="panel">
       <div class="grid-3">
         <div class="stat-card"><div class="num">${lookalikes}</div><div>Non-edible / caution entries</div></div>
-        <div class="stat-card"><div class="num">${rareSpecies.length}</div><div>Rare species entries</div></div>
-        <div class="stat-card"><div class="num">${errors.length}</div><div>Load warnings</div></div>
+        <div class="stat-card"><div class="num">Lazy</div><div>Rare / References / Credits</div></div>
+        <div class="stat-card"><div class="num">${errors.length}</div><div>Core load warnings</div></div>
       </div>
     </section>
 
@@ -38,8 +38,8 @@ export function renderHome(species, rareSpecies, errors) {
 
     ${errors.length ? `
       <section class="error-box">
-        <h3>Load warnings</h3>
-        <p>The app loaded, but a few optional or overlay files failed.</p>
+        <h3>Core load warnings</h3>
+        <p>The app loaded, but a few overlay files failed.</p>
         <ul class="list-tight">
           ${errors.map(item => `<li><span class="codeish">${item.path}</span> — ${item.error}</li>`).join("")}
         </ul>

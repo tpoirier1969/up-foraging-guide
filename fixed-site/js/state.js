@@ -11,7 +11,13 @@ export const state = {
   loadErrors: [],
   imageCache: new Map(),
   imageCredits: new Map(),
-  imageFailures: new Set()
+  imageFailures: new Set(),
+  coreReady: false,
+  rareReady: false,
+  referencesReady: false,
+  rarePromise: null,
+  referencesPromise: null,
+  modulePrefetchStarted: false
 };
 
 export function setRoute(route) {
@@ -20,14 +26,17 @@ export function setRoute(route) {
 
 export function setSpecies(records) {
   state.species = Array.isArray(records) ? records : [];
+  state.coreReady = true;
 }
 
 export function setRareSpecies(records) {
   state.rareSpecies = Array.isArray(records) ? records : [];
+  state.rareReady = true;
 }
 
 export function setReferences(records) {
   state.references = Array.isArray(records) ? records : [];
+  state.referencesReady = true;
 }
 
 export function logBoot(message) {
@@ -41,7 +50,12 @@ export function rememberImageResult(slug, result) {
 
 export function rememberImageCredit(slug, credit) {
   if (!slug || !credit) return;
-  state.imageCredits.set(slug, credit);
+  const list = state.imageCredits.get(slug) || [];
+  const key = `${credit.title || ''}::${credit.sourcePage || ''}`;
+  if (!list.some(item => `${item.title || ''}::${item.sourcePage || ''}` === key)) {
+    list.push(credit);
+    state.imageCredits.set(slug, list);
+  }
 }
 
 export function rememberImageFailure(slug) {
