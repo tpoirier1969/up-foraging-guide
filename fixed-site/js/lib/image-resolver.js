@@ -1,6 +1,6 @@
 import { state, rememberImageCredit, rememberImageFailure, rememberImageResult } from "../state.js";
-import { resolveCommonsImages } from "./commons.js";
-import { loadStoredManifest } from "./photo-audit.js";
+
+let manifestPromise = null;
 
 function placeholderSvg(label) {
   const text = String(label || 'No image').slice(0, 42);
@@ -30,53 +30,32 @@ function normalizeHardwiredImages(record) {
   const list = Array.isArray(record?.images) ? record.images : [];
   return list.map((item) => {
     if (typeof item === 'string') {
-      return { src: item, source: 'commons-hardwired', title: record.display_name || record.common_name || record.slug, sourcePage: item };
+      return { src: item, source: 'manifest-hardwired', title: record.display_name || record.common_name || record.slug, sourcePage: item };
     }
     return item && typeof item === 'object' ? item : null;
   }).filter(Boolean);
 }
 
-async function ensureGallery(record) {
-  const cached = state.imageCache.get(record.slug);
-  if (cached?.items?.length) return cached.items;
-  const hardwired = normalizeHardwiredImages(record);
-  if (hardwired.length) {
-    rememberImageResult(record.slug, { source: 'hardwired', items: hardwired });
-    for (const item of hardwired) {
-      rememberImageCredit(record.slug, {
-        slug: record.slug,
-        species: record.display_name || record.common_name || record.slug,
-        scientific_name: record.scientific_name || '',
-        source: item.source || 'commons-hardwired',
-        title: item.title,
-        author: item.author,
-        credit: item.credit,
-        license: item.license,
-        licenseUrl: item.licenseUrl,
-        sourcePage: item.sourcePage,
-        query: item.query
-      });
-    }
-    return hardwired;
+async function loadLocalManifest() {
+  if (!manifestPromise) {
+    manifestPromise = fetch('./data/species-images.json', { cache: 'no-cache' })
+      .then((res) => {
+        if (!res.ok) throw new Error(`species-images.json ${res.status}`);
+        return res.json();
+      })
+      .then((payload) => payload?.records || {})
+      .catch(() => ({}));
   }
-  const manifest = loadStoredManifest();
-  const stored = Array.isArray(manifest[record.slug]) ? manifest[record.slug] : [];
-  if (stored.length) {
-    rememberImageResult(record.slug, { source: 'stored-commons', items: stored });
-    return stored;
-  }
-  const commonsItems = await resolveCommonsImages(record, 3);
-  if (!commonsItems.length) {
-    rememberImageFailure(record.slug);
-    return [];
-  }
-  rememberImageResult(record.slug, { source: 'commons', items: commonsItems });
-  for (const item of commonsItems) {
+  return manifestPromise;
+}
+
+function creditAll(record, items, sourceLabel) {
+  for (const item of items) {
     rememberImageCredit(record.slug, {
       slug: record.slug,
       species: record.display_name || record.common_name || record.slug,
       scientific_name: record.scientific_name || '',
-      source: item.source || 'wikimedia',
+      source: item.source || sourceLabel,
       title: item.title,
       author: item.author,
       credit: item.credit,
@@ -86,7 +65,29 @@ async function ensureGallery(record) {
       query: item.query
     });
   }
-  return commonsItems;
+}
+
+async function ensureGallery(record) {
+  const cached = state.imageCache.get(record.slug);
+  if (cached?.items?.length) return cached.items;
+
+  const manifest = await loadLocalManifest();
+  const localManifestItems = Array.isArray(manifest[record.slug]) ? manifest[record.slug] : [];
+  if (localManifestItems.length) {
+    rememberImageResult(record.slug, { source: 'local-manifest', items: localManifestItems });
+    creditAll(record, localManifestItems, 'local-manifest');
+    return localManifestItems;
+  }
+
+  const hardwired = normalizeHardwiredImages(record);
+  if (hardwired.length) {
+    rememberImageResult(record.slug, { source: 'embedded-hardwired', items: hardwired });
+    creditAll(record, hardwired, 'embedded-hardwired');
+    return hardwired;
+  }
+
+  rememberImageFailure(record.slug);
+  return [];
 }
 
 function loadCandidateSequence(img, container, orderedItems, record, index) {
@@ -103,9 +104,9 @@ function loadCandidateSequence(img, container, orderedItems, record, index) {
       return;
     }
     img.onload = () => {
-      img.dataset.resolvedSource = item.source || 'wikimedia';
+      img.dataset.resolvedSource = item.source || 'local-manifest';
       setBadge(container, `Photo ${index + 1}`);
-      setSourceLink(container, item.sourcePage, 'Commons');
+      setSourceLink(container, item.sourcePage, 'Source');
     };
     img.onerror = () => { tryNext(); };
     img.src = item.src;

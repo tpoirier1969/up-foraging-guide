@@ -1,8 +1,7 @@
-import { getCommonsSearchUrl } from "../lib/commons.js";
 import { esc } from "../lib/escape.js";
 
 function creditRow(entry) {
-  const sourceLabel = entry.source === 'wikimedia' ? 'Wikimedia Commons' : 'Local image path';
+  const sourceLabel = entry.source?.includes('manifest') || entry.source?.includes('hardwired') ? 'Local hardwired manifest' : 'Local image source';
   return `
     <article class="credit-card">
       <h3>${esc(entry.species || entry.slug || 'Untitled')}</h3>
@@ -21,14 +20,13 @@ function creditRow(entry) {
 }
 
 function catalogRow(record) {
+  const photoCount = Array.isArray(record.images) ? record.images.length : 0;
   return `
     <article class="credit-card compact-card">
       <h3>${esc(record.display_name || record.common_name || record.slug || 'Untitled')}</h3>
       <p class="muted small">${esc(record.scientific_name || '')}</p>
-      <p><strong>Photo rule:</strong> 2-3 real photographs required. No sketches, drawings, or paintings.</p>
-      <div class="control-row compact">
-        <a class="buttonish" href="${esc(getCommonsSearchUrl(record))}" target="_blank" rel="noreferrer">Search Commons</a>
-      </div>
+      <p><strong>Photo rule:</strong> Hardwired local manifest only. No runtime Commons search.</p>
+      <p><strong>Attached photos:</strong> ${photoCount}</p>
     </article>
   `;
 }
@@ -48,12 +46,12 @@ export function renderCreditsPage(records, imageCredits, search = '') {
     return [record.display_name, record.common_name, record.scientific_name, record.slug].join(' ').toLowerCase().includes(q);
   }).sort((a,b) => String(a.display_name || a.common_name || a.slug).localeCompare(String(b.display_name || b.common_name || b.slug)));
 
-  const wikimediaResolved = credits.filter(entry => entry.source === 'wikimedia').length;
+  const hardwiredResolved = credits.length;
 
   return `
     <section class="panel">
       <h2>Credits</h2>
-      <p>This build resolves Commons photographs and rejects obvious sketches, drawings, paintings, diagrams, and similar non-photo assets. The target is 2-3 real photos per species.</p>
+      <p>This build uses a local hardwired image manifest. Runtime Commons searching is disabled.</p>
       <div class="control-row">
         <input id="creditsSearch" type="search" value="${esc(search)}" placeholder="Search credits, species, filenames, or licenses" style="flex:1;min-width:280px">
         <button id="creditsSearchBtn" class="primary" type="button">Search</button>
@@ -63,15 +61,14 @@ export function renderCreditsPage(records, imageCredits, search = '') {
     <section class="panel">
       <div class="grid-3">
         <div class="stat-card"><div class="num">${records.length}</div><div>Species in catalog</div></div>
-        <div class="stat-card"><div class="num">2-3</div><div>Target photos per species</div></div>
-        <div class="stat-card"><div class="num">${wikimediaResolved}</div><div>Resolved Commons credits this session</div></div>
+        <div class="stat-card"><div class="num">0</div><div>Runtime Commons API calls</div></div>
+        <div class="stat-card"><div class="num">${hardwiredResolved}</div><div>Resolved local image credits this session</div></div>
       </div>
     </section>
 
     <section class="panel">
       <h3>Resolved image credits</h3>
-      <p class="muted">This fills in as species images resolve during use.</p>
-      ${credits.length ? `<section class="credit-list">${credits.map(creditRow).join('')}</section>` : `<p class="muted">No image credits have been resolved yet in this session. Browse the species pages and open details; this list will populate.</p>`}
+      ${credits.length ? `<section class="credit-list">${credits.map(creditRow).join('')}</section>` : `<p class="muted">No hardwired image credits have been displayed yet in this session.</p>`}
     </section>
 
     <section class="panel">
