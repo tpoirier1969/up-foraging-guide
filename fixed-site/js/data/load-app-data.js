@@ -32,10 +32,8 @@ export async function loadCoreSpecies(log) {
 
   const speciesPayloads = results.filter(item => item.payload).map(item => item.payload);
   if (!speciesPayloads.length) {
-    const detail = errors.map(item => `${item.path}: ${item.error}`).join("
-");
-    throw new Error(`No species data layers loaded.
-${detail}`);
+    const detail = errors.map(item => `${item.path}: ${item.error}`).join("\n");
+    throw new Error(`No species data layers loaded.\n${detail}`);
   }
 
   const species = mergeRecordLayers(...speciesPayloads).map(normalizeRecord);
