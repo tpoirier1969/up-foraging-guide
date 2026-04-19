@@ -1,4 +1,4 @@
-import { COMMONS_API, FETCH_TIMEOUT_MS, IMAGE_SEARCH_LIMIT, WIKIPEDIA_API } from "../config.js";
+import { COMMONS_API, FETCH_TIMEOUT_MS, IMAGE_SEARCH_LIMIT } from "../config.js";
 
 function withTimeout(promise, ms, label) {
   return new Promise((resolve, reject) => {
@@ -32,14 +32,31 @@ function basenameHint(record) {
     .trim();
 }
 
-export function buildCommonsQueries(record) {
+function canonicalScientificName(record) {
+  const raw = cleanName(record?.scientific_name || '');
+  if (!raw) return '';
+  const firstClause = raw.split(/(?:,|;| and | or )/i)[0].trim();
+  const tokens = firstClause.split(/\s+/).filter(Boolean);
+  if (tokens.length >= 2 && /^[A-Z][a-z-]+$/.test(tokens[0]) && /^[a-z-]+$/.test(tokens[1])) {
+    return `${tokens[0]} ${tokens[1]}`;
+  }
+  return firstClause;
+}
+
+function significantTokens(text) {
+  const stop = new Set(['the','and','for','with','from','into','only','very','common','wild','yellow','black','red','american']);
+  return String(text || '').toLowerCase().split(/[^a-z0-9]+/).filter(Boolean).filter(t => t.length > 2 && !stop.has(t));
+}
+
+function buildCommonsQueries(record) {
   const queries = [];
   const push = (value) => {
     const cleaned = cleanName(value);
     if (!cleaned) return;
     if (!queries.includes(cleaned)) queries.push(cleaned);
   };
-  push(record?.scientific_name);
+  const sci = canonicalScientificName(record);
+  if (sci) push(sci);
   push(record?.display_name);
   push(record?.common_name);
   push(basenameHint(record));
@@ -49,7 +66,7 @@ export function buildCommonsQueries(record) {
 const BAD_TERMS = [
   'illustration', 'drawing', 'sketch', 'diagram', 'painting', 'watercolor', 'icon', 'logo', 'seal',
   'coat of arms', 'map', 'herbarium', 'poster', 'flag', 'symbol', 'avatar', 'cartoon', 'engraving',
-  'line art', 'line drawing', 'pencil'
+  'line art', 'line drawing', 'pencil', 'mushroom dye', 'tattoo'
 ];
 
 function hasBadArtWords(text) {
@@ -68,60 +85,20 @@ function scoreCandidate(page, queries, description = '') {
   for (const q of queries) {
     const query = q.toLowerCase();
     if (!query) continue;
-    if (title.includes(query)) score += 8;
-    if (desc.includes(query)) score += 4;
+    if (title.includes(query)) score += 10;
+    if (desc.includes(query)) score += 6;
     for (const token of tokenize(query)) {
       if (title.includes(token)) score += 2;
       if (desc.includes(token)) score += 1;
     }
   }
-  if (/(photo|photograph|photographed)/.test(desc)) score += 3;
-  if (hasBadArtWords(title) || hasBadArtWords(desc)) score -= 20;
+  if (/(photo|photograph|photographed|own work)/.test(desc)) score += 3;
+  if (hasBadArtWords(title) || hasBadArtWords(desc)) score -= 30;
   return score;
 }
 
-async function wikipediaSearch(query) {
-  const url = new URL(WIKIPEDIA_API);
-  url.searchParams.set('action', 'query');
-  url.searchParams.set('format', 'json');
-  url.searchParams.set('formatversion', '2');
-  url.searchParams.set('origin', '*');
-  url.searchParams.set('generator', 'search');
-  url.searchParams.set('gsrsearch', query);
-  url.searchParams.set('gsrlimit', String(Math.min(IMAGE_SEARCH_LIMIT, 6)));
-  url.searchParams.set('prop', 'pageimages|info|description');
-  url.searchParams.set('piprop', 'thumbnail|name|original');
-  url.searchParams.set('pithumbsize', '1200');
-  url.searchParams.set('inprop', 'url');
-
-  const res = await withTimeout(fetch(url.toString(), { cache: 'no-store' }), FETCH_TIMEOUT_MS, query);
-  if (!res.ok) throw new Error(`Wikipedia search failed: HTTP ${res.status}`);
-  const payload = await res.json();
-  return Array.isArray(payload?.query?.pages) ? payload.query.pages : [];
-}
-
-function normalizeWikiCandidate(page, query, queries) {
-  const src = page?.thumbnail?.source || page?.original?.source || '';
-  const description = stripHtml(page?.description || '');
-  return {
-    source: 'wikipedia',
-    src,
-    fullImageUrl: page?.original?.source || src,
-    sourcePage: page?.fullurl || '',
-    title: String(page?.title || ''),
-    author: '',
-    credit: '',
-    license: 'Wikipedia page image',
-    licenseUrl: '',
-    description,
-    mime: '',
-    query,
-    score: scoreCandidate(page, queries, description) + 5
-  };
-}
-
 function mediaSearchQuery(query) {
-  return `${query} filemime:bitmap -illustration -drawing -sketch -diagram -painting -logo -icon -coat -arms -map -herbarium`;
+  return `${query} filemime:bitmap -illustration -drawing -sketch -diagram -painting -logo -icon -coat -arms -map -herbarium -"mushroom dye"`;
 }
 
 async function mediaWikiSearch(query) {
@@ -133,7 +110,7 @@ async function mediaWikiSearch(query) {
   url.searchParams.set('generator', 'search');
   url.searchParams.set('gsrnamespace', '6');
   url.searchParams.set('gsrsearch', mediaSearchQuery(query));
-  url.searchParams.set('gsrlimit', String(IMAGE_SEARCH_LIMIT));
+  url.searchParams.set('gsrlimit', String(Math.max(IMAGE_SEARCH_LIMIT, 10)));
   url.searchParams.set('prop', 'imageinfo|info');
   url.searchParams.set('iiprop', 'url|extmetadata|mime');
   url.searchParams.set('iiurlwidth', '1200');
@@ -168,10 +145,30 @@ function normalizeCommonsCandidate(page, query, queries) {
   };
 }
 
-function isAcceptablePhoto(candidate) {
+function exactSpeciesMatch(candidate, record) {
+  const hay = `${candidate.title} ${candidate.description}`.toLowerCase();
+  const sci = canonicalScientificName(record);
+  if (sci && !/spp|complex|group|allies/i.test(String(record?.scientific_name || ''))) {
+    const sciLower = sci.toLowerCase();
+    if (hay.includes(sciLower)) return true;
+    const sciTokens = sciLower.split(/\s+/);
+    if (sciTokens.every(t => hay.includes(t))) return true;
+    return false;
+  }
+  const common = cleanName(record?.common_name || record?.display_name || '');
+  const tokens = significantTokens(common).slice(0, 4);
+  if (tokens.length >= 2 && tokens.every(t => hay.includes(t))) return true;
+  const genus = sci.split(/\s+/)[0]?.toLowerCase();
+  if (genus && hay.includes(genus) && tokens.filter(t => hay.includes(t)).length >= 1) return true;
+  return false;
+}
+
+function isAcceptablePhoto(candidate, record) {
   if (!candidate?.src) return false;
   if (candidate.mime && !/^image\/(jpeg|jpg|png|webp|gif)$/i.test(candidate.mime)) return false;
+  if (!candidate.sourcePage || !candidate.sourcePage.includes('commons.wikimedia.org/wiki/File:')) return false;
   if (hasBadArtWords(candidate.title) || hasBadArtWords(candidate.description)) return false;
+  if (!exactSpeciesMatch(candidate, record)) return false;
   return true;
 }
 
@@ -182,30 +179,15 @@ export async function resolveCommonsImages(record, count = 3) {
 
   for (const query of queries) {
     try {
-      const wikiPages = await wikipediaSearch(query);
-      for (const page of wikiPages) {
-        const candidate = normalizeWikiCandidate(page, query, queries);
+      const pages = await mediaWikiSearch(query);
+      for (const page of pages) {
+        const candidate = normalizeCommonsCandidate(page, query, queries);
         const key = candidate.title || candidate.sourcePage || candidate.src;
-        if (!key || seen.has(key) || !isAcceptablePhoto(candidate)) continue;
+        if (!key || seen.has(key) || !isAcceptablePhoto(candidate, record)) continue;
         seen.add(key);
         candidates.push(candidate);
       }
     } catch {}
-  }
-
-  if (candidates.length < count) {
-    for (const query of queries) {
-      try {
-        const pages = await mediaWikiSearch(query);
-        for (const page of pages) {
-          const candidate = normalizeCommonsCandidate(page, query, queries);
-          const key = candidate.title || candidate.sourcePage || candidate.src;
-          if (!key || seen.has(key) || !isAcceptablePhoto(candidate)) continue;
-          seen.add(key);
-          candidates.push(candidate);
-        }
-      } catch {}
-    }
   }
 
   candidates.sort((a, b) => b.score - a.score || String(a.title).localeCompare(String(b.title)));
