@@ -43,11 +43,15 @@ function buildCommonsQueries(record) {
     if (!cleaned) return;
     if (!queries.includes(cleaned)) queries.push(cleaned);
   };
+  const photoSci = cleanName(record?.photo_scientific_name || "");
+  if (photoSci) push(photoSci);
   const sci = canonicalScientificName(record);
   if (sci) push(sci);
+  push(record?.photo_subject);
+  push(record?.plant_name);
   push(record?.display_name);
   push(record?.common_name);
-  return queries.slice(0, 4);
+  return queries.slice(0, 6);
 }
 
 const BAD_TERMS = [

@@ -36,6 +36,7 @@ export function renderDetail(record) {
         <dl class="kv">
           ${lineIf("Common name", record.common_name)}
           ${lineIf("Scientific name", record.scientific_name)}
+          ${lineIf("Plant shown for identification", record.photo_subject || record.plant_name)}
           ${lineIf("Category", record.category || record.group)}
           ${lineIf("Season", months)}
           ${lineIf("Primary use", record.primary_use)}

@@ -26,9 +26,39 @@ function setSourceLink(container, href, label = 'source') {
   }
 }
 
+function normalizeHardwiredImages(record) {
+  const list = Array.isArray(record?.images) ? record.images : [];
+  return list.map((item) => {
+    if (typeof item === 'string') {
+      return { src: item, source: 'commons-hardwired', title: record.display_name || record.common_name || record.slug, sourcePage: item };
+    }
+    return item && typeof item === 'object' ? item : null;
+  }).filter(Boolean);
+}
+
 async function ensureGallery(record) {
   const cached = state.imageCache.get(record.slug);
   if (cached?.items?.length) return cached.items;
+  const hardwired = normalizeHardwiredImages(record);
+  if (hardwired.length) {
+    rememberImageResult(record.slug, { source: 'hardwired', items: hardwired });
+    for (const item of hardwired) {
+      rememberImageCredit(record.slug, {
+        slug: record.slug,
+        species: record.display_name || record.common_name || record.slug,
+        scientific_name: record.scientific_name || '',
+        source: item.source || 'commons-hardwired',
+        title: item.title,
+        author: item.author,
+        credit: item.credit,
+        license: item.license,
+        licenseUrl: item.licenseUrl,
+        sourcePage: item.sourcePage,
+        query: item.query
+      });
+    }
+    return hardwired;
+  }
   const manifest = loadStoredManifest();
   const stored = Array.isArray(manifest[record.slug]) ? manifest[record.slug] : [];
   if (stored.length) {
