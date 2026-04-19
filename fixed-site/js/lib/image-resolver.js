@@ -1,5 +1,6 @@
 import { state, rememberImageCredit, rememberImageFailure, rememberImageResult } from "../state.js";
-import { getCommonsSearchUrl, resolveCommonsImages } from "./commons.js";
+import { resolveCommonsImages } from "./commons.js";
+import { buildRepoCandidateItems } from "./repo-images.js";
 
 function placeholderSvg(label) {
   const text = String(label || 'No image').slice(0, 42);
@@ -28,30 +29,59 @@ function setSourceLink(container, href, label = 'source') {
 async function ensureGallery(record) {
   const cached = state.imageCache.get(record.slug);
   if (cached?.items?.length) return cached.items;
+  const repoItems = buildRepoCandidateItems(record);
+  let commonsItems = [];
   try {
-    const items = await resolveCommonsImages(record, 3);
-    if (!items.length) throw new Error('No Wikimedia photos found');
-    rememberImageResult(record.slug, { source: 'wikimedia', items });
-    for (const item of items) {
-      rememberImageCredit(record.slug, {
-        slug: record.slug,
-        species: record.display_name || record.common_name || record.slug,
-        scientific_name: record.scientific_name || '',
-        source: 'wikimedia',
-        title: item.title,
-        author: item.author,
-        credit: item.credit,
-        license: item.license,
-        licenseUrl: item.licenseUrl,
-        sourcePage: item.sourcePage,
-        query: item.query
-      });
-    }
-    return items;
-  } catch (err) {
+    commonsItems = await resolveCommonsImages(record, 3);
+  } catch (err) {}
+  const items = [...repoItems, ...commonsItems];
+  if (!items.length) {
     rememberImageFailure(record.slug);
     return [];
   }
+  rememberImageResult(record.slug, { source: 'mixed', items });
+  for (const item of commonsItems) {
+    rememberImageCredit(record.slug, {
+      slug: record.slug,
+      species: record.display_name || record.common_name || record.slug,
+      scientific_name: record.scientific_name || '',
+      source: item.source || 'wikimedia',
+      title: item.title,
+      author: item.author,
+      credit: item.credit,
+      license: item.license,
+      licenseUrl: item.licenseUrl,
+      sourcePage: item.sourcePage,
+      query: item.query
+    });
+  }
+  return items;
+}
+
+function loadCandidateSequence(img, container, orderedItems, record, index) {
+  let pos = 0;
+  const tryNext = () => {
+    const item = orderedItems[pos++];
+    if (!item?.src) {
+      img.onload = null;
+      img.onerror = null;
+      img.src = placeholderSvg(`${record.display_name || record.common_name || record.slug} needs photo`);
+      img.dataset.resolvedSource = 'missing';
+      setBadge(container, 'Needs photo');
+      setSourceLink(container, '', '');
+      return;
+    }
+    img.onload = () => {
+      img.dataset.resolvedSource = item.source || 'photo';
+      setBadge(container, index === 0 ? 'Photo 1' : `Photo ${index + 1}`);
+      setSourceLink(container, item.sourcePage, item.source === 'repo' ? 'Repo' : 'Commons');
+    };
+    img.onerror = () => {
+      tryNext();
+    };
+    img.src = item.src;
+  };
+  tryNext();
 }
 
 async function hydrateImage(img, record) {
@@ -60,18 +90,8 @@ async function hydrateImage(img, record) {
   const index = Number(img.dataset.imageIndex || 0);
   img.alt = alt;
   const items = await ensureGallery(record);
-  const item = items[index] || items[0];
-  if (item?.src) {
-    img.src = item.src;
-    img.dataset.resolvedSource = 'wikimedia';
-    setBadge(container, index === 0 ? 'Photo 1' : `Photo ${Math.min(index + 1, items.length)}`);
-    setSourceLink(container, item.sourcePage, item.source === 'wikipedia' ? 'Wikipedia' : 'Commons');
-    return;
-  }
-  img.src = placeholderSvg(`${record.display_name || record.common_name || record.slug} needs photo`);
-  img.dataset.resolvedSource = 'missing';
-  setBadge(container, 'Needs photo');
-  setSourceLink(container, '', '');
+  const orderedItems = [...items.slice(index), ...items.slice(0, index)];
+  loadCandidateSequence(img, container, orderedItems, record, index);
 }
 
 export function installLazyImages(root, getRecordBySlug) {
