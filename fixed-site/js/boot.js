@@ -1,5 +1,3 @@
-import { APP_VERSION } from "./config.js";
-
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
 
@@ -22,10 +20,6 @@ function renderFatal(message, detail = "") {
 }
 
 async function start() {
-  if (versionBadge) {
-    versionBadge.replaceChildren(document.createTextNode(APP_VERSION));
-  }
-
   try {
     const mod = await import("./app-core.js");
     await mod.startApp();

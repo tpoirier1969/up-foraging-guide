@@ -54,7 +54,7 @@ export function renderReferencesPage(records, search = "") {
       const subsectionId = `${sectionId}-${slugify(subsection)}`;
       return `
         <div class="ref-subsection" id="${subsectionId}">
-          <h4>${esc(subsection)}</h4>
+          <h4 class="ref-subsection-title">${esc(subsection)}</h4>
           <div class="record-list compact-record-list">${items.map(renderRecord).join("")}</div>
         </div>
       `;
@@ -66,7 +66,9 @@ export function renderReferencesPage(records, search = "") {
 
     return `
       <section class="panel ref-section" id="${sectionId}">
-        <h3>${esc(section)}</h3>
+        <div class="ref-section-head">
+          <h3>${esc(section)}</h3>
+        </div>
         ${subsectionButtons ? `<div class="chip-row">${subsectionButtons}</div>` : ""}
         ${subsectionHtml}
       </section>

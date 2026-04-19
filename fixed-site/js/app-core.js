@@ -1,4 +1,3 @@
-import { APP_VERSION } from "./config.js";
 import {
   state,
   setRoute,
@@ -322,7 +321,6 @@ export async function renderCurrentRoute() {
 }
 
 export async function startApp() {
-  document.getElementById("versionBadge")?.replaceChildren(document.createTextNode(APP_VERSION));
   wireModalClose();
   window.addEventListener("hashchange", renderCurrentRoute);
 
