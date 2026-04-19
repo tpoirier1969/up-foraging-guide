@@ -24,9 +24,15 @@ export function renderDetail(record) {
           <p class="muted">${esc(record.scientific_name || "")}</p>
           <div class="record-meta">
             ${typeLabel ? `<span class="tag">${esc(typeLabel)}</span>` : ""}
+            ${record.lane ? `<span class="tag">${esc(record.lane)}</span>` : ""}
             ${record.commonness ? `<span class="tag">${esc(record.commonness)}</span>` : ""}
             ${record.non_edible_severity ? `<span class="tag danger">${esc(record.non_edible_severity)}</span>` : ""}
-            ${record.status ? `<span class="tag warn">${esc(record.status)}</span>` : ""}
+            ${record.review_status === 'needs_review' ? `<span class="tag review">Needs review</span>` : ''}
+          </div>
+          <div class="quick-actions">
+            ${record.review_status === 'needs_review'
+              ? `<button class="warn" type="button" data-review-action="mark-ok" data-slug="${esc(record.slug)}">Mark OK</button>`
+              : `<button class="subtle" type="button" data-review-action="send-review" data-slug="${esc(record.slug)}">Send to Needs Review</button>`}
           </div>
         </div>
       </section>
@@ -36,29 +42,29 @@ export function renderDetail(record) {
         <dl class="kv">
           ${lineIf("Common name", record.common_name)}
           ${lineIf("Scientific name", record.scientific_name)}
-          ${lineIf("Plant shown for identification", record.photo_subject || record.plant_name)}
+          ${lineIf("Entry scope", record.entry_scope)}
           ${lineIf("Category", record.category || record.group)}
+          ${lineIf("Lane", record.lane)}
           ${lineIf("Season", months)}
           ${lineIf("Primary use", record.primary_use)}
           ${lineIf("Food role", record.food_role)}
           ${lineIf("Food quality", record.food_quality)}
           ${lineIf("Commonness", record.commonness)}
           ${lineIf("Habitat", Array.isArray(record.habitat) ? record.habitat.join(", ") : (record.habitat_detail || record.habitat))}
-          ${lineIf("Short reason", record.short_reason)}
-          ${lineIf("Reason", record.reason)}
+          ${lineIf("Host filter tokens", Array.isArray(record.host_filter_tokens) ? record.host_filter_tokens.join(", ") : "")}
         </dl>
       </section>
 
       ${record.culinary_uses ? `<section class="detail-block"><h4>Culinary uses</h4><p>${esc(record.culinary_uses)}</p></section>` : ""}
       ${record.medicinal_uses ? `<section class="detail-block"><h4>Medicinal uses</h4><p>${esc(record.medicinal_uses)}</p></section>` : ""}
+      ${record.other_uses ? `<section class="detail-block"><h4>Other uses</h4><p>${esc(record.other_uses)}</p></section>` : ""}
       ${record.edibility_detail ? `<section class="detail-block"><h4>Edibility / caution</h4><p>${esc(record.edibility_detail)}</p></section>` : ""}
       ${record.notes ? `<section class="detail-block"><h4>Notes</h4><p>${esc(record.notes)}</p></section>` : ""}
-      ${record.comparison_notes ? `<section class="detail-block"><h4>Comparison notes</h4><p>${esc(record.comparison_notes)}</p></section>` : ""}
+      ${record.general_notes ? `<section class="detail-block"><h4>General notes</h4><p>${esc(record.general_notes)}</p></section>` : ""}
 
       ${listBlock("Look-alikes", record.look_alikes || record.lookalikes)}
       ${listBlock("Review reasons", record.reviewReasons)}
-      ${listBlock("Key features", record.key_features)}
-      ${listBlock("Distinguishing features", record.distinguishing_features)}
+      ${listBlock("Search aliases", record.search_aliases)}
       ${listBlock("Medicinal actions", record.medicinalAction)}
       ${listBlock("Medicinal systems", record.medicinalSystem)}
       ${listBlock("Medicinal terms", record.medicinalTerms)}

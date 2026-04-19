@@ -1,5 +1,5 @@
 import { fetchJsonFromRepo } from "../lib/fetch-json.js";
-import { mergeRecordLayers } from "../lib/merge.js";
+import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js";
 import { SPECIES_PATHS, OPTIONAL_PATHS } from "./sources.js";
 
 let rareCachePromise = null;
@@ -32,11 +32,13 @@ export async function loadCoreSpecies(log) {
 
   const speciesPayloads = results.filter(item => item.payload).map(item => item.payload);
   if (!speciesPayloads.length) {
-    const detail = errors.map(item => `${item.path}: ${item.error}`).join("\n");
-    throw new Error(`No species data layers loaded.\n${detail}`);
+    const detail = errors.map(item => `${item.path}: ${item.error}`).join("
+");
+    throw new Error(`No species data layers loaded.
+${detail}`);
   }
 
-  const species = mergeRecordLayers(...speciesPayloads);
+  const species = mergeRecordLayers(...speciesPayloads).map(normalizeRecord);
   log?.(`Merged ${species.length} species records`);
   return { species, errors };
 }
@@ -45,7 +47,7 @@ export function loadRareSpecies(log) {
   if (!rareCachePromise) {
     rareCachePromise = (async () => {
       const payload = await fetchPath(OPTIONAL_PATHS[1], log);
-      return Array.isArray(payload?.records) ? payload.records : [];
+      return Array.isArray(payload?.records) ? payload.records.map(normalizeRecord) : [];
     })();
   }
   return rareCachePromise;

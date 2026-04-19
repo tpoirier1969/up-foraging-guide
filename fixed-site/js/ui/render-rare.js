@@ -5,10 +5,7 @@ export function renderRarePage(records, search = "") {
   const q = String(search || "").trim().toLowerCase();
   const filtered = (records || []).filter(record => {
     if (!q) return true;
-    return [
-      record.common_name, record.scientific_name, record.slug, record.status,
-      record.reason, record.short_reason, ...(record.key_features || [])
-    ].join(" ").toLowerCase().includes(q);
+    return [record.common_name, record.scientific_name, record.slug, record.status, record.reason, record.short_reason].join(" ").toLowerCase().includes(q);
   });
 
   return `
@@ -26,11 +23,7 @@ export function renderRarePage(records, search = "") {
         <div class="record-card-body">
           <h3>${esc(record.common_name || record.display_name || record.slug)}</h3>
           <p class="muted small">${esc(record.scientific_name || "")}</p>
-          <div class="record-meta">
-            ${record.group ? `<span class="tag">${esc(record.group)}</span>` : ""}
-            ${record.status ? `<span class="tag warn">${esc(record.status)}</span>` : ""}
-          </div>
-          <p>${esc(record.short_reason || record.reason || record.habitat || "")}</p>
+          <p>${esc(record.short_reason || record.reason || "")}</p>
         </div>
       </article>
     `).join("")}</section>` : `<section class="panel empty-state"><h3>No rare species found</h3></section>`}

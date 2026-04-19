@@ -1,5 +1,6 @@
 export const SPECIES_PATHS = [
-  "data/species.json"
+  "data/plants.json",
+  "data/mushrooms.json"
 ];
 
 export const OPTIONAL_PATHS = [
