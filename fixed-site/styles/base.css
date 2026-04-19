@@ -98,3 +98,46 @@ button.danger{background:#fff1f1;border-color:#e7c0c0;color:var(--danger)}
 @media (max-width: 900px){
   .record-image-slot.gallery{grid-template-columns:1fr}
 }
+
+
+.section-jump-row,
+.chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin-top: 0.85rem;
+}
+
+.section-jump-button,
+.chip-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: rgba(255,255,255,0.05);
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+
+.ref-section {
+  scroll-margin-top: 5rem;
+}
+
+.ref-subsection {
+  margin-top: 1.1rem;
+}
+
+.ref-subsection h4 {
+  margin-bottom: 0.65rem;
+}
+
+.compact-record-list {
+  gap: 0.8rem;
+}
+
+.ref-card h4 {
+  margin-bottom: 0.3rem;
+}
