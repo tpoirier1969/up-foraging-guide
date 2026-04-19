@@ -8,7 +8,10 @@ export const state = {
   filters: {
     search: ""
   },
-  loadErrors: []
+  loadErrors: [],
+  imageCache: new Map(),
+  imageCredits: new Map(),
+  imageFailures: new Set()
 };
 
 export function setRoute(route) {
@@ -29,4 +32,19 @@ export function setReferences(records) {
 
 export function logBoot(message) {
   state.bootLog.push(message);
+}
+
+export function rememberImageResult(slug, result) {
+  if (!slug) return;
+  state.imageCache.set(slug, result);
+}
+
+export function rememberImageCredit(slug, credit) {
+  if (!slug || !credit) return;
+  state.imageCredits.set(slug, credit);
+}
+
+export function rememberImageFailure(slug) {
+  if (!slug) return;
+  state.imageFailures.add(slug);
 }

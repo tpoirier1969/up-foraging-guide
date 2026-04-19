@@ -1,5 +1,17 @@
 import { state, rememberImageCredit, rememberImageFailure, rememberImageResult } from "../state.js";
-import { getCommonsSearchUrl, resolveCommonsImages } from "./commons.js";
+import { getCommonsSearchUrl, resolveCommonsImage } from "./commons.js";
+
+function escAttr(value) {
+  return String(value ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;");
+}
+
+function firstLocalPath(record) {
+  return Array.isArray(record?.images) && record.images.length ? String(record.images[0]) : "";
+}
 
 function placeholderSvg(label) {
   const text = String(label || 'No image').slice(0, 42);
@@ -25,53 +37,113 @@ function setSourceLink(container, href, label = 'source') {
   }
 }
 
-async function ensureGallery(record) {
-  const cached = state.imageCache.get(record.slug);
-  if (cached?.items?.length) return cached.items;
+function noteLocalCredit(record, localPath) {
+  rememberImageCredit(record.slug, {
+    slug: record.slug,
+    species: record.display_name || record.common_name || record.slug,
+    scientific_name: record.scientific_name || '',
+    source: 'local',
+    title: localPath.split('/').pop() || localPath,
+    localPath,
+    sourcePage: localPath,
+    license: 'Local bundled image',
+    author: ''
+  });
+}
+
+async function applyCommonsFallback(img, record, container) {
   try {
-    const items = await resolveCommonsImages(record, 3);
-    if (!items.length) throw new Error('No Wikimedia photos found');
-    rememberImageResult(record.slug, { source: 'wikimedia', items });
-    for (const item of items) {
-      rememberImageCredit(record.slug, {
-        slug: record.slug,
-        species: record.display_name || record.common_name || record.slug,
-        scientific_name: record.scientific_name || '',
-        source: 'wikimedia',
-        title: item.title,
-        author: item.author,
-        credit: item.credit,
-        license: item.license,
-        licenseUrl: item.licenseUrl,
-        sourcePage: item.sourcePage,
-        query: item.query
-      });
-    }
-    return items;
+    const cached = state.imageCache.get(record.slug);
+    const resolved = cached?.source === 'wikimedia' ? cached : await resolveCommonsImage(record);
+    if (!resolved) throw new Error('No Wikimedia image found');
+    rememberImageResult(record.slug, resolved);
+    rememberImageCredit(record.slug, {
+      slug: record.slug,
+      species: record.display_name || record.common_name || record.slug,
+      scientific_name: record.scientific_name || '',
+      source: 'wikimedia',
+      title: resolved.title,
+      author: resolved.author,
+      credit: resolved.credit,
+      license: resolved.license,
+      licenseUrl: resolved.licenseUrl,
+      sourcePage: resolved.sourcePage,
+      query: resolved.query
+    });
+    img.src = resolved.src;
+    img.dataset.resolvedSource = 'wikimedia';
+    setBadge(container, 'Wikimedia');
+    setSourceLink(container, resolved.sourcePage, 'Commons');
+    return true;
   } catch (err) {
     rememberImageFailure(record.slug);
-    return [];
+    img.src = placeholderSvg(record.display_name || record.common_name || record.slug || 'No image');
+    img.dataset.resolvedSource = 'missing';
+    setBadge(container, 'No photo');
+    setSourceLink(container, getCommonsSearchUrl(record), 'Search Commons');
+    return false;
   }
 }
 
+export function renderImageSlot(record, variant = 'card') {
+  const localSrc = firstLocalPath(record);
+  const alt = record.display_name || record.common_name || record.slug || 'Species photo';
+  return `
+    <figure class="record-image-slot ${escAttr(variant)}">
+      <img
+        class="record-image ${escAttr(variant)}"
+        data-record-image
+        data-slug="${escAttr(record.slug || '')}"
+        data-local-src="${escAttr(localSrc)}"
+        data-alt="${escAttr(alt)}"
+        alt="${escAttr(alt)}"
+        loading="lazy"
+      >
+      <figcaption class="image-meta-line">
+        <span class="image-source-badge" data-image-badge>Photo</span>
+        <a hidden data-image-source-link target="_blank" rel="noreferrer">source</a>
+      </figcaption>
+    </figure>
+  `;
+}
+
 async function hydrateImage(img, record) {
-  const container = img.closest('.record-image-cell') || img.closest('.record-image-slot');
-  const alt = img.dataset.alt || record.display_name || record.common_name || record.slug || 'Species photo';
-  const index = Number(img.dataset.imageIndex || 0);
-  img.alt = alt;
-  const items = await ensureGallery(record);
-  const item = items[index] || items[0];
-  if (item?.src) {
-    img.src = item.src;
-    img.dataset.resolvedSource = 'wikimedia';
-    setBadge(container, index === 0 ? 'Photo 1' : `Photo ${Math.min(index + 1, items.length)}`);
-    setSourceLink(container, item.sourcePage, 'Commons');
+  const container = img.closest('.record-image-slot');
+  const localSrc = img.dataset.localSrc || firstLocalPath(record);
+  img.alt = img.dataset.alt || img.alt || record.display_name || record.common_name || record.slug || 'Species photo';
+
+  const cached = state.imageCache.get(record.slug);
+  if (cached?.source === 'wikimedia' && cached.src) {
+    img.src = cached.src;
+    setBadge(container, 'Wikimedia');
+    setSourceLink(container, cached.sourcePage, 'Commons');
     return;
   }
-  img.src = placeholderSvg(`${record.display_name || record.common_name || record.slug} needs photo`);
-  img.dataset.resolvedSource = 'missing';
-  setBadge(container, 'Needs photo');
-  setSourceLink(container, getCommonsSearchUrl(record), 'Search Commons');
+  if (cached?.source === 'local' && cached.src) {
+    img.src = cached.src;
+    setBadge(container, 'Local');
+    setSourceLink(container, cached.sourcePage || cached.src, 'Local');
+    return;
+  }
+
+  if (localSrc) {
+    img.addEventListener('load', () => {
+      const result = { source: 'local', src: localSrc, sourcePage: localSrc };
+      rememberImageResult(record.slug, result);
+      noteLocalCredit(record, localSrc);
+      setBadge(container, 'Local');
+      setSourceLink(container, localSrc, 'Local');
+    }, { once: true });
+
+    img.addEventListener('error', async () => {
+      await applyCommonsFallback(img, record, container);
+    }, { once: true });
+
+    img.src = localSrc;
+    return;
+  }
+
+  await applyCommonsFallback(img, record, container);
 }
 
 export function installLazyImages(root, getRecordBySlug) {
@@ -83,9 +155,6 @@ export function installLazyImages(root, getRecordBySlug) {
     img.dataset.hydrated = '1';
     const record = getRecordBySlug(img.dataset.slug || '');
     if (!record) return;
-    if (!img.getAttribute('src') || img.getAttribute('src').endsWith('AQABAAAAACw=')) {
-      img.src = placeholderSvg(`${record.display_name || record.common_name || record.slug} loading photo`);
-    }
     hydrateImage(img, record);
   };
 
@@ -93,8 +162,6 @@ export function installLazyImages(root, getRecordBySlug) {
     images.forEach(hydrate);
     return;
   }
-
-  images.slice(0, 18).forEach(hydrate);
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -104,5 +171,5 @@ export function installLazyImages(root, getRecordBySlug) {
     });
   }, { rootMargin: '240px 0px' });
 
-  images.forEach(img => { if (img.dataset.hydrated !== '1') observer.observe(img); });
+  images.forEach(img => observer.observe(img));
 }

@@ -1,10 +1,5 @@
-function esc(value) {
-  return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;");
-}
+import { esc } from "../lib/escape.js";
+import { renderImageSlot } from "../lib/image-resolver.js";
 
 function lineIf(label, value) {
   if (value === undefined || value === null || value === "") return "";
@@ -22,14 +17,17 @@ export function renderDetail(record) {
   const links = Array.isArray(record.links) ? record.links : [];
   return `
     <article class="detail-grid">
-      <section class="detail-block">
-        <h3>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</h3>
-        <p class="muted">${esc(record.scientific_name || "")}</p>
-        <div class="record-meta">
-          ${typeLabel ? `<span class="tag">${esc(typeLabel)}</span>` : ""}
-          ${record.commonness ? `<span class="tag">${esc(record.commonness)}</span>` : ""}
-          ${record.non_edible_severity ? `<span class="tag danger">${esc(record.non_edible_severity)}</span>` : ""}
-          ${record.status ? `<span class="tag warn">${esc(record.status)}</span>` : ""}
+      <section class="detail-block detail-hero">
+        ${renderImageSlot(record, 'detail')}
+        <div>
+          <h3>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</h3>
+          <p class="muted">${esc(record.scientific_name || "")}</p>
+          <div class="record-meta">
+            ${typeLabel ? `<span class="tag">${esc(typeLabel)}</span>` : ""}
+            ${record.commonness ? `<span class="tag">${esc(record.commonness)}</span>` : ""}
+            ${record.non_edible_severity ? `<span class="tag danger">${esc(record.non_edible_severity)}</span>` : ""}
+            ${record.status ? `<span class="tag warn">${esc(record.status)}</span>` : ""}
+          </div>
         </div>
       </section>
 
