@@ -83,16 +83,18 @@ export function installLazyImages(root, getRecordBySlug) {
     img.dataset.hydrated = '1';
     const record = getRecordBySlug(img.dataset.slug || '');
     if (!record) return;
+    if (!img.getAttribute('src') || img.getAttribute('src').endsWith('AQABAAAAACw=')) {
+      img.src = placeholderSvg(`${record.display_name || record.common_name || record.slug} loading photo`);
+    }
     hydrateImage(img, record);
   };
 
-  const immediateCount = root.querySelector('.record-image-slot.detail') ? images.length : Math.min(images.length, 12);
-  images.slice(0, immediateCount).forEach(hydrate);
-
   if (typeof IntersectionObserver !== 'function') {
-    images.slice(immediateCount).forEach(hydrate);
+    images.forEach(hydrate);
     return;
   }
+
+  images.slice(0, 18).forEach(hydrate);
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -100,7 +102,7 @@ export function installLazyImages(root, getRecordBySlug) {
       observer.unobserve(entry.target);
       hydrate(entry.target);
     });
-  }, { rootMargin: '600px 0px' });
+  }, { rootMargin: '240px 0px' });
 
-  images.slice(immediateCount).forEach(img => observer.observe(img));
+  images.forEach(img => { if (img.dataset.hydrated !== '1') observer.observe(img); });
 }
