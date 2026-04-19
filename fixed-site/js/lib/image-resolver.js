@@ -86,8 +86,11 @@ export function installLazyImages(root, getRecordBySlug) {
     hydrateImage(img, record);
   };
 
+  const immediateCount = root.querySelector('.record-image-slot.detail') ? images.length : Math.min(images.length, 12);
+  images.slice(0, immediateCount).forEach(hydrate);
+
   if (typeof IntersectionObserver !== 'function') {
-    images.forEach(hydrate);
+    images.slice(immediateCount).forEach(hydrate);
     return;
   }
 
@@ -97,7 +100,7 @@ export function installLazyImages(root, getRecordBySlug) {
       observer.unobserve(entry.target);
       hydrate(entry.target);
     });
-  }, { rootMargin: '240px 0px' });
+  }, { rootMargin: '600px 0px' });
 
-  images.forEach(img => observer.observe(img));
+  images.slice(immediateCount).forEach(img => observer.observe(img));
 }
