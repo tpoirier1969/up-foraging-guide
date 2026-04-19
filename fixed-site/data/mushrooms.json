@@ -1,10 +1,337 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "clean-v2",
+    "build": "clean-v2-taxonomy-router",
     "primary_type": "mushroom",
-    "record_count": 158,
-    "notes": "Mushrooms are canonical species records. Medicinal and non-edible are flags. Expanded with a Michigan bolete audit for Upper Michigan planning; a small number of placeholder/no-find taxa were intentionally excluded."
+    "record_count": 157,
+    "notes": "Mushrooms are canonical species records. Medicinal and non-edible are flags. Taxonomy cleanup pass added routing metadata, alias/search names, entry-scope fields, and Upper Peninsula commonness notes for weaker-fit but still useful curiosity species. Tylopilus rhoadsiae was intentionally excluded.",
+    "taxonomy_cleanup": {
+      "species_vs_complex_model": "Canonical scientific names are kept in the records, while book names, older combinations, and search-friendly names are folded into search_aliases.",
+      "entry_scope_values_used": [
+        "species",
+        "group"
+      ],
+      "excluded_taxa": [
+        {
+          "scientific_name": "Tylopilus rhoadsiae",
+          "reason": "Explicitly excluded for this Upper Peninsula-focused build because it is treated as a southern species rather than a practical U.P. target."
+        },
+        {
+          "scientific_name": "Boletus glabellus",
+          "reason": "Kept out because the source treats it as an ancient name with no known finds."
+        },
+        {
+          "scientific_name": "Boletus miniatopallescens",
+          "reason": "Kept out because the source says the species concept is in flux and advises against using the name for now."
+        }
+      ],
+      "up_not_common_species": [
+        "aureoboletus-roxanae",
+        "boletus-atkinsonii",
+        "leccinum-albellum",
+        "leccinum-crocipodium",
+        "retiboletus-griseus"
+      ],
+      "up_curiosity_species": [
+        "hemileccinum-rubropunctum",
+        "tylopilus-appalachiensis"
+      ]
+    },
+    "bolete_router": {
+      "display_mode": "title_only",
+      "user_experience_note": "The app should not tell users they were routed into a family. It should simply title the results with the best-matching family or families.",
+      "family_count_internal": 12,
+      "route_hidden_families": [
+        "Lichens & survival entries"
+      ],
+      "scoring": {
+        "strong_trait_points": 3,
+        "medium_trait_points": 2,
+        "weak_trait_points": 1,
+        "clear_win_margin": 3,
+        "mixed_family_margin": 2
+      },
+      "conflict_handling": {
+        "clear_win": "If one family leads the next family by 3 or more points, show that family only.",
+        "close_match": "If the top two families are within 2 points, show mixed results from both families with the stronger family used as the visible title.",
+        "contradiction": "If selected filters point strongly to incompatible families, show the closest matches, warn that the filter mix points to multiple bolete types, and ask one tie-break question."
+      },
+      "question_flow": [
+        {
+          "id": "cap_texture",
+          "prompt": "Was the cap slimy or sticky when fresh?",
+          "answers": [
+            "yes",
+            "no",
+            "not sure"
+          ]
+        },
+        {
+          "id": "scabers",
+          "prompt": "Did the stalk have rough dots or scabers?",
+          "answers": [
+            "yes",
+            "no",
+            "not sure"
+          ]
+        },
+        {
+          "id": "pore_pink",
+          "prompt": "Did the pores look pinkish rather than yellow or white?",
+          "answers": [
+            "yes",
+            "no",
+            "not sure"
+          ]
+        },
+        {
+          "id": "pore_red",
+          "prompt": "Were the pores red or orange?",
+          "answers": [
+            "yes",
+            "no",
+            "not sure"
+          ]
+        },
+        {
+          "id": "blue_stain",
+          "prompt": "Did the flesh or pores stain blue quickly?",
+          "answers": [
+            "yes",
+            "no",
+            "not sure"
+          ]
+        },
+        {
+          "id": "shaggy_scaly",
+          "prompt": "Was it shaggy, scaly, or very odd-looking?",
+          "answers": [
+            "yes",
+            "no",
+            "not sure"
+          ]
+        },
+        {
+          "id": "wood_or_parasitic",
+          "prompt": "Was it on wood, ash roots, or another fungus?",
+          "answers": [
+            "yes",
+            "no",
+            "not sure"
+          ]
+        },
+        {
+          "id": "brittle_hollow",
+          "prompt": "Did the stem feel brittle or hollow?",
+          "answers": [
+            "yes",
+            "no",
+            "not sure"
+          ]
+        },
+        {
+          "id": "peppery_small",
+          "prompt": "Was it small and peppery-looking, or a tiny-pored oddball?",
+          "answers": [
+            "yes",
+            "no",
+            "not sure"
+          ]
+        },
+        {
+          "id": "dark_pores",
+          "prompt": "Were the pores or overall spore tone dark, sooty, or chocolatey?",
+          "answers": [
+            "yes",
+            "no",
+            "not sure"
+          ]
+        },
+        {
+          "id": "ornate_stem",
+          "prompt": "Was the stem unusually long, lined, netted, or ornate?",
+          "answers": [
+            "yes",
+            "no",
+            "not sure"
+          ]
+        },
+        {
+          "id": "host_tree",
+          "prompt": "Was it growing with pine, larch, birch, aspen, oak, or mixed hardwoods?",
+          "answers": [
+            "pine",
+            "larch",
+            "birch",
+            "aspen",
+            "oak",
+            "mixed hardwoods",
+            "not sure"
+          ]
+        }
+      ],
+      "family_rules": {
+        "Suillus / slippery jacks": {
+          "positive_traits": [
+            "sticky/slimy cap",
+            "ring possible",
+            "pine or larch association",
+            "yellow pores"
+          ],
+          "veto_traits": [
+            "pinkish pores",
+            "rough scabers"
+          ],
+          "tie_breakers": [
+            "Is the cap slimy or dry?",
+            "Is there a ring or ring zone?",
+            "Was it growing with pine or larch?"
+          ]
+        },
+        "Leccinum / scaber stalks": {
+          "positive_traits": [
+            "rough-dotted or scabered stalk",
+            "birch/aspen/oak associations",
+            "white to gray pores"
+          ],
+          "veto_traits": [
+            "pinkish pores",
+            "sticky cap"
+          ],
+          "tie_breakers": [
+            "Does the stalk have rough dots or not?",
+            "Was it with birch, aspen, or another hardwood?"
+          ]
+        },
+        "Pink-pored Tylopilus & bitter allies": {
+          "positive_traits": [
+            "pinkish pores",
+            "bitter taste",
+            "brown cap"
+          ],
+          "veto_traits": [
+            "sticky cap",
+            "rough scabers"
+          ],
+          "tie_breakers": [
+            "Are the pores actually pinkish?",
+            "Did it taste bitter?"
+          ]
+        },
+        "Red-staining & red-pored caution boletes": {
+          "positive_traits": [
+            "red/orange pores",
+            "fast blue staining",
+            "red/yellow color pattern"
+          ],
+          "veto_traits": [
+            "pinkish pores",
+            "sticky cap"
+          ],
+          "tie_breakers": [
+            "Are the pores red or orange?",
+            "Does it stain blue quickly?"
+          ]
+        },
+        "Porcini & brown allies": {
+          "positive_traits": [
+            "brown cap",
+            "stout form",
+            "pale to yellow pores",
+            "smooth or netted stem"
+          ],
+          "veto_traits": [
+            "pinkish pores",
+            "rough scabers",
+            "red pores"
+          ],
+          "tie_breakers": [
+            "Is the stalk smooth/netted rather than rough-dotted?",
+            "Are the pores pale or yellow rather than pink/red?"
+          ]
+        },
+        "Long-stemmed & textured boletes": {
+          "positive_traits": [
+            "unusually long stem",
+            "ornate or lined stem",
+            "textured cap"
+          ],
+          "veto_traits": [
+            "rough scabers"
+          ],
+          "tie_breakers": [
+            "Is the stem notably long or deeply lined?",
+            "Does it look more textured/ornate than a plain brown bolete?"
+          ]
+        },
+        "Wood-inhabiting & oddball boletes": {
+          "positive_traits": [
+            "on wood",
+            "on ash roots",
+            "parasitic on another fungus",
+            "gill-like oddball underside"
+          ],
+          "veto_traits": [],
+          "tie_breakers": [
+            "Was it growing directly on wood or another fungus?"
+          ]
+        },
+        "Shaggy & scaly oddballs": {
+          "positive_traits": [
+            "shaggy or scaly appearance",
+            "old-man-of-the-woods look"
+          ],
+          "veto_traits": [],
+          "tie_breakers": [
+            "Is it shaggy/scaly all over rather than smooth?"
+          ]
+        },
+        "Dark-pored & obscure boletes": {
+          "positive_traits": [
+            "dark pores",
+            "dark spore tone",
+            "black or smoky look"
+          ],
+          "veto_traits": [
+            "sticky cap",
+            "rough scabers"
+          ],
+          "tie_breakers": [
+            "Are the pores dark, smoky, or chocolatey rather than pale/yellow?"
+          ]
+        },
+        "Peppery & chalciporoid boletes": {
+          "positive_traits": [
+            "small odd bolete",
+            "peppery taste",
+            "red or yellow tones in a small package"
+          ],
+          "veto_traits": [],
+          "tie_breakers": [
+            "Is it notably small and peppery-looking?"
+          ]
+        },
+        "Gyroporus / brittle hollow-stem boletes": {
+          "positive_traits": [
+            "brittle stem",
+            "hollow stem",
+            "blue staining possible"
+          ],
+          "veto_traits": [],
+          "tie_breakers": [
+            "Does the stem feel hollow or brittle?"
+          ]
+        },
+        "Lichens & survival entries": {
+          "positive_traits": [
+            "not a true bolete family",
+            "lichen or survival-food type entry"
+          ],
+          "veto_traits": [],
+          "tie_breakers": []
+        }
+      }
+    }
   },
   "records": [
     {
@@ -103,7 +430,23 @@
       "weekPrecision": "month-window-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": true,
-      "is_non_edible": true
+      "is_non_edible": true,
+      "entry_scope": "group",
+      "search_aliases": [
+        "Rock tripe (lichen)",
+        "Umbilicaria spp."
+      ],
+      "family_internal": "Lichens & survival entries",
+      "family_display_title": "Lichens & survival entries",
+      "route_hidden": true,
+      "routing_traits": [
+        "lichen or survival-food entry"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Umbilicaria spp.",
+        "entry_scope": "group",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "reindeer-lichen",
@@ -203,7 +546,23 @@
       "weekPrecision": "month-window-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": true,
-      "is_non_edible": true
+      "is_non_edible": true,
+      "entry_scope": "group",
+      "search_aliases": [
+        "Reindeer lichen",
+        "Cladonia rangiferina (and related reindeer lichens)"
+      ],
+      "family_internal": "Lichens & survival entries",
+      "family_display_title": "Lichens & survival entries",
+      "route_hidden": true,
+      "routing_traits": [
+        "lichen or survival-food entry"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Cladonia rangiferina (and related reindeer lichens)",
+        "entry_scope": "group",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "neoporphyrellus-alboater",
@@ -264,7 +623,24 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Black Velvet Bolete",
+        "Neoporphyrellus alboater"
+      ],
+      "family_internal": "Dark-pored & obscure boletes",
+      "family_display_title": "Dark-pored & obscure boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "dark pores",
+        "black or smoky overall tone"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Neoporphyrellus alboater",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "porphyrellus-porphyrosporus",
@@ -325,7 +701,24 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Dusky Bolete",
+        "Porphyrellus porphyrosporus"
+      ],
+      "family_internal": "Dark-pored & obscure boletes",
+      "family_display_title": "Dark-pored & obscure boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "dark pores",
+        "black or smoky overall tone"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Porphyrellus porphyrosporus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "sutorius-eximius",
@@ -386,7 +779,24 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Lilac Brown Bolete",
+        "Sutorius eximius"
+      ],
+      "family_internal": "Dark-pored & obscure boletes",
+      "family_display_title": "Dark-pored & obscure boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "dark pores",
+        "black or smoky overall tone"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Sutorius eximius",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "porphyrellus-nebulosus",
@@ -447,7 +857,24 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Porphyrellus Nebulosus",
+        "Porphyrellus nebulosus"
+      ],
+      "family_internal": "Dark-pored & obscure boletes",
+      "family_display_title": "Dark-pored & obscure boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "dark pores",
+        "black or smoky overall tone"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Porphyrellus nebulosus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "porphyrellus-sordidus",
@@ -508,7 +935,24 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Porphyrellus Sordidus",
+        "Porphyrellus sordidus"
+      ],
+      "family_internal": "Dark-pored & obscure boletes",
+      "family_display_title": "Dark-pored & obscure boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "dark pores",
+        "black or smoky overall tone"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Porphyrellus sordidus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "gyroporus-cyanescens",
@@ -569,7 +1013,24 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Bluing Bolete",
+        "Gyroporus cyanescens"
+      ],
+      "family_internal": "Gyroporus / brittle hollow-stem boletes",
+      "family_display_title": "Gyroporus / brittle hollow-stem boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "brittle or hollow stem",
+        "sometimes blue staining"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Gyroporus cyanescens",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "gyroporus-borealis-smithii",
@@ -630,7 +1091,24 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Chestnut Bolete",
+        "Gyroporus borealis/smithii"
+      ],
+      "family_internal": "Gyroporus / brittle hollow-stem boletes",
+      "family_display_title": "Gyroporus / brittle hollow-stem boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "brittle or hollow stem",
+        "sometimes blue staining"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Gyroporus borealis/smithii",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "gyroporus-purpurinus",
@@ -691,7 +1169,24 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Red Gyroporus",
+        "Gyroporus purpurinus"
+      ],
+      "family_internal": "Gyroporus / brittle hollow-stem boletes",
+      "family_display_title": "Gyroporus / brittle hollow-stem boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "brittle or hollow stem",
+        "sometimes blue staining"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Gyroporus purpurinus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "leccinum-scabrum",
@@ -752,7 +1247,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Birch Bolete",
+        "Leccinum scabrum"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association",
+        "birch associate"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum scabrum",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "gastroleccinum-scabrosum",
@@ -813,7 +1327,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Gastroleccinum Scabrosum",
+        "Gastroleccinum scabrosum"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Gastroleccinum scabrosum",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "ghost-bolete",
@@ -876,7 +1408,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Ghost Bolete",
+        "Leccinum holopus"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association",
+        "host trees: Birch"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum holopus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "leccinum-albellum",
@@ -885,7 +1436,7 @@
       "category": "Mushroom",
       "culinary_uses": "Seed entry only. Added during the Michigan bolete audit for the clean app; edibility, use, and warning text still need species-level review.",
       "medicinal_uses": "",
-      "notes": "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review.",
+      "notes": "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Not common in the U.P.; included because a forager may still encounter it or become curious about it.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -918,7 +1469,9 @@
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
           "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "Not common in the U.P.; included because a forager may still encounter it or become curious about it.",
+          "Often searched under the older combination Leccinum albellum; aliases preserve both book and newer-genus usage."
         ]
       },
       "manual_review_reasons": [
@@ -937,7 +1490,29 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Leccinum Albellum",
+        "Leccinum albellum",
+        "Leccinellum albellum"
+      ],
+      "up_commonness": "not_common",
+      "up_focus_note": "Not common in the U.P.; included because a forager may still encounter it or become curious about it.",
+      "taxonomy_note": "Often searched under the older combination Leccinum albellum; aliases preserve both book and newer-genus usage.",
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum albellum",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "leccinum-areolatum",
@@ -998,7 +1573,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Leccinum Areolatum",
+        "Leccinum areolatum"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum areolatum",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "leccinum-crocipodium",
@@ -1007,7 +1600,7 @@
       "category": "Mushroom",
       "culinary_uses": "Seed entry only. Added during the Michigan bolete audit for the clean app; edibility, use, and warning text still need species-level review.",
       "medicinal_uses": "",
-      "notes": "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review.",
+      "notes": "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Not common in the U.P.; included because a forager may still encounter it or become curious about it.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -1040,7 +1633,9 @@
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
           "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "Not common in the U.P.; included because a forager may still encounter it or become curious about it.",
+          "Often searched under the older combination Leccinum crocipodium; aliases preserve both book and newer-genus usage."
         ]
       },
       "manual_review_reasons": [
@@ -1059,7 +1654,29 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Leccinum Crocipodium",
+        "Leccinum crocipodium",
+        "Leccinellum crocipodium"
+      ],
+      "up_commonness": "not_common",
+      "up_focus_note": "Not common in the U.P.; included because a forager may still encounter it or become curious about it.",
+      "taxonomy_note": "Often searched under the older combination Leccinum crocipodium; aliases preserve both book and newer-genus usage.",
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum crocipodium",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "leccinum-discolor",
@@ -1120,7 +1737,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Leccinum Discolor",
+        "Leccinum discolor"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum discolor",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "leccinum-glutinopallens",
@@ -1181,7 +1816,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Leccinum Glutinopallens",
+        "Leccinum glutinopallens"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum glutinopallens",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "leccinum-griseonigrum",
@@ -1242,7 +1895,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Leccinum Griseonigrum",
+        "Leccinum griseonigrum"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum griseonigrum",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "leccinum-insolens",
@@ -1303,7 +1974,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Leccinum Insolens",
+        "Leccinum insolens"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum insolens",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "leccinum-insolens-var-brunneo-maculatum",
@@ -1364,7 +2053,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Leccinum Insolens Brunneo-Maculatum",
+        "Leccinum insolens var. brunneo-maculatum"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum insolens var. brunneo-maculatum",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "leccinum-longicurvipes",
@@ -1425,7 +2132,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Leccinum Longicurvipes",
+        "Leccinum longicurvipes"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum longicurvipes",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "leccinum-luteum",
@@ -1486,7 +2211,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Leccinum Luteum",
+        "Leccinum luteum"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum luteum",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "leccinum-potteri",
@@ -1547,7 +2290,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Leccinum Potteri",
+        "Leccinum potteri"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum potteri",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "leccinum-pseudoinsigne",
@@ -1608,7 +2369,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Leccinum Pseudoinsigne",
+        "Leccinum pseudoinsigne"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum pseudoinsigne",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "leccinum-quercophilum",
@@ -1669,7 +2448,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Leccinum Quercophilum",
+        "Leccinum quercophilum"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum quercophilum",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "leccinum-subgranulosum",
@@ -1730,7 +2527,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Leccinum Subgranulosum",
+        "Leccinum subgranulosum"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum subgranulosum",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "leccinum-subleucophaeum",
@@ -1791,7 +2606,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Leccinum Subleucophaeum",
+        "Leccinum subleucophaeum"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum subleucophaeum",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "leccinum-subtestaceum",
@@ -1852,7 +2685,24 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Leccinum subtestaceum"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum subtestaceum",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "leccinum-versipelle",
@@ -1913,7 +2763,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Orange Birch Bolete",
+        "Leccinum versipelle"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association",
+        "birch associate"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum versipelle",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "snells-bolete",
@@ -1974,7 +2843,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Snell's Bolete",
+        "Leccinum snellii"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum snellii",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "wrinkled-bolete",
@@ -2035,7 +2922,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Wrinkled Bolete",
+        "Leccinum rugosiceps"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum rugosiceps",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "yellow-stemmed-bolete",
@@ -2096,7 +3001,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Yellow-stemmed Bolete",
+        "Leccinum flavostipitatum"
+      ],
+      "family_internal": "Leccinum / scaber stalks",
+      "family_display_title": "Leccinum / scaber stalks",
+      "route_hidden": false,
+      "routing_traits": [
+        "rough-dotted or scabered stalk",
+        "white to gray pores",
+        "hardwood association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Leccinum flavostipitatum",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "aureoboletus-mirabilis",
@@ -2157,7 +3080,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Admirable Bolete",
+        "Aureoboletus mirabilis"
+      ],
+      "family_internal": "Long-stemmed & textured boletes",
+      "family_display_title": "Long-stemmed & textured boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "long or ornate stem",
+        "lined or textured stem/cap",
+        "brown to yellow pores"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Aureoboletus mirabilis",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "aureoboletus-projectellus",
@@ -2218,7 +3159,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Admirable Bolete",
+        "Aureoboletus projectellus"
+      ],
+      "family_internal": "Long-stemmed & textured boletes",
+      "family_display_title": "Long-stemmed & textured boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "long or ornate stem",
+        "lined or textured stem/cap",
+        "brown to yellow pores"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Aureoboletus projectellus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "aureoboletus-roxanae",
@@ -2227,7 +3186,7 @@
       "category": "Mushroom",
       "culinary_uses": "Seed entry only. Added during the Michigan bolete audit for the clean app; edibility, use, and warning text still need species-level review.",
       "medicinal_uses": "",
-      "notes": "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review.",
+      "notes": "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Not common in the U.P.; included because a forager may still encounter it or become curious about it.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -2260,7 +3219,8 @@
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
           "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "Not common in the U.P.; included because a forager may still encounter it or become curious about it."
         ]
       },
       "manual_review_reasons": [
@@ -2279,7 +3239,27 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Aureoboletus Roxanae",
+        "Aureoboletus roxanae"
+      ],
+      "up_commonness": "not_common",
+      "up_focus_note": "Not common in the U.P.; included because a forager may still encounter it or become curious about it.",
+      "family_internal": "Long-stemmed & textured boletes",
+      "family_display_title": "Long-stemmed & textured boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "long or ornate stem",
+        "lined or textured stem/cap",
+        "brown to yellow pores"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Aureoboletus roxanae",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "boletellus-chrysenteroides",
@@ -2340,7 +3320,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Boletellus Chrysenteroides",
+        "Boletellus chrysenteroides",
+        "Boletus chrysenteroides"
+      ],
+      "family_internal": "Long-stemmed & textured boletes",
+      "family_display_title": "Long-stemmed & textured boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "long or ornate stem",
+        "lined or textured stem/cap",
+        "brown to yellow pores"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletellus chrysenteroides",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "boletellus-pseudochrysenteroides",
@@ -2401,7 +3400,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Boletellus Pseudochrysenteroides",
+        "Boletellus pseudochrysenteroides",
+        "Boletus pseudochrysenteroides"
+      ],
+      "family_internal": "Long-stemmed & textured boletes",
+      "family_display_title": "Long-stemmed & textured boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "long or ornate stem",
+        "lined or textured stem/cap",
+        "brown to yellow pores"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletellus pseudochrysenteroides",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "harrya-chromapes",
@@ -2462,7 +3480,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Chrome Footed Bolete",
+        "Harrya chromapes"
+      ],
+      "family_internal": "Long-stemmed & textured boletes",
+      "family_display_title": "Long-stemmed & textured boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "long or ornate stem",
+        "lined or textured stem/cap",
+        "brown to yellow pores"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Harrya chromapes",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "aureoboletus-innixus",
@@ -2523,7 +3559,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Clustered Brown Bolete",
+        "Aureoboletus innixus"
+      ],
+      "family_internal": "Long-stemmed & textured boletes",
+      "family_display_title": "Long-stemmed & textured boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "long or ornate stem",
+        "lined or textured stem/cap",
+        "brown to yellow pores"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Aureoboletus innixus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "austroboletus-gracilis",
@@ -2584,7 +3638,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Graceful Bolete",
+        "Austroboletus gracilis"
+      ],
+      "family_internal": "Long-stemmed & textured boletes",
+      "family_display_title": "Long-stemmed & textured boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "long or ornate stem",
+        "lined or textured stem/cap",
+        "brown to yellow pores"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Austroboletus gracilis",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "russells-bolete",
@@ -2645,7 +3717,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Russell's Bolete",
+        "Aureoboletus russellii"
+      ],
+      "family_internal": "Long-stemmed & textured boletes",
+      "family_display_title": "Long-stemmed & textured boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "long or ornate stem",
+        "lined or textured stem/cap",
+        "brown to yellow pores"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Aureoboletus russellii",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "aureoboletus-betula",
@@ -2706,7 +3796,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Shaggy Stalked Bolete",
+        "Aureoboletus betula"
+      ],
+      "family_internal": "Long-stemmed & textured boletes",
+      "family_display_title": "Long-stemmed & textured boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "long or ornate stem",
+        "lined or textured stem/cap",
+        "brown to yellow pores"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Aureoboletus betula",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "aureoboletus-auriporus",
@@ -2767,7 +3875,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Sour Gold-Pored Bolete",
+        "Aureoboletus auriporus"
+      ],
+      "family_internal": "Long-stemmed & textured boletes",
+      "family_display_title": "Long-stemmed & textured boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "long or ornate stem",
+        "lined or textured stem/cap",
+        "brown to yellow pores"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Aureoboletus auriporus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "chalciporus-piperatoides",
@@ -2828,7 +3954,24 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Chalciporus Piperatoides",
+        "Chalciporus piperatoides"
+      ],
+      "family_internal": "Peppery & chalciporoid boletes",
+      "family_display_title": "Peppery & chalciporoid boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "small odd bolete",
+        "peppery taste"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Chalciporus piperatoides",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "chalciporus-piperatus",
@@ -2889,7 +4032,24 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Chalciporus Piperatus",
+        "Chalciporus piperatus"
+      ],
+      "family_internal": "Peppery & chalciporoid boletes",
+      "family_display_title": "Peppery & chalciporoid boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "small odd bolete",
+        "peppery taste"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Chalciporus piperatus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "chalciporus-pseudorubinellus",
@@ -2950,7 +4110,24 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Chalciporus Pseudorubinellus",
+        "Chalciporus pseudorubinellus"
+      ],
+      "family_internal": "Peppery & chalciporoid boletes",
+      "family_display_title": "Peppery & chalciporoid boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "small odd bolete",
+        "peppery taste"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Chalciporus pseudorubinellus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "chalciporus-rubinellus",
@@ -3011,7 +4188,24 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Chalciporus Rubinellus",
+        "Chalciporus rubinellus"
+      ],
+      "family_internal": "Peppery & chalciporoid boletes",
+      "family_display_title": "Peppery & chalciporoid boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "small odd bolete",
+        "peppery taste"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Chalciporus rubinellus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "pulveroboletus-ravenelii",
@@ -3072,7 +4266,24 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Ravenel's Bolete",
+        "Pulveroboletus ravenelii"
+      ],
+      "family_internal": "Peppery & chalciporoid boletes",
+      "family_display_title": "Peppery & chalciporoid boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "small odd bolete",
+        "peppery taste"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Pulveroboletus ravenelii",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "true-bitter-bolete",
@@ -3135,7 +4346,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": true
+      "is_non_edible": true,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Bitter Bolete",
+        "Tylopilus felleus"
+      ],
+      "family_internal": "Pink-pored Tylopilus & bitter allies",
+      "family_display_title": "Pink-pored Tylopilus & bitter allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "pinkish pores",
+        "bitter taste",
+        "brown cap"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Tylopilus felleus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "tylopilus-intermedius",
@@ -3196,7 +4425,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Bitter Parchment Bolete",
+        "Tylopilus intermedius"
+      ],
+      "family_internal": "Pink-pored Tylopilus & bitter allies",
+      "family_display_title": "Pink-pored Tylopilus & bitter allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "pinkish pores",
+        "bitter taste",
+        "brown cap"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Tylopilus intermedius",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "indecisus-bolete",
@@ -3257,68 +4504,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
-    },
-    {
-      "slug": "tylopilus-rhoadsiae",
-      "display_name": "Pale Bitter Bolete",
-      "common_name": "Pale Bitter Bolete",
-      "category": "Mushroom",
-      "culinary_uses": "Seed entry only. Added during the Michigan bolete audit for the clean app; edibility, use, and warning text still need species-level review.",
-      "medicinal_uses": "",
-      "notes": "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review.",
-      "months_available": [],
-      "month_numbers": [],
-      "links": [],
-      "images": [],
-      "scientific_name": "Tylopilus rhoadsiae",
-      "mushroom_profile": {
-        "scientific_name": "Tylopilus rhoadsiae",
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Indecisus Bolete",
+        "Tylopilus indecisus"
+      ],
+      "family_internal": "Pink-pored Tylopilus & bitter allies",
+      "family_display_title": "Pink-pored Tylopilus & bitter allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "pinkish pores",
+        "bitter taste",
+        "brown cap"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Tylopilus indecisus",
         "entry_scope": "species",
-        "edibility_status": "review_required",
-        "caution_level": "high",
-        "summary": "Minimal bolete seed entry for Pale Bitter Bolete. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
-        "ecology": "bolete",
-        "substrate": [
-          "Forest soil"
-        ],
-        "wood_type": [],
-        "host_trees": [],
-        "host_certainty": "unknown",
-        "underside": "Pores",
-        "ring": "Unknown",
-        "texture": [
-          "Fleshy / firm"
-        ],
-        "odor": "Unknown",
-        "staining": "Unknown",
-        "taste": [],
-        "spore_print": "",
-        "season_note": "",
-        "processing_required": [],
-        "research_notes": [
-          "Species seed added from the Michigan bolete audit.",
-          "Needs image coverage.",
-          "Needs source links and fuller field notes."
-        ]
-      },
-      "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review"
-      ],
-      "mushroom_family": "Pink-pored Tylopilus & bitter allies",
-      "boleteGroup": [
-        "Pink-pored Tylopilus & bitter allies"
-      ],
-      "boleteSubgroup": [
-        "Tylopilus",
-        "Pinkish pores / bitter allies"
-      ],
-      "weekPrecision": "needs-review",
-      "primary_type": "mushroom",
-      "is_medicinal": false,
-      "is_non_edible": false
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "tylopilus-rubrobrunneus",
@@ -3379,7 +4583,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Reddish Brown Bitter Bolete",
+        "Tylopilus rubrobrunneus"
+      ],
+      "family_internal": "Pink-pored Tylopilus & bitter allies",
+      "family_display_title": "Pink-pored Tylopilus & bitter allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "pinkish pores",
+        "bitter taste",
+        "brown cap"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Tylopilus rubrobrunneus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "tylopilus-appalachiensis",
@@ -3388,7 +4610,7 @@
       "category": "Mushroom",
       "culinary_uses": "Seed entry only. Added during the Michigan bolete audit for the clean app; edibility, use, and warning text still need species-level review.",
       "medicinal_uses": "",
-      "notes": "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review.",
+      "notes": "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Curiosity / advanced species; included because a forager may encounter it or look it up, even though it is not a core beginner target.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -3421,7 +4643,9 @@
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
           "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "Curiosity / advanced species; included because a forager may encounter it or look it up, even though it is not a core beginner target.",
+          "Included as a curiosity / advanced species because foragers may still encounter or research it, even though it is not a core beginner target."
         ]
       },
       "manual_review_reasons": [
@@ -3440,7 +4664,29 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Tylopilus Appalachiensis",
+        "Tylopilus appalachiensis",
+        "Appalachian Tylopilus"
+      ],
+      "up_commonness": "curiosity_or_advanced",
+      "up_focus_note": "Curiosity / advanced species; included because a forager may encounter it or look it up, even though it is not a core beginner target.",
+      "taxonomy_note": "Included as a curiosity / advanced species because foragers may still encounter or research it, even though it is not a core beginner target.",
+      "family_internal": "Pink-pored Tylopilus & bitter allies",
+      "family_display_title": "Pink-pored Tylopilus & bitter allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "pinkish pores",
+        "bitter taste",
+        "brown cap"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Tylopilus appalachiensis",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "tylopilus-badiceps",
@@ -3501,7 +4747,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Tylopilus Badiceps",
+        "Tylopilus badiceps"
+      ],
+      "family_internal": "Pink-pored Tylopilus & bitter allies",
+      "family_display_title": "Pink-pored Tylopilus & bitter allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "pinkish pores",
+        "bitter taste",
+        "brown cap"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Tylopilus badiceps",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "tylopilus-ferrugineus",
@@ -3562,7 +4826,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Tylopilus Ferrugineus",
+        "Tylopilus ferrugineus"
+      ],
+      "family_internal": "Pink-pored Tylopilus & bitter allies",
+      "family_display_title": "Pink-pored Tylopilus & bitter allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "pinkish pores",
+        "bitter taste",
+        "brown cap"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Tylopilus ferrugineus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "tylopilus-peralbidus",
@@ -3624,7 +4906,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Tylopilus Peralbidus",
+        "Tylopilus peralbidus"
+      ],
+      "family_internal": "Pink-pored Tylopilus & bitter allies",
+      "family_display_title": "Pink-pored Tylopilus & bitter allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "pinkish pores",
+        "bitter taste",
+        "brown cap"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Tylopilus peralbidus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "tylopilus-tabacinus",
@@ -3685,7 +4985,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Tylopilus Tabacinus",
+        "Tylopilus tabacinus"
+      ],
+      "family_internal": "Pink-pored Tylopilus & bitter allies",
+      "family_display_title": "Pink-pored Tylopilus & bitter allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "pinkish pores",
+        "bitter taste",
+        "brown cap"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Tylopilus tabacinus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "tylopilus-violatinctus",
@@ -3746,7 +5064,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Violet Bitter Bolete",
+        "Tylopilus violatinctus"
+      ],
+      "family_internal": "Pink-pored Tylopilus & bitter allies",
+      "family_display_title": "Pink-pored Tylopilus & bitter allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "pinkish pores",
+        "bitter taste",
+        "brown cap"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Tylopilus violatinctus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "tylopilus-plumbeoviolaceus",
@@ -3807,7 +5143,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Violet Gray Bolete",
+        "Tylopilus plumbeoviolaceus"
+      ],
+      "family_internal": "Pink-pored Tylopilus & bitter allies",
+      "family_display_title": "Pink-pored Tylopilus & bitter allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "pinkish pores",
+        "bitter taste",
+        "brown cap"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Tylopilus plumbeoviolaceus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "almost-bluing-king-bolete",
@@ -3868,7 +5222,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Almost Bluing King Bolete",
+        "Boletus subcaerulescens"
+      ],
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem",
+        "blue staining"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus subcaerulescens",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "hemileccinum-rubropunctum",
@@ -3877,7 +5250,7 @@
       "category": "Mushroom",
       "culinary_uses": "Seed entry only. Added during the Michigan bolete audit for the clean app; edibility, use, and warning text still need species-level review.",
       "medicinal_uses": "",
-      "notes": "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review.",
+      "notes": "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Curiosity / advanced species; included because a forager may encounter it or look it up, even though it is not a core beginner target.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -3910,7 +5283,9 @@
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
           "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "Curiosity / advanced species; included because a forager may encounter it or look it up, even though it is not a core beginner target.",
+          "Included as a curiosity / advanced species because foragers may still encounter or research it, even though it is not a core beginner target."
         ]
       },
       "manual_review_reasons": [
@@ -3929,7 +5304,29 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Ashtray Bolete",
+        "Hemileccinum rubropunctum",
+        "Boletus rubropunctus"
+      ],
+      "up_commonness": "curiosity_or_advanced",
+      "up_focus_note": "Curiosity / advanced species; included because a forager may encounter it or look it up, even though it is not a core beginner target.",
+      "taxonomy_note": "Included as a curiosity / advanced species because foragers may still encounter or research it, even though it is not a core beginner target.",
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Hemileccinum rubropunctum",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "imleria-badia",
@@ -3990,7 +5387,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Bay Bolete",
+        "Imleria badia"
+      ],
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Imleria badia",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "boletus-atkinsonii",
@@ -3999,7 +5414,7 @@
       "category": "Mushroom",
       "culinary_uses": "Seed entry only. Added during the Michigan bolete audit for the clean app; edibility, use, and warning text still need species-level review.",
       "medicinal_uses": "",
-      "notes": "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review.",
+      "notes": "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Not common in the U.P.; included because a forager may still encounter it or become curious about it.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -4032,7 +5447,9 @@
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
           "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "Not common in the U.P.; included because a forager may still encounter it or become curious about it.",
+          "Included for completeness and curiosity even though it is not a core Upper Peninsula teaching species."
         ]
       },
       "manual_review_reasons": [
@@ -4051,7 +5468,29 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Boletus Atkinsonii",
+        "Boletus atkinsonii",
+        "Atkinson's Bolete"
+      ],
+      "up_commonness": "not_common",
+      "up_focus_note": "Not common in the U.P.; included because a forager may still encounter it or become curious about it.",
+      "taxonomy_note": "Included for completeness and curiosity even though it is not a core Upper Peninsula teaching species.",
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus atkinsonii",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "boletus-variipes-fagicola",
@@ -4112,7 +5551,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Boletus Variipes-Fagicola",
+        "Boletus variipes-fagicola"
+      ],
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus variipes-fagicola",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "bothia-castanella",
@@ -4173,7 +5630,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Bothia Castanella",
+        "Bothia castanella"
+      ],
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Bothia castanella",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "boletus-auripes",
@@ -4234,7 +5709,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Butter Foot Bolete",
+        "Boletus auripes"
+      ],
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus auripes",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "corrugated-bolete",
@@ -4295,7 +5788,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Corrugated Bolete",
+        "Hemileccinum hortonii"
+      ],
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Hemileccinum hortonii",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "false-king-bolete",
@@ -4358,7 +5869,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": true
+      "is_non_edible": true,
+      "entry_scope": "species",
+      "search_aliases": [
+        "False King Bolete",
+        "Boletus huronensis"
+      ],
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus huronensis",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "retiboletus-griseus",
@@ -4367,7 +5896,7 @@
       "category": "Mushroom",
       "culinary_uses": "Seed entry only. Added during the Michigan bolete audit for the clean app; edibility, use, and warning text still need species-level review.",
       "medicinal_uses": "",
-      "notes": "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review.",
+      "notes": "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Not common in the U.P.; included because a forager may still encounter it or become curious about it.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -4400,7 +5929,9 @@
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
           "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "Not common in the U.P.; included because a forager may still encounter it or become curious about it.",
+          "Older books may still list this under Boletus griseus; aliases preserve that search path."
         ]
       },
       "manual_review_reasons": [
@@ -4419,7 +5950,29 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Gray Bolete",
+        "Retiboletus griseus",
+        "Boletus griseus"
+      ],
+      "up_commonness": "not_common",
+      "up_focus_note": "Not common in the U.P.; included because a forager may still encounter it or become curious about it.",
+      "taxonomy_note": "Older books may still list this under Boletus griseus; aliases preserve that search path.",
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Retiboletus griseus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "hemileccinum-subglabripes",
@@ -4461,7 +6014,8 @@
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "Older apps and lists sometimes blur this with the true Ash Tree Bolete. This file keeps it separate from Boletinellus merulioides."
         ]
       },
       "manual_review_reasons": [
@@ -4480,7 +6034,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Hemileccinum subglabripes",
+        "Ash-tree bolete (misapplied in some older usage)"
+      ],
+      "taxonomy_note": "Older apps and lists sometimes blur this with the true Ash Tree Bolete. This file keeps it separate from Boletinellus merulioides.",
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Hemileccinum subglabripes",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "boletus-edulis",
@@ -4541,7 +6114,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "King Bolete",
+        "Boletus edulis"
+      ],
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus edulis",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "boletus-alutaceus",
@@ -4602,7 +6193,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Leather Colored Bolete",
+        "Boletus alutaceus"
+      ],
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus alutaceus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "boletus-separans",
@@ -4663,7 +6272,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Lilac Bolete",
+        "Boletus separans"
+      ],
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus separans",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "noble-bolete",
@@ -4724,7 +6351,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Noble Bolete",
+        "Boletus nobilis"
+      ],
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus nobilis",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "retiboletus-ornatipes",
@@ -4785,7 +6430,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Ornate Bolete",
+        "Retiboletus ornatipes",
+        "Boletus ornatipes"
+      ],
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Retiboletus ornatipes",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "imleria-pallida",
@@ -4846,7 +6510,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Pallid Bolete",
+        "Imleria pallida"
+      ],
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Imleria pallida",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "xanthoconium-affine",
@@ -4907,7 +6589,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Spotted Bolete",
+        "Xanthoconium affine"
+      ],
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Xanthoconium affine",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "variable-stalk-bolete",
@@ -4968,7 +6668,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Variable-stalk Bolete",
+        "Boletus variipes"
+      ],
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus variipes",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "xanthoconium-purpureum",
@@ -5029,7 +6747,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Xanthoconium Purpureum",
+        "Xanthoconium purpureum"
+      ],
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Xanthoconium purpureum",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "xerocomus-illudens",
@@ -5090,7 +6826,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Xerocomus Illudens",
+        "Xerocomus illudens"
+      ],
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Xerocomus illudens",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "xerocomus-tenax",
@@ -5151,7 +6905,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Xerocomus Tenax",
+        "Xerocomus tenax"
+      ],
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Xerocomus tenax",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "xerocomus-subtomentosus",
@@ -5212,7 +6984,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Yellow Crack Bolete",
+        "Xerocomus subtomentosus"
+      ],
+      "family_internal": "Porcini & brown allies",
+      "family_display_title": "Porcini & brown allies",
+      "route_hidden": false,
+      "routing_traits": [
+        "stout brown bolete",
+        "pale to yellow pores",
+        "smooth or netted stem"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Xerocomus subtomentosus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "baorangia-bicolor",
@@ -5273,7 +7063,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Bicolor Bolete",
+        "Baorangia bicolor"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Baorangia bicolor",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "boletus-bicoloroides",
@@ -5334,7 +7142,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Boletus Bicoloroides",
+        "Boletus bicoloroides"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus bicoloroides",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "boletus-miniato-olivaceus",
@@ -5395,7 +7221,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Boletus Miniato-Olivaceus",
+        "Boletus miniato-olivaceus"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus miniato-olivaceus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "boletus-rubissimus",
@@ -5456,7 +7300,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Boletus Rubissimus",
+        "Boletus rubissimus"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus rubissimus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "boletus-rufocinnamomeus",
@@ -5517,7 +7379,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Boletus Rufocinnamomeus",
+        "Boletus rufocinnamomeus"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus rufocinnamomeus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "boletus-speciosus",
@@ -5578,7 +7458,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Boletus Speciosus",
+        "Boletus speciosus"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus speciosus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "boletus-subdepauperatus",
@@ -5639,7 +7537,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Boletus Subdepauperatus",
+        "Boletus subdepauperatus"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus subdepauperatus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "boletus-subfraternus",
@@ -5700,7 +7616,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Boletus Subfraternus",
+        "Boletus subfraternus"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus subfraternus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "boletus-subgraveolens",
@@ -5761,7 +7695,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Boletus Subgraveolens",
+        "Boletus subgraveolens"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus subgraveolens",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "boletus-vermiculosoides",
@@ -5822,7 +7774,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Brown Pored Bolete",
+        "Boletus vermiculosoides"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus vermiculosoides",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "boletus-vermiculosus",
@@ -5883,7 +7853,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Brown Pored Bolete",
+        "Boletus vermiculosus"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus vermiculosus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "butyriboletus-brunneus",
@@ -5944,7 +7932,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Butyriboletus Brunneus",
+        "Butyriboletus brunneus"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Butyriboletus brunneus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "caloboletus-calopus",
@@ -6005,7 +8011,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Caloboletus Calopus",
+        "Caloboletus calopus"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Caloboletus calopus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "caloboletus-inedulis",
@@ -6066,7 +8090,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Caloboletus Inedulis",
+        "Caloboletus inedulis"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Caloboletus inedulis",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "caloboletus-peckii",
@@ -6127,7 +8169,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Caloboletus Peckii",
+        "Caloboletus peckii"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Caloboletus peckii",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "exsudoporus-frostii",
@@ -6188,7 +8248,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Candy Apple Bolete",
+        "Exsudoporus frostii"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Exsudoporus frostii",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "curry-bolete",
@@ -6249,7 +8327,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": true
+      "is_non_edible": true,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Curry Bolete",
+        "Boletus sensibilis"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletus sensibilis",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "cyanoboletus-cyaneitinctus",
@@ -6310,7 +8406,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Cyanoboletus Cyaneitinctus",
+        "Cyanoboletus cyaneitinctus"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Cyanoboletus cyaneitinctus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "dark-capped-scarletina-complex",
@@ -6371,7 +8485,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": true
+      "is_non_edible": true,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Dark-capped Scarletina Complex",
+        "Neoboletus luridiformis",
+        "Boletus luridiformis"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Neoboletus luridiformis",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "suillellus-hypocarycinus",
@@ -6432,7 +8565,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Hickory Bolete",
+        "Suillellus hypocarycinus"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillellus hypocarycinus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "hortiboletus-campestris",
@@ -6493,7 +8644,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Hortiboletus Campestris",
+        "Hortiboletus campestris"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Hortiboletus campestris",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "hortiboletus-flavorubellus",
@@ -6554,7 +8723,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Hortiboletus Flavorubellus",
+        "Hortiboletus flavorubellus"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Hortiboletus flavorubellus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "butyriboletus-taughannockensis",
@@ -6615,7 +8802,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Igor's Bolete",
+        "Butyriboletus taughannockensis"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Butyriboletus taughannockensis",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "lanmaoa-borealis",
@@ -6676,7 +8881,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Lanmaoa Borealis",
+        "Lanmaoa borealis",
+        "Boletus borealis"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Lanmaoa borealis",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "lanmaoa-fallax",
@@ -6737,7 +8961,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Lanmaoa Fallax",
+        "Lanmaoa fallax",
+        "Boletus fallax"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Lanmaoa fallax",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "lanmaoa-pallidorosea",
@@ -6798,7 +9041,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Lanmaoa Pallidorosea",
+        "Lanmaoa pallidorosea",
+        "Boletus pallidorosea"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Lanmaoa pallidorosea",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "lanmaoa-pseudosensibilis",
@@ -6859,7 +9121,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Lanmaoa Pseudosensibilis",
+        "Lanmaoa pseudosensibilis",
+        "Boletus pseudosensibilis"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Lanmaoa pseudosensibilis",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "lurid-bolete",
@@ -6920,7 +9201,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": true
+      "is_non_edible": true,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Lurid Bolete",
+        "Suillellus luridus"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillellus luridus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "neoboletus-pseudosulphureus",
@@ -6981,7 +9280,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": true
+      "is_non_edible": true,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Neoboletus pseudosulphureus",
+        "Boletus pseudosulphureus"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Neoboletus pseudosulphureus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "neoboletus-subluridellus",
@@ -7042,7 +9359,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": true
+      "is_non_edible": true,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Neoboletus subluridellus",
+        "Boletus subluridellus"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Neoboletus subluridellus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "rubroboletus-rhodosanguineus",
@@ -7103,7 +9438,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Perfumed Bolete",
+        "Rubroboletus rhodosanguineus"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Rubroboletus rhodosanguineus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "caloboletus-firmus",
@@ -7164,7 +9517,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Piedmont Bolete",
+        "Caloboletus firmus"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Caloboletus firmus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "pulchroboletus-pseudosclerotiorum",
@@ -7225,7 +9596,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Pulchroboletus Pseudosclerotiorum",
+        "Pulchroboletus pseudosclerotiorum",
+        "Boletus pseudosclerotiorum"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Pulchroboletus pseudosclerotiorum",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "pulchroboletus-sclerotiorum",
@@ -7286,7 +9676,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Pulchroboletus Sclerotiorum",
+        "Pulchroboletus sclerotiorum",
+        "Boletus sclerotiorum"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Pulchroboletus sclerotiorum",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "xerocomellus-chrysenteron",
@@ -7347,7 +9756,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Red Crack Bolete",
+        "Xerocomellus chrysenteron"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Xerocomellus chrysenteron",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "red-mouth-bolete",
@@ -7408,7 +9835,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": true
+      "is_non_edible": true,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Red Mouth Bolete",
+        "Neoboletus subvelutipes",
+        "Boletus subvelutipes"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Neoboletus subvelutipes",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "scarletina-complex",
@@ -7469,7 +9915,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": true
+      "is_non_edible": true,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Scarletina Complex",
+        "Neoboletus discolor",
+        "Boletus discolor"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Neoboletus discolor",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "xerocomellus-intermedius",
@@ -7530,7 +9995,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Xerocomellus Intermedius",
+        "Xerocomellus intermedius"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Xerocomellus intermedius",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "xerocomellus-truncatus",
@@ -7591,7 +10074,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Xerocomellus Truncatus",
+        "Xerocomellus truncatus"
+      ],
+      "family_internal": "Red-staining & red-pored caution boletes",
+      "family_display_title": "Red-staining & red-pored caution boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "red/orange pores",
+        "fast blue staining",
+        "red/yellow colors"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Xerocomellus truncatus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "confusing-bolete",
@@ -7652,7 +10153,24 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Confusing Bolete",
+        "Strobilomyces confusus"
+      ],
+      "family_internal": "Shaggy & scaly oddballs",
+      "family_display_title": "Shaggy & scaly oddballs",
+      "route_hidden": false,
+      "routing_traits": [
+        "shaggy or scaly appearance",
+        "old-man-of-the-woods look"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Strobilomyces confusus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "strobilomyces-strobilaceus",
@@ -7713,7 +10231,24 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Old Man of the Woods",
+        "Strobilomyces strobilaceus"
+      ],
+      "family_internal": "Shaggy & scaly oddballs",
+      "family_display_title": "Shaggy & scaly oddballs",
+      "route_hidden": false,
+      "routing_traits": [
+        "shaggy or scaly appearance",
+        "old-man-of-the-woods look"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Strobilomyces strobilaceus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "blue-staining-slippery-jack",
@@ -7776,7 +10311,27 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Blue-staining Slippery Jack",
+        "Suillus tomentosus"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association",
+        "blue staining",
+        "host trees: Pine"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus tomentosus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "boreal-bolete",
@@ -7839,7 +10394,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Boreal Bolete",
+        "Suillus glandulosus"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association",
+        "host trees: Pine"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus glandulosus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "butterball",
@@ -7883,7 +10457,8 @@
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "Many books and websites still send North American users to Suillus granulatus; this file keeps Butterball / Suillus weaverae as the practical canonical entry and stores granulatus as an alias."
         ]
       },
       "manual_review_reasons": [
@@ -7902,7 +10477,29 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Butterball",
+        "Suillus weaverae",
+        "Suillus granulatus (North American search alias)",
+        "Weeping Bolete"
+      ],
+      "taxonomy_note": "Many books and websites still send North American users to Suillus granulatus; this file keeps Butterball / Suillus weaverae as the practical canonical entry and stores granulatus as an alias.",
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association",
+        "host trees: Pine"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus weaverae",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "suillus-americanus",
@@ -7963,7 +10560,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Chicken Fat Suillus",
+        "Suillus americanus"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus americanus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "grayish-suillus",
@@ -8026,7 +10641,27 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Grayish Suillus",
+        "Suillus grisellus"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association",
+        "ring or ring zone",
+        "host trees: Tamarack / larch"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus grisellus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "hollow-stalked-larch-bolete",
@@ -8089,7 +10724,28 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Hollow-stalked Larch Bolete",
+        "Suillus ampliporus"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association",
+        "larch/tamarack associate",
+        "ring or ring zone",
+        "host trees: Tamarack / larch"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus ampliporus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "larch-suillus",
@@ -8133,7 +10789,8 @@
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "North American larch material is often searched under Suillus grevillei; this entry keeps Suillus clintonianus as the canonical name and treats grevillei as a search alias."
         ]
       },
       "manual_review_reasons": [
@@ -8152,7 +10809,31 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Larch Suillus",
+        "Suillus clintonianus",
+        "Suillus grevillei (North American search alias)",
+        "Larch Bolete"
+      ],
+      "taxonomy_note": "North American larch material is often searched under Suillus grevillei; this entry keeps Suillus clintonianus as the canonical name and treats grevillei as a search alias.",
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association",
+        "larch/tamarack associate",
+        "ring or ring zone",
+        "host trees: Tamarack / larch"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus clintonianus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "suillus-spraguei",
@@ -8213,7 +10894,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Painted Suillus",
+        "Suillus spraguei"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus spraguei",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "suillus-paluster",
@@ -8274,7 +10973,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Red Bog Bolete",
+        "Suillus paluster"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus paluster",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "suillus-brevipes",
@@ -8335,7 +11052,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Short Stalked Bolete",
+        "Suillus brevipes"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus brevipes",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "slim-jack",
@@ -8398,7 +11133,27 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Slim Jack",
+        "Suillus flavidus"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association",
+        "ring or ring zone",
+        "host trees: Pine"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus flavidus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "suillus-luteus",
@@ -8459,7 +11214,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Slippery Jack",
+        "Suillus luteus"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus luteus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "suillus-salmonicolor",
@@ -8520,7 +11293,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Slippery Jill",
+        "Suillus salmonicolor"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus salmonicolor",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "sour-cap-suillus",
@@ -8581,7 +11372,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Sour Cap Suillus",
+        "Suillus acidus"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus acidus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "suillus-punctatipes",
@@ -8642,7 +11451,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Suillus Punctatipes",
+        "Suillus punctatipes"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus punctatipes",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "suillus-punctipes",
@@ -8703,7 +11530,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Suillus Punctipes",
+        "Suillus punctipes"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus punctipes",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "suillus-sinuspaulianus",
@@ -8764,7 +11609,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Suillus Sinuspaulianus",
+        "Suillus sinuspaulianus"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus sinuspaulianus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "suillus-elbensis",
@@ -8827,7 +11690,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Suillus elbensis"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association",
+        "ring or ring zone",
+        "host trees: Tamarack / larch"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus elbensis",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "suillus-granulatus",
@@ -8890,7 +11772,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Suillus granulatus"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association",
+        "host trees: Pine"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus granulatus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "suillus-hirtellus",
@@ -8953,7 +11853,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Suillus hirtellus"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association",
+        "host trees: Pine"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus hirtellus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "suillus-spectabilis",
@@ -9016,7 +11934,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Suillus spectabilis"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association",
+        "ring or ring zone",
+        "host trees: Tamarack / larch"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus spectabilis",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "suillus-subaureus",
@@ -9077,7 +12014,24 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Suillus subaureus"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus subaureus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "suillus-lakei",
@@ -9139,7 +12093,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Western Painted Suillus",
+        "Suillus lakei"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus lakei",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "suillus-placidus",
@@ -9200,7 +12172,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "White Suillus",
+        "Suillus placidus"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus placidus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "white-stemmed-bolete",
@@ -9263,7 +12253,26 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "White-stemmed Bolete",
+        "Suillus glandulosipes"
+      ],
+      "family_internal": "Suillus / slippery jacks",
+      "family_display_title": "Suillus / slippery jacks",
+      "route_hidden": false,
+      "routing_traits": [
+        "sticky/slimy cap",
+        "yellow pores",
+        "pine or larch association",
+        "host trees: Pine"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Suillus glandulosipes",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "ash-tree-bolete",
@@ -9307,7 +12316,8 @@
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "This is the true Ash Tree Bolete entry. Keep it separate from Hemileccinum subglabripes."
         ]
       },
       "manual_review_reasons": [
@@ -9326,7 +12336,28 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Ash-tree Bolete",
+        "Boletinellus merulioides",
+        "Ash Tree Bolete"
+      ],
+      "taxonomy_note": "This is the true Ash Tree Bolete entry. Keep it separate from Hemileccinum subglabripes.",
+      "family_internal": "Wood-inhabiting & oddball boletes",
+      "family_display_title": "Wood-inhabiting & oddball boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "on wood",
+        "on roots",
+        "parasitic or oddball growth",
+        "host trees: Ash"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Boletinellus merulioides",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "buchwaldoboletus-sphaerocephalus",
@@ -9387,7 +12418,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Buchwaldoboletus Sphaerocephalus",
+        "Buchwaldoboletus sphaerocephalus"
+      ],
+      "family_internal": "Wood-inhabiting & oddball boletes",
+      "family_display_title": "Wood-inhabiting & oddball boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "on wood",
+        "on roots",
+        "parasitic or oddball growth"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Buchwaldoboletus sphaerocephalus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "phylloporus-leucomycelinus",
@@ -9449,7 +12498,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Gilled Bolete",
+        "Phylloporus leucomycelinus"
+      ],
+      "family_internal": "Wood-inhabiting & oddball boletes",
+      "family_display_title": "Wood-inhabiting & oddball boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "on wood",
+        "on roots",
+        "parasitic or oddball growth"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Phylloporus leucomycelinus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "phylloporus-rhodoxanthus",
@@ -9511,7 +12578,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Gilled Bolete",
+        "Phylloporus rhodoxanthus"
+      ],
+      "family_internal": "Wood-inhabiting & oddball boletes",
+      "family_display_title": "Wood-inhabiting & oddball boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "on wood",
+        "on roots",
+        "parasitic or oddball growth"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Phylloporus rhodoxanthus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "paragyrodon-sphaerosporus",
@@ -9572,7 +12657,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Paragyrodon Sphaerosporus",
+        "Paragyrodon sphaerosporus"
+      ],
+      "family_internal": "Wood-inhabiting & oddball boletes",
+      "family_display_title": "Wood-inhabiting & oddball boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "on wood",
+        "on roots",
+        "parasitic or oddball growth"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Paragyrodon sphaerosporus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "parasitic-bolete",
@@ -9633,7 +12736,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Parasitic Bolete",
+        "Pseudoboletus parasiticus"
+      ],
+      "family_internal": "Wood-inhabiting & oddball boletes",
+      "family_display_title": "Wood-inhabiting & oddball boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "on wood",
+        "on roots",
+        "parasitic or oddball growth"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Pseudoboletus parasiticus",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "pseudomerulius-curtisii",
@@ -9695,7 +12816,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Pseudomerulius Curtisii",
+        "Pseudomerulius curtisii"
+      ],
+      "family_internal": "Wood-inhabiting & oddball boletes",
+      "family_display_title": "Wood-inhabiting & oddball boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "on wood",
+        "on roots",
+        "parasitic or oddball growth"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Pseudomerulius curtisii",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     },
     {
       "slug": "buchwaldoboletus-lignicola",
@@ -9756,7 +12895,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "entry_scope": "species",
+      "search_aliases": [
+        "Wood Bolete",
+        "Buchwaldoboletus lignicola"
+      ],
+      "family_internal": "Wood-inhabiting & oddball boletes",
+      "family_display_title": "Wood-inhabiting & oddball boletes",
+      "route_hidden": false,
+      "routing_traits": [
+        "on wood",
+        "on roots",
+        "parasitic or oddball growth"
+      ],
+      "taxonomy_model": {
+        "canonical_scientific_name": "Buchwaldoboletus lignicola",
+        "entry_scope": "species",
+        "book_and_search_names_folded_into_aliases": true
+      }
     }
   ]
 }
