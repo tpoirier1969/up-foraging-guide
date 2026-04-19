@@ -1,4 +1,5 @@
-window.FORAGING_APP_CONFIG = {
-  SUPABASE_URL: "",
-  SUPABASE_ANON_KEY: ""
-};
+export const APP_VERSION = "v4.0.0-r2026-04-18-1";
+export const APP_TITLE = "Upper Michigan Foraging Guide";
+export const REPO_BASE_RAW = "https://raw.githubusercontent.com/tpoirier1969/up-foraging-guide/main";
+export const REPO_BASE_CDN = "https://cdn.jsdelivr.net/gh/tpoirier1969/up-foraging-guide@main";
+export const FETCH_TIMEOUT_MS = 25000;

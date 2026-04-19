@@ -1,155 +1,210 @@
-import { loadLocalData, loadSupabaseData } from "./api.js?v=v2.0";
-import { sortRecords, normalizeRecord, isMushroom, isPlant, medicinalRecords, reviewRecords, lookalikeRecords } from "./data-model.js?v=v2.0";
-import { state } from "./state.js?v=v2.0";
-import { parseRoute } from "./router.js?v=v2.0";
-import { MONTHS } from "./constants.js?v=v2.0";
-import { renderDashboard } from "./pages.js?v=v2.0";
-import { updateHeaderStats, renderPage, markActiveNav, bindDetailLinks, bindSharedActions, wireModal, openDetail } from "./ui.js?v=v2.0";
+import { APP_VERSION } from "./config.js";
+import { state, setRoute, setSpecies, setRareSpecies, setReferences, logBoot } from "./state.js";
+import { loadAppData } from "./data/load-app-data.js";
+import { renderPage, openModal, closeModal, els } from "./ui/dom.js";
+import { markActiveNav } from "./ui/nav.js";
+import { renderDetail } from "./ui/render-detail.js";
+import { filterRecords, renderRecordCards } from "./ui/render-list.js";
+import { renderHome } from "./ui/render-home.js";
+import { renderRarePage } from "./ui/render-rare.js";
+import { renderReferencesPage } from "./ui/render-references.js";
 
-const focusDate = new Date();
-focusDate.setDate(focusDate.getDate() + 14);
-const CURRENT_MONTH = MONTHS[focusDate.getMonth()] || MONTHS[0];
-const emptyFilter = (page = '') => ({ search: "", month: page === 'home' ? CURRENT_MONTH : "", category: "", habitat: "", part: "", size: "", taste: "", substrate: "", treeType: "", hostTree: "", ring: "", texture: "", smell: "", staining: "", medicinalAction: "", medicinalSystem: "", medicinalTerm: "", reviewReason: "", severity: "" });
-const filterState = { home: emptyFilter('home'), plants: emptyFilter(), mushrooms: emptyFilter(), medicinal: emptyFilter(), lookalikes: emptyFilter(), review: emptyFilter() };
-const paneMode = { home: 'results', plants: 'results', mushrooms: 'results', medicinal: 'results', lookalikes: 'results', timeline: 'results', review: 'results' };
-let selectedTimelineMonth = CURRENT_MONTH;
-let selectedTimelineWeek = 1;
-
-function arrayFilterMatch(record, key, value) {
-  if (!value) return true;
-  return (record[key] || []).includes(value);
+function esc(value) {
+  return String(value ?? "")
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;");
 }
 
-function queryMatches(record, filters) {
-  const query = (filters.search || "").trim().toLowerCase();
-  const haystack = [
-    record.display_name, record.common_name, record.scientific_name, record.category,
-    record.culinary_uses, record.medicinal_uses, record.notes, record.other_uses,
-    record.changes_over_time, record.edibility_detail, record.effects_on_body,
-    ...(record.links || []), ...(record.reviewReasons || []), ...(record.affected_systems || []), ...(record.look_alikes || []),
-    ...(record.mushroom_profile?.research_notes || []), record.mushroom_profile?.summary, record.mushroom_profile?.ecology, record.mushroom_profile?.season_note
-  ].join(" ").toLowerCase();
-  const monthMatch = !filters.month || (record.months_available || []).includes(filters.month);
-  const searchMatch = !query || haystack.includes(query);
-  const categoryMatch = !filters.category || record.category === filters.category;
-  const severityMatch = !filters.severity || (record.non_edible_severity || '') === filters.severity;
-  return searchMatch && monthMatch && categoryMatch && severityMatch
-    && arrayFilterMatch(record, 'habitat', filters.habitat)
-    && arrayFilterMatch(record, 'observedPart', filters.part)
-    && arrayFilterMatch(record, 'size', filters.size)
-    && arrayFilterMatch(record, 'taste', filters.taste)
-    && arrayFilterMatch(record, 'substrate', filters.substrate)
-    && arrayFilterMatch(record, 'treeType', filters.treeType)
-    && arrayFilterMatch(record, 'hostTree', filters.hostTree)
-    && arrayFilterMatch(record, 'ring', filters.ring)
-    && arrayFilterMatch(record, 'texture', filters.texture)
-    && arrayFilterMatch(record, 'smell', filters.smell)
-    && arrayFilterMatch(record, 'staining', filters.staining)
-    && arrayFilterMatch(record, 'medicinalAction', filters.medicinalAction)
-    && arrayFilterMatch(record, 'medicinalSystem', filters.medicinalSystem)
-    && arrayFilterMatch(record, 'medicinalTerms', filters.medicinalTerm)
-    && (!filters.reviewReason || (record.reviewReasons || []).includes(filters.reviewReason));
+function parseRoute() {
+  const raw = String(location.hash || "#/home").replace(/^#\/?/, "");
+  return raw || "home";
 }
 
-function filteredForPage(page) {
-  if (page === 'home') return state.allRecords.filter(record => queryMatches(record, filterState.home));
-  if (page === 'plants') return state.allRecords.filter(isPlant).filter(record => queryMatches(record, filterState.plants));
-  if (page === 'mushrooms') return state.allRecords.filter(isMushroom).filter(record => queryMatches(record, filterState.mushrooms));
-  if (page === 'medicinal') return medicinalRecords(state.allRecords).filter(record => queryMatches(record, filterState.medicinal));
-  if (page === 'lookalikes') return lookalikeRecords(state.allRecords).filter(record => queryMatches(record, filterState.lookalikes));
-  if (page === 'review') return reviewRecords(state.allRecords).filter(record => queryMatches(record, filterState.review));
-  return state.allRecords;
+function statusHtml(title = "Loading…", items = []) {
+  return `
+    <section class="panel">
+      <h2>${esc(title)}</h2>
+      <ul class="status-log">${items.map(item => `<li>${esc(item)}</li>`).join("")}</ul>
+    </section>
+  `;
+}
+
+function controlsHtml(route, placeholder = "Search species") {
+  const search = state.filters.search || "";
+  return `
+    <section class="panel">
+      <div class="control-row">
+        <input id="speciesSearch" type="search" value="${esc(search)}" placeholder="${esc(placeholder)}" style="flex:1;min-width:280px">
+        <button id="speciesSearchBtn" class="primary" type="button">Search</button>
+        ${search ? `<button id="speciesClearBtn" type="button">Clear</button>` : ""}
+      </div>
+    </section>
+  `;
+}
+
+function routeTitle(route) {
+  return {
+    home: "Home",
+    plants: "Plants",
+    mushrooms: "Mushrooms",
+    medicinal: "Medicinal",
+    rare: "Rare",
+    lookalikes: "Non-edible",
+    references: "References",
+    search: "Search"
+  }[route] || "Home";
+}
+
+function renderSpeciesRoute(route) {
+  const filtered = filterRecords(state.species, route === "search" ? "home" : route, state.filters.search);
+  const title = route === "search" ? `Search (${filtered.length})` : `${routeTitle(route)} (${filtered.length})`;
+  renderPage(`
+    ${controlsHtml(route, route === "search" ? "Search all species" : `Search ${routeTitle(route).toLowerCase()}`)}
+    <section class="panel">
+      <h2>${esc(title)}</h2>
+      <p class="muted">Version ${esc(APP_VERSION)}</p>
+    </section>
+    ${renderRecordCards(filtered)}
+  `);
+  wirePageEvents(route);
 }
 
 function renderCurrentRoute() {
-  const route = parseRoute(location.hash || "#/home");
-  const allowedPages = ['home','plants','mushrooms','medicinal','lookalikes','timeline','review'];
-  const activePage = route.page === 'detail' ? (state.route || 'home') : (allowedPages.includes(route.page) ? route.page : 'home');
-  if (route.focus && filterState[activePage]) {
-    filterState[activePage] = { ...filterState[activePage], month: CURRENT_MONTH };
-    if (activePage === "timeline") selectedTimelineMonth = CURRENT_MONTH;
-  }
-  state.route = activePage;
-  markActiveNav(activePage);
+  const route = parseRoute();
+  setRoute(route);
+  markActiveNav(route === "search" ? "search" : route);
 
-  if (route.page === "detail" && route.slug) {
-    if (!document.getElementById("pageRoot").innerHTML.trim()) {
-      renderPage(renderDashboard({
-        page: activePage,
-        allRecords: state.allRecords,
-        currentRecords: filteredForPage(activePage),
-        filters: filterState[activePage] || emptyFilter(activePage),
-        selectedMonth: selectedTimelineMonth,
-        selectedWeek: selectedTimelineWeek,
-        paneMode: paneMode[activePage] || 'results'
-      }));
-    }
-    bindDetailLinks();
-    openDetail(route.slug);
+  if (state.loading) {
+    renderPage(statusHtml("Loading…", state.bootLog));
     return;
   }
 
-  renderPage(renderDashboard({
-    page: activePage,
-    allRecords: state.allRecords,
-    currentRecords: filteredForPage(activePage),
-    filters: filterState[activePage] || emptyFilter(activePage),
-    selectedMonth: selectedTimelineMonth,
-    selectedWeek: selectedTimelineWeek,
-    paneMode: paneMode[activePage] || 'results'
-  }));
+  if (route === "home") {
+    renderPage(renderHome(state.species, state.rareSpecies, state.loadErrors || []));
+    wirePageEvents(route);
+    return;
+  }
 
-  bindDetailLinks();
-  bindSharedActions({
-    onFilterChange: event => {
-      const target = event.currentTarget;
-      const page = state.route;
-      if (!filterState[page]) return;
-      filterState[page][target.dataset.filter] = target.value;
-      if (target.dataset.filter === 'treeType') filterState[page].hostTree = '';
-      renderCurrentRoute();
-    },
-    onClearFilters: () => {
-      const page = state.route;
-      if (!filterState[page]) return;
-      filterState[page] = emptyFilter(page);
-      renderCurrentRoute();
-    },
-    onTimelineMonthChange: (month, week) => {
-      if (!month) return;
-      selectedTimelineMonth = month;
-      selectedTimelineWeek = Number(week || 1);
-      renderCurrentRoute();
-    },
-    onPaneModeChange: (page, nextPaneMode) => {
-      if (!page || !paneMode[page] || !nextPaneMode) return;
-      paneMode[page] = nextPaneMode;
-      renderCurrentRoute();
-    },
-    onTimelineShift: direction => {
-      const index = MONTHS.indexOf(selectedTimelineMonth);
-      if (index < 0) return;
-      const delta = direction === 'prev' ? -1 : 1;
-      const nextIndex = (index + delta + MONTHS.length) % MONTHS.length;
-      selectedTimelineMonth = MONTHS[nextIndex];
+  if (route === "rare") {
+    renderPage(renderRarePage(state.rareSpecies, state.filters.search));
+    wirePageEvents(route);
+    return;
+  }
+
+  if (route === "references") {
+    renderPage(renderReferencesPage(state.references, state.filters.search));
+    wirePageEvents(route);
+    return;
+  }
+
+  renderSpeciesRoute(route);
+}
+
+function getRecordBySlug(slug) {
+  return state.species.find(record => record.slug === slug)
+    || state.rareSpecies.find(record => record.slug === slug);
+}
+
+function wirePageEvents(route) {
+  document.getElementById("homeSearchBtn")?.addEventListener("click", () => {
+    const value = document.getElementById("homeSearch")?.value || "";
+    state.filters.search = value;
+    location.hash = "#/search";
+  });
+
+  const searchInput = document.getElementById("speciesSearch");
+  document.getElementById("speciesSearchBtn")?.addEventListener("click", () => {
+    state.filters.search = searchInput?.value || "";
+    renderCurrentRoute();
+  });
+  searchInput?.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      state.filters.search = searchInput?.value || "";
       renderCurrentRoute();
     }
   });
+  document.getElementById("speciesClearBtn")?.addEventListener("click", () => {
+    state.filters.search = "";
+    renderCurrentRoute();
+  });
+
+  const rareSearch = document.getElementById("rareSearch");
+  document.getElementById("rareSearchBtn")?.addEventListener("click", () => {
+    state.filters.search = rareSearch?.value || "";
+    renderCurrentRoute();
+  });
+  rareSearch?.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      state.filters.search = rareSearch?.value || "";
+      renderCurrentRoute();
+    }
+  });
+
+  const refSearch = document.getElementById("refSearch");
+  document.getElementById("refSearchBtn")?.addEventListener("click", () => {
+    state.filters.search = refSearch?.value || "";
+    renderCurrentRoute();
+  });
+  refSearch?.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+      state.filters.search = refSearch?.value || "";
+      renderCurrentRoute();
+    }
+  });
+
+  document.querySelectorAll("[data-detail]").forEach(btn => {
+    btn.addEventListener("click", () => {
+      const record = getRecordBySlug(btn.dataset.detail);
+      if (!record) return;
+      openModal(renderDetail(record));
+    });
+  });
 }
 
-async function init() {
-  wireModal();
+async function boot() {
+  state.loading = true;
+  renderPage(statusHtml("Loading…", state.bootLog));
+
   try {
-    let payload;
-    try { payload = await loadSupabaseData(); state.dataSource = "Supabase live data"; }
-    catch (supabaseError) { payload = await loadLocalData(); state.dataSource = "Local JSON fallback"; console.info("Supabase not used for this run:", supabaseError?.message || supabaseError); }
-    state.allRecords = sortRecords((payload.records || []).map(normalizeRecord));
-    updateHeaderStats(state.allRecords);
+    const result = await loadAppData((message) => {
+      logBoot(message);
+      renderPage(statusHtml("Loading…", state.bootLog));
+    });
+
+    setSpecies(result.species);
+    setRareSpecies(result.rareSpecies);
+    setReferences(result.references);
+    state.loadErrors = result.errors;
+    state.loading = false;
     renderCurrentRoute();
-    window.addEventListener("hashchange", renderCurrentRoute);
-  } catch (error) {
-    console.error(error);
-    renderPage(`<section class="panel empty-state"><h2>Data load failed</h2><p>${String(error.message || error)}</p></section>`);
+  } catch (err) {
+    state.loading = false;
+    renderPage(`
+      <section class="error-box">
+        <h2>Startup failed</h2>
+        <p>The app did not just sit there and pretend. It failed loading repo data.</p>
+        <p class="codeish">${esc(err.message || String(err))}</p>
+        <p>Try serving this folder from a local web server, or upload it to GitHub Pages. The fetch targets are public repo files, not chat-only connector calls.</p>
+        <div class="control-row">
+          <button id="retryBoot" class="primary" type="button">Retry</button>
+        </div>
+      </section>
+      ${statusHtml("Boot log", state.bootLog)}
+    `);
+    document.getElementById("retryBoot")?.addEventListener("click", boot);
   }
 }
-init();
+
+window.addEventListener("hashchange", renderCurrentRoute);
+els.closeModalBtn?.addEventListener("click", closeModal);
+els.modal?.addEventListener("click", (event) => {
+  const card = els.modal.querySelector(".modal-card");
+  if (!card) return;
+  const rect = card.getBoundingClientRect();
+  const inside = rect.left <= event.clientX && event.clientX <= rect.right && rect.top <= event.clientY && event.clientY <= rect.bottom;
+  if (!inside) closeModal();
+});
+
+boot();
