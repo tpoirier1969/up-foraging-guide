@@ -1,4 +1,4 @@
-export const APP_VERSION = "v4.1.9-r2026-04-19-13";
+export const APP_VERSION = "v4.1.10-r2026-04-19-14";
 export const APP_TITLE = "Upper Michigan Foraging Guide";
 export const FETCH_TIMEOUT_MS = 25000;
 export const COMMONS_API = "https://commons.wikimedia.org/w/api.php";
