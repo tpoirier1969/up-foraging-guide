@@ -65,13 +65,13 @@ async function hydrateImage(img, record) {
     img.src = item.src;
     img.dataset.resolvedSource = 'wikimedia';
     setBadge(container, index === 0 ? 'Photo 1' : `Photo ${Math.min(index + 1, items.length)}`);
-    setSourceLink(container, item.sourcePage, 'Commons');
+    setSourceLink(container, item.sourcePage, item.source === 'wikipedia' ? 'Wikipedia' : 'Commons');
     return;
   }
   img.src = placeholderSvg(`${record.display_name || record.common_name || record.slug} needs photo`);
   img.dataset.resolvedSource = 'missing';
   setBadge(container, 'Needs photo');
-  setSourceLink(container, getCommonsSearchUrl(record), 'Search Commons');
+  setSourceLink(container, '', '');
 }
 
 export function installLazyImages(root, getRecordBySlug) {

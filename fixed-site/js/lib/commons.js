@@ -1,26 +1,20 @@
-import { COMMONS_API, COMMONS_MEDIASEARCH, FETCH_TIMEOUT_MS, IMAGE_SEARCH_LIMIT } from "../config.js";
+import { COMMONS_API, FETCH_TIMEOUT_MS, IMAGE_SEARCH_LIMIT, WIKIPEDIA_API } from "../config.js";
 
 function withTimeout(promise, ms, label) {
   return new Promise((resolve, reject) => {
     const id = setTimeout(() => reject(new Error(`Timeout after ${ms}ms: ${label}`)), ms);
-    promise.then(
-      value => { clearTimeout(id); resolve(value); },
-      err => { clearTimeout(id); reject(err); }
-    );
+    promise.then(v => { clearTimeout(id); resolve(v); }, e => { clearTimeout(id); reject(e); });
   });
 }
 
 function stripHtml(value) {
-  return String(value || "")
-    .replace(/<[^>]+>/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
+  return String(value || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim();
 }
 
 function cleanName(value) {
   return String(value || "")
     .replace(/\([^)]*\)/g, " ")
-    .replace(/\b(?:spp?|group|complex|allies|entry|field|concept|var|cf|aff)\.?\b/gi, " ")
+    .replace(/(?:spp?|group|complex|allies|entry|field|concept|var|cf|aff|type)\.?/gi, " ")
     .replace(/[|/]+/g, " ")
     .replace(/\s+/g, " ")
     .trim();
@@ -45,13 +39,11 @@ export function buildCommonsQueries(record) {
     if (!cleaned) return;
     if (!queries.includes(cleaned)) queries.push(cleaned);
   };
-
   push(record?.scientific_name);
   push(record?.display_name);
   push(record?.common_name);
   push(basenameHint(record));
-
-  return queries.slice(0, 4);
+  return queries.slice(0, 5);
 }
 
 const BAD_TERMS = [
@@ -83,13 +75,53 @@ function scoreCandidate(page, queries, description = '') {
       if (desc.includes(token)) score += 1;
     }
   }
-  if (/\b(photo|photograph|photographed)\b/.test(desc)) score += 3;
+  if (/(photo|photograph|photographed)/.test(desc)) score += 3;
   if (hasBadArtWords(title) || hasBadArtWords(desc)) score -= 20;
   return score;
 }
 
+async function wikipediaSearch(query) {
+  const url = new URL(WIKIPEDIA_API);
+  url.searchParams.set('action', 'query');
+  url.searchParams.set('format', 'json');
+  url.searchParams.set('formatversion', '2');
+  url.searchParams.set('origin', '*');
+  url.searchParams.set('generator', 'search');
+  url.searchParams.set('gsrsearch', query);
+  url.searchParams.set('gsrlimit', String(Math.min(IMAGE_SEARCH_LIMIT, 6)));
+  url.searchParams.set('prop', 'pageimages|info|description');
+  url.searchParams.set('piprop', 'thumbnail|name|original');
+  url.searchParams.set('pithumbsize', '1200');
+  url.searchParams.set('inprop', 'url');
+
+  const res = await withTimeout(fetch(url.toString(), { cache: 'no-store' }), FETCH_TIMEOUT_MS, query);
+  if (!res.ok) throw new Error(`Wikipedia search failed: HTTP ${res.status}`);
+  const payload = await res.json();
+  return Array.isArray(payload?.query?.pages) ? payload.query.pages : [];
+}
+
+function normalizeWikiCandidate(page, query, queries) {
+  const src = page?.thumbnail?.source || page?.original?.source || '';
+  const description = stripHtml(page?.description || '');
+  return {
+    source: 'wikipedia',
+    src,
+    fullImageUrl: page?.original?.source || src,
+    sourcePage: page?.fullurl || '',
+    title: String(page?.title || ''),
+    author: '',
+    credit: '',
+    license: 'Wikipedia page image',
+    licenseUrl: '',
+    description,
+    mime: '',
+    query,
+    score: scoreCandidate(page, queries, description) + 5
+  };
+}
+
 function mediaSearchQuery(query) {
-  return `${query} filemime:bitmap -illustration -drawing -sketch -diagram -painting -logo -icon -coat -arms -map`;
+  return `${query} filemime:bitmap -illustration -drawing -sketch -diagram -painting -logo -icon -coat -arms -map -herbarium`;
 }
 
 async function mediaWikiSearch(query) {
@@ -113,25 +145,17 @@ async function mediaWikiSearch(query) {
   return Array.isArray(payload?.query?.pages) ? payload.query.pages : [];
 }
 
-function makeSearchUrl(query) {
-  const url = new URL(COMMONS_MEDIASEARCH);
-  url.searchParams.set('type', 'image');
-  url.searchParams.set('search', query);
-  return url.toString();
-}
-
-function normalizeCandidate(page, query, queries) {
+function normalizeCommonsCandidate(page, query, queries) {
   const info = Array.isArray(page?.imageinfo) ? page.imageinfo[0] || {} : {};
   const meta = info.extmetadata || {};
   const title = String(page?.title || '').replace(/^File:/i, '');
   const description = stripHtml(meta.ImageDescription?.value || meta.ObjectName?.value || '');
   const mime = String(info.mime || '').toLowerCase();
-  const sourcePage = page.fullurl || makeSearchUrl(query);
   return {
     source: 'wikimedia',
     src: info.thumburl || info.url || '',
     fullImageUrl: info.url || '',
-    sourcePage,
+    sourcePage: page.fullurl || '',
     title,
     author: stripHtml(meta.Artist?.value || meta.Credit?.value || ''),
     credit: stripHtml(meta.Credit?.value || ''),
@@ -157,14 +181,30 @@ export async function resolveCommonsImages(record, count = 3) {
   const candidates = [];
 
   for (const query of queries) {
-    const pages = await mediaWikiSearch(query);
-    for (const page of pages) {
-      const candidate = normalizeCandidate(page, query, queries);
-      const key = candidate.title || candidate.sourcePage || candidate.src;
-      if (!key || seen.has(key)) continue;
-      seen.add(key);
-      if (!isAcceptablePhoto(candidate)) continue;
-      candidates.push(candidate);
+    try {
+      const wikiPages = await wikipediaSearch(query);
+      for (const page of wikiPages) {
+        const candidate = normalizeWikiCandidate(page, query, queries);
+        const key = candidate.title || candidate.sourcePage || candidate.src;
+        if (!key || seen.has(key) || !isAcceptablePhoto(candidate)) continue;
+        seen.add(key);
+        candidates.push(candidate);
+      }
+    } catch {}
+  }
+
+  if (candidates.length < count) {
+    for (const query of queries) {
+      try {
+        const pages = await mediaWikiSearch(query);
+        for (const page of pages) {
+          const candidate = normalizeCommonsCandidate(page, query, queries);
+          const key = candidate.title || candidate.sourcePage || candidate.src;
+          if (!key || seen.has(key) || !isAcceptablePhoto(candidate)) continue;
+          seen.add(key);
+          candidates.push(candidate);
+        }
+      } catch {}
     }
   }
 
@@ -179,5 +219,9 @@ export async function resolveCommonsImage(record) {
 
 export function getCommonsSearchUrl(record) {
   const query = buildCommonsQueries(record)[0] || record?.slug || 'Upper Michigan foraging';
-  return makeSearchUrl(query);
+  const url = new URL('https://commons.wikimedia.org/w/index.php');
+  url.searchParams.set('search', query);
+  url.searchParams.set('title', 'Special:MediaSearch');
+  url.searchParams.set('type', 'image');
+  return url.toString();
 }
