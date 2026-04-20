@@ -50,6 +50,10 @@
       {
         "batch_id": "species-batch-2026-04-20-images-j",
         "note": "Added 8 Commons-backed image sets / compatibility records: lowbush-cranberries, wild-mustard-greens, wood-sorrel-yellow-woodsorrel, wood-sorrel, elder, hawthorn, pine-needles-tea, pine-resin-gum."
+      },
+      {
+        "batch_id": "species-batch-2026-04-20-images-k-through-m",
+        "note": "Finished the remaining 14 uncovered plant-record slugs and upgraded 7 thinner existing image sets. No fake filler species were added once the real uncovered plant list ran out."
       }
     ],
     "strict_whole_plant_batch_f": {
@@ -128,15 +132,76 @@
         "pine-resin-gum"
       ],
       "policy": "Whole-plant/habit lead image where clean Commons coverage existed; some weaker or compatibility records use illustrations or reused species sets to cover remaining app records without creating extra files."
+    },
+    "remaining_plant_cover_pass": {
+      "status": "completed",
+      "newly_added_species": [
+        "american-persimmon",
+        "bee-balm-wild-bergamot",
+        "dewberries-very-similar-to-blackberry",
+        "fox-grapes",
+        "goosefoot-close-cousin-of-lamb-s-quarters",
+        "ground-cherries",
+        "hazel",
+        "miner-s-lettuce-winter-purslane",
+        "raspberries",
+        "sassafras-root-bark",
+        "spruce",
+        "wild-blackberries",
+        "wild-rose",
+        "yellow-pond-lily"
+      ],
+      "upgraded_existing_species": [
+        "american-beech",
+        "dandelion",
+        "pawpaw",
+        "ramps",
+        "thimbleberries",
+        "toothwort",
+        "velvetleaf-blueberry"
+      ],
+      "note": "Only 14 uncovered plant-record slugs remained in plants.json at the start of this pass, so the rest of the work was used to strengthen thinner existing image sets."
     }
   },
   "records": {
     "american-beech": [
       {
-        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Fagus%20grandifolia.jpg",
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Fagus%20grandifolia.jpg?width=480",
         "source": "commons-hardwired",
-        "title": "American beech",
+        "title": "American beech whole tree",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Fagus_grandifolia.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/American%20Beech%20Fagus%20grandifolia%20Bark.JPG?width=480",
+        "source": "commons-hardwired",
+        "title": "American beech bark",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:American_Beech_Fagus_grandifolia_Bark.JPG"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Fagus%20grandifolia%20leaf.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "American beech leaf",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Fagus_grandifolia_leaf.jpg"
+      }
+    ],
+    "american-persimmon": [
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Diospyros%20virginiana%20%284%29.JPG?width=480",
+        "source": "commons-hardwired",
+        "title": "American persimmon whole tree",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Diospyros_virginiana_(4).JPG"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Diospyros%20virginiana-fruit.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "American persimmon fruit",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Diospyros_virginiana-fruit.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Diospyros%20virginiana%20%28bark%29.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "American persimmon bark",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Diospyros_virginiana_(bark).jpg"
       }
     ],
     "angelica": [
@@ -220,6 +285,26 @@
       }
     ],
     "bee-balm": [
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Monarda-fistulosa.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Bee balm whole plant",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Monarda-fistulosa.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Monarda%20fistulosa%20%2818445568323%29.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Bee balm flowering stand",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Monarda_fistulosa_(18445568323).jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Monarda%20fistulosa.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Bee balm flower detail",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Monarda_fistulosa.jpg"
+      }
+    ],
+    "bee-balm-wild-bergamot": [
       {
         "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Monarda-fistulosa.jpg?width=480",
         "source": "commons-hardwired",
@@ -541,10 +626,22 @@
     ],
     "dandelion": [
       {
-        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Dandelion%20%28Taraxacum%20officinale%29.jpg",
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Taraxacum%20Officinale.jpg?width=480",
         "source": "commons-hardwired",
-        "title": "Dandelion",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File:Dandelion_(Taraxacum_officinale).jpg"
+        "title": "Dandelion whole plant",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Taraxacum_Officinale.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Taraxacum%20officinale--.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Dandelion flower closeup",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Taraxacum_officinale--.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/WWB-0050-020-Taraxacum%20officinale.png?width=480",
+        "source": "commons-hardwired",
+        "title": "Dandelion botanical illustration",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:WWB-0050-020-Taraxacum_officinale.png"
       }
     ],
     "daylily": [
@@ -565,6 +662,26 @@
         "source": "commons-hardwired",
         "title": "Orange daylily whole plant",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Hemerocallis_fulva.jpg"
+      }
+    ],
+    "dewberries-very-similar-to-blackberry": [
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Rubus%20flagellaris%20-%20Dewberry.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Dewberry whole plant",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rubus_flagellaris_-_Dewberry.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Rubus%20flagellaris%20WFNY-093B.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Dewberry flowering stem",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rubus_flagellaris_WFNY-093B.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Rubus%20flagellaris%20drupe.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Dewberry fruit",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rubus_flagellaris_drupe.jpg"
       }
     ],
     "eastern-hemlock": [
@@ -687,6 +804,26 @@
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Chamerion_angustifolium_9510.JPG"
       }
     ],
+    "fox-grapes": [
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Isabella%20grapevine%20-%20Vitis%20labrusca%2001.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Fox grape vine habit",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Isabella_grapevine_-_Vitis_labrusca_01.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Vitis-labrusca-berries.JPG?width=480",
+        "source": "commons-hardwired",
+        "title": "Fox grape fruit cluster",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Vitis-labrusca-berries.JPG"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Vitis%20labrusca%20BB-1913.png?width=480",
+        "source": "commons-hardwired",
+        "title": "Fox grape botanical illustration",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Vitis_labrusca_BB-1913.png"
+      }
+    ],
     "garlic-mustard": [
       {
         "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Alliaria%20petiolata%2C%20habitus.jpg?width=480",
@@ -747,6 +884,46 @@
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Ribes_uva-crispa_-_fruit_green1.jpg"
       }
     ],
+    "goosefoot-close-cousin-of-lamb-s-quarters": [
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Chenopodium%20hybridum%20plant%20%2812%29.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Goosefoot whole plant",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Chenopodium_hybridum_plant_(12).jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Chenopodium%20hybridum%20%288403875958%29.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Goosefoot habit view",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Chenopodium_hybridum_(8403875958).jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Chenopodium%20hybridum%20%28Sautod-G%C3%A4nsefu%C3%9F%29%20IMG%201529.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Goosefoot leaf detail",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Chenopodium_hybridum_(Sautod-Gänsefuß)_IMG_1529.jpg"
+      }
+    ],
+    "ground-cherries": [
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Physalis%20heterophylla%2021411864.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Ground cherry whole plant",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Physalis_heterophylla_21411864.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Physalis%20heterophylla%20Clammy%20Ground%20Cherry%20flower%20and%20leaves%204x3.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Ground cherry flowers",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Physalis_heterophylla_Clammy_Ground_Cherry_flower_and_leaves_4x3.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Physalis%20heterophylla%20Clammy%20Ground%20Cherry%20fruit%20and%20leaves.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Ground cherry fruits",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Physalis_heterophylla_Clammy_Ground_Cherry_fruit_and_leaves.jpg"
+      }
+    ],
     "groundnut": [
       {
         "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Apios%20americana.jpg?width=480",
@@ -805,6 +982,26 @@
         "source": "commons-hardwired",
         "title": "Common hawthorn fruits",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Crataegus_monogyna.jpg"
+      }
+    ],
+    "hazel": [
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Corylus%20americana1.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "American hazel whole shrub",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Corylus_americana1.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Corylus%20americana%205474403.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "American hazel catkins",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Corylus_americana_5474403.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Corylus%20americana%205474404.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "American hazel nuts and leaves",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Corylus_americana_5474404.jpg"
       }
     ],
     "highbush-cranberries-viburnum": [
@@ -1067,6 +1264,26 @@
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg"
       }
     ],
+    "miner-s-lettuce-winter-purslane": [
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Claytonia%20perfoliata.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Miner's lettuce whole plant",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Claytonia_perfoliata.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Claytonia%20perfoliata%20ssp%20perfoliata%20flowers.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Miner's lettuce flowers",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Claytonia_perfoliata_ssp_perfoliata_flowers.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Claytonia%20perfoliata%20000.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Miner's lettuce habit view",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Claytonia_perfoliata_000.jpg"
+      }
+    ],
     "mulberries": [
       {
         "src": "https://commons.wikimedia.org/wiki/Special:FilePath/2017-05-29%2016%2021%2009%20Red%20Mulberry%20branches%20with%20leaves%20and%20fruit%20at%20the%20intersection%20of%20Lees%20Corner%20Road%20%28Virginia%20State%20Secondary%20Route%20645%29%20and%20Old%20Dairy%20Road%20in%20the%20Franklin%20Farm%20section%20of%20Oak%20Hill%2C%20Fairfax%20County%2C%20Virginia.jpg?width=480",
@@ -1173,6 +1390,18 @@
         "source": "commons-hardwired",
         "title": "Pawpaw tree",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:ARS_pawpaw.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Asimina%20triloba3.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Pawpaw fruit",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Asimina_triloba3.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/NAS-060%20Asimina%20triloba.png?width=480",
+        "source": "commons-hardwired",
+        "title": "Pawpaw botanical illustration",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:NAS-060_Asimina_triloba.png"
       }
     ],
     "pin-cherries": [
@@ -1297,10 +1526,42 @@
     ],
     "ramps": [
       {
-        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Allium%20tricoccum%20-%20Ramps.jpg",
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Allium%20tricoccum%20var.%20tricoccum.png?width=480",
         "source": "commons-hardwired",
-        "title": "Ramps in flower",
+        "title": "Ramps whole plant / leaves",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Allium_tricoccum_var._tricoccum.png"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Allium%20tricoccum%20-%20Ramps.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Ramps flowers and buds",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Allium_tricoccum_-_Ramps.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Allium%20tricoccum%20var.%20tricoccum%20BW-1979-0630-0406.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Ramps spring leaves / herbarium specimen",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Allium_tricoccum_var._tricoccum_BW-1979-0630-0406.jpg"
+      }
+    ],
+    "raspberries": [
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Rubus%20idaeus.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Raspberry whole plant",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rubus_idaeus.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Rubus-idaeus.JPG?width=480",
+        "source": "commons-hardwired",
+        "title": "Raspberry flowers",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rubus-idaeus.JPG"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Rubus%20idaeus%20%2835674148923%29.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Raspberry fruit",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rubus_idaeus_(35674148923).jpg"
       }
     ],
     "red-currants": [
@@ -1381,6 +1642,46 @@
         "source": "commons-hardwired",
         "title": "Sassafras bark",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Sassafras_albidum_Trunk_Bark_3264px.jpg"
+      }
+    ],
+    "sassafras-root-bark": [
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Sassafras%20albidum.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Sassafras whole tree",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Sassafras_albidum.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Sassafras%20albidum%20Trunk%20Bark%203264px.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Sassafras bark",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Sassafras_albidum_Trunk_Bark_3264px.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Sassafras%20Sassafras%20albidum%20Leaf%202505px.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Sassafras leaf",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Sassafras_Sassafras_albidum_Leaf_2505px.jpg"
+      }
+    ],
+    "spruce": [
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Picea%20glauca.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Spruce whole tree",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Picea_glauca.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Picea%20glauca%2001.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Spruce foliage",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Picea_glauca_01.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Picea%20glauca%20cones.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Spruce cones",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Picea_glauca_cones.jpg"
       }
     ],
     "staghorn-sumac": [
@@ -1469,28 +1770,58 @@
         "source": "commons-hardwired",
         "title": "Thimbleberry whole plant",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Rubus_parviflorus_07549.JPG"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Thimbleberry%20Rubus%20parviflorus.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Thimbleberry flowering cane",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Thimbleberry_Rubus_parviflorus.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Thimbleberry%2C%20fruit%20of%20Rubus%20parviflorus%20var.%20parviflorus.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Thimbleberry fruit",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Thimbleberry,_fruit_of_Rubus_parviflorus_var._parviflorus.jpg"
       }
     ],
     "toothwort": [
       {
-        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Cutleaf%20Toothwort%20%28Cardamine%20concatenata%29.jpg",
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Cutleaf%20Toothwort%20%28Cardamine%20concatenata%29.jpg?width=480",
         "source": "commons-hardwired",
-        "title": "Cutleaf toothwort",
+        "title": "Cutleaf toothwort whole plant",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Cutleaf_Toothwort_(Cardamine_concatenata).jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Cardamine%20concatenata%20-%20Cutleaf%20Toothwort%203.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Cutleaf toothwort flowers",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Cardamine_concatenata_-_Cutleaf_Toothwort_3.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Cardamine%20concatenata%20BW-1979-0430-0035.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Cutleaf toothwort herbarium specimen",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Cardamine_concatenata_BW-1979-0430-0035.jpg"
       }
     ],
     "velvetleaf-blueberry": [
       {
         "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Vaccinium%20myrtilloides%2015-p.bot-vacci.myrtil-35.jpg?width=480",
         "source": "commons-hardwired",
-        "title": "Velvetleaf blueberry whole plant",
+        "title": "Velvetleaf blueberry in flower",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Vaccinium_myrtilloides_15-p.bot-vacci.myrtil-35.jpg"
       },
       {
         "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Vaccinium%20myrtilloides%20berries.jpg?width=480",
         "source": "commons-hardwired",
         "title": "Velvetleaf blueberry berries and leaves",
-        "sourcePage": "https://commons.wikimedia.org/wiki/File%3AVaccinium%20myrtilloides%20berries.jpg"
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Vaccinium_myrtilloides_berries.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Vaccinium%20myrtilloides%2015-p.bot-vacci.myrtil-32.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Velvetleaf blueberry fruiting plant",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Vaccinium_myrtilloides_15-p.bot-vacci.myrtil-32.jpg"
       }
     ],
     "violet": [
@@ -1511,6 +1842,26 @@
         "source": "commons-hardwired",
         "title": "Common blue violet classic reference image",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Viola_sororia.jpg"
+      }
+    ],
+    "wild-blackberries": [
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Rubus%20allegheniensis%202017-05-23%201493.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Wild blackberry whole plant",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rubus_allegheniensis_2017-05-23_1493.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Rubus%20allegheniensis%20%284788809635%29.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Wild blackberry fruiting cane",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rubus_allegheniensis_(4788809635).jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Rubus%20allegheniensis%2015-p.bot-rubus.alle-45.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Wild blackberry flower and leaf",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rubus_allegheniensis_15-p.bot-rubus.alle-45.jpg"
       }
     ],
     "wild-carrot": [
@@ -1591,6 +1942,26 @@
         "source": "commons-hardwired",
         "title": "American plum flowering branch",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Prunus_americana.jpg"
+      }
+    ],
+    "wild-rose": [
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Rosa%20virginiana.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Wild rose whole shrub",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rosa_virginiana.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/%E8%96%94%E8%96%87%E5%B1%AC%20Rosa%20virginiana%20-%E5%A2%A8%E7%88%BE%E6%9C%AC%20Werribee%20Rose%20Garden%2C%20Melbourne-%20%2811116200646%29.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Wild rose flowers",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:薔薇屬_Rosa_virginiana_-墨爾本_Werribee_Rose_Garden,_Melbourne-_(11116200646).jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Rosa%20virginiana%20rosehips.JPG?width=480",
+        "source": "commons-hardwired",
+        "title": "Wild rose hips",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Rosa_virginiana_rosehips.JPG"
       }
     ],
     "wild-strawberries": [
@@ -1711,6 +2082,26 @@
         "source": "commons-hardwired",
         "title": "Yarrow in habitat",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Achillea_millefolium_4.jpg"
+      }
+    ],
+    "yellow-pond-lily": [
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Nuphar%20variegata.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Yellow pond lily whole plant",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Nuphar_variegata.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Nuphar%20variegata%2002.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Yellow pond lily leaves and pads",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Nuphar_variegata_02.jpg"
+      },
+      {
+        "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Nuphar%20variegata%201-eheep%20%285097917220%29.jpg?width=480",
+        "source": "commons-hardwired",
+        "title": "Yellow pond lily flower detail",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Nuphar_variegata_1-eheep_(5097917220).jpg"
       }
     ]
   }
