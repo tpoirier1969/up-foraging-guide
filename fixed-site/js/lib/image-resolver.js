@@ -3,18 +3,18 @@ import { state, rememberImageCredit, rememberImageFailure, rememberImageResult }
 let manifestPromise = null;
 
 function placeholderSvg(label) {
-  const text = String(label || 'No image').slice(0, 42);
+  const text = String(label || "No image").slice(0, 42);
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="#eef3ef"/><rect x="40" y="40" width="1120" height="720" rx="28" ry="28" fill="#f8fbf8" stroke="#c9d5cd" stroke-width="6"/><circle cx="290" cy="300" r="70" fill="#dce9df"/><path d="M150 620l210-210 120 110 155-165 210 265H150z" fill="#dce9df"/><text x="600" y="690" text-anchor="middle" font-family="system-ui, sans-serif" font-size="46" fill="#5f6d63">${text}</text></svg>`;
   return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
 }
 
 function setBadge(container, text) {
-  const badge = container?.querySelector('[data-image-badge]');
+  const badge = container?.querySelector("[data-image-badge]");
   if (badge) badge.textContent = text;
 }
 
-function setSourceLink(container, href, label = 'source') {
-  const link = container?.querySelector('[data-image-source-link]');
+function setSourceLink(container, href, label = "source") {
+  const link = container?.querySelector("[data-image-source-link]");
   if (!link) return;
   if (href) {
     link.href = href;
@@ -22,23 +22,94 @@ function setSourceLink(container, href, label = 'source') {
     link.hidden = false;
   } else {
     link.hidden = true;
-    link.removeAttribute('href');
+    link.removeAttribute("href");
   }
+}
+
+function titleizeStage(value) {
+  const text = String(value || "").trim();
+  if (!text) return "";
+  return text
+    .replaceAll(/[_-]+/g, " ")
+    .replace(/\b\w/g, (m) => m.toUpperCase());
+}
+
+function normalizeStructuredImages(record) {
+  const structured = Array.isArray(record?.images_structured) ? record.images_structured : [];
+  if (structured.length) {
+    return structured
+      .map((item, index) => {
+        if (!item || typeof item !== "object") return null;
+        return {
+          thumb: item.thumb || item.detail || item.full || record?.list_thumbnail || "",
+          detail: item.detail || item.full || item.thumb || record?.detail_images?.[index] || "",
+          full: item.full || record?.enlarge_images?.[index] || item.detail || item.thumb || "",
+          source: item.source || "record-structured",
+          title: item.title || "",
+          partOrStage: item.part_or_stage || item.partOrStage || "",
+          sourcePage: item.source_page || item.sourcePage || "",
+          author: item.author,
+          credit: item.credit,
+          license: item.license,
+          licenseUrl: item.licenseUrl
+        };
+      })
+      .filter(Boolean);
+  }
+
+  const detail = Array.isArray(record?.detail_images) ? record.detail_images : [];
+  const enlarge = Array.isArray(record?.enlarge_images) ? record.enlarge_images : [];
+  const count = Math.max(detail.length, enlarge.length, record?.list_thumbnail ? 1 : 0);
+  if (!count) return [];
+
+  return Array.from({ length: count }, (_, index) => ({
+    thumb: index === 0
+      ? (record?.list_thumbnail || detail[0] || enlarge[0] || "")
+      : (detail[index] || enlarge[index] || detail[0] || record?.list_thumbnail || ""),
+    detail: detail[index] || enlarge[index] || detail[0] || record?.list_thumbnail || "",
+    full: enlarge[index] || detail[index] || enlarge[0] || detail[0] || record?.list_thumbnail || "",
+    source: "record-structured",
+    title: `Photo ${index + 1}`,
+    partOrStage: "",
+    sourcePage: ""
+  })).filter((item) => item.thumb || item.detail || item.full);
 }
 
 function normalizeHardwiredImages(record) {
   const list = Array.isArray(record?.images) ? record.images : [];
-  return list.map((item) => {
-    if (typeof item === 'string') {
-      return { src: item, source: 'manifest-hardwired', title: record.display_name || record.common_name || record.slug, sourcePage: item };
-    }
-    return item && typeof item === 'object' ? item : null;
-  }).filter(Boolean);
+  return list
+    .map((item) => {
+      if (typeof item === "string") {
+        return {
+          thumb: item,
+          detail: item,
+          full: item,
+          source: "manifest-hardwired",
+          title: record.display_name || record.common_name || record.slug,
+          sourcePage: item
+        };
+      }
+      if (!item || typeof item !== "object") return null;
+      return {
+        thumb: item.thumb || item.src || item.detail || item.full || "",
+        detail: item.detail || item.src || item.full || item.thumb || "",
+        full: item.full || item.src || item.detail || item.thumb || "",
+        source: item.source || "manifest-hardwired",
+        title: item.title || record.display_name || record.common_name || record.slug,
+        partOrStage: item.part_or_stage || item.partOrStage || "",
+        sourcePage: item.sourcePage || item.source_page || item.src || "",
+        author: item.author,
+        credit: item.credit,
+        license: item.license,
+        licenseUrl: item.licenseUrl
+      };
+    })
+    .filter(Boolean);
 }
 
 async function loadLocalManifest() {
   if (!manifestPromise) {
-    manifestPromise = fetch('./data/species-images.json', { cache: 'no-cache' })
+    manifestPromise = fetch("./data/species-images.json", { cache: "no-cache" })
       .then((res) => {
         if (!res.ok) throw new Error(`species-images.json ${res.status}`);
         return res.json();
@@ -54,7 +125,7 @@ function creditAll(record, items, sourceLabel) {
     rememberImageCredit(record.slug, {
       slug: record.slug,
       species: record.display_name || record.common_name || record.slug,
-      scientific_name: record.scientific_name || '',
+      scientific_name: record.scientific_name || "",
       source: item.source || sourceLabel,
       title: item.title,
       author: item.author,
@@ -71,18 +142,44 @@ async function ensureGallery(record) {
   const cached = state.imageCache.get(record.slug);
   if (cached?.items?.length) return cached.items;
 
+  const structured = normalizeStructuredImages(record);
+  if (structured.length) {
+    rememberImageResult(record.slug, { source: "record-structured", items: structured });
+    creditAll(record, structured, "record-structured");
+    return structured;
+  }
+
   const manifest = await loadLocalManifest();
   const localManifestItems = Array.isArray(manifest[record.slug]) ? manifest[record.slug] : [];
   if (localManifestItems.length) {
-    rememberImageResult(record.slug, { source: 'local-manifest', items: localManifestItems });
-    creditAll(record, localManifestItems, 'local-manifest');
-    return localManifestItems;
+    const normalizedManifestItems = localManifestItems
+      .map((item) => {
+        if (!item || typeof item !== "object") return null;
+        return {
+          thumb: item.thumb || item.src || item.detail || item.full || "",
+          detail: item.detail || item.src || item.full || item.thumb || "",
+          full: item.full || item.src || item.detail || item.thumb || "",
+          source: item.source || "local-manifest",
+          title: item.title || "",
+          partOrStage: item.partOrStage || item.part_or_stage || "",
+          sourcePage: item.sourcePage || item.source_page || "",
+          author: item.author,
+          credit: item.credit,
+          license: item.license,
+          licenseUrl: item.licenseUrl
+        };
+      })
+      .filter(Boolean);
+
+    rememberImageResult(record.slug, { source: "local-manifest", items: normalizedManifestItems });
+    creditAll(record, normalizedManifestItems, "local-manifest");
+    return normalizedManifestItems;
   }
 
   const hardwired = normalizeHardwiredImages(record);
   if (hardwired.length) {
-    rememberImageResult(record.slug, { source: 'embedded-hardwired', items: hardwired });
-    creditAll(record, hardwired, 'embedded-hardwired');
+    rememberImageResult(record.slug, { source: "embedded-hardwired", items: hardwired });
+    creditAll(record, hardwired, "embedded-hardwired");
     return hardwired;
   }
 
@@ -90,64 +187,118 @@ async function ensureGallery(record) {
   return [];
 }
 
+function describeItem(item, index) {
+  return titleizeStage(item?.partOrStage) || item?.title || `Photo ${index + 1}`;
+}
+
+function bindEnlarge(img, item) {
+  const href = item?.full || item?.sourcePage || "";
+  if (!href || img.dataset.enlargeBound === "1") return;
+  img.dataset.enlargeBound = "1";
+  img.style.cursor = "zoom-in";
+  img.title = "Open full image";
+  img.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    window.open(href, "_blank", "noopener,noreferrer");
+  });
+}
+
 function loadCandidateSequence(img, container, orderedItems, record, index) {
   let pos = 0;
   const tryNext = () => {
     const item = orderedItems[pos++];
-    if (!item?.src) {
+    const src = item?.src || item?.detail || item?.thumb || item?.full || "";
+    if (!src) {
       img.onload = null;
       img.onerror = null;
       img.src = placeholderSvg(`${record.display_name || record.common_name || record.slug} needs photo`);
-      img.dataset.resolvedSource = 'missing';
-      setBadge(container, 'Needs photo');
-      setSourceLink(container, '', '');
+      img.dataset.resolvedSource = "missing";
+      setBadge(container, "Needs photo");
+      setSourceLink(container, "", "");
       return;
     }
     img.onload = () => {
-      img.dataset.resolvedSource = item.source || 'local-manifest';
-      setBadge(container, `Photo ${index + 1}`);
-      setSourceLink(container, item.sourcePage, 'Source');
+      img.dataset.resolvedSource = item.source || "local-manifest";
+      setBadge(container, describeItem(item, index));
+      setSourceLink(container, item.sourcePage || item.full || "", item.sourcePage ? "Source" : "Full image");
+      bindEnlarge(img, item);
     };
     img.onerror = () => { tryNext(); };
-    img.src = item.src;
+    img.src = src;
   };
   tryNext();
 }
 
+function variantForImage(img) {
+  const slot = img.closest(".record-image-slot");
+  if (slot?.classList.contains("detail")) return "detail";
+  return "card";
+}
+
+function itemForVariant(item, variant) {
+  if (!item) return null;
+  if (variant === "card") {
+    return {
+      ...item,
+      src: item.thumb || item.detail || item.full || ""
+    };
+  }
+  return {
+    ...item,
+    src: item.detail || item.full || item.thumb || ""
+  };
+}
+
 async function hydrateImage(img, record) {
-  const container = img.closest('.record-image-cell') || img.closest('.record-image-slot');
-  const alt = img.dataset.alt || record.display_name || record.common_name || record.slug || 'Species photo';
+  const container = img.closest(".record-image-cell") || img.closest(".record-image-slot");
+  const alt = img.dataset.alt || record.display_name || record.common_name || record.slug || "Species photo";
   const index = Number(img.dataset.imageIndex || 0);
+  const variant = variantForImage(img);
   img.alt = alt;
+
   const items = await ensureGallery(record);
-  const orderedItems = [...items.slice(index), ...items.slice(0, index)];
+  const variantItems = (variant === "card" ? items.slice(0, 1) : items)
+    .map((item) => itemForVariant(item, variant))
+    .filter(Boolean);
+
+  const orderedItems = variant === "card"
+    ? variantItems
+    : [...variantItems.slice(index), ...variantItems.slice(0, index)];
+
   loadCandidateSequence(img, container, orderedItems, record, index);
 }
 
 export function installLazyImages(root, getRecordBySlug) {
-  const images = Array.from(root.querySelectorAll('img[data-record-image]'));
+  const images = Array.from(root.querySelectorAll("img[data-record-image]"));
   if (!images.length) return;
+
   const hydrate = (img) => {
-    if (img.dataset.hydrated === '1') return;
-    img.dataset.hydrated = '1';
-    const record = getRecordBySlug(img.dataset.slug || '');
+    if (img.dataset.hydrated === "1") return;
+    img.dataset.hydrated = "1";
+    const record = getRecordBySlug(img.dataset.slug || "");
     if (!record) return;
-    if (!img.getAttribute('src') || img.getAttribute('src').startsWith('data:image/svg+xml')) {
+    if (!img.getAttribute("src") || img.getAttribute("src").startsWith("data:image/svg+xml")) {
       img.src = placeholderSvg(`${record.display_name || record.common_name || record.slug} loading photo`);
     }
     hydrateImage(img, record);
   };
-  if (typeof IntersectionObserver !== 'function') {
+
+  if (typeof IntersectionObserver !== "function") {
     images.forEach(hydrate);
     return;
   }
+
   images.slice(0, 18).forEach(hydrate);
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (!entry.isIntersecting) return;
       observer.unobserve(entry.target);
       hydrate(entry.target);
     });
-  }, { rootMargin: '240px 0px' });
-  images.forEach(img => { if (img.dataset.hydrated !== '1') observer.observe(img); });
+  }, { rootMargin: "240px 0px" });
+
+  images.forEach((img) => {
+    if (img.dataset.hydrated !== "1") observer.observe(img);
+  });
 }
