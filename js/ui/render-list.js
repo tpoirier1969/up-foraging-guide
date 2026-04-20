@@ -2,6 +2,24 @@ import { classifyRecord } from "../lib/merge.js";
 import { esc } from "../lib/escape.js";
 import { renderImageSlot } from "../lib/image-resolver.js";
 
+const FOOD_QUALITY_RANK = {
+  "Excellent": 5,
+  "Very good": 4,
+  "Good": 3,
+  "Fair": 2,
+  "Poor": 1,
+  "Emergency only": 0
+};
+
+const COMMONNESS_RANK = {
+  "Very common": 5,
+  "Common": 4,
+  "Occasional": 3,
+  "Uncommon": 2,
+  "Rare": 1,
+  "Very rare": 0
+};
+
 function makeMeta(record) {
   const bits = [];
   if (record.category) bits.push(`<span class="tag">${esc(record.category)}</span>`);
@@ -10,6 +28,14 @@ function makeMeta(record) {
   if (record.non_edible_severity) bits.push(`<span class="tag danger">${esc(record.non_edible_severity)}</span>`);
   if (record.status) bits.push(`<span class="tag warn">${esc(record.status)}</span>`);
   return bits.join("");
+}
+
+function alphaName(record) {
+  return String(record.display_name || record.common_name || record.slug || "");
+}
+
+function rankValue(value, rankMap) {
+  return rankMap[String(value || "").trim()] ?? -1;
 }
 
 export function filterRecords(records, route, search = "") {
@@ -24,10 +50,27 @@ export function filterRecords(records, route, search = "") {
     const hay = [
       record.display_name, record.common_name, record.scientific_name, record.slug,
       record.category, record.culinary_uses, record.medicinal_uses,
-      record.notes, record.edibility_detail, record.commonness, record.habitat_detail
+      record.notes, record.edibility_detail, record.commonness, record.food_quality, record.habitat_detail
     ].join(" ").toLowerCase();
     return hay.includes(q);
   });
+}
+
+export function sortRecords(records, sortBy = "alpha") {
+  const items = Array.isArray(records) ? [...records] : [];
+  if (sortBy === "food_quality") {
+    return items.sort((a, b) => {
+      const diff = rankValue(b.food_quality, FOOD_QUALITY_RANK) - rankValue(a.food_quality, FOOD_QUALITY_RANK);
+      return diff || alphaName(a).localeCompare(alphaName(b));
+    });
+  }
+  if (sortBy === "commonness") {
+    return items.sort((a, b) => {
+      const diff = rankValue(b.commonness, COMMONNESS_RANK) - rankValue(a.commonness, COMMONNESS_RANK);
+      return diff || alphaName(a).localeCompare(alphaName(b));
+    });
+  }
+  return items.sort((a, b) => alphaName(a).localeCompare(alphaName(b)));
 }
 
 export function renderRecordCards(records) {
