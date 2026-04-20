@@ -5,7 +5,8 @@ export const SPECIES_PATHS = [
   "data/species-audit-mainfix35.json",
   "data/species-audit-mainfix37.json",
   "data/species-master-additions-v1.json",
-  "data/species-detail-plants-b-v1.json"
+  "data/species-detail-plants-b-v1.json",
+  "data/species-detail-plants-c-v1.json"
 ];
 
 export const OPTIONAL_PATHS = [
