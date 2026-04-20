@@ -1,9 +1,9 @@
 function escAttr(value) {
   return String(value ?? "")
-    .replaceAll("&","&amp;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;");
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
 }
 
 function placeholderSvg(label) {
@@ -12,8 +12,50 @@ function placeholderSvg(label) {
   return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
 }
 
+function pickFromStructured(record, variant, index) {
+  const items = Array.isArray(record?.images_structured) ? record.images_structured : [];
+  if (!items.length) return "";
+  const item = items[index] || items[0] || {};
+  if (variant === "card") {
+    return item.thumb || item.detail || item.full || "";
+  }
+  return item.detail || item.thumb || item.full || "";
+}
+
+function pickFromConvenience(record, variant, index) {
+  const listThumb = record?.list_thumbnail || "";
+  const details = Array.isArray(record?.detail_images) ? record.detail_images : [];
+  const fulls = Array.isArray(record?.enlarge_images) ? record.enlarge_images : [];
+  if (variant === "card") {
+    return listThumb || details[0] || fulls[0] || "";
+  }
+  return details[index] || fulls[index] || details[0] || fulls[0] || listThumb || "";
+}
+
+function pickFromImagesArray(record, variant, index) {
+  const items = Array.isArray(record?.images) ? record.images : [];
+  if (!items.length) return "";
+  const item = items[index] || items[0];
+  if (typeof item === "string") return item;
+  if (!item || typeof item !== "object") return "";
+  if (variant === "card") {
+    return item.thumb || item.src || item.detail || item.full || "";
+  }
+  return item.detail || item.src || item.full || item.thumb || "";
+}
+
+function initialImageSrc(record, variant, index) {
+  return (
+    pickFromStructured(record, variant, index) ||
+    pickFromConvenience(record, variant, index) ||
+    pickFromImagesArray(record, variant, index) ||
+    placeholderSvg(`${record.display_name || record.common_name || record.slug || 'Species'} loading`)
+  );
+}
+
 function buildImageCell(record, variant, index) {
   const alt = `${record.display_name || record.common_name || record.slug || "Species photo"} photo ${index + 1}`;
+  const src = initialImageSrc(record, variant, index).replace(/"/g, '&quot;');
   return `
     <figure class="record-image-cell ${escAttr(variant)}">
       <img
@@ -23,7 +65,7 @@ function buildImageCell(record, variant, index) {
         data-image-index="${index}"
         data-alt="${escAttr(alt)}"
         alt="${escAttr(alt)}"
-        src="${placeholderSvg(`${record.display_name || record.common_name || record.slug || 'Species'} loading`).replace(/"/g, '&quot;')}"
+        src="${src}"
         loading="lazy"
         decoding="async"
       >
