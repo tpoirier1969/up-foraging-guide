@@ -27,6 +27,7 @@ function matchesSearch(record, q) {
 export function filterRecords(records, route, search = "") {
   const q = String(search || "").trim().toLowerCase();
   return (records || []).filter(record => {
+    if (record.hidden) return false;
     const { isPlant, isMushroom, medicinal, lookalike } = classifyRecord(record);
     if (route === "plants" && !isPlant) return false;
     if (route === "mushrooms-gilled" && !(isMushroom && record.lane === 'gilled')) return false;
