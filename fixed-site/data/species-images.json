@@ -1,7 +1,7 @@
 {
   "metadata": {
     "source": "Local hardwired image manifest",
-    "note": "Preselected hardwired image URLs. No runtime Commons search; expanded plant coverage with verified direct file-page references.",
+    "note": "Preselected hardwired image URLs. No runtime Commons search; expanded plant coverage with verified direct file-page references and stricter whole-plant-first selection.",
     "wholePlantReview": {
       "status": "completed",
       "notes": "Reviewed existing species image sets and promoted/replaced first images so the lead image is a clearer whole-plant/habit image where available on Wikimedia Commons.",
@@ -26,8 +26,26 @@
       {
         "batch_id": "species-batch-2026-04-20-images-e",
         "note": "Added or expanded 5 Commons-backed species image sets with a habit/whole-plant lead image: bearberries, groundnut, bee-balm, nannyberry, staghorn-sumac."
+      },
+      {
+        "batch_id": "species-batch-2026-04-20-images-f",
+        "note": "Added 8 Commons-backed species image sets under the stricter standard: sweet-flag, willow, juniper, chickweed, burdock, daylily, basswood, birch. Each set uses a whole-plant/habit lead image plus two support images."
       }
-    ]
+    ],
+    "strict_whole_plant_batch_f": {
+      "status": "completed",
+      "addedSpecies": [
+        "sweet-flag",
+        "willow",
+        "juniper",
+        "chickweed",
+        "burdock",
+        "daylily",
+        "basswood",
+        "birch"
+      ],
+      "policy": "Each added species uses a clear whole-plant or habit lead image and two non-redundant supporting images."
+    }
   },
   "records": {
     "bunchberry": [
@@ -650,6 +668,166 @@
         "source": "commons-hardwired",
         "title": "Staghorn sumac leaves",
         "sourcePage": "https://commons.wikimedia.org/wiki/File:Rhus_typhina_leaves.jpg"
+      }
+    ],
+    "sweet-flag": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/Calamus_(Acorus_calamus).jpg/480px-Calamus_(Acorus_calamus).jpg",
+        "source": "commons-hardwired",
+        "title": "Sweet flag whole plant",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Calamus_(Acorus_calamus).jpg"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fc/Acorus_calamus.JPG/480px-Acorus_calamus.JPG",
+        "source": "commons-hardwired",
+        "title": "Sweet flag growing in pond margin",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Acorus_calamus.JPG"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/60/Acorus_calamus_rhizomes.jpg/480px-Acorus_calamus_rhizomes.jpg",
+        "source": "commons-hardwired",
+        "title": "Sweet flag rhizomes",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Acorus_calamus_rhizomes.jpg"
+      }
+    ],
+    "willow": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Salix_discolor_kz1.jpg/480px-Salix_discolor_kz1.jpg",
+        "source": "commons-hardwired",
+        "title": "Willow whole shrub habit",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Salix_discolor_kz1.jpg"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Salix_discolor(01).jpg/480px-Salix_discolor(01).jpg",
+        "source": "commons-hardwired",
+        "title": "Willow leaves",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Salix_discolor(01).jpg"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7c/S_discolor_female_flowers_01.JPG/480px-S_discolor_female_flowers_01.JPG",
+        "source": "commons-hardwired",
+        "title": "Willow female flowers",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:S_discolor_female_flowers_01.JPG"
+      }
+    ],
+    "juniper": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Juniperus_communis_001.JPG/480px-Juniperus_communis_001.JPG",
+        "source": "commons-hardwired",
+        "title": "Common juniper habitus",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Juniperus_communis_001.JPG"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Juniperus_communis_002.JPG/480px-Juniperus_communis_002.JPG",
+        "source": "commons-hardwired",
+        "title": "Common juniper berrycones",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Juniperus_communis_002.JPG"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Juniperus_communis_cones.jpg/480px-Juniperus_communis_cones.jpg",
+        "source": "commons-hardwired",
+        "title": "Common juniper cones",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Juniperus_communis_cones.jpg"
+      }
+    ],
+    "chickweed": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Stellaria_media_(2560842443).jpg/480px-Stellaria_media_(2560842443).jpg",
+        "source": "commons-hardwired",
+        "title": "Common chickweed whole plant",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Stellaria_media_(2560842443).jpg"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/Stellaria_media_-_flowers.JPG/480px-Stellaria_media_-_flowers.JPG",
+        "source": "commons-hardwired",
+        "title": "Common chickweed flowers",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Stellaria_media_-_flowers.JPG"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Stellaria_media.jpg/480px-Stellaria_media.jpg",
+        "source": "commons-hardwired",
+        "title": "Common chickweed flowering patch",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Stellaria_media.jpg"
+      }
+    ],
+    "burdock": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Arctium_lappa_8.JPG/480px-Arctium_lappa_8.JPG",
+        "source": "commons-hardwired",
+        "title": "Burdock whole plant",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Arctium_lappa_8.JPG"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Arctium_lappa_(3704272472).jpg/480px-Arctium_lappa_(3704272472).jpg",
+        "source": "commons-hardwired",
+        "title": "Burdock flowering heads",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Arctium_lappa_(3704272472).jpg"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Arctium_lappa_(3704271620).jpg/480px-Arctium_lappa_(3704271620).jpg",
+        "source": "commons-hardwired",
+        "title": "Burdock hooked bracts",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Arctium_lappa_(3704271620).jpg"
+      }
+    ],
+    "daylily": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a1/Hemerocallis_fulva_009.jpg/480px-Hemerocallis_fulva_009.jpg",
+        "source": "commons-hardwired",
+        "title": "Orange daylily clump",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Hemerocallis_fulva_009.jpg"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Hemerocallis_fulva_(2561186632).jpg/480px-Hemerocallis_fulva_(2561186632).jpg",
+        "source": "commons-hardwired",
+        "title": "Orange daylily flowers",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Hemerocallis_fulva_(2561186632).jpg"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Hemerocallis_fulva.jpg/480px-Hemerocallis_fulva.jpg",
+        "source": "commons-hardwired",
+        "title": "Orange daylily whole plant",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Hemerocallis_fulva.jpg"
+      }
+    ],
+    "basswood": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6d/AmericanBasswood.JPG/480px-AmericanBasswood.JPG",
+        "source": "commons-hardwired",
+        "title": "American basswood whole tree",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:AmericanBasswood.JPG"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Tilia_americana_-_American_Basswood.jpg/480px-Tilia_americana_-_American_Basswood.jpg",
+        "source": "commons-hardwired",
+        "title": "American basswood flowers",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Tilia_americana_-_American_Basswood.jpg"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Tilia_americana_fruit.jpg/480px-Tilia_americana_fruit.jpg",
+        "source": "commons-hardwired",
+        "title": "American basswood fruit",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Tilia_americana_fruit.jpg"
+      }
+    ],
+    "birch": [
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Betula_papyrifera.jpg/480px-Betula_papyrifera.jpg",
+        "source": "commons-hardwired",
+        "title": "Paper birch whole tree",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Betula_papyrifera.jpg"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Betula_papyrifera-bark.jpg/480px-Betula_papyrifera-bark.jpg",
+        "source": "commons-hardwired",
+        "title": "Paper birch bark",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:Betula_papyrifera-bark.jpg"
+      },
+      {
+        "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/NAS-069_Betula_papyrifera.png/480px-NAS-069_Betula_papyrifera.png",
+        "source": "commons-hardwired",
+        "title": "Paper birch botanical illustration",
+        "sourcePage": "https://commons.wikimedia.org/wiki/File:NAS-069_Betula_papyrifera.png"
       }
     ]
   }
