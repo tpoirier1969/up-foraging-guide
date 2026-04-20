@@ -1,90 +1,60 @@
 import { classifyRecord } from "../lib/merge.js";
 import { esc } from "../lib/escape.js";
-import { renderImageSlot } from "../lib/image-resolver.js";
-
-const FOOD_QUALITY_RANK = {
-  "Excellent": 5,
-  "Very good": 4,
-  "Good": 3,
-  "Fair": 2,
-  "Poor": 1,
-  "Emergency only": 0
-};
-
-const COMMONNESS_RANK = {
-  "Very common": 5,
-  "Common": 4,
-  "Occasional": 3,
-  "Uncommon": 2,
-  "Rare": 1,
-  "Very rare": 0
-};
+import { renderImageSlot } from "../lib/image-slot.js";
 
 function makeMeta(record) {
   const bits = [];
   if (record.category) bits.push(`<span class="tag">${esc(record.category)}</span>`);
+  if (record.lane && record.record_type === 'mushroom') bits.push(`<span class="tag">${esc(record.lane)}</span>`);
   if (record.commonness) bits.push(`<span class="tag">${esc(record.commonness)}</span>`);
   if (record.food_quality) bits.push(`<span class="tag good">${esc(record.food_quality)}</span>`);
   if (record.non_edible_severity) bits.push(`<span class="tag danger">${esc(record.non_edible_severity)}</span>`);
-  if (record.status) bits.push(`<span class="tag warn">${esc(record.status)}</span>`);
+  if (record.review_status === 'needs_review') bits.push(`<span class="tag review">Needs review</span>`);
   return bits.join("");
 }
 
-function alphaName(record) {
-  return String(record.display_name || record.common_name || record.slug || "");
-}
-
-function rankValue(value, rankMap) {
-  return rankMap[String(value || "").trim()] ?? -1;
+function matchesSearch(record, q) {
+  const hay = [
+    record.display_name, record.common_name, record.scientific_name, record.slug,
+    record.category, record.culinary_uses, record.medicinal_uses,
+    record.notes, record.general_notes, record.edibility_detail, record.commonness,
+    record.habitat_detail, ...(record.search_aliases || []), ...(record.reviewReasons || []),
+    ...(record.look_alikes || []), ...(record.confused_with || [])
+  ].join(" ").toLowerCase();
+  return hay.includes(q);
 }
 
 export function filterRecords(records, route, search = "") {
   const q = String(search || "").trim().toLowerCase();
   return (records || []).filter(record => {
+    if (record.hidden) return false;
     const { isPlant, isMushroom, medicinal, lookalike } = classifyRecord(record);
     if (route === "plants" && !isPlant) return false;
-    if (route === "mushrooms" && !isMushroom) return false;
+    if (route === "mushrooms-gilled" && !(isMushroom && record.lane === 'gilled')) return false;
+    if (route === "boletes" && !(isMushroom && record.lane === 'bolete')) return false;
+    if (route === "mushrooms-other" && !(isMushroom && record.lane === 'other')) return false;
     if (route === "medicinal" && !medicinal) return false;
     if (route === "lookalikes" && !lookalike) return false;
+    if (route === "review" && record.review_status !== 'needs_review') return false;
     if (!q) return true;
-    const hay = [
-      record.display_name, record.common_name, record.scientific_name, record.slug,
-      record.category, record.culinary_uses, record.medicinal_uses,
-      record.notes, record.edibility_detail, record.commonness, record.food_quality, record.habitat_detail
-    ].join(" ").toLowerCase();
-    return hay.includes(q);
+    return matchesSearch(record, q);
   });
 }
 
-export function sortRecords(records, sortBy = "alpha") {
-  const items = Array.isArray(records) ? [...records] : [];
-  if (sortBy === "food_quality") {
-    return items.sort((a, b) => {
-      const diff = rankValue(b.food_quality, FOOD_QUALITY_RANK) - rankValue(a.food_quality, FOOD_QUALITY_RANK);
-      return diff || alphaName(a).localeCompare(alphaName(b));
-    });
-  }
-  if (sortBy === "commonness") {
-    return items.sort((a, b) => {
-      const diff = rankValue(b.commonness, COMMONNESS_RANK) - rankValue(a.commonness, COMMONNESS_RANK);
-      return diff || alphaName(a).localeCompare(alphaName(b));
-    });
-  }
-  return items.sort((a, b) => alphaName(a).localeCompare(alphaName(b)));
-}
-
-export function renderRecordCards(records) {
+export function renderRecordCards(records, route = 'general') {
   if (!records.length) return `<section class="panel empty-state"><h3>No matches</h3></section>`;
   return `<section class="record-list">${records.map(record => `
     <article class="record-card with-image">
       ${renderImageSlot(record, 'card')}
       <div class="record-card-body">
-        <h3>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</h3>
+        <h3><button class="record-title-button" type="button" data-detail="${esc(record.slug)}">${esc(record.display_name || record.common_name || record.slug || "Untitled")}</button></h3>
         <p class="muted small">${esc(record.scientific_name || "")}</p>
         <div class="record-meta">${makeMeta(record)}</div>
-        <p>${esc(record.short_reason || record.classification_note || record.notes || record.habitat_detail || "").slice(0, 240)}</p>
+        <p>${esc(record.short_reason || record.classification_note || record.notes || record.general_notes || record.habitat_detail || "").slice(0, 260)}</p>
         <div class="control-row">
           <button class="primary" type="button" data-detail="${esc(record.slug)}">Open details</button>
+          ${record.review_status === 'needs_review' ? `<button class="warn" type="button" data-review-action="mark-ok" data-slug="${esc(record.slug)}">Mark OK</button>` : ''}
+          ${route !== 'review' && record.review_status !== 'needs_review' ? `<button class="subtle" type="button" data-review-action="send-review" data-slug="${esc(record.slug)}">Send to Needs Review</button>` : ''}
         </div>
       </div>
     </article>
