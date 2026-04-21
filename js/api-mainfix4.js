@@ -1,4 +1,5 @@
 import { APP_VERSION, TABLE_NAME } from "./constants-mainfix.js?v=2026-04-17-37";
+import { SPECIES_PATHS } from "../data/sources.js?v=2026-04-21-1";
 
 const BAD_SOURCE_LINKS = new Set([
   'https://www.fda.gov/food/chemical-contaminants-pesticides/natural-toxins-food'
@@ -104,21 +105,20 @@ async function loadCredits() {
     return { metadata: { version: 'none', source: 'none' }, credits: {} };
   }
 }
-async function loadSpeciesAdditions() {
-  try { return await loadJson('data/species-additions-mainfix13.json'); }
-  catch { return { metadata: { version: 'none', source: 'none' }, records: [] }; }
-}
-async function loadRescuedBoletes() {
-  try { return await loadJson('data/boletes-rescued-mainfix40.json'); }
-  catch { return { metadata: { version: 'none', source: 'none' }, records: [] }; }
-}
-async function loadSpeciesAuditFixes() {
-  try { return await loadJson('data/species-audit-mainfix35.json'); }
-  catch { return { metadata: { version: 'none', source: 'none' }, records: [] }; }
-}
-async function loadSpeciesAuditPatch() {
-  try { return await loadJson('data/species-audit-mainfix37.json'); }
-  catch { return { metadata: { version: 'none', source: 'none' }, records: [] }; }
+async function loadSpeciesLayers() {
+  const payloads = await Promise.all(
+    SPECIES_PATHS.map(async (path) => {
+      try {
+        return await loadJson(path);
+      } catch (error) {
+        throw new Error(`Core species layer failed: ${path} — ${error.message || error}`);
+      }
+    })
+  );
+  return payloads.reduce(
+    (merged, payload) => mergeSpeciesPayloads(merged, payload),
+    { metadata: { version: 'none', source: 'none' }, records: [] }
+  );
 }
 async function loadReferences() {
   try { return await loadJson('data/references-mainfix15.json'); }
@@ -143,20 +143,13 @@ function applyOverrides(payload, overridePayload) {
   };
 }
 export async function loadLocalData() {
-  const [response, additionsPayload, rescuedBoletesPayload, auditPayload, auditPatchPayload, overridePayload, creditsPayload, references] = await Promise.all([
-    fetch('data/species.json', { cache: 'no-store' }),
-    loadSpeciesAdditions(),
-    loadRescuedBoletes(),
-    loadSpeciesAuditFixes(),
-    loadSpeciesAuditPatch(),
+  const [speciesPayload, overridePayload, creditsPayload, references] = await Promise.all([
+    loadSpeciesLayers(),
     loadOverrides(),
     loadCredits(),
     loadReferences()
   ]);
-  if (!response.ok) throw new Error(`Local JSON load failed: ${response.status}`);
-  const payload = await response.json();
-  const merged = mergeSpeciesPayloads(mergeSpeciesPayloads(mergeSpeciesPayloads(mergeSpeciesPayloads(payload, additionsPayload), rescuedBoletesPayload), auditPayload), auditPatchPayload);
-  const applied = applyOverrides(merged, overridePayload);
+  const applied = applyOverrides(speciesPayload, overridePayload);
   return { ...applied, creditsPayload, references };
 }
 export async function loadSupabaseData() {
@@ -193,7 +186,7 @@ export async function loadSupabaseData() {
     metadata: {
       project: 'Upper Michigan Foraging Guide',
       version: APP_VERSION,
-      source: 'Supabase + local reference merge + local species additions + rescued boletes + audit fixes + safety patch + Wikimedia override layer'
+      source: 'Supabase + unified local species layers + Wikimedia override layer'
     },
     records: [...supabaseRecords, ...localOnlyRecords]
   };
