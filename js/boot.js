@@ -2,6 +2,7 @@ import { APP_VERSION } from "./config.js";
 
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
+const ASSET_VERSION = "v4.2.1-r2026-04-21-homefix2";
 
 function esc(value) {
   return String(value ?? "")
@@ -27,7 +28,7 @@ async function start() {
   }
 
   try {
-    const mod = await import("./app-core.js");
+    const mod = await import(`./app-core.js?v=${encodeURIComponent(ASSET_VERSION)}`);
     await mod.startApp();
   } catch (err) {
     renderFatal(

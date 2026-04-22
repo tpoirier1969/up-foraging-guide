@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Upper Michigan Foraging Guide</title>
   <meta name="theme-color" content="#2f5d46">
-  <link rel="stylesheet" href="styles/base.css?v=v4.0.1-r2026-04-18-2">
+  <link rel="stylesheet" href="styles/base.css?v=v4.2.1-r2026-04-21-homefix2">
 </head>
 <body>
   <div class="app-shell">
@@ -13,28 +13,33 @@
       <div class="brand-row">
         <div>
           <h1>Upper Michigan Foraging Guide</h1>
-          <p class="subhead">Clean modular build</p>
+          <p class="subhead">Merged master build</p>
         </div>
-        <div class="version-pill" id="versionBadge">v4.0.1-r2026-04-18-2</div>
+        <div class="version-pill" id="versionBadge">v4.2.0-r2026-04-19-master</div>
       </div>
 
       <nav class="main-nav" aria-label="Primary">
-        <a href="#/home" data-nav="home">Home</a>
-        <a href="#/plants" data-nav="plants">Plants</a>
-        <a href="#/mushrooms" data-nav="mushrooms">Mushrooms</a>
-        <a href="#/medicinal" data-nav="medicinal">Medicinal</a>
-        <a href="#/rare" data-nav="rare">Rare</a>
-        <a href="#/lookalikes" data-nav="lookalikes">Non-edible</a>
-        <a href="#/references" data-nav="references">References</a>
-        <a href="#/credits" data-nav="credits">Credits</a>
-        <a href="#/search" data-nav="search">Search</a>
+        <div class="main-nav-row">
+          <a href="#/home" data-nav="home">Home</a>
+          <a href="#/plants" data-nav="plants">Plants</a>
+          <a href="#/mushrooms" data-nav="mushrooms">Mushrooms</a>
+          <a href="#/medicinal" data-nav="medicinal">Medicinal</a>
+          <a href="#/rare" data-nav="rare">Rare</a>
+          <a href="#/lookalikes" data-nav="lookalikes">Caution &amp; Other Uses</a>
+        </div>
+        <div class="main-nav-row">
+          <a href="#/review" data-nav="review">Needs Review</a>
+          <a href="#/references" data-nav="references">References</a>
+          <a href="#/credits" data-nav="credits">Credits</a>
+          <a href="#/search" data-nav="search">Search</a>
+        </div>
       </nav>
     </header>
 
     <main class="page-root" id="pageRoot" aria-live="polite">
       <section class="panel">
         <h2>Loading…</h2>
-        <p id="bootStatus">Starting app…</p>
+        <p id="bootStatus">Starting app shell…</p>
       </section>
     </main>
   </div>
@@ -46,6 +51,6 @@
     </article>
   </dialog>
 
-  <script type="module" src="js/app.js?v=v4.0.1-r2026-04-18-2"></script>
+  <script type="module" src="js/boot.js?v=v4.2.1-r2026-04-21-homefix2"></script>
 </body>
 </html>
