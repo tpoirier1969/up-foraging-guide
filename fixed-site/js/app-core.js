@@ -221,7 +221,7 @@ async function ensureReferencesData() {
 async function renderHomeRoute(token) {
   const { renderHome } = await importModule("./ui/render-home.js");
   if (token !== renderToken) return;
-  renderPage(renderHome(state.species, state.loadErrors || []));
+  renderPage(renderHome(state.species, state.loadErrors || [], state.rareSpecies || []));
   wireCommonEvents("home");
 }
 
@@ -240,7 +240,7 @@ async function renderSpeciesRoute(route, token) {
 
 async function renderRareRoute(token) {
   if (!state.rareReady) {
-    renderPage(statusHtml("Loading rare species…", ["Rare species are lazy-loaded only when you open this section."]));
+    renderPage(statusHtml("Loading rare species…", ["Rare species are loading for this section."]));
     try { await ensureRareData(); } catch (err) {
       if (token !== renderToken) return;
       renderPage(routeErrorHtml("rare", err?.message || String(err))); wireCommonEvents("rare"); return;
@@ -282,7 +282,7 @@ export async function renderCurrentRoute() {
   markActiveNav(route === "search" ? "search" : (route.startsWith('mushrooms-') || route === 'boletes' ? 'mushrooms' : route));
 
   if (state.loading && !state.coreReady) {
-    renderPage(statusHtml("Loading app…", state.bootLog, "Plants and mushrooms load first. Rare and references stay lazy until opened."));
+    renderPage(statusHtml("Loading app…", state.bootLog, "Plants, mushrooms, and the rare-species count are loading first."));
     return;
   }
 
@@ -309,11 +309,24 @@ export async function startApp() {
   loadReviewOverlay();
   window.addEventListener("hashchange", renderCurrentRoute);
   state.loading = true;
-  renderPage(statusHtml("Loading app…", state.bootLog, "Core plants and mushrooms load first. Rare and references stay lazy until opened."));
+  renderPage(statusHtml("Loading app…", state.bootLog, "Plants, mushrooms, and the rare-species count are loading first."));
   try {
-    const result = await loadCoreSpecies((message) => { logBoot(message); renderPage(statusHtml("Loading app…", state.bootLog, "Core plants and mushrooms load first. Rare and references stay lazy until opened.")); });
+    const result = await loadCoreSpecies((message) => {
+      logBoot(message);
+      renderPage(statusHtml("Loading app…", state.bootLog, "Plants, mushrooms, and the rare-species count are loading first."));
+    });
     setSpecies(applyReviewOverlay(result.species));
     state.loadErrors = result.errors;
+
+    try {
+      const rare = await loadRareSpecies((message) => {
+        logBoot(`[rare] ${message}`);
+      });
+      setRareSpecies(rare);
+    } catch (err) {
+      logBoot(`[rare] ${err?.message || String(err)}`);
+    }
+
     state.loading = false;
     await renderCurrentRoute();
     logBoot("[photos] Using local hardwired image manifest only. Runtime Commons search disabled.");

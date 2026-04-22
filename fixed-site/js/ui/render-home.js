@@ -1,58 +1,143 @@
 import { classifyRecord } from "../lib/merge.js";
 
-export function renderHome(species, errors) {
-  const plants = species.filter(r => classifyRecord(r).isPlant).length;
-  const mushrooms = species.filter(r => classifyRecord(r).isMushroom).length;
-  const medicinal = species.filter(r => classifyRecord(r).medicinal).length;
-  const caution = species.filter(r => classifyRecord(r).lookalike).length;
-  const review = species.filter(r => r.review_status === 'needs_review').length;
+const MONTHS = [
+  "January","February","March","April","May","June",
+  "July","August","September","October","November","December"
+];
+
+function esc(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+}
+
+function currentMonthName() {
+  return MONTHS[new Date().getMonth()] || MONTHS[0];
+}
+
+function isInSeason(record, month) {
+  return Array.isArray(record?.months_available) && record.months_available.includes(month);
+}
+
+function isLikelyEdibleMushroom(record) {
+  if (String(record?.non_edible_severity || "").trim()) return false;
+  if (String(record?.food_role || "").trim() === "medicinal_only") return false;
+  return true;
+}
+
+function isLikelyForagingPlant(record) {
+  if (String(record?.non_edible_severity || "").trim()) return false;
+  return true;
+}
+
+function imageUrlForRecord(record) {
+  const structured = Array.isArray(record?.images_structured) ? record.images_structured : [];
+  if (structured[0]) return structured[0].thumb || structured[0].detail || structured[0].full || "";
+
+  if (record?.list_thumbnail) return record.list_thumbnail;
+
+  const detailImages = Array.isArray(record?.detail_images) ? record.detail_images : [];
+  if (detailImages[0]) return detailImages[0];
+
+  const images = Array.isArray(record?.images) ? record.images : [];
+  if (typeof images[0] === "string") return images[0];
+  if (images[0] && typeof images[0] === "object") {
+    return images[0].thumb || images[0].src || images[0].detail || images[0].full || "";
+  }
+
+  return "";
+}
+
+function shuffle(values) {
+  const list = [...values];
+  for (let i = list.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [list[i], list[j]] = [list[j], list[i]];
+  }
+  return list;
+}
+
+function pickHighlights(species, month) {
+  const candidates = (species || []).filter((record) => {
+    if (record?.hidden) return false;
+    const { isPlant, isMushroom } = classifyRecord(record);
+    if (!isInSeason(record, month)) return false;
+    if (!imageUrlForRecord(record)) return false;
+    if (isPlant) return isLikelyForagingPlant(record);
+    if (isMushroom) return isLikelyEdibleMushroom(record);
+    return false;
+  });
+
+  return shuffle(candidates).slice(0, 6);
+}
+
+export function renderHome(species, errors = [], rareSpecies = []) {
+  const month = currentMonthName();
+
+  const plants = (species || []).filter((record) => {
+    const { isPlant } = classifyRecord(record);
+    return !record?.hidden && isPlant && isLikelyForagingPlant(record);
+  });
+
+  const mushrooms = (species || []).filter((record) => {
+    const { isMushroom } = classifyRecord(record);
+    return !record?.hidden && isMushroom && isLikelyEdibleMushroom(record);
+  });
+
+  const plantsInSeason = plants.filter((record) => isInSeason(record, month));
+  const mushroomsInSeason = mushrooms.filter((record) => isInSeason(record, month));
+
+  const medicinal = (species || []).filter((record) => {
+    if (record?.hidden) return false;
+    const { medicinal } = classifyRecord(record);
+    return medicinal;
+  });
+
+  const highlights = pickHighlights(species, month);
 
   return `
-    <section class="panel">
-      <h2>Phase 1 framework</h2>
-      <p>This build wires the clean app to the split plant and mushroom files, restores the mushroom lane split, and adds a real review workflow without waiting for every species record to be finished.</p>
-      <div class="grid-4">
-        <div class="stat-card"><div class="num">${species.length}</div><div>Total records</div></div>
-        <div class="stat-card"><div class="num">${plants}</div><div>Plants</div></div>
-        <div class="stat-card"><div class="num">${mushrooms}</div><div>Mushrooms</div></div>
-        <div class="stat-card"><div class="num">${review}</div><div>Needs review</div></div>
+    <section class="panel home-focus-panel">
+      <div class="home-focus-heading">
+        <h2>In Focus Right Now</h2>
+        <p class="results-meta">${esc(month)}</p>
       </div>
-    </section>
 
-    <section class="panel">
-      <div class="grid-3">
-        <div class="stat-card"><div class="num">${medicinal}</div><div>Medicinal entries</div></div>
-        <div class="stat-card"><div class="num">${caution}</div><div>Caution / other-use entries</div></div>
-        <div class="stat-card"><div class="num">${errors.length}</div><div>Core load warnings</div></div>
-      </div>
-    </section>
+      <section class="home-safety-card">
+        <h3>Use this guide carefully</h3>
+        <p>This guide was put together by an amateur forager, not a scientist. I made it to be a reminder of things I've known, it is not intended to be a one-stop-app for all things foraging.</p>
+        <p>Treat all plants, especially mushrooms, as potentially inedible and dangerous, don't eat anything until you know the species and know how to prepare it. Foraging can be a fun and rewarding way to make some great meals, just do it wisely.</p>
+        <p>The guide includes sections on plants, mushrooms, medicinals, and non-edible look alikes to be aware of. There's a timeline that will show you the different species you'll likely find in the woods each month, a sheet of reference materials, and as a bonus I added a section on Rare and Endangered species of Upper Michigan that also enables you to save your sightings.</p>
+      </section>
 
-    <section class="panel">
-      <h3>Quick search</h3>
-      <div class="controls">
-        <div class="control-row">
-          <input id="homeSearch" type="search" placeholder="Search species by common, scientific, notes, or aliases" style="flex:1;min-width:280px">
-          <button id="homeSearchBtn" class="primary" type="button">Search</button>
+      <div class="home-focus-layout">
+        <div class="home-focus-stats">
+          <div class="home-focus-stat-card"><strong>${plantsInSeason.length}</strong><span>plants in season</span></div>
+          <div class="home-focus-stat-card"><strong>${mushroomsInSeason.length}</strong><span>mushrooms in season</span></div>
+          <div class="home-focus-stat-card"><strong>${plants.length}</strong><span>total plants</span></div>
+          <div class="home-focus-stat-card"><strong>${mushrooms.length}</strong><span>total mushrooms</span></div>
+          <div class="home-focus-stat-card"><strong>${medicinal.length}</strong><span>medicinal species</span></div>
+          <div class="home-focus-stat-card"><strong>${Array.isArray(rareSpecies) ? rareSpecies.length : 0}</strong><span>rare / endangered entries</span></div>
+        </div>
+
+        <div class="home-focus-highlights">
+          ${highlights.map((record) => `
+            <button class="home-focus-card" type="button" data-detail="${esc(record.slug)}">
+              <div class="home-focus-caption"><strong>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</strong></div>
+              <img src="${esc(imageUrlForRecord(record))}" alt="${esc(record.display_name || record.common_name || record.slug || "Species")}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+            </button>
+          `).join("")}
         </div>
       </div>
-    </section>
 
-    <section class="panel">
-      <h3>Mushroom lanes</h3>
-      <div class="lane-grid">
-        <a class="lane-card" href="#/mushrooms-gilled"><strong>Gilled</strong><span>Blade-like gills under the cap.</span></a>
-        <a class="lane-card" href="#/boletes"><strong>Boletes</strong><span>Pores or sponge-like underside.</span></a>
-        <a class="lane-card" href="#/mushrooms-other"><strong>Other</strong><span>Teeth, ridges, shelves, coral, jelly, and oddballs.</span></a>
-      </div>
+      ${errors.length ? `
+        <section class="error-box">
+          <h3>Core load warnings</h3>
+          <ul class="list-tight">
+            ${errors.map((item) => `<li><span class="codeish">${esc(item.path)}</span> — ${esc(item.error)}</li>`).join("")}
+          </ul>
+        </section>
+      ` : ""}
     </section>
-
-    ${errors.length ? `
-      <section class="error-box">
-        <h3>Core load warnings</h3>
-        <ul class="list-tight">
-          ${errors.map(item => `<li><span class="codeish">${item.path}</span> — ${item.error}</li>`).join("")}
-        </ul>
-      </section>
-    ` : ""}
   `;
 }
