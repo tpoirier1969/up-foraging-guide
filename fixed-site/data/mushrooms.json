@@ -1,10 +1,14 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.5-r2026-04-22-mushrooms-true-cumulative-repair",
+    "build": "v4.2.8-r2026-04-22-mushrooms-reaudit-complete",
     "primary_type": "mushroom",
     "record_count": 209,
-    "notes": "Repaired true cumulative mushroom file rebuilt by merging the strongest real-image coverage per species from all available cumulative branches. Images were de-duplicated by normalized Commons filename and capped at 3 unique real images per species."
+    "notes": "Repaired true cumulative mushroom file rebuilt by merging the strongest real-image coverage per species from all available cumulative branches. Images were de-duplicated by normalized Commons filename and capped at 3 unique real images per species.",
+    "reaudit_last_batch": "remaining 129 species audited from repaired true cumulative base",
+    "reaudit_changes_in_last_batch": 0,
+    "reaudit_batches_completed_total": 53,
+    "reaudit_status": "all 209 species audited for duplicate-image variants"
   },
   "records": [
     {
@@ -4157,8 +4161,7 @@
       ],
       "links": [],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20vermiculosus%20348301.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20vermiculosus%20348301%20crop.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20vermiculosus%20348301.jpg"
       ],
       "scientific_name": "Boletus vermiculosus",
       "mushroom_profile": {
@@ -4190,7 +4193,8 @@
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
           "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "Reaudit: removed duplicate/same-photo image variant(s); unable to verify additional distinct public-usable images in this pass."
         ],
         "cap_surface": [
           "Dry to slightly tacky"
