@@ -1,3 +1,5 @@
+export const RARE_SPECIES_PATH = "data/species/rare/chunk-001.json";
+
 export const SPECIES_SECTION_PATHS = {
   plants: [
     "data/plants.json",
@@ -7,7 +9,9 @@ export const SPECIES_SECTION_PATHS = {
     "data/mushrooms.json"
   ],
   medicinal: [],
-  rare: []
+  rare: [
+    RARE_SPECIES_PATH
+  ]
 };
 
 export const SPECIES_PATHS = Object.entries(SPECIES_SECTION_PATHS).flatMap(([section, paths]) =>
@@ -16,5 +20,5 @@ export const SPECIES_PATHS = Object.entries(SPECIES_SECTION_PATHS).flatMap(([sec
 
 export const OPTIONAL_PATHS = [
   "data/references-mainfix15.json",
-  "data/rare-species-v2.json"
+  RARE_SPECIES_PATH
 ];
