@@ -84,24 +84,24 @@ function controlsHtml(route = "general", placeholder = "Search species") {
   if (route === "medicinal") {
     return `
       <section class="panel">
-        <div class="control-row" style="flex-wrap:wrap;align-items:end">
-          <div style="flex:1;min-width:280px">
+        <div class="medicinal-filter-row">
+          <div class="medicinal-filter-cell medicinal-filter-search">
             <label for="speciesSearch" class="muted small">Search medicinal species</label>
             <input id="speciesSearch" type="search" value="${esc(search)}" placeholder="${esc(placeholder)}" style="width:100%">
           </div>
-          <div style="min-width:220px">
+          <div class="medicinal-filter-cell">
             <label for="medicinalActionFilter" class="muted small">Action</label>
             <select id="medicinalActionFilter" style="width:100%">${optionHtml(MEDICINAL_VOCAB.actions, state.filters.medicinalAction, "Any action")}</select>
           </div>
-          <div style="min-width:220px">
+          <div class="medicinal-filter-cell">
             <label for="medicinalSystemFilter" class="muted small">Body system</label>
             <select id="medicinalSystemFilter" style="width:100%">${optionHtml(MEDICINAL_VOCAB.bodySystems, state.filters.medicinalSystem, "Any body system")}</select>
           </div>
-          <div style="min-width:220px">
+          <div class="medicinal-filter-cell">
             <label for="medicinalTermFilter" class="muted small">Medical term</label>
             <select id="medicinalTermFilter" style="width:100%">${optionHtml(MEDICINAL_VOCAB.symptoms, state.filters.medicinalTerm, "Any medical term")}</select>
           </div>
-          <div class="control-row">
+          <div class="medicinal-filter-actions">
             <button id="speciesSearchBtn" class="primary" type="button">Search</button>
             ${(search || state.filters.medicinalAction || state.filters.medicinalSystem || state.filters.medicinalTerm) ? `<button id="speciesClearBtn" type="button">Clear</button>` : ""}
           </div>
