@@ -19,13 +19,47 @@ function matchesSearch(record, q) {
     record.category, record.culinary_uses, record.medicinal_uses,
     record.notes, record.general_notes, record.edibility_detail, record.commonness,
     record.habitat_detail, ...(record.search_aliases || []), ...(record.reviewReasons || []),
-    ...(record.look_alikes || []), ...(record.confused_with || [])
+    ...(record.look_alikes || []), ...(record.confused_with || []),
+    ...(record.medicinalAction || []), ...(record.medicinalSystem || []), ...(record.medicinalTerms || [])
   ].join(" ").toLowerCase();
   return hay.includes(q);
 }
 
-export function filterRecords(records, route, search = "") {
-  const q = String(search || "").trim().toLowerCase();
+function asList(value) {
+  return Array.isArray(value) ? value : [];
+}
+
+function arrayHas(valueList, selected) {
+  if (!selected) return true;
+  return asList(valueList).includes(selected);
+}
+
+function normalizeFilters(filtersOrSearch) {
+  if (typeof filtersOrSearch === "string") {
+    return {
+      search: filtersOrSearch,
+      medicinalAction: "",
+      medicinalSystem: "",
+      medicinalTerm: ""
+    };
+  }
+  return {
+    search: filtersOrSearch?.search || "",
+    medicinalAction: filtersOrSearch?.medicinalAction || "",
+    medicinalSystem: filtersOrSearch?.medicinalSystem || "",
+    medicinalTerm: filtersOrSearch?.medicinalTerm || ""
+  };
+}
+
+function matchesMedicinalFilters(record, filters) {
+  return arrayHas(record.medicinalAction, filters.medicinalAction)
+    && arrayHas(record.medicinalSystem, filters.medicinalSystem)
+    && arrayHas(record.medicinalTerms, filters.medicinalTerm);
+}
+
+export function filterRecords(records, route, filtersOrSearch = "") {
+  const filters = normalizeFilters(filtersOrSearch);
+  const q = String(filters.search || "").trim().toLowerCase();
   return (records || []).filter(record => {
     if (record.hidden) return false;
     const { isPlant, isMushroom, medicinal, lookalike } = classifyRecord(record);
@@ -33,7 +67,10 @@ export function filterRecords(records, route, search = "") {
     if (route === "mushrooms-gilled" && !(isMushroom && record.lane === 'gilled')) return false;
     if (route === "boletes" && !(isMushroom && record.lane === 'bolete')) return false;
     if (route === "mushrooms-other" && !(isMushroom && record.lane === 'other')) return false;
-    if (route === "medicinal" && !medicinal) return false;
+    if (route === "medicinal") {
+      if (!medicinal) return false;
+      if (!matchesMedicinalFilters(record, filters)) return false;
+    }
     if (route === "lookalikes" && !lookalike) return false;
     if (route === "review" && record.review_status !== 'needs_review') return false;
     if (!q) return true;
