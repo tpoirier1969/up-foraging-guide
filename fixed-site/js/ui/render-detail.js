@@ -1,4 +1,5 @@
 import { esc } from "../lib/escape.js";
+import { hasRealMedicinalText } from "../lib/merge.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 function lineIf(label, value) {
@@ -15,6 +16,8 @@ export function renderDetail(record) {
   const typeLabel = record.category || record.group || "";
   const months = Array.isArray(record.months_available) ? record.months_available.join(", ") : "";
   const links = Array.isArray(record.links) ? record.links : [];
+  const medicinalUses = hasRealMedicinalText(record.medicinal_uses) ? record.medicinal_uses : "";
+
   return `
     <article class="detail-grid">
       <section class="detail-block detail-hero">
@@ -56,7 +59,7 @@ export function renderDetail(record) {
       </section>
 
       ${record.culinary_uses ? `<section class="detail-block"><h4>Culinary uses</h4><p>${esc(record.culinary_uses)}</p></section>` : ""}
-      ${record.medicinal_uses ? `<section class="detail-block"><h4>Medicinal uses</h4><p>${esc(record.medicinal_uses)}</p></section>` : ""}
+      ${medicinalUses ? `<section class="detail-block"><h4>Medicinal uses</h4><p>${esc(medicinalUses)}</p></section>` : ""}
       ${record.other_uses ? `<section class="detail-block"><h4>Other uses</h4><p>${esc(record.other_uses)}</p></section>` : ""}
       ${record.edibility_detail ? `<section class="detail-block"><h4>Edibility / caution</h4><p>${esc(record.edibility_detail)}</p></section>` : ""}
       ${record.notes ? `<section class="detail-block"><h4>Notes</h4><p>${esc(record.notes)}</p></section>` : ""}
