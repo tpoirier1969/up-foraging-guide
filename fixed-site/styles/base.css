@@ -60,6 +60,10 @@ img{max-width:100%;display:block}
 .stat-card .num{font-size:1.5rem;font-weight:700}
 .controls{display:grid;gap:10px}
 .control-row{display:flex;flex-wrap:wrap;gap:10px}
+.medicinal-filter-row{display:grid;grid-template-columns:minmax(280px,1.5fr) repeat(3,minmax(180px,1fr)) auto;gap:10px;align-items:end}
+.medicinal-filter-cell{min-width:0}
+.medicinal-filter-cell label{display:block;margin-bottom:4px}
+.medicinal-filter-actions{display:flex;gap:10px;align-items:end;justify-content:flex-start;white-space:nowrap}
 input[type="search"],select,button,textarea{font:inherit}
 input[type="search"],select,textarea{
   padding:10px 12px;border:1px solid #cfc5b3;border-radius:14px;
@@ -227,6 +231,10 @@ button.subtle{background:#f8faf8}
 .note-box{background:#f8faf8;border:1px solid var(--line);border-radius:16px;padding:12px}
 textarea.review-note{width:100%;min-height:84px}
 
+@media (max-width: 1200px){
+  .medicinal-filter-row{grid-template-columns:repeat(2,minmax(240px,1fr))}
+  .medicinal-filter-actions{grid-column:1 / -1}
+}
 @media (max-width: 1000px){
   .home-focus-layout{grid-template-columns:1fr}
 }
@@ -236,6 +244,7 @@ textarea.review-note{width:100%;min-height:84px}
   .brand-row{flex-direction:column}
   .record-card.with-image,.detail-hero{grid-template-columns:1fr}
   .record-image-slot.card,.record-image-slot.detail,.record-image-slot.gallery{max-width:none;grid-template-columns:1fr}
+  .medicinal-filter-row{grid-template-columns:1fr}
 }
 @media (max-width: 760px){
   .home-focus-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
