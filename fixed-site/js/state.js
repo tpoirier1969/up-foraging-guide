@@ -5,7 +5,12 @@ export const state = {
   species: [],
   rareSpecies: [],
   references: [],
-  filters: { search: "" },
+  filters: {
+    search: "",
+    medicinalAction: "",
+    medicinalSystem: "",
+    medicinalTerm: ""
+  },
   loadErrors: [],
   imageCache: new Map(),
   imageCredits: new Map(),
