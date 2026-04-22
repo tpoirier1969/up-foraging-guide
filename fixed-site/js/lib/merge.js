@@ -27,6 +27,36 @@ function derivedName(record) {
   return record.display_name || record.common_name || record.title || record.name || slugifyFallback(record.slug).replace(/-/g, " ");
 }
 
+function normalizeMedicinalText(value) {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+const PLACEHOLDER_MEDICINAL_PATTERNS = [
+  /^primarily culinary\.?$/,
+  /^mostly culinary\.?$/,
+  /^mainly culinary\.?$/,
+  /^primarily culinary curiosity\.?$/,
+  /^minimal food-medicine importance(?: in this context)?\.?$/,
+  /^mostly of curiosity or minor traditional interest rather than a major local food species\.?$/,
+  /^mostly culinary, though related species are used in traditional food-medicine contexts\.?$/,
+  /traditional interest still being compiled/,
+  /detailed copyback is still pending/,
+  /related use context/
+];
+
+export function isPlaceholderMedicinalText(value) {
+  const normalized = normalizeMedicinalText(value);
+  return !!normalized && PLACEHOLDER_MEDICINAL_PATTERNS.some(pattern => pattern.test(normalized));
+}
+
+export function hasRealMedicinalText(value) {
+  const normalized = normalizeMedicinalText(value);
+  return !!normalized && !isPlaceholderMedicinalText(normalized);
+}
+
 function mergeOne(base, overlay) {
   const out = { ...base, ...overlay };
   const arrayKeys = [
@@ -124,7 +154,7 @@ export function classifyRecord(record) {
   const isMushroom = String(record.record_type || "").toLowerCase() === "mushroom" || category.toLowerCase() === "mushroom";
   const plantCategories = new Set(["Fruit","Green","Flower","Root","Tree Product","Green / Tubers"]);
   const isPlant = String(record.record_type || "").toLowerCase() === "plant" || plantCategories.has(category);
-  const medicinal = !!String(record.medicinal_uses || "").trim()
+  const medicinal = hasRealMedicinalText(record.medicinal_uses)
     || ensureArray(record.medicinalAction).length > 0
     || record.primary_use === "medicinal"
     || record.food_role === "medicinal_only";
