@@ -1,6 +1,7 @@
 import { APP_VERSION } from "./config.js";
 import { state, setRoute, setSpecies, setRareSpecies, setReferences, logBoot } from "./state.js";
 import { loadCoreSpecies, loadRareSpecies, loadReferences } from "./data/load-app-data.js";
+import { MEDICINAL_VOCAB } from "./data/medicinal-vocabulary.js";
 import { renderPage, openModal, closeModal, els } from "./ui/dom.js";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
@@ -72,8 +73,42 @@ function mushroomLaneLandingHtml() {
   `;
 }
 
-function controlsHtml(placeholder = "Search species") {
+function optionHtml(values, current, blankLabel) {
+  return [`<option value="">${esc(blankLabel)}</option>`]
+    .concat((values || []).map(value => `<option value="${esc(value)}" ${current === value ? "selected" : ""}>${esc(value)}</option>`))
+    .join("");
+}
+
+function controlsHtml(route = "general", placeholder = "Search species") {
   const search = state.filters.search || "";
+  if (route === "medicinal") {
+    return `
+      <section class="panel">
+        <div class="control-row" style="flex-wrap:wrap;align-items:end">
+          <div style="flex:1;min-width:280px">
+            <label for="speciesSearch" class="muted small">Search medicinal species</label>
+            <input id="speciesSearch" type="search" value="${esc(search)}" placeholder="${esc(placeholder)}" style="width:100%">
+          </div>
+          <div style="min-width:220px">
+            <label for="medicinalActionFilter" class="muted small">Action</label>
+            <select id="medicinalActionFilter" style="width:100%">${optionHtml(MEDICINAL_VOCAB.actions, state.filters.medicinalAction, "Any action")}</select>
+          </div>
+          <div style="min-width:220px">
+            <label for="medicinalSystemFilter" class="muted small">Body system</label>
+            <select id="medicinalSystemFilter" style="width:100%">${optionHtml(MEDICINAL_VOCAB.bodySystems, state.filters.medicinalSystem, "Any body system")}</select>
+          </div>
+          <div style="min-width:220px">
+            <label for="medicinalTermFilter" class="muted small">Medical term</label>
+            <select id="medicinalTermFilter" style="width:100%">${optionHtml(MEDICINAL_VOCAB.symptoms, state.filters.medicinalTerm, "Any medical term")}</select>
+          </div>
+          <div class="control-row">
+            <button id="speciesSearchBtn" class="primary" type="button">Search</button>
+            ${(search || state.filters.medicinalAction || state.filters.medicinalSystem || state.filters.medicinalTerm) ? `<button id="speciesClearBtn" type="button">Clear</button>` : ""}
+          </div>
+        </div>
+      </section>
+    `;
+  }
   return `
     <section class="panel">
       <div class="control-row">
@@ -190,10 +225,31 @@ function wireActionButtons(root = document) {
   });
 }
 
+function clearRouteFilters(route) {
+  state.filters.search = "";
+  if (route === "medicinal") {
+    state.filters.medicinalAction = "";
+    state.filters.medicinalSystem = "";
+    state.filters.medicinalTerm = "";
+  }
+}
+
 function wireCommonEvents(route) {
   wireSearchBlock("homeSearch", "homeSearchBtn", (value) => { state.filters.search = value; location.hash = "#/search"; });
   wireSearchBlock("speciesSearch", "speciesSearchBtn", (value) => { state.filters.search = value; renderCurrentRoute(); });
-  document.getElementById("speciesClearBtn")?.addEventListener("click", () => { state.filters.search = ""; renderCurrentRoute(); });
+  document.getElementById("speciesClearBtn")?.addEventListener("click", () => { clearRouteFilters(route); renderCurrentRoute(); });
+  document.getElementById("medicinalActionFilter")?.addEventListener("change", (event) => {
+    state.filters.medicinalAction = event.currentTarget.value || "";
+    renderCurrentRoute();
+  });
+  document.getElementById("medicinalSystemFilter")?.addEventListener("change", (event) => {
+    state.filters.medicinalSystem = event.currentTarget.value || "";
+    renderCurrentRoute();
+  });
+  document.getElementById("medicinalTermFilter")?.addEventListener("change", (event) => {
+    state.filters.medicinalTerm = event.currentTarget.value || "";
+    renderCurrentRoute();
+  });
   wireSearchBlock("rareSearch", "rareSearchBtn", (value) => { state.filters.search = value; renderCurrentRoute(); });
   wireSearchBlock("refSearch", "refSearchBtn", (value) => { state.filters.search = value; renderCurrentRoute(); });
   wireSearchBlock("creditsSearch", "creditsSearchBtn", (value) => { state.filters.search = value; renderCurrentRoute(); });
@@ -228,10 +284,10 @@ async function renderHomeRoute(token) {
 async function renderSpeciesRoute(route, token) {
   const { filterRecords, renderRecordCards } = await importModule("./ui/render-list.js");
   if (token !== renderToken) return;
-  const filtered = filterRecords(state.species, route === "search" ? "general" : route, state.filters.search);
+  const filtered = filterRecords(state.species, route === "search" ? "general" : route, state.filters);
   const title = `${routeTitle(route)} (${filtered.length})`;
   renderPage(`
-    ${controlsHtml(route === "search" ? "Search all species" : `Search ${routeTitle(route).toLowerCase()}`)}
+    ${controlsHtml(route, route === "search" ? "Search all species" : `Search ${routeTitle(route).toLowerCase()}`)}
     <section class="panel"><h2>${esc(title)}</h2></section>
     ${renderRecordCards(filtered, route)}
   `);
