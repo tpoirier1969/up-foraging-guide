@@ -1,6 +1,6 @@
 import { fetchJsonFromRepo } from "../lib/fetch-json.js";
 import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js";
-import { SPECIES_PATHS, OPTIONAL_PATHS } from "./sources.js";
+import { SPECIES_SECTION_PATHS, OPTIONAL_PATHS } from "./sources.js";
 
 let rareCachePromise = null;
 let referencesCachePromise = null;
@@ -9,42 +9,50 @@ function asRecords(payload) {
   return Array.isArray(payload?.records) ? payload.records : [];
 }
 
-async function fetchPath(path, log) {
-  log?.(`Loading ${path}`);
+function getCoreSpeciesPaths() {
+  return Object.entries(SPECIES_SECTION_PATHS).flatMap(([section, paths]) =>
+    (Array.isArray(paths) ? paths : []).map(path => ({ section, path }))
+  );
+}
+
+async function fetchPath(path, log, section = "") {
+  const label = section ? `${section}: ${path}` : path;
+  log?.(`Loading ${label}`);
   const payload = await fetchJsonFromRepo(path);
-  log?.(`Loaded ${path} (${asRecords(payload).length || (Array.isArray(payload) ? payload.length : 0)} records)`);
+  log?.(`Loaded ${label} (${asRecords(payload).length || (Array.isArray(payload) ? payload.length : 0)} records)`);
   return payload;
 }
 
 export async function loadCoreSpecies(log) {
   const errors = [];
-  const results = await Promise.all(SPECIES_PATHS.map(async (path) => {
+  const corePaths = getCoreSpeciesPaths();
+  const results = await Promise.all(corePaths.map(async ({ section, path }) => {
     try {
-      const payload = await fetchPath(path, log);
-      return { path, payload };
+      const payload = await fetchPath(path, log, section);
+      return { section, path, payload };
     } catch (err) {
       const message = err?.message || String(err);
-      errors.push({ path, error: message });
-      log?.(`Failed ${path}: ${message}`);
-      return { path, payload: null };
+      errors.push({ section, path, error: message });
+      log?.(`Failed ${section ? `${section}: ` : ""}${path}: ${message}`);
+      return { section, path, payload: null };
     }
   }));
 
   const speciesPayloads = results.filter(item => item.payload).map(item => item.payload);
   if (!speciesPayloads.length) {
-    const detail = errors.map(item => `${item.path}: ${item.error}`).join("\n");
+    const detail = errors.map(item => `${item.section ? `${item.section}: ` : ""}${item.path}: ${item.error}`).join("\n");
     throw new Error(`No species data layers loaded.\n${detail}`);
   }
 
   const species = mergeRecordLayers(...speciesPayloads).map(normalizeRecord);
-  log?.(`Merged ${species.length} species records`);
+  log?.(`Merged ${species.length} species records from ${corePaths.length} configured source path(s)`);
   return { species, errors };
 }
 
 export function loadRareSpecies(log) {
   if (!rareCachePromise) {
     rareCachePromise = (async () => {
-      const payload = await fetchPath(OPTIONAL_PATHS[1], log);
+      const payload = await fetchPath(OPTIONAL_PATHS[1], log, "rare-optional");
       return Array.isArray(payload?.records) ? payload.records.map(normalizeRecord) : [];
     })();
   }
@@ -54,7 +62,7 @@ export function loadRareSpecies(log) {
 export function loadReferences(log) {
   if (!referencesCachePromise) {
     referencesCachePromise = (async () => {
-      const payload = await fetchPath(OPTIONAL_PATHS[0], log);
+      const payload = await fetchPath(OPTIONAL_PATHS[0], log, "references");
       if (Array.isArray(payload)) return payload;
       return Array.isArray(payload?.records) ? payload.records : [];
     })();
