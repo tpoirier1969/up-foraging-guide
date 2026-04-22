@@ -10,9 +10,17 @@ function asRecords(payload) {
 }
 
 function getCoreSpeciesPaths() {
-  return Object.entries(SPECIES_SECTION_PATHS).flatMap(([section, paths]) =>
-    (Array.isArray(paths) ? paths : []).map(path => ({ section, path }))
-  );
+  const lazySections = new Set(["rare"]);
+  return Object.entries(SPECIES_SECTION_PATHS)
+    .filter(([section]) => !lazySections.has(section))
+    .flatMap(([section, paths]) =>
+      (Array.isArray(paths) ? paths : []).map(path => ({ section, path }))
+    );
+}
+
+function getRareSpeciesPath() {
+  const rarePaths = Array.isArray(SPECIES_SECTION_PATHS?.rare) ? SPECIES_SECTION_PATHS.rare : [];
+  return rarePaths[0] || OPTIONAL_PATHS[1];
 }
 
 async function fetchPath(path, log, section = "") {
@@ -45,14 +53,14 @@ export async function loadCoreSpecies(log) {
   }
 
   const species = mergeRecordLayers(...speciesPayloads).map(normalizeRecord);
-  log?.(`Merged ${species.length} species records from ${corePaths.length} configured source path(s)`);
+  log?.(`Merged ${species.length} species records from ${corePaths.length} configured core source path(s)`);
   return { species, errors };
 }
 
 export function loadRareSpecies(log) {
   if (!rareCachePromise) {
     rareCachePromise = (async () => {
-      const payload = await fetchPath(OPTIONAL_PATHS[1], log, "rare-optional");
+      const payload = await fetchPath(getRareSpeciesPath(), log, "rare");
       return Array.isArray(payload?.records) ? payload.records.map(normalizeRecord) : [];
     })();
   }
