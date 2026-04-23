@@ -1,6 +1,6 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = new URL(import.meta.url).searchParams.get("v") || "v4.2.5-r2026-04-23-pathfix1";
+const APP_VERSION = new URL(import.meta.url).searchParams.get("v") || "v4.2.6-r2026-04-23-rare-map-supabase1";
 
 function esc(value) {
   return String(value ?? "")
