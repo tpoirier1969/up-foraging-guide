@@ -1,3 +1,4 @@
+import { openLightbox } from "../ui/dom.js";
 import { state, rememberImageCredit, rememberImageFailure, rememberImageResult } from "../state.js";
 
 let manifestPromise = null;
@@ -191,24 +192,62 @@ function describeItem(item, index) {
   return titleizeStage(item?.partOrStage) || item?.title || `Photo ${index + 1}`;
 }
 
-function bindEnlarge(img, item) {
-  const href = item?.full || item?.sourcePage || "";
-  if (!href || img.dataset.enlargeBound === "1") return;
-  img.dataset.enlargeBound = "1";
-  img.style.cursor = "zoom-in";
-  img.title = "Open full image";
-  img.addEventListener("click", (event) => {
-    event.preventDefault();
-    event.stopPropagation();
-    window.open(href, "_blank", "noopener,noreferrer");
+function candidateSourcesForVariant(item, variant) {
+  const values = variant === "detail"
+    ? [item?.detail, item?.full, item?.thumb]
+    : [item?.thumb, item?.detail, item?.full];
+
+  const seen = new Set();
+  return values.filter((value) => {
+    const key = String(value || "").trim();
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
   });
 }
 
-function loadCandidateSequence(img, container, orderedItems, record, index) {
+function buildCandidateQueue(items, variant) {
+  return (items || []).flatMap((item) =>
+    candidateSourcesForVariant(item, variant).map((src) => ({
+      ...item,
+      src
+    }))
+  );
+}
+
+function bindEnlarge(img, item, record, index) {
+  const lightboxSrc = item?.full || item?.detail || item?.thumb || "";
+  if (!lightboxSrc) return;
+
+  img._lightboxPayload = {
+    src: lightboxSrc,
+    alt: img.alt,
+    title: `${record.display_name || record.common_name || record.slug || "Species"} — ${describeItem(item, index)}`,
+    sourceHref: item?.sourcePage || item?.full || item?.detail || item?.thumb || "",
+    sourceLabel: item?.sourcePage ? "Open source" : "Open full image"
+  };
+
+  if (img.dataset.enlargeBound === "1") return;
+
+  img.dataset.enlargeBound = "1";
+  img.style.cursor = "zoom-in";
+  img.title = "View larger image";
+  img.addEventListener("click", (event) => {
+    const payload = img._lightboxPayload;
+    if (!payload?.src) return;
+    event.preventDefault();
+    event.stopPropagation();
+    openLightbox(payload);
+  });
+}
+
+function loadCandidateSequence(img, container, orderedItems, record, index, variant) {
+  const queue = buildCandidateQueue(orderedItems, variant);
   let pos = 0;
+
   const tryNext = () => {
-    const item = orderedItems[pos++];
-    const src = item?.src || item?.detail || item?.thumb || item?.full || "";
+    const item = queue[pos++];
+    const src = item?.src || "";
     if (!src) {
       img.onload = null;
       img.onerror = null;
@@ -222,11 +261,12 @@ function loadCandidateSequence(img, container, orderedItems, record, index) {
       img.dataset.resolvedSource = item.source || "local-manifest";
       setBadge(container, describeItem(item, index));
       setSourceLink(container, item.sourcePage || item.full || "", item.sourcePage ? "Source" : "Full image");
-      bindEnlarge(img, item);
+      bindEnlarge(img, item, record, index);
     };
     img.onerror = () => { tryNext(); };
     img.src = src;
   };
+
   tryNext();
 }
 
@@ -234,20 +274,6 @@ function variantForImage(img) {
   const slot = img.closest(".record-image-slot");
   if (slot?.classList.contains("detail")) return "detail";
   return "card";
-}
-
-function itemForVariant(item, variant) {
-  if (!item) return null;
-  if (variant === "card") {
-    return {
-      ...item,
-      src: item.thumb || item.detail || item.full || ""
-    };
-  }
-  return {
-    ...item,
-    src: item.detail || item.full || item.thumb || ""
-  };
 }
 
 async function hydrateImage(img, record) {
@@ -258,15 +284,13 @@ async function hydrateImage(img, record) {
   img.alt = alt;
 
   const items = await ensureGallery(record);
-  const variantItems = (variant === "card" ? items.slice(0, 1) : items)
-    .map((item) => itemForVariant(item, variant))
-    .filter(Boolean);
+  const variantItems = (variant === "card" ? items.slice(0, 1) : items).filter(Boolean);
 
   const orderedItems = variant === "card"
     ? variantItems
     : [...variantItems.slice(index), ...variantItems.slice(0, index)];
 
-  loadCandidateSequence(img, container, orderedItems, record, index);
+  loadCandidateSequence(img, container, orderedItems, record, index, variant);
 }
 
 export function installLazyImages(root, getRecordBySlug) {
