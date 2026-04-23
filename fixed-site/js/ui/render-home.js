@@ -12,6 +12,20 @@ function esc(value) {
     .replaceAll(">", "&gt;");
 }
 
+function escAttr(value) {
+  return String(value ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;");
+}
+
+function placeholderSvg(label) {
+  const text = String(label || "Loading photo").slice(0, 42);
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="#eef3ef"/><rect x="40" y="40" width="1120" height="720" rx="28" ry="28" fill="#f8fbf8" stroke="#c9d5cd" stroke-width="6"/><circle cx="290" cy="300" r="70" fill="#dce9df"/><path d="M150 620l210-210 120 110 155-165 210 265H150z" fill="#dce9df"/><text x="600" y="690" text-anchor="middle" font-family="system-ui, sans-serif" font-size="46" fill="#5f6d63">${text}</text></svg>`;
+  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
+}
+
 function currentMonthName() {
   return MONTHS[new Date().getMonth()] || MONTHS[0];
 }
@@ -31,22 +45,28 @@ function isLikelyForagingPlant(record) {
   return true;
 }
 
-function imageUrlForRecord(record) {
+function hasAnyImageCandidate(record) {
   const structured = Array.isArray(record?.images_structured) ? record.images_structured : [];
-  if (structured[0]) return structured[0].thumb || structured[0].detail || structured[0].full || "";
+  if (structured.length) return true;
 
-  if (record?.list_thumbnail) return record.list_thumbnail;
+  if (record?.list_thumbnail) return true;
 
   const detailImages = Array.isArray(record?.detail_images) ? record.detail_images : [];
-  if (detailImages[0]) return detailImages[0];
+  if (detailImages.length) return true;
+
+  const enlargeImages = Array.isArray(record?.enlarge_images) ? record.enlarge_images : [];
+  if (enlargeImages.length) return true;
 
   const images = Array.isArray(record?.images) ? record.images : [];
-  if (typeof images[0] === "string") return images[0];
-  if (images[0] && typeof images[0] === "object") {
-    return images[0].thumb || images[0].src || images[0].detail || images[0].full || "";
+  if (!images.length) return false;
+
+  const first = images[0];
+  if (typeof first === "string") return !!first;
+  if (first && typeof first === "object") {
+    return !!(first.thumb || first.src || first.detail || first.full);
   }
 
-  return "";
+  return false;
 }
 
 function shuffle(values) {
@@ -63,13 +83,31 @@ function pickHighlights(species, month) {
     if (record?.hidden) return false;
     const { isPlant, isMushroom } = classifyRecord(record);
     if (!isInSeason(record, month)) return false;
-    if (!imageUrlForRecord(record)) return false;
+    if (!hasAnyImageCandidate(record)) return false;
     if (isPlant) return isLikelyForagingPlant(record);
     if (isMushroom) return isLikelyEdibleMushroom(record);
     return false;
   });
 
   return shuffle(candidates).slice(0, 6);
+}
+
+function renderHomeImage(record) {
+  const label = record.display_name || record.common_name || record.slug || "Species";
+  const alt = `${label} photo 1`;
+  return `
+    <img
+      class="home-focus-image"
+      data-record-image
+      data-slug="${escAttr(record.slug || "")}"
+      data-image-index="0"
+      data-alt="${escAttr(alt)}"
+      alt="${escAttr(alt)}"
+      src="${placeholderSvg(`${label} loading photo`).replace(/"/g, "&quot;")}"
+      loading="lazy"
+      decoding="async"
+    >
+  `;
 }
 
 export function renderHome(species, errors = [], rareSpecies = []) {
@@ -124,7 +162,7 @@ export function renderHome(species, errors = [], rareSpecies = []) {
           ${highlights.map((record) => `
             <button class="home-focus-card" type="button" data-detail="${esc(record.slug)}">
               <div class="home-focus-caption"><strong>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</strong></div>
-              <img src="${esc(imageUrlForRecord(record))}" alt="${esc(record.display_name || record.common_name || record.slug || "Species")}" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+              ${renderHomeImage(record)}
             </button>
           `).join("")}
         </div>
