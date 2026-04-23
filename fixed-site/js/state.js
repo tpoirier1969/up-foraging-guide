@@ -9,7 +9,11 @@ export const state = {
     search: "",
     medicinalAction: "",
     medicinalSystem: "",
-    medicinalTerm: ""
+    medicinalTerm: "",
+    rareGroup: "",
+    rareLegalStatus: "",
+    rareUpRelevance: "",
+    rareSensitiveOnly: ""
   },
   loadErrors: [],
   imageCache: new Map(),

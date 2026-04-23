@@ -12,6 +12,44 @@ function placeholderSvg(label) {
   return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
 }
 
+function uniqueImages(record) {
+  const seen = new Set();
+  const out = [];
+  const push = (value) => {
+    const key = String(value || "").trim();
+    if (!key || seen.has(key)) return;
+    seen.add(key);
+    out.push(key);
+  };
+
+  const structured = Array.isArray(record?.images_structured) ? record.images_structured : [];
+  structured.forEach((item) => {
+    push(item?.detail);
+    push(item?.full);
+    push(item?.thumb);
+  });
+
+  const details = Array.isArray(record?.detail_images) ? record.detail_images : [];
+  const fulls = Array.isArray(record?.enlarge_images) ? record.enlarge_images : [];
+  details.forEach(push);
+  fulls.forEach(push);
+  push(record?.list_thumbnail);
+
+  const images = Array.isArray(record?.images) ? record.images : [];
+  images.forEach((item) => {
+    if (typeof item === "string") {
+      push(item);
+      return;
+    }
+    push(item?.detail);
+    push(item?.src);
+    push(item?.full);
+    push(item?.thumb);
+  });
+
+  return out;
+}
+
 function pickFromStructured(record, variant, index) {
   const items = Array.isArray(record?.images_structured) ? record.images_structured : [];
   if (!items.length) return "";
@@ -80,7 +118,8 @@ function buildImageCell(record, variant, index, showMeta) {
 }
 
 export function renderImageSlot(record, variant = "card", options = {}) {
-  const count = variant === "detail" ? 3 : 1;
+  const uniqueCount = uniqueImages(record).length;
+  const count = variant === "detail" ? Math.max(1, Math.min(3, uniqueCount || 1)) : 1;
   const showMeta = options.showMeta !== false;
   return `
     <section class="record-image-slot ${escAttr(variant)} ${count > 1 ? "gallery" : "single"}" data-image-count="${count}">

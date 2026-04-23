@@ -246,6 +246,12 @@ function clearRouteFilters(route) {
     state.filters.medicinalSystem = "";
     state.filters.medicinalTerm = "";
   }
+  if (route === "rare") {
+    state.filters.rareGroup = "";
+    state.filters.rareLegalStatus = "";
+    state.filters.rareUpRelevance = "";
+    state.filters.rareSensitiveOnly = "";
+  }
 }
 
 function wireCommonEvents(route) {
@@ -349,10 +355,22 @@ async function renderRareRoute(token) {
     }
     if (token !== renderToken) return;
   }
-  const { renderRarePage } = await importModule("./ui/render-rare.js");
+  const { renderRarePage, setupRarePage } = await importModule("./ui/render-rare.js");
   if (token !== renderToken) return;
-  renderPage(renderRarePage(state.rareSpecies, state.filters.search));
+  renderPage(renderRarePage(state.rareSpecies, state.filters));
   wireCommonEvents("rare");
+  setupRarePage({
+    filters: state.filters,
+    setFilters(updates = {}) {
+      Object.assign(state.filters, updates);
+    },
+    clearFilters() {
+      clearRouteFilters("rare");
+    },
+    rerender() {
+      renderCurrentRoute();
+    }
+  });
 }
 
 async function renderReferencesRoute(token) {
