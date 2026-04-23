@@ -1,14 +1,19 @@
-import { APP_VERSION } from "./config.js";
+import { APP_VERSION as CONFIG_APP_VERSION } from "./config.js";
 import { state, setRoute, setSpecies, setRareSpecies, setReferences, logBoot } from "./state.js";
-import { loadCoreSpecies, loadRareSpecies, loadReferences } from "./data/load-app-data.js";
 import { MEDICINAL_VOCAB } from "./data/medicinal-vocabulary.js";
 import { renderPage, openModal, closeModal, els } from "./ui/dom.js";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 
+const APP_VERSION = new URL(import.meta.url).searchParams.get("v") || CONFIG_APP_VERSION || "dev";
 const REVIEW_STORAGE_KEY = "foraging_review_overlay_v1";
 const moduleCache = new Map();
+let loadAppDataPromise = null;
 let renderToken = 0;
+
+function versionedPath(path) {
+  return path.includes("?") ? path : `${path}?v=${encodeURIComponent(APP_VERSION)}`;
+}
 
 function parseRoute() {
   const raw = String(location.hash || "#/home").replace(/^#\/?/, "");
@@ -34,8 +39,16 @@ function routeTitle(route) {
 }
 
 function importModule(path) {
-  if (!moduleCache.has(path)) moduleCache.set(path, import(path));
-  return moduleCache.get(path);
+  const key = versionedPath(path);
+  if (!moduleCache.has(key)) moduleCache.set(key, import(key));
+  return moduleCache.get(key);
+}
+
+async function loadAppDataModule() {
+  if (!loadAppDataPromise) {
+    loadAppDataPromise = importModule("./data/load-app-data.js");
+  }
+  return loadAppDataPromise;
 }
 
 function statusHtml(title = "Loading…", items = [], extra = "") {
@@ -140,7 +153,7 @@ function applyReviewOverlay(records) {
   return (records || []).map((record) => {
     const overlay = state.reviewOverlay?.[record.slug] || {};
     const reviewReasons = Array.from(new Set([...(record.reviewReasons || []), ...(overlay.review_reasons || [])].filter(Boolean)));
-    const review_status = overlay.review_status || record.review_status || (reviewReasons.length ? 'needs_review' : 'ok');
+    const review_status = overlay.review_status || record.review_status || (reviewReasons.length ? "needs_review" : "ok");
     return {
       ...record,
       review_status,
@@ -154,8 +167,8 @@ function setReviewStatus(slug, status, extra = {}) {
   if (!slug) return;
   const current = state.reviewOverlay?.[slug] || {};
   const next = { ...current, ...extra, review_status: status };
-  if (status === 'ok') {
-    next.review_status = 'ok';
+  if (status === "ok") {
+    next.review_status = "ok";
   }
   state.reviewOverlay = { ...(state.reviewOverlay || {}), [slug]: next };
   saveReviewOverlay();
@@ -163,7 +176,7 @@ function setReviewStatus(slug, status, extra = {}) {
 }
 
 async function enhanceImages(root) {
-  if (!root?.querySelector?.('img[data-record-image]')) return;
+  if (!root?.querySelector?.("img[data-record-image]")) return;
   try {
     const { installLazyImages } = await importModule("./lib/image-resolver.js");
     installLazyImages(root, getRecordBySlug);
@@ -197,29 +210,30 @@ async function openRecordDetail(slug) {
 function wireSearchBlock(inputId, buttonId, onSubmit) {
   const input = document.getElementById(inputId);
   document.getElementById(buttonId)?.addEventListener("click", () => onSubmit(input?.value || ""));
-  input?.addEventListener("keydown", (event) => { if (event.key === "Enter") onSubmit(input?.value || ""); });
+  input?.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") onSubmit(input?.value || "");
+  });
 }
 
 function wireActionButtons(root = document) {
-  root.querySelectorAll("[data-detail]").forEach(btn => {
+  root.querySelectorAll("[data-detail]").forEach((btn) => {
     btn.addEventListener("click", () => openRecordDetail(btn.dataset.detail));
   });
-  root.querySelectorAll("[data-review-action]").forEach(btn => {
+  root.querySelectorAll("[data-review-action]").forEach((btn) => {
     btn.addEventListener("click", () => {
       const slug = btn.dataset.slug || "";
       const action = btn.dataset.reviewAction;
       if (!slug || !action) return;
-      if (action === 'mark-ok') {
-        setReviewStatus(slug, 'ok');
+      if (action === "mark-ok") {
+        setReviewStatus(slug, "ok");
         closeModal();
         renderCurrentRoute();
         return;
       }
-      if (action === 'send-review') {
-        setReviewStatus(slug, 'needs_review');
+      if (action === "send-review") {
+        setReviewStatus(slug, "needs_review");
         closeModal();
-        location.hash = '#/review';
-        return;
+        location.hash = "#/review";
       }
     });
   });
@@ -235,9 +249,18 @@ function clearRouteFilters(route) {
 }
 
 function wireCommonEvents(route) {
-  wireSearchBlock("homeSearch", "homeSearchBtn", (value) => { state.filters.search = value; location.hash = "#/search"; });
-  wireSearchBlock("speciesSearch", "speciesSearchBtn", (value) => { state.filters.search = value; renderCurrentRoute(); });
-  document.getElementById("speciesClearBtn")?.addEventListener("click", () => { clearRouteFilters(route); renderCurrentRoute(); });
+  wireSearchBlock("homeSearch", "homeSearchBtn", (value) => {
+    state.filters.search = value;
+    location.hash = "#/search";
+  });
+  wireSearchBlock("speciesSearch", "speciesSearchBtn", (value) => {
+    state.filters.search = value;
+    renderCurrentRoute();
+  });
+  document.getElementById("speciesClearBtn")?.addEventListener("click", () => {
+    clearRouteFilters(route);
+    renderCurrentRoute();
+  });
   document.getElementById("medicinalActionFilter")?.addEventListener("change", (event) => {
     state.filters.medicinalAction = event.currentTarget.value || "";
     renderCurrentRoute();
@@ -250,9 +273,18 @@ function wireCommonEvents(route) {
     state.filters.medicinalTerm = event.currentTarget.value || "";
     renderCurrentRoute();
   });
-  wireSearchBlock("rareSearch", "rareSearchBtn", (value) => { state.filters.search = value; renderCurrentRoute(); });
-  wireSearchBlock("refSearch", "refSearchBtn", (value) => { state.filters.search = value; renderCurrentRoute(); });
-  wireSearchBlock("creditsSearch", "creditsSearchBtn", (value) => { state.filters.search = value; renderCurrentRoute(); });
+  wireSearchBlock("rareSearch", "rareSearchBtn", (value) => {
+    state.filters.search = value;
+    renderCurrentRoute();
+  });
+  wireSearchBlock("refSearch", "refSearchBtn", (value) => {
+    state.filters.search = value;
+    renderCurrentRoute();
+  });
+  wireSearchBlock("creditsSearch", "creditsSearchBtn", (value) => {
+    state.filters.search = value;
+    renderCurrentRoute();
+  });
   wireActionButtons(document);
   enhanceImages(els.pageRoot);
   document.getElementById("retryRoute")?.addEventListener("click", () => renderCurrentRoute());
@@ -261,7 +293,12 @@ function wireCommonEvents(route) {
 async function ensureRareData() {
   if (state.rareReady) return state.rareSpecies;
   if (!state.rarePromise) {
-    state.rarePromise = loadRareSpecies((message) => logBoot(`[rare] ${message}`)).then((records) => { setRareSpecies(records); return records; });
+    state.rarePromise = (async () => {
+      const { loadRareSpecies } = await loadAppDataModule();
+      const records = await loadRareSpecies((message) => logBoot(`[rare] ${message}`));
+      setRareSpecies(records);
+      return records;
+    })();
   }
   return state.rarePromise;
 }
@@ -269,7 +306,12 @@ async function ensureRareData() {
 async function ensureReferencesData() {
   if (state.referencesReady) return state.references;
   if (!state.referencesPromise) {
-    state.referencesPromise = loadReferences((message) => logBoot(`[references] ${message}`)).then((records) => { setReferences(records); return records; });
+    state.referencesPromise = (async () => {
+      const { loadReferences } = await loadAppDataModule();
+      const records = await loadReferences((message) => logBoot(`[references] ${message}`));
+      setReferences(records);
+      return records;
+    })();
   }
   return state.referencesPromise;
 }
@@ -297,9 +339,13 @@ async function renderSpeciesRoute(route, token) {
 async function renderRareRoute(token) {
   if (!state.rareReady) {
     renderPage(statusHtml("Loading rare species…", ["Rare species are loading for this section."]));
-    try { await ensureRareData(); } catch (err) {
+    try {
+      await ensureRareData();
+    } catch (err) {
       if (token !== renderToken) return;
-      renderPage(routeErrorHtml("rare", err?.message || String(err))); wireCommonEvents("rare"); return;
+      renderPage(routeErrorHtml("rare", err?.message || String(err)));
+      wireCommonEvents("rare");
+      return;
     }
     if (token !== renderToken) return;
   }
@@ -312,9 +358,13 @@ async function renderRareRoute(token) {
 async function renderReferencesRoute(token) {
   if (!state.referencesReady) {
     renderPage(statusHtml("Loading references…", ["References are lazy-loaded only when you open this section."]));
-    try { await ensureReferencesData(); } catch (err) {
+    try {
+      await ensureReferencesData();
+    } catch (err) {
       if (token !== renderToken) return;
-      renderPage(routeErrorHtml("references", err?.message || String(err))); wireCommonEvents("references"); return;
+      renderPage(routeErrorHtml("references", err?.message || String(err)));
+      wireCommonEvents("references");
+      return;
     }
     if (token !== renderToken) return;
   }
@@ -335,7 +385,7 @@ export async function renderCurrentRoute() {
   const token = ++renderToken;
   const route = parseRoute();
   setRoute(route);
-  markActiveNav(route === "search" ? "search" : (route.startsWith('mushrooms-') || route === 'boletes' ? 'mushrooms' : route));
+  markActiveNav(route === "search" ? "search" : (route.startsWith("mushrooms-") || route === "boletes" ? "mushrooms" : route));
 
   if (state.loading && !state.coreReady) {
     renderPage(statusHtml("Loading app…", state.bootLog, "Plants, mushrooms, and the rare-species count are loading first."));
@@ -344,11 +394,15 @@ export async function renderCurrentRoute() {
 
   try {
     if (route === "home") return await renderHomeRoute(token);
-    if (route === "mushrooms") { renderPage(mushroomLaneLandingHtml()); wireCommonEvents('mushrooms'); return; }
+    if (route === "mushrooms") {
+      renderPage(mushroomLaneLandingHtml());
+      wireCommonEvents("mushrooms");
+      return;
+    }
     if (route === "rare") return await renderRareRoute(token);
     if (route === "references") return await renderReferencesRoute(token);
     if (route === "credits") return await renderCreditsRoute(token);
-    if (["plants","mushrooms-gilled","boletes","mushrooms-other","medicinal","lookalikes","review","search"].includes(route)) {
+    if (["plants", "mushrooms-gilled", "boletes", "mushrooms-other", "medicinal", "lookalikes", "review", "search"].includes(route)) {
       return await renderSpeciesRoute(route, token);
     }
     await renderHomeRoute(token);
@@ -367,6 +421,7 @@ export async function startApp() {
   state.loading = true;
   renderPage(statusHtml("Loading app…", state.bootLog, "Plants, mushrooms, and the rare-species count are loading first."));
   try {
+    const { loadCoreSpecies, loadRareSpecies } = await loadAppDataModule();
     const result = await loadCoreSpecies((message) => {
       logBoot(message);
       renderPage(statusHtml("Loading app…", state.bootLog, "Plants, mushrooms, and the rare-species count are loading first."));
