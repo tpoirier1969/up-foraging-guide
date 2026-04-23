@@ -47,6 +47,17 @@ const PLACEHOLDER_MEDICINAL_PATTERNS = [
   /related use context/
 ];
 
+const FORAGING_CLASS_MAP = new Map([
+  ["fruit", "fruit"],
+  ["green", "green"],
+  ["flower", "flower"],
+  ["root", "root"],
+  ["seed", "seed"],
+  ["tree product", "tree_product"],
+  ["green / tubers", "green"],
+  ["mushroom", "mushroom"]
+]);
+
 export function isPlaceholderMedicinalText(value) {
   const normalized = normalizeMedicinalText(value);
   return !!normalized && PLACEHOLDER_MEDICINAL_PATTERNS.some(pattern => pattern.test(normalized));
@@ -57,13 +68,149 @@ export function hasRealMedicinalText(value) {
   return !!normalized && !isPlaceholderMedicinalText(normalized);
 }
 
+function deriveKingdomType(record, category = "") {
+  const explicit = String(record.kingdom_type || record.record_type || record.primary_type || "").trim().toLowerCase();
+  if (explicit === "plant" || explicit === "mushroom") return explicit;
+  return category.toLowerCase() === "mushroom" ? "mushroom" : "plant";
+}
+
+function deriveForagingClass(record, category = "") {
+  const explicit = String(record.foraging_class || "").trim().toLowerCase();
+  if (explicit) return explicit.replace(/\s+/g, "_");
+  const mapped = FORAGING_CLASS_MAP.get(category.toLowerCase());
+  return mapped || "";
+}
+
+function deriveCommonNames(record) {
+  return uniq([
+    ...ensureArray(record.common_names),
+    ...ensureArray(record.common_name),
+    ...ensureArray(record.display_name)
+  ]);
+}
+
+function deriveSeasonMonths(record) {
+  const explicit = uniq(record.season_months)
+    .map(value => Number(value))
+    .filter(value => Number.isInteger(value) && value >= 1 && value <= 12);
+  if (explicit.length) return explicit;
+
+  const legacy = uniq(record.month_numbers)
+    .map(value => Number(value))
+    .filter(value => Number.isInteger(value) && value >= 1 && value <= 12);
+  if (legacy.length) return legacy;
+
+  return [];
+}
+
+function deriveHabitats(record) {
+  return uniq(record.habitats?.length ? record.habitats : record.habitat);
+}
+
+function deriveLookAlikes(record) {
+  return uniq([
+    ...ensureArray(record.look_alikes),
+    ...ensureArray(record.lookalikes),
+    ...ensureArray(record.confused_with)
+  ]);
+}
+
+function deriveRareProfile(record) {
+  if (record.rare_profile && typeof record.rare_profile === "object") {
+    return {
+      status: String(record.rare_profile.status || "").trim(),
+      legal_status: String(record.rare_profile.legal_status || "").trim(),
+      up_relevance: String(record.rare_profile.up_relevance || "").trim(),
+      sensitive_location: record.rare_profile.sensitive_location === true,
+      reason: String(record.rare_profile.reason || "").trim(),
+      field_marks: String(record.rare_profile.field_marks || "").trim(),
+      care_note: String(record.rare_profile.care_note || "").trim(),
+      key_features: uniq(record.rare_profile.key_features)
+    };
+  }
+
+  const profile = {
+    status: String(record.status || "").trim(),
+    legal_status: String(record.legal_status || "").trim(),
+    up_relevance: String(record.up_relevance || "").trim(),
+    sensitive_location: record.sensitive_location === true,
+    reason: String(record.reason || "").trim(),
+    field_marks: String(record.field_marks || "").trim(),
+    care_note: String(record.care_note || "").trim(),
+    key_features: uniq(record.key_features)
+  };
+
+  const hasAny = profile.status || profile.legal_status || profile.up_relevance || profile.sensitive_location
+    || profile.reason || profile.field_marks || profile.care_note || profile.key_features.length;
+  return hasAny ? profile : null;
+}
+
+function deriveMedicinal(record) {
+  if (record.medicinal && typeof record.medicinal === "object") {
+    const existing = record.medicinal;
+    const actions = uniq(existing.actions);
+    const bodySystems = uniq(existing.body_systems);
+    const medicalTerms = uniq(existing.medical_terms);
+    const claims = Array.isArray(existing.claims) ? existing.claims : [];
+    const summary = String(existing.summary || "").trim();
+    const hasMeaningful = existing.has_meaningful_content === true
+      || !!summary
+      || actions.length > 0
+      || bodySystems.length > 0
+      || medicalTerms.length > 0
+      || claims.length > 0;
+
+    return {
+      has_meaningful_content: hasMeaningful,
+      summary,
+      evidence_tier: String(existing.evidence_tier || "").trim(),
+      actions,
+      body_systems: bodySystems,
+      medical_terms: medicalTerms,
+      parts_used: uniq(existing.parts_used),
+      preparation_notes: String(existing.preparation_notes || "").trim(),
+      warnings: String(existing.warnings || "").trim(),
+      claims
+    };
+  }
+
+  const actions = uniq(record.medicinalAction);
+  const bodySystems = uniq(record.medicinalSystem);
+  const medicalTerms = uniq(record.medicinalTerms);
+  const summary = hasRealMedicinalText(record.medicinal_uses) ? String(record.medicinal_uses || "").trim() : "";
+  const hasMeaningful = !!summary
+    || actions.length > 0
+    || bodySystems.length > 0
+    || medicalTerms.length > 0
+    || record.primary_use === "medicinal"
+    || record.food_role === "medicinal_only";
+
+  return {
+    has_meaningful_content: hasMeaningful,
+    summary,
+    evidence_tier: "",
+    actions,
+    body_systems: bodySystems,
+    medical_terms: medicalTerms,
+    parts_used: [],
+    preparation_notes: "",
+    warnings: "",
+    claims: []
+  };
+}
+
+export function getMedicinalData(record = {}) {
+  return deriveMedicinal(record);
+}
+
 function mergeOne(base, overlay) {
   const out = { ...base, ...overlay };
   const arrayKeys = [
     "months_available","links","images","look_alikes","lookalikes","habitat","observedPart","size","taste",
     "substrate","treeType","hostTree","host_filter_tokens","ring","texture","smell","staining","medicinalAction",
     "medicinalSystem","medicinalTerms","reviewReasons","review_reasons","manual_review_reasons","flowerColor","leafShape","leafArrangement",
-    "stemSurface","leafPointCount","boleteGroup","boleteSubgroup","poreColor","stemFeature","affected_systems","search_aliases","underside"
+    "stemSurface","leafPointCount","boleteGroup","boleteSubgroup","poreColor","stemFeature","affected_systems","search_aliases","underside",
+    "key_features","common_names","season_months","habitats"
   ];
   for (const key of arrayKeys) {
     if (base[key] !== undefined || overlay[key] !== undefined) out[key] = mergeArrays(base[key], overlay[key]);
@@ -113,8 +260,10 @@ export function normalizeRecord(record) {
     ...ensureArray(record.manual_review_reasons)
   ]);
   const category = String(record.category || "").trim();
-  const record_type = record.record_type || record.primary_type || (category.toLowerCase() === "mushroom" ? "mushroom" : "plant");
+  const kingdom_type = deriveKingdomType(record, category);
+  const record_type = kingdom_type;
   const underside = uniq([
+    ...ensureArray(record.mushroom_profile?.underside_type),
     ...ensureArray(record.mushroom_profile?.underside),
     ...ensureArray(record.underside)
   ]);
@@ -128,22 +277,41 @@ export function normalizeRecord(record) {
     ...ensureArray(record.host_filter_tokens),
     ...ensureArray(record.mushroom_profile?.host_filter_tokens)
   ]);
+  const commonNames = deriveCommonNames(record);
+  const rareProfile = deriveRareProfile(record);
+  const medicinal = deriveMedicinal(record);
+
   return {
     ...record,
+    common_names: commonNames,
+    common_name: record.common_name || commonNames[0] || "",
+    kingdom_type,
+    record_type,
+    species_scope: String(record.species_scope || record.entry_scope || "").trim() || "species",
+    foraging_class: deriveForagingClass(record, category),
+    field_identification: String(record.field_identification || record.identification_tips || record.field_marks || "").trim(),
+    season_months: deriveSeasonMonths(record),
+    habitats: deriveHabitats(record),
+    look_alikes: deriveLookAlikes(record),
+    look_alike_risk: String(record.look_alike_risk || "").trim(),
+    look_alike_notes: String(record.look_alike_notes || "").trim(),
+    rare_profile: rareProfile,
+    overview: String(record.overview || record.short_reason || rareProfile?.reason || "").trim(),
     general_notes: String(record.general_notes || "").trim(),
     notes: String(record.notes || "").trim(),
-    record_type,
     lane,
     reviewReasons,
+    review_reasons: reviewReasons,
     review_status: record.review_status || (reviewReasons.length ? "needs_review" : "ok"),
     search_aliases: uniq(record.search_aliases),
     host_filter_tokens: hostTokens,
     commonness: record.commonness || record.status || "",
     food_quality: record.food_quality || "",
     non_edible_severity: record.non_edible_severity || "",
-    medicinalAction: uniq(record.medicinalAction),
-    medicinalSystem: uniq(record.medicinalSystem),
-    medicinalTerms: uniq(record.medicinalTerms),
+    medicinal,
+    medicinalAction: medicinal.actions,
+    medicinalSystem: medicinal.body_systems,
+    medicinalTerms: medicinal.medical_terms,
     months_available: uniq(record.months_available),
     habitat: uniq(record.habitat)
   };
@@ -151,15 +319,20 @@ export function normalizeRecord(record) {
 
 export function classifyRecord(record) {
   const category = String(record.category || "").trim();
-  const isMushroom = String(record.record_type || "").toLowerCase() === "mushroom" || category.toLowerCase() === "mushroom";
-  const plantCategories = new Set(["Fruit","Green","Flower","Root","Tree Product","Green / Tubers"]);
-  const isPlant = String(record.record_type || "").toLowerCase() === "plant" || plantCategories.has(category);
-  const medicinal = hasRealMedicinalText(record.medicinal_uses)
-    || ensureArray(record.medicinalAction).length > 0
-    || record.primary_use === "medicinal"
-    || record.food_role === "medicinal_only";
+  const type = String(record.kingdom_type || record.record_type || "").toLowerCase();
+  const isMushroom = type === "mushroom" || category.toLowerCase() === "mushroom";
+  const plantCategories = new Set(["Fruit","Green","Flower","Root","Tree Product","Green / Tubers","Seed"]);
+  const isPlant = type === "plant" || plantCategories.has(category);
+  const medicinalData = getMedicinalData(record);
+  const medicinal = medicinalData.has_meaningful_content === true
+    || !!String(medicinalData.summary || "").trim()
+    || ensureArray(medicinalData.actions).length > 0
+    || ensureArray(medicinalData.body_systems).length > 0
+    || ensureArray(medicinalData.medical_terms).length > 0;
+
   const lookalike = !!String(record.non_edible_severity || "").trim()
-    || ["avoid","emergency_only","tea_extract_only","medicinal_only"].includes(String(record.food_role || "").trim())
-    || !!String(record.other_uses || "").trim();
+    || ["avoid","emergency_only","tea_extract_only"].includes(String(record.food_role || "").trim())
+    || ["serious","moderate"].includes(String(record.look_alike_risk || "").trim().toLowerCase());
+
   return { isMushroom, isPlant, medicinal, lookalike };
 }
