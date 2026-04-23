@@ -199,6 +199,38 @@ function deriveMedicinal(record) {
   };
 }
 
+function deriveUseLinks(record) {
+  if (Array.isArray(record.use_links)) return record.use_links;
+  const links = Array.isArray(record.links) ? record.links : [];
+  return links
+    .map((item) => {
+      if (typeof item === "string") {
+        const url = item.trim();
+        if (!url) return null;
+        return {
+          label: url,
+          url,
+          link_type: "general_reference",
+          applies_to_part: "",
+          source_quality: "",
+          notes: ""
+        };
+      }
+      if (!item || typeof item !== "object") return null;
+      const url = String(item.url || item.href || "").trim();
+      if (!url) return null;
+      return {
+        label: String(item.label || item.title || url).trim(),
+        url,
+        link_type: String(item.link_type || "general_reference").trim(),
+        applies_to_part: String(item.applies_to_part || "").trim(),
+        source_quality: String(item.source_quality || "").trim(),
+        notes: String(item.notes || "").trim()
+      };
+    })
+    .filter(Boolean);
+}
+
 export function getMedicinalData(record = {}) {
   return deriveMedicinal(record);
 }
@@ -297,6 +329,7 @@ export function normalizeRecord(record) {
     look_alike_notes: String(record.look_alike_notes || "").trim(),
     rare_profile: rareProfile,
     overview: String(record.overview || record.short_reason || rareProfile?.reason || "").trim(),
+    edibility_notes: String(record.edibility_notes || record.edibility_detail || "").trim(),
     general_notes: String(record.general_notes || "").trim(),
     notes: String(record.notes || "").trim(),
     lane,
@@ -312,6 +345,7 @@ export function normalizeRecord(record) {
     medicinalAction: medicinal.actions,
     medicinalSystem: medicinal.body_systems,
     medicinalTerms: medicinal.medical_terms,
+    use_links: deriveUseLinks(record),
     months_available: uniq(record.months_available),
     habitat: uniq(record.habitat)
   };
