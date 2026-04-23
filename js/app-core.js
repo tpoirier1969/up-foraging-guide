@@ -402,7 +402,8 @@ async function renderCreditsRoute(token) {
 
 export async function renderCurrentRoute() {
   const token = ++renderToken;
-  const route = parseRoute();
+  let route = parseRoute();
+  if (route === "otheruses") route = "other-uses";
   setRoute(route);
   markActiveNav(route === "search" ? "search" : (route.startsWith("mushrooms-") || route === "boletes" ? "mushrooms" : route));
 
