@@ -1,4 +1,5 @@
 import { classifyRecord } from "../lib/merge.js";
+import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
   "January","February","March","April","May","June",
@@ -10,20 +11,6 @@ function esc(value) {
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;");
-}
-
-function escAttr(value) {
-  return String(value ?? "")
-    .replaceAll("&", "&amp;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;");
-}
-
-function placeholderSvg(label) {
-  const text = String(label || "Loading photo").slice(0, 42);
-  const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect width="1200" height="800" fill="#eef3ef"/><rect x="40" y="40" width="1120" height="720" rx="28" ry="28" fill="#f8fbf8" stroke="#c9d5cd" stroke-width="6"/><circle cx="290" cy="300" r="70" fill="#dce9df"/><path d="M150 620l210-210 120 110 155-165 210 265H150z" fill="#dce9df"/><text x="600" y="690" text-anchor="middle" font-family="system-ui, sans-serif" font-size="46" fill="#5f6d63">${text}</text></svg>`;
-  return `data:image/svg+xml;charset=UTF-8,${encodeURIComponent(svg)}`;
 }
 
 function currentMonthName() {
@@ -93,21 +80,7 @@ function pickHighlights(species, month) {
 }
 
 function renderHomeImage(record) {
-  const label = record.display_name || record.common_name || record.slug || "Species";
-  const alt = `${label} photo 1`;
-  return `
-    <img
-      class="home-focus-image"
-      data-record-image
-      data-slug="${escAttr(record.slug || "")}"
-      data-image-index="0"
-      data-alt="${escAttr(alt)}"
-      alt="${escAttr(alt)}"
-      src="${placeholderSvg(`${label} loading photo`).replace(/"/g, "&quot;")}"
-      loading="lazy"
-      decoding="async"
-    >
-  `;
+  return renderImageSlot(record, "card", { showMeta: false });
 }
 
 export function renderHome(species, errors = [], rareSpecies = []) {
@@ -160,7 +133,12 @@ export function renderHome(species, errors = [], rareSpecies = []) {
 
         <div class="home-focus-highlights">
           ${highlights.map((record) => `
-            <button class="home-focus-card" type="button" data-detail="${esc(record.slug)}">
+            <button
+              class="home-focus-card"
+              type="button"
+              data-detail="${esc(record.slug)}"
+              aria-label="Open details for ${esc(record.display_name || record.common_name || record.slug || "Untitled")}" 
+            >
               <div class="home-focus-caption"><strong>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</strong></div>
               ${renderHomeImage(record)}
             </button>
