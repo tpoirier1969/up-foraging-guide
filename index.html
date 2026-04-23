@@ -2,52 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <base href="./fixed-site/">
-  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-  <title>Upper Michigan Foraging Guide</title>
-  <meta name="theme-color" content="#2f5d46">
-  <link rel="stylesheet" href="styles/base.css?v=v4.2.4-r2026-04-23-fixedsite-basehref1">
+  <title>Redirecting…</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="refresh" content="0; url=./fixed-site/index.html">
+  <script>
+    (function () {
+      const target = "./fixed-site/index.html" + (location.search || "") + (location.hash || "");
+      location.replace(target);
+    })();
+  </script>
+  <style>
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      margin: 0;
+      padding: 2rem;
+      line-height: 1.45;
+    }
+  </style>
 </head>
 <body>
-  <div class="app-shell">
-    <header class="site-header">
-      <div class="brand-row">
-        <div>
-          <h1>Upper Michigan Foraging Guide</h1>
-          <p class="subhead">Merged master build</p>
-        </div>
-        <div class="version-pill" id="versionBadge">v4.2.4-r2026-04-23-fixedsite-basehref1</div>
-      </div>
-
-      <nav class="main-nav" aria-label="Primary">
-        <a href="#/home" data-nav="home">Home</a>
-        <a href="#/plants" data-nav="plants">Plants</a>
-        <a href="#/mushrooms" data-nav="mushrooms">Mushrooms</a>
-        <a href="#/medicinal" data-nav="medicinal">Medicinal</a>
-        <a href="#/rare" data-nav="rare">Rare</a>
-        <a href="#/lookalikes" data-nav="lookalikes">Caution &amp; Other Uses</a>
-        <a href="#/review" data-nav="review">Needs Review</a>
-        <a href="#/references" data-nav="references">References</a>
-        <a href="#/credits" data-nav="credits">Credits</a>
-        <a href="#/search" data-nav="search">Search</a>
-      </nav>
-    </header>
-
-    <main class="page-root" id="pageRoot" aria-live="polite">
-      <section class="panel">
-        <h2>Loading…</h2>
-        <p id="bootStatus">Starting app shell…</p>
-      </section>
-    </main>
-  </div>
-
-  <dialog id="detailModal" class="detail-modal">
-    <article class="modal-card">
-      <button id="closeModalBtn" class="close-btn" type="button" aria-label="Close">×</button>
-      <div id="modalContent"></div>
-    </article>
-  </dialog>
-
-  <script type="module" src="js/boot.js?v=v4.2.4-r2026-04-23-fixedsite-basehref1"></script>
+  <p>Redirecting to <a href="./fixed-site/index.html">./fixed-site/index.html</a>…</p>
 </body>
 </html>
