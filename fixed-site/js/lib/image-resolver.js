@@ -110,7 +110,7 @@ function normalizeHardwiredImages(record) {
 
 async function loadLocalManifest() {
   if (!manifestPromise) {
-    manifestPromise = fetch("./fixed-site/data/species-images.json", { cache: "no-cache" })
+    manifestPromise = fetch("./data/species-images.json", { cache: "no-cache" })
       .then((res) => {
         if (!res.ok) throw new Error(`species-images.json ${res.status}`);
         return res.json();
