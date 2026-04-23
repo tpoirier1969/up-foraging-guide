@@ -30,7 +30,8 @@ function routeTitle(route) {
     "mushrooms-other": "Other mushrooms",
     medicinal: "Medicinal",
     rare: "Rare",
-    lookalikes: "Caution & Other Uses",
+    lookalikes: "Caution & Look-alikes",
+    "other-uses": "Other Uses",
     review: "Needs Review",
     references: "References",
     credits: "Credits",
@@ -401,7 +402,8 @@ async function renderCreditsRoute(token) {
 
 export async function renderCurrentRoute() {
   const token = ++renderToken;
-  const route = parseRoute();
+  let route = parseRoute();
+  if (route === "otheruses") route = "other-uses";
   setRoute(route);
   markActiveNav(route === "search" ? "search" : (route.startsWith("mushrooms-") || route === "boletes" ? "mushrooms" : route));
 
@@ -420,7 +422,7 @@ export async function renderCurrentRoute() {
     if (route === "rare") return await renderRareRoute(token);
     if (route === "references") return await renderReferencesRoute(token);
     if (route === "credits") return await renderCreditsRoute(token);
-    if (["plants", "mushrooms-gilled", "boletes", "mushrooms-other", "medicinal", "lookalikes", "review", "search"].includes(route)) {
+    if (["plants", "mushrooms-gilled", "boletes", "mushrooms-other", "medicinal", "lookalikes", "other-uses", "review", "search"].includes(route)) {
       return await renderSpeciesRoute(route, token);
     }
     await renderHomeRoute(token);
