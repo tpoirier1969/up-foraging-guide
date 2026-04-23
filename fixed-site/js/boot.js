@@ -1,7 +1,6 @@
-import { APP_VERSION } from "./config.js";
-
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
+const APP_VERSION = new URL(import.meta.url).searchParams.get("v") || "dev";
 
 function esc(value) {
   return String(value ?? "")
@@ -27,7 +26,10 @@ async function start() {
   }
 
   try {
-    const mod = await import("./app-core.js");
+    const mod = await import(`./app-core.js?v=${encodeURIComponent(APP_VERSION)}`);
+    if (typeof mod?.startApp !== "function") {
+      throw new Error("app-core.js loaded, but startApp was not exported.");
+    }
     await mod.startApp();
   } catch (err) {
     renderFatal(
