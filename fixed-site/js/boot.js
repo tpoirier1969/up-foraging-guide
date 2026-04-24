@@ -1,6 +1,6 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.25-r2026-04-24-filter-cleanup1";
+const APP_VERSION = "v4.2.26-r2026-04-24-lightboxfix1";
 
 function esc(value) {
   return String(value ?? "")
