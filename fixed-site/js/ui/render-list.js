@@ -1,4 +1,4 @@
-import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.27-r2026-04-24-chaga-uses1";
+import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.28-r2026-04-24-filter-audit1";
 import { esc } from "../lib/escape.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
@@ -42,10 +42,19 @@ const BOLETE_EXTRA_FILTER_DEFS = [
 
 const SKIP_OPTION_VALUES = new Set(["", "unknown", "needs-review", "needs review", "review_required", "n/a", "not sure"]);
 const MISSING_FILTER_VALUE = "__missing__";
-const MISSING_FILTER_LABEL = "Unknown / not specified";
+const MISSING_FILTER_LABEL = "Not recorded / needs review";
 const SEASON_REVIEW_VALUE = "__season_needs_review__";
 const SEASON_REVIEW_LABEL = "Season needs review";
 const TREE_TYPE_RE = /\b(hardwood|softwood|conifer|coniferous|deciduous|broadleaf|mixed woods?)\b/i;
+
+const MISSING_REVIEW_LABELS_BY_VALUE_KEY = new Map([
+  ["mushroomSubstrate", "Needs substrate review"],
+  ["month", "Season not recorded"]
+]);
+
+function missingLabelForFilter(fieldOrDef = {}) {
+  return MISSING_REVIEW_LABELS_BY_VALUE_KEY.get(fieldOrDef.valueKey) || MISSING_FILTER_LABEL;
+}
 
 function asList(value) {
   if (Array.isArray(value)) return value;
@@ -160,8 +169,8 @@ function filterDefinitionsForRoute(route) {
   return [];
 }
 
-function displayOptionValue(value) {
-  if (value === MISSING_FILTER_VALUE) return MISSING_FILTER_LABEL;
+function displayOptionValue(value, fieldOrDef = {}) {
+  if (value === MISSING_FILTER_VALUE) return missingLabelForFilter(fieldOrDef);
   if (value === SEASON_REVIEW_VALUE) return SEASON_REVIEW_LABEL;
   return value;
 }
@@ -196,10 +205,10 @@ export function getFilterFieldsForRoute(records, route) {
     const values = sortOptions([...counts.keys()], def.valueKey);
     const options = values.map((value) => ({
       value,
-      label: `${displayOptionValue(value)} (${counts.get(value) || 0})`
+      label: `${displayOptionValue(value, def)} (${counts.get(value) || 0})`
     }));
     if (missingCount > 0) {
-      options.push({ value: MISSING_FILTER_VALUE, label: `${MISSING_FILTER_LABEL} (${missingCount})` });
+      options.push({ value: MISSING_FILTER_VALUE, label: `${missingLabelForFilter(def)} (${missingCount})` });
     }
     return { ...def, options };
   }).filter((field) => field.options.length > 0);
@@ -207,6 +216,25 @@ export function getFilterFieldsForRoute(records, route) {
 
 export function hasActiveTraitFilters(route, filters = {}) {
   return filterDefinitionsForRoute(route).some((def) => !!filters?.[def.key]);
+}
+
+function hasFilterValueMissing(record, valueKey) {
+  return valuesForFilter(record, valueKey).length === 0;
+}
+
+function hasSeasonReviewFlag(record) {
+  return monthValues(record).includes(SEASON_REVIEW_VALUE);
+}
+
+function dataQualityTags(record, route = "general") {
+  const tags = [];
+  if (["boletes", "mushrooms-gilled", "mushrooms-other"].includes(route) && hasSeasonReviewFlag(record)) {
+    tags.push("Season needs review");
+  }
+  if (route === "boletes" && hasFilterValueMissing(record, "mushroomSubstrate")) {
+    tags.push("Needs substrate review");
+  }
+  return tags;
 }
 
 function makeMeta(record, route = "general") {
@@ -222,6 +250,7 @@ function makeMeta(record, route = "general") {
   if (record.food_quality) bits.push(`<span class="tag good">${esc(record.food_quality)}</span>`);
   if (edibleUse?.has_ingestible_use && edibleUse.method && !bits.join(" ").includes(edibleUse.method)) bits.push(`<span class="tag good">${esc(edibleUse.method)}</span>`);
   if (record.non_edible_severity && !edibleUse?.has_ingestible_use) bits.push(`<span class="tag danger">${esc(record.non_edible_severity)}</span>`);
+  dataQualityTags(record, route).forEach((label) => bits.push(`<span class="tag review">${esc(label)}</span>`));
   if (record.review_status === "needs_review") bits.push(`<span class="tag review">Needs review</span>`);
   return bits.join("");
 }

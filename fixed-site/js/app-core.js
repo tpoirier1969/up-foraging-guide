@@ -1,10 +1,10 @@
 import { state, setRoute, setSpecies, setRareSpecies, setReferences, logBoot } from "./state.js";
 import { MEDICINAL_VOCAB } from "./data/medicinal-vocabulary.js";
-import { renderPage, openModal, closeModal, els } from "./ui/dom.js?v=v4.2.27-r2026-04-24-chaga-uses1";
+import { renderPage, openModal, closeModal, els } from "./ui/dom.js?v=v4.2.28-r2026-04-24-filter-audit1";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 
-const APP_VERSION = "v4.2.27-r2026-04-24-chaga-uses1";
+const APP_VERSION = "v4.2.28-r2026-04-24-filter-audit1";
 const REVIEW_STORAGE_KEY = "foraging_review_overlay_v1";
 const moduleCache = new Map();
 let loadAppDataPromise = null;
@@ -126,10 +126,12 @@ function clearTraitFiltersForRoute(route) {
 function renderTraitFilters(route, filterFields = [], activeTraitFilters = false) {
   if (!filterFields.length) return "";
   const title = isPlantFilterRoute(route) ? "Plant filters" : "Mushroom filters";
-  const hasUnknown = filterFields.some((field) => (field.options || []).some((option) => option?.value === "__missing__"));
+  const hasMissing = filterFields.some((field) => (field.options || []).some((option) => option?.value === "__missing__"));
+  const hasSubstrateReview = filterFields.some((field) => field.valueKey === "mushroomSubstrate" && (field.options || []).some((option) => option?.value === "__missing__"));
   const hasSeasonReview = filterFields.some((field) => (field.options || []).some((option) => option?.value === "__season_needs_review__"));
   const noteBits = [];
-  if (hasUnknown) noteBits.push("Unknown / not specified is selectable so records without that field do not disappear into the swamp.");
+  if (hasSubstrateReview) noteBits.push("Needs substrate review marks records where substrate is missing. That is a data-audit task, not a normal ID category.");
+  else if (hasMissing) noteBits.push("Not recorded / needs review is selectable so records with missing filter data can be found and fixed.");
   if (hasSeasonReview) noteBits.push("Season needs review marks records whose season looks like inherited audit/default data, not verified field timing.");
   return `
     <section class="panel">
