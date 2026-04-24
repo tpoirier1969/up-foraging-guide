@@ -1,4 +1,4 @@
-import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.28-r2026-04-24-filter-audit1";
+import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.29-r2026-04-24-filter-countfix1";
 import { esc } from "../lib/escape.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
@@ -187,14 +187,30 @@ function sortOptions(values, valueKey = "") {
   });
 }
 
-export function getFilterFieldsForRoute(records, route) {
+function matchesTraitFiltersExcept(record, route, filters = {}, exceptKey = "") {
+  const defs = filterDefinitionsForRoute(route);
+  if (!defs.length) return true;
+  return defs.every((def) => {
+    if (def.key === exceptKey) return true;
+    const selected = String(filters?.[def.key] || "").trim();
+    if (!selected) return true;
+    const values = valuesForFilter(record, def.valueKey);
+    if (selected === MISSING_FILTER_VALUE) return values.length === 0;
+    return values.includes(selected);
+  });
+}
+
+export function getFilterFieldsForRoute(records, route, filters = {}) {
   const defs = filterDefinitionsForRoute(route);
   if (!defs.length) return [];
   const baseRecords = (records || []).filter((record) => !record?.hidden && routeMatch(record, route));
   return defs.map((def) => {
+    const selected = String(filters?.[def.key] || "").trim();
+    const recordsForThisField = baseRecords.filter((record) => matchesTraitFiltersExcept(record, route, filters, def.key));
     const counts = new Map();
     let missingCount = 0;
-    for (const record of baseRecords) {
+
+    for (const record of recordsForThisField) {
       const values = [...new Set(valuesForFilter(record, def.valueKey))];
       if (!values.length) {
         missingCount += 1;
@@ -202,16 +218,26 @@ export function getFilterFieldsForRoute(records, route) {
       }
       values.forEach((value) => counts.set(value, (counts.get(value) || 0) + 1));
     }
+
     const values = sortOptions([...counts.keys()], def.valueKey);
     const options = values.map((value) => ({
       value,
       label: `${displayOptionValue(value, def)} (${counts.get(value) || 0})`
     }));
+
     if (missingCount > 0) {
       options.push({ value: MISSING_FILTER_VALUE, label: `${missingLabelForFilter(def)} (${missingCount})` });
     }
+
+    if (selected && !options.some((option) => option.value === selected)) {
+      options.push({
+        value: selected,
+        label: `${displayOptionValue(selected, def)} (0)`
+      });
+    }
+
     return { ...def, options };
-  }).filter((field) => field.options.length > 0);
+  }).filter((field) => field.options.length > 0 || String(filters?.[field.key] || "").trim());
 }
 
 export function hasActiveTraitFilters(route, filters = {}) {

@@ -1,10 +1,10 @@
 import { state, setRoute, setSpecies, setRareSpecies, setReferences, logBoot } from "./state.js";
 import { MEDICINAL_VOCAB } from "./data/medicinal-vocabulary.js";
-import { renderPage, openModal, closeModal, els } from "./ui/dom.js?v=v4.2.28-r2026-04-24-filter-audit1";
+import { renderPage, openModal, closeModal, els } from "./ui/dom.js?v=v4.2.29-r2026-04-24-filter-countfix1";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 
-const APP_VERSION = "v4.2.28-r2026-04-24-filter-audit1";
+const APP_VERSION = "v4.2.29-r2026-04-24-filter-countfix1";
 const REVIEW_STORAGE_KEY = "foraging_review_overlay_v1";
 const moduleCache = new Map();
 let loadAppDataPromise = null;
@@ -483,7 +483,7 @@ async function renderSpeciesRoute(route, token) {
   const { filterRecords, renderRecordCards, getFilterFieldsForRoute, hasActiveTraitFilters } = await importModule("./ui/render-list.js");
   if (token !== renderToken) return;
   const matchRoute = route === "search" ? "general" : route;
-  const filterFields = getFilterFieldsForRoute(state.species, matchRoute);
+  const filterFields = getFilterFieldsForRoute(state.species, matchRoute, state.filters);
   const activeTraitFilters = hasActiveTraitFilters(matchRoute, state.filters);
   const filtered = filterRecords(state.species, matchRoute, state.filters);
   const title = `${routeTitle(route)} (${filtered.length})`;
