@@ -1,6 +1,160 @@
-import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.22-r2026-04-24-search-clear1";
+import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.24-r2026-04-24-filter-runtimefix1";
 import { esc } from "../lib/escape.js";
 import { renderImageSlot } from "../lib/image-slot.js";
+
+const MONTHS = [
+  "January","February","March","April","May","June",
+  "July","August","September","October","November","December"
+];
+
+const PLANT_FILTER_DEFS = [
+  { key: "plantMonth", label: "Season", blankLabel: "Any season", valueKey: "month" },
+  { key: "plantPart", label: "Part / clue", blankLabel: "Any part", valueKey: "plantPart" },
+  { key: "plantHabitat", label: "Habitat", blankLabel: "Any habitat", valueKey: "plantHabitat" },
+  { key: "plantSize", label: "Size", blankLabel: "Any size", valueKey: "plantSize" },
+  { key: "plantTaste", label: "Taste", blankLabel: "Any taste", valueKey: "plantTaste" },
+  { key: "plantFlowerColor", label: "Flower color", blankLabel: "Any flower color", valueKey: "plantFlowerColor" },
+  { key: "plantFruitColor", label: "Fruit color", blankLabel: "Any fruit color", valueKey: "plantFruitColor" },
+  { key: "plantLeafShape", label: "Leaf shape", blankLabel: "Any leaf shape", valueKey: "plantLeafShape" },
+  { key: "plantLeafArrangement", label: "Leaf arrangement", blankLabel: "Any leaf arrangement", valueKey: "plantLeafArrangement" },
+  { key: "plantStem", label: "Stem / surface", blankLabel: "Any stem clue", valueKey: "plantStem" }
+];
+
+const MUSHROOM_FILTER_DEFS = [
+  { key: "mushroomMonth", label: "Season", blankLabel: "Any season", valueKey: "month" },
+  { key: "mushroomSubstrate", label: "Substrate", blankLabel: "Any substrate", valueKey: "mushroomSubstrate" },
+  { key: "mushroomTreeType", label: "Tree type", blankLabel: "Any tree type", valueKey: "mushroomTreeType" },
+  { key: "mushroomHost", label: "Host tree", blankLabel: "Any host tree", valueKey: "mushroomHost" },
+  { key: "mushroomUnderside", label: "Underside", blankLabel: "Any underside", valueKey: "mushroomUnderside" },
+  { key: "mushroomRing", label: "Ring", blankLabel: "Any ring", valueKey: "mushroomRing" },
+  { key: "mushroomTexture", label: "Texture", blankLabel: "Any texture", valueKey: "mushroomTexture" },
+  { key: "mushroomSmell", label: "Smell", blankLabel: "Any smell", valueKey: "mushroomSmell" },
+  { key: "mushroomStaining", label: "Staining", blankLabel: "Any staining", valueKey: "mushroomStaining" },
+  { key: "mushroomCapSurface", label: "Cap surface", blankLabel: "Any cap surface", valueKey: "mushroomCapSurface" },
+  { key: "mushroomStemFeature", label: "Stem feature", blankLabel: "Any stem feature", valueKey: "mushroomStemFeature" }
+];
+
+const BOLETE_EXTRA_FILTER_DEFS = [
+  { key: "mushroomBoleteGroup", label: "Bolete group", blankLabel: "Any bolete group", valueKey: "mushroomBoleteGroup" },
+  { key: "mushroomBoleteSubgroup", label: "Bolete subgroup", blankLabel: "Any bolete subgroup", valueKey: "mushroomBoleteSubgroup" },
+  { key: "mushroomPoreColor", label: "Pore color", blankLabel: "Any pore color", valueKey: "mushroomPoreColor" }
+];
+
+const SKIP_OPTION_VALUES = new Set(["", "unknown", "needs-review", "needs review", "review_required", "n/a", "not sure"]);
+const TREE_TYPE_RE = /\b(hardwood|softwood|conifer|coniferous|deciduous|broadleaf|mixed woods?)\b/i;
+
+function asList(value) {
+  if (Array.isArray(value)) return value;
+  if (value === undefined || value === null) return [];
+  if (typeof value === "string") return value.trim() ? [value.trim()] : [];
+  return [value];
+}
+
+function nestedValue(source, path) {
+  return path.reduce((value, key) => (value && typeof value === "object" ? value[key] : undefined), source);
+}
+
+function collectValues(record, paths = []) {
+  return paths.flatMap((path) => asList(nestedValue(record, path)));
+}
+
+function normalizeOption(value) {
+  return String(value ?? "")
+    .replace(/\s+/g, " ")
+    .replace(/^\s+|\s+$/g, "");
+}
+
+function cleanOptionValues(values = []) {
+  return values
+    .flatMap((value) => asList(value))
+    .map(normalizeOption)
+    .filter((value) => value && !SKIP_OPTION_VALUES.has(value.toLowerCase()));
+}
+
+function monthValues(record) {
+  const names = cleanOptionValues(record.months_available);
+  const fromSeasonMonths = asList(record.season_months)
+    .map((value) => MONTHS[Number(value) - 1] || "")
+    .filter(Boolean);
+  const fromMonthNumbers = asList(record.month_numbers)
+    .map((value) => MONTHS[Number(value) - 1] || "")
+    .filter(Boolean);
+  return cleanOptionValues([...names, ...fromSeasonMonths, ...fromMonthNumbers]);
+}
+
+function treeTypeValues(record) {
+  const candidates = cleanOptionValues([
+    ...collectValues(record, [["treeType"], ["wood_type"], ["mushroom_profile", "wood_type"]]),
+    ...collectValues(record, [["host_filter_tokens"], ["mushroom_profile", "host_filter_tokens"]])
+  ]);
+  return candidates.filter((value) => TREE_TYPE_RE.test(value));
+}
+
+function hostTreeValues(record) {
+  const candidates = cleanOptionValues([
+    ...collectValues(record, [["hostTree"], ["host_trees"], ["mushroom_profile", "host_trees"]]),
+    ...collectValues(record, [["host_filter_tokens"], ["mushroom_profile", "host_filter_tokens"]])
+  ]);
+  return candidates.filter((value) => !TREE_TYPE_RE.test(value));
+}
+
+function valuesForFilter(record, valueKey) {
+  switch (valueKey) {
+    case "month": return monthValues(record);
+    case "plantPart": return cleanOptionValues(collectValues(record, [["observedPart"], ["parts_used"], ["plant_parts"], ["category"], ["foraging_class"]]));
+    case "plantHabitat": return cleanOptionValues(collectValues(record, [["habitats"], ["habitat"]]));
+    case "plantSize": return cleanOptionValues(collectValues(record, [["size"]]));
+    case "plantTaste": return cleanOptionValues(collectValues(record, [["taste"]]));
+    case "plantFlowerColor": return cleanOptionValues(collectValues(record, [["flowerColor"], ["flower_color"]]));
+    case "plantFruitColor": return cleanOptionValues(collectValues(record, [["fruitColor"], ["fruit_color"], ["berryColor"], ["berry_color"]]));
+    case "plantLeafShape": return cleanOptionValues(collectValues(record, [["leafShape"], ["leaf_shape"]]));
+    case "plantLeafArrangement": return cleanOptionValues(collectValues(record, [["leafArrangement"], ["leaf_arrangement"]]));
+    case "plantStem": return cleanOptionValues(collectValues(record, [["stemSurface"], ["stem_surface"], ["stemShape"], ["stem_shape"], ["leafPointCount"]]));
+    case "mushroomSubstrate": return cleanOptionValues(collectValues(record, [["substrate"], ["mushroom_profile", "substrate"]]));
+    case "mushroomTreeType": return treeTypeValues(record);
+    case "mushroomHost": return hostTreeValues(record);
+    case "mushroomUnderside": return cleanOptionValues(collectValues(record, [["underside"], ["mushroom_profile", "underside"], ["mushroom_profile", "underside_type"], ["mushroom_profile", "fertile_surface"]]));
+    case "mushroomRing": return cleanOptionValues(collectValues(record, [["ring"], ["mushroom_profile", "ring"]]));
+    case "mushroomTexture": return cleanOptionValues(collectValues(record, [["texture"], ["mushroom_profile", "texture"]]));
+    case "mushroomSmell": return cleanOptionValues(collectValues(record, [["smell"], ["odor"], ["mushroom_profile", "smell"], ["mushroom_profile", "odor"]]));
+    case "mushroomStaining": return cleanOptionValues(collectValues(record, [["staining"], ["mushroom_profile", "staining"]]));
+    case "mushroomCapSurface": return cleanOptionValues(collectValues(record, [["capSurface"], ["cap_surface"], ["mushroom_profile", "cap_surface"]]));
+    case "mushroomStemFeature": return cleanOptionValues(collectValues(record, [["stemFeature"], ["stem_feature"], ["mushroom_profile", "stem_feature"]]));
+    case "mushroomBoleteGroup": return cleanOptionValues(collectValues(record, [["boleteGroup"], ["mushroom_family"]]));
+    case "mushroomBoleteSubgroup": return cleanOptionValues(collectValues(record, [["boleteSubgroup"]]));
+    case "mushroomPoreColor": return cleanOptionValues(collectValues(record, [["poreColor"], ["pore_color"], ["mushroom_profile", "pore_color"]]));
+    default: return [];
+  }
+}
+
+function filterDefinitionsForRoute(route) {
+  if (route === "plants") return PLANT_FILTER_DEFS;
+  if (["mushrooms-gilled", "mushrooms-other"].includes(route)) return MUSHROOM_FILTER_DEFS;
+  if (route === "boletes") return [...MUSHROOM_FILTER_DEFS, ...BOLETE_EXTRA_FILTER_DEFS];
+  return [];
+}
+
+function sortOptions(values, valueKey = "") {
+  const unique = [...new Set(cleanOptionValues(values))];
+  if (valueKey === "month") {
+    return unique.sort((a, b) => MONTHS.indexOf(a) - MONTHS.indexOf(b));
+  }
+  return unique.sort((a, b) => a.localeCompare(b));
+}
+
+export function getFilterFieldsForRoute(records, route) {
+  const defs = filterDefinitionsForRoute(route);
+  if (!defs.length) return [];
+  const baseRecords = (records || []).filter((record) => !record?.hidden && routeMatch(record, route));
+  return defs.map((def) => ({
+    ...def,
+    options: sortOptions(baseRecords.flatMap((record) => valuesForFilter(record, def.valueKey)), def.valueKey)
+  })).filter((field) => field.options.length > 0);
+}
+
+export function hasActiveTraitFilters(route, filters = {}) {
+  return filterDefinitionsForRoute(route).some((def) => !!filters?.[def.key]);
+}
 
 function makeMeta(record, route = "general") {
   const info = classifyRecord(record);
@@ -60,10 +214,6 @@ function matchesSearch(record, q) {
   return hay.includes(q);
 }
 
-function asList(value) {
-  return Array.isArray(value) ? value : [];
-}
-
 function arrayHas(valueList, selected) {
   if (!selected) return true;
   return asList(valueList).includes(selected);
@@ -82,7 +232,31 @@ function normalizeFilters(filtersOrSearch) {
     search: filtersOrSearch?.search || "",
     medicinalAction: filtersOrSearch?.medicinalAction || "",
     medicinalSystem: filtersOrSearch?.medicinalSystem || "",
-    medicinalTerm: filtersOrSearch?.medicinalTerm || ""
+    medicinalTerm: filtersOrSearch?.medicinalTerm || "",
+    plantMonth: filtersOrSearch?.plantMonth || "",
+    plantPart: filtersOrSearch?.plantPart || "",
+    plantHabitat: filtersOrSearch?.plantHabitat || "",
+    plantSize: filtersOrSearch?.plantSize || "",
+    plantTaste: filtersOrSearch?.plantTaste || "",
+    plantFlowerColor: filtersOrSearch?.plantFlowerColor || "",
+    plantFruitColor: filtersOrSearch?.plantFruitColor || "",
+    plantLeafShape: filtersOrSearch?.plantLeafShape || "",
+    plantLeafArrangement: filtersOrSearch?.plantLeafArrangement || "",
+    plantStem: filtersOrSearch?.plantStem || "",
+    mushroomMonth: filtersOrSearch?.mushroomMonth || "",
+    mushroomSubstrate: filtersOrSearch?.mushroomSubstrate || "",
+    mushroomTreeType: filtersOrSearch?.mushroomTreeType || "",
+    mushroomHost: filtersOrSearch?.mushroomHost || "",
+    mushroomUnderside: filtersOrSearch?.mushroomUnderside || "",
+    mushroomRing: filtersOrSearch?.mushroomRing || "",
+    mushroomTexture: filtersOrSearch?.mushroomTexture || "",
+    mushroomSmell: filtersOrSearch?.mushroomSmell || "",
+    mushroomStaining: filtersOrSearch?.mushroomStaining || "",
+    mushroomCapSurface: filtersOrSearch?.mushroomCapSurface || "",
+    mushroomStemFeature: filtersOrSearch?.mushroomStemFeature || "",
+    mushroomBoleteGroup: filtersOrSearch?.mushroomBoleteGroup || "",
+    mushroomBoleteSubgroup: filtersOrSearch?.mushroomBoleteSubgroup || "",
+    mushroomPoreColor: filtersOrSearch?.mushroomPoreColor || ""
   };
 }
 
@@ -90,6 +264,16 @@ function matchesMedicinalFilters(record, filters) {
   return arrayHas(record.medicinalAction, filters.medicinalAction)
     && arrayHas(record.medicinalSystem, filters.medicinalSystem)
     && arrayHas(record.medicinalTerms, filters.medicinalTerm);
+}
+
+function matchesTraitFilters(record, route, filters) {
+  const defs = filterDefinitionsForRoute(route);
+  if (!defs.length) return true;
+  return defs.every((def) => {
+    const selected = String(filters?.[def.key] || "").trim();
+    if (!selected) return true;
+    return valuesForFilter(record, def.valueKey).includes(selected);
+  });
 }
 
 function routeMatch(record, route) {
@@ -111,8 +295,10 @@ export function filterRecords(records, route, filtersOrSearch = "") {
   const q = String(filters.search || "").trim().toLowerCase();
   return (records || []).filter((record) => {
     if (record.hidden) return false;
-    if (!routeMatch(record, route === "search" ? "general" : route)) return false;
+    const matchRoute = route === "search" ? "general" : route;
+    if (!routeMatch(record, matchRoute)) return false;
     if (route === "medicinal" && !matchesMedicinalFilters(record, filters)) return false;
+    if (!matchesTraitFilters(record, matchRoute, filters)) return false;
     if (!q) return true;
     return matchesSearch(record, q);
   });

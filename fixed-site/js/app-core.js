@@ -1,11 +1,10 @@
-import { APP_VERSION as CONFIG_APP_VERSION } from "./config.js";
 import { state, setRoute, setSpecies, setRareSpecies, setReferences, logBoot } from "./state.js";
 import { MEDICINAL_VOCAB } from "./data/medicinal-vocabulary.js";
 import { renderPage, openModal, closeModal, els } from "./ui/dom.js";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 
-const APP_VERSION = new URL(import.meta.url).searchParams.get("v") || CONFIG_APP_VERSION || "dev";
+const APP_VERSION = "v4.2.24-r2026-04-24-filter-runtimefix1";
 const REVIEW_STORAGE_KEY = "foraging_review_overlay_v1";
 const moduleCache = new Map();
 let loadAppDataPromise = null;
@@ -94,7 +93,56 @@ function optionHtml(values, current, blankLabel) {
     .join("");
 }
 
-function controlsHtml(route = "general", placeholder = "Search species") {
+const PLANT_TRAIT_FILTER_KEYS = [
+  "plantMonth", "plantPart", "plantHabitat", "plantSize", "plantTaste",
+  "plantFlowerColor", "plantFruitColor", "plantLeafShape", "plantLeafArrangement", "plantStem"
+];
+
+const MUSHROOM_TRAIT_FILTER_KEYS = [
+  "mushroomMonth", "mushroomSubstrate", "mushroomTreeType", "mushroomHost", "mushroomUnderside",
+  "mushroomRing", "mushroomTexture", "mushroomSmell", "mushroomStaining", "mushroomCapSurface",
+  "mushroomStemFeature", "mushroomBoleteGroup", "mushroomBoleteSubgroup", "mushroomPoreColor"
+];
+
+function isPlantFilterRoute(route) {
+  return route === "plants";
+}
+
+function isMushroomFilterRoute(route) {
+  return ["mushrooms-gilled", "boletes", "mushrooms-other"].includes(route);
+}
+
+function clearTraitFiltersForRoute(route) {
+  const keys = isPlantFilterRoute(route)
+    ? PLANT_TRAIT_FILTER_KEYS
+    : (isMushroomFilterRoute(route) ? MUSHROOM_TRAIT_FILTER_KEYS : []);
+  keys.forEach((key) => { state.filters[key] = ""; });
+}
+
+function renderTraitFilters(route, filterFields = [], activeTraitFilters = false) {
+  if (!filterFields.length) return "";
+  const title = isPlantFilterRoute(route) ? "Plant filters" : "Mushroom filters";
+  return `
+    <section class="panel">
+      <div class="home-focus-heading">
+        <h3>${esc(title)}</h3>
+        ${activeTraitFilters ? `<button id="traitClearBtn" type="button">Clear filters</button>` : ""}
+      </div>
+      <div class="medicinal-filter-row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;align-items:end;">
+        ${filterFields.map((field) => `
+          <div class="medicinal-filter-cell">
+            <label for="traitFilter_${esc(field.key)}" class="muted small">${esc(field.label)}</label>
+            <select id="traitFilter_${esc(field.key)}" data-trait-filter="${esc(field.key)}" style="width:100%">
+              ${optionHtml(field.options, state.filters[field.key] || "", field.blankLabel || "Any")}
+            </select>
+          </div>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function controlsHtml(route = "general", placeholder = "Search species", filterFields = [], activeTraitFilters = false) {
   const search = state.filters.search || "";
   if (route === "medicinal") {
     return `
@@ -129,6 +177,9 @@ function controlsHtml(route = "general", placeholder = "Search species") {
         </div>
       </section>
     `;
+  }
+  if (isPlantFilterRoute(route) || isMushroomFilterRoute(route)) {
+    return renderTraitFilters(route, filterFields, activeTraitFilters);
   }
   return "";
 }
@@ -338,6 +389,7 @@ function clearRouteFilters(route) {
     state.filters.medicinalSystem = "";
     state.filters.medicinalTerm = "";
   }
+  clearTraitFiltersForRoute(route);
 }
 
 function wireCommonEvents(route) {
@@ -363,6 +415,18 @@ function wireCommonEvents(route) {
   });
   document.getElementById("medicinalTermFilter")?.addEventListener("change", (event) => {
     state.filters.medicinalTerm = event.currentTarget.value || "";
+    renderCurrentRoute();
+  });
+  document.querySelectorAll("[data-trait-filter]").forEach((select) => {
+    select.addEventListener("change", (event) => {
+      const key = event.currentTarget.dataset.traitFilter || "";
+      if (!key) return;
+      state.filters[key] = event.currentTarget.value || "";
+      renderCurrentRoute();
+    });
+  });
+  document.getElementById("traitClearBtn")?.addEventListener("click", () => {
+    clearTraitFiltersForRoute(route);
     renderCurrentRoute();
   });
   wireActionButtons(document);
@@ -404,12 +468,15 @@ async function renderHomeRoute(token) {
 }
 
 async function renderSpeciesRoute(route, token) {
-  const { filterRecords, renderRecordCards } = await importModule("./ui/render-list.js");
+  const { filterRecords, renderRecordCards, getFilterFieldsForRoute, hasActiveTraitFilters } = await importModule("./ui/render-list.js");
   if (token !== renderToken) return;
-  const filtered = filterRecords(state.species, route === "search" ? "general" : route, state.filters);
+  const matchRoute = route === "search" ? "general" : route;
+  const filterFields = getFilterFieldsForRoute(state.species, matchRoute);
+  const activeTraitFilters = hasActiveTraitFilters(matchRoute, state.filters);
+  const filtered = filterRecords(state.species, matchRoute, state.filters);
   const title = `${routeTitle(route)} (${filtered.length})`;
   renderPage(`
-    ${controlsHtml(route, route === "search" ? "Search all species" : `Search ${routeTitle(route).toLowerCase()}`)}
+    ${controlsHtml(route, route === "search" ? "Search all species" : `Search ${routeTitle(route).toLowerCase()}`, filterFields, activeTraitFilters)}
     <section class="panel"><h2>${esc(title)}</h2></section>
     ${renderRecordCards(filtered, route)}
   `);
