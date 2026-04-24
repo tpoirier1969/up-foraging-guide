@@ -1,4 +1,4 @@
-import { classifyRecord } from "../lib/merge.js";
+import { classifyRecord, isBuildNoteText } from "../lib/merge.js";
 import { esc } from "../lib/escape.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
@@ -109,14 +109,24 @@ export function filterRecords(records, route, filtersOrSearch = "") {
 }
 
 function cardSnippet(record) {
-  return record.overview
-    || record.field_identification
-    || record.short_reason
-    || record.classification_note
-    || record.notes
-    || record.general_notes
-    || record.habitat_detail
-    || "";
+  const rare = record.rare_profile || {};
+  const candidates = [
+    record.overview,
+    record.field_identification,
+    record.culinary_uses,
+    record.other_uses,
+    rare.reason,
+    record.notes,
+    record.general_notes,
+    record.habitat_detail
+  ];
+  for (const value of candidates) {
+    const text = String(value || "").trim();
+    if (!text) continue;
+    if (isBuildNoteText(text)) continue;
+    return text;
+  }
+  return "";
 }
 
 export function renderRecordCards(records, route = "general") {

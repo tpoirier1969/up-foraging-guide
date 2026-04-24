@@ -47,6 +47,20 @@ const PLACEHOLDER_MEDICINAL_PATTERNS = [
   /related use context/
 ];
 
+const CURATION_NOTE_PATTERNS = [
+  /original app species restored/i,
+  /standalone modular build/i,
+  /consolidated to one .* entry/i,
+  /merged under .* current build/i,
+  /seed entry only/i,
+  /minimal species seed/i,
+  /added during .* audit/i,
+  /baseline audit pass/i,
+  /clean app/i,
+  /copyback .* pending/i,
+  /current build/i
+];
+
 const FORAGING_CLASS_MAP = new Map([
   ["fruit", "fruit"],
   ["green", "green"],
@@ -66,6 +80,21 @@ export function isPlaceholderMedicinalText(value) {
 export function hasRealMedicinalText(value) {
   const normalized = normalizeMedicinalText(value);
   return !!normalized && !isPlaceholderMedicinalText(normalized);
+}
+
+export function isBuildNoteText(value) {
+  const normalized = String(value || '').replace(/\s+/g, ' ').trim();
+  return !!normalized && CURATION_NOTE_PATTERNS.some((pattern) => pattern.test(normalized));
+}
+
+function firstUserFacingText(...values) {
+  for (const value of values) {
+    const text = String(value || '').trim();
+    if (!text) continue;
+    if (isBuildNoteText(text)) continue;
+    return text;
+  }
+  return '';
 }
 
 function deriveKingdomType(record, category = "") {
@@ -308,10 +337,13 @@ export function isCautionRecord(record = {}) {
   const severity = normalizedNonEdibleSeverity(record);
   const risk = String(record.look_alike_risk || "").trim().toLowerCase();
 
+  if (isEdibleForSection(record) && risk !== "serious") return false;
+  if (foodRole === "tea_extract_only") return false;
+  if (isBenignNonCulinarySeverity(severity)) return false;
+  if (risk === "serious") return true;
   if (isDangerSeverity(severity)) return true;
   if (["not_edible", "poisonous", "deadly"].includes(edibility)) return true;
   if (["avoid", "emergency_only"].includes(foodRole)) return true;
-  if (risk === "serious") return true;
 
   return false;
 }

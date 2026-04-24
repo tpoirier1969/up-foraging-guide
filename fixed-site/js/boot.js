@@ -1,6 +1,6 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = new URL(import.meta.url).searchParams.get("v") || "v4.2.10-r2026-04-24-classification-cleanup1";
+const APP_VERSION = new URL(import.meta.url).searchParams.get("v") || "v4.2.11-r2026-04-24-wrapup-fix1";
 
 function esc(value) {
   return String(value ?? "")

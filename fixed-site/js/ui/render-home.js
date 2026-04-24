@@ -98,11 +98,6 @@ export function renderHome(species, errors = [], rareSpecies = []) {
 
   return `
     <section class="panel home-focus-panel">
-      <div class="home-focus-heading">
-        <h2>In Focus Right Now</h2>
-        <p class="results-meta">${esc(month)}</p>
-      </div>
-
       <section class="home-safety-card">
         <h3>Use this guide carefully</h3>
         <p>This guide was put together by an amateur forager, not a scientist. I made it to be a reminder of things I've known, it is not intended to be a one-stop app for all things foraging.</p>
@@ -110,18 +105,13 @@ export function renderHome(species, errors = [], rareSpecies = []) {
         <p>The guide includes sections on plants, mushrooms, medicinals, other uses, rare species, and cautionary look-alikes. There's a timeline that will show you the species you'll likely find in the woods each month, plus references and credits.</p>
       </section>
 
-      <div class="home-focus-layout">
-        <div class="home-focus-stats">
-          <div class="home-focus-stat-card"><strong>${plantsInSeason.length}</strong><span>plants in season</span></div>
-          <div class="home-focus-stat-card"><strong>${mushroomsInSeason.length}</strong><span>mushrooms in season</span></div>
-          <div class="home-focus-stat-card"><strong>${plants.length}</strong><span>edible plants</span></div>
-          <div class="home-focus-stat-card"><strong>${mushrooms.length}</strong><span>edible mushrooms</span></div>
-          <div class="home-focus-stat-card"><strong>${medicinal.length}</strong><span>medicinal species</span></div>
-          <div class="home-focus-stat-card"><strong>${otherUses.length}</strong><span>other uses</span></div>
-          <div class="home-focus-stat-card"><strong>${caution.length}</strong><span>caution species</span></div>
-          <div class="home-focus-stat-card"><strong>${Array.isArray(rareSpecies) ? rareSpecies.length : 0}</strong><span>rare / endangered entries</span></div>
-        </div>
+      <div class="home-focus-heading">
+        <h2>In Focus Right Now</h2>
+        <p class="results-meta">${esc(month)}</p>
+      </div>
 
+      <section class="panel">
+        <h3>Some Species In Season</h3>
         <div class="home-focus-highlights">
           ${highlights.map((record) => `
             <button
@@ -135,7 +125,20 @@ export function renderHome(species, errors = [], rareSpecies = []) {
             </button>
           `).join("")}
         </div>
-      </div>
+      </section>
+
+      <section class="panel">
+        <div class="home-focus-stats">
+          <div class="home-focus-stat-card"><strong>${plantsInSeason.length}</strong><span>plants in season</span></div>
+          <div class="home-focus-stat-card"><strong>${mushroomsInSeason.length}</strong><span>mushrooms in season</span></div>
+          <div class="home-focus-stat-card"><strong>${plants.length}</strong><span>edible plants</span></div>
+          <div class="home-focus-stat-card"><strong>${mushrooms.length}</strong><span>edible mushrooms</span></div>
+          <div class="home-focus-stat-card"><strong>${medicinal.length}</strong><span>medicinal species</span></div>
+          <div class="home-focus-stat-card"><strong>${otherUses.length}</strong><span>other uses</span></div>
+          <div class="home-focus-stat-card"><strong>${caution.length}</strong><span>caution species</span></div>
+          <div class="home-focus-stat-card"><strong>${Array.isArray(rareSpecies) ? rareSpecies.length : 0}</strong><span>rare / endangered entries</span></div>
+        </div>
+      </section>
 
       ${errors.length ? `
         <section class="error-box">
