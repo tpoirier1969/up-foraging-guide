@@ -1,10 +1,10 @@
 import { state, setRoute, setSpecies, setRareSpecies, setReferences, logBoot } from "./state.js";
 import { MEDICINAL_VOCAB } from "./data/medicinal-vocabulary.js";
-import { renderPage, openModal, closeModal, els } from "./ui/dom.js?v=v4.2.30-r2026-04-24-filter-refine1";
+import { renderPage, openModal, closeModal, els } from "./ui/dom.js?v=v4.2.31-r2026-04-24-list-sort1";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 
-const APP_VERSION = "v4.2.30-r2026-04-24-filter-refine1";
+const APP_VERSION = "v4.2.31-r2026-04-24-list-sort1";
 const REVIEW_STORAGE_KEY = "foraging_review_overlay_v1";
 const moduleCache = new Map();
 let loadAppDataPromise = null;
@@ -109,6 +109,37 @@ const MUSHROOM_TRAIT_FILTER_KEYS = [
   "mushroomReviewFlag"
 ];
 
+const SORT_OPTIONS = [
+  { value: "default", label: "Default order" },
+  { value: "name", label: "Name A–Z" },
+  { value: "commonness", label: "Commonality — common first" },
+  { value: "foodQuality", label: "Food quality / taste — best first" },
+  { value: "season", label: "Season — earliest first" }
+];
+
+function isSortableRoute(route) {
+  return [
+    "plants", "mushrooms-gilled", "boletes", "mushrooms-other",
+    "medicinal", "lookalikes", "caution", "other-uses", "search", "review"
+  ].includes(route);
+}
+
+function renderSortControls(route) {
+  if (!isSortableRoute(route)) return "";
+  const current = state.filters.sortSpecies || "default";
+  return `
+    <section class="panel">
+      <div class="medicinal-filter-row" style="display:grid;grid-template-columns:minmax(220px,320px) minmax(260px,1fr);gap:12px;align-items:end;">
+        <div class="medicinal-filter-cell">
+          <label for="speciesSortSelect" class="muted small">Sort</label>
+          <select id="speciesSortSelect" style="width:100%">${optionHtml(SORT_OPTIONS, current, "Default order")}</select>
+        </div>
+        <p class="muted small" style="margin:0;">Sorting applies after the current filters. Season sorting pushes records with missing or review-needed season data to the end.</p>
+      </div>
+    </section>
+  `;
+}
+
 function isPlantFilterRoute(route) {
   return route === "plants";
 }
@@ -157,6 +188,7 @@ function renderTraitFilters(route, filterFields = [], activeTraitFilters = false
 
 function controlsHtml(route = "general", placeholder = "Search species", filterFields = [], activeTraitFilters = false) {
   const search = state.filters.search || "";
+  const sortControls = renderSortControls(route);
   if (route === "medicinal") {
     return `
       <section class="panel">
@@ -178,6 +210,7 @@ function controlsHtml(route = "general", placeholder = "Search species", filterF
           </div>
         </div>
       </section>
+      ${sortControls}
     `;
   }
   if (route === "search") {
@@ -189,12 +222,13 @@ function controlsHtml(route = "general", placeholder = "Search species", filterF
           ${search ? `<button id="speciesClearBtn" type="button">Clear</button>` : ""}
         </div>
       </section>
+      ${sortControls}
     `;
   }
   if (isPlantFilterRoute(route) || isMushroomFilterRoute(route)) {
-    return renderTraitFilters(route, filterFields, activeTraitFilters);
+    return `${renderTraitFilters(route, filterFields, activeTraitFilters)}${sortControls}`;
   }
-  return "";
+  return sortControls;
 }
 
 const BUILT_IN_LOOKALIKE_STUBS = new Map([
@@ -438,6 +472,10 @@ function wireCommonEvents(route) {
       renderCurrentRoute();
     });
   });
+  document.getElementById("speciesSortSelect")?.addEventListener("change", (event) => {
+    state.filters.sortSpecies = event.currentTarget.value || "default";
+    renderCurrentRoute();
+  });
   document.getElementById("traitClearBtn")?.addEventListener("click", () => {
     clearTraitFiltersForRoute(route);
     renderCurrentRoute();
@@ -481,17 +519,18 @@ async function renderHomeRoute(token) {
 }
 
 async function renderSpeciesRoute(route, token) {
-  const { filterRecords, renderRecordCards, getFilterFieldsForRoute, hasActiveTraitFilters } = await importModule("./ui/render-list.js");
+  const { filterRecords, renderRecordCards, getFilterFieldsForRoute, hasActiveTraitFilters, sortRecords } = await importModule("./ui/render-list.js");
   if (token !== renderToken) return;
   const matchRoute = route === "search" ? "general" : route;
   const filterFields = getFilterFieldsForRoute(state.species, matchRoute, state.filters);
   const activeTraitFilters = hasActiveTraitFilters(matchRoute, state.filters);
   const filtered = filterRecords(state.species, matchRoute, state.filters);
+  const sorted = sortRecords(filtered, state.filters.sortSpecies || "default");
   const title = `${routeTitle(route)} (${filtered.length})`;
   renderPage(`
     ${controlsHtml(route, route === "search" ? "Search all species" : `Search ${routeTitle(route).toLowerCase()}`, filterFields, activeTraitFilters)}
     <section class="panel"><h2>${esc(title)}</h2></section>
-    ${renderRecordCards(filtered, route)}
+    ${renderRecordCards(sorted, route)}
   `);
   wireCommonEvents(route);
 }

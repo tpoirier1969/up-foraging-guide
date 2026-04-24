@@ -1,4 +1,4 @@
-import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.30-r2026-04-24-filter-refine1";
+import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.31-r2026-04-24-list-sort1";
 import { esc } from "../lib/escape.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
@@ -400,7 +400,8 @@ function normalizeFilters(filtersOrSearch) {
     mushroomStemFeature: filtersOrSearch?.mushroomStemFeature || "",
     mushroomBoleteGroup: filtersOrSearch?.mushroomBoleteGroup || "",
     mushroomBoleteSubgroup: filtersOrSearch?.mushroomBoleteSubgroup || "",
-    mushroomPoreColor: filtersOrSearch?.mushroomPoreColor || ""
+    mushroomPoreColor: filtersOrSearch?.mushroomPoreColor || "",
+    sortSpecies: filtersOrSearch?.sortSpecies || "default"
   };
 }
 
@@ -478,6 +479,105 @@ function cardSnippet(record) {
 function cardSnippetHtml(record) {
   const snippet = cardSnippet(record).slice(0, 260);
   return snippet ? `<p>${esc(snippet)}</p>` : "";
+}
+
+function displayName(record = {}) {
+  return String(record.display_name || record.common_name || record.slug || "").toLowerCase();
+}
+
+function scoreFromText(value = "", map = new Map()) {
+  const text = String(value || "").trim().toLowerCase();
+  if (!text) return null;
+  for (const [needle, score] of map.entries()) {
+    if (text.includes(needle)) return score;
+  }
+  return null;
+}
+
+const COMMONNESS_TEXT_SCORES = new Map([
+  ["abundant", 5],
+  ["very common", 5],
+  ["common", 4],
+  ["occasional", 3],
+  ["uncommon", 2],
+  ["rare", 1],
+  ["scattered", 2]
+]);
+
+const FOOD_QUALITY_TEXT_SCORES = new Map([
+  ["choice", 5],
+  ["excellent", 5],
+  ["very good", 4],
+  ["good", 4],
+  ["fair", 3],
+  ["okay", 3],
+  ["poor", 2],
+  ["not recommended", 1],
+  ["questionable", 1]
+]);
+
+function numericScore(value) {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : null;
+}
+
+function commonnessScore(record = {}) {
+  return numericScore(record.commonness_score)
+    ?? scoreFromText(record.commonness, COMMONNESS_TEXT_SCORES)
+    ?? -1;
+}
+
+function foodQualityScore(record = {}) {
+  const explicit = numericScore(record.food_quality_score)
+    ?? scoreFromText(record.food_quality, FOOD_QUALITY_TEXT_SCORES);
+  if (explicit !== null) return explicit;
+
+  const tasteText = asList(record.taste).join(" ").toLowerCase();
+  if (/sweet|rich|nutty|floral|minty|aromatic|pleasant|mild/.test(tasteText)) return 3;
+  if (/bitter|astringent|acrid|mealy|bland|sour/.test(tasteText)) return 2;
+  return -1;
+}
+
+function earliestSeasonIndex(record = {}) {
+  const months = monthValues(record);
+  if (!months.length) return 99;
+  const positions = months
+    .map((month) => MONTHS.indexOf(month))
+    .filter((index) => index >= 0);
+  return positions.length ? Math.min(...positions) : 99;
+}
+
+function seasonLabel(record = {}) {
+  const months = monthValues(record);
+  if (!months.length) return "zzz";
+  return months.join(" ").toLowerCase();
+}
+
+function compareByName(a, b) {
+  return displayName(a).localeCompare(displayName(b));
+}
+
+export function sortRecords(records = [], sortKey = "default") {
+  const key = String(sortKey || "default");
+  const list = [...records];
+  if (key === "default") return list;
+
+  return list.sort((a, b) => {
+    if (key === "name") return compareByName(a, b);
+    if (key === "commonness") {
+      const diff = commonnessScore(b) - commonnessScore(a);
+      return diff || compareByName(a, b);
+    }
+    if (key === "foodQuality") {
+      const diff = foodQualityScore(b) - foodQualityScore(a);
+      return diff || compareByName(a, b);
+    }
+    if (key === "season") {
+      const diff = earliestSeasonIndex(a) - earliestSeasonIndex(b);
+      return diff || seasonLabel(a).localeCompare(seasonLabel(b)) || compareByName(a, b);
+    }
+    return compareByName(a, b);
+  });
 }
 
 export function renderRecordCards(records, route = "general") {
