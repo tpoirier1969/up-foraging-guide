@@ -107,6 +107,9 @@ const FORAGING_CLASS_MAP = new Map([
 
 const OTHER_USE_KEYWORDS = /\b(artist|art|draw|drawing|scratch|scratched|tinder|fire ?starter|kindling|dye|dyestuff|pigment|ink|fiber|fibre|cordage|rope|twine|basket|weav|craft|tool|utility|polish|stain|smudge|resin|pitch|glue|adhesive|soap|container|whistle|broom|brush|mat|thatch|fungus paper|amadou)\b/i;
 
+const INGESTIBLE_USE_KEYWORDS = /\b(tea|infusion|decoction|beverage|drink|drunk|steep|steeped|brew|brewed|broth|soup|syrup|sap|tincture|extract|edible|eat|eaten|food|culinary|ingest|ingested|consume|consumed|chew|chewed)\b/i;
+const DIRECT_INGESTION_DANGER = /\b(do not|don't|never|avoid|unsafe|toxic|poisonous|poison|deadly|fatal|dangerous)\b[^.!?]{0,60}\b(ingest|consume|eat|drink|tea|infusion|decoction|tincture|extract|chew)\b|\b(ingest|consume|eat|drink|tea|infusion|decoction|tincture|extract|chew)\b[^.!?]{0,60}\b(do not|don't|never|avoid|unsafe|toxic|poisonous|poison|deadly|fatal|dangerous)\b/i;
+
 export function isPlaceholderMedicinalText(value) {
   const normalized = normalizeMedicinalText(value);
   return !!normalized && PLACEHOLDER_MEDICINAL_PATTERNS.some(pattern => pattern.test(normalized));
@@ -414,7 +417,43 @@ export function getMedicinalData(record = {}) {
 
 function isTeaOnlyUseText(value = "") {
   const normalized = String(value || "").trim().toLowerCase().replace(/[^a-z/ ]+/g, "");
-  return ["tea", "tea only", "nonculinary/tea", "non culinary/tea", "non culinary tea", "beverage tea"].includes(normalized);
+  return ["tea", "tea only", "nonculinary/tea", "non culinary/tea", "beverage tea"].includes(normalized);
+}
+
+function textHasIngestibleUse(value = "") {
+  const text = cleanUserFacingText(value);
+  if (!text) return false;
+  if (isTeaOnlyUseText(text)) return true;
+
+  return splitIntoSentences(text).some((sentence) => {
+    if (!INGESTIBLE_USE_KEYWORDS.test(sentence)) return false;
+    if (DIRECT_INGESTION_DANGER.test(sentence)) return false;
+    return true;
+  });
+}
+
+export function hasIngestibleUseContent(record = {}) {
+  const foodRole = normalizedFoodRole(record);
+  if (foodRole === "tea_extract_only" || foodRole === "food") return true;
+
+  const useTags = ensureArray(record.use_tags).map((tag) => String(tag || "").trim().toUpperCase());
+  if (useTags.includes("E") || useTags.includes("T") || useTags.includes("TEA")) return true;
+
+  const medicinal = getMedicinalData(record);
+  const fieldTexts = [
+    record.culinary_uses,
+    record.edibility_notes,
+    record.edibility_detail,
+    record.other_uses,
+    record.medicinal_uses,
+    medicinal.summary,
+    medicinal.preparation_notes,
+    record.notes,
+    record.general_notes,
+    record.overview
+  ];
+
+  return fieldTexts.some(textHasIngestibleUse);
 }
 
 export function hasMeaningfulOtherUses(record = {}) {
@@ -475,23 +514,31 @@ export function hasMeaningfulFoodContent(record = {}) {
   const culinary = cleanUserFacingText(record.culinary_uses);
   const notes = cleanUserFacingText(record.edibility_notes || record.edibility_detail);
   const foodQuality = String(record.food_quality || "").trim();
-  const otherUses = cleanUserFacingText(record.other_uses);
-  return !!(culinary || foodQuality || notes || isTeaOnlyUseText(otherUses));
+  return !!(culinary || foodQuality || notes || hasIngestibleUseContent(record));
 }
 
 export function isEdibleForSection(record = {}) {
   const edibility = normalizedEdibilityStatus(record);
   const foodRole = normalizedFoodRole(record);
   const severity = normalizedNonEdibleSeverity(record);
-  const otherUses = cleanUserFacingText(record.other_uses);
+  const dangerText = [record.danger_level, record.poisoning_effects, record.toxicity_notes].join(" ");
 
-  if (["poisonous", "deadly", "not_edible"].includes(edibility)) return false;
+  // True danger beats everything. A poisonous/deadly/toxic record should not become edible
+  // just because the description mentions tea, ingestion, or treatment history.
+  if (["poisonous", "deadly"].includes(edibility)) return false;
   if (isDangerSeverity(severity)) return false;
+  if (isDangerSeverity(dangerText)) return false;
+
+  // App rule: any positive ingestible use counts for the edible/ingestible sections.
+  // Tea, infusion, decoction, tincture, sap, syrup, broth, etc. are all ingested.
+  // This intentionally overrides weak food labels like avoid/not_edible/inedible when
+  // the record is really saying "not a meal, but usable as tea/extract."
+  if (hasIngestibleUseContent(record)) return true;
+
+  if (["not_edible"].includes(edibility)) return false;
   if (["avoid", "emergency_only", "medicinal_only"].includes(foodRole)) return false;
 
   if (["edible", "good", "choice", "edible_with_caution"].includes(edibility)) return true;
-  if (foodRole === "tea_extract_only") return true;
-  if (isTeaOnlyUseText(otherUses)) return true;
 
   if (isBenignNonCulinarySeverity(severity)) {
     return hasMeaningfulFoodContent(record)
