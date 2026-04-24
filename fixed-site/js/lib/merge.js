@@ -263,7 +263,6 @@ function isDangerSeverity(severity = "") {
     "toxic",
     "not edible",
     "inedible",
-    "questionable",
     "unsafe"
   ].some(token => value.includes(token));
 }
@@ -290,9 +289,16 @@ export function isEdibleForSection(record = {}) {
   if (["poisonous", "deadly", "not_edible"].includes(edibility)) return false;
   if (isDangerSeverity(severity)) return false;
   if (["avoid", "emergency_only", "medicinal_only"].includes(foodRole)) return false;
+
   if (["edible", "edible_with_caution"].includes(edibility)) return true;
-  if (foodRole === "tea_extract_only" && !hasMeaningfulFoodContent(record)) return false;
-  if (isBenignNonCulinarySeverity(severity) && hasMeaningfulFoodContent(record)) return true;
+  if (foodRole === "tea_extract_only") return true;
+
+  if (isBenignNonCulinarySeverity(severity)) {
+    return hasMeaningfulFoodContent(record)
+      || hasRealMedicinalText(record.medicinal_uses)
+      || hasMeaningfulOtherUses(record);
+  }
+
   return hasMeaningfulFoodContent(record);
 }
 
@@ -302,10 +308,12 @@ export function isCautionRecord(record = {}) {
   const severity = normalizedNonEdibleSeverity(record);
   const risk = String(record.look_alike_risk || "").trim().toLowerCase();
 
-  return isDangerSeverity(severity)
-    || ["not_edible", "poisonous", "deadly"].includes(edibility)
-    || ["avoid", "emergency_only"].includes(foodRole)
-    || ["serious", "moderate"].includes(risk);
+  if (isDangerSeverity(severity)) return true;
+  if (["not_edible", "poisonous", "deadly"].includes(edibility)) return true;
+  if (["avoid", "emergency_only"].includes(foodRole)) return true;
+  if (risk === "serious") return true;
+
+  return false;
 }
 
 function mergeOne(base, overlay) {

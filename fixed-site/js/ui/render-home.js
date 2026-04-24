@@ -21,38 +21,19 @@ function isInSeason(record, month) {
   return Array.isArray(record?.months_available) && record.months_available.includes(month);
 }
 
-function isLikelyEdibleMushroom(record) {
-  if (String(record?.non_edible_severity || "").trim()) return false;
-  if (String(record?.food_role || "").trim() === "medicinal_only") return false;
-  return true;
-}
-
-function isLikelyForagingPlant(record) {
-  if (String(record?.non_edible_severity || "").trim()) return false;
-  return true;
-}
-
 function hasAnyImageCandidate(record) {
   const structured = Array.isArray(record?.images_structured) ? record.images_structured : [];
   if (structured.length) return true;
-
   if (record?.list_thumbnail) return true;
-
   const detailImages = Array.isArray(record?.detail_images) ? record.detail_images : [];
   if (detailImages.length) return true;
-
   const enlargeImages = Array.isArray(record?.enlarge_images) ? record.enlarge_images : [];
   if (enlargeImages.length) return true;
-
   const images = Array.isArray(record?.images) ? record.images : [];
   if (!images.length) return false;
-
   const first = images[0];
   if (typeof first === "string") return !!first;
-  if (first && typeof first === "object") {
-    return !!(first.thumb || first.src || first.detail || first.full);
-  }
-
+  if (first && typeof first === "object") return !!(first.thumb || first.src || first.detail || first.full);
   return false;
 }
 
@@ -65,18 +46,17 @@ function shuffle(values) {
   return list;
 }
 
-function pickHighlights(species, month) {
-  const candidates = (species || []).filter((record) => {
-    if (record?.hidden) return false;
-    const { isPlant, isMushroom } = classifyRecord(record);
-    if (!isInSeason(record, month)) return false;
-    if (!hasAnyImageCandidate(record)) return false;
-    if (isPlant) return isLikelyForagingPlant(record);
-    if (isMushroom) return isLikelyEdibleMushroom(record);
-    return false;
-  });
+function isHighlightCandidate(record, month) {
+  if (record?.hidden) return false;
+  const info = classifyRecord(record);
+  if (!info.edible) return false;
+  if (!isInSeason(record, month)) return false;
+  if (!hasAnyImageCandidate(record)) return false;
+  return info.isPlant || info.isMushroom;
+}
 
-  return shuffle(candidates).slice(0, 6);
+function pickHighlights(species, month) {
+  return shuffle((species || []).filter((record) => isHighlightCandidate(record, month))).slice(0, 6);
 }
 
 function renderHomeImage(record) {
@@ -87,13 +67,13 @@ export function renderHome(species, errors = [], rareSpecies = []) {
   const month = currentMonthName();
 
   const plants = (species || []).filter((record) => {
-    const { isPlant } = classifyRecord(record);
-    return !record?.hidden && isPlant && isLikelyForagingPlant(record);
+    const info = classifyRecord(record);
+    return !record?.hidden && info.isPlant && info.edible;
   });
 
   const mushrooms = (species || []).filter((record) => {
-    const { isMushroom } = classifyRecord(record);
-    return !record?.hidden && isMushroom && isLikelyEdibleMushroom(record);
+    const info = classifyRecord(record);
+    return !record?.hidden && info.isMushroom && info.edible;
   });
 
   const plantsInSeason = plants.filter((record) => isInSeason(record, month));
@@ -101,8 +81,17 @@ export function renderHome(species, errors = [], rareSpecies = []) {
 
   const medicinal = (species || []).filter((record) => {
     if (record?.hidden) return false;
-    const { medicinal } = classifyRecord(record);
-    return medicinal;
+    return classifyRecord(record).medicinal;
+  });
+
+  const otherUses = (species || []).filter((record) => {
+    if (record?.hidden) return false;
+    return classifyRecord(record).otherUses;
+  });
+
+  const caution = (species || []).filter((record) => {
+    if (record?.hidden) return false;
+    return classifyRecord(record).caution;
   });
 
   const highlights = pickHighlights(species, month);
@@ -116,18 +105,20 @@ export function renderHome(species, errors = [], rareSpecies = []) {
 
       <section class="home-safety-card">
         <h3>Use this guide carefully</h3>
-        <p>This guide was put together by an amateur forager, not a scientist. I made it to be a reminder of things I've known, it is not intended to be a one-stop-app for all things foraging.</p>
-        <p>Treat all plants, especially mushrooms, as potentially inedible and dangerous, don't eat anything until you know the species and know how to prepare it. Foraging can be a fun and rewarding way to make some great meals, just do it wisely.</p>
-        <p>The guide includes sections on plants, mushrooms, medicinals, and non-edible look alikes to be aware of. There's a timeline that will show you the different species you'll likely find in the woods each month, a sheet of reference materials, and as a bonus I added a section on Rare and Endangered species of Upper Michigan that also enables you to save your sightings.</p>
+        <p>This guide was put together by an amateur forager, not a scientist. I made it to be a reminder of things I've known, it is not intended to be a one-stop app for all things foraging.</p>
+        <p>Treat all plants, especially mushrooms, as potentially inedible and dangerous. Do not eat anything until you know the species and know how to prepare it. Foraging can be a fun and rewarding way to make some great meals, just do it wisely.</p>
+        <p>The guide includes sections on plants, mushrooms, medicinals, other uses, rare species, and cautionary look-alikes. There's a timeline that will show you the species you'll likely find in the woods each month, plus references and credits.</p>
       </section>
 
       <div class="home-focus-layout">
         <div class="home-focus-stats">
           <div class="home-focus-stat-card"><strong>${plantsInSeason.length}</strong><span>plants in season</span></div>
           <div class="home-focus-stat-card"><strong>${mushroomsInSeason.length}</strong><span>mushrooms in season</span></div>
-          <div class="home-focus-stat-card"><strong>${plants.length}</strong><span>total plants</span></div>
-          <div class="home-focus-stat-card"><strong>${mushrooms.length}</strong><span>total mushrooms</span></div>
+          <div class="home-focus-stat-card"><strong>${plants.length}</strong><span>edible plants</span></div>
+          <div class="home-focus-stat-card"><strong>${mushrooms.length}</strong><span>edible mushrooms</span></div>
           <div class="home-focus-stat-card"><strong>${medicinal.length}</strong><span>medicinal species</span></div>
+          <div class="home-focus-stat-card"><strong>${otherUses.length}</strong><span>other uses</span></div>
+          <div class="home-focus-stat-card"><strong>${caution.length}</strong><span>caution species</span></div>
           <div class="home-focus-stat-card"><strong>${Array.isArray(rareSpecies) ? rareSpecies.length : 0}</strong><span>rare / endangered entries</span></div>
         </div>
 
