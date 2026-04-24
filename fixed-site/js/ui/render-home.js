@@ -105,6 +105,13 @@ export function renderHome(species, errors = [], rareSpecies = []) {
         <p>The guide includes sections on plants, mushrooms, medicinals, other uses, rare species, and cautionary look-alikes. There's a timeline that will show you the species you'll likely find in the woods each month, plus references and credits.</p>
       </section>
 
+      <section class="panel">
+        <div class="control-row">
+          <input id="homeSearch" type="search" value="" placeholder="Search the guide" style="flex:1;min-width:280px">
+          <button id="homeSearchBtn" class="primary" type="button">Search</button>
+        </div>
+      </section>
+
       <div class="home-focus-heading">
         <h2>In Focus Right Now</h2>
         <p class="results-meta">${esc(month)}</p>

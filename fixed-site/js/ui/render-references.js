@@ -82,10 +82,6 @@ export function renderReferencesPage(records, search = "") {
   return `
     <section class="panel">
       <h2>References</h2>
-      <div class="control-row">
-        <input id="refSearch" type="search" value="${esc(search)}" placeholder="Search references" style="flex:1;min-width:280px">
-        <button id="refSearchBtn" class="primary" type="button">Search</button>
-      </div>
       ${topButtons ? `<div class="section-jump-row">${topButtons}</div>` : ""}
     </section>
 

@@ -30,8 +30,7 @@ function routeTitle(route) {
     "mushrooms-other": "Other mushrooms",
     medicinal: "Medicinal",
     rare: "Rare",
-    lookalikes: "Caution & Look-alikes",
-    "other-uses": "Other Uses",
+    lookalikes: "Caution & Other Uses",
     review: "Needs Review",
     references: "References",
     credits: "Credits",
@@ -99,10 +98,6 @@ function controlsHtml(route = "general", placeholder = "Search species") {
     return `
       <section class="panel">
         <div class="medicinal-filter-row">
-          <div class="medicinal-filter-cell medicinal-filter-search">
-            <label for="speciesSearch" class="muted small">Search medicinal species</label>
-            <input id="speciesSearch" type="search" value="${esc(search)}" placeholder="${esc(placeholder)}" style="width:100%">
-          </div>
           <div class="medicinal-filter-cell">
             <label for="medicinalActionFilter" class="muted small">Action</label>
             <select id="medicinalActionFilter" style="width:100%">${optionHtml(MEDICINAL_VOCAB.actions, state.filters.medicinalAction, "Any action")}</select>
@@ -116,22 +111,24 @@ function controlsHtml(route = "general", placeholder = "Search species") {
             <select id="medicinalTermFilter" style="width:100%">${optionHtml(MEDICINAL_VOCAB.symptoms, state.filters.medicinalTerm, "Any medical term")}</select>
           </div>
           <div class="medicinal-filter-actions">
-            <button id="speciesSearchBtn" class="primary" type="button">Search</button>
-            ${(search || state.filters.medicinalAction || state.filters.medicinalSystem || state.filters.medicinalTerm) ? `<button id="speciesClearBtn" type="button">Clear</button>` : ""}
+            ${(state.filters.medicinalAction || state.filters.medicinalSystem || state.filters.medicinalTerm) ? `<button id="speciesClearBtn" type="button">Clear</button>` : ""}
           </div>
         </div>
       </section>
     `;
   }
-  return `
-    <section class="panel">
-      <div class="control-row">
-        <input id="speciesSearch" type="search" value="${esc(search)}" placeholder="${esc(placeholder)}" style="flex:1;min-width:280px">
-        <button id="speciesSearchBtn" class="primary" type="button">Search</button>
-        ${search ? `<button id="speciesClearBtn" type="button">Clear</button>` : ""}
-      </div>
-    </section>
-  `;
+  if (route === "search") {
+    return `
+      <section class="panel">
+        <div class="control-row">
+          <input id="speciesSearch" type="search" value="${esc(search)}" placeholder="${esc(placeholder)}" style="flex:1;min-width:280px">
+          <button id="speciesSearchBtn" class="primary" type="button">Search</button>
+          ${search ? `<button id="speciesClearBtn" type="button">Clear</button>` : ""}
+        </div>
+      </section>
+    `;
+  }
+  return "";
 }
 
 function getRecordBySlug(slug) {
@@ -247,12 +244,6 @@ function clearRouteFilters(route) {
     state.filters.medicinalSystem = "";
     state.filters.medicinalTerm = "";
   }
-  if (route === "rare") {
-    state.filters.rareGroup = "";
-    state.filters.rareLegalStatus = "";
-    state.filters.rareUpRelevance = "";
-    state.filters.rareSensitiveOnly = "";
-  }
 }
 
 function wireCommonEvents(route) {
@@ -278,18 +269,6 @@ function wireCommonEvents(route) {
   });
   document.getElementById("medicinalTermFilter")?.addEventListener("change", (event) => {
     state.filters.medicinalTerm = event.currentTarget.value || "";
-    renderCurrentRoute();
-  });
-  wireSearchBlock("rareSearch", "rareSearchBtn", (value) => {
-    state.filters.search = value;
-    renderCurrentRoute();
-  });
-  wireSearchBlock("refSearch", "refSearchBtn", (value) => {
-    state.filters.search = value;
-    renderCurrentRoute();
-  });
-  wireSearchBlock("creditsSearch", "creditsSearchBtn", (value) => {
-    state.filters.search = value;
     renderCurrentRoute();
   });
   wireActionButtons(document);
@@ -356,22 +335,10 @@ async function renderRareRoute(token) {
     }
     if (token !== renderToken) return;
   }
-  const { renderRarePage, setupRarePage } = await importModule("./ui/render-rare.js");
+  const { renderRarePage } = await importModule("./ui/render-rare.js");
   if (token !== renderToken) return;
-  renderPage(renderRarePage(state.rareSpecies, state.filters));
+  renderPage(renderRarePage(state.rareSpecies, state.filters.search));
   wireCommonEvents("rare");
-  setupRarePage({
-    filters: state.filters,
-    setFilters(updates = {}) {
-      Object.assign(state.filters, updates);
-    },
-    clearFilters() {
-      clearRouteFilters("rare");
-    },
-    rerender() {
-      renderCurrentRoute();
-    }
-  });
 }
 
 async function renderReferencesRoute(token) {
@@ -402,8 +369,7 @@ async function renderCreditsRoute(token) {
 
 export async function renderCurrentRoute() {
   const token = ++renderToken;
-  let route = parseRoute();
-  if (route === "otheruses") route = "other-uses";
+  const route = parseRoute();
   setRoute(route);
   markActiveNav(route === "search" ? "search" : (route.startsWith("mushrooms-") || route === "boletes" ? "mushrooms" : route));
 
@@ -422,7 +388,7 @@ export async function renderCurrentRoute() {
     if (route === "rare") return await renderRareRoute(token);
     if (route === "references") return await renderReferencesRoute(token);
     if (route === "credits") return await renderCreditsRoute(token);
-    if (["plants", "mushrooms-gilled", "boletes", "mushrooms-other", "medicinal", "lookalikes", "other-uses", "review", "search"].includes(route)) {
+    if (["plants", "mushrooms-gilled", "boletes", "mushrooms-other", "medicinal", "lookalikes", "review", "search"].includes(route)) {
       return await renderSpeciesRoute(route, token);
     }
     await renderHomeRoute(token);
