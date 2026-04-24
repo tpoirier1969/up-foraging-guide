@@ -1,4 +1,4 @@
-import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.29-r2026-04-24-filter-countfix1";
+import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.30-r2026-04-24-filter-refine1";
 import { esc } from "../lib/escape.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
@@ -20,12 +20,12 @@ const PLANT_FILTER_DEFS = [
   { key: "plantStem", label: "Stem / surface", blankLabel: "Any stem clue", valueKey: "plantStem" }
 ];
 
-const MUSHROOM_FILTER_DEFS = [
+const GILLED_MUSHROOM_FILTER_DEFS = [
   { key: "mushroomMonth", label: "Season", blankLabel: "Any season", valueKey: "month" },
   { key: "mushroomSubstrate", label: "Substrate", blankLabel: "Any substrate", valueKey: "mushroomSubstrate" },
   { key: "mushroomTreeType", label: "Tree type", blankLabel: "Any tree type", valueKey: "mushroomTreeType" },
   { key: "mushroomHost", label: "Host tree", blankLabel: "Any host tree", valueKey: "mushroomHost" },
-  { key: "mushroomUnderside", label: "Underside", blankLabel: "Any underside", valueKey: "mushroomUnderside" },
+  { key: "mushroomUnderside", label: "Gills / underside", blankLabel: "Any gill/underside clue", valueKey: "mushroomUnderside" },
   { key: "mushroomRing", label: "Ring", blankLabel: "Any ring", valueKey: "mushroomRing" },
   { key: "mushroomTexture", label: "Texture", blankLabel: "Any texture", valueKey: "mushroomTexture" },
   { key: "mushroomSmell", label: "Smell", blankLabel: "Any smell", valueKey: "mushroomSmell" },
@@ -34,22 +34,47 @@ const MUSHROOM_FILTER_DEFS = [
   { key: "mushroomStemFeature", label: "Stem feature", blankLabel: "Any stem feature", valueKey: "mushroomStemFeature" }
 ];
 
-const BOLETE_EXTRA_FILTER_DEFS = [
+const BOLETE_FILTER_DEFS = [
+  { key: "mushroomReviewFlag", label: "Data review", blankLabel: "Any review state", valueKey: "mushroomReviewFlag" },
   { key: "mushroomBoleteGroup", label: "Bolete group", blankLabel: "Any bolete group", valueKey: "mushroomBoleteGroup" },
   { key: "mushroomBoleteSubgroup", label: "Bolete subgroup", blankLabel: "Any bolete subgroup", valueKey: "mushroomBoleteSubgroup" },
-  { key: "mushroomPoreColor", label: "Pore color", blankLabel: "Any pore color", valueKey: "mushroomPoreColor" }
+  { key: "mushroomSubstrate", label: "Substrate", blankLabel: "Any substrate", valueKey: "mushroomSubstrate" },
+  { key: "mushroomTreeType", label: "Tree type", blankLabel: "Any tree type", valueKey: "mushroomTreeType" },
+  { key: "mushroomHost", label: "Host tree", blankLabel: "Any host tree", valueKey: "mushroomHost" },
+  { key: "mushroomPoreColor", label: "Pore color", blankLabel: "Any pore color", valueKey: "mushroomPoreColor" },
+  { key: "mushroomStaining", label: "Bruising / staining", blankLabel: "Any bruising/staining", valueKey: "mushroomStaining" },
+  { key: "mushroomCapSurface", label: "Cap surface", blankLabel: "Any cap surface", valueKey: "mushroomCapSurface" },
+  { key: "mushroomStemFeature", label: "Stem feature", blankLabel: "Any stem feature", valueKey: "mushroomStemFeature" },
+  { key: "mushroomTexture", label: "Texture", blankLabel: "Any texture", valueKey: "mushroomTexture" },
+  { key: "mushroomSmell", label: "Smell", blankLabel: "Any smell", valueKey: "mushroomSmell" }
+];
+
+const OTHER_MUSHROOM_FILTER_DEFS = [
+  { key: "mushroomMonth", label: "Season", blankLabel: "Any season", valueKey: "month" },
+  { key: "mushroomUnderside", label: "Form / underside", blankLabel: "Any form/underside", valueKey: "mushroomUnderside" },
+  { key: "mushroomSubstrate", label: "Substrate", blankLabel: "Any substrate", valueKey: "mushroomSubstrate" },
+  { key: "mushroomTreeType", label: "Tree type", blankLabel: "Any tree type", valueKey: "mushroomTreeType" },
+  { key: "mushroomHost", label: "Host tree", blankLabel: "Any host tree", valueKey: "mushroomHost" },
+  { key: "mushroomTexture", label: "Texture", blankLabel: "Any texture", valueKey: "mushroomTexture" },
+  { key: "mushroomSmell", label: "Smell", blankLabel: "Any smell", valueKey: "mushroomSmell" },
+  { key: "mushroomStaining", label: "Staining", blankLabel: "Any staining", valueKey: "mushroomStaining" },
+  { key: "mushroomCapSurface", label: "Surface", blankLabel: "Any surface", valueKey: "mushroomCapSurface" }
 ];
 
 const SKIP_OPTION_VALUES = new Set(["", "unknown", "needs-review", "needs review", "review_required", "n/a", "not sure"]);
 const MISSING_FILTER_VALUE = "__missing__";
 const MISSING_FILTER_LABEL = "Not recorded / needs review";
-const SEASON_REVIEW_VALUE = "__season_needs_review__";
-const SEASON_REVIEW_LABEL = "Season needs review";
+const REVIEW_FLAG_SEASON = "__review__:season";
+const REVIEW_FLAG_SUBSTRATE = "__review__:substrate";
+const REVIEW_FLAG_LABELS = new Map([
+  [REVIEW_FLAG_SEASON, "Needs season review"],
+  [REVIEW_FLAG_SUBSTRATE, "Needs substrate review"]
+]);
 const TREE_TYPE_RE = /\b(hardwood|softwood|conifer|coniferous|deciduous|broadleaf|mixed woods?)\b/i;
 
 const MISSING_REVIEW_LABELS_BY_VALUE_KEY = new Map([
   ["mushroomSubstrate", "Needs substrate review"],
-  ["month", "Season not recorded"]
+  ["month", "Season not recorded / needs review"]
 ]);
 
 function missingLabelForFilter(fieldOrDef = {}) {
@@ -106,7 +131,7 @@ function hasLikelyDefaultSeason(record) {
 }
 
 function monthValues(record) {
-  if (hasLikelyDefaultSeason(record)) return [SEASON_REVIEW_VALUE];
+  if (hasLikelyDefaultSeason(record)) return [];
   const names = cleanOptionValues(record.months_available);
   const fromSeasonMonths = asList(record.season_months)
     .map((value) => MONTHS[Number(value) - 1] || "")
@@ -133,6 +158,15 @@ function hostTreeValues(record) {
   return candidates.filter((value) => !TREE_TYPE_RE.test(value));
 }
 
+function reviewFlagValues(record) {
+  const flags = [];
+  if (hasLikelyDefaultSeason(record)) flags.push(REVIEW_FLAG_SEASON);
+  if (cleanOptionValues(collectValues(record, [["substrate"], ["mushroom_profile", "substrate"]])).length === 0) {
+    flags.push(REVIEW_FLAG_SUBSTRATE);
+  }
+  return flags;
+}
+
 function valuesForFilter(record, valueKey) {
   switch (valueKey) {
     case "month": return monthValues(record);
@@ -145,6 +179,7 @@ function valuesForFilter(record, valueKey) {
     case "plantLeafShape": return cleanOptionValues(collectValues(record, [["leafShape"], ["leaf_shape"]]));
     case "plantLeafArrangement": return cleanOptionValues(collectValues(record, [["leafArrangement"], ["leaf_arrangement"]]));
     case "plantStem": return cleanOptionValues(collectValues(record, [["stemSurface"], ["stem_surface"], ["stemShape"], ["stem_shape"], ["leafPointCount"]]));
+    case "mushroomReviewFlag": return reviewFlagValues(record);
     case "mushroomSubstrate": return cleanOptionValues(collectValues(record, [["substrate"], ["mushroom_profile", "substrate"]]));
     case "mushroomTreeType": return treeTypeValues(record);
     case "mushroomHost": return hostTreeValues(record);
@@ -164,26 +199,27 @@ function valuesForFilter(record, valueKey) {
 
 function filterDefinitionsForRoute(route) {
   if (route === "plants") return PLANT_FILTER_DEFS;
-  if (["mushrooms-gilled", "mushrooms-other"].includes(route)) return MUSHROOM_FILTER_DEFS;
-  if (route === "boletes") return [...MUSHROOM_FILTER_DEFS, ...BOLETE_EXTRA_FILTER_DEFS];
+  if (route === "mushrooms-gilled") return GILLED_MUSHROOM_FILTER_DEFS;
+  if (route === "boletes") return BOLETE_FILTER_DEFS;
+  if (route === "mushrooms-other") return OTHER_MUSHROOM_FILTER_DEFS;
   return [];
 }
 
 function displayOptionValue(value, fieldOrDef = {}) {
   if (value === MISSING_FILTER_VALUE) return missingLabelForFilter(fieldOrDef);
-  if (value === SEASON_REVIEW_VALUE) return SEASON_REVIEW_LABEL;
+  if (REVIEW_FLAG_LABELS.has(value)) return REVIEW_FLAG_LABELS.get(value);
   return value;
 }
 
 function sortOptions(values, valueKey = "") {
   const unique = [...new Set(cleanOptionValues(values))];
   return unique.sort((a, b) => {
-    if (a === SEASON_REVIEW_VALUE) return 1;
-    if (b === SEASON_REVIEW_VALUE) return -1;
+    if (REVIEW_FLAG_LABELS.has(a) && !REVIEW_FLAG_LABELS.has(b)) return 1;
+    if (REVIEW_FLAG_LABELS.has(b) && !REVIEW_FLAG_LABELS.has(a)) return -1;
     if (a === MISSING_FILTER_VALUE) return 1;
     if (b === MISSING_FILTER_VALUE) return -1;
     if (valueKey === "month") return MONTHS.indexOf(a) - MONTHS.indexOf(b);
-    return a.localeCompare(b);
+    return displayOptionValue(a).localeCompare(displayOptionValue(b));
   });
 }
 
@@ -249,7 +285,7 @@ function hasFilterValueMissing(record, valueKey) {
 }
 
 function hasSeasonReviewFlag(record) {
-  return monthValues(record).includes(SEASON_REVIEW_VALUE);
+  return hasLikelyDefaultSeason(record);
 }
 
 function dataQualityTags(record, route = "general") {
@@ -439,6 +475,11 @@ function cardSnippet(record) {
   return "";
 }
 
+function cardSnippetHtml(record) {
+  const snippet = cardSnippet(record).slice(0, 260);
+  return snippet ? `<p>${esc(snippet)}</p>` : "";
+}
+
 export function renderRecordCards(records, route = "general") {
   if (!records.length) return `<section class="panel empty-state"><h3>No matches</h3></section>`;
   return `<section class="record-list">${records.map((record) => `
@@ -448,7 +489,7 @@ export function renderRecordCards(records, route = "general") {
         <h3><button class="record-title-button" type="button" data-detail="${esc(record.slug)}">${esc(record.display_name || record.common_name || record.slug || "Untitled")}</button></h3>
         <p class="muted small">${esc(record.scientific_name || "")}</p>
         <div class="record-meta">${makeMeta(record, route)}</div>
-        <p>${esc(cardSnippet(record)).slice(0, 260)}</p>
+        ${cardSnippetHtml(record)}
         <div class="control-row">
           <button class="primary" type="button" data-detail="${esc(record.slug)}">Open details</button>
           ${record.review_status === "needs_review" ? `<button class="warn" type="button" data-review-action="mark-ok" data-slug="${esc(record.slug)}">Mark OK</button>` : ""}

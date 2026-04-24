@@ -1,10 +1,10 @@
 import { state, setRoute, setSpecies, setRareSpecies, setReferences, logBoot } from "./state.js";
 import { MEDICINAL_VOCAB } from "./data/medicinal-vocabulary.js";
-import { renderPage, openModal, closeModal, els } from "./ui/dom.js?v=v4.2.29-r2026-04-24-filter-countfix1";
+import { renderPage, openModal, closeModal, els } from "./ui/dom.js?v=v4.2.30-r2026-04-24-filter-refine1";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 
-const APP_VERSION = "v4.2.29-r2026-04-24-filter-countfix1";
+const APP_VERSION = "v4.2.30-r2026-04-24-filter-refine1";
 const REVIEW_STORAGE_KEY = "foraging_review_overlay_v1";
 const moduleCache = new Map();
 let loadAppDataPromise = null;
@@ -105,7 +105,8 @@ const PLANT_TRAIT_FILTER_KEYS = [
 const MUSHROOM_TRAIT_FILTER_KEYS = [
   "mushroomMonth", "mushroomSubstrate", "mushroomTreeType", "mushroomHost", "mushroomUnderside",
   "mushroomRing", "mushroomTexture", "mushroomSmell", "mushroomStaining", "mushroomCapSurface",
-  "mushroomStemFeature", "mushroomBoleteGroup", "mushroomBoleteSubgroup", "mushroomPoreColor"
+  "mushroomStemFeature", "mushroomBoleteGroup", "mushroomBoleteSubgroup", "mushroomPoreColor",
+  "mushroomReviewFlag"
 ];
 
 function isPlantFilterRoute(route) {
@@ -127,12 +128,12 @@ function renderTraitFilters(route, filterFields = [], activeTraitFilters = false
   if (!filterFields.length) return "";
   const title = isPlantFilterRoute(route) ? "Plant filters" : "Mushroom filters";
   const hasMissing = filterFields.some((field) => (field.options || []).some((option) => option?.value === "__missing__"));
+  const hasReviewFlag = filterFields.some((field) => field.valueKey === "mushroomReviewFlag");
   const hasSubstrateReview = filterFields.some((field) => field.valueKey === "mushroomSubstrate" && (field.options || []).some((option) => option?.value === "__missing__"));
-  const hasSeasonReview = filterFields.some((field) => (field.options || []).some((option) => option?.value === "__season_needs_review__"));
   const noteBits = [];
-  if (hasSubstrateReview) noteBits.push("Needs substrate review marks records where substrate is missing. That is a data-audit task, not a normal ID category.");
+  if (hasReviewFlag) noteBits.push("Data review is an audit filter: it helps find records with inherited/default season data or missing bolete substrate, not normal field-guide categories.");
+  if (hasSubstrateReview) noteBits.push("Needs substrate review marks boletes where substrate is missing and should be investigated.");
   else if (hasMissing) noteBits.push("Not recorded / needs review is selectable so records with missing filter data can be found and fixed.");
-  if (hasSeasonReview) noteBits.push("Season needs review marks records whose season looks like inherited audit/default data, not verified field timing.");
   return `
     <section class="panel">
       <div class="home-focus-heading">

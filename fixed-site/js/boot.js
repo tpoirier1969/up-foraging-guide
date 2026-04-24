@@ -1,6 +1,6 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.29-r2026-04-24-filter-countfix1";
+const APP_VERSION = "v4.2.30-r2026-04-24-filter-refine1";
 
 function esc(value) {
   return String(value ?? "")
