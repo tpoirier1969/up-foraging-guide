@@ -1,4 +1,4 @@
-import { classifyRecord } from "../lib/merge.js";
+import { classifyRecord } from "../lib/merge.js?v=v4.2.19-r2026-04-24-exportfix1";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [

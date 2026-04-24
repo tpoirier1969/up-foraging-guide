@@ -1,10 +1,10 @@
-import { classifyRecord, cleanUserFacingText, deriveIngestibleUse, isBuildNoteText } from "../lib/merge.js";
+import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.19-r2026-04-24-exportfix1";
 import { esc } from "../lib/escape.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 function makeMeta(record, route = "general") {
   const info = classifyRecord(record);
-  const edibleUse = record.edible_use || deriveIngestibleUse(record);
+  const edibleUse = record.edible_use || null;
   const bits = [];
   if (record.foraging_class) bits.push(`<span class="tag">${esc(String(record.foraging_class).replaceAll("_", " "))}</span>`);
   else if (record.category) bits.push(`<span class="tag">${esc(record.category)}</span>`);

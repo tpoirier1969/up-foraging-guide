@@ -1,5 +1,5 @@
 import { esc } from "../lib/escape.js";
-import { deriveIngestibleUse, getMedicinalData, isBuildNoteText, cleanUserFacingText } from "../lib/merge.js";
+import { getMedicinalData, isBuildNoteText, cleanUserFacingText } from "../lib/merge.js?v=v4.2.19-r2026-04-24-exportfix1";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
@@ -112,7 +112,7 @@ function linkBlock(record) {
 }
 
 function edibleUseBlock(record) {
-  const edibleUse = record.edible_use || deriveIngestibleUse(record);
+  const edibleUse = record.edible_use || null;
   if (!edibleUse?.has_ingestible_use) return "";
   return `
     <section class="detail-block">
@@ -139,7 +139,7 @@ export function renderDetail(record) {
   const generalNotes = !isBuildNoteText(record.general_notes) ? clean(record.general_notes) : "";
   const overview = clean(record.overview);
   const fieldIdentification = clean(record.field_identification);
-  const edibleUse = record.edible_use || deriveIngestibleUse(record);
+  const edibleUse = record.edible_use || null;
 
   return `
     <article class="detail-grid">

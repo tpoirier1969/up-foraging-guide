@@ -1,5 +1,5 @@
 import { fetchJsonFromRepo } from "../lib/fetch-json.js";
-import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js";
+import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.19-r2026-04-24-exportfix1";
 import { SPECIES_PATHS, OPTIONAL_PATHS } from "./sources.js";
 
 let rareCachePromise = null;
