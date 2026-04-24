@@ -10,6 +10,7 @@ const REVIEW_STORAGE_KEY = "foraging_review_overlay_v1";
 const moduleCache = new Map();
 let loadAppDataPromise = null;
 let renderToken = 0;
+let previousRoute = "";
 
 function versionedPath(path) {
   return path.includes("?") ? path : `${path}?v=${encodeURIComponent(APP_VERSION)}`;
@@ -463,6 +464,10 @@ async function renderCreditsRoute(token) {
 export async function renderCurrentRoute() {
   const token = ++renderToken;
   const route = parseRoute();
+  if (previousRoute === "search" && route !== "search") {
+    state.filters.search = "";
+  }
+  previousRoute = route;
   setRoute(route);
   markActiveNav(route === "search" ? "search" : (route.startsWith("mushrooms-") || route === "boletes" ? "mushrooms" : (route === "other-uses" ? "other-uses" : route)));
 

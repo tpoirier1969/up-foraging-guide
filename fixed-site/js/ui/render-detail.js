@@ -1,5 +1,5 @@
 import { esc } from "../lib/escape.js";
-import { getMedicinalData, isBuildNoteText, cleanUserFacingText } from "../lib/merge.js?v=v4.2.21-r2026-04-24-fern-inline1";
+import { getMedicinalData, isBuildNoteText, cleanUserFacingText } from "../lib/merge.js?v=v4.2.22-r2026-04-24-search-clear1";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [

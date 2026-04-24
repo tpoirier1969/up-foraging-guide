@@ -1,4 +1,4 @@
-import { classifyRecord } from "../lib/merge.js?v=v4.2.21-r2026-04-24-fern-inline1";
+import { classifyRecord } from "../lib/merge.js?v=v4.2.22-r2026-04-24-search-clear1";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
