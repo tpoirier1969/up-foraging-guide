@@ -49,16 +49,29 @@ const PLACEHOLDER_MEDICINAL_PATTERNS = [
 
 const CURATION_NOTE_PATTERNS = [
   /original app species restored/i,
-  /standalone modular build/i,
+  /standalone(?: modular)? build/i,
   /consolidated to one .* entry/i,
   /merged under .* current build/i,
   /seed entry only/i,
   /minimal species seed/i,
   /added during .* audit/i,
-  /baseline audit pass/i,
+  /audit pass/i,
   /clean app/i,
   /copyback .* pending/i,
-  /current build/i
+  /current build/i,
+  /needs image coverage/i,
+  /needs source links/i,
+  /needs species-level/i,
+  /still needs species-level/i,
+  /scaffolded for sorting/i,
+  /placeholder/i,
+  /review text/i,
+  /being copied back/i,
+  /true .* page rather than/i,
+  /restored into the standalone/i,
+  /details, seasonality, and images still need/i,
+  /fuller id notes, sources, and images still need/i,
+  /baseline .* commonness, food quality/i
 ];
 
 const FORAGING_CLASS_MAP = new Map([
@@ -290,9 +303,9 @@ function isDangerSeverity(severity = "") {
     "poisonous",
     "deadly",
     "toxic",
-    "not edible",
-    "inedible",
-    "unsafe"
+    "dangerous",
+    "fatal",
+    "harmful"
   ].some(token => value.includes(token));
 }
 
@@ -342,8 +355,8 @@ export function isCautionRecord(record = {}) {
   if (isBenignNonCulinarySeverity(severity)) return false;
   if (risk === "serious") return true;
   if (isDangerSeverity(severity)) return true;
-  if (["not_edible", "poisonous", "deadly"].includes(edibility)) return true;
-  if (["avoid", "emergency_only"].includes(foodRole)) return true;
+  if (["poisonous", "deadly"].includes(edibility)) return true;
+  if (["emergency_only"].includes(foodRole)) return true;
 
   return false;
 }
@@ -441,10 +454,15 @@ export function normalizeRecord(record) {
     look_alike_risk: String(record.look_alike_risk || "").trim(),
     look_alike_notes: String(record.look_alike_notes || "").trim(),
     rare_profile: rareProfile,
-    overview: String(record.overview || record.short_reason || rareProfile?.reason || "").trim(),
+    overview: firstUserFacingText(record.overview, record.short_reason, rareProfile?.reason),
     edibility_notes: String(record.edibility_notes || record.edibility_detail || "").trim(),
-    general_notes: String(record.general_notes || "").trim(),
-    notes: String(record.notes || "").trim(),
+    curation_notes: uniq([
+      isBuildNoteText(record.short_reason) ? record.short_reason : "",
+      isBuildNoteText(record.notes) ? record.notes : "",
+      isBuildNoteText(record.general_notes) ? record.general_notes : ""
+    ]),
+    general_notes: isBuildNoteText(record.general_notes) ? "" : String(record.general_notes || "").trim(),
+    notes: isBuildNoteText(record.notes) ? "" : String(record.notes || "").trim(),
     lane,
     reviewReasons,
     review_reasons: reviewReasons,

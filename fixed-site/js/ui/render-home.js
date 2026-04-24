@@ -111,6 +111,19 @@ export function renderHome(species, errors = [], rareSpecies = []) {
       </div>
 
       <section class="panel">
+        <div class="home-focus-stats">
+          <div class="home-focus-stat-card"><strong>${plantsInSeason.length}</strong><span>plants in season</span></div>
+          <div class="home-focus-stat-card"><strong>${mushroomsInSeason.length}</strong><span>mushrooms in season</span></div>
+          <div class="home-focus-stat-card"><strong>${plants.length}</strong><span>edible plants</span></div>
+          <div class="home-focus-stat-card"><strong>${mushrooms.length}</strong><span>edible mushrooms</span></div>
+          <div class="home-focus-stat-card"><strong>${medicinal.length}</strong><span>medicinal species</span></div>
+          <div class="home-focus-stat-card"><strong>${otherUses.length}</strong><span>other uses</span></div>
+          <div class="home-focus-stat-card"><strong>${caution.length}</strong><span>caution species</span></div>
+          <div class="home-focus-stat-card"><strong>${Array.isArray(rareSpecies) ? rareSpecies.length : 0}</strong><span>rare / endangered entries</span></div>
+        </div>
+      </section>
+
+      <section class="panel">
         <h3>Some Species In Season</h3>
         <div class="home-focus-highlights">
           ${highlights.map((record) => `
@@ -124,19 +137,6 @@ export function renderHome(species, errors = [], rareSpecies = []) {
               ${renderHomeImage(record)}
             </button>
           `).join("")}
-        </div>
-      </section>
-
-      <section class="panel">
-        <div class="home-focus-stats">
-          <div class="home-focus-stat-card"><strong>${plantsInSeason.length}</strong><span>plants in season</span></div>
-          <div class="home-focus-stat-card"><strong>${mushroomsInSeason.length}</strong><span>mushrooms in season</span></div>
-          <div class="home-focus-stat-card"><strong>${plants.length}</strong><span>edible plants</span></div>
-          <div class="home-focus-stat-card"><strong>${mushrooms.length}</strong><span>edible mushrooms</span></div>
-          <div class="home-focus-stat-card"><strong>${medicinal.length}</strong><span>medicinal species</span></div>
-          <div class="home-focus-stat-card"><strong>${otherUses.length}</strong><span>other uses</span></div>
-          <div class="home-focus-stat-card"><strong>${caution.length}</strong><span>caution species</span></div>
-          <div class="home-focus-stat-card"><strong>${Array.isArray(rareSpecies) ? rareSpecies.length : 0}</strong><span>rare / endangered entries</span></div>
         </div>
       </section>
 

@@ -113,9 +113,10 @@ function cardSnippet(record) {
   const candidates = [
     record.overview,
     record.field_identification,
+    rare.reason,
     record.culinary_uses,
     record.other_uses,
-    rare.reason,
+    record.edibility_notes,
     record.notes,
     record.general_notes,
     record.habitat_detail
@@ -124,6 +125,7 @@ function cardSnippet(record) {
     const text = String(value || "").trim();
     if (!text) continue;
     if (isBuildNoteText(text)) continue;
+    if (/^original app/i.test(text) || /^this record still/i.test(text) || /^not a worthwhile edible\./i.test(text)) continue;
     return text;
   }
   return "";
