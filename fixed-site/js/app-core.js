@@ -30,7 +30,7 @@ function routeTitle(route) {
     "mushrooms-other": "Other mushrooms",
     medicinal: "Medicinal",
     rare: "Rare",
-    lookalikes: "Caution & Other Uses",
+    lookalikes: "Caution",
     "other-uses": "Other Uses",
     review: "Needs Review",
     references: "References",
@@ -372,7 +372,7 @@ export async function renderCurrentRoute() {
   const token = ++renderToken;
   const route = parseRoute();
   setRoute(route);
-  markActiveNav(route === "search" ? "search" : (route.startsWith("mushrooms-") || route === "boletes" ? "mushrooms" : (route === "other-uses" ? "lookalikes" : route)));
+  markActiveNav(route === "search" ? "search" : (route.startsWith("mushrooms-") || route === "boletes" ? "mushrooms" : (route === "other-uses" ? "other-uses" : route)));
 
   if (state.loading && !state.coreReady) {
     renderPage(statusHtml("Loading app…", state.bootLog, "Plants, mushrooms, and the rare-species count are loading first."));

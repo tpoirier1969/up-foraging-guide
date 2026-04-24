@@ -8,7 +8,7 @@ function makeMeta(record, route = "general") {
   if (record.foraging_class) bits.push(`<span class="tag">${esc(String(record.foraging_class).replaceAll("_", " "))}</span>`);
   else if (record.category) bits.push(`<span class="tag">${esc(record.category)}</span>`);
   if (record.lane && record.record_type === "mushroom") bits.push(`<span class="tag">${esc(record.lane)}</span>`);
-  if ((route === "lookalikes" || route === "other-uses") && info.otherUses) bits.push(`<span class="tag">Other use</span>`);
+  if (route === "other-uses" && info.otherUses) bits.push(`<span class="tag">Other use</span>`);
   if ((route === "lookalikes" || route === "caution") && info.caution) bits.push(`<span class="tag danger">Caution</span>`);
   if (record.commonness) bits.push(`<span class="tag">${esc(record.commonness)}</span>`);
   if (record.food_quality) bits.push(`<span class="tag good">${esc(record.food_quality)}</span>`);
@@ -97,7 +97,7 @@ function routeMatch(record, route) {
   if (route === "boletes") return info.isMushroom && info.edible && record.lane === "bolete";
   if (route === "mushrooms-other") return info.isMushroom && info.edible && record.lane === "other";
   if (route === "medicinal") return info.medicinal;
-  if (route === "lookalikes") return info.caution || info.otherUses;
+  if (route === "lookalikes") return info.caution;
   if (route === "caution") return info.caution;
   if (route === "other-uses") return info.otherUses;
   if (route === "review") return record.review_status === "needs_review";
