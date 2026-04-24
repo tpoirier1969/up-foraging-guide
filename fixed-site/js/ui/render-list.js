@@ -1,4 +1,4 @@
-import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.31-r2026-04-24-list-sort1";
+import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.32-r2026-04-24-bolete-triage1";
 import { esc } from "../lib/escape.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
@@ -38,9 +38,9 @@ const BOLETE_FILTER_DEFS = [
   { key: "mushroomReviewFlag", label: "Data review", blankLabel: "Any review state", valueKey: "mushroomReviewFlag" },
   { key: "mushroomBoleteGroup", label: "Bolete group", blankLabel: "Any bolete group", valueKey: "mushroomBoleteGroup" },
   { key: "mushroomBoleteSubgroup", label: "Bolete subgroup", blankLabel: "Any bolete subgroup", valueKey: "mushroomBoleteSubgroup" },
-  { key: "mushroomSubstrate", label: "Substrate", blankLabel: "Any substrate", valueKey: "mushroomSubstrate" },
-  { key: "mushroomTreeType", label: "Tree type", blankLabel: "Any tree type", valueKey: "mushroomTreeType" },
-  { key: "mushroomHost", label: "Host tree", blankLabel: "Any host tree", valueKey: "mushroomHost" },
+  { key: "mushroomSubstrate", label: "Growing from / with", blankLabel: "Any growing context", valueKey: "mushroomSubstrate" },
+  { key: "mushroomTreeType", label: "Tree association", blankLabel: "Any tree association", valueKey: "mushroomTreeType" },
+  { key: "mushroomHost", label: "Associated tree", blankLabel: "Any associated tree", valueKey: "mushroomHost" },
   { key: "mushroomPoreColor", label: "Pore color", blankLabel: "Any pore color", valueKey: "mushroomPoreColor" },
   { key: "mushroomStaining", label: "Bruising / staining", blankLabel: "Any bruising/staining", valueKey: "mushroomStaining" },
   { key: "mushroomCapSurface", label: "Cap surface", blankLabel: "Any cap surface", valueKey: "mushroomCapSurface" },
@@ -66,14 +66,26 @@ const MISSING_FILTER_VALUE = "__missing__";
 const MISSING_FILTER_LABEL = "Not recorded / needs review";
 const REVIEW_FLAG_SEASON = "__review__:season";
 const REVIEW_FLAG_SUBSTRATE = "__review__:substrate";
+const REVIEW_FLAG_HOST = "__review__:host";
+const REVIEW_FLAG_STAINING = "__review__:staining";
+const REVIEW_FLAG_FOOD_QUALITY = "__review__:food_quality";
+const REVIEW_FLAG_PHOTOS_SOURCES = "__review__:photos_sources";
 const REVIEW_FLAG_LABELS = new Map([
   [REVIEW_FLAG_SEASON, "Needs season review"],
-  [REVIEW_FLAG_SUBSTRATE, "Needs substrate review"]
+  [REVIEW_FLAG_SUBSTRATE, "Needs substrate review"],
+  [REVIEW_FLAG_HOST, "Needs host/tree review"],
+  [REVIEW_FLAG_STAINING, "Needs bruising/staining review"],
+  [REVIEW_FLAG_FOOD_QUALITY, "Needs food-quality review"],
+  [REVIEW_FLAG_PHOTOS_SOURCES, "Needs photos/sources"]
 ]);
 const TREE_TYPE_RE = /\b(hardwood|softwood|conifer|coniferous|deciduous|broadleaf|mixed woods?)\b/i;
 
 const MISSING_REVIEW_LABELS_BY_VALUE_KEY = new Map([
   ["mushroomSubstrate", "Needs substrate review"],
+  ["mushroomTreeType", "Tree association not recorded / needs review"],
+  ["mushroomHost", "Associated tree not recorded / needs review"],
+  ["mushroomStaining", "Bruising/staining not recorded / needs review"],
+  ["mushroomPoreColor", "Pore color not recorded / needs review"],
   ["month", "Season not recorded / needs review"]
 ]);
 
@@ -158,12 +170,56 @@ function hostTreeValues(record) {
   return candidates.filter((value) => !TREE_TYPE_RE.test(value));
 }
 
+function hasImageCoverage(record = {}) {
+  return asList(record.images_structured).length > 0
+    || !!String(record.list_thumbnail || "").trim()
+    || asList(record.detail_images).length > 0
+    || asList(record.enlarge_images).length > 0
+    || asList(record.images).length > 0;
+}
+
+function hasSourceLinks(record = {}) {
+  return asList(record.links).length > 0 || asList(record.use_links).length > 0;
+}
+
+function reviewText(record = {}) {
+  return [
+    ...asList(record.reviewReasons),
+    ...asList(record.review_reasons),
+    ...asList(record.manual_review_reasons),
+    record.notes,
+    record.general_notes,
+    record.culinary_uses,
+    record.mushroom_profile?.summary,
+    ...asList(record.mushroom_profile?.research_notes)
+  ].join(" ").toLowerCase();
+}
+
+function hasBuildAuditSignals(record = {}) {
+  const text = reviewText(record);
+  return text.includes("needs species-level")
+    || text.includes("needs source links")
+    || text.includes("seed entry")
+    || text.includes("audit pass")
+    || text.includes("clean app")
+    || isBuildNoteText(text);
+}
+
 function reviewFlagValues(record) {
   const flags = [];
+  const substrateValues = cleanOptionValues(collectValues(record, [["substrate"], ["mushroom_profile", "substrate"]]));
+  const treeType = treeTypeValues(record);
+  const hostTree = hostTreeValues(record);
+  const staining = cleanOptionValues(collectValues(record, [["staining"], ["mushroom_profile", "staining"]]));
+  const foodQuality = String(record.food_quality || "").trim();
+
   if (hasLikelyDefaultSeason(record)) flags.push(REVIEW_FLAG_SEASON);
-  if (cleanOptionValues(collectValues(record, [["substrate"], ["mushroom_profile", "substrate"]])).length === 0) {
-    flags.push(REVIEW_FLAG_SUBSTRATE);
-  }
+  if (substrateValues.length === 0) flags.push(REVIEW_FLAG_SUBSTRATE);
+  if (treeType.length === 0 && hostTree.length === 0) flags.push(REVIEW_FLAG_HOST);
+  if (staining.length === 0) flags.push(REVIEW_FLAG_STAINING);
+  if (!foodQuality || hasBuildAuditSignals(record)) flags.push(REVIEW_FLAG_FOOD_QUALITY);
+  if (!hasImageCoverage(record) || !hasSourceLinks(record) || reviewText(record).includes("needs image coverage")) flags.push(REVIEW_FLAG_PHOTOS_SOURCES);
+
   return flags;
 }
 
@@ -290,11 +346,15 @@ function hasSeasonReviewFlag(record) {
 
 function dataQualityTags(record, route = "general") {
   const tags = [];
-  if (["boletes", "mushrooms-gilled", "mushrooms-other"].includes(route) && hasSeasonReviewFlag(record)) {
-    tags.push("Season needs review");
+  if (route === "boletes") {
+    reviewFlagValues(record).forEach((flag) => {
+      const label = REVIEW_FLAG_LABELS.get(flag);
+      if (label) tags.push(label);
+    });
+    return tags;
   }
-  if (route === "boletes" && hasFilterValueMissing(record, "mushroomSubstrate")) {
-    tags.push("Needs substrate review");
+  if (["mushrooms-gilled", "mushrooms-other"].includes(route) && hasSeasonReviewFlag(record)) {
+    tags.push("Season needs review");
   }
   return tags;
 }
@@ -401,6 +461,7 @@ function normalizeFilters(filtersOrSearch) {
     mushroomBoleteGroup: filtersOrSearch?.mushroomBoleteGroup || "",
     mushroomBoleteSubgroup: filtersOrSearch?.mushroomBoleteSubgroup || "",
     mushroomPoreColor: filtersOrSearch?.mushroomPoreColor || "",
+    mushroomReviewFlag: filtersOrSearch?.mushroomReviewFlag || "",
     sortSpecies: filtersOrSearch?.sortSpecies || "default"
   };
 }

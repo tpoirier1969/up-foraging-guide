@@ -1,6 +1,6 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.31-r2026-04-24-list-sort1";
+const APP_VERSION = "v4.2.32-r2026-04-24-bolete-triage1";
 
 function esc(value) {
   return String(value ?? "")

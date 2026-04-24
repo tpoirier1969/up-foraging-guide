@@ -1,10 +1,10 @@
 import { state, setRoute, setSpecies, setRareSpecies, setReferences, logBoot } from "./state.js";
 import { MEDICINAL_VOCAB } from "./data/medicinal-vocabulary.js";
-import { renderPage, openModal, closeModal, els } from "./ui/dom.js?v=v4.2.31-r2026-04-24-list-sort1";
+import { renderPage, openModal, closeModal, els } from "./ui/dom.js?v=v4.2.32-r2026-04-24-bolete-triage1";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 
-const APP_VERSION = "v4.2.31-r2026-04-24-list-sort1";
+const APP_VERSION = "v4.2.32-r2026-04-24-bolete-triage1";
 const REVIEW_STORAGE_KEY = "foraging_review_overlay_v1";
 const moduleCache = new Map();
 let loadAppDataPromise = null;
@@ -157,13 +157,13 @@ function clearTraitFiltersForRoute(route) {
 
 function renderTraitFilters(route, filterFields = [], activeTraitFilters = false) {
   if (!filterFields.length) return "";
-  const title = isPlantFilterRoute(route) ? "Plant filters" : "Mushroom filters";
+  const title = isPlantFilterRoute(route) ? "Plant filters" : (route === "boletes" ? "Bolete filters" : "Mushroom filters");
   const hasMissing = filterFields.some((field) => (field.options || []).some((option) => option?.value === "__missing__"));
   const hasReviewFlag = filterFields.some((field) => field.valueKey === "mushroomReviewFlag");
   const hasSubstrateReview = filterFields.some((field) => field.valueKey === "mushroomSubstrate" && (field.options || []).some((option) => option?.value === "__missing__"));
   const noteBits = [];
-  if (hasReviewFlag) noteBits.push("Data review is an audit filter: it helps find records with inherited/default season data or missing bolete substrate, not normal field-guide categories.");
-  if (hasSubstrateReview) noteBits.push("Needs substrate review marks boletes where substrate is missing and should be investigated.");
+  if (hasReviewFlag) noteBits.push("Data review is an audit filter: it helps find boletes with inherited/default season data, missing substrate, missing host/tree clues, missing bruising notes, weak food-quality labels, or missing photo/source work.");
+  if (hasSubstrateReview) noteBits.push("Needs substrate review marks boletes where growing context is missing and should be investigated.");
   else if (hasMissing) noteBits.push("Not recorded / needs review is selectable so records with missing filter data can be found and fixed.");
   return `
     <section class="panel">

@@ -1,4 +1,4 @@
-import { classifyRecord } from "../lib/merge.js?v=v4.2.31-r2026-04-24-list-sort1";
+import { classifyRecord } from "../lib/merge.js?v=v4.2.32-r2026-04-24-bolete-triage1";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
