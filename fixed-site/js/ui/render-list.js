@@ -1,12 +1,15 @@
-import { classifyRecord, isBuildNoteText } from "../lib/merge.js";
+import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js";
 import { esc } from "../lib/escape.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
-function makeMeta(record) {
+function makeMeta(record, route = "general") {
+  const info = classifyRecord(record);
   const bits = [];
   if (record.foraging_class) bits.push(`<span class="tag">${esc(String(record.foraging_class).replaceAll("_", " "))}</span>`);
   else if (record.category) bits.push(`<span class="tag">${esc(record.category)}</span>`);
   if (record.lane && record.record_type === "mushroom") bits.push(`<span class="tag">${esc(record.lane)}</span>`);
+  if ((route === "lookalikes" || route === "other-uses") && info.otherUses) bits.push(`<span class="tag">Other use</span>`);
+  if ((route === "lookalikes" || route === "caution") && info.caution) bits.push(`<span class="tag danger">Caution</span>`);
   if (record.commonness) bits.push(`<span class="tag">${esc(record.commonness)}</span>`);
   if (record.food_quality) bits.push(`<span class="tag good">${esc(record.food_quality)}</span>`);
   if (record.non_edible_severity) bits.push(`<span class="tag danger">${esc(record.non_edible_severity)}</span>`);
@@ -39,6 +42,9 @@ function matchesSearch(record, q) {
     rare.reason,
     rare.field_marks,
     rare.care_note,
+    record.danger_level,
+    record.poisoning_effects,
+    record.toxicity_notes,
     ...(record.search_aliases || []),
     ...(record.reviewReasons || []),
     ...(record.look_alikes || []),
@@ -46,6 +52,7 @@ function matchesSearch(record, q) {
     ...(record.medicinalAction || []),
     ...(record.medicinalSystem || []),
     ...(record.medicinalTerms || []),
+    ...(record.affected_systems || []),
     ...(rare.key_features || [])
   ].join(" ").toLowerCase();
   return hay.includes(q);
@@ -90,7 +97,8 @@ function routeMatch(record, route) {
   if (route === "boletes") return info.isMushroom && info.edible && record.lane === "bolete";
   if (route === "mushrooms-other") return info.isMushroom && info.edible && record.lane === "other";
   if (route === "medicinal") return info.medicinal;
-  if (route === "lookalikes") return info.caution;
+  if (route === "lookalikes") return info.caution || info.otherUses;
+  if (route === "caution") return info.caution;
   if (route === "other-uses") return info.otherUses;
   if (route === "review") return record.review_status === "needs_review";
   return true;
@@ -113,19 +121,21 @@ function cardSnippet(record) {
   const candidates = [
     record.overview,
     record.field_identification,
+    record.other_uses,
+    record.poisoning_effects,
+    record.toxicity_notes,
+    record.edibility_notes,
+    record.edibility_detail,
     rare.reason,
     record.culinary_uses,
-    record.other_uses,
-    record.edibility_notes,
     record.notes,
     record.general_notes,
     record.habitat_detail
   ];
   for (const value of candidates) {
-    const text = String(value || "").trim();
+    const text = cleanUserFacingText(value);
     if (!text) continue;
     if (isBuildNoteText(text)) continue;
-    if (/^original app/i.test(text) || /^this record still/i.test(text) || /^not a worthwhile edible\./i.test(text)) continue;
     return text;
   }
   return "";
@@ -139,7 +149,7 @@ export function renderRecordCards(records, route = "general") {
       <div class="record-card-body">
         <h3><button class="record-title-button" type="button" data-detail="${esc(record.slug)}">${esc(record.display_name || record.common_name || record.slug || "Untitled")}</button></h3>
         <p class="muted small">${esc(record.scientific_name || "")}</p>
-        <div class="record-meta">${makeMeta(record)}</div>
+        <div class="record-meta">${makeMeta(record, route)}</div>
         <p>${esc(cardSnippet(record)).slice(0, 260)}</p>
         <div class="control-row">
           <button class="primary" type="button" data-detail="${esc(record.slug)}">Open details</button>

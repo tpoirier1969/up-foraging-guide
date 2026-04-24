@@ -1,5 +1,5 @@
 import { esc } from "../lib/escape.js";
-import { getMedicinalData, isBuildNoteText } from "../lib/merge.js";
+import { getMedicinalData, isBuildNoteText, cleanUserFacingText } from "../lib/merge.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
@@ -7,14 +7,21 @@ const MONTHS = [
   "July","August","September","October","November","December"
 ];
 
+function clean(value) {
+  return cleanUserFacingText(value);
+}
+
 function lineIf(label, value) {
-  if (value === undefined || value === null || value === "") return "";
-  return `<dt>${esc(label)}</dt><dd>${esc(value)}</dd>`;
+  const text = clean(value);
+  if (!text) return "";
+  return `<dt>${esc(label)}</dt><dd>${esc(text)}</dd>`;
 }
 
 function listBlock(title, values) {
   if (!Array.isArray(values) || !values.length) return "";
-  return `<section class="detail-block"><h4>${esc(title)}</h4><ul class="list-tight">${values.map(v => `<li>${esc(v)}</li>`).join("")}</ul></section>`;
+  const cleaned = values.map(clean).filter(Boolean);
+  if (!cleaned.length) return "";
+  return `<section class="detail-block"><h4>${esc(title)}</h4><ul class="list-tight">${cleaned.map(v => `<li>${esc(v)}</li>`).join("")}</ul></section>`;
 }
 
 function seasonText(record) {
@@ -46,26 +53,46 @@ function rareBlock(record) {
   `;
 }
 
+function isClearlyNonPoisonous(record, text = "") {
+  const ed = String(record.edibility_status || "").trim().toLowerCase();
+  const hay = `${record.non_edible_severity || ""} ${record.danger_level || ""} ${record.poisoning_effects || ""} ${record.toxicity_notes || ""} ${text}`.toLowerCase();
+  if (ed === "poisonous" || ed === "deadly") return false;
+  return /not poisonous|non[- ]poisonous|not treated here as poisonous|bitter[, ]+not poisonous|not toxic/.test(hay);
+}
+
 function dangerBlock(record) {
   const ed = String(record.edibility_status || "").trim().toLowerCase();
-  const severity = String(record.non_edible_severity || "").trim();
-  const level = String(record.danger_level || (ed === "deadly" ? "Deadly" : ed === "poisonous" ? "Poisonous" : severity)).trim();
-  const effects = String(record.poisoning_effects || record.toxicity_notes || "").trim();
-  const affected = Array.isArray(record.affected_systems) ? record.affected_systems.filter(Boolean) : [];
-  const notes = String(record.edibility_notes || record.edibility_detail || "").trim();
-  const isDanger = ed === "poisonous" || ed === "deadly" || /poison|deadly|toxic|danger/i.test(`${severity} ${level}`);
+  const severity = clean(record.non_edible_severity);
+  const level = clean(record.danger_level || (ed === "deadly" ? "Deadly" : ed === "poisonous" ? "Poisonous" : severity));
+  const effects = clean(record.poisoning_effects || record.toxicity_notes || "");
+  const affected = Array.isArray(record.affected_systems) ? record.affected_systems.map(clean).filter(Boolean) : [];
+  const notes = clean(record.edibility_notes || record.edibility_detail || "");
+  const dangerHay = `${ed} ${severity} ${level} ${effects} ${notes}`;
+  const isDanger = ed === "poisonous"
+    || ed === "deadly"
+    || /poison|deadly|toxic|danger|fatal|liver|kidney|neurolog|gastrointestinal|gi distress|vomit|diarrhea/i.test(dangerHay);
+
+  if (isClearlyNonPoisonous(record, dangerHay) && !/deadly|fatal|liver|kidney|neurolog/i.test(dangerHay)) return "";
   if (!isDanger && !effects && !affected.length) return "";
-  const fallback = effects || (ed === "deadly"
-    ? "Potentially life-threatening. Avoid entirely."
-    : "Can cause illness or poisoning. Treat as unsafe to eat.");
+
+  const fallbackEffects = effects || (ed === "deadly"
+    ? "Potentially life-threatening poisoning. Avoid entirely."
+    : "Can cause poisoning or serious illness. Treat as unsafe to eat.");
+  const seriousness = clean(record.danger_seriousness) || (ed === "deadly"
+    ? "High seriousness: this entry should be treated as potentially life-threatening, not as a beginner mistake."
+    : ed === "poisonous"
+      ? "Seriousness varies by species and amount eaten, but this is not a casual caution entry. Avoid eating it."
+      : "Unsafe or not recommended as food; review the caution notes before handling or comparing with edible species.");
+
   return `
-    <section class="detail-block">
+    <section class="detail-block danger-detail-block">
       <h4>Danger / poisoning</h4>
       <dl class="kv">
-        ${lineIf("Danger level", level)}
-        ${lineIf("Likely effects", fallback)}
-        ${lineIf("Severity / notes", notes)}
-        ${lineIf("Affected systems", affected.join(", "))}
+        ${lineIf("Danger level", level || (ed === "deadly" ? "Deadly" : "Poisonous / unsafe"))}
+        ${lineIf("Expected effects / symptoms", fallbackEffects)}
+        ${lineIf("Seriousness", seriousness)}
+        ${lineIf("Body systems affected", affected.join(", "))}
+        ${lineIf("Notes", notes)}
       </dl>
     </section>
   `;
@@ -74,20 +101,29 @@ function dangerBlock(record) {
 function linkBlock(record) {
   const links = Array.isArray(record.use_links) ? record.use_links : (Array.isArray(record.links) ? record.links.map((url) => ({ label: url, url })) : []);
   if (!links.length) return "";
-  return `<section class="detail-block"><h4>Links</h4><ul class="list-tight">${links.map((item) => {
+  const items = links.map((item) => {
     const url = typeof item === "string" ? item : item.url;
-    const label = typeof item === "string" ? item : (item.label || item.url);
+    const label = clean(typeof item === "string" ? item : (item.label || item.url));
+    if (!url || !label) return "";
     return `<li><a href="${esc(url)}" target="_blank" rel="noreferrer">${esc(label)}</a></li>`;
-  }).join("")}</ul></section>`;
+  }).filter(Boolean);
+  if (!items.length) return "";
+  return `<section class="detail-block"><h4>Links</h4><ul class="list-tight">${items.join("")}</ul></section>`;
 }
 
 export function renderDetail(record) {
   const typeLabel = record.foraging_class ? String(record.foraging_class).replaceAll("_", " ") : (record.category || record.group || "");
   const medicinal = getMedicinalData(record);
-  const medicinalUses = String(medicinal.summary || "").trim();
+  const medicinalUses = clean(medicinal.summary || "");
+  const medicinalWarnings = clean(medicinal.warnings || "");
   const habitats = Array.isArray(record.habitats) && record.habitats.length ? record.habitats.join(", ") : (Array.isArray(record.habitat) ? record.habitat.join(", ") : (record.habitat_detail || ""));
-  const notes = !isBuildNoteText(record.notes) ? String(record.notes || "").trim() : "";
-  const generalNotes = !isBuildNoteText(record.general_notes) ? String(record.general_notes || "").trim() : "";
+  const culinaryUses = clean(record.culinary_uses);
+  const otherUses = clean(record.other_uses);
+  const edibilityNotes = clean(record.edibility_notes || record.edibility_detail);
+  const notes = !isBuildNoteText(record.notes) ? clean(record.notes) : "";
+  const generalNotes = !isBuildNoteText(record.general_notes) ? clean(record.general_notes) : "";
+  const overview = clean(record.overview);
+  const fieldIdentification = clean(record.field_identification);
 
   return `
     <article class="detail-grid">
@@ -119,17 +155,18 @@ export function renderDetail(record) {
           ${lineIf("Species scope", record.species_scope || record.entry_scope)}
           ${lineIf("Type", typeLabel)}
           ${lineIf("Habitat", habitats)}
-          ${lineIf("Field identification", record.field_identification)}
+          ${lineIf("Field identification", fieldIdentification)}
           ${lineIf("Commonness", record.commonness)}
           ${lineIf("Season", seasonText(record))}
-          ${lineIf("Overview", record.overview)}
+          ${lineIf("Overview", overview)}
         </dl>
       </section>
 
-      ${record.culinary_uses ? `<section class="detail-block"><h4>Culinary uses</h4><p>${esc(record.culinary_uses)}</p></section>` : ""}
+      ${culinaryUses ? `<section class="detail-block"><h4>Culinary uses</h4><p>${esc(culinaryUses)}</p></section>` : ""}
       ${medicinalUses ? `<section class="detail-block"><h4>Medicinal uses</h4><p>${esc(medicinalUses)}</p></section>` : ""}
-      ${record.other_uses ? `<section class="detail-block"><h4>Other uses</h4><p>${esc(record.other_uses)}</p></section>` : ""}
-      ${(record.edibility_notes || record.edibility_detail) ? `<section class="detail-block"><h4>Edibility / caution</h4><p>${esc(record.edibility_notes || record.edibility_detail)}</p></section>` : ""}
+      ${medicinalWarnings ? `<section class="detail-block"><h4>Medicinal cautions</h4><p>${esc(medicinalWarnings)}</p></section>` : ""}
+      ${otherUses ? `<section class="detail-block"><h4>Other uses</h4><p>${esc(otherUses)}</p></section>` : ""}
+      ${edibilityNotes ? `<section class="detail-block"><h4>Edibility / caution</h4><p>${esc(edibilityNotes)}</p></section>` : ""}
       ${dangerBlock(record)}
       ${rareBlock(record)}
       ${notes ? `<section class="detail-block"><h4>Notes</h4><p>${esc(notes)}</p></section>` : ""}
