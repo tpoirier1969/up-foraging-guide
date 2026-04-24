@@ -1,4 +1,4 @@
-import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.24-r2026-04-24-filter-runtimefix1";
+import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.25-r2026-04-24-filter-cleanup1";
 import { esc } from "../lib/escape.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
@@ -41,6 +41,10 @@ const BOLETE_EXTRA_FILTER_DEFS = [
 ];
 
 const SKIP_OPTION_VALUES = new Set(["", "unknown", "needs-review", "needs review", "review_required", "n/a", "not sure"]);
+const MISSING_FILTER_VALUE = "__missing__";
+const MISSING_FILTER_LABEL = "Unknown / not specified";
+const SEASON_REVIEW_VALUE = "__season_needs_review__";
+const SEASON_REVIEW_LABEL = "Season needs review";
 const TREE_TYPE_RE = /\b(hardwood|softwood|conifer|coniferous|deciduous|broadleaf|mixed woods?)\b/i;
 
 function asList(value) {
@@ -71,7 +75,29 @@ function cleanOptionValues(values = []) {
     .filter((value) => value && !SKIP_OPTION_VALUES.has(value.toLowerCase()));
 }
 
+function hasLikelyDefaultSeason(record) {
+  const precision = String(record.weekPrecision || record.week_precision || record.season_confidence || "").toLowerCase();
+  if (precision.includes("needs-review") || precision.includes("needs review")) return true;
+
+  const reviewReasons = [
+    ...asList(record.reviewReasons),
+    ...asList(record.review_reasons),
+    ...asList(record.manual_review_reasons)
+  ].join(" ").toLowerCase();
+  if (reviewReasons.includes("needs species-level") || reviewReasons.includes("needs source links")) return true;
+
+  const auditText = [
+    record.notes,
+    record.general_notes,
+    record.culinary_uses,
+    record.mushroom_profile?.summary,
+    ...asList(record.mushroom_profile?.research_notes)
+  ].join(" ");
+  return isBuildNoteText(auditText);
+}
+
 function monthValues(record) {
+  if (hasLikelyDefaultSeason(record)) return [SEASON_REVIEW_VALUE];
   const names = cleanOptionValues(record.months_available);
   const fromSeasonMonths = asList(record.season_months)
     .map((value) => MONTHS[Number(value) - 1] || "")
@@ -134,22 +160,49 @@ function filterDefinitionsForRoute(route) {
   return [];
 }
 
+function displayOptionValue(value) {
+  if (value === MISSING_FILTER_VALUE) return MISSING_FILTER_LABEL;
+  if (value === SEASON_REVIEW_VALUE) return SEASON_REVIEW_LABEL;
+  return value;
+}
+
 function sortOptions(values, valueKey = "") {
   const unique = [...new Set(cleanOptionValues(values))];
-  if (valueKey === "month") {
-    return unique.sort((a, b) => MONTHS.indexOf(a) - MONTHS.indexOf(b));
-  }
-  return unique.sort((a, b) => a.localeCompare(b));
+  return unique.sort((a, b) => {
+    if (a === SEASON_REVIEW_VALUE) return 1;
+    if (b === SEASON_REVIEW_VALUE) return -1;
+    if (a === MISSING_FILTER_VALUE) return 1;
+    if (b === MISSING_FILTER_VALUE) return -1;
+    if (valueKey === "month") return MONTHS.indexOf(a) - MONTHS.indexOf(b);
+    return a.localeCompare(b);
+  });
 }
 
 export function getFilterFieldsForRoute(records, route) {
   const defs = filterDefinitionsForRoute(route);
   if (!defs.length) return [];
   const baseRecords = (records || []).filter((record) => !record?.hidden && routeMatch(record, route));
-  return defs.map((def) => ({
-    ...def,
-    options: sortOptions(baseRecords.flatMap((record) => valuesForFilter(record, def.valueKey)), def.valueKey)
-  })).filter((field) => field.options.length > 0);
+  return defs.map((def) => {
+    const counts = new Map();
+    let missingCount = 0;
+    for (const record of baseRecords) {
+      const values = [...new Set(valuesForFilter(record, def.valueKey))];
+      if (!values.length) {
+        missingCount += 1;
+        continue;
+      }
+      values.forEach((value) => counts.set(value, (counts.get(value) || 0) + 1));
+    }
+    const values = sortOptions([...counts.keys()], def.valueKey);
+    const options = values.map((value) => ({
+      value,
+      label: `${displayOptionValue(value)} (${counts.get(value) || 0})`
+    }));
+    if (missingCount > 0) {
+      options.push({ value: MISSING_FILTER_VALUE, label: `${MISSING_FILTER_LABEL} (${missingCount})` });
+    }
+    return { ...def, options };
+  }).filter((field) => field.options.length > 0);
 }
 
 export function hasActiveTraitFilters(route, filters = {}) {
@@ -272,7 +325,9 @@ function matchesTraitFilters(record, route, filters) {
   return defs.every((def) => {
     const selected = String(filters?.[def.key] || "").trim();
     if (!selected) return true;
-    return valuesForFilter(record, def.valueKey).includes(selected);
+    const values = valuesForFilter(record, def.valueKey);
+    if (selected === MISSING_FILTER_VALUE) return values.length === 0;
+    return values.includes(selected);
   });
 }
 

@@ -4,7 +4,7 @@ import { renderPage, openModal, closeModal, els } from "./ui/dom.js";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 
-const APP_VERSION = "v4.2.24-r2026-04-24-filter-runtimefix1";
+const APP_VERSION = "v4.2.25-r2026-04-24-filter-cleanup1";
 const REVIEW_STORAGE_KEY = "foraging_review_overlay_v1";
 const moduleCache = new Map();
 let loadAppDataPromise = null;
@@ -89,7 +89,11 @@ function mushroomLaneLandingHtml() {
 
 function optionHtml(values, current, blankLabel) {
   return [`<option value="">${esc(blankLabel)}</option>`]
-    .concat((values || []).map(value => `<option value="${esc(value)}" ${current === value ? "selected" : ""}>${esc(value)}</option>`))
+    .concat((values || []).map((item) => {
+      const value = item && typeof item === "object" ? String(item.value || "") : String(item || "");
+      const label = item && typeof item === "object" ? String(item.label || item.value || "") : value;
+      return `<option value="${esc(value)}" ${current === value ? "selected" : ""}>${esc(label)}</option>`;
+    }))
     .join("");
 }
 
@@ -122,12 +126,18 @@ function clearTraitFiltersForRoute(route) {
 function renderTraitFilters(route, filterFields = [], activeTraitFilters = false) {
   if (!filterFields.length) return "";
   const title = isPlantFilterRoute(route) ? "Plant filters" : "Mushroom filters";
+  const hasUnknown = filterFields.some((field) => (field.options || []).some((option) => option?.value === "__missing__"));
+  const hasSeasonReview = filterFields.some((field) => (field.options || []).some((option) => option?.value === "__season_needs_review__"));
+  const noteBits = [];
+  if (hasUnknown) noteBits.push("Unknown / not specified is selectable so records without that field do not disappear into the swamp.");
+  if (hasSeasonReview) noteBits.push("Season needs review marks records whose season looks like inherited audit/default data, not verified field timing.");
   return `
     <section class="panel">
       <div class="home-focus-heading">
         <h3>${esc(title)}</h3>
         ${activeTraitFilters ? `<button id="traitClearBtn" type="button">Clear filters</button>` : ""}
       </div>
+      ${noteBits.length ? `<p class="muted small">${esc(noteBits.join(" "))}</p>` : ""}
       <div class="medicinal-filter-row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;align-items:end;">
         ${filterFields.map((field) => `
           <div class="medicinal-filter-cell">
