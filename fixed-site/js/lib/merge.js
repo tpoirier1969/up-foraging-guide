@@ -365,7 +365,125 @@ function isFiddleheadFernRecord(record = {}) {
   return hay.includes("fiddlehead") || hay.includes("ostrich fern") || hay.includes("matteuccia struthiopteris");
 }
 
+function isChagaRecord(record = {}) {
+  const hay = [record.slug, record.display_name, record.common_name, record.scientific_name, ...(record.common_names || [])]
+    .join(" ")
+    .toLowerCase();
+  return hay.includes("chaga")
+    || hay.includes("inonotus obliquus")
+    || hay.includes("clinker polypore")
+    || hay.includes("cinder conk")
+    || hay.includes("birch conk");
+}
+
 function applyKnownRecordFixes(record = {}) {
+  if (isChagaRecord(record)) {
+    const commonNames = uniq([
+      "Chaga",
+      "Clinker Polypore",
+      "Cinder Conk",
+      "Birch Conk",
+      ...(record.common_names || [])
+    ]);
+    const culinaryTea = "Woody conk is not eaten like a normal mushroom, but it is commonly simmered or steeped as a bitter tea / coffee-like beverage.";
+    const medicinalSummary = "Traditional medicinal tea fungus; modern research focuses mostly on preclinical antioxidant, anti-inflammatory, immunomodulating, antidiabetic, and related bioactive-compound activity. Human clinical evidence is limited, so treat this as traditional/preliminary rather than proven treatment.";
+    const medicinalWarnings = "Use moderation. Chaga can be high in oxalates and case reports link heavy or long-term powder use with kidney injury. It may also increase bleeding risk with anticoagulant/antiplatelet drugs and may affect blood sugar, so avoid casual supplement-style use with kidney disease, bleeding disorders, diabetes drugs, blood thinners, pregnancy, or before surgery without medical guidance.";
+    const tinderUse = "Excellent practical tinder / ember carrier. The dry rusty-brown inner material catches a spark readily, smolders like a coal, and can help start or carry fire; scrape, crumble, or powder the inner material. If damp or freshly harvested, expose or dry the inner material first for best spark-catching.";
+    return {
+      ...record,
+      display_name: record.display_name || "Chaga",
+      common_name: record.common_name || "Chaga",
+      common_names: commonNames,
+      scientific_name: record.scientific_name || "Inonotus obliquus",
+      record_type: "mushroom",
+      primary_type: "mushroom",
+      category: record.category || "Mushroom",
+      lane: record.lane || "other",
+      food_role: record.food_role === "avoid" || record.food_role === "medicinal_only" ? "ingestible_prepared" : (record.food_role || "ingestible_prepared"),
+      edibility_status: record.edibility_status === "not_edible" || record.edibility_status === "review_required" ? "edible_with_preparation" : (record.edibility_status || "edible_with_preparation"),
+      non_edible_severity: /inedible|avoid/i.test(String(record.non_edible_severity || "")) ? "" : (record.non_edible_severity || ""),
+      food_quality: record.food_quality && !/not recommended|inedible|avoid/i.test(String(record.food_quality)) ? record.food_quality : "Tea / infusion",
+      culinary_uses: firstUserFacingText(record.culinary_uses, culinaryTea),
+      other_uses: firstUserFacingText(record.other_uses, tinderUse),
+      edibility_detail: firstUserFacingText(record.edibility_detail, record.edibility_notes, "Prepared as tea/infusion rather than eaten as a table mushroom. This is a beverage/medicinal-tea species, not a pan mushroom."),
+      medicinal_uses: firstUserFacingText(record.medicinal_uses, medicinalSummary),
+      medicinal: {
+        ...(record.medicinal || {}),
+        has_meaningful_content: true,
+        summary: firstUserFacingText(record.medicinal?.summary, record.medicinal_uses, medicinalSummary),
+        evidence_tier: record.medicinal?.evidence_tier || "traditional use / preclinical research",
+        actions: mergeArrays(record.medicinal?.actions, [
+          "Antioxidant",
+          "Anti-inflammatory",
+          "Immunomodulating",
+          "Preliminary metabolic support"
+        ]),
+        body_systems: mergeArrays(record.medicinal?.body_systems, [
+          "Immune system",
+          "Inflammation response",
+          "Metabolic / blood sugar",
+          "Kidneys / urinary caution"
+        ]),
+        medical_terms: mergeArrays(record.medicinal?.medical_terms, [
+          "Oxalates",
+          "Anticoagulant interaction",
+          "Blood sugar interaction",
+          "Kidney injury risk with heavy use"
+        ]),
+        parts_used: mergeArrays(record.medicinal?.parts_used, ["Sclerotium / conk"]),
+        preparation_notes: firstUserFacingText(record.medicinal?.preparation_notes, "Usually simmered or steeped as tea; stronger extracts/supplements are a different risk category than an occasional beverage."),
+        warnings: firstUserFacingText(record.medicinal?.warnings, medicinalWarnings),
+        claims: Array.isArray(record.medicinal?.claims) ? record.medicinal.claims : []
+      },
+      use_tags: mergeArrays(record.use_tags, ["E", "T", "M", "O"]),
+      search_aliases: mergeArrays(record.search_aliases, [
+        "clinker polypore",
+        "cinder conk",
+        "birch conk",
+        "tinder fungus",
+        "medicinal tea",
+        "fire starter"
+      ]),
+      mushroom_profile: {
+        ...(record.mushroom_profile || {}),
+        lane: record.mushroom_profile?.lane || "other",
+        scientific_name: record.mushroom_profile?.scientific_name || record.scientific_name || "Inonotus obliquus",
+        substrate: mergeArrays(record.mushroom_profile?.substrate, ["Living birch", "Birch"]),
+        host_filter_tokens: mergeArrays(record.mushroom_profile?.host_filter_tokens || record.host_filter_tokens, ["Hardwood", "Birch"]),
+        texture: mergeArrays(record.mushroom_profile?.texture, ["Woody / hard", "Corky inner material when dry"]),
+        cap_surface: mergeArrays(record.mushroom_profile?.cap_surface, ["Black cracked outer surface", "Rusty brown interior"]),
+        growth_form: mergeArrays(record.mushroom_profile?.growth_form, ["Sterile conk / black mass on birch"]),
+        fertile_surface: mergeArrays(record.mushroom_profile?.fertile_surface, ["Not a typical cap-and-stem mushroom"])
+      },
+      host_filter_tokens: mergeArrays(record.host_filter_tokens, ["Hardwood", "Birch"]),
+      use_links: mergeArrays(record.use_links, [
+        {
+          label: "Memorial Sloan Kettering: Chaga Mushroom",
+          url: "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/chaga-mushroom",
+          link_type: "medicinal_reference",
+          applies_to_part: "conk / tea",
+          source_quality: "medical center",
+          notes: "Traditional use, preclinical evidence, and safety interactions."
+        },
+        {
+          label: "PMC review: Therapeutic properties of Inonotus obliquus",
+          url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11132974/",
+          link_type: "research_review",
+          applies_to_part: "extracts / compounds",
+          source_quality: "peer-reviewed review",
+          notes: "Review of antioxidant, anti-inflammatory, immunomodulating, and other studied properties."
+        },
+        {
+          label: "Wildwood Survival: True Tinder Fungus / Chaga",
+          url: "https://wildwoodsurvival.com/survival/fire/tinder/tinderfungus/true.html",
+          link_type: "other_use",
+          applies_to_part: "inner conk",
+          source_quality: "practical firecraft",
+          notes: "Spark-catching and coal-carrying use."
+        }
+      ])
+    };
+  }
   if (isCandyAppleBolete(record)) {
     const commonNames = uniq(["Candy Apple Bolete", "Frost's Bolete", "Apple Bolete", ...(record.common_names || [])]);
     return {

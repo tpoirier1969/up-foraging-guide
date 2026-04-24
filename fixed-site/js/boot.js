@@ -1,6 +1,6 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.26-r2026-04-24-lightboxfix1";
+const APP_VERSION = "v4.2.27-r2026-04-24-chaga-uses1";
 
 function esc(value) {
   return String(value ?? "")

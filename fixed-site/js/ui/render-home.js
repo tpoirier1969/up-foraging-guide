@@ -1,4 +1,4 @@
-import { classifyRecord } from "../lib/merge.js?v=v4.2.26-r2026-04-24-lightboxfix1";
+import { classifyRecord } from "../lib/merge.js?v=v4.2.27-r2026-04-24-chaga-uses1";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
