@@ -1,9 +1,10 @@
-import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js";
+import { classifyRecord, cleanUserFacingText, deriveIngestibleUse, isBuildNoteText } from "../lib/merge.js";
 import { esc } from "../lib/escape.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 function makeMeta(record, route = "general") {
   const info = classifyRecord(record);
+  const edibleUse = record.edible_use || deriveIngestibleUse(record);
   const bits = [];
   if (record.foraging_class) bits.push(`<span class="tag">${esc(String(record.foraging_class).replaceAll("_", " "))}</span>`);
   else if (record.category) bits.push(`<span class="tag">${esc(record.category)}</span>`);
@@ -12,7 +13,8 @@ function makeMeta(record, route = "general") {
   if ((route === "lookalikes" || route === "caution") && info.caution) bits.push(`<span class="tag danger">Caution</span>`);
   if (record.commonness) bits.push(`<span class="tag">${esc(record.commonness)}</span>`);
   if (record.food_quality) bits.push(`<span class="tag good">${esc(record.food_quality)}</span>`);
-  if (record.non_edible_severity) bits.push(`<span class="tag danger">${esc(record.non_edible_severity)}</span>`);
+  if (edibleUse?.has_ingestible_use && edibleUse.method && !bits.join(" ").includes(edibleUse.method)) bits.push(`<span class="tag good">${esc(edibleUse.method)}</span>`);
+  if (record.non_edible_severity && !edibleUse?.has_ingestible_use) bits.push(`<span class="tag danger">${esc(record.non_edible_severity)}</span>`);
   if (record.review_status === "needs_review") bits.push(`<span class="tag review">Needs review</span>`);
   return bits.join("");
 }

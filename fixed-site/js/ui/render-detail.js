@@ -1,5 +1,5 @@
 import { esc } from "../lib/escape.js";
-import { getMedicinalData, isBuildNoteText, cleanUserFacingText } from "../lib/merge.js";
+import { deriveIngestibleUse, getMedicinalData, isBuildNoteText, cleanUserFacingText } from "../lib/merge.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
@@ -111,6 +111,21 @@ function linkBlock(record) {
   return `<section class="detail-block"><h4>Links</h4><ul class="list-tight">${items.join("")}</ul></section>`;
 }
 
+function edibleUseBlock(record) {
+  const edibleUse = record.edible_use || deriveIngestibleUse(record);
+  if (!edibleUse?.has_ingestible_use) return "";
+  return `
+    <section class="detail-block">
+      <h4>How it is edible / food-use prepared</h4>
+      <dl class="kv">
+        ${lineIf("Use form", edibleUse.method || "Food / beverage use")}
+        ${lineIf("Preparation required", edibleUse.preparation_required ? "Yes — use the food/beverage preparation described for this species." : "Use the food/beverage form described for this species.")}
+        ${lineIf("Use notes", edibleUse.notes)}
+      </dl>
+    </section>
+  `;
+}
+
 export function renderDetail(record) {
   const typeLabel = record.foraging_class ? String(record.foraging_class).replaceAll("_", " ") : (record.category || record.group || "");
   const medicinal = getMedicinalData(record);
@@ -124,6 +139,7 @@ export function renderDetail(record) {
   const generalNotes = !isBuildNoteText(record.general_notes) ? clean(record.general_notes) : "";
   const overview = clean(record.overview);
   const fieldIdentification = clean(record.field_identification);
+  const edibleUse = record.edible_use || deriveIngestibleUse(record);
 
   return `
     <article class="detail-grid">
@@ -136,7 +152,7 @@ export function renderDetail(record) {
             ${typeLabel ? `<span class="tag">${esc(typeLabel)}</span>` : ""}
             ${record.lane ? `<span class="tag">${esc(record.lane)}</span>` : ""}
             ${record.commonness ? `<span class="tag">${esc(record.commonness)}</span>` : ""}
-            ${record.non_edible_severity ? `<span class="tag danger">${esc(record.non_edible_severity)}</span>` : ""}
+            ${record.non_edible_severity && !edibleUse?.has_ingestible_use ? `<span class="tag danger">${esc(record.non_edible_severity)}</span>` : ""}
             ${record.review_status === 'needs_review' ? `<span class="tag review">Needs review</span>` : ''}
           </div>
           <div class="quick-actions">
@@ -162,6 +178,7 @@ export function renderDetail(record) {
         </dl>
       </section>
 
+      ${edibleUseBlock(record)}
       ${culinaryUses ? `<section class="detail-block"><h4>Culinary uses</h4><p>${esc(culinaryUses)}</p></section>` : ""}
       ${medicinalUses ? `<section class="detail-block"><h4>Medicinal uses</h4><p>${esc(medicinalUses)}</p></section>` : ""}
       ${medicinalWarnings ? `<section class="detail-block"><h4>Medicinal cautions</h4><p>${esc(medicinalWarnings)}</p></section>` : ""}
