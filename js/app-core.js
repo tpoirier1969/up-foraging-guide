@@ -30,7 +30,7 @@ function routeTitle(route) {
     "mushrooms-other": "Other mushrooms",
     medicinal: "Medicinal",
     rare: "Rare",
-    lookalikes: "Caution & Look-alikes",
+    lookalikes: "Caution",
     "other-uses": "Other Uses",
     review: "Needs Review",
     references: "References",
@@ -99,10 +99,6 @@ function controlsHtml(route = "general", placeholder = "Search species") {
     return `
       <section class="panel">
         <div class="medicinal-filter-row">
-          <div class="medicinal-filter-cell medicinal-filter-search">
-            <label for="speciesSearch" class="muted small">Search medicinal species</label>
-            <input id="speciesSearch" type="search" value="${esc(search)}" placeholder="${esc(placeholder)}" style="width:100%">
-          </div>
           <div class="medicinal-filter-cell">
             <label for="medicinalActionFilter" class="muted small">Action</label>
             <select id="medicinalActionFilter" style="width:100%">${optionHtml(MEDICINAL_VOCAB.actions, state.filters.medicinalAction, "Any action")}</select>
@@ -116,26 +112,111 @@ function controlsHtml(route = "general", placeholder = "Search species") {
             <select id="medicinalTermFilter" style="width:100%">${optionHtml(MEDICINAL_VOCAB.symptoms, state.filters.medicinalTerm, "Any medical term")}</select>
           </div>
           <div class="medicinal-filter-actions">
-            <button id="speciesSearchBtn" class="primary" type="button">Search</button>
-            ${(search || state.filters.medicinalAction || state.filters.medicinalSystem || state.filters.medicinalTerm) ? `<button id="speciesClearBtn" type="button">Clear</button>` : ""}
+            ${(state.filters.medicinalAction || state.filters.medicinalSystem || state.filters.medicinalTerm) ? `<button id="speciesClearBtn" type="button">Clear</button>` : ""}
           </div>
         </div>
       </section>
     `;
   }
-  return `
-    <section class="panel">
-      <div class="control-row">
-        <input id="speciesSearch" type="search" value="${esc(search)}" placeholder="${esc(placeholder)}" style="flex:1;min-width:280px">
-        <button id="speciesSearchBtn" class="primary" type="button">Search</button>
-        ${search ? `<button id="speciesClearBtn" type="button">Clear</button>` : ""}
-      </div>
-    </section>
-  `;
+  if (route === "search") {
+    return `
+      <section class="panel">
+        <div class="control-row">
+          <input id="speciesSearch" type="search" value="${esc(search)}" placeholder="${esc(placeholder)}" style="flex:1;min-width:280px">
+          <button id="speciesSearchBtn" class="primary" type="button">Search</button>
+          ${search ? `<button id="speciesClearBtn" type="button">Clear</button>` : ""}
+        </div>
+      </section>
+    `;
+  }
+  return "";
+}
+
+const BUILT_IN_LOOKALIKE_STUBS = new Map([
+  ["bracken-fern", {
+    slug: "bracken-fern",
+    display_name: "Bracken Fern",
+    common_name: "Bracken Fern",
+    common_names: ["Bracken", "Eastern bracken fern"],
+    scientific_name: "Pteridium aquilinum",
+    record_type: "plant",
+    primary_type: "plant",
+    category: "Green",
+    food_role: "avoid",
+    edibility_status: "not_edible",
+    non_edible_severity: "Unsafe — toxic / carcinogenic concern",
+    danger_level: "Unsafe look-alike for ostrich fern fiddleheads",
+    poisoning_effects: "Do not substitute bracken fern for ostrich fern fiddleheads. Bracken has documented toxicity concerns and has been shown to cause cancer in animal studies; it is also a known livestock problem.",
+    affected_systems: ["Digestive system", "Long-term cancer/toxicity concern"],
+    field_identification: "Bracken fiddleheads are fuzzy, lack the brown papery covering of ostrich fern fiddleheads, and do not have the deep U-shaped groove on the inside of the stem.",
+    edibility_detail: "Not treated as a food species in this guide. Included here as a look-alike warning for Fiddlehead Ferns.",
+    look_alike_risk: "serious",
+    look_alike_notes: "Can be confused by beginners with edible ostrich fern fiddleheads. Do not harvest fern fiddleheads unless the ostrich fern traits are confirmed.",
+    look_alikes: ["Fiddlehead Ferns"],
+    months_available: ["April", "May", "June"],
+    month_numbers: [4, 5, 6],
+    habitat: ["Forest edge / openings", "Upland / dry forest", "Roadside / disturbed"],
+    links: [
+      "https://extension.umaine.edu/publications/2540e/",
+      "https://www.canada.ca/en/health-canada/services/food-safety-fruits-vegetables/fiddlehead-safety-tips.html"
+    ],
+    review_status: "ok"
+  }],
+  ["cinnamon-fern", {
+    slug: "cinnamon-fern",
+    display_name: "Cinnamon Fern",
+    common_name: "Cinnamon Fern",
+    scientific_name: "Osmundastrum cinnamomeum",
+    record_type: "plant",
+    primary_type: "plant",
+    category: "Green",
+    food_role: "avoid",
+    edibility_status: "not_edible",
+    non_edible_severity: "Not recommended as food",
+    danger_level: "Look-alike / not a food entry",
+    field_identification: "A common ostrich fern look-alike. Do not substitute it for edible ostrich fern fiddleheads; confirm the smooth stem, brown papery scales, and deep U-shaped groove of ostrich fern.",
+    edibility_detail: "Not treated as an edible species in this guide. Included here as a look-alike warning for Fiddlehead Ferns.",
+    look_alike_notes: "Commonly confused with ostrich fern by beginners; not recommended as a substitute food fiddlehead.",
+    look_alikes: ["Fiddlehead Ferns"],
+    months_available: ["April", "May", "June"],
+    month_numbers: [4, 5, 6],
+    habitat: ["Wetland / marsh", "Shoreline / riverbank", "Mixed woods"],
+    links: ["https://extension.umaine.edu/publications/4198e/"],
+    review_status: "ok"
+  }],
+  ["interrupted-fern", {
+    slug: "interrupted-fern",
+    display_name: "Interrupted Fern",
+    common_name: "Interrupted Fern",
+    scientific_name: "Claytosmunda claytoniana",
+    record_type: "plant",
+    primary_type: "plant",
+    category: "Green",
+    food_role: "avoid",
+    edibility_status: "not_edible",
+    non_edible_severity: "Not recommended as food",
+    danger_level: "Look-alike / not a food entry",
+    field_identification: "A common ostrich fern look-alike. Do not substitute it for edible ostrich fern fiddleheads; confirm the smooth stem, brown papery scales, and deep U-shaped groove of ostrich fern.",
+    edibility_detail: "Not treated as an edible species in this guide. Included here as a look-alike warning for Fiddlehead Ferns.",
+    look_alike_notes: "Commonly confused with ostrich fern by beginners; not recommended as a substitute food fiddlehead.",
+    look_alikes: ["Fiddlehead Ferns"],
+    months_available: ["April", "May", "June"],
+    month_numbers: [4, 5, 6],
+    habitat: ["Wetland / marsh", "Mixed woods", "Forest edge / openings"],
+    links: ["https://extension.umaine.edu/publications/4198e/"],
+    review_status: "ok"
+  }]
+]);
+
+function makeBuiltInLookalikeStub(slug = "") {
+  const record = BUILT_IN_LOOKALIKE_STUBS.get(slug);
+  return record ? { ...record } : null;
 }
 
 function getRecordBySlug(slug) {
-  return state.species.find(record => record.slug === slug) || state.rareSpecies.find(record => record.slug === slug);
+  return state.species.find(record => record.slug === slug)
+    || state.rareSpecies.find(record => record.slug === slug)
+    || makeBuiltInLookalikeStub(slug);
 }
 
 function loadReviewOverlay() {
@@ -195,9 +276,18 @@ function wireModalClose() {
   });
 }
 
+function labelFromSlug(slug = "") {
+  return String(slug || "")
+    .replace(/[-_]+/g, " ")
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+}
+
 async function openRecordDetail(slug) {
   const record = getRecordBySlug(slug);
-  if (!record) return;
+  if (!record) {
+    openModal(`<section class="detail-block"><h3>${esc(labelFromSlug(slug))}</h3><p>This look-alike or related species is named in the guide, but it does not have a full species page yet.</p><p class="muted">Treat unlinked look-alikes as a warning, not as a confirmed safe substitute.</p></section>`);
+    return;
+  }
   try {
     const { renderDetail } = await importModule("./ui/render-detail.js");
     openModal(renderDetail(record));
@@ -247,12 +337,6 @@ function clearRouteFilters(route) {
     state.filters.medicinalSystem = "";
     state.filters.medicinalTerm = "";
   }
-  if (route === "rare") {
-    state.filters.rareGroup = "";
-    state.filters.rareLegalStatus = "";
-    state.filters.rareUpRelevance = "";
-    state.filters.rareSensitiveOnly = "";
-  }
 }
 
 function wireCommonEvents(route) {
@@ -278,18 +362,6 @@ function wireCommonEvents(route) {
   });
   document.getElementById("medicinalTermFilter")?.addEventListener("change", (event) => {
     state.filters.medicinalTerm = event.currentTarget.value || "";
-    renderCurrentRoute();
-  });
-  wireSearchBlock("rareSearch", "rareSearchBtn", (value) => {
-    state.filters.search = value;
-    renderCurrentRoute();
-  });
-  wireSearchBlock("refSearch", "refSearchBtn", (value) => {
-    state.filters.search = value;
-    renderCurrentRoute();
-  });
-  wireSearchBlock("creditsSearch", "creditsSearchBtn", (value) => {
-    state.filters.search = value;
     renderCurrentRoute();
   });
   wireActionButtons(document);
@@ -356,22 +428,10 @@ async function renderRareRoute(token) {
     }
     if (token !== renderToken) return;
   }
-  const { renderRarePage, setupRarePage } = await importModule("./ui/render-rare.js");
+  const { renderRarePage } = await importModule("./ui/render-rare.js");
   if (token !== renderToken) return;
-  renderPage(renderRarePage(state.rareSpecies, state.filters));
+  renderPage(renderRarePage(state.rareSpecies, state.filters.search));
   wireCommonEvents("rare");
-  setupRarePage({
-    filters: state.filters,
-    setFilters(updates = {}) {
-      Object.assign(state.filters, updates);
-    },
-    clearFilters() {
-      clearRouteFilters("rare");
-    },
-    rerender() {
-      renderCurrentRoute();
-    }
-  });
 }
 
 async function renderReferencesRoute(token) {
@@ -402,10 +462,9 @@ async function renderCreditsRoute(token) {
 
 export async function renderCurrentRoute() {
   const token = ++renderToken;
-  let route = parseRoute();
-  if (route === "otheruses") route = "other-uses";
+  const route = parseRoute();
   setRoute(route);
-  markActiveNav(route === "search" ? "search" : (route.startsWith("mushrooms-") || route === "boletes" ? "mushrooms" : route));
+  markActiveNav(route === "search" ? "search" : (route.startsWith("mushrooms-") || route === "boletes" ? "mushrooms" : (route === "other-uses" ? "other-uses" : route)));
 
   if (state.loading && !state.coreReady) {
     renderPage(statusHtml("Loading app…", state.bootLog, "Plants, mushrooms, and the rare-species count are loading first."));
