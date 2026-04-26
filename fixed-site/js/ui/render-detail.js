@@ -1,5 +1,5 @@
 import { esc } from "../lib/escape.js";
-import { getMedicinalData, isBuildNoteText, cleanUserFacingText } from "../lib/merge.js?v=v4.2.32-r2026-04-24-bolete-triage1";
+import { getMedicinalData, isBuildNoteText, cleanUserFacingText } from "../lib/merge.js?v=v4.2.35-r2026-04-26-bolete-data-inline1";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
@@ -150,6 +150,38 @@ function edibleUseBlock(record) {
   `;
 }
 
+function profileListValue(profile = {}, key) {
+  const value = profile?.[key];
+  if (Array.isArray(value)) return value.map(clean).filter(Boolean).join(", ");
+  return clean(value);
+}
+
+function boleteDetailBlock(record) {
+  if (String(record?.lane || "").toLowerCase() !== "bolete") return "";
+  const profile = record.mushroom_profile || {};
+  const lines = [
+    lineIf("Pore color", profileListValue(profile, "pore_color") || profileListValue(record, "poreColor")),
+    lineIf("Bruising / staining", profileListValue(profile, "staining") || profileListValue(record, "staining")),
+    lineIf("Stem features", profileListValue(profile, "stem_feature") || profileListValue(record, "stemFeature")),
+    lineIf("Cap surface", profileListValue(profile, "cap_surface")),
+    lineIf("Growing from / with", profileListValue(profile, "substrate") || profileListValue(record, "substrate")),
+    lineIf("Associated trees", profileListValue(profile, "host_trees") || profileListValue(record, "hostTree")),
+    lineIf("Tree association", profileListValue(profile, "host_filter_tokens") || profileListValue(record, "host_filter_tokens")),
+    lineIf("Taste / warning clue", profileListValue(profile, "taste") || profileListValue(record, "taste")),
+    lineIf("Food quality", record.food_quality),
+    lineIf("Season note", profile.season_note)
+  ].join("");
+  if (!lines.trim()) return "";
+  return `
+    <section class="detail-block bolete-id-block">
+      <h4>Bolete field marks</h4>
+      <dl class="kv">
+        ${lines}
+      </dl>
+    </section>
+  `;
+}
+
 export function renderDetail(record) {
   const typeLabel = record.foraging_class ? String(record.foraging_class).replaceAll("_", " ") : (record.category || record.group || "");
   const medicinal = getMedicinalData(record);
@@ -202,6 +234,7 @@ export function renderDetail(record) {
         </dl>
       </section>
 
+      ${boleteDetailBlock(record)}
       ${edibleUseBlock(record)}
       ${culinaryUses ? `<section class="detail-block"><h4>Culinary uses</h4><p>${esc(culinaryUses)}</p></section>` : ""}
       ${medicinalUses ? `<section class="detail-block"><h4>Medicinal uses</h4><p>${esc(medicinalUses)}</p></section>` : ""}

@@ -346,22 +346,6 @@ function deriveUseLinks(record) {
     .filter(Boolean);
 }
 
-function isCandyAppleBolete(record = {}) {
-  const hay = [record.slug, record.display_name, record.common_name, record.scientific_name, ...(record.common_names || [])]
-    .join(" ")
-    .toLowerCase();
-  return (hay.includes("candy") && hay.includes("apple") && hay.includes("bolete"))
-    || hay.includes("butyriboletus frostii")
-    || hay.includes("exsudoporus frostii")
-    || hay.includes("boletus frostii");
-}
-
-function isBitterBoleteRecord(record = {}) {
-  const hay = [record.slug, record.display_name, record.common_name, record.scientific_name, ...(record.common_names || []), ...(record.taste || [])]
-    .join(" ")
-    .toLowerCase();
-  return hay.includes("bitter bolete") || hay.includes("tylopilus felleus") || hay.includes("false porcini") || hay.includes("gall fungus");
-}
 
 function isFiddleheadFernRecord(record = {}) {
   const hay = [record.slug, record.display_name, record.common_name, record.scientific_name, ...(record.common_names || [])]
@@ -370,194 +354,8 @@ function isFiddleheadFernRecord(record = {}) {
   return hay.includes("fiddlehead") || hay.includes("ostrich fern") || hay.includes("matteuccia struthiopteris");
 }
 
-function isChagaRecord(record = {}) {
-  const hay = [record.slug, record.display_name, record.common_name, record.scientific_name, ...(record.common_names || [])]
-    .join(" ")
-    .toLowerCase();
-  return hay.includes("chaga")
-    || hay.includes("inonotus obliquus")
-    || hay.includes("clinker polypore")
-    || hay.includes("cinder conk")
-    || hay.includes("birch conk");
-}
 
 function applyKnownRecordFixes(record = {}) {
-  if (isChagaRecord(record)) {
-    const commonNames = uniq([
-      "Chaga",
-      "Clinker Polypore",
-      "Cinder Conk",
-      "Birch Conk",
-      ...(record.common_names || [])
-    ]);
-    const culinaryTea = "Woody conk is not eaten like a normal mushroom, but it is commonly simmered or steeped as a bitter tea / coffee-like beverage.";
-    const medicinalSummary = "Traditional medicinal tea fungus; modern research focuses mostly on preclinical antioxidant, anti-inflammatory, immunomodulating, antidiabetic, and related bioactive-compound activity. Human clinical evidence is limited, so treat this as traditional/preliminary rather than proven treatment.";
-    const medicinalWarnings = "Use moderation. Chaga can be high in oxalates and case reports link heavy or long-term powder use with kidney injury. It may also increase bleeding risk with anticoagulant/antiplatelet drugs and may affect blood sugar, so avoid casual supplement-style use with kidney disease, bleeding disorders, diabetes drugs, blood thinners, pregnancy, or before surgery without medical guidance.";
-    const tinderUse = "Excellent practical tinder / ember carrier. The dry rusty-brown inner material catches a spark readily, smolders like a coal, and can help start or carry fire; scrape, crumble, or powder the inner material. If damp or freshly harvested, expose or dry the inner material first for best spark-catching.";
-    return {
-      ...record,
-      display_name: record.display_name || "Chaga",
-      common_name: record.common_name || "Chaga",
-      common_names: commonNames,
-      scientific_name: record.scientific_name || "Inonotus obliquus",
-      record_type: "mushroom",
-      primary_type: "mushroom",
-      category: record.category || "Mushroom",
-      lane: record.lane || "other",
-      food_role: record.food_role === "avoid" || record.food_role === "medicinal_only" ? "ingestible_prepared" : (record.food_role || "ingestible_prepared"),
-      edibility_status: record.edibility_status === "not_edible" || record.edibility_status === "review_required" ? "edible_with_preparation" : (record.edibility_status || "edible_with_preparation"),
-      non_edible_severity: /inedible|avoid/i.test(String(record.non_edible_severity || "")) ? "" : (record.non_edible_severity || ""),
-      food_quality: record.food_quality && !/not recommended|inedible|avoid/i.test(String(record.food_quality)) ? record.food_quality : "Tea / infusion",
-      culinary_uses: firstUserFacingText(record.culinary_uses, culinaryTea),
-      other_uses: firstUserFacingText(record.other_uses, tinderUse),
-      edibility_detail: firstUserFacingText(record.edibility_detail, record.edibility_notes, "Prepared as tea/infusion rather than eaten as a table mushroom. This is a beverage/medicinal-tea species, not a pan mushroom."),
-      medicinal_uses: firstUserFacingText(record.medicinal_uses, medicinalSummary),
-      medicinal: {
-        ...(record.medicinal || {}),
-        has_meaningful_content: true,
-        summary: firstUserFacingText(record.medicinal?.summary, record.medicinal_uses, medicinalSummary),
-        evidence_tier: record.medicinal?.evidence_tier || "traditional use / preclinical research",
-        actions: mergeArrays(record.medicinal?.actions, [
-          "Antioxidant",
-          "Anti-inflammatory",
-          "Immunomodulating",
-          "Preliminary metabolic support"
-        ]),
-        body_systems: mergeArrays(record.medicinal?.body_systems, [
-          "Immune system",
-          "Inflammation response",
-          "Metabolic / blood sugar",
-          "Kidneys / urinary caution"
-        ]),
-        medical_terms: mergeArrays(record.medicinal?.medical_terms, [
-          "Oxalates",
-          "Anticoagulant interaction",
-          "Blood sugar interaction",
-          "Kidney injury risk with heavy use"
-        ]),
-        parts_used: mergeArrays(record.medicinal?.parts_used, ["Sclerotium / conk"]),
-        preparation_notes: firstUserFacingText(record.medicinal?.preparation_notes, "Usually simmered or steeped as tea; stronger extracts/supplements are a different risk category than an occasional beverage."),
-        warnings: firstUserFacingText(record.medicinal?.warnings, medicinalWarnings),
-        claims: Array.isArray(record.medicinal?.claims) ? record.medicinal.claims : []
-      },
-      use_tags: mergeArrays(record.use_tags, ["E", "T", "M", "O"]),
-      search_aliases: mergeArrays(record.search_aliases, [
-        "clinker polypore",
-        "cinder conk",
-        "birch conk",
-        "tinder fungus",
-        "medicinal tea",
-        "fire starter"
-      ]),
-      mushroom_profile: {
-        ...(record.mushroom_profile || {}),
-        lane: record.mushroom_profile?.lane || "other",
-        scientific_name: record.mushroom_profile?.scientific_name || record.scientific_name || "Inonotus obliquus",
-        substrate: mergeArrays(record.mushroom_profile?.substrate, ["Living birch", "Birch"]),
-        host_filter_tokens: mergeArrays(record.mushroom_profile?.host_filter_tokens || record.host_filter_tokens, ["Hardwood", "Birch"]),
-        texture: mergeArrays(record.mushroom_profile?.texture, ["Woody / hard", "Corky inner material when dry"]),
-        cap_surface: mergeArrays(record.mushroom_profile?.cap_surface, ["Black cracked outer surface", "Rusty brown interior"]),
-        growth_form: mergeArrays(record.mushroom_profile?.growth_form, ["Sterile conk / black mass on birch"]),
-        fertile_surface: mergeArrays(record.mushroom_profile?.fertile_surface, ["Not a typical cap-and-stem mushroom"])
-      },
-      host_filter_tokens: mergeArrays(record.host_filter_tokens, ["Hardwood", "Birch"]),
-      use_links: mergeArrays(record.use_links, [
-        {
-          label: "Memorial Sloan Kettering: Chaga Mushroom",
-          url: "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/chaga-mushroom",
-          link_type: "medicinal_reference",
-          applies_to_part: "conk / tea",
-          source_quality: "medical center",
-          notes: "Traditional use, preclinical evidence, and safety interactions."
-        },
-        {
-          label: "PMC review: Therapeutic properties of Inonotus obliquus",
-          url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC11132974/",
-          link_type: "research_review",
-          applies_to_part: "extracts / compounds",
-          source_quality: "peer-reviewed review",
-          notes: "Review of antioxidant, anti-inflammatory, immunomodulating, and other studied properties."
-        },
-        {
-          label: "Wildwood Survival: True Tinder Fungus / Chaga",
-          url: "https://wildwoodsurvival.com/survival/fire/tinder/tinderfungus/true.html",
-          link_type: "other_use",
-          applies_to_part: "inner conk",
-          source_quality: "practical firecraft",
-          notes: "Spark-catching and coal-carrying use."
-        }
-      ])
-    };
-  }
-  if (isCandyAppleBolete(record)) {
-    const commonNames = uniq(["Candy Apple Bolete", "Frost's Bolete", "Apple Bolete", ...(record.common_names || [])]);
-    return {
-      ...record,
-      display_name: "Candy Apple Bolete",
-      common_name: "Candy Apple Bolete",
-      common_names: commonNames,
-      scientific_name: /frostii/i.test(String(record.scientific_name || "")) ? record.scientific_name : "Butyriboletus frostii",
-      record_type: "mushroom",
-      primary_type: "mushroom",
-      category: record.category || "Mushroom",
-      lane: "bolete",
-      food_role: "food",
-      edibility_status: record.edibility_status || "edible_with_caution",
-      non_edible_severity: "",
-      food_quality: record.food_quality || "Edible with caution",
-      culinary_uses: cleanUserFacingText(record.culinary_uses) || "Edible by some experienced foragers, but not a beginner mushroom. Treat red-pored, blue-staining boletes cautiously and use only after confident species-level identification.",
-      field_identification: cleanUserFacingText(record.field_identification) || "Bright candy-apple red cap, red pore surface, coarse raised red netting on the stem, blue bruising, and association with oak or other hardwoods.",
-      edibility_detail: cleanUserFacingText(record.edibility_detail) || "Edible reports exist, but red-pored boletes are a caution group. Confirm the red cap, red pores, coarse reticulation, blue staining, and hardwood/oak habitat before considering it.",
-      look_alike_risk: "",
-      images: [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Exsudoporus%20frostii%20100632.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Exsudoporus%20frostii%2050214.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Exsudoporus%20frostii.jpg"
-      ],
-      links: mergeArrays(record.links, [
-        "https://commons.wikimedia.org/wiki/Butyriboletus_frostii",
-        "https://boletes.wpamushroomclub.org/product/boletus-frostii/"
-      ]),
-      mushroom_profile: {
-        ...(record.mushroom_profile || {}),
-        scientific_name: /frostii/i.test(String(record.scientific_name || "")) ? record.scientific_name : "Butyriboletus frostii",
-        underside: mergeArrays(record.mushroom_profile?.underside, ["Pores"]),
-        substrate: mergeArrays(record.mushroom_profile?.substrate, ["Forest soil"]),
-        host_filter_tokens: mergeArrays(record.mushroom_profile?.host_filter_tokens || record.host_filter_tokens, ["Hardwood", "Oak"]),
-        texture: mergeArrays(record.mushroom_profile?.texture, ["Fleshy / firm"]),
-        staining: mergeArrays(record.mushroom_profile?.staining, ["Blue bruising"]),
-        cap_surface: mergeArrays(record.mushroom_profile?.cap_surface, ["Sticky / viscid when fresh", "Bright red cap"]),
-        stem_feature: mergeArrays(record.mushroom_profile?.stem_feature, ["Coarse raised reticulation"]),
-        pore_color: mergeArrays(record.mushroom_profile?.pore_color, ["Red pores"]),
-        growth_form: mergeArrays(record.mushroom_profile?.growth_form, ["Cap and stem"]),
-        fertile_surface: mergeArrays(record.mushroom_profile?.fertile_surface, ["Pores"])
-      },
-      host_filter_tokens: mergeArrays(record.host_filter_tokens, ["Hardwood", "Oak"]),
-      boleteGroup: mergeArrays(record.boleteGroup, ["Red-pored boletes"]),
-      boleteSubgroup: mergeArrays(record.boleteSubgroup, ["Candy apple / Frost's bolete"])
-    };
-  }
-
-  if (isBitterBoleteRecord(record)) {
-    const commonNames = uniq(["Bitter Bolete", "False Porcini", ...(record.common_names || [])]);
-    return {
-      ...record,
-      display_name: "Bitter Bolete",
-      common_name: "Bitter Bolete",
-      common_names: commonNames,
-      scientific_name: record.scientific_name || "Tylopilus felleus",
-      food_role: "avoid",
-      edibility_status: "not_edible",
-      non_edible_severity: "Inedible — bitter, not poisonous",
-      food_quality: "Not recommended",
-      culinary_uses: "Not used as food; its extreme bitterness can ruin a whole pan of otherwise edible mushrooms.",
-      edibility_detail: "Inedible because of intense bitterness rather than dangerous poisoning. Keep it out of the Caution page unless a future record adds a real toxicity concern.",
-      look_alike_risk: "",
-      danger_level: "Not poisonous; bitter inedible",
-      poisoning_effects: "Not treated here as a poisonous species. Large amounts may cause stomach upset, but the practical problem is extreme bitterness and confusion with edible porcini-type boletes.",
-      affected_systems: []
-    };
-  }
 
   if (isFiddleheadFernRecord(record)) {
     const commonNames = uniq([
@@ -824,7 +622,6 @@ export function isCautionRecord(record = {}) {
   if (isEdibleForSection(record)) return false;
   if (foodRole === "tea_extract_only") return false;
   if (isTeaOnlyUseText(record.other_uses)) return false;
-  if (isBitterBoleteRecord(record) && !hasAbsoluteDangerLabel(record)) return false;
   if (isBenignNonCulinarySeverity(severity) && !hasAbsoluteDangerLabel(record)) return false;
 
   if (hasAbsoluteDangerLabel(record)) return true;

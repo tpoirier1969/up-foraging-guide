@@ -1,10 +1,10 @@
 import { state, setRoute, setSpecies, setRareSpecies, setReferences, logBoot } from "./state.js";
 import { MEDICINAL_VOCAB } from "./data/medicinal-vocabulary.js";
-import { renderPage, openModal, closeModal, els } from "./ui/dom.js?v=v4.2.32-r2026-04-24-bolete-triage1";
+import { renderPage, openModal, closeModal, els } from "./ui/dom.js?v=v4.2.35-r2026-04-26-bolete-data-inline1";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 
-const APP_VERSION = "v4.2.32-r2026-04-24-bolete-triage1";
+const APP_VERSION = "v4.2.35-r2026-04-26-bolete-data-inline1";
 const REVIEW_STORAGE_KEY = "foraging_review_overlay_v1";
 const moduleCache = new Map();
 let loadAppDataPromise = null;
