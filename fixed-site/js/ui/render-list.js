@@ -1,4 +1,4 @@
-import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.35-r2026-04-26-bolete-data-inline1";
+import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.37-r2026-04-26-bolete-forager-filters1";
 import { esc } from "../lib/escape.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
@@ -36,17 +36,14 @@ const GILLED_MUSHROOM_FILTER_DEFS = [
 
 const BOLETE_FILTER_DEFS = [
   { key: "mushroomReviewFlag", label: "Data review", blankLabel: "Any review state", valueKey: "mushroomReviewFlag" },
-  { key: "mushroomBoleteGroup", label: "Bolete group", blankLabel: "Any bolete group", valueKey: "mushroomBoleteGroup" },
-  { key: "mushroomBoleteSubgroup", label: "Bolete subgroup", blankLabel: "Any bolete subgroup", valueKey: "mushroomBoleteSubgroup" },
-  { key: "mushroomSubstrate", label: "Growing from / with", blankLabel: "Any growing context", valueKey: "mushroomSubstrate" },
-  { key: "mushroomTreeType", label: "Tree association", blankLabel: "Any tree association", valueKey: "mushroomTreeType" },
-  { key: "mushroomHost", label: "Associated tree", blankLabel: "Any associated tree", valueKey: "mushroomHost" },
-  { key: "mushroomPoreColor", label: "Pore color", blankLabel: "Any pore color", valueKey: "mushroomPoreColor" },
-  { key: "mushroomStaining", label: "Bruising / staining", blankLabel: "Any bruising/staining", valueKey: "mushroomStaining" },
-  { key: "mushroomCapSurface", label: "Cap surface", blankLabel: "Any cap surface", valueKey: "mushroomCapSurface" },
-  { key: "mushroomStemFeature", label: "Stem feature", blankLabel: "Any stem feature", valueKey: "mushroomStemFeature" },
-  { key: "mushroomTexture", label: "Texture", blankLabel: "Any texture", valueKey: "mushroomTexture" },
-  { key: "mushroomSmell", label: "Smell", blankLabel: "Any smell", valueKey: "mushroomSmell" }
+  { key: "mushroomBoleteGroup", label: "Quick ID group", blankLabel: "Any quick group", valueKey: "boleteQuickGroup" },
+  { key: "mushroomTreeAssociation", label: "Tree association", blankLabel: "Any tree association", valueKey: "boleteTreeAssociation" },
+  { key: "mushroomSubstrate", label: "Growing from", blankLabel: "Any growing context", valueKey: "mushroomSubstrate" },
+  { key: "mushroomPoreColor", label: "Pore color", blankLabel: "Any pore color", valueKey: "boletePoreColor" },
+  { key: "mushroomStaining", label: "Bruising / staining", blankLabel: "Any bruising/staining", valueKey: "boleteStaining" },
+  { key: "mushroomTaste", label: "Taste clue (spit out)", blankLabel: "Any taste clue", valueKey: "boleteTaste" },
+  { key: "mushroomCapSurface", label: "Cap feel / surface", blankLabel: "Any cap clue", valueKey: "boleteCapSurface" },
+  { key: "mushroomStemFeature", label: "Stem clues", blankLabel: "Any stem clue", valueKey: "boleteStemFeature" }
 ];
 
 const OTHER_MUSHROOM_FILTER_DEFS = [
@@ -170,6 +167,162 @@ function hostTreeValues(record) {
   return candidates.filter((value) => !TREE_TYPE_RE.test(value));
 }
 
+const HARDWOOD_TREE_PATTERNS = [
+  [/\bash\b/i, "Hardwood — Ash"],
+  [/\baspen\b|\bpoplar\b/i, "Hardwood — Aspen / poplar"],
+  [/\bbirch\b/i, "Hardwood — Birch"],
+  [/\bbeech\b/i, "Hardwood — Beech"],
+  [/\boak\b/i, "Hardwood — Oak"],
+  [/\bmaple\b/i, "Hardwood — Maple"],
+  [/\bhickory\b/i, "Hardwood — Hickory"]
+];
+
+const SOFTWOOD_TREE_PATTERNS = [
+  [/\bpine\b/i, "Softwood / conifer — Pine"],
+  [/\bhemlock\b/i, "Softwood / conifer — Hemlock"],
+  [/\bspruce\b/i, "Softwood / conifer — Spruce"],
+  [/\bfir\b/i, "Softwood / conifer — Fir"],
+  [/\blarch\b|\btamarack\b/i, "Softwood / conifer — Larch / tamarack"]
+];
+
+function anyText(record = {}) {
+  return [
+    record.slug,
+    record.display_name,
+    record.common_name,
+    record.scientific_name,
+    record.mushroom_family,
+    ...asList(record.boleteGroup),
+    ...asList(record.boleteSubgroup),
+    ...collectValues(record, [["pore_color"], ["mushroom_profile", "pore_color"]]),
+    ...collectValues(record, [["staining"], ["mushroom_profile", "staining"]]),
+    ...collectValues(record, [["cap_surface"], ["mushroom_profile", "cap_surface"]]),
+    ...collectValues(record, [["stem_feature"], ["mushroom_profile", "stem_feature"]]),
+    ...collectValues(record, [["substrate"], ["mushroom_profile", "substrate"]]),
+    ...collectValues(record, [["host_filter_tokens"], ["mushroom_profile", "host_filter_tokens"]])
+  ].join(" ").toLowerCase();
+}
+
+function hasAny(text, patterns = []) {
+  return patterns.some((pattern) => pattern.test(text));
+}
+
+function broadValuesFromText(values = [], rules = []) {
+  const hay = cleanOptionValues(values).join(" | ").toLowerCase();
+  const out = [];
+  for (const [pattern, label] of rules) {
+    if (pattern.test(hay)) out.push(label);
+  }
+  return [...new Set(out)];
+}
+
+function withoutGenericBoleteDefaults(values = []) {
+  return cleanOptionValues(values).filter((value) => {
+    const text = value.toLowerCase();
+    return text !== "dry to slightly tacky"
+      && text !== "smooth to netted stem"
+      && text !== "smooth to finely reticulate stem"
+      && text !== "whitish to yellow pores"
+      && text !== "pores or odd pore surface";
+  });
+}
+
+function boleteQuickGroupValues(record) {
+  const text = anyText(record);
+  const out = [];
+  if (/suillus|slippery jack|butterball|chicken-fat|larch suillus|glandular dots/.test(text)) {
+    out.push("Suillus / slippery jacks");
+  }
+  if (/leccinum|scaber/.test(text)) {
+    out.push("Scaber-stalk boletes");
+  }
+  if (/porcini|king bolete|boletus separans|variipes|auripes|subcaerulescens|boletus atkinsonii/.test(text)) {
+    out.push("King / porcini-type boletes");
+  }
+  if (/tylopilus|bitter|pink-pored|pinkish pores|caloboletus/.test(text)) {
+    out.push("Bitter / pink-pored boletes");
+  }
+  if (/red-pored|red pores|orange-red|red\s*\/\s*orange|red-staining|red staining|lurid|frostii|sensibilis|subvelutipes|bicolor|baorangia|exsudoporus|butyriboletus|blue staining \/ caution/.test(text)) {
+    out.push("Red/orange-pored caution boletes");
+  }
+  if (/parasitic|earthball|ash-tree|ash tree|boletinellus|buchwaldoboletus|wood-inhabiting|dead wood|fungus-associated|old man|strobilomyces|shaggy/.test(text)) {
+    out.push("Oddballs / wood / parasitic boletes");
+  }
+  if (!out.length) out.push("Other brown/yellow-pored boletes");
+  return [...new Set(out)];
+}
+
+function boleteTreeAssociationValues(record) {
+  const values = cleanOptionValues([
+    ...collectValues(record, [["wood_type"], ["mushroom_profile", "wood_type"]]),
+    ...collectValues(record, [["host_trees"], ["mushroom_profile", "host_trees"]]),
+    ...collectValues(record, [["host_filter_tokens"], ["mushroom_profile", "host_filter_tokens"]])
+  ]);
+  const hay = values.join(" | ").toLowerCase();
+  const out = [];
+  if (/hardwood|deciduous|broadleaf|ash|aspen|poplar|birch|beech|oak|maple|hickory/.test(hay)) out.push("Hardwood");
+  if (/softwood|conifer|pine|hemlock|spruce|fir|larch|tamarack/.test(hay)) out.push("Softwood / conifer");
+  for (const [pattern, label] of HARDWOOD_TREE_PATTERNS) {
+    if (pattern.test(hay)) out.push(label);
+  }
+  for (const [pattern, label] of SOFTWOOD_TREE_PATTERNS) {
+    if (pattern.test(hay)) out.push(label);
+  }
+  return [...new Set(out)];
+}
+
+function boletePoreColorValues(record) {
+  return broadValuesFromText(withoutGenericBoleteDefaults(collectValues(record, [["poreColor"], ["pore_color"], ["mushroom_profile", "pore_color"]])), [
+    [/pink|rose/, "Pinkish"],
+    [/red|orange/, "Red / orange"],
+    [/yellow|white|whitish|cream|pale/, "White / yellow"],
+    [/brown|gray|grey|black|dark|olive/, "Gray / brown / dark"]
+  ]);
+}
+
+function boleteStainingValues(record) {
+  return broadValuesFromText(collectValues(record, [["staining"], ["mushroom_profile", "staining"]]), [
+    [/blue/, "Blue bruising"],
+    [/green/, "Green staining"],
+    [/brown|gray|grey|black/, "Brown / gray / dark staining"],
+    [/red|reddish|rose|pink/, "Red / pink staining"],
+    [/none|not notable|no notable/, "No notable bruising"],
+    [/yellow/, "Yellow staining"]
+  ]);
+}
+
+function boleteCapSurfaceValues(record) {
+  return broadValuesFromText(withoutGenericBoleteDefaults(collectValues(record, [["capSurface"], ["cap_surface"], ["mushroom_profile", "cap_surface"]])), [
+    [/sticky|slimy|viscid|tacky|glutinous/, "Sticky / slimy"],
+    [/dry/, "Dry"],
+    [/crack|areolate/, "Cracked"],
+    [/velvet|suede|tomentose|hairy/, "Velvety / suede"],
+    [/scaly|shaggy|rough/, "Scaly / shaggy"],
+    [/smooth/, "Smooth"]
+  ]);
+}
+
+function boleteStemFeatureValues(record) {
+  return broadValuesFromText(withoutGenericBoleteDefaults(collectValues(record, [["stemFeature"], ["stem_feature"], ["mushroom_profile", "stem_feature"]])), [
+    [/scaber|rough dots/, "Scabers / rough dots"],
+    [/netted|reticulate/, "Netting"],
+    [/glandular/, "Glandular dots"],
+    [/ring|annulus/, "Ring"],
+    [/hollow|brittle/, "Hollow / brittle"],
+    [/smooth/, "Smooth"],
+    [/no real stem|sessile|no stem/, "No real stem"]
+  ]);
+}
+
+function boleteTasteValues(record) {
+  return broadValuesFromText(collectValues(record, [["taste"], ["mushroom_profile", "taste"]]), [
+    [/bitter/, "Bitter"],
+    [/mild|not distinctive|pleasant/, "Mild / not distinctive"],
+    [/pepper|acrid|hot/, "Peppery / acrid"],
+    [/sweet|nutty|rich/, "Pleasant / nutty"]
+  ]);
+}
+
 function hasImageCoverage(record = {}) {
   return asList(record.images_structured).length > 0
     || !!String(record.list_thumbnail || "").trim()
@@ -236,6 +389,13 @@ function valuesForFilter(record, valueKey) {
     case "plantLeafArrangement": return cleanOptionValues(collectValues(record, [["leafArrangement"], ["leaf_arrangement"]]));
     case "plantStem": return cleanOptionValues(collectValues(record, [["stemSurface"], ["stem_surface"], ["stemShape"], ["stem_shape"], ["leafPointCount"]]));
     case "mushroomReviewFlag": return reviewFlagValues(record);
+    case "boleteQuickGroup": return boleteQuickGroupValues(record);
+    case "boleteTreeAssociation": return boleteTreeAssociationValues(record);
+    case "boletePoreColor": return boletePoreColorValues(record);
+    case "boleteStaining": return boleteStainingValues(record);
+    case "boleteCapSurface": return boleteCapSurfaceValues(record);
+    case "boleteStemFeature": return boleteStemFeatureValues(record);
+    case "boleteTaste": return boleteTasteValues(record);
     case "mushroomSubstrate": return cleanOptionValues(collectValues(record, [["substrate"], ["mushroom_profile", "substrate"]]));
     case "mushroomTreeType": return treeTypeValues(record);
     case "mushroomHost": return hostTreeValues(record);
@@ -317,7 +477,7 @@ export function getFilterFieldsForRoute(records, route, filters = {}) {
       label: `${displayOptionValue(value, def)} (${counts.get(value) || 0})`
     }));
 
-    if (missingCount > 0) {
+    if (missingCount > 0 && def.valueKey !== "mushroomReviewFlag") {
       options.push({ value: MISSING_FILTER_VALUE, label: `${missingLabelForFilter(def)} (${missingCount})` });
     }
 
@@ -462,6 +622,8 @@ function normalizeFilters(filtersOrSearch) {
     mushroomBoleteSubgroup: filtersOrSearch?.mushroomBoleteSubgroup || "",
     mushroomPoreColor: filtersOrSearch?.mushroomPoreColor || "",
     mushroomReviewFlag: filtersOrSearch?.mushroomReviewFlag || "",
+    mushroomTreeAssociation: filtersOrSearch?.mushroomTreeAssociation || "",
+    mushroomTaste: filtersOrSearch?.mushroomTaste || "",
     sortSpecies: filtersOrSearch?.sortSpecies || "default"
   };
 }

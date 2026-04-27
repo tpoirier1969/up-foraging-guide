@@ -1,10 +1,10 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.35-r2026-04-26-bolete-data-inline1",
+    "build": "v4.2.37-r2026-04-26-bolete-forager-filters1",
     "primary_type": "mushroom",
     "record_count": 209,
-    "notes": "Merged valid Wikimedia Commons-only replacements from the mistaken sidecar batch file back into the main mushrooms.json. Inlined the first two bolete data-fix batches, Candy Apple/Frost's Bolete, Bitter Bolete cleanup, and Chaga use details into mushrooms.json so species truth is no longer dependent on runtime bolete patch rules.",
+    "notes": "Merged valid Wikimedia Commons-only replacements from the mistaken sidecar batch file back into the main mushrooms.json. Inlined the first two bolete data-fix batches, Candy Apple/Frost's Bolete, Bitter Bolete cleanup, and Chaga use details into mushrooms.json so species truth is no longer dependent on runtime bolete patch rules. Forager-facing bolete filters added; duplicate Bay Bolete alias hidden from user lists.",
     "reaudit_last_batch": "remaining 129 species audited from repaired true cumulative base",
     "reaudit_changes_in_last_batch": 0,
     "reaudit_batches_completed_total": 53,
@@ -506,7 +506,8 @@
       "edibility_notes": "Food/beverage use: Food. A porcini-type edible when confidently identified and in good condition.",
       "curation_notes": [
         "Minimal species seed. Added during the bolete expansion pass for the clean app; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
-        "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
+        "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering.",
+        "Future research: verify whether Almost Bluing King Bolete / Boletus subcaerulescens has any credible beverage/tea use; if so, add specific details and do not classify medicinal-only beverage use as ordinary edible food."
       ],
       "edible_use": {
         "has_ingestible_use": true,
@@ -1706,7 +1707,10 @@
         "preparation_notes": "",
         "warnings": "",
         "claims": []
-      }
+      },
+      "hidden": true,
+      "duplicate_of": "imleria-badia",
+      "alias_record_note": "Hidden from lists as a duplicate/legacy alias of Imleria badia; retained so older look-alike links and searches do not break."
     },
     {
       "slug": "bear-s-head-tooth",

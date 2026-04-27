@@ -1,5 +1,5 @@
 import { fetchJsonFromRepo } from "../lib/fetch-json.js";
-import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.35-r2026-04-26-bolete-data-inline1";
+import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.37-r2026-04-26-bolete-forager-filters1";
 import { SPECIES_PATHS, OPTIONAL_PATHS } from "./sources.js";
 
 let rareCachePromise = null;
