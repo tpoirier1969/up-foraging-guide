@@ -1,10 +1,10 @@
 import { state, setRoute, setSpecies, setRareSpecies, setReferences, logBoot } from "./state.js";
 import { MEDICINAL_VOCAB } from "./data/medicinal-vocabulary.js";
-import { renderPage, openModal, closeModal, els } from "./ui/dom.js?v=v4.2.41-r2026-04-27-edible-caution-cleanup1";
+import { renderPage, openModal, closeModal, els } from "./ui/dom.js?v=v4.2.42-r2026-04-27-mushroom-polish2";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 
-const APP_VERSION = "v4.2.41-r2026-04-27-edible-caution-cleanup1";
+const APP_VERSION = "v4.2.42-r2026-04-27-mushroom-polish2";
 const REVIEW_STORAGE_KEY = "foraging_review_overlay_v1";
 const moduleCache = new Map();
 let loadAppDataPromise = null;
@@ -605,12 +605,32 @@ async function renderCreditsRoute(token) {
   wireCommonEvents("credits");
 }
 
+function clearFiltersWhenLeavingRoute(fromRoute = "", toRoute = "") {
+  if (!fromRoute || fromRoute === toRoute) return;
+
+  if (fromRoute === "search" && toRoute !== "search") {
+    state.filters.search = "";
+  }
+
+  if (fromRoute === "medicinal" && toRoute !== "medicinal") {
+    state.filters.medicinalAction = "";
+    state.filters.medicinalSystem = "";
+    state.filters.medicinalTerm = "";
+  }
+
+  if (isPlantFilterRoute(fromRoute) || isMushroomFilterRoute(fromRoute)) {
+    clearTraitFiltersForRoute(fromRoute);
+  }
+
+  if (isPlantFilterRoute(toRoute) || isMushroomFilterRoute(toRoute)) {
+    clearTraitFiltersForRoute(toRoute);
+  }
+}
+
 export async function renderCurrentRoute() {
   const token = ++renderToken;
   const route = parseRoute();
-  if (previousRoute === "search" && route !== "search") {
-    state.filters.search = "";
-  }
+  clearFiltersWhenLeavingRoute(previousRoute, route);
   previousRoute = route;
   setRoute(route);
   markActiveNav(route === "search" ? "search" : (route.startsWith("mushrooms-") || route === "boletes" ? "mushrooms" : (route === "other-uses" ? "other-uses" : route)));

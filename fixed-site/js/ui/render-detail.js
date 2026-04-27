@@ -1,5 +1,6 @@
 import { esc } from "../lib/escape.js";
-import { getMedicinalData, isBuildNoteText, cleanUserFacingText } from "../lib/merge.js?v=v4.2.41-r2026-04-27-edible-caution-cleanup1";
+import { state } from "../state.js";
+import { getMedicinalData, isBuildNoteText, cleanUserFacingText, classifyRecord } from "../lib/merge.js?v=v4.2.42-r2026-04-27-mushroom-polish2";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
@@ -44,6 +45,49 @@ function titleFromSlugOrName(value = "") {
     return raw.replace(/-/g, " ").replace(/\b\w/g, letter => letter.toUpperCase());
   }
   return raw;
+}
+
+function findLookAlikeRecord(rawName = "") {
+  const slug = slugifyLookup(rawName);
+  const records = [...(state.species || []), ...(state.rareSpecies || [])];
+  const direct = records.find((record) => record.slug === slug)
+    || records.find((record) => slugifyLookup(record.display_name || record.common_name || "") === slug)
+    || records.find((record) => slugifyLookup(record.scientific_name || "") === slug);
+  if (!direct?.duplicate_of) return direct || null;
+  return records.find((record) => record.slug === direct.duplicate_of) || direct;
+}
+
+function lookAlikeStatus(record = null) {
+  if (!record) return { label: "Status: needs review", className: "review" };
+  const info = classifyRecord(record);
+  const hay = [
+    record.edibility_status,
+    record.non_edible_severity,
+    record.danger_level,
+    record.poisoning_effects,
+    record.toxicity_notes,
+    record.food_role,
+    record.food_quality
+  ].join(" ").toLowerCase();
+
+  if (/deadly|fatal|death/.test(hay)) return { label: "Deadly", className: "danger" };
+  if (/poison|toxic/.test(hay)) return { label: "Poisonous", className: "danger" };
+  if (/avoid|not recommended|inedible|unsafe|questionable|caution/.test(hay) || (info.caution && !info.edible)) {
+    return { label: record.non_edible_severity ? clean(record.non_edible_severity) : "Caution / not recommended", className: "danger" };
+  }
+
+  const quality = clean(record.food_quality);
+  if (/choice|excellent/.test(quality.toLowerCase())) return { label: "Choice edible", className: "good" };
+  if (/good/.test(quality.toLowerCase())) return { label: "Good edible", className: "good" };
+  if (/fair/.test(quality.toLowerCase())) return { label: "Fair edible", className: "" };
+  if (/poor/.test(quality.toLowerCase())) return { label: "Poor edible", className: "danger" };
+  if (info.edible) return { label: "Edible", className: "good" };
+  return { label: "Status: needs review", className: "review" };
+}
+
+function statusTagHtml(status) {
+  const cls = status.className ? `tag ${status.className}` : "tag";
+  return `<span class="${cls}">${esc(status.label)}</span>`;
 }
 
 function lookAlikeSeparationNote(record = {}, rawName = "") {
@@ -92,10 +136,12 @@ function lookAlikeBlock(record) {
   const notes = clean(record.look_alike_notes);
   if (!cleaned.length && !notes) return "";
   const items = cleaned.map((name) => {
-    const slug = slugifyLookup(name);
-    const label = titleFromSlugOrName(name);
+    const linkedRecord = findLookAlikeRecord(name);
+    const slug = linkedRecord?.slug || slugifyLookup(name);
+    const label = linkedRecord ? (linkedRecord.display_name || linkedRecord.common_name || titleFromSlugOrName(name)) : titleFromSlugOrName(name);
     const note = lookAlikeSeparationNote(record, name);
-    return `<li><button class="subtle" type="button" data-detail="${esc(slug)}">${esc(label)}</button>${note ? `<div class="muted small">How to tell apart: ${esc(note)}</div>` : ""}</li>`;
+    const status = lookAlikeStatus(linkedRecord);
+    return `<li><div class="lookalike-title-row"><button class="subtle" type="button" data-detail="${esc(slug)}">${esc(label)}</button>${statusTagHtml(status)}</div>${note ? `<div class="muted small">How to tell apart: ${esc(note)}</div>` : ""}</li>`;
   }).join("");
   return `
     <section class="detail-block">
