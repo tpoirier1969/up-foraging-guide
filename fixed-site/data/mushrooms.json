@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.37-r2026-04-26-bolete-forager-filters1",
+    "build": "v4.2.39-r2026-04-27-mushroom-dedup1",
     "primary_type": "mushroom",
     "record_count": 209,
     "notes": "Merged valid Wikimedia Commons-only replacements from the mistaken sidecar batch file back into the main mushrooms.json. Inlined the first two bolete data-fix batches, Candy Apple/Frost's Bolete, Bitter Bolete cleanup, and Chaga use details into mushrooms.json so species truth is no longer dependent on runtime bolete patch rules. Forager-facing bolete filters added; duplicate Bay Bolete alias hidden from user lists.",
@@ -42,7 +42,8 @@
       "tylopilus-badiceps",
       "variable-stalk-bolete",
       "xerocomus-subtomentosus"
-    ]
+    ],
+    "duplicate_cleanup": "v4.2.39: hidden high-confidence duplicate mushroom records as legacy aliases and renamed same-common-name distinct species for clearer lists."
   },
   "records": [
     {
@@ -313,7 +314,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Food. Reported edible when young and in good condition, but treat as a confident-ID bolete rather than a beginner mushroom. Best approached as an edible-with-caution species: confirm pine association, very long ridged stem, yellow pores, and lack of dangerous red-pored traits.",
+      "edibility_notes": "Reported edible when young and in good condition, but treat as a confident-ID bolete rather than a beginner mushroom. Best approached as an edible-with-caution species: confirm pine association, very long ridged stem, yellow pores, and lack of dangerous red-pored traits.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
         "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
@@ -503,7 +504,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Food. A porcini-type edible when confidently identified and in good condition.",
+      "edibility_notes": "A porcini-type edible when confidently identified and in good condition.",
       "curation_notes": [
         "Minimal species seed. Added during the bolete expansion pass for the clean app; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
         "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering.",
@@ -820,7 +821,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Food. Edible but not usually ranked with choice boletes; use only young, firm specimens after confident ID near ash.",
+      "edibility_notes": "Edible but not usually ranked with choice boletes; use only young, firm specimens after confident ID near ash.",
       "curation_notes": [
         "Original app species restored into the standalone modular build.",
         "Minimal species seed. Added during the bolete expansion pass for the clean app; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
@@ -1483,7 +1484,8 @@
       "reviewReasons": [],
       "review_reasons": [],
       "common_names": [
-        "Bay Bolete"
+        "Bay Bolete",
+        "bay-bolete"
       ],
       "kingdom_type": "mushroom",
       "species_scope": "species",
@@ -1500,12 +1502,16 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Cooked food. Generally regarded as edible when confidently identified and cooked; avoid old, buggy, or waterlogged specimens.",
+      "edibility_notes": "Cooked food. Generally regarded as edible when confidently identified and cooked; avoid old, buggy, or waterlogged specimens.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
         "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
       ],
-      "search_aliases": [],
+      "search_aliases": [
+        "bay-bolete",
+        "Bay Bolete",
+        "Imleria badia"
+      ],
       "non_edible_severity": "",
       "edible_use": {
         "has_ingestible_use": true,
@@ -1684,7 +1690,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Cooked food. Generally regarded as edible when confidently identified and cooked; avoid old, buggy, or waterlogged specimens.",
+      "edibility_notes": "Cooked food. Generally regarded as edible when confidently identified and cooked; avoid old, buggy, or waterlogged specimens.",
       "curation_notes": [
         "Original app species restored into the standalone modular build.",
         "Recreated locally from the original app baseline checklist for the modular standalone build. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
@@ -1710,7 +1716,10 @@
       },
       "hidden": true,
       "duplicate_of": "imleria-badia",
-      "alias_record_note": "Hidden from lists as a duplicate/legacy alias of Imleria badia; retained so older look-alike links and searches do not break."
+      "alias_record_note": "Hidden from lists as a duplicate/legacy alias of Imleria badia; retained so older look-alike links and searches do not break.",
+      "legacy_alias": true,
+      "list_visibility": "hidden-duplicate",
+      "duplicate_note": "Duplicate Bay Bolete record kept only as a legacy slug alias."
     },
     {
       "slug": "bear-s-head-tooth",
@@ -1976,7 +1985,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Food. Some two-colored boletes are eaten, but this group is easy to confuse with faster-bluing or more suspect red/yellow boletes.",
+      "edibility_notes": "Some two-colored boletes are eaten, but this group is easy to confuse with faster-bluing or more suspect red/yellow boletes.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
         "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
@@ -2158,7 +2167,11 @@
       "reviewReasons": [],
       "review_reasons": [],
       "common_names": [
-        "Birch Bolete"
+        "Birch Bolete",
+        "scaber-stalk-boletes-birch-aspen-boletes",
+        "Scaber-stalk boletes / birch-aspen boletes",
+        "Scaber-stalk boletes",
+        "Birch-aspen boletes"
       ],
       "kingdom_type": "mushroom",
       "species_scope": "species",
@@ -2175,12 +2188,17 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Food. Some Leccinum are eaten, but this group needs thorough cooking and careful host/tree notes.",
+      "edibility_notes": "Some Leccinum are eaten, but this group needs thorough cooking and careful host/tree notes.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
         "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
       ],
-      "search_aliases": [],
+      "search_aliases": [
+        "scaber-stalk-boletes-birch-aspen-boletes",
+        "Scaber-stalk boletes / birch-aspen boletes",
+        "Scaber-stalk boletes",
+        "Birch-aspen boletes"
+      ],
       "non_edible_severity": "",
       "edible_use": {
         "has_ingestible_use": true,
@@ -2424,7 +2442,11 @@
         "needs source links"
       ],
       "review_status": "needs_review",
-      "search_aliases": [],
+      "search_aliases": [
+        "bitter-bolete",
+        "Bitter Bolete",
+        "Tylopilus felleus"
+      ],
       "host_filter_tokens": [],
       "commonness": "Common",
       "food_quality": "Not recommended",
@@ -2448,7 +2470,8 @@
       "food_role": "avoid",
       "common_names": [
         "Bitter Bolete",
-        "False Porcini"
+        "False Porcini",
+        "bitter-bolete"
       ],
       "edibility_status": "not_edible",
       "look_alike_risk": "",
@@ -2617,7 +2640,12 @@
         "warnings": "",
         "claims": []
       },
-      "use_links": []
+      "use_links": [],
+      "hidden": true,
+      "duplicate_of": "true-bitter-bolete",
+      "legacy_alias": true,
+      "list_visibility": "hidden-duplicate",
+      "duplicate_note": "Duplicate Bitter Bolete record kept only as a legacy slug alias."
     },
     {
       "slug": "tylopilus-intermedius",
@@ -4639,7 +4667,8 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20variipes%20531448.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20variipes%20UL%2002.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20variipes%20765524%20crop.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20variipes%20765524%20crop.jpg",
+        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EVariable-stalk%20Bolete%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EBoletus%20variipes%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
       "scientific_name": "Boletus variipes",
       "mushroom_profile": {
@@ -4767,7 +4796,9 @@
       "reviewReasons": [],
       "review_reasons": [],
       "common_names": [
-        "Varied-stalk Bolete"
+        "Varied-stalk Bolete",
+        "variable-stalk-bolete",
+        "Variable-stalk Bolete"
       ],
       "kingdom_type": "mushroom",
       "species_scope": "species",
@@ -4784,12 +4815,17 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Food. Porcini-group edible when confidently identified and in good condition.",
+      "edibility_notes": "Porcini-group edible when confidently identified and in good condition.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
         "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
       ],
-      "search_aliases": [],
+      "search_aliases": [
+        "variable-stalk-bolete",
+        "Varied-stalk Bolete",
+        "Boletus variipes",
+        "Variable-stalk Bolete"
+      ],
       "non_edible_severity": "",
       "edible_use": {
         "has_ingestible_use": true,
@@ -5057,8 +5093,8 @@
     },
     {
       "slug": "boletus-vermiculosoides",
-      "display_name": "Brown Pored Bolete",
-      "common_name": "Brown Pored Bolete",
+      "display_name": "Brown-pored Bolete — B. vermiculosoides",
+      "common_name": "Brown-pored Bolete — B. vermiculosoides",
       "category": "Mushroom",
       "culinary_uses": "Seed entry only. Added during the Michigan bolete audit for the clean app; edibility, use, and warning text still need species-level review.",
       "medicinal_uses": "",
@@ -5163,12 +5199,18 @@
       ],
       "general_notes": "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering.",
       "edibility_detail": "A worthwhile edible when correctly identified and in good condition.",
-      "food_role": "food"
+      "food_role": "food",
+      "search_aliases": [
+        "Brown Pored Bolete"
+      ],
+      "common_names": [
+        "Brown Pored Bolete"
+      ]
     },
     {
       "slug": "boletus-vermiculosus",
-      "display_name": "Brown Pored Bolete",
-      "common_name": "Brown Pored Bolete",
+      "display_name": "Brown-pored Bolete — B. vermiculosus",
+      "common_name": "Brown-pored Bolete — B. vermiculosus",
       "category": "Mushroom",
       "culinary_uses": "Seed entry only. Added during the Michigan bolete audit for the clean app; edibility, use, and warning text still need species-level review.",
       "medicinal_uses": "",
@@ -5273,7 +5315,13 @@
       ],
       "general_notes": "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering.",
       "edibility_detail": "A worthwhile edible when correctly identified and in good condition.",
-      "food_role": "food"
+      "food_role": "food",
+      "search_aliases": [
+        "Brown Pored Bolete"
+      ],
+      "common_names": [
+        "Brown Pored Bolete"
+      ]
     },
     {
       "slug": "buchwaldoboletus-sphaerocephalus",
@@ -5548,7 +5596,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Food. Reported edible when confidently identified, but keep as an experienced-forager bolete in this guide. Confirm the yellow stem, yellow pores, oak/hardwood habitat, fine stem reticulation, and lack of blue bruising before considering food use.",
+      "edibility_notes": "Reported edible when confidently identified, but keep as an experienced-forager bolete in this guide. Confirm the yellow stem, yellow pores, oak/hardwood habitat, fine stem reticulation, and lack of blue bruising before considering food use.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
         "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
@@ -6300,7 +6348,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Food. Edible by some experienced foragers, but not a beginner mushroom. Not recommended as a food mushroom; retained mainly for identification, caution, or curiosity value.",
+      "edibility_notes": "Edible by some experienced foragers, but not a beginner mushroom. Not recommended as a food mushroom; retained mainly for identification, caution, or curiosity value.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
         "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
@@ -6688,7 +6736,7 @@
       "look_alike_notes": "",
       "rare_profile": null,
       "overview": "",
-      "edibility_notes": "Food/beverage use: Tea / infusion. Woody conk is not eaten like a normal mushroom, but it is commonly simmered or steeped as a bitter tea / coffee-like beverage. Used for tea/extract traditions rather than as food.",
+      "edibility_notes": "Tea / infusion. Woody conk is not eaten like a normal mushroom, but it is commonly simmered or steeped as a bitter tea / coffee-like beverage. Used for tea/extract traditions rather than as food.",
       "curation_notes": [
         "Original app species restored into the standalone modular build."
       ],
@@ -7481,7 +7529,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Cooked food. Edible but slimy; usually best peeled and cooked. Remove slimy skin if desired and cook thoroughly; avoid old soggy specimens.",
+      "edibility_notes": "Cooked food. Edible but slimy; usually best peeled and cooked. Remove slimy skin if desired and cook thoroughly; avoid old soggy specimens.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
         "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
@@ -9155,7 +9203,12 @@
         "season_note": "Late summer through fall in open grassy ground."
       },
       "commonness_score": 3,
-      "food_quality_score": 4
+      "food_quality_score": 4,
+      "hidden": true,
+      "duplicate_of": "meadow-mushroom",
+      "legacy_alias": true,
+      "list_visibility": "hidden-duplicate",
+      "duplicate_note": "Duplicate Field/Meadow Mushroom record kept only as a legacy slug alias."
     },
     {
       "slug": "gastroleccinum-scabrosum",
@@ -9487,8 +9540,8 @@
     },
     {
       "slug": "phylloporus-leucomycelinus",
-      "display_name": "Gilled Bolete",
-      "common_name": "Gilled Bolete",
+      "display_name": "Gilled Bolete — P. leucomycelinus",
+      "common_name": "Gilled Bolete — P. leucomycelinus",
       "category": "Mushroom",
       "culinary_uses": "Seed entry only. Added during the Michigan bolete audit for the clean app; edibility, use, and warning text still need species-level review.",
       "medicinal_uses": "",
@@ -9589,12 +9642,18 @@
       "confused_with": [],
       "general_notes": "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering.",
       "edibility_detail": "A worthwhile edible when correctly identified and in good condition.",
-      "food_role": "food"
+      "food_role": "food",
+      "search_aliases": [
+        "Gilled Bolete"
+      ],
+      "common_names": [
+        "Gilled Bolete"
+      ]
     },
     {
       "slug": "phylloporus-rhodoxanthus",
-      "display_name": "Gilled Bolete",
-      "common_name": "Gilled Bolete",
+      "display_name": "Gilled Bolete — P. rhodoxanthus",
+      "common_name": "Gilled Bolete — P. rhodoxanthus",
       "category": "Mushroom",
       "culinary_uses": "Seed entry only. Added during the Michigan bolete audit for the clean app; edibility, use, and warning text still need species-level review.",
       "medicinal_uses": "",
@@ -9695,7 +9754,13 @@
       "confused_with": [],
       "general_notes": "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering.",
       "edibility_detail": "A worthwhile edible when correctly identified and in good condition.",
-      "food_role": "food"
+      "food_role": "food",
+      "search_aliases": [
+        "Gilled Bolete"
+      ],
+      "common_names": [
+        "Gilled Bolete"
+      ]
     },
     {
       "slug": "austroboletus-gracilis",
@@ -11521,12 +11586,18 @@
       ],
       "general_notes": "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering.",
       "edibility_detail": "Highly regarded when correctly identified and collected in good condition.",
-      "food_role": "food"
+      "food_role": "food",
+      "hidden": true,
+      "duplicate_of": "king-bolete",
+      "legacy_alias": true,
+      "list_visibility": "hidden-duplicate",
+      "duplicate_note": "Duplicate King Bolete record kept only as a legacy slug alias.",
+      "review_status": "ok"
     },
     {
       "slug": "king-bolete",
-      "display_name": "King bolete",
-      "common_name": "King bolete",
+      "display_name": "King Bolete",
+      "common_name": "King Bolete",
       "category": "Mushroom",
       "notes": "Recreated locally from the original app baseline checklist for the modular standalone build. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
       "short_reason": "Original app species restored into the standalone modular build.",
@@ -11547,7 +11618,13 @@
       "lane": "bolete",
       "reviewReasons": [],
       "review_status": "ok",
-      "search_aliases": [],
+      "search_aliases": [
+        "boletus-edulis",
+        "King Bolete",
+        "Boletus edulis",
+        "Porcini",
+        "Cep"
+      ],
       "host_filter_tokens": [],
       "commonness": "Occasional",
       "food_quality": "Choice",
@@ -11564,8 +11641,14 @@
         9,
         10
       ],
-      "look_alikes": [],
-      "confused_with": [],
+      "look_alikes": [
+        "false-king-bolete",
+        "true-bitter-bolete"
+      ],
+      "confused_with": [
+        "false-king-bolete",
+        "true-bitter-bolete"
+      ],
       "edibility_detail": "Highly regarded when correctly identified and collected in good condition.",
       "food_role": "food",
       "mushroom_profile": {
@@ -11588,7 +11671,19 @@
           "Convex cap with central stem"
         ],
         "season_note": "Usually encountered from July through October in the Upper Midwest / Great Lakes window."
-      }
+      },
+      "common_names": [
+        "boletus-edulis",
+        "Boletus edulis",
+        "Porcini",
+        "Cep"
+      ],
+      "manual_review_reasons": [
+        "needs image coverage",
+        "needs source links",
+        "needs species-level notes review"
+      ],
+      "scientific_name": "Boletus edulis"
     },
     {
       "slug": "king-oyster",
@@ -13686,7 +13781,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Food. Some Leccinum are eaten, but this group needs thorough cooking and careful host/tree notes.",
+      "edibility_notes": "Some Leccinum are eaten, but this group needs thorough cooking and careful host/tree notes.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
         "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
@@ -14331,7 +14426,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Food. Porcini-group edible when confidently identified and in good condition; keep separate from bitter Tylopilus and other brown boletes.",
+      "edibility_notes": "Porcini-group edible when confidently identified and in good condition; keep separate from bitter Tylopilus and other brown boletes.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
         "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
@@ -14713,8 +14808,8 @@
     },
     {
       "slug": "meadow-mushroom",
-      "display_name": "Meadow mushroom",
-      "common_name": "Meadow mushroom",
+      "display_name": "Meadow / Field Mushroom",
+      "common_name": "Meadow / Field Mushroom",
       "category": "Mushroom",
       "notes": "Grassy-ground agaric. Audited batch 1: lane, season, substrate, ring, and spore-print info added.",
       "short_reason": "Original app species restored into the standalone modular build.",
@@ -14740,7 +14835,12 @@
       "lane": "gilled",
       "reviewReasons": [],
       "review_status": "ok",
-      "search_aliases": [],
+      "search_aliases": [
+        "field-mushroom",
+        "Field mushroom",
+        "Meadow mushroom",
+        "Agaricus campestris"
+      ],
       "host_filter_tokens": [],
       "commonness": "Occasional",
       "food_quality": "Good",
@@ -14758,11 +14858,13 @@
       "food_role": "food",
       "look_alikes": [
         "destroying-angel",
-        "field-mushroom"
+        "field-mushroom",
+        "meadow-mushroom"
       ],
       "confused_with": [
         "destroying-angel",
-        "field-mushroom"
+        "field-mushroom",
+        "meadow-mushroom"
       ],
       "mushroom_profile": {
         "lane": "gilled",
@@ -14798,7 +14900,14 @@
         "season_note": "Summer through fall in open grass."
       },
       "commonness_score": 3,
-      "food_quality_score": 4
+      "food_quality_score": 4,
+      "common_names": [
+        "field-mushroom",
+        "Field mushroom",
+        "Meadow mushroom",
+        "Agaricus campestris"
+      ],
+      "scientific_name": "Agaricus campestris group"
     },
     {
       "slug": "neoboletus-pseudosulphureus",
@@ -15190,7 +15299,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Food. Edible by some accounts when young, but usually poor quality; included mainly because it is distinctive and useful for ID practice. Not a prime edible.",
+      "edibility_notes": "Edible by some accounts when young, but usually poor quality; included mainly because it is distinctive and useful for ID practice. Not a prime edible.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review."
       ],
@@ -15218,7 +15327,12 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "hidden": true,
+      "duplicate_of": "old-man-of-the-woods",
+      "legacy_alias": true,
+      "list_visibility": "hidden-duplicate",
+      "duplicate_note": "Duplicate Old Man of the Woods record kept only as a legacy slug alias."
     },
     {
       "slug": "old-man-of-the-woods",
@@ -15239,7 +15353,9 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%205.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/2006-09-03%20Strobilomyces%20strobilaceus%201.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2006-09-03%20Strobilomyces%20strobilaceus%202.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2006-09-03%20Strobilomyces%20strobilaceus%202.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%206.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%203.jpg"
       ],
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
       "culinary_uses": "Edible by some accounts when young, but usually poor quality; included mainly because it is distinctive and useful for ID practice.",
@@ -15250,7 +15366,11 @@
       "lane": "bolete",
       "reviewReasons": [],
       "review_status": "ok",
-      "search_aliases": [],
+      "search_aliases": [
+        "strobilomyces-strobilaceus",
+        "Old Man of the Woods",
+        "Strobilomyces sp. / Strobilomyces floccopus group"
+      ],
       "host_filter_tokens": [
         "Hardwood",
         "Oak"
@@ -15334,7 +15454,8 @@
       "review_reasons": [],
       "manual_review_reasons": [],
       "common_names": [
-        "Old Man of the Woods"
+        "Old Man of the Woods",
+        "strobilomyces-strobilaceus"
       ],
       "kingdom_type": "mushroom",
       "species_scope": "species",
@@ -15352,7 +15473,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Food. Edible by some accounts when young, but usually poor quality; included mainly because it is distinctive and useful for ID practice. Not a prime edible.",
+      "edibility_notes": "Edible by some accounts when young, but usually poor quality; included mainly because it is distinctive and useful for ID practice. Not a prime edible.",
       "curation_notes": [
         "Original app species restored into the standalone modular build.",
         "Recreated locally from the original app baseline checklist for the modular standalone build."
@@ -15523,7 +15644,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Food. Some Leccinum are eaten, but this group needs thorough cooking and careful host/tree notes.",
+      "edibility_notes": "Some Leccinum are eaten, but this group needs thorough cooking and careful host/tree notes.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review."
       ],
@@ -15765,7 +15886,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Cooked food. Edible by some when young and cooked, but Suillus texture and age matter.",
+      "edibility_notes": "Cooked food. Edible by some when young and cooked, but Suillus texture and age matter.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review."
       ],
@@ -17690,7 +17811,12 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "hidden": true,
+      "duplicate_of": "leccinum-scabrum",
+      "legacy_alias": true,
+      "list_visibility": "hidden-duplicate",
+      "duplicate_note": "Broad scaber-stalk duplicate/group page kept only as a legacy slug alias. Its caution content has been consolidated into Birch Bolete / Leccinum scabrum."
     },
     {
       "slug": "scarletina-complex",
@@ -18289,11 +18415,22 @@
       "culinary_uses": "Seed entry only. Added during the Michigan bolete audit for the clean app; edibility, use, and warning text still need species-level review.",
       "medicinal_uses": "",
       "notes": "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review.",
-      "months_available": [],
-      "month_numbers": [],
+      "months_available": [
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9,
+        10
+      ],
       "links": [],
       "images": [
-        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ESlippery%20Jack%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ESuillus%20luteus%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ESlippery%20Jack%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ESuillus%20luteus%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E",
+        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ESlippery%20jack%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
       "scientific_name": "Suillus luteus",
       "mushroom_profile": {
@@ -18307,7 +18444,9 @@
           "Forest soil"
         ],
         "wood_type": [],
-        "host_trees": [],
+        "host_trees": [
+          "Pine"
+        ],
         "host_certainty": "unknown",
         "underside": "Pores",
         "ring": "Unknown",
@@ -18318,13 +18457,28 @@
         "staining": "Unknown",
         "taste": [],
         "spore_print": "",
-        "season_note": "",
+        "season_note": "Summer into fall; often with pine.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
           "Placeholder image inserted pending real public-usable photo."
+        ],
+        "lane": "bolete",
+        "host_filter_tokens": [
+          "Softwood / conifer",
+          "Pine"
+        ],
+        "pore_color": [
+          "Yellow pores"
+        ],
+        "cap_surface": [
+          "Sticky / slimy"
+        ],
+        "stem_feature": [
+          "Ring",
+          "Glandular dots"
         ]
       },
       "manual_review_reasons": [
@@ -18344,7 +18498,25 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "search_aliases": [
+        "slippery-jack",
+        "Slippery jack"
+      ],
+      "common_names": [
+        "slippery-jack"
+      ],
+      "host_filter_tokens": [],
+      "reviewReasons": [
+        "placeholder image inserted"
+      ],
+      "lane": "bolete",
+      "record_type": "mushroom",
+      "food_role": "food",
+      "food_quality": "Fair",
+      "food_quality_score": 3,
+      "commonness": "Occasional",
+      "commonness_score": 3
     },
     {
       "slug": "slippery-jack",
@@ -18376,7 +18548,12 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "hidden": true,
+      "duplicate_of": "suillus-luteus",
+      "legacy_alias": true,
+      "list_visibility": "hidden-duplicate",
+      "duplicate_note": "Duplicate Slippery Jack record kept only as a legacy slug alias."
     },
     {
       "slug": "suillus-salmonicolor",
@@ -19238,7 +19415,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Cooked food. Edible by some accounts but slimy and modest quality; peel if desired and cook thoroughly.",
+      "edibility_notes": "Cooked food. Edible by some accounts but slimy and modest quality; peel if desired and cook thoroughly.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review."
       ],
@@ -19777,7 +19954,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Food. Mild-tasting Tylopilus; edible reports exist, but confirm it is not a bitter Tylopilus before using.",
+      "edibility_notes": "Mild-tasting Tylopilus; edible reports exist, but confirm it is not a bitter Tylopilus before using.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review."
       ],
@@ -20154,7 +20331,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Food. Porcini-group edible when confidently identified and in good condition.",
+      "edibility_notes": "Porcini-group edible when confidently identified and in good condition.",
       "curation_notes": [
         "Minimal species seed. Added during the bolete expansion pass for the clean app; details, seasonality, and images still need a later review."
       ],
@@ -20175,7 +20352,12 @@
         "preparation_notes": "",
         "warnings": "",
         "claims": []
-      }
+      },
+      "hidden": true,
+      "duplicate_of": "boletus-variipes-fagicola",
+      "legacy_alias": true,
+      "list_visibility": "hidden-duplicate",
+      "duplicate_note": "Duplicate Varied/Variable-stalk Bolete record kept only as a legacy slug alias."
     },
     {
       "slug": "velvet-foot",
@@ -21307,7 +21489,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Food/beverage use: Food. Often listed as edible, but this is a species-group entry; use only young, firm specimens after careful ID.",
+      "edibility_notes": "Often listed as edible, but this is a species-group entry; use only young, firm specimens after careful ID.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review."
       ],
