@@ -1,6 +1,6 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.51-r2026-04-27-mushroom-photo-patch2-cache-sync";
+const APP_VERSION = "v4.2.52-r2026-04-27-mushroom-photo-patch3-append1";
 
 function esc(value) {
   return String(value ?? "")
