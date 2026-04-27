@@ -602,6 +602,17 @@ function isAvoidFoodQuality(value = "") {
   return /\b(not recommended|avoid|inedible)\b/i.test(String(value || ""));
 }
 
+
+function isNicheBitterBoleteRecord(record = {}) {
+  const slug = String(record.slug || "").toLowerCase();
+  const sci = String(record.scientific_name || record.mushroom_profile?.scientific_name || "").toLowerCase();
+  const name = String(record.display_name || record.common_name || "").toLowerCase();
+  const status = String(record.edibility_status || record.mushroom_profile?.edibility_status || "").toLowerCase();
+  const quality = String(record.food_quality || "").toLowerCase();
+  return (slug === "true-bitter-bolete" || slug === "bitter-bolete" || sci === "tylopilus felleus" || name === "bitter bolete")
+    && (status.includes("niche") || status.includes("acquired") || quality.includes("niche") || quality.includes("acquired"));
+}
+
 function imageIsPlaceholder(value = "") {
   const text = String(value || "").toLowerCase();
   return text.startsWith("data:image/svg")
@@ -644,6 +655,10 @@ export function isEdibleForSection(record = {}) {
   // Conditional danger does NOT win when a record is explicitly food-safe after preparation.
   if (hasAbsoluteDangerLabel(record)) return false;
 
+  // Bitter Bolete is a special case: not broadly liked, but not a poison/caution entry.
+  // It should remain visible in the pored-mushroom edible list as a niche/acquired-taste edible.
+  if (isNicheBitterBoleteRecord(record)) return true;
+
   // Avoid / medicinal-only / non-edible records must not be pulled into edible lists
   // merely because they have a food-quality label or old scaffold text.
   if (["avoid", "emergency_only", "medicinal_only", "tea_extract_only"].includes(foodRole)) return false;
@@ -673,6 +688,7 @@ export function isCautionRecord(record = {}) {
   if (risk === "serious") return true;
 
   // Otherwise, the Caution page is for genuinely unsafe entries, not edible records with notes.
+  if (isNicheBitterBoleteRecord(record)) return false;
   if (isEdibleForSection(record)) return false;
   if (foodRole === "tea_extract_only") return false;
   if (isTeaOnlyUseText(record.other_uses)) return false;

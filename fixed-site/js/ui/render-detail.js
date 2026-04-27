@@ -1,6 +1,6 @@
 import { esc } from "../lib/escape.js";
 import { state } from "../state.js";
-import { getMedicinalData, isBuildNoteText, cleanUserFacingText, classifyRecord } from "../lib/merge.js?v=v4.2.45-r2026-04-27-bitter-bolete-meta1";
+import { getMedicinalData, isBuildNoteText, cleanUserFacingText, classifyRecord } from "../lib/merge.js?v=v4.2.46-r2026-04-27-bitter-bolete-visibility1";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
