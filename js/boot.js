@@ -1,6 +1,6 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.39-r2026-04-27-mushroom-dedup1";
+const APP_VERSION = "v4.2.40-r2026-04-27-list-lookalike-cleanup1";
 
 function esc(value) {
   return String(value ?? "")
