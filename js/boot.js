@@ -1,6 +1,6 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.37-r2026-04-26-bolete-forager-filters1";
+const APP_VERSION = "v4.2.39-r2026-04-27-mushroom-dedup1";
 
 function esc(value) {
   return String(value ?? "")

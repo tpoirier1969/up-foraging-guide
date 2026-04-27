@@ -1,4 +1,4 @@
-import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.37-r2026-04-26-bolete-forager-filters1";
+import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.39-r2026-04-27-mushroom-dedup1";
 import { esc } from "../lib/escape.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
@@ -22,7 +22,8 @@ const PLANT_FILTER_DEFS = [
 
 const GILLED_MUSHROOM_FILTER_DEFS = [
   { key: "mushroomMonth", label: "Season", blankLabel: "Any season", valueKey: "month" },
-  { key: "mushroomSubstrate", label: "Substrate", blankLabel: "Any substrate", valueKey: "mushroomSubstrate" },
+  { key: "mushroomHabitat", label: "Habitat / setting", blankLabel: "Any habitat/setting", valueKey: "mushroomHabitat" },
+  { key: "mushroomSubstrate", label: "Growing on / from", blankLabel: "Any growing context", valueKey: "mushroomSubstrate" },
   { key: "mushroomTreeType", label: "Tree type", blankLabel: "Any tree type", valueKey: "mushroomTreeType" },
   { key: "mushroomHost", label: "Host tree", blankLabel: "Any host tree", valueKey: "mushroomHost" },
   { key: "mushroomUnderside", label: "Gills / underside", blankLabel: "Any gill/underside clue", valueKey: "mushroomUnderside" },
@@ -37,6 +38,7 @@ const GILLED_MUSHROOM_FILTER_DEFS = [
 const BOLETE_FILTER_DEFS = [
   { key: "mushroomReviewFlag", label: "Data review", blankLabel: "Any review state", valueKey: "mushroomReviewFlag" },
   { key: "mushroomBoleteGroup", label: "Quick ID group", blankLabel: "Any quick group", valueKey: "boleteQuickGroup" },
+  { key: "mushroomHabitat", label: "Habitat / setting", blankLabel: "Any habitat/setting", valueKey: "mushroomHabitat" },
   { key: "mushroomTreeAssociation", label: "Tree association", blankLabel: "Any tree association", valueKey: "boleteTreeAssociation" },
   { key: "mushroomSubstrate", label: "Growing from", blankLabel: "Any growing context", valueKey: "mushroomSubstrate" },
   { key: "mushroomPoreColor", label: "Pore color", blankLabel: "Any pore color", valueKey: "boletePoreColor" },
@@ -48,8 +50,9 @@ const BOLETE_FILTER_DEFS = [
 
 const OTHER_MUSHROOM_FILTER_DEFS = [
   { key: "mushroomMonth", label: "Season", blankLabel: "Any season", valueKey: "month" },
+  { key: "mushroomHabitat", label: "Habitat / setting", blankLabel: "Any habitat/setting", valueKey: "mushroomHabitat" },
   { key: "mushroomUnderside", label: "Form / underside", blankLabel: "Any form/underside", valueKey: "mushroomUnderside" },
-  { key: "mushroomSubstrate", label: "Substrate", blankLabel: "Any substrate", valueKey: "mushroomSubstrate" },
+  { key: "mushroomSubstrate", label: "Growing on / from", blankLabel: "Any growing context", valueKey: "mushroomSubstrate" },
   { key: "mushroomTreeType", label: "Tree type", blankLabel: "Any tree type", valueKey: "mushroomTreeType" },
   { key: "mushroomHost", label: "Host tree", blankLabel: "Any host tree", valueKey: "mushroomHost" },
   { key: "mushroomTexture", label: "Texture", blankLabel: "Any texture", valueKey: "mushroomTexture" },
@@ -323,6 +326,26 @@ function boleteTasteValues(record) {
   ]);
 }
 
+function mushroomHabitatValues(record = {}) {
+  const values = [
+    ...collectValues(record, [["habitats"], ["habitat"], ["habitat_detail"]]),
+    ...collectValues(record, [["mushroom_profile", "substrate"], ["mushroom_profile", "season_note"]]),
+    record.notes,
+    record.general_notes
+  ];
+  const hay = values.join(" | ").toLowerCase();
+  const out = [];
+  if (/forest|woods|woodland|hardwood|conifer|pine|oak|birch|aspen|hemlock|mixed woods?/.test(hay)) out.push("Forest / woods");
+  if (/lawn|yard|grass|turf/.test(hay)) out.push("Lawn / yard");
+  if (/meadow|field|pasture|prairie|open area/.test(hay)) out.push("Meadow / field");
+  if (/swamp|bog|marsh|wetland|wet woods|sphagnum/.test(hay)) out.push("Swamp / wetland");
+  if (/burn|fire|charred/.test(hay)) out.push("Burn area");
+  if (/roadside|disturbed|mulch|wood chips|garden|compost/.test(hay)) out.push("Disturbed / human-influenced");
+  if (/dead wood|log|stump|standing dead|wood|branch/.test(hay)) out.push("Dead wood / logs / stumps");
+  if (/living tree|wounded|base of|trunk/.test(hay)) out.push("Living or wounded tree");
+  return [...new Set(out)];
+}
+
 function hasImageCoverage(record = {}) {
   return asList(record.images_structured).length > 0
     || !!String(record.list_thumbnail || "").trim()
@@ -396,6 +419,7 @@ function valuesForFilter(record, valueKey) {
     case "boleteCapSurface": return boleteCapSurfaceValues(record);
     case "boleteStemFeature": return boleteStemFeatureValues(record);
     case "boleteTaste": return boleteTasteValues(record);
+    case "mushroomHabitat": return mushroomHabitatValues(record);
     case "mushroomSubstrate": return cleanOptionValues(collectValues(record, [["substrate"], ["mushroom_profile", "substrate"]]));
     case "mushroomTreeType": return treeTypeValues(record);
     case "mushroomHost": return hostTreeValues(record);
@@ -519,22 +543,59 @@ function dataQualityTags(record, route = "general") {
   return tags;
 }
 
+function labelTag(label, value, className = "") {
+  const text = String(value || "").trim();
+  if (!text) return "";
+  const cls = className ? `tag ${className}` : "tag";
+  return `<span class="${cls}">${esc(label)}: ${esc(text)}</span>`;
+}
+
+function laneLabel(record = {}) {
+  const lane = String(record.lane || "").toLowerCase();
+  if (lane === "gilled") return "Gilled";
+  if (lane === "bolete") return "Pores / spongy underside";
+  if (lane === "other") return "Other form";
+  return String(record.lane || "");
+}
+
+function seasonSummary(record = {}) {
+  const months = monthValues(record);
+  if (months.length) {
+    if (months.length === 1) return months[0];
+    return `${months[0]}–${months[months.length - 1]}`;
+  }
+  const note = String(record.mushroom_profile?.season_note || record.season_note || "").trim();
+  if (/spring/i.test(note)) return "Spring";
+  if (/summer.*fall|late summer.*fall/i.test(note)) return "Late summer–fall";
+  if (/summer/i.test(note)) return "Summer";
+  if (/fall|autumn/i.test(note)) return "Fall";
+  if (/year-round|year round|perennial/i.test(note)) return "Year-round";
+  return "Needs review";
+}
+
 function makeMeta(record, route = "general") {
   const info = classifyRecord(record);
   const edibleUse = record.edible_use || null;
   const bits = [];
-  if (record.foraging_class) bits.push(`<span class="tag">${esc(String(record.foraging_class).replaceAll("_", " "))}</span>`);
-  else if (record.category) bits.push(`<span class="tag">${esc(record.category)}</span>`);
-  if (record.lane && record.record_type === "mushroom") bits.push(`<span class="tag">${esc(record.lane)}</span>`);
+  if (record.record_type === "mushroom") {
+    bits.push(labelTag("Type", laneLabel(record)));
+  } else if (record.foraging_class) {
+    bits.push(labelTag("Type", String(record.foraging_class).replaceAll("_", " ")));
+  } else if (record.category) {
+    bits.push(labelTag("Type", record.category));
+  }
   if (route === "other-uses" && info.otherUses) bits.push(`<span class="tag">Other use</span>`);
   if ((route === "lookalikes" || route === "caution") && info.caution) bits.push(`<span class="tag danger">Caution</span>`);
-  if (record.commonness) bits.push(`<span class="tag">${esc(record.commonness)}</span>`);
-  if (record.food_quality) bits.push(`<span class="tag good">${esc(record.food_quality)}</span>`);
-  if (edibleUse?.has_ingestible_use && edibleUse.method && !bits.join(" ").includes(edibleUse.method)) bits.push(`<span class="tag good">${esc(edibleUse.method)}</span>`);
+  if (record.commonness) bits.push(labelTag("Commonality", record.commonness));
+  bits.push(labelTag("Season", seasonSummary(record)));
+  if (record.food_quality) bits.push(labelTag("Food quality", record.food_quality, "good"));
+  if (edibleUse?.has_ingestible_use && /tea|infusion|beverage/i.test(edibleUse.method || "")) {
+    bits.push(`<span class="tag good">Tea / infusion</span>`);
+  }
   if (record.non_edible_severity && !edibleUse?.has_ingestible_use) bits.push(`<span class="tag danger">${esc(record.non_edible_severity)}</span>`);
   dataQualityTags(record, route).forEach((label) => bits.push(`<span class="tag review">${esc(label)}</span>`));
   if (record.review_status === "needs_review") bits.push(`<span class="tag review">Needs review</span>`);
-  return bits.join("");
+  return bits.filter(Boolean).join("");
 }
 
 function matchesSearch(record, q) {
@@ -608,6 +669,7 @@ function normalizeFilters(filtersOrSearch) {
     plantLeafArrangement: filtersOrSearch?.plantLeafArrangement || "",
     plantStem: filtersOrSearch?.plantStem || "",
     mushroomMonth: filtersOrSearch?.mushroomMonth || "",
+    mushroomHabitat: filtersOrSearch?.mushroomHabitat || "",
     mushroomSubstrate: filtersOrSearch?.mushroomSubstrate || "",
     mushroomTreeType: filtersOrSearch?.mushroomTreeType || "",
     mushroomHost: filtersOrSearch?.mushroomHost || "",
@@ -679,13 +741,13 @@ function cardSnippet(record) {
   const candidates = [
     record.overview,
     record.field_identification,
+    record.culinary_uses,
     record.other_uses,
     record.poisoning_effects,
     record.toxicity_notes,
     record.edibility_notes,
     record.edibility_detail,
     rare.reason,
-    record.culinary_uses,
     record.notes,
     record.general_notes,
     record.habitat_detail
@@ -694,7 +756,9 @@ function cardSnippet(record) {
     const text = cleanUserFacingText(value);
     if (!text) continue;
     if (isBuildNoteText(text)) continue;
-    return text;
+    if (/^(Food use|Food\/beverage use):\s*Food\.?\s*$/i.test(text)) continue;
+    if (/^Food\.?\s*This entry carried caution/i.test(text)) continue;
+    return text.replace(/^Food\/beverage use:\s*/i, "Food use: ");
   }
   return "";
 }

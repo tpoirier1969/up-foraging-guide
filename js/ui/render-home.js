@@ -1,4 +1,4 @@
-import { classifyRecord } from "../lib/merge.js?v=v4.2.37-r2026-04-26-bolete-forager-filters1";
+import { classifyRecord } from "../lib/merge.js?v=v4.2.39-r2026-04-27-mushroom-dedup1";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
