@@ -1,4 +1,4 @@
-import { classifyRecord } from "../lib/merge.js?v=v4.2.42-r2026-04-27-mushroom-polish2";
+import { classifyRecord } from "../lib/merge.js?v=v4.2.45-r2026-04-27-bitter-bolete-meta1";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [

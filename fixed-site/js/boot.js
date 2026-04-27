@@ -1,6 +1,6 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.43-r2026-04-27-nav-dependencyfix1";
+const APP_VERSION = "v4.2.45-r2026-04-27-bitter-bolete-meta1";
 
 function esc(value) {
   return String(value ?? "")

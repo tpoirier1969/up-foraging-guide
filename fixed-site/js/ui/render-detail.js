@@ -1,6 +1,6 @@
 import { esc } from "../lib/escape.js";
 import { state } from "../state.js";
-import { getMedicinalData, isBuildNoteText, cleanUserFacingText, classifyRecord } from "../lib/merge.js?v=v4.2.42-r2026-04-27-mushroom-polish2";
+import { getMedicinalData, isBuildNoteText, cleanUserFacingText, classifyRecord } from "../lib/merge.js?v=v4.2.45-r2026-04-27-bitter-bolete-meta1";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
@@ -226,6 +226,18 @@ function dangerBlock(record) {
   `;
 }
 
+function imageReviewBlock(record = {}) {
+  const reasons = asArray(record.image_review_reasons).map(clean).filter(Boolean);
+  const status = clean(record.image_review_status);
+  const hasPlaceholder = asArray(record.images).some((value) => String(value || "").toLowerCase().startsWith("data:image/svg") || String(value || "").toLowerCase().includes("image%20needed"));
+  const lines = [
+    lineIf("Photo status", status ? status.replaceAll("_", " ") : (hasPlaceholder ? "Needs field photo" : "")),
+    lineIf("Photo notes", reasons.join(" "))
+  ].join("");
+  if (!lines.trim()) return "";
+  return `<section class="detail-block"><h4>Image review</h4><dl class="kv">${lines}</dl></section>`;
+}
+
 function linkBlock(record) {
   const links = Array.isArray(record.use_links) ? record.use_links : (Array.isArray(record.links) ? record.links.map((url) => ({ label: url, url })) : []);
   if (!links.length) return "";
@@ -380,6 +392,7 @@ export function renderDetail(record) {
             ${seasonText(record) ? `<span class="tag">Season: ${esc(seasonText(record))}</span>` : ""}
             ${record.food_quality ? `<span class="tag ${/not recommended|avoid|poor|inedible/i.test(String(record.food_quality)) ? "danger" : "good"}">Food quality: ${esc(record.food_quality)}</span>` : ""}
             ${record.non_edible_severity && !edibleUse?.has_ingestible_use ? `<span class="tag danger">${esc(record.non_edible_severity)}</span>` : ""}
+            ${record.image_review_status ? `<span class="tag review">Photo: ${esc(String(record.image_review_status).replaceAll("_", " "))}</span>` : ''}
             ${record.review_status === 'needs_review' ? `<span class="tag review">Needs review</span>` : ''}
           </div>
           <div class="quick-actions">
@@ -419,6 +432,7 @@ export function renderDetail(record) {
       ${listBlock("Medicinal actions", medicinal.actions)}
       ${listBlock("Medicinal systems", medicinal.body_systems)}
       ${listBlock("Medicinal terms", medicinal.medical_terms)}
+      ${imageReviewBlock(record)}
       ${linkBlock(record)}
     </article>
   `;

@@ -1,4 +1,4 @@
-import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.42-r2026-04-27-mushroom-polish2";
+import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.45-r2026-04-27-bitter-bolete-meta1";
 import { esc } from "../lib/escape.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
@@ -346,12 +346,27 @@ function mushroomHabitatValues(record = {}) {
   return [...new Set(out)];
 }
 
+function isPlaceholderImageValue(value = "") {
+  const text = String(value || "").toLowerCase();
+  return text.startsWith("data:image/svg")
+    || text.includes("image%20needed")
+    || text.includes("image needed")
+    || text.includes("placeholder image");
+}
+
+function hasUsableFieldImage(record = {}) {
+  const values = [
+    ...asList(record.images_structured).map((image) => typeof image === "string" ? image : (image.url || image.src || "")),
+    ...asList(record.list_thumbnail),
+    ...asList(record.detail_images),
+    ...asList(record.enlarge_images),
+    ...asList(record.images)
+  ].filter(Boolean);
+  return values.some((value) => !isPlaceholderImageValue(value));
+}
+
 function hasImageCoverage(record = {}) {
-  return asList(record.images_structured).length > 0
-    || !!String(record.list_thumbnail || "").trim()
-    || asList(record.detail_images).length > 0
-    || asList(record.enlarge_images).length > 0
-    || asList(record.images).length > 0;
+  return hasUsableFieldImage(record);
 }
 
 function hasSourceLinks(record = {}) {
@@ -363,6 +378,8 @@ function reviewText(record = {}) {
     ...asList(record.reviewReasons),
     ...asList(record.review_reasons),
     ...asList(record.manual_review_reasons),
+    ...asList(record.image_review_reasons),
+    record.image_review_status,
     record.notes,
     record.general_notes,
     record.culinary_uses,
@@ -528,6 +545,20 @@ function hasSeasonReviewFlag(record) {
   return hasLikelyDefaultSeason(record);
 }
 
+function imageReviewTags(record = {}) {
+  if (record.record_type !== "mushroom") return [];
+  const reasons = asList(record.image_review_reasons).join(" ").toLowerCase();
+  const status = String(record.image_review_status || "").toLowerCase();
+  const review = reviewText(record);
+  const tags = [];
+  if (!hasUsableFieldImage(record) || /needs_field_photo|needs field photo|placeholder/.test(`${status} ${reasons} ${review}`)) {
+    tags.push("Needs field photo");
+  } else if (/review|subpar|bad|replace|microscope|micrograph|blurry|wrong/.test(`${status} ${reasons}`)) {
+    tags.push("Image needs review");
+  }
+  return [...new Set(tags)];
+}
+
 function dataQualityTags(record, route = "general") {
   const tags = [];
   if (route === "boletes") {
@@ -535,12 +566,14 @@ function dataQualityTags(record, route = "general") {
       const label = REVIEW_FLAG_LABELS.get(flag);
       if (label) tags.push(label);
     });
-    return tags;
   }
   if (["mushrooms-gilled", "mushrooms-other"].includes(route) && hasSeasonReviewFlag(record)) {
     tags.push("Season needs review");
   }
-  return tags;
+  if (["mushrooms-gilled", "boletes", "mushrooms-other", "review"].includes(route)) {
+    imageReviewTags(record).forEach((label) => tags.push(label));
+  }
+  return [...new Set(tags)];
 }
 
 function labelTag(label, value, className = "") {
@@ -573,6 +606,18 @@ function seasonSummary(record = {}) {
   return "Needs review";
 }
 
+
+function isRedundantCautionMeta(record = {}) {
+  const severity = String(record.non_edible_severity || "").trim().toLowerCase();
+  const foodQuality = String(record.food_quality || "").trim().toLowerCase();
+  if (!severity) return true;
+  if (severity === "caution" || severity === "caution group") return true;
+  if (severity.replace(/\s+/g, " ") === "caution / not recommended as food") return true;
+  if (severity.includes("not recommended as food") && foodQuality.includes("not recommended")) return true;
+  if (severity.includes("not recommended") && foodQuality.includes("not recommended")) return true;
+  return false;
+}
+
 function makeMeta(record, route = "general") {
   const info = classifyRecord(record);
   const edibleUse = record.edible_use || null;
@@ -585,14 +630,13 @@ function makeMeta(record, route = "general") {
     bits.push(labelTag("Type", record.category));
   }
   if (route === "other-uses" && info.otherUses) bits.push(`<span class="tag">Other use</span>`);
-  if ((route === "lookalikes" || route === "caution") && info.caution) bits.push(`<span class="tag danger">Caution</span>`);
   if (record.commonness) bits.push(labelTag("Commonality", record.commonness));
   bits.push(labelTag("Season", seasonSummary(record)));
   if (record.food_quality) bits.push(labelTag("Food quality", record.food_quality, /not recommended|avoid|poor|inedible/i.test(String(record.food_quality)) ? "danger" : "good"));
   if (edibleUse?.has_ingestible_use && /tea|infusion|beverage/i.test(edibleUse.method || "")) {
     bits.push(`<span class="tag good">Tea / infusion</span>`);
   }
-  if (record.non_edible_severity && !edibleUse?.has_ingestible_use) bits.push(`<span class="tag danger">${esc(record.non_edible_severity)}</span>`);
+  if (record.non_edible_severity && !edibleUse?.has_ingestible_use && !isRedundantCautionMeta(record)) bits.push(labelTag("Safety", record.non_edible_severity, "danger"));
   dataQualityTags(record, route).forEach((label) => bits.push(`<span class="tag review">${esc(label)}</span>`));
   if (record.review_status === "needs_review") bits.push(`<span class="tag review">Needs review</span>`);
   return bits.filter(Boolean).join("");
@@ -745,6 +789,9 @@ function isUnhelpfulListText(value = "") {
     || /this entry carried caution, non[- ]edible, or safety significance/i.test(text)
     || /warning species seed/i.test(text)
     || /retained mainly for identification, caution, or curiosity value/i.test(text)
+    || /large short-stemmed .* entry/i.test(text)
+    || /warning species seed/i.test(text)
+    || /safety significance in the original app/i.test(text)
     || /when correctly identified and in good condition/i.test(text)
     || /^a worthwhile edible\.?$/i.test(text)
     || /^potentially edible or useful/i.test(text);
@@ -791,7 +838,11 @@ function generatedMushroomSnippet(record = {}) {
   ]);
   const stem = firstCleanListText([asList(profile.stem_feature).join(", "), asList(record.stemFeature).join(", ")]);
   const staining = firstCleanListText([asList(profile.staining).join(", "), asList(record.staining).join(", ")]);
-  if (substrate || host) parts.push("Grows " + (substrate ? "on/from " + substrate.toLowerCase() : "") + (host ? (substrate ? " " : "") + "near/with " + host : "") + ".");
+  if (substrate || host) {
+    const where = substrate ? `on/from ${substrate.toLowerCase()}` : "";
+    const withTree = host ? `near/with ${host}` : "";
+    parts.push(`Grows ${[where, withTree].filter(Boolean).join("; ")}.`);
+  }
   if (cap) parts.push("Cap/surface: " + cap + ".");
   if (underside) parts.push("Underside: " + underside + ".");
   if (stem) parts.push("Stem: " + stem + ".");

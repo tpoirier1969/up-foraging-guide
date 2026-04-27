@@ -104,8 +104,14 @@ const CURATION_NOTE_PATTERNS = [
   /red-pored \/ staining caution lane/i,
   /\b[a-z0-9 \/&.'-]+[- ]type entry\b/i,
   /(?:plant|mushroom|bolete|russula|suillus|leccinum|tylopilus|boletus)[- ]type entry/i,
-  /entry[^.!?]{0,80}(?:restored|standalone|modular|baseline|checklist|copyback|review|audit)/i,
-  /(?:large|small|short|long)[- ](?:stemmed|capped)[^.!?]{0,40}entry/i,
+  /\bentry\b[^.!?]{0,80}\b(?:restored|standalone|modular|baseline|checklist|copyback|review|audit)\b/i,
+  /\b(?:large|small|short|long)[- ](?:stemmed|capped)[^.!?]{0,40}\bentry\b/i,
+  /generic .* entry/i,
+  /warning species seed/i,
+  /retained mainly for identification/i,
+  /safety significance in the original app/i,
+  /species-level review text/i,
+  /future update note/i,
   /migration/i,
   /sidecar/i,
   /copyback/i,
@@ -519,8 +525,9 @@ function hasAbsoluteDangerLabel(record = {}) {
   const dangerText = [record.danger_level, record.poisoning_effects, record.toxicity_notes].join(" ");
   const dangerHay = `${edibility} ${severity} ${dangerText}`.toLowerCase();
 
+  const clearlyNegatesPoison = /\b(not poisonous|non-poisonous|nonpoisonous|not treated here as a poison|not treated as poisonous)\b/.test(dangerHay);
   if (["poisonous", "deadly"].includes(edibility)) return true;
-  if (/\b(deadly|fatal|lethal|poisonous)\b/.test(dangerHay)) return true;
+  if (!clearlyNegatesPoison && /\b(deadly|fatal|lethal|poisonous)\b/.test(dangerHay)) return true;
 
   const ingestible = deriveIngestibleUse(record);
   if (ingestible.has_ingestible_use && CONDITIONAL_DANGER_PATTERN.test(`${dangerHay} ${ingestible.notes}`)) {
@@ -592,7 +599,26 @@ function isNonEdibleCautionSeverity(severity = "") {
 }
 
 function isAvoidFoodQuality(value = "") {
-  return /\b(not recommended|avoid|poor|inedible)\b/i.test(String(value || ""));
+  return /\b(not recommended|avoid|inedible)\b/i.test(String(value || ""));
+}
+
+function imageIsPlaceholder(value = "") {
+  const text = String(value || "").toLowerCase();
+  return text.startsWith("data:image/svg")
+    || text.includes("image%20needed")
+    || text.includes("image needed")
+    || text.includes("placeholder image");
+}
+
+function hasUsableFieldImage(record = {}) {
+  const images = [
+    ...ensureArray(record.images_structured),
+    ...ensureArray(record.list_thumbnail),
+    ...ensureArray(record.detail_images),
+    ...ensureArray(record.enlarge_images),
+    ...ensureArray(record.images)
+  ].filter(Boolean);
+  return images.some((image) => !imageIsPlaceholder(typeof image === "string" ? image : (image.url || image.src || "")));
 }
 
 function hasPositiveFoodSignal(record = {}) {
@@ -623,7 +649,7 @@ export function isEdibleForSection(record = {}) {
   if (["avoid", "emergency_only", "medicinal_only", "tea_extract_only"].includes(foodRole)) return false;
   if (["not_edible", "poisonous", "deadly", "inedible_bitter"].includes(edibility)) return false;
   if (isNonEdibleCautionSeverity(severity)) return false;
-  if (isAvoidFoodQuality(foodQuality) && !hasPositiveFoodSignal(record)) return false;
+  if (isAvoidFoodQuality(foodQuality)) return false;
 
   const ingestible = deriveIngestibleUse(record);
   if (ingestible.has_ingestible_use) return true;
@@ -657,7 +683,7 @@ export function isCautionRecord(record = {}) {
   if (["not_edible", "poisonous", "deadly", "inedible_bitter"].includes(edibility)) return true;
   if (["avoid", "emergency_only"].includes(foodRole)) return true;
   if (isNonEdibleCautionSeverity(severity)) return true;
-  if (isAvoidFoodQuality(record.food_quality) && !hasPositiveFoodSignal(record)) return true;
+  if (isAvoidFoodQuality(record.food_quality)) return true;
 
   return false;
 }
@@ -815,6 +841,8 @@ export function normalizeRecord(record) {
     medicinalAction: medicinal.actions,
     medicinalSystem: medicinal.body_systems,
     medicinalTerms: medicinal.medical_terms,
+    image_review_status: fixed.image_review_status || (record_type === "mushroom" && !hasUsableFieldImage(fixed) ? "needs_field_photo" : ""),
+    image_review_reasons: uniq(fixed.image_review_reasons),
     use_links: deriveUseLinks(fixed),
     months_available: uniq(fixed.months_available),
     habitat: uniq(fixed.habitat)
