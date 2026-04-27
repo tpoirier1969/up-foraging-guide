@@ -730,7 +730,9 @@ export function normalizeRecord(record) {
     ? ""
     : (fixed.non_edible_severity || "");
   const edibleUseNote = edibleUse.has_ingestible_use
-    ? `Food/beverage use: ${edibleUse.method}.${edibleUse.notes ? ` ${edibleUse.notes}` : ""}`
+    ? (/^food$/i.test(String(edibleUse.method || ""))
+      ? (edibleUse.notes || "")
+      : `${edibleUse.method}.${edibleUse.notes ? ` ${edibleUse.notes}` : ""}`)
     : "";
   const normalizedEdibilityNotes = edibleUse.has_ingestible_use && !absoluteDanger
     ? firstUserFacingText(edibleUseNote, cleanedEdibility)

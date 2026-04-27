@@ -1,5 +1,5 @@
 import { esc } from "../lib/escape.js";
-import { getMedicinalData, isBuildNoteText, cleanUserFacingText } from "../lib/merge.js?v=v4.2.37-r2026-04-26-bolete-forager-filters1";
+import { getMedicinalData, isBuildNoteText, cleanUserFacingText } from "../lib/merge.js?v=v4.2.39-r2026-04-27-mushroom-dedup1";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
@@ -135,19 +135,52 @@ function linkBlock(record) {
   return `<section class="detail-block"><h4>Links</h4><ul class="list-tight">${items.join("")}</ul></section>`;
 }
 
-function edibleUseBlock(record) {
+function joinClean(values = []) {
+  return values.map(clean).filter(Boolean).join(", ");
+}
+
+function foodUseBlock(record) {
   const edibleUse = record.edible_use || null;
-  if (!edibleUse?.has_ingestible_use) return "";
+  const profile = record.mushroom_profile || {};
+  const culinaryUses = clean(record.culinary_uses);
+  const edibilityNotes = clean(record.edibility_notes || record.edibility_detail);
+  const taste = joinClean([
+    ...asArray(record.taste),
+    ...asArray(profile.taste)
+  ]);
+  const texture = joinClean([
+    ...asArray(record.texture),
+    ...asArray(profile.texture)
+  ]);
+  const processing = joinClean([
+    ...asArray(record.processing_required),
+    ...asArray(profile.processing_required)
+  ]);
+  const method = clean(edibleUse?.method || "");
+  const edibleNotes = clean(edibleUse?.notes || "");
+  const lines = [
+    lineIf("Food quality", record.food_quality),
+    lineIf("Use form", method && method.toLowerCase() !== "food" ? method : ""),
+    lineIf("Taste", taste),
+    lineIf("Texture", texture),
+    lineIf("Best uses / cooking notes", culinaryUses),
+    lineIf("Preparation / caution", processing || edibilityNotes || edibleNotes)
+  ].join("");
+  if (!lines.trim()) return "";
   return `
-    <section class="detail-block">
-      <h4>How it is edible / food-use prepared</h4>
+    <section class="detail-block food-use-block">
+      <h4>Food-Use</h4>
       <dl class="kv">
-        ${lineIf("Use form", edibleUse.method || "Food / beverage use")}
-        ${lineIf("Preparation required", edibleUse.preparation_required ? "Yes — use the food/beverage preparation described for this species." : "Use the food/beverage form described for this species.")}
-        ${lineIf("Use notes", edibleUse.notes)}
+        ${lines}
       </dl>
     </section>
   `;
+}
+
+function asArray(value) {
+  if (Array.isArray(value)) return value;
+  if (value === undefined || value === null || value === "") return [];
+  return [value];
 }
 
 function profileListValue(profile = {}, key) {
@@ -168,13 +201,12 @@ function boleteDetailBlock(record) {
     lineIf("Associated trees", profileListValue(profile, "host_trees") || profileListValue(record, "hostTree")),
     lineIf("Tree association", profileListValue(profile, "host_filter_tokens") || profileListValue(record, "host_filter_tokens")),
     lineIf("Taste / warning clue", profileListValue(profile, "taste") || profileListValue(record, "taste")),
-    lineIf("Food quality", record.food_quality),
     lineIf("Season note", profile.season_note)
   ].join("");
   if (!lines.trim()) return "";
   return `
     <section class="detail-block bolete-id-block">
-      <h4>Bolete field marks</h4>
+      <h4>Pored mushroom field marks</h4>
       <dl class="kv">
         ${lines}
       </dl>
@@ -205,9 +237,10 @@ export function renderDetail(record) {
           <h3>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</h3>
           <p class="muted">${esc(record.scientific_name || "")}</p>
           <div class="record-meta">
-            ${typeLabel ? `<span class="tag">${esc(typeLabel)}</span>` : ""}
-            ${record.lane ? `<span class="tag">${esc(record.lane)}</span>` : ""}
-            ${record.commonness ? `<span class="tag">${esc(record.commonness)}</span>` : ""}
+            ${record.lane ? `<span class="tag">Type: ${esc(record.lane === "bolete" ? "Pores / spongy underside" : record.lane)}</span>` : (typeLabel ? `<span class="tag">Type: ${esc(typeLabel)}</span>` : "")}
+            ${record.commonness ? `<span class="tag">Commonality: ${esc(record.commonness)}</span>` : ""}
+            ${seasonText(record) ? `<span class="tag">Season: ${esc(seasonText(record))}</span>` : ""}
+            ${record.food_quality ? `<span class="tag good">Food quality: ${esc(record.food_quality)}</span>` : ""}
             ${record.non_edible_severity && !edibleUse?.has_ingestible_use ? `<span class="tag danger">${esc(record.non_edible_severity)}</span>` : ""}
             ${record.review_status === 'needs_review' ? `<span class="tag review">Needs review</span>` : ''}
           </div>
@@ -235,12 +268,10 @@ export function renderDetail(record) {
       </section>
 
       ${boleteDetailBlock(record)}
-      ${edibleUseBlock(record)}
-      ${culinaryUses ? `<section class="detail-block"><h4>Culinary uses</h4><p>${esc(culinaryUses)}</p></section>` : ""}
+      ${foodUseBlock(record)}
       ${medicinalUses ? `<section class="detail-block"><h4>Medicinal uses</h4><p>${esc(medicinalUses)}</p></section>` : ""}
       ${medicinalWarnings ? `<section class="detail-block"><h4>Medicinal cautions</h4><p>${esc(medicinalWarnings)}</p></section>` : ""}
       ${otherUses ? `<section class="detail-block"><h4>Other uses</h4><p>${esc(otherUses)}</p></section>` : ""}
-      ${edibilityNotes ? `<section class="detail-block"><h4>Edibility / caution</h4><p>${esc(edibilityNotes)}</p></section>` : ""}
       ${dangerBlock(record)}
       ${rareBlock(record)}
       ${notes ? `<section class="detail-block"><h4>Notes</h4><p>${esc(notes)}</p></section>` : ""}
