@@ -5,7 +5,19 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Upper Michigan Foraging Guide</title>
   <meta name="theme-color" content="#2f5d46">
-  <link rel="stylesheet" href="styles/base.css?v=v4.2.21-r2026-04-24-fern-inline1">
+  <link rel="stylesheet" href="styles/base.css?v=v4.2.37-r2026-04-26-bolete-forager-filters1">
+  <style>
+    .image-lightbox[hidden]{display:none !important;}
+    .image-lightbox{position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;padding:20px;}
+    .image-lightbox-backdrop{position:absolute;inset:0;background:rgba(10,14,10,.78);backdrop-filter:blur(2px);}
+    .image-lightbox-card{position:relative;z-index:1;width:min(1100px,96vw);max-height:94vh;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:10px;background:#fffdf9;border:1px solid rgba(255,255,255,.28);border-radius:20px;box-shadow:0 24px 80px rgba(0,0,0,.38);padding:12px;}
+    .image-lightbox-close{justify-self:end;}
+    .image-lightbox-body{min-height:0;display:grid;place-items:center;overflow:auto;background:#111;border-radius:14px;}
+    .image-lightbox-image{max-width:100%;max-height:78vh;width:auto;height:auto;object-fit:contain;}
+    .image-lightbox-meta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;color:#1f2a1f;}
+    .image-lightbox-title{font-weight:700;}
+    body.lightbox-open{overflow:hidden;}
+  </style>
 </head>
 <body>
   <div class="app-shell">
@@ -15,7 +27,7 @@
           <h1>Upper Michigan Foraging Guide</h1>
           <p class="subhead">Merged master build</p>
         </div>
-        <div class="version-pill" id="versionBadge">v4.2.21-r2026-04-24-fern-inline1</div>
+        <div class="version-pill" id="versionBadge">v4.2.37-r2026-04-26-bolete-forager-filters1</div>
       </div>
 
       <nav class="main-nav" aria-label="Primary">
@@ -48,6 +60,6 @@
     </article>
   </dialog>
 
-  <script type="module" src="js/boot.js?v=v4.2.21-r2026-04-24-fern-inline1"></script>
+  <script type="module" src="js/boot.js?v=v4.2.37-r2026-04-26-bolete-forager-filters1"></script>
 </body>
 </html>

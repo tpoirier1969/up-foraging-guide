@@ -61,6 +61,16 @@ const CURATION_NOTE_PATTERNS = [
   /added during .* pass/i,
   /added from .* audit/i,
   /added in the .* pass/i,
+  /added in .* pass/i,
+  /plant expansion pass/i,
+  /mushroom expansion pass/i,
+  /edible and medicinal species/i,
+  /added in .* upper michigan/i,
+  /upper michigan edible and medicinal species/i,
+  /plant expansion/i,
+  /mushroom expansion/i,
+  /expansion pass/i,
+  /expansion pass for upper michigan/i,
   /added as .* clean app/i,
   /added as .* species page/i,
   /added as the true .* record/i,
@@ -336,22 +346,6 @@ function deriveUseLinks(record) {
     .filter(Boolean);
 }
 
-function isCandyAppleBolete(record = {}) {
-  const hay = [record.slug, record.display_name, record.common_name, record.scientific_name, ...(record.common_names || [])]
-    .join(" ")
-    .toLowerCase();
-  return (hay.includes("candy") && hay.includes("apple") && hay.includes("bolete"))
-    || hay.includes("butyriboletus frostii")
-    || hay.includes("exsudoporus frostii")
-    || hay.includes("boletus frostii");
-}
-
-function isBitterBoleteRecord(record = {}) {
-  const hay = [record.slug, record.display_name, record.common_name, record.scientific_name, ...(record.common_names || []), ...(record.taste || [])]
-    .join(" ")
-    .toLowerCase();
-  return hay.includes("bitter bolete") || hay.includes("tylopilus felleus") || hay.includes("false porcini") || hay.includes("gall fungus");
-}
 
 function isFiddleheadFernRecord(record = {}) {
   const hay = [record.slug, record.display_name, record.common_name, record.scientific_name, ...(record.common_names || [])]
@@ -360,76 +354,8 @@ function isFiddleheadFernRecord(record = {}) {
   return hay.includes("fiddlehead") || hay.includes("ostrich fern") || hay.includes("matteuccia struthiopteris");
 }
 
-function applyKnownRecordFixes(record = {}) {
-  if (isCandyAppleBolete(record)) {
-    const commonNames = uniq(["Candy Apple Bolete", "Frost's Bolete", "Apple Bolete", ...(record.common_names || [])]);
-    return {
-      ...record,
-      display_name: "Candy Apple Bolete",
-      common_name: "Candy Apple Bolete",
-      common_names: commonNames,
-      scientific_name: /frostii/i.test(String(record.scientific_name || "")) ? record.scientific_name : "Butyriboletus frostii",
-      record_type: "mushroom",
-      primary_type: "mushroom",
-      category: record.category || "Mushroom",
-      lane: "bolete",
-      food_role: "food",
-      edibility_status: record.edibility_status || "edible_with_caution",
-      non_edible_severity: "",
-      food_quality: record.food_quality || "Edible with caution",
-      culinary_uses: cleanUserFacingText(record.culinary_uses) || "Edible by some experienced foragers, but not a beginner mushroom. Treat red-pored, blue-staining boletes cautiously and use only after confident species-level identification.",
-      field_identification: cleanUserFacingText(record.field_identification) || "Bright candy-apple red cap, red pore surface, coarse raised red netting on the stem, blue bruising, and association with oak or other hardwoods.",
-      edibility_detail: cleanUserFacingText(record.edibility_detail) || "Edible reports exist, but red-pored boletes are a caution group. Confirm the red cap, red pores, coarse reticulation, blue staining, and hardwood/oak habitat before considering it.",
-      look_alike_risk: "",
-      images: [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Exsudoporus%20frostii%20100632.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Exsudoporus%20frostii%2050214.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Exsudoporus%20frostii.jpg"
-      ],
-      links: mergeArrays(record.links, [
-        "https://commons.wikimedia.org/wiki/Butyriboletus_frostii",
-        "https://boletes.wpamushroomclub.org/product/boletus-frostii/"
-      ]),
-      mushroom_profile: {
-        ...(record.mushroom_profile || {}),
-        scientific_name: /frostii/i.test(String(record.scientific_name || "")) ? record.scientific_name : "Butyriboletus frostii",
-        underside: mergeArrays(record.mushroom_profile?.underside, ["Pores"]),
-        substrate: mergeArrays(record.mushroom_profile?.substrate, ["Forest soil"]),
-        host_filter_tokens: mergeArrays(record.mushroom_profile?.host_filter_tokens || record.host_filter_tokens, ["Hardwood", "Oak"]),
-        texture: mergeArrays(record.mushroom_profile?.texture, ["Fleshy / firm"]),
-        staining: mergeArrays(record.mushroom_profile?.staining, ["Blue bruising"]),
-        cap_surface: mergeArrays(record.mushroom_profile?.cap_surface, ["Sticky / viscid when fresh", "Bright red cap"]),
-        stem_feature: mergeArrays(record.mushroom_profile?.stem_feature, ["Coarse raised reticulation"]),
-        pore_color: mergeArrays(record.mushroom_profile?.pore_color, ["Red pores"]),
-        growth_form: mergeArrays(record.mushroom_profile?.growth_form, ["Cap and stem"]),
-        fertile_surface: mergeArrays(record.mushroom_profile?.fertile_surface, ["Pores"])
-      },
-      host_filter_tokens: mergeArrays(record.host_filter_tokens, ["Hardwood", "Oak"]),
-      boleteGroup: mergeArrays(record.boleteGroup, ["Red-pored boletes"]),
-      boleteSubgroup: mergeArrays(record.boleteSubgroup, ["Candy apple / Frost's bolete"])
-    };
-  }
 
-  if (isBitterBoleteRecord(record)) {
-    const commonNames = uniq(["Bitter Bolete", "False Porcini", ...(record.common_names || [])]);
-    return {
-      ...record,
-      display_name: "Bitter Bolete",
-      common_name: "Bitter Bolete",
-      common_names: commonNames,
-      scientific_name: record.scientific_name || "Tylopilus felleus",
-      food_role: "avoid",
-      edibility_status: "not_edible",
-      non_edible_severity: "Inedible — bitter, not poisonous",
-      food_quality: "Not recommended",
-      culinary_uses: "Not used as food; its extreme bitterness can ruin a whole pan of otherwise edible mushrooms.",
-      edibility_detail: "Inedible because of intense bitterness rather than dangerous poisoning. Keep it out of the Caution page unless a future record adds a real toxicity concern.",
-      look_alike_risk: "",
-      danger_level: "Not poisonous; bitter inedible",
-      poisoning_effects: "Not treated here as a poisonous species. Large amounts may cause stomach upset, but the practical problem is extreme bitterness and confusion with edible porcini-type boletes.",
-      affected_systems: []
-    };
-  }
+function applyKnownRecordFixes(record = {}) {
 
   if (isFiddleheadFernRecord(record)) {
     const commonNames = uniq([
@@ -696,7 +622,6 @@ export function isCautionRecord(record = {}) {
   if (isEdibleForSection(record)) return false;
   if (foodRole === "tea_extract_only") return false;
   if (isTeaOnlyUseText(record.other_uses)) return false;
-  if (isBitterBoleteRecord(record) && !hasAbsoluteDangerLabel(record)) return false;
   if (isBenignNonCulinarySeverity(severity) && !hasAbsoluteDangerLabel(record)) return false;
 
   if (hasAbsoluteDangerLabel(record)) return true;

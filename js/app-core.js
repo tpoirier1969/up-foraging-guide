@@ -1,15 +1,15 @@
-import { APP_VERSION as CONFIG_APP_VERSION } from "./config.js";
 import { state, setRoute, setSpecies, setRareSpecies, setReferences, logBoot } from "./state.js";
 import { MEDICINAL_VOCAB } from "./data/medicinal-vocabulary.js";
-import { renderPage, openModal, closeModal, els } from "./ui/dom.js";
+import { renderPage, openModal, closeModal, els } from "./ui/dom.js?v=v4.2.37-r2026-04-26-bolete-forager-filters1";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 
-const APP_VERSION = new URL(import.meta.url).searchParams.get("v") || CONFIG_APP_VERSION || "dev";
+const APP_VERSION = "v4.2.37-r2026-04-26-bolete-forager-filters1";
 const REVIEW_STORAGE_KEY = "foraging_review_overlay_v1";
 const moduleCache = new Map();
 let loadAppDataPromise = null;
 let renderToken = 0;
+let previousRoute = "";
 
 function versionedPath(path) {
   return path.includes("?") ? path : `${path}?v=${encodeURIComponent(APP_VERSION)}`;
@@ -89,12 +89,106 @@ function mushroomLaneLandingHtml() {
 
 function optionHtml(values, current, blankLabel) {
   return [`<option value="">${esc(blankLabel)}</option>`]
-    .concat((values || []).map(value => `<option value="${esc(value)}" ${current === value ? "selected" : ""}>${esc(value)}</option>`))
+    .concat((values || []).map((item) => {
+      const value = item && typeof item === "object" ? String(item.value || "") : String(item || "");
+      const label = item && typeof item === "object" ? String(item.label || item.value || "") : value;
+      return `<option value="${esc(value)}" ${current === value ? "selected" : ""}>${esc(label)}</option>`;
+    }))
     .join("");
 }
 
-function controlsHtml(route = "general", placeholder = "Search species") {
+const PLANT_TRAIT_FILTER_KEYS = [
+  "plantMonth", "plantPart", "plantHabitat", "plantSize", "plantTaste",
+  "plantFlowerColor", "plantFruitColor", "plantLeafShape", "plantLeafArrangement", "plantStem"
+];
+
+const MUSHROOM_TRAIT_FILTER_KEYS = [
+  "mushroomMonth", "mushroomSubstrate", "mushroomTreeType", "mushroomHost", "mushroomUnderside",
+  "mushroomRing", "mushroomTexture", "mushroomSmell", "mushroomStaining", "mushroomCapSurface",
+  "mushroomStemFeature", "mushroomBoleteGroup", "mushroomBoleteSubgroup", "mushroomPoreColor",
+  "mushroomReviewFlag", "mushroomTreeAssociation", "mushroomTaste"
+];
+
+const SORT_OPTIONS = [
+  { value: "default", label: "Default order" },
+  { value: "name", label: "Name A–Z" },
+  { value: "commonness", label: "Commonality — common first" },
+  { value: "foodQuality", label: "Food quality / taste — best first" },
+  { value: "season", label: "Season — earliest first" }
+];
+
+function isSortableRoute(route) {
+  return [
+    "plants", "mushrooms-gilled", "boletes", "mushrooms-other",
+    "medicinal", "lookalikes", "caution", "other-uses", "search", "review"
+  ].includes(route);
+}
+
+function renderSortControls(route) {
+  if (!isSortableRoute(route)) return "";
+  const current = state.filters.sortSpecies || "default";
+  return `
+    <section class="panel">
+      <div class="medicinal-filter-row" style="display:grid;grid-template-columns:minmax(220px,320px) minmax(260px,1fr);gap:12px;align-items:end;">
+        <div class="medicinal-filter-cell">
+          <label for="speciesSortSelect" class="muted small">Sort</label>
+          <select id="speciesSortSelect" style="width:100%">${optionHtml(SORT_OPTIONS, current, "Default order")}</select>
+        </div>
+        <p class="muted small" style="margin:0;">Sorting applies after the current filters. Season sorting pushes records with missing or review-needed season data to the end.</p>
+      </div>
+    </section>
+  `;
+}
+
+function isPlantFilterRoute(route) {
+  return route === "plants";
+}
+
+function isMushroomFilterRoute(route) {
+  return ["mushrooms-gilled", "boletes", "mushrooms-other"].includes(route);
+}
+
+function clearTraitFiltersForRoute(route) {
+  const keys = isPlantFilterRoute(route)
+    ? PLANT_TRAIT_FILTER_KEYS
+    : (isMushroomFilterRoute(route) ? MUSHROOM_TRAIT_FILTER_KEYS : []);
+  keys.forEach((key) => { state.filters[key] = ""; });
+}
+
+function renderTraitFilters(route, filterFields = [], activeTraitFilters = false) {
+  if (!filterFields.length) return "";
+  const title = isPlantFilterRoute(route) ? "Plant filters" : (route === "boletes" ? "Bolete filters" : "Mushroom filters");
+  const hasMissing = filterFields.some((field) => (field.options || []).some((option) => option?.value === "__missing__"));
+  const hasReviewFlag = filterFields.some((field) => field.valueKey === "mushroomReviewFlag");
+  const hasSubstrateReview = filterFields.some((field) => field.valueKey === "mushroomSubstrate" && (field.options || []).some((option) => option?.value === "__missing__"));
+  const noteBits = [];
+  if (hasReviewFlag) noteBits.push("Data review is an audit filter: it helps find boletes with inherited/default season data, missing substrate, missing host/tree clues, missing bruising notes, weak food-quality labels, or missing photo/source work.");
+  if (hasSubstrateReview) noteBits.push("Needs substrate review marks boletes where growing context is missing and should be investigated.");
+  else if (hasMissing) noteBits.push("Not recorded / needs review is selectable so records with missing filter data can be found and fixed.");
+  return `
+    <section class="panel">
+      <div class="home-focus-heading">
+        <h3>${esc(title)}</h3>
+        ${activeTraitFilters ? `<button id="traitClearBtn" type="button">Clear filters</button>` : ""}
+      </div>
+      ${noteBits.length ? `<p class="muted small">${esc(noteBits.join(" "))}</p>` : ""}
+      <div class="medicinal-filter-row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;align-items:end;">
+        ${filterFields.map((field) => `
+          <div class="medicinal-filter-cell">
+            <label for="traitFilter_${esc(field.key)}" class="muted small">${esc(field.label)}</label>
+            <select id="traitFilter_${esc(field.key)}" data-trait-filter="${esc(field.key)}" style="width:100%">
+              ${optionHtml(field.options, state.filters[field.key] || "", field.blankLabel || "Any")}
+            </select>
+          </div>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function controlsHtml(route = "general", placeholder = "Search species", filterFields = [], activeTraitFilters = false) {
   const search = state.filters.search || "";
+  const sortControls = renderSortControls(route);
   if (route === "medicinal") {
     return `
       <section class="panel">
@@ -116,6 +210,7 @@ function controlsHtml(route = "general", placeholder = "Search species") {
           </div>
         </div>
       </section>
+      ${sortControls}
     `;
   }
   if (route === "search") {
@@ -127,9 +222,13 @@ function controlsHtml(route = "general", placeholder = "Search species") {
           ${search ? `<button id="speciesClearBtn" type="button">Clear</button>` : ""}
         </div>
       </section>
+      ${sortControls}
     `;
   }
-  return "";
+  if (isPlantFilterRoute(route) || isMushroomFilterRoute(route)) {
+    return `${renderTraitFilters(route, filterFields, activeTraitFilters)}${sortControls}`;
+  }
+  return sortControls;
 }
 
 const BUILT_IN_LOOKALIKE_STUBS = new Map([
@@ -337,6 +436,7 @@ function clearRouteFilters(route) {
     state.filters.medicinalSystem = "";
     state.filters.medicinalTerm = "";
   }
+  clearTraitFiltersForRoute(route);
 }
 
 function wireCommonEvents(route) {
@@ -362,6 +462,22 @@ function wireCommonEvents(route) {
   });
   document.getElementById("medicinalTermFilter")?.addEventListener("change", (event) => {
     state.filters.medicinalTerm = event.currentTarget.value || "";
+    renderCurrentRoute();
+  });
+  document.querySelectorAll("[data-trait-filter]").forEach((select) => {
+    select.addEventListener("change", (event) => {
+      const key = event.currentTarget.dataset.traitFilter || "";
+      if (!key) return;
+      state.filters[key] = event.currentTarget.value || "";
+      renderCurrentRoute();
+    });
+  });
+  document.getElementById("speciesSortSelect")?.addEventListener("change", (event) => {
+    state.filters.sortSpecies = event.currentTarget.value || "default";
+    renderCurrentRoute();
+  });
+  document.getElementById("traitClearBtn")?.addEventListener("click", () => {
+    clearTraitFiltersForRoute(route);
     renderCurrentRoute();
   });
   wireActionButtons(document);
@@ -403,14 +519,18 @@ async function renderHomeRoute(token) {
 }
 
 async function renderSpeciesRoute(route, token) {
-  const { filterRecords, renderRecordCards } = await importModule("./ui/render-list.js");
+  const { filterRecords, renderRecordCards, getFilterFieldsForRoute, hasActiveTraitFilters, sortRecords } = await importModule("./ui/render-list.js");
   if (token !== renderToken) return;
-  const filtered = filterRecords(state.species, route === "search" ? "general" : route, state.filters);
+  const matchRoute = route === "search" ? "general" : route;
+  const filterFields = getFilterFieldsForRoute(state.species, matchRoute, state.filters);
+  const activeTraitFilters = hasActiveTraitFilters(matchRoute, state.filters);
+  const filtered = filterRecords(state.species, matchRoute, state.filters);
+  const sorted = sortRecords(filtered, state.filters.sortSpecies || "default");
   const title = `${routeTitle(route)} (${filtered.length})`;
   renderPage(`
-    ${controlsHtml(route, route === "search" ? "Search all species" : `Search ${routeTitle(route).toLowerCase()}`)}
+    ${controlsHtml(route, route === "search" ? "Search all species" : `Search ${routeTitle(route).toLowerCase()}`, filterFields, activeTraitFilters)}
     <section class="panel"><h2>${esc(title)}</h2></section>
-    ${renderRecordCards(filtered, route)}
+    ${renderRecordCards(sorted, route)}
   `);
   wireCommonEvents(route);
 }
@@ -463,6 +583,10 @@ async function renderCreditsRoute(token) {
 export async function renderCurrentRoute() {
   const token = ++renderToken;
   const route = parseRoute();
+  if (previousRoute === "search" && route !== "search") {
+    state.filters.search = "";
+  }
+  previousRoute = route;
   setRoute(route);
   markActiveNav(route === "search" ? "search" : (route.startsWith("mushrooms-") || route === "boletes" ? "mushrooms" : (route === "other-uses" ? "other-uses" : route)));
 
