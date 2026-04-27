@@ -1,10 +1,10 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.42-r2026-04-27-mushroom-polish2",
+    "build": "v4.2.46-r2026-04-27-bitter-bolete-visibility1",
     "primary_type": "mushroom",
     "record_count": 209,
-    "notes": "Tightened edible/caution classification, suppressed scaffold text, and improved user-facing list snippets.",
+    "notes": "Mushroom polish: restored Bitter Bolete as a niche/acquired-taste edible entry, reduced redundant caution tags, and kept image/list audit cleanup.",
     "reaudit_last_batch": "remaining 129 species audited from repaired true cumulative base",
     "reaudit_changes_in_last_batch": 0,
     "reaudit_batches_completed_total": 53,
@@ -44,7 +44,8 @@
       "xerocomus-subtomentosus"
     ],
     "duplicate_cleanup": "Hidden high-confidence duplicate mushroom records as legacy aliases and renamed same-common-name distinct species for clearer lists.",
-    "ui_cleanup": "v4.2.42: route filters clear when leaving sections, look-alikes show edibility/caution badges, Chrome Footed Bolete uses field-view photos, and Brown-pored Bolete records were clarified as a difficult species group."
+    "ui_cleanup": "v4.2.42: route filters clear when leaving sections, look-alikes show edibility/caution badges, Chrome Footed Bolete uses field-view photos, and Brown-pored Bolete records were clarified as a difficult species group.",
+    "audit_cleanup": "Retained prior image-audit fields, restored Bitter Bolete as a niche/acquired-taste edible, and reduced redundant caution meta tags."
   },
   "records": [
     {
@@ -2351,7 +2352,7 @@
       "display_name": "Bitter Bolete",
       "common_name": "Bitter Bolete",
       "category": "Mushroom",
-      "culinary_uses": "Not used as food; its extreme bitterness can ruin a whole pan of otherwise edible mushrooms.",
+      "culinary_uses": "Niche edible with an intensely bitter flavor. Most foragers skip it because even a small amount can make a dish unpleasant, but it is retained in the edible mushroom list as an acquired-taste bittering mushroom rather than a poison/caution species.",
       "medicinal_uses": "",
       "notes": "",
       "months_available": [
@@ -2376,9 +2377,9 @@
       "mushroom_profile": {
         "scientific_name": "Tylopilus felleus",
         "entry_scope": "species",
-        "edibility_status": "inedible_bitter",
-        "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Bitter Bolete. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "edibility_status": "edible_niche_acquired_taste",
+        "caution_level": "low",
+        "summary": "Pink-pored Tylopilus with an intensely bitter taste. Not poisonous in the usual field-guide sense, but most foragers skip it because it can ruin a meal; kept here as a niche/acquired-taste edible.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -2440,8 +2441,8 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": true,
-      "general_notes": "",
+      "is_non_edible": false,
+      "general_notes": "Key field clues: pinkish pores as it matures, a strongly bitter nibble-and-spit taste, and dark netting on the stalk. Often confused with porcini/king bolete types.",
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
@@ -2449,7 +2450,7 @@
         "needs species-level notes review",
         "needs source links"
       ],
-      "review_status": "needs_review",
+      "review_status": "ok",
       "search_aliases": [
         "bitter-bolete",
         "Bitter Bolete",
@@ -2457,14 +2458,14 @@
       ],
       "host_filter_tokens": [],
       "commonness": "Common",
-      "food_quality": "Not recommended",
-      "non_edible_severity": "Inedible — bitter, not poisonous",
+      "food_quality": "Niche / acquired taste",
+      "non_edible_severity": "",
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
       "habitat": [],
       "commonness_score": 4,
-      "food_quality_score": 1,
+      "food_quality_score": 2,
       "look_alikes": [
         "bay-bolete",
         "king-bolete",
@@ -2474,17 +2475,17 @@
         "bay-bolete",
         "king-bolete"
       ],
-      "edibility_detail": "Inedible because of intense bitterness rather than dangerous poisoning. Keep it out of the Caution page unless a future record adds a real toxicity concern.",
-      "food_role": "avoid",
+      "edibility_detail": "Use only if intentionally seeking strong bitterness; otherwise keep it separate from good edible boletes because a small piece can dominate a pan.",
+      "food_role": "food",
       "common_names": [
         "Bitter Bolete",
         "False Porcini",
         "bitter-bolete"
       ],
-      "edibility_status": "not_edible",
+      "edibility_status": "edible_niche_acquired_taste",
       "look_alike_risk": "",
-      "danger_level": "Not poisonous; bitter inedible",
-      "poisoning_effects": "Not treated here as a poisonous species. Large amounts may cause stomach upset, but the practical problem is extreme bitterness and confusion with edible porcini-type boletes.",
+      "danger_level": "Niche edible / intensely bitter",
+      "poisoning_effects": "Large amounts may cause stomach upset in some people; the practical problem is intense bitterness and confusion with better edible porcini-type boletes.",
       "affected_systems": [],
       "kingdom_type": "mushroom",
       "species_scope": "species",
@@ -2529,7 +2530,8 @@
         "warnings": "",
         "claims": []
       },
-      "use_links": []
+      "use_links": [],
+      "toxicity_notes": "Not treated as a poison species in this guide; retained as a niche/acquired-taste edible with a strong bitter flavor."
     },
     {
       "slug": "bitter-bolete",
@@ -2550,10 +2552,10 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%281%29.JPG",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2823431150244%29.jpg"
       ],
-      "culinary_uses": "Not used as food; its extreme bitterness can ruin a whole pan of otherwise edible mushrooms.",
-      "non_edible_severity": "Inedible — bitter, not poisonous",
-      "edibility_detail": "Inedible because of intense bitterness rather than dangerous poisoning. Keep it out of the Caution page unless a future record adds a real toxicity concern.",
-      "general_notes": "",
+      "culinary_uses": "Niche edible with an intensely bitter flavor. Most foragers skip it because even a small amount can make a dish unpleasant, but it is retained in the edible mushroom list as an acquired-taste bittering mushroom rather than a poison/caution species.",
+      "non_edible_severity": "",
+      "edibility_detail": "Use only if intentionally seeking strong bitterness; otherwise keep it separate from good edible boletes because a small piece can dominate a pan.",
+      "general_notes": "Key field clues: pinkish pores as it matures, a strongly bitter nibble-and-spit taste, and dark netting on the stalk. Often confused with porcini/king bolete types.",
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [],
@@ -2561,13 +2563,13 @@
       "search_aliases": [],
       "host_filter_tokens": [],
       "commonness": "Common",
-      "food_quality": "Not recommended",
+      "food_quality": "Niche / acquired taste",
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
       "habitat": [],
       "commonness_score": 4,
-      "food_quality_score": 1,
+      "food_quality_score": 2,
       "month_numbers": [
         7,
         8,
@@ -2576,7 +2578,7 @@
       ],
       "look_alikes": [],
       "confused_with": [],
-      "food_role": "avoid",
+      "food_role": "food",
       "mushroom_profile": {
         "cap_surface": [
           "Dry to slightly tacky"
@@ -2596,17 +2598,23 @@
         "fruitbody_shape": [
           "Convex cap with central stem"
         ],
-        "season_note": "Usually encountered from July through October in the Upper Midwest / Great Lakes window."
+        "season_note": "Usually encountered from July through October in the Upper Midwest / Great Lakes window.",
+        "edibility_status": "edible_niche_acquired_taste",
+        "caution_level": "low",
+        "summary": "Pink-pored Tylopilus with an intensely bitter taste. Not poisonous in the usual field-guide sense, but most foragers skip it because it can ruin a meal; kept here as a niche/acquired-taste edible.",
+        "taste": [
+          "Bitter"
+        ]
       },
       "common_names": [
         "Bitter Bolete",
         "False Porcini"
       ],
       "scientific_name": "Tylopilus felleus",
-      "edibility_status": "not_edible",
+      "edibility_status": "edible_niche_acquired_taste",
       "look_alike_risk": "",
-      "danger_level": "Not poisonous; bitter inedible",
-      "poisoning_effects": "Not treated here as a poisonous species. Large amounts may cause stomach upset, but the practical problem is extreme bitterness and confusion with edible porcini-type boletes.",
+      "danger_level": "Niche edible / intensely bitter",
+      "poisoning_effects": "Large amounts may cause stomach upset in some people; the practical problem is intense bitterness and confusion with better edible porcini-type boletes.",
       "affected_systems": [],
       "kingdom_type": "mushroom",
       "species_scope": "species",
@@ -2653,7 +2661,10 @@
       "duplicate_of": "true-bitter-bolete",
       "legacy_alias": true,
       "list_visibility": "hidden-duplicate",
-      "duplicate_note": "Duplicate Bitter Bolete record kept only as a legacy slug alias."
+      "duplicate_note": "Duplicate Bitter Bolete record kept only as a legacy slug alias.",
+      "manual_review_reasons": [],
+      "is_non_edible": false,
+      "toxicity_notes": "Not treated as a poison species in this guide; retained as a niche/acquired-taste edible with a strong bitter flavor."
     },
     {
       "slug": "tylopilus-intermedius",
@@ -4119,7 +4130,18 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ]
     },
     {
       "slug": "boletus-rufocinnamomeus",
@@ -4230,7 +4252,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "boletus-speciosus",
@@ -4461,7 +4495,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "Included for identification and comparison; not generally a high-value food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "boletus-subfraternus",
@@ -4996,7 +5042,8 @@
         "needs image coverage",
         "needs species-level notes review",
         "needs source links",
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -5023,7 +5070,19 @@
         "slippery-jack"
       ],
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "bothia-castanella",
@@ -7444,7 +7503,19 @@
       "confused_with": [],
       "general_notes": "",
       "edibility_detail": "A worthwhile edible.",
-      "food_role": "food"
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "suillus-americanus",
@@ -8272,7 +8343,8 @@
         "needs image coverage",
         "needs species-level notes review",
         "needs source links",
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -8295,7 +8367,19 @@
         "true-bitter-bolete"
       ],
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "curry-bolete",
@@ -8616,7 +8700,18 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ]
     },
     {
       "slug": "dark-capped-scarletina-complex",
@@ -9150,7 +9245,8 @@
         "needs image coverage",
         "needs species-level notes review",
         "needs source links",
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -9180,7 +9276,19 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "false-morel-gyromitra-group",
@@ -9459,7 +9567,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "ghost-bolete",
@@ -10222,7 +10342,8 @@
         "needs image coverage",
         "needs species-level notes review",
         "needs source links",
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -10249,7 +10370,19 @@
         "slippery-jack"
       ],
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "half-free-morels",
@@ -10859,7 +10992,18 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ]
     },
     {
       "slug": "hollow-stalked-larch-bolete",
@@ -11301,7 +11445,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "butyriboletus-taughannockensis",
@@ -11412,7 +11568,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "A worthwhile edible.",
-      "food_role": "food"
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "indecisus-bolete",
@@ -12159,7 +12327,18 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ]
     },
     {
       "slug": "lanmaoa-pallidorosea",
@@ -13056,7 +13235,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "leccinum-glutinopallens",
@@ -13164,7 +13355,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "Included for identification and comparison; not generally a high-value food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "leccinum-griseonigrum",
@@ -13272,7 +13475,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "Included for identification and comparison; not generally a high-value food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "leccinum-insolens",
@@ -13588,7 +13803,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "leccinum-luteum",
@@ -13696,7 +13923,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "leccinum-potteri",
@@ -13804,7 +14043,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "leccinum-pseudoinsigne",
@@ -13954,8 +14205,12 @@
       ],
       "record_type": "mushroom",
       "review_status": "ok",
-      "reviewReasons": [],
-      "review_reasons": [],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
       "common_names": [
         "Leccinum Pseudoinsigne"
       ],
@@ -14002,7 +14257,12 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ]
     },
     {
       "slug": "leccinum-quercophilum",
@@ -14110,7 +14370,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "leccinum-subgranulosum",
@@ -14218,7 +14490,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "leccinum-subleucophaeum",
@@ -14326,7 +14610,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "leccinum-subtestaceum",
@@ -14426,7 +14722,8 @@
         "needs image coverage",
         "needs species-level notes review",
         "needs source links",
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -14447,7 +14744,19 @@
         "scaber-stalk-boletes-birch-aspen-boletes"
       ],
       "edibility_detail": "A worthwhile edible.",
-      "food_role": "food"
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "boletus-separans",
@@ -15193,7 +15502,8 @@
         "needs image coverage",
         "needs species-level notes review",
         "needs source links",
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -15213,7 +15523,19 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "neoboletus-subluridellus",
@@ -15293,7 +15615,8 @@
         "needs image coverage",
         "needs species-level notes review",
         "needs source links",
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -15313,7 +15636,19 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "noble-bolete",
@@ -16344,7 +16679,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "parasitic-bolete",
@@ -16449,7 +16796,9 @@
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "bolete",
-      "reviewReasons": [],
+      "reviewReasons": [
+        "needs field photo"
+      ],
       "review_status": "ok",
       "search_aliases": [],
       "host_filter_tokens": [
@@ -16480,7 +16829,9 @@
       "look_alikes": [
         "Earthballs"
       ],
-      "review_reasons": [],
+      "review_reasons": [
+        "needs field photo"
+      ],
       "common_names": [
         "Parasitic Bolete"
       ],
@@ -16520,7 +16871,12 @@
         "preparation_notes": "",
         "warnings": "",
         "claims": []
-      }
+      },
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ]
     },
     {
       "slug": "pearl-oyster",
@@ -16670,7 +17026,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "phoenix-oyster-summer-oyster",
@@ -16883,7 +17251,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "porphyrellus-sordidus",
@@ -16948,7 +17328,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "pseudomerulius-curtisii",
@@ -17075,7 +17467,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "pulchroboletus-sclerotiorum",
@@ -17140,7 +17544,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "pulveroboletus-ravenelii",
@@ -17205,7 +17621,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "suillus-paluster",
@@ -17270,7 +17698,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "red-chanterelles-cinnabars",
@@ -17364,7 +17804,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "gyroporus-purpurinus",
@@ -17539,7 +17991,9 @@
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "bolete",
-      "reviewReasons": [],
+      "reviewReasons": [
+        "needs field photo"
+      ],
       "review_status": "ok",
       "search_aliases": [],
       "host_filter_tokens": [
@@ -17570,7 +18024,9 @@
           "notes": "Red pores, blue staining, hardwood association, and fuzzy base traits."
         }
       ],
-      "review_reasons": [],
+      "review_reasons": [
+        "needs field photo"
+      ],
       "common_names": [
         "Boletus subvelutipes group"
       ],
@@ -17610,7 +18066,12 @@
         "preparation_notes": "",
         "warnings": "",
         "claims": []
-      }
+      },
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ]
     },
     {
       "slug": "red-belted-conk",
@@ -17715,7 +18176,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "reindeer-lichen",
@@ -18017,7 +18490,8 @@
         "needs image coverage",
         "needs species-level notes review",
         "needs source links",
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -18028,7 +18502,19 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "scaber-stalk-boletes-birch-aspen-boletes",
@@ -18300,7 +18786,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "suillus-brevipes",
@@ -18365,7 +18863,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "short-stemmed-russula",
@@ -18389,7 +18899,8 @@
       "record_type": "mushroom",
       "lane": "gilled",
       "reviewReasons": [
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "ok",
       "search_aliases": [],
@@ -18454,7 +18965,16 @@
         "season_note": "Summer into early fall in woods."
       },
       "commonness_score": 3,
-      "food_quality_score": 3
+      "food_quality_score": 3,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "shrimp-of-the-woods-aborted-entoloma",
@@ -18510,7 +19030,8 @@
       "record_type": "mushroom",
       "lane": "gilled",
       "reviewReasons": [
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "ok",
       "search_aliases": [],
@@ -18576,7 +19097,16 @@
         "season_note": "Summer into early fall in woods."
       },
       "commonness_score": 3,
-      "food_quality_score": 3
+      "food_quality_score": 3,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "slim-jack",
@@ -18651,7 +19181,8 @@
         "needs image coverage",
         "needs species-level notes review",
         "needs source links",
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -18662,7 +19193,19 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "suillus-luteus",
@@ -18765,7 +19308,8 @@
       ],
       "host_filter_tokens": [],
       "reviewReasons": [
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "lane": "bolete",
       "record_type": "mushroom",
@@ -18773,7 +19317,17 @@
       "food_quality": "Fair",
       "food_quality_score": 3,
       "commonness": "Occasional",
-      "commonness_score": 3
+      "commonness_score": 3,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "placeholder image inserted",
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "slippery-jack",
@@ -18795,7 +19349,8 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "ok",
       "search_aliases": [],
@@ -18810,7 +19365,16 @@
       "duplicate_of": "suillus-luteus",
       "legacy_alias": true,
       "list_visibility": "hidden-duplicate",
-      "duplicate_note": "Duplicate Slippery Jack record kept only as a legacy slug alias."
+      "duplicate_note": "Duplicate Slippery Jack record kept only as a legacy slug alias.",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "suillus-salmonicolor",
@@ -18875,7 +19439,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "smooth-chanterelles",
@@ -18978,7 +19554,8 @@
         "needs image coverage",
         "needs species-level notes review",
         "needs source links",
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -18989,7 +19566,19 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "sour-cap-suillus",
@@ -19061,7 +19650,8 @@
         "needs image coverage",
         "needs species-level notes review",
         "needs source links",
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -19072,7 +19662,19 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "aureoboletus-auriporus",
@@ -19137,7 +19739,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "xanthoconium-affine",
@@ -19202,7 +19816,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "suillus-elbensis",
@@ -19277,7 +19903,8 @@
         "needs image coverage",
         "needs species-level notes review",
         "needs source links",
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -19288,7 +19915,19 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "suillus-granulatus",
@@ -19363,7 +20002,8 @@
         "needs image coverage",
         "needs species-level notes review",
         "needs source links",
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -19374,7 +20014,19 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "suillus-hirtellus",
@@ -19448,7 +20100,8 @@
         "needs image coverage",
         "needs species-level notes review",
         "needs source links",
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -19459,7 +20112,19 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "suillus-punctatipes",
@@ -19524,7 +20189,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "suillus-punctipes",
@@ -19765,7 +20442,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "suillus-spectabilis",
@@ -19840,7 +20529,8 @@
         "needs image coverage",
         "needs species-level notes review",
         "needs source links",
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -19851,7 +20541,19 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "suillus-subaureus",
@@ -19923,7 +20625,8 @@
         "needs image coverage",
         "needs species-level notes review",
         "needs source links",
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -19934,7 +20637,19 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "tinder-conk-hoof-fungus",
@@ -19956,7 +20671,8 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "ok",
       "search_aliases": [],
@@ -19974,7 +20690,16 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "turkey-tail",
@@ -20078,7 +20803,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "tylopilus-badiceps",
@@ -20206,8 +20943,12 @@
       "lane": "bolete",
       "record_type": "mushroom",
       "review_status": "ok",
-      "reviewReasons": [],
-      "review_reasons": [],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
       "common_names": [
         "Maroon Bolete"
       ],
@@ -20255,7 +20996,12 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ]
     },
     {
       "slug": "tylopilus-ferrugineus",
@@ -20320,7 +21066,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "tylopilus-peralbidus",
@@ -20386,7 +21144,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "tylopilus-tabacinus",
@@ -20451,7 +21221,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "variable-stalk-bolete",
@@ -20557,7 +21339,9 @@
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "bolete",
-      "reviewReasons": [],
+      "reviewReasons": [
+        "needs field photo"
+      ],
       "review_status": "ok",
       "search_aliases": [],
       "host_filter_tokens": [
@@ -20585,7 +21369,9 @@
           "notes": "Oak/hardwood association, non-bruising pores, and reticulate stem."
         }
       ],
-      "review_reasons": [],
+      "review_reasons": [
+        "needs field photo"
+      ],
       "common_names": [
         "Varied-stalk Bolete"
       ],
@@ -20630,7 +21416,12 @@
       "duplicate_of": "boletus-variipes-fagicola",
       "legacy_alias": true,
       "list_visibility": "hidden-duplicate",
-      "duplicate_note": "Duplicate Varied/Variable-stalk Bolete record kept only as a legacy slug alias."
+      "duplicate_note": "Duplicate Varied/Variable-stalk Bolete record kept only as a legacy slug alias.",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ]
     },
     {
       "slug": "velvet-foot",
@@ -20787,7 +21578,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "tylopilus-plumbeoviolaceus",
@@ -20852,7 +21655,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "suillus-lakei",
@@ -20918,7 +21733,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "suillus-placidus",
@@ -20983,7 +21810,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "white-stemmed-bolete",
@@ -21058,7 +21897,8 @@
         "needs image coverage",
         "needs species-level notes review",
         "needs source links",
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -21069,7 +21909,19 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "buchwaldoboletus-lignicola",
@@ -21134,7 +21986,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "wrinkled-bolete",
@@ -21206,7 +22070,8 @@
         "needs image coverage",
         "needs species-level notes review",
         "needs source links",
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -21217,7 +22082,19 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "xanthoconium-purpureum",
@@ -21282,7 +22159,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "xerocomellus-intermedius",
@@ -21347,7 +22236,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "xerocomellus-truncatus",
@@ -21412,7 +22313,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "xerocomus-illudens",
@@ -21477,7 +22390,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
+      "review_status": "needs_review"
     },
     {
       "slug": "xerocomus-tenax",
@@ -21560,7 +22485,8 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "ok",
       "search_aliases": [],
@@ -21571,7 +22497,16 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "yellow-chanterelles-hardwood-associated-complex",
@@ -21591,7 +22526,8 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "ok",
       "search_aliases": [],
@@ -21602,7 +22538,16 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "xerocomus-subtomentosus",
@@ -21741,8 +22686,12 @@
       "lane": "bolete",
       "record_type": "mushroom",
       "review_status": "ok",
-      "reviewReasons": [],
-      "review_reasons": [],
+      "reviewReasons": [
+        "needs field photo"
+      ],
+      "review_reasons": [
+        "needs field photo"
+      ],
       "common_names": [
         "Suede Bolete"
       ],
@@ -21790,7 +22739,12 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ]
     },
     {
       "slug": "yellow-fly-agaric-guessowii",
@@ -21982,7 +22936,8 @@
         "needs image coverage",
         "needs species-level notes review",
         "needs source links",
-        "placeholder image inserted"
+        "placeholder image inserted",
+        "needs field photo"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -21993,7 +22948,19 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted",
+        "needs field photo"
+      ]
     },
     {
       "slug": "yellowfoot-chanterelle",
