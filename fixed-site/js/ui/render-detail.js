@@ -1,5 +1,5 @@
 import { esc } from "../lib/escape.js";
-import { getMedicinalData, isBuildNoteText, cleanUserFacingText } from "../lib/merge.js?v=v4.2.39-r2026-04-27-mushroom-dedup1";
+import { getMedicinalData, isBuildNoteText, cleanUserFacingText } from "../lib/merge.js?v=v4.2.41-r2026-04-27-edible-caution-cleanup1";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
@@ -8,7 +8,13 @@ const MONTHS = [
 ];
 
 function clean(value) {
-  return cleanUserFacingText(value);
+  return cleanUserFacingText(value)
+    .replace(/\bwhen correctly identified and(?: collected)? in good condition\b/gi, "")
+    .replace(/\bwhen correctly identified\b/gi, "")
+    .replace(/\s+([,.;:])/g, "$1")
+    .replace(/\s+/g, " ")
+    .replace(/\s+\./g, ".")
+    .trim();
 }
 
 function slugifyLookup(value = "") {
@@ -31,19 +37,71 @@ function listBlock(title, values) {
   return `<section class="detail-block"><h4>${esc(title)}</h4><ul class="list-tight">${cleaned.map(v => `<li>${esc(v)}</li>`).join("")}</ul></section>`;
 }
 
+function titleFromSlugOrName(value = "") {
+  const raw = String(value || "").trim();
+  if (!raw) return "";
+  if (/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(raw)) {
+    return raw.replace(/-/g, " ").replace(/\b\w/g, letter => letter.toUpperCase());
+  }
+  return raw;
+}
+
+function lookAlikeSeparationNote(record = {}, rawName = "") {
+  const slug = slugifyLookup(rawName);
+  const hay = `${slug} ${rawName}`.toLowerCase();
+  const recordHay = `${record.slug || ""} ${record.display_name || ""} ${record.common_name || ""} ${record.scientific_name || ""}`.toLowerCase();
+
+  if (/bitter|tylopilus|felleus|pink-pored/.test(hay)) {
+    return "Check for pores that turn pinkish with age and use only a tiny nibble-and-spit taste test if you know the mushroom is safe to taste; bitter boletes taste distinctly bitter and can ruin the whole pan.";
+  }
+  if (/red-mouth|lurid|red-pored|blue-staining-red-pored|subvelutipes|sensibilis|frostii|bicolor|baorangia|exsudoporus|caloboletus/.test(hay)) {
+    return "Focus on orange/red pore color and speed/strength of blue bruising. Red/orange-pored blue-staining boletes are a caution zone unless the ID is nailed down.";
+  }
+  if (/king|porcini|boletus-edulis|false-king/.test(hay) || /king|porcini/.test(recordHay)) {
+    return "Compare pore color, stem netting, taste, and staining. Porcini-type edibles usually have white-to-yellow pores, firm flesh, mild taste, and no red/orange pore surface.";
+  }
+  if (/leccinum|scaber|birch-bolete|orange-bolete|aspen/.test(hay)) {
+    return "Look for dark scabers on the stalk and match the nearby tree association, especially birch or aspen. Treat Leccinum-type mushrooms cautiously and do not use vague look-alike matches as food IDs.";
+  }
+  if (/suillus|slippery|butterball|larch|chicken-fat|painted/.test(hay)) {
+    return "Look for Suillus traits: sticky or slimy cap, yellow pores, glandular dots or ring on the stalk, and a pine/larch/conifer association.";
+  }
+  if (/jack-o-lantern|omphalotus/.test(hay)) {
+    return "Jack-o'-lanterns have true sharp gills and often grow in clusters from wood or buried wood; chanterelles have blunt ridges, not true gills.";
+  }
+  if (/false-morel|gyromitra|lorchel/.test(hay)) {
+    return "Cut it lengthwise. True morels are hollow from cap through stem with the cap attached; false morels can be chambered, cottony, or irregularly lobed.";
+  }
+  if (/amanita|death-angel|destroying-angel|death-cap/.test(hay)) {
+    return "Check the entire base for a cup/volva, plus free white gills and a ring. Do not identify Amanita look-alikes from cap color alone.";
+  }
+  if (/galerina/.test(hay)) {
+    return "Galerina is a serious/deadly wood-growing look-alike group. Check spore color, ring, cap texture, and growth on wood; do not treat small brown mushrooms as interchangeable.";
+  }
+  if (/artist|tinder|hoof|birch-polypore|conk/.test(hay)) {
+    return "Separate shelf fungi by host tree, bracket shape, pore surface, and texture. Birch polypore is strongly tied to birch; artist's conk and tinder conk have different bracket forms and surfaces.";
+  }
+  if (/oyster|angel-wing/.test(hay)) {
+    return "Compare host wood, cap thickness, gill attachment, and overall form. Oyster-type mushrooms should not be identified from pale color alone.";
+  }
+  return "Compare the linked page against this one using the practical field marks: underside, pore/gill color, bruising, stem clues, host tree/substrate, season, and any taste warning.";
+}
+
 function lookAlikeBlock(record) {
   const cleaned = Array.isArray(record.look_alikes) ? record.look_alikes.map(clean).filter(Boolean) : [];
   const notes = clean(record.look_alike_notes);
   if (!cleaned.length && !notes) return "";
   const items = cleaned.map((name) => {
     const slug = slugifyLookup(name);
-    return `<li><button class="subtle" type="button" data-detail="${esc(slug)}">${esc(name)}</button></li>`;
+    const label = titleFromSlugOrName(name);
+    const note = lookAlikeSeparationNote(record, name);
+    return `<li><button class="subtle" type="button" data-detail="${esc(slug)}">${esc(label)}</button>${note ? `<div class="muted small">How to tell apart: ${esc(note)}</div>` : ""}</li>`;
   }).join("");
   return `
     <section class="detail-block">
       <h4>Look-alikes / easily confused</h4>
       ${notes ? `<p>${esc(notes)}</p>` : ""}
-      ${items ? `<ul class="list-tight">${items}</ul>` : ""}
+      ${items ? `<ul class="list-tight lookalike-cues">${items}</ul>` : ""}
     </section>
   `;
 }
@@ -139,6 +197,33 @@ function joinClean(values = []) {
   return values.map(clean).filter(Boolean).join(", ");
 }
 
+function normalizeForDuplicateCheck(value = "") {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function uniqueFoodLines(values = []) {
+  const seen = new Set();
+  const out = [];
+  for (const value of values) {
+    const text = clean(value);
+    if (!text) continue;
+    const key = normalizeForDuplicateCheck(text);
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    out.push(text);
+  }
+  return out;
+}
+
+function isFoodCautionText(value = "") {
+  const text = String(value || "").toLowerCase();
+  return /\b(caution|avoid|unsafe|poison|toxic|raw|uncooked|undercooked|cook thoroughly|must be cooked|only when|only if|confidently identified|correctly identified|properly identified|good condition|look[- ]?alike|bitter|not recommended|gi distress|stomach|nausea|vomit|diarrhea)\b/.test(text);
+}
+
 function foodUseBlock(record) {
   const edibleUse = record.edible_use || null;
   const profile = record.mushroom_profile || {};
@@ -158,13 +243,20 @@ function foodUseBlock(record) {
   ]);
   const method = clean(edibleUse?.method || "");
   const edibleNotes = clean(edibleUse?.notes || "");
+  const bestUses = isFoodCautionText(culinaryUses) ? "" : culinaryUses;
+  const cautionLines = uniqueFoodLines([
+    processing,
+    edibilityNotes,
+    edibleNotes,
+    isFoodCautionText(culinaryUses) ? culinaryUses : ""
+  ]);
   const lines = [
     lineIf("Food quality", record.food_quality),
     lineIf("Use form", method && method.toLowerCase() !== "food" ? method : ""),
     lineIf("Taste", taste),
     lineIf("Texture", texture),
-    lineIf("Best uses / cooking notes", culinaryUses),
-    lineIf("Preparation / caution", processing || edibilityNotes || edibleNotes)
+    lineIf("Best uses / cooking notes", bestUses),
+    lineIf("Preparation / caution", cautionLines.join(" "))
   ].join("");
   if (!lines.trim()) return "";
   return `
@@ -240,7 +332,7 @@ export function renderDetail(record) {
             ${record.lane ? `<span class="tag">Type: ${esc(record.lane === "bolete" ? "Pores / spongy underside" : record.lane)}</span>` : (typeLabel ? `<span class="tag">Type: ${esc(typeLabel)}</span>` : "")}
             ${record.commonness ? `<span class="tag">Commonality: ${esc(record.commonness)}</span>` : ""}
             ${seasonText(record) ? `<span class="tag">Season: ${esc(seasonText(record))}</span>` : ""}
-            ${record.food_quality ? `<span class="tag good">Food quality: ${esc(record.food_quality)}</span>` : ""}
+            ${record.food_quality ? `<span class="tag ${/not recommended|avoid|poor|inedible/i.test(String(record.food_quality)) ? "danger" : "good"}">Food quality: ${esc(record.food_quality)}</span>` : ""}
             ${record.non_edible_severity && !edibleUse?.has_ingestible_use ? `<span class="tag danger">${esc(record.non_edible_severity)}</span>` : ""}
             ${record.review_status === 'needs_review' ? `<span class="tag review">Needs review</span>` : ''}
           </div>

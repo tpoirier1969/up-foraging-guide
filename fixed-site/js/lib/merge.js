@@ -96,6 +96,16 @@ const CURATION_NOTE_PATTERNS = [
   /being copied back/i,
   /true .* page rather than/i,
   /baseline .* commonness, food quality/i,
+  /this entry carried caution, non[- ]edible, or safety significance/i,
+  /this entry carried caution/i,
+  /recreated locally/i,
+  /baseline checklist/i,
+  /warning species seed/i,
+  /red-pored \/ staining caution lane/i,
+  /\b[a-z0-9 \/&.'-]+[- ]type entry\b/i,
+  /(?:plant|mushroom|bolete|russula|suillus|leccinum|tylopilus|boletus)[- ]type entry/i,
+  /entry[^.!?]{0,80}(?:restored|standalone|modular|baseline|checklist|copyback|review|audit)/i,
+  /(?:large|small|short|long)[- ](?:stemmed|capped)[^.!?]{0,40}entry/i,
   /migration/i,
   /sidecar/i,
   /copyback/i,
@@ -574,36 +584,54 @@ function isBenignNonCulinarySeverity(severity = "") {
   return value.includes("tea") || value.includes("bitter") || value.includes("not poisonous") || value.includes("non-poisonous");
 }
 
+function isNonEdibleCautionSeverity(severity = "") {
+  const value = String(severity || "").trim().toLowerCase();
+  if (!value) return false;
+  if (isBenignNonCulinarySeverity(value)) return false;
+  return /\b(inedible|not recommended|avoid|unsafe|caution|questionable|non-edible|non edible|poisonous|toxic|deadly|fatal)\b/.test(value);
+}
+
+function isAvoidFoodQuality(value = "") {
+  return /\b(not recommended|avoid|poor|inedible)\b/i.test(String(value || ""));
+}
+
+function hasPositiveFoodSignal(record = {}) {
+  const text = [record.culinary_uses, record.edibility_notes, record.edibility_detail, record.food_role, record.edibility_status].map(cleanUserFacingText).join(" ").toLowerCase();
+  if (!text || isBuildNoteText(text)) return false;
+  if (/\b(not recommended|avoid|inedible|poison|toxic|unsafe|caution only)\b/.test(text)) return false;
+  return /\b(choice|excellent|good edible|worthwhile edible|edible|culinary|sauté|saute|fry|fried|cook|cooked|dry|dried|seasoning|powder|soup|broth|tea|infusion)\b/.test(text);
+}
+
 export function hasMeaningfulFoodContent(record = {}) {
   const culinary = cleanUserFacingText(record.culinary_uses);
   const notes = cleanUserFacingText(record.edibility_notes || record.edibility_detail);
-  const foodQuality = String(record.food_quality || "").trim();
-  return !!(culinary || foodQuality || notes || hasIngestibleUseContent(record));
+  return !!(hasPositiveFoodSignal(record) || hasIngestibleUseContent(record) || culinary || notes);
 }
 
 export function isEdibleForSection(record = {}) {
   const edibility = normalizedEdibilityStatus(record);
   const foodRole = normalizedFoodRole(record);
   const severity = normalizedNonEdibleSeverity(record);
+  const foodQuality = String(record.food_quality || "").trim();
 
   // Absolute danger still wins: deadly/poisonous/all-forms-toxic entries are not edible.
-  // Conditional danger does NOT win: raw-danger/cooked-safe or tea-only species stay edible
-  // and carry preparation notes instead of being mislabeled avoid/inedible.
+  // Conditional danger does NOT win when a record is explicitly food-safe after preparation.
   if (hasAbsoluteDangerLabel(record)) return false;
+
+  // Avoid / medicinal-only / non-edible records must not be pulled into edible lists
+  // merely because they have a food-quality label or old scaffold text.
+  if (["avoid", "emergency_only", "medicinal_only", "tea_extract_only"].includes(foodRole)) return false;
+  if (["not_edible", "poisonous", "deadly", "inedible_bitter"].includes(edibility)) return false;
+  if (isNonEdibleCautionSeverity(severity)) return false;
+  if (isAvoidFoodQuality(foodQuality) && !hasPositiveFoodSignal(record)) return false;
 
   const ingestible = deriveIngestibleUse(record);
   if (ingestible.has_ingestible_use) return true;
 
-  if (["not_edible"].includes(edibility)) return false;
-  if (["avoid", "emergency_only", "medicinal_only"].includes(foodRole)) return false;
-
   if (["edible", "good", "choice", "edible_with_caution", "edible_with_preparation"].includes(edibility)) return true;
+  if (foodRole === "food" && hasPositiveFoodSignal(record)) return true;
 
-  if (isBenignNonCulinarySeverity(severity)) {
-    return hasMeaningfulFoodContent(record);
-  }
-
-  return hasMeaningfulFoodContent(record);
+  return hasPositiveFoodSignal(record);
 }
 
 export function isCautionRecord(record = {}) {
@@ -626,8 +654,10 @@ export function isCautionRecord(record = {}) {
 
   if (hasAbsoluteDangerLabel(record)) return true;
   if (isDangerSeverity(dangerText)) return true;
-  if (["poisonous", "deadly"].includes(edibility)) return true;
-  if (["emergency_only"].includes(foodRole)) return true;
+  if (["not_edible", "poisonous", "deadly", "inedible_bitter"].includes(edibility)) return true;
+  if (["avoid", "emergency_only"].includes(foodRole)) return true;
+  if (isNonEdibleCautionSeverity(severity)) return true;
+  if (isAvoidFoodQuality(record.food_quality) && !hasPositiveFoodSignal(record)) return true;
 
   return false;
 }
@@ -720,13 +750,13 @@ export function normalizeRecord(record) {
   const absoluteDanger = hasAbsoluteDangerLabel(fixed);
   const rawFoodRole = normalizedFoodRole(fixed);
   const rawEdibility = normalizedEdibilityStatus(fixed);
-  const normalizedFoodRoleValue = edibleUse.has_ingestible_use && !absoluteDanger && ["", "avoid", "medicinal_only", "tea_extract_only"].includes(rawFoodRole)
+  const normalizedFoodRoleValue = edibleUse.has_ingestible_use && !absoluteDanger && rawFoodRole === ""
     ? "ingestible_prepared"
     : (fixed.food_role || "");
-  const normalizedEdibilityStatusValue = edibleUse.has_ingestible_use && !absoluteDanger && ["", "not_edible", "review_required"].includes(rawEdibility)
+  const normalizedEdibilityStatusValue = edibleUse.has_ingestible_use && !absoluteDanger && ["", "review_required"].includes(rawEdibility)
     ? "edible_with_preparation"
     : (fixed.edibility_status || fixed.mushroom_profile?.edibility_status || "");
-  const normalizedNonEdibleSeverityValue = edibleUse.has_ingestible_use && !absoluteDanger
+  const normalizedNonEdibleSeverityValue = edibleUse.has_ingestible_use && !absoluteDanger && rawFoodRole !== "avoid" && rawEdibility !== "not_edible"
     ? ""
     : (fixed.non_edible_severity || "");
   const edibleUseNote = edibleUse.has_ingestible_use
@@ -737,7 +767,7 @@ export function normalizeRecord(record) {
   const normalizedEdibilityNotes = edibleUse.has_ingestible_use && !absoluteDanger
     ? firstUserFacingText(edibleUseNote, cleanedEdibility)
     : cleanedEdibility;
-  const edibleUseForDisplay = absoluteDanger
+  const edibleUseForDisplay = (absoluteDanger || rawFoodRole === "avoid" || rawEdibility === "not_edible" || isNonEdibleCautionSeverity(fixed.non_edible_severity))
     ? { ...edibleUse, has_ingestible_use: false, method: "", notes: "", preparation_required: false }
     : edibleUse;
 
@@ -776,7 +806,7 @@ export function normalizeRecord(record) {
     search_aliases: uniq(fixed.search_aliases),
     host_filter_tokens: hostTokens,
     commonness: fixed.commonness || fixed.status || "",
-    food_quality: edibleUse.has_ingestible_use && !absoluteDanger && (!fixed.food_quality || /not recommended|inedible|avoid/i.test(String(fixed.food_quality))) ? edibleUse.method : (fixed.food_quality || ""),
+    food_quality: edibleUse.has_ingestible_use && !absoluteDanger && rawFoodRole !== "avoid" && rawEdibility !== "not_edible" && !isNonEdibleCautionSeverity(fixed.non_edible_severity) && (!fixed.food_quality || /not recommended|inedible|avoid/i.test(String(fixed.food_quality))) ? edibleUse.method : (fixed.food_quality || ""),
     food_role: normalizedFoodRoleValue,
     edibility_status: normalizedEdibilityStatusValue,
     non_edible_severity: normalizedNonEdibleSeverityValue,

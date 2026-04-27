@@ -1,4 +1,4 @@
-import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.39-r2026-04-27-mushroom-dedup1";
+import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.41-r2026-04-27-edible-caution-cleanup1";
 import { esc } from "../lib/escape.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
@@ -588,7 +588,7 @@ function makeMeta(record, route = "general") {
   if ((route === "lookalikes" || route === "caution") && info.caution) bits.push(`<span class="tag danger">Caution</span>`);
   if (record.commonness) bits.push(labelTag("Commonality", record.commonness));
   bits.push(labelTag("Season", seasonSummary(record)));
-  if (record.food_quality) bits.push(labelTag("Food quality", record.food_quality, "good"));
+  if (record.food_quality) bits.push(labelTag("Food quality", record.food_quality, /not recommended|avoid|poor|inedible/i.test(String(record.food_quality)) ? "danger" : "good"));
   if (edibleUse?.has_ingestible_use && /tea|infusion|beverage/i.test(edibleUse.method || "")) {
     bits.push(`<span class="tag good">Tea / infusion</span>`);
   }
@@ -736,15 +736,80 @@ export function filterRecords(records, route, filtersOrSearch = "") {
   });
 }
 
+function isUnhelpfulListText(value = "") {
+  const text = String(value || "").replace(/\s+/g, " ").trim();
+  if (!text) return true;
+  if (isBuildNoteText(text)) return true;
+  return /^(Food use|Food\/beverage use):\s*Food\.?$/i.test(text)
+    || /^Food\.?\s*This entry carried caution/i.test(text)
+    || /this entry carried caution, non[- ]edible, or safety significance/i.test(text)
+    || /warning species seed/i.test(text)
+    || /retained mainly for identification, caution, or curiosity value/i.test(text)
+    || /when correctly identified and in good condition/i.test(text)
+    || /^a worthwhile edible\.?$/i.test(text)
+    || /^potentially edible or useful/i.test(text);
+}
+
+function cleanListText(value = "") {
+  const text = cleanUserFacingText(value)
+    .replace(/\bwhen correctly identified and(?: collected)? in good condition\b/gi, "")
+    .replace(/\bwhen correctly identified\b/gi, "")
+    .replace(/\s+([,.;:])/g, "$1")
+    .replace(/\s+/g, " ")
+    .replace(/\s+\./g, ".")
+    .trim();
+  return isUnhelpfulListText(text) ? "" : text;
+}
+
+function firstCleanListText(values = []) {
+  for (const value of values) {
+    const text = cleanListText(value);
+    if (text) return text;
+  }
+  return "";
+}
+
+function generatedMushroomSnippet(record = {}) {
+  if (record.record_type !== "mushroom") return "";
+  const profile = record.mushroom_profile || {};
+  const parts = [];
+  const substrate = firstCleanListText([
+    asList(profile.substrate).join(", "),
+    asList(record.substrate).join(", ")
+  ]);
+  const host = firstCleanListText([
+    asList(profile.host_trees).join(", "),
+    asList(record.hostTree).join(", "),
+    asList(profile.host_filter_tokens).join(", ")
+  ]);
+  const cap = firstCleanListText([asList(profile.cap_surface).join(", "), asList(record.capSurface).join(", ")]);
+  const underside = firstCleanListText([
+    asList(profile.pore_color).join(", "),
+    asList(record.poreColor).join(", "),
+    asList(profile.underside).join(", "),
+    asList(profile.fertile_surface).join(", ")
+  ]);
+  const stem = firstCleanListText([asList(profile.stem_feature).join(", "), asList(record.stemFeature).join(", ")]);
+  const staining = firstCleanListText([asList(profile.staining).join(", "), asList(record.staining).join(", ")]);
+  if (substrate || host) parts.push("Grows " + (substrate ? "on/from " + substrate.toLowerCase() : "") + (host ? (substrate ? " " : "") + "near/with " + host : "") + ".");
+  if (cap) parts.push("Cap/surface: " + cap + ".");
+  if (underside) parts.push("Underside: " + underside + ".");
+  if (stem) parts.push("Stem: " + stem + ".");
+  if (staining) parts.push("Bruising/staining: " + staining + ".");
+  const text = parts.join(" ").replace(/\s+/g, " ").trim();
+  return isUnhelpfulListText(text) ? "" : text;
+}
+
 function cardSnippet(record) {
   const rare = record.rare_profile || {};
   const candidates = [
     record.overview,
     record.field_identification,
-    record.culinary_uses,
-    record.other_uses,
+    generatedMushroomSnippet(record),
     record.poisoning_effects,
     record.toxicity_notes,
+    record.other_uses,
+    record.culinary_uses,
     record.edibility_notes,
     record.edibility_detail,
     rare.reason,
@@ -752,15 +817,7 @@ function cardSnippet(record) {
     record.general_notes,
     record.habitat_detail
   ];
-  for (const value of candidates) {
-    const text = cleanUserFacingText(value);
-    if (!text) continue;
-    if (isBuildNoteText(text)) continue;
-    if (/^(Food use|Food\/beverage use):\s*Food\.?\s*$/i.test(text)) continue;
-    if (/^Food\.?\s*This entry carried caution/i.test(text)) continue;
-    return text.replace(/^Food\/beverage use:\s*/i, "Food use: ");
-  }
-  return "";
+  return firstCleanListText(candidates).replace(/^Food\/beverage use:\s*/i, "Food use: ");
 }
 
 function cardSnippetHtml(record) {
