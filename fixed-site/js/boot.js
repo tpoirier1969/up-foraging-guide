@@ -1,6 +1,6 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.42-r2026-04-27-mushroom-polish2";
+const APP_VERSION = "v4.2.43-r2026-04-27-nav-dependencyfix1";
 
 function esc(value) {
   return String(value ?? "")
