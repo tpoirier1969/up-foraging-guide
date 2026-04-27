@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.39-r2026-04-27-mushroom-dedup1",
+    "build": "v4.2.40-r2026-04-27-list-lookalike-cleanup1",
     "primary_type": "mushroom",
     "record_count": 209,
     "notes": "Merged valid Wikimedia Commons-only replacements from the mistaken sidecar batch file back into the main mushrooms.json. Inlined the first two bolete data-fix batches, Candy Apple/Frost's Bolete, Bitter Bolete cleanup, and Chaga use details into mushrooms.json so species truth is no longer dependent on runtime bolete patch rules. Forager-facing bolete filters added; duplicate Bay Bolete alias hidden from user lists.",
@@ -43,7 +43,8 @@
       "variable-stalk-bolete",
       "xerocomus-subtomentosus"
     ],
-    "duplicate_cleanup": "v4.2.39: hidden high-confidence duplicate mushroom records as legacy aliases and renamed same-common-name distinct species for clearer lists."
+    "duplicate_cleanup": "Hidden high-confidence duplicate mushroom records as legacy aliases and renamed same-common-name distinct species for clearer lists.",
+    "ui_cleanup": "v4.2.40: suppressed remaining curation/list-note text, added practical look-alike separation cues, and de-duplicated Food-Use caution messaging."
   },
   "records": [
     {
