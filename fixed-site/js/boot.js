@@ -1,6 +1,6 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.50-r2026-04-27-mushroom-photo-patch1";
+const APP_VERSION = "v4.2.51-r2026-04-27-mushroom-photo-patch2-cache-sync";
 
 function esc(value) {
   return String(value ?? "")
@@ -20,10 +20,39 @@ function renderFatal(message, detail = "") {
   `;
 }
 
-async function start() {
+function showVersion() {
   if (versionBadge) {
     versionBadge.replaceChildren(document.createTextNode(APP_VERSION));
   }
+}
+
+async function reloadCoreSpeciesWithCurrentPatch(coreModule) {
+  try {
+    const [stateModule, dataModule] = await Promise.all([
+      import("./state.js"),
+      import(`./data/load-app-data.js?v=${encodeURIComponent(APP_VERSION)}`)
+    ]);
+
+    const { state, setSpecies, logBoot } = stateModule;
+    const { species, errors } = await dataModule.loadCoreSpecies((message) => {
+      logBoot(`[${APP_VERSION}] ${message}`);
+    });
+
+    setSpecies(species);
+    state.loadErrors = errors || [];
+
+    if (typeof coreModule?.renderCurrentRoute === "function") {
+      await coreModule.renderCurrentRoute();
+    }
+  } catch (err) {
+    console.warn("Current-build species patch reload failed:", err?.message || err);
+  } finally {
+    showVersion();
+  }
+}
+
+async function start() {
+  showVersion();
 
   try {
     const mod = await import(`./app-core.js?v=${encodeURIComponent(APP_VERSION)}`);
@@ -31,6 +60,8 @@ async function start() {
       throw new Error("app-core.js loaded, but startApp was not exported.");
     }
     await mod.startApp();
+    await reloadCoreSpeciesWithCurrentPatch(mod);
+    showVersion();
   } catch (err) {
     renderFatal(
       "The shell loaded, but the app core failed before the first route rendered.",

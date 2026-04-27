@@ -1,6 +1,6 @@
 import { fetchJsonFromRepo } from "../lib/fetch-json.js";
-import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.50-r2026-04-27-mushroom-photo-patch1";
-import { SPECIES_PATHS, OPTIONAL_PATHS } from "./sources.js?v=v4.2.50-r2026-04-27-mushroom-photo-patch1";
+import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.51-r2026-04-27-mushroom-photo-patch2-cache-sync";
+import { SPECIES_PATHS, OPTIONAL_PATHS } from "./sources.js?v=v4.2.51-r2026-04-27-mushroom-photo-patch2-cache-sync";
 
 let rareCachePromise = null;
 let referencesCachePromise = null;
