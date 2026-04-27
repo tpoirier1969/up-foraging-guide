@@ -1,6 +1,6 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.46-r2026-04-27-bitter-bolete-visibility1";
+const APP_VERSION = "v4.2.47-r2026-04-27-mushroom-photo-fix1";
 
 function esc(value) {
   return String(value ?? "")

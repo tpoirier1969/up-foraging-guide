@@ -1,10 +1,10 @@
 import { state, setRoute, setSpecies, setRareSpecies, setReferences, logBoot } from "./state.js";
 import { MEDICINAL_VOCAB } from "./data/medicinal-vocabulary.js";
-import { renderPage, openModal, closeModal, els } from "./ui/dom.js?v=v4.2.46-r2026-04-27-bitter-bolete-visibility1";
+import { renderPage, openModal, closeModal, els } from "./ui/dom.js?v=v4.2.47-r2026-04-27-mushroom-photo-fix1";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 
-const APP_VERSION = "v4.2.46-r2026-04-27-bitter-bolete-visibility1";
+const APP_VERSION = "v4.2.47-r2026-04-27-mushroom-photo-fix1";
 const REVIEW_STORAGE_KEY = "foraging_review_overlay_v1";
 const moduleCache = new Map();
 let loadAppDataPromise = null;
