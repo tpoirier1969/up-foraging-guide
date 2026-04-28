@@ -3,7 +3,7 @@
     "project": "Upper Michigan Foraging Guide",
     "build": "v4.2.51-r2026-04-27-mushroom-photo-patch2-cache-sync",
     "purpose": "Intentional mushroom photo data patch loaded after mushrooms.json when the full mushroom source file cannot be safely rewritten in this session.",
-    "record_count": 19,
+    "record_count": 24,
     "records_updated": [
       "leccinum-scabrum",
       "leccinum-versipelle",
@@ -23,21 +23,27 @@
       "tylopilus-badiceps",
       "chaga",
       "parasitic-bolete",
-      "red-mouth-bolete"
+      "red-mouth-bolete",
+      "aureoboletus-mirabilis",
+      "almost-bluing-king-bolete",
+      "ash-tree-bolete",
+      "birch-polypore",
+      "tinder-conk-hoof-fungus"
     ],
     "notes": "Uses structured Wikimedia Commons image entries so the existing image resolver can provide thumbnail/detail/full image behavior and source links. This file is intentionally appended/expanded instead of replaced with a new patch file.",
     "note": "Intentional mushroom photo patch layer loaded through SPECIES_PATHS because mushrooms.json could not be safely rewritten in-session.",
     "supersedes": "v4.2.50-r2026-04-27-mushroom-photo-patch1",
-    "last_updated_build": "v4.2.56-r2026-04-28-mushroom-photo-patch4",
+    "last_updated_build": "v4.2.57-r2026-04-28-mushroom-photo-patch5",
     "appended_in_last_batch": [
-      "aureoboletus-roxanae",
-      "tylopilus-badiceps",
-      "chaga",
-      "parasitic-bolete",
-      "red-mouth-bolete"
+      "aureoboletus-mirabilis",
+      "almost-bluing-king-bolete",
+      "ash-tree-bolete",
+      "birch-polypore",
+      "tinder-conk-hoof-fungus"
     ],
-    "last_batch_note": "Appended additional Commons-backed mushroom photo records to the existing patch file rather than creating a new patch file.",
-    "append_policy": "Continue appending to this patch file unless mushrooms.json can be safely rewritten directly."
+    "last_batch_note": "Appended a conservative batch of Commons-backed mushroom photo records to the existing patch file.",
+    "append_policy": "Continue appending to this patch file unless mushrooms.json can be safely rewritten directly.",
+    "replaced_in_last_batch": []
   },
   "records": [
     {
@@ -858,6 +864,247 @@
         "Commons-backed field photo patch appended in v4.2.56-r2026-04-28-mushroom-photo-patch4."
       ],
       "photo_patch_batch": "v4.2.56-r2026-04-28-mushroom-photo-patch4"
+    },
+    {
+      "slug": "aureoboletus-mirabilis",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20mirabilis%20101099123.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20mirabilis%20101099123.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20mirabilis%20101099123.jpg",
+          "source": "commons-photo-patch",
+          "title": "Admirable bolete field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Aureoboletus_mirabilis_101099123.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20mirabilis%20%2822211661882%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20mirabilis%20%2822211661882%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20mirabilis%20%2822211661882%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Admirable bolete forest specimen",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletus_mirabilis_%2822211661882%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20mirabilis%2028544.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20mirabilis%2028544.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20mirabilis%2028544.jpg",
+          "source": "commons-photo-patch",
+          "title": "Admirable bolete supporting specimen",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletus_mirabilis_28544.jpg"
+        }
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20mirabilis%20101099123.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20mirabilis%20%2822211661882%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20mirabilis%2028544.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20mirabilis%20101099123.jpg?width=480",
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20mirabilis%20101099123.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20mirabilis%20%2822211661882%29.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20mirabilis%2028544.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20mirabilis%20101099123.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20mirabilis%20%2822211661882%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20mirabilis%2028544.jpg"
+      ],
+      "image_review_status": "field_photo_patch",
+      "image_review_reasons": [
+        "Commons-backed field photo patch appended in v4.2.57-r2026-04-28-mushroom-photo-patch5."
+      ],
+      "photo_patch_batch": "v4.2.57-r2026-04-28-mushroom-photo-patch5"
+    },
+    {
+      "slug": "almost-bluing-king-bolete",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subcaerulescens%2035861.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subcaerulescens%2035861.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subcaerulescens%2035861.jpg",
+          "source": "commons-photo-patch",
+          "title": "Almost bluing king bolete field specimen",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletus_subcaerulescens_35861.jpg"
+        }
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subcaerulescens%2035861.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subcaerulescens%2035861.jpg?width=480",
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subcaerulescens%2035861.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subcaerulescens%2035861.jpg"
+      ],
+      "image_review_status": "field_photo_patch",
+      "image_review_reasons": [
+        "Commons-backed field photo patch appended in v4.2.57-r2026-04-28-mushroom-photo-patch5."
+      ],
+      "photo_patch_batch": "v4.2.57-r2026-04-28-mushroom-photo-patch5"
+    },
+    {
+      "slug": "ash-tree-bolete",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg",
+          "source": "commons-photo-patch",
+          "title": "Ash-tree bolete field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:2012-08-10_Boletinellus_merulioides_%28Schwein.%29_Murrill_247593.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus%20merulioides%2095348.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus%20merulioides%2095348.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus%20merulioides%2095348.jpg",
+          "source": "commons-photo-patch",
+          "title": "Ash-tree bolete cap and pore surface",
+          "part_or_stage": "pore surface",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletinellus_merulioides_95348.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg",
+          "source": "commons-photo-patch",
+          "title": "Ash-tree bolete supporting field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletinellus.merulioides.vermont1.jpg"
+        }
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus%20merulioides%2095348.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg?width=480",
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus%20merulioides%2095348.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus%20merulioides%2095348.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg"
+      ],
+      "image_review_status": "field_photo_patch",
+      "image_review_reasons": [
+        "Commons-backed field photo patch appended in v4.2.57-r2026-04-28-mushroom-photo-patch5."
+      ],
+      "photo_patch_batch": "v4.2.57-r2026-04-28-mushroom-photo-patch5"
+    },
+    {
+      "slug": "birch-polypore",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg",
+          "source": "commons-photo-patch",
+          "title": "Birch polypore on birch field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Fomitopsis_betulina_104965425.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20188725569.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20188725569.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20188725569.jpg",
+          "source": "commons-photo-patch",
+          "title": "Birch polypore shelf view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Fomitopsis_betulina_188725569.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20170006960.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20170006960.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20170006960.jpg",
+          "source": "commons-photo-patch",
+          "title": "Birch polypore supporting view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Fomitopsis_betulina_170006960.jpg"
+        }
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20188725569.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20170006960.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg?width=480",
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20188725569.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20170006960.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20188725569.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20170006960.jpg"
+      ],
+      "image_review_status": "field_photo_patch",
+      "image_review_reasons": [
+        "Commons-backed field photo patch appended in v4.2.57-r2026-04-28-mushroom-photo-patch5."
+      ],
+      "photo_patch_batch": "v4.2.57-r2026-04-28-mushroom-photo-patch5"
+    },
+    {
+      "slug": "tinder-conk-hoof-fungus",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2833753874398%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2833753874398%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2833753874398%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Tinder conk / hoof fungus on wood",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Fomes_fomentarius_%2833753874398%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2850198851931%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2850198851931%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2850198851931%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Hoof fungus bracket view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Fomes_fomentarius_%2850198851931%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Echte%20tonderzwam%20-%20Fomes%20fomentarius.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Echte%20tonderzwam%20-%20Fomes%20fomentarius.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Echte%20tonderzwam%20-%20Fomes%20fomentarius.jpg",
+          "source": "commons-photo-patch",
+          "title": "Tinder conk side view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Echte_tonderzwam_-_Fomes_fomentarius.jpg"
+        }
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2833753874398%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2850198851931%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Echte%20tonderzwam%20-%20Fomes%20fomentarius.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2833753874398%29.jpg?width=480",
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2833753874398%29.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2850198851931%29.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Echte%20tonderzwam%20-%20Fomes%20fomentarius.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2833753874398%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2850198851931%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Echte%20tonderzwam%20-%20Fomes%20fomentarius.jpg"
+      ],
+      "image_review_status": "field_photo_patch",
+      "image_review_reasons": [
+        "Commons-backed field photo patch appended in v4.2.57-r2026-04-28-mushroom-photo-patch5."
+      ],
+      "photo_patch_batch": "v4.2.57-r2026-04-28-mushroom-photo-patch5"
     }
   ]
 }
