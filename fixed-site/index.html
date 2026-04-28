@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Upper Michigan Foraging Guide</title>
   <meta name="theme-color" content="#2f5d46">
-  <link rel="stylesheet" href="styles/base.css?v=v4.2.53-r2026-04-28-phone-menu-cleanup1">
+  <link rel="stylesheet" href="styles/base.css?v=v4.2.54-r2026-04-28-phone-menu-cleanup2-all-pages">
   <style>
     .image-lightbox[hidden]{display:none !important;}
     .image-lightbox{position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;padding:20px;}
@@ -37,6 +37,34 @@
       .main-nav{display:flex !important;}
       .mobile-menu-toggle{display:none !important;}
     }
+
+    /* Responsive control/menu cleanup for all app pages: filters, lane cards, chips, sort/search rows. */
+    html, body{max-width:100%;overflow-x:hidden;}
+    .app-shell,.page-root,.panel,.site-header,.record-card,.detail-block,.modal-card{min-width:0;max-width:100%;}
+    .control-row,.medicinal-filter-row,.section-jump-row,.chip-row,.lane-grid,.record-meta,.quick-actions,.image-meta-line{min-width:0;max-width:100%;}
+    .control-row > *, .medicinal-filter-row > *, .lane-grid > *, .section-jump-row > *, .chip-row > *{min-width:0;max-width:100%;}
+    input[type="search"], select, textarea{max-width:100%;min-width:0;}
+    button,.buttonish,.section-jump-button,.chip-button,.lane-card,.main-nav a{max-width:100%;min-width:0;white-space:normal;overflow-wrap:anywhere;}
+    .lane-card{align-content:start;}
+    @media (max-width: 700px){
+      .app-shell{width:100%;padding:10px;overflow-x:hidden;}
+      .page-root{width:100%;overflow-x:hidden;}
+      .panel{width:100%;padding:14px;overflow-x:hidden;}
+      .control-row{display:grid !important;grid-template-columns:minmax(0,1fr) !important;width:100%;}
+      .control-row > *{width:100% !important;}
+      .medicinal-filter-row{display:grid !important;grid-template-columns:minmax(0,1fr) !important;width:100% !important;gap:10px !important;}
+      .medicinal-filter-cell,.medicinal-filter-actions{width:100% !important;grid-column:auto !important;}
+      .medicinal-filter-actions{display:grid !important;grid-template-columns:minmax(0,1fr) !important;white-space:normal !important;}
+      .medicinal-filter-actions > *{width:100% !important;}
+      .lane-grid,.grid-2,.grid-3,.grid-4,.home-focus-highlights{grid-template-columns:minmax(0,1fr) !important;width:100%;}
+      .section-jump-row,.chip-row,.quick-actions{display:grid !important;grid-template-columns:minmax(0,1fr) !important;width:100%;}
+      .section-jump-button,.chip-button,.quick-actions > *,button.buttonish,.buttonish{width:100%;justify-content:center;}
+      .record-card.with-image,.detail-hero{grid-template-columns:minmax(0,1fr) !important;}
+      .record-image-slot.card,.record-image-slot.detail,.record-image-slot.gallery{grid-template-columns:minmax(0,1fr) !important;max-width:100%;}
+      .kv{grid-template-columns:minmax(0,1fr) !important;}
+      .modal-card{width:calc(100vw - 20px);max-width:calc(100vw - 20px);}
+    }
+
   </style>
 </head>
 <body>
@@ -47,7 +75,7 @@
           <h1>Upper Michigan Foraging Guide</h1>
           <p class="subhead">Merged master build</p>
         </div>
-        <div class="version-pill" id="versionBadge">v4.2.53-r2026-04-28-phone-menu-cleanup1</div>
+        <div class="version-pill" id="versionBadge">v4.2.54-r2026-04-28-phone-menu-cleanup2-all-pages</div>
       </div>
 
       <button id="mobileMenuToggle" class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="primaryNav">Menu</button>
@@ -81,6 +109,6 @@
     </article>
   </dialog>
 
-  <script type="module" src="js/boot.js?v=v4.2.53-r2026-04-28-phone-menu-cleanup1"></script>
+  <script type="module" src="js/boot.js?v=v4.2.54-r2026-04-28-phone-menu-cleanup2-all-pages"></script>
 </body>
 </html>
