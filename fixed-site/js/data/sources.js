@@ -1,7 +1,11 @@
 export const SPECIES_PATHS = [
   "data/plants.json",
   "data/plants-image-overrides.json",
-  "data/mushrooms.json"
+  "data/mushrooms.json",
+  "data/mushrooms/mushrooms-boletes-porcini-tylopilus.json",
+  "data/mushrooms/mushrooms-boletes-red-caution.json",
+  "data/mushrooms/mushrooms-boletes-suillus-leccinum.json",
+  "data/mushrooms/mushrooms-boletes-other.json"
 ];
 
 export const PHOTO_PATCH_PATHS = [
