@@ -3,7 +3,7 @@
     "project": "Upper Michigan Foraging Guide",
     "build": "v4.2.51-r2026-04-27-mushroom-photo-patch2-cache-sync",
     "purpose": "Intentional mushroom photo data patch loaded after mushrooms.json when the full mushroom source file cannot be safely rewritten in this session.",
-    "record_count": 14,
+    "record_count": 19,
     "records_updated": [
       "leccinum-scabrum",
       "leccinum-versipelle",
@@ -18,23 +18,26 @@
       "strobilomyces-strobilaceus",
       "old-man-of-the-woods",
       "true-bitter-bolete",
-      "bitter-bolete"
+      "bitter-bolete",
+      "aureoboletus-roxanae",
+      "tylopilus-badiceps",
+      "chaga",
+      "parasitic-bolete",
+      "red-mouth-bolete"
     ],
     "notes": "Uses structured Wikimedia Commons image entries so the existing image resolver can provide thumbnail/detail/full image behavior and source links. This file is intentionally appended/expanded instead of replaced with a new patch file.",
     "note": "Intentional mushroom photo patch layer loaded through SPECIES_PATHS because mushrooms.json could not be safely rewritten in-session.",
     "supersedes": "v4.2.50-r2026-04-27-mushroom-photo-patch1",
-    "last_updated_build": "v4.2.52-r2026-04-27-mushroom-photo-patch3-append1",
+    "last_updated_build": "v4.2.56-r2026-04-28-mushroom-photo-patch4",
     "appended_in_last_batch": [
-      "imleria-badia",
-      "bay-bolete",
-      "baorangia-bicolor",
-      "exsudoporus-frostii",
-      "strobilomyces-strobilaceus",
-      "old-man-of-the-woods",
-      "true-bitter-bolete",
-      "bitter-bolete"
+      "aureoboletus-roxanae",
+      "tylopilus-badiceps",
+      "chaga",
+      "parasitic-bolete",
+      "red-mouth-bolete"
     ],
-    "last_batch_note": "Appended additional Commons-backed mushroom photo records to the existing patch file rather than creating a new patch file."
+    "last_batch_note": "Appended additional Commons-backed mushroom photo records to the existing patch file rather than creating a new patch file.",
+    "append_policy": "Continue appending to this patch file unless mushrooms.json can be safely rewritten directly."
   },
   "records": [
     {
@@ -590,6 +593,271 @@
       "image_review_reasons": [
         "v4.2.52-r2026-04-27-mushroom-photo-patch3-append1 appended 3 Commons-backed image(s) for list/detail/lightbox use."
       ]
+    },
+    {
+      "slug": "aureoboletus-roxanae",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20%28Frost%29%20Klofac%20657418.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20%28Frost%29%20Klofac%20657418.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20%28Frost%29%20Klofac%20657418.jpg",
+          "source": "commons-photo-patch",
+          "title": "Aureoboletus roxanae field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Aureoboletus_roxanae_%28Frost%29_Klofac_657418.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20202173.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20202173.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20202173.jpg",
+          "source": "commons-photo-patch",
+          "title": "Aureoboletus roxanae upright specimen",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Aureoboletus_roxanae_202173.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20202174.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20202174.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20202174.jpg",
+          "source": "commons-photo-patch",
+          "title": "Aureoboletus roxanae underside/support view",
+          "part_or_stage": "pore surface",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Aureoboletus_roxanae_202174.jpg"
+        }
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20%28Frost%29%20Klofac%20657418.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20202173.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20202174.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20%28Frost%29%20Klofac%20657418.jpg?width=480",
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20%28Frost%29%20Klofac%20657418.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20202173.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20202174.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20%28Frost%29%20Klofac%20657418.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20202173.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20202174.jpg"
+      ],
+      "image_review_status": "field_photo_patch",
+      "image_review_reasons": [
+        "Commons-backed field photo patch appended in v4.2.56-r2026-04-28-mushroom-photo-patch4."
+      ],
+      "photo_patch_batch": "v4.2.56-r2026-04-28-mushroom-photo-patch4"
+    },
+    {
+      "slug": "tylopilus-badiceps",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2011-08-08%20Tylopilus%20badiceps%20%28Peck%29%20A.H.%20Sm.%20%26%20Thiers%20161956.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2011-08-08%20Tylopilus%20badiceps%20%28Peck%29%20A.H.%20Sm.%20%26%20Thiers%20161956.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2011-08-08%20Tylopilus%20badiceps%20%28Peck%29%20A.H.%20Sm.%20%26%20Thiers%20161956.jpg",
+          "source": "commons-photo-patch",
+          "title": "Tylopilus badiceps field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:2011-08-08_Tylopilus_badiceps_%28Peck%29_A.H._Sm._%26_Thiers_161956.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2011-08-11%20Tylopilus%20badiceps%20%28Peck%29%20A.H.%20Sm.%20%26%20Thiers%20162716.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2011-08-11%20Tylopilus%20badiceps%20%28Peck%29%20A.H.%20Sm.%20%26%20Thiers%20162716.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2011-08-11%20Tylopilus%20badiceps%20%28Peck%29%20A.H.%20Sm.%20%26%20Thiers%20162716.jpg",
+          "source": "commons-photo-patch",
+          "title": "Tylopilus badiceps supporting field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:2011-08-11_Tylopilus_badiceps_%28Peck%29_A.H._Sm._%26_Thiers_162716.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20badiceps%20251051.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20badiceps%20251051.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20badiceps%20251051.jpg",
+          "source": "commons-photo-patch",
+          "title": "Tylopilus badiceps additional field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Tylopilus_badiceps_251051.jpg"
+        }
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2011-08-08%20Tylopilus%20badiceps%20%28Peck%29%20A.H.%20Sm.%20%26%20Thiers%20161956.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2011-08-11%20Tylopilus%20badiceps%20%28Peck%29%20A.H.%20Sm.%20%26%20Thiers%20162716.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20badiceps%20251051.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2011-08-08%20Tylopilus%20badiceps%20%28Peck%29%20A.H.%20Sm.%20%26%20Thiers%20161956.jpg?width=480",
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2011-08-08%20Tylopilus%20badiceps%20%28Peck%29%20A.H.%20Sm.%20%26%20Thiers%20161956.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2011-08-11%20Tylopilus%20badiceps%20%28Peck%29%20A.H.%20Sm.%20%26%20Thiers%20162716.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20badiceps%20251051.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2011-08-08%20Tylopilus%20badiceps%20%28Peck%29%20A.H.%20Sm.%20%26%20Thiers%20161956.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2011-08-11%20Tylopilus%20badiceps%20%28Peck%29%20A.H.%20Sm.%20%26%20Thiers%20162716.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20badiceps%20251051.jpg"
+      ],
+      "image_review_status": "field_photo_patch",
+      "image_review_reasons": [
+        "Commons-backed field photo patch appended in v4.2.56-r2026-04-28-mushroom-photo-patch4."
+      ],
+      "photo_patch_batch": "v4.2.56-r2026-04-28-mushroom-photo-patch4"
+    },
+    {
+      "slug": "chaga",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Chaga on birch field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Inonotus_obliquus_%2835578063011%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus.jpg",
+          "source": "commons-photo-patch",
+          "title": "Chaga sterile conk",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Inonotus_obliquus.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%28Inonotus%20obliquus%29%20de%204%2C2%20kg.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%28Inonotus%20obliquus%29%20de%204%2C2%20kg.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%28Inonotus%20obliquus%29%20de%204%2C2%20kg.jpg",
+          "source": "commons-photo-patch",
+          "title": "Chaga specimen on yellow birch",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Chaga_%28Inonotus_obliquus%29_de_4%2C2_kg.jpg"
+        }
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%28Inonotus%20obliquus%29%20de%204%2C2%20kg.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg?width=480",
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%28Inonotus%20obliquus%29%20de%204%2C2%20kg.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%28Inonotus%20obliquus%29%20de%204%2C2%20kg.jpg"
+      ],
+      "image_review_status": "field_photo_patch",
+      "image_review_reasons": [
+        "Commons-backed field photo patch appended in v4.2.56-r2026-04-28-mushroom-photo-patch4."
+      ],
+      "photo_patch_batch": "v4.2.56-r2026-04-28-mushroom-photo-patch4"
+    },
+    {
+      "slug": "parasitic-bolete",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851393311099%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851393311099%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851393311099%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Parasitic bolete with earthball host",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Parasitic_Bolete_%28Pseudoboletus_parasiticus%29_%2851393311099%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851392813788%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851392813788%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851392813788%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Parasitic bolete group",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Parasitic_Bolete_%28Pseudoboletus_parasiticus%29_%2851392813788%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851391791852%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851391791852%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851391791852%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Parasitic bolete supporting field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Parasitic_Bolete_%28Pseudoboletus_parasiticus%29_%2851391791852%29.jpg"
+        }
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851393311099%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851392813788%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851391791852%29.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851393311099%29.jpg?width=480",
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851393311099%29.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851392813788%29.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851391791852%29.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851393311099%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851392813788%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851391791852%29.jpg"
+      ],
+      "image_review_status": "field_photo_patch",
+      "image_review_reasons": [
+        "Commons-backed field photo patch appended in v4.2.56-r2026-04-28-mushroom-photo-patch4."
+      ],
+      "photo_patch_batch": "v4.2.56-r2026-04-28-mushroom-photo-patch4"
+    },
+    {
+      "slug": "red-mouth-bolete",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20260428.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20260428.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20260428.jpg",
+          "source": "commons-photo-patch",
+          "title": "Red-mouth bolete field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletus_subvelutipes_260428.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20164066.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20164066.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20164066.jpg",
+          "source": "commons-photo-patch",
+          "title": "Red-mouth bolete group",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletus_subvelutipes_164066.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%2020438.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%2020438.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%2020438.jpg",
+          "source": "commons-photo-patch",
+          "title": "Red-mouth bolete supporting field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletus_subvelutipes_20438.jpg"
+        }
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20260428.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20164066.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%2020438.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20260428.jpg?width=480",
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20260428.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20164066.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%2020438.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20260428.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20164066.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%2020438.jpg"
+      ],
+      "image_review_status": "field_photo_patch",
+      "image_review_reasons": [
+        "Commons-backed field photo patch appended in v4.2.56-r2026-04-28-mushroom-photo-patch4."
+      ],
+      "photo_patch_batch": "v4.2.56-r2026-04-28-mushroom-photo-patch4"
     }
   ]
 }
