@@ -1,6 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.54-r2026-04-28-phone-menu-cleanup2-all-pages";
+const APP_VERSION = "v4.2.55-r2026-04-28-version-flag-cleanup1";
+const DISPLAY_VERSION = "V4.2.55-r26-04-28";
 
 function esc(value) {
   return String(value ?? "")
@@ -52,7 +53,7 @@ function renderFatal(message, detail = "") {
 
 function showVersion() {
   if (versionBadge) {
-    versionBadge.replaceChildren(document.createTextNode(APP_VERSION));
+    versionBadge.replaceChildren(document.createTextNode(DISPLAY_VERSION));
   }
 }
 
