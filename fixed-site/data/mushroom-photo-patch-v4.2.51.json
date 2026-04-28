@@ -89,7 +89,7 @@
     "notes": "Uses structured Wikimedia Commons image entries so the existing image resolver can provide thumbnail/detail/full image behavior and source links. This file is intentionally appended/expanded instead of replaced with a new patch file.",
     "note": "Intentional mushroom photo patch layer loaded through SPECIES_PATHS because mushrooms.json could not be safely rewritten in-session.",
     "supersedes": "v4.2.50-r2026-04-27-mushroom-photo-patch1",
-    "last_updated_build": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+    "last_updated_build": "v4.2.65-r2026-04-28-mushroom-needs-review-cleanup1",
     "appended_in_last_batch": [
       "aspen-oyster",
       "bear-s-head-tooth",
@@ -117,8 +117,8 @@
       "yellowfoot-chanterelle",
       "yellow-fly-agaric-guessowii"
     ],
-    "last_batch_note": "Third batch-pack: 25 exact-slug records. Each selected slug was confirmed against uploaded mushrooms.json before patching.",
-    "append_policy": "Future batches should be selected from exact slugs in mushrooms.json or a current slug manifest; no blind candidate slugs.",
+    "last_batch_note": "Needs Review cleanup pass: removed image-only review flags for patched or already imaged mushrooms; left source/text/taxonomy/species-review issues alone.",
+    "append_policy": "Future mushroom photo batches should also clear image-only Needs Review flags for touched exact-slug records.",
     "replaced_in_last_batch": [],
     "batch_group_count": 5,
     "records_per_batch_target": 5,
@@ -320,7 +320,581 @@
         }
       ]
     },
-    "uploaded_mushrooms_source_build": "v4.2.37-r2026-04-26-bolete-forager-filters1"
+    "uploaded_mushrooms_source_build": "v4.2.37-r2026-04-26-bolete-forager-filters1",
+    "needs_review_cleanup": {
+      "source_mushrooms_build": "v4.2.37-r2026-04-26-bolete-forager-filters1",
+      "source_mushroom_record_count": 209,
+      "needs_review_before_count": 141,
+      "cleared_image_only_count": 2,
+      "cleared_image_only_slugs": [
+        "slippery-jack",
+        "tinder-conk-hoof-fungus"
+      ],
+      "remaining_needs_review_count_among_preexisting": 139,
+      "remaining_needs_review_slugs_among_preexisting": [
+        "aureoboletus-mirabilis",
+        "true-bitter-bolete",
+        "tylopilus-intermedius",
+        "neoporphyrellus-alboater",
+        "blue-staining-slippery-jack",
+        "gyroporus-cyanescens",
+        "boletellus-chrysenteroides",
+        "boletellus-pseudochrysenteroides",
+        "boletus-atkinsonii",
+        "boletus-bicoloroides",
+        "boletus-miniato-olivaceus",
+        "boletus-rubissimus",
+        "boletus-rufocinnamomeus",
+        "boletus-speciosus",
+        "boletus-subdepauperatus",
+        "boletus-subfraternus",
+        "boletus-subgraveolens",
+        "boreal-bolete",
+        "bothia-castanella",
+        "boletus-vermiculosoides",
+        "boletus-vermiculosus",
+        "buchwaldoboletus-sphaerocephalus",
+        "butterball",
+        "butyriboletus-brunneus",
+        "caloboletus-calopus",
+        "caloboletus-inedulis",
+        "caloboletus-peckii",
+        "exsudoporus-frostii",
+        "chalciporus-piperatoides",
+        "chalciporus-piperatus",
+        "chalciporus-pseudorubinellus",
+        "chalciporus-rubinellus",
+        "gyroporus-borealis-smithii",
+        "harrya-chromapes",
+        "aureoboletus-innixus",
+        "confusing-bolete",
+        "corrugated-bolete",
+        "cyanoboletus-cyaneitinctus",
+        "dark-capped-scarletina-complex",
+        "porphyrellus-porphyrosporus",
+        "false-king-bolete",
+        "gastroleccinum-scabrosum",
+        "ghost-bolete",
+        "phylloporus-leucomycelinus",
+        "phylloporus-rhodoxanthus",
+        "austroboletus-gracilis",
+        "retiboletus-griseus",
+        "grayish-suillus",
+        "hemileccinum-subglabripes",
+        "suillellus-hypocarycinus",
+        "hollow-stalked-larch-bolete",
+        "hortiboletus-campestris",
+        "hortiboletus-flavorubellus",
+        "butyriboletus-taughannockensis",
+        "indecisus-bolete",
+        "boletus-edulis",
+        "lanmaoa-borealis",
+        "lanmaoa-fallax",
+        "lanmaoa-pallidorosea",
+        "lanmaoa-pseudosensibilis",
+        "larch-suillus",
+        "boletus-alutaceus",
+        "leccinum-albellum",
+        "leccinum-areolatum",
+        "leccinum-crocipodium",
+        "leccinum-discolor",
+        "leccinum-glutinopallens",
+        "leccinum-griseonigrum",
+        "leccinum-insolens",
+        "leccinum-insolens-var-brunneo-maculatum",
+        "leccinum-longicurvipes",
+        "leccinum-luteum",
+        "leccinum-potteri",
+        "leccinum-quercophilum",
+        "leccinum-subgranulosum",
+        "leccinum-subleucophaeum",
+        "leccinum-subtestaceum",
+        "sutorius-eximius",
+        "lurid-bolete",
+        "neoboletus-pseudosulphureus",
+        "neoboletus-subluridellus",
+        "noble-bolete",
+        "retiboletus-ornatipes",
+        "tylopilus-rhoadsiae",
+        "imleria-pallida",
+        "paragyrodon-sphaerosporus",
+        "rubroboletus-rhodosanguineus",
+        "caloboletus-firmus",
+        "porphyrellus-nebulosus",
+        "porphyrellus-sordidus",
+        "pseudomerulius-curtisii",
+        "pulchroboletus-pseudosclerotiorum",
+        "pulchroboletus-sclerotiorum",
+        "pulveroboletus-ravenelii",
+        "suillus-paluster",
+        "xerocomellus-chrysenteron",
+        "gyroporus-purpurinus",
+        "tylopilus-rubrobrunneus",
+        "reindeer-lichen",
+        "rock-tripe-lichen",
+        "russells-bolete",
+        "scarletina-complex",
+        "aureoboletus-betula",
+        "suillus-brevipes",
+        "short-stemmed-russula",
+        "shrimp-russulas",
+        "slim-jack",
+        "suillus-luteus",
+        "suillus-salmonicolor",
+        "snells-bolete",
+        "sour-cap-suillus",
+        "aureoboletus-auriporus",
+        "xanthoconium-affine",
+        "suillus-elbensis",
+        "suillus-granulatus",
+        "suillus-hirtellus",
+        "suillus-punctatipes",
+        "suillus-sinuspaulianus",
+        "suillus-spectabilis",
+        "suillus-subaureus",
+        "tylopilus-appalachiensis",
+        "tylopilus-ferrugineus",
+        "tylopilus-peralbidus",
+        "tylopilus-tabacinus",
+        "tylopilus-violatinctus",
+        "tylopilus-plumbeoviolaceus",
+        "suillus-lakei",
+        "suillus-placidus",
+        "white-stemmed-bolete",
+        "buchwaldoboletus-lignicola",
+        "wrinkled-bolete",
+        "xanthoconium-purpureum",
+        "xerocomellus-intermedius",
+        "xerocomellus-truncatus",
+        "xerocomus-illudens",
+        "xerocomus-tenax",
+        "yellow-chanterelles-conifer-associated-complex",
+        "yellow-chanterelles-hardwood-associated-complex",
+        "yellow-stemmed-bolete"
+      ],
+      "not_cleared_non_image_reasons_sample": [
+        {
+          "slug": "aureoboletus-mirabilis",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "true-bitter-bolete",
+          "reasons": [
+            "needs image coverage",
+            "needs species-level notes review",
+            "needs source links"
+          ]
+        },
+        {
+          "slug": "tylopilus-intermedius",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "neoporphyrellus-alboater",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "blue-staining-slippery-jack",
+          "reasons": [
+            "needs image coverage",
+            "needs species-level notes review",
+            "needs source links"
+          ]
+        },
+        {
+          "slug": "gyroporus-cyanescens",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "boletellus-chrysenteroides",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "boletellus-pseudochrysenteroides",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "boletus-atkinsonii",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "boletus-bicoloroides",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "boletus-miniato-olivaceus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "boletus-rubissimus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review",
+            "placeholder image inserted"
+          ]
+        },
+        {
+          "slug": "boletus-rufocinnamomeus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review",
+            "placeholder image inserted"
+          ]
+        },
+        {
+          "slug": "boletus-speciosus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "boletus-subdepauperatus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review",
+            "placeholder image inserted"
+          ]
+        },
+        {
+          "slug": "boletus-subfraternus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "boletus-subgraveolens",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "boreal-bolete",
+          "reasons": [
+            "needs image coverage",
+            "needs species-level notes review",
+            "needs source links",
+            "placeholder image inserted"
+          ]
+        },
+        {
+          "slug": "bothia-castanella",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "boletus-vermiculosoides",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "boletus-vermiculosus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "buchwaldoboletus-sphaerocephalus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "butterball",
+          "reasons": [
+            "needs species-level notes review",
+            "needs source links"
+          ]
+        },
+        {
+          "slug": "butyriboletus-brunneus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "caloboletus-calopus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "caloboletus-inedulis",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "caloboletus-peckii",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "exsudoporus-frostii",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "chalciporus-piperatoides",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "chalciporus-piperatus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "chalciporus-pseudorubinellus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "chalciporus-rubinellus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "gyroporus-borealis-smithii",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review",
+            "placeholder image inserted"
+          ]
+        },
+        {
+          "slug": "harrya-chromapes",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "aureoboletus-innixus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "confusing-bolete",
+          "reasons": [
+            "needs image coverage",
+            "needs species-level notes review",
+            "needs source links"
+          ]
+        },
+        {
+          "slug": "corrugated-bolete",
+          "reasons": [
+            "needs image coverage",
+            "needs species-level notes review",
+            "needs source links",
+            "placeholder image inserted"
+          ]
+        },
+        {
+          "slug": "cyanoboletus-cyaneitinctus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review",
+            "placeholder image inserted"
+          ]
+        },
+        {
+          "slug": "dark-capped-scarletina-complex",
+          "reasons": [
+            "needs image coverage",
+            "needs species-level notes review",
+            "needs source links"
+          ]
+        },
+        {
+          "slug": "porphyrellus-porphyrosporus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "false-king-bolete",
+          "reasons": [
+            "needs image coverage",
+            "needs species-level notes review",
+            "needs source links",
+            "placeholder image inserted"
+          ]
+        },
+        {
+          "slug": "gastroleccinum-scabrosum",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review",
+            "placeholder image inserted"
+          ]
+        },
+        {
+          "slug": "ghost-bolete",
+          "reasons": [
+            "needs image coverage",
+            "needs species-level notes review",
+            "needs source links"
+          ]
+        },
+        {
+          "slug": "phylloporus-leucomycelinus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review",
+            "oddball boletoid form should be checked in UI filters"
+          ]
+        },
+        {
+          "slug": "phylloporus-rhodoxanthus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review",
+            "oddball boletoid form should be checked in UI filters"
+          ]
+        },
+        {
+          "slug": "austroboletus-gracilis",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "retiboletus-griseus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review"
+          ]
+        },
+        {
+          "slug": "grayish-suillus",
+          "reasons": [
+            "needs image coverage",
+            "needs species-level notes review",
+            "needs source links",
+            "placeholder image inserted"
+          ]
+        },
+        {
+          "slug": "hemileccinum-subglabripes",
+          "reasons": [
+            "needs image coverage",
+            "needs species-level notes review",
+            "needs source links"
+          ]
+        },
+        {
+          "slug": "suillellus-hypocarycinus",
+          "reasons": [
+            "needs image coverage",
+            "needs source links",
+            "needs species-level notes review",
+            "placeholder image inserted"
+          ]
+        }
+      ],
+      "not_cleared_no_real_image_slugs": [
+        "short-stemmed-russula",
+        "shrimp-russulas",
+        "yellow-chanterelles-conifer-associated-complex",
+        "yellow-chanterelles-hardwood-associated-complex"
+      ],
+      "not_cleared_status_only_slugs": [],
+      "cleanup_rule": "Clear Needs Review only when explicit review reasons are image/photo/placeholder-related and a real Commons-backed image exists after active photo patches."
+    }
   },
   "records": [
     {
@@ -1381,7 +1955,17 @@
       "image_review_reasons": [
         "Commons-backed field photo patch appended in v4.2.57-r2026-04-28-mushroom-photo-patch5."
       ],
-      "photo_patch_batch": "v4.2.57-r2026-04-28-mushroom-photo-patch5"
+      "photo_patch_batch": "v4.2.57-r2026-04-28-mushroom-photo-patch5",
+      "review_status": "ok",
+      "reviewReasons": [],
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "photo_review_cleanup_status": "cleared_image_only_needs_review",
+      "photo_review_cleanup_build": "v4.2.65-r2026-04-28-mushroom-needs-review-cleanup1",
+      "photo_review_cleanup_removed_reasons": [
+        "placeholder image inserted"
+      ],
+      "photo_review_cleanup_note": "Removed from Needs Review because the only explicit review reasons were image/photo-related and a real Commons-backed image is now available."
     },
     {
       "slug": "aureoboletus-projectellus",
@@ -2201,7 +2785,17 @@
         "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch B — Suillus and slippery-cap allies)."
       ],
       "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch B — Suillus and slippery-cap allies"
+      "photo_patch_group": "Batch B — Suillus and slippery-cap allies",
+      "review_status": "ok",
+      "reviewReasons": [],
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "photo_review_cleanup_status": "cleared_image_only_needs_review",
+      "photo_review_cleanup_build": "v4.2.65-r2026-04-28-mushroom-needs-review-cleanup1",
+      "photo_review_cleanup_removed_reasons": [
+        "placeholder image inserted"
+      ],
+      "photo_review_cleanup_note": "Removed from Needs Review because the only explicit review reasons were image/photo-related and a real Commons-backed image is now available."
     },
     {
       "slug": "suillus-luteus",
