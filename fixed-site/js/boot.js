@@ -1,12 +1,42 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.52-r2026-04-27-mushroom-photo-patch3-append1";
+const APP_VERSION = "v4.2.53-r2026-04-28-phone-menu-cleanup1";
 
 function esc(value) {
   return String(value ?? "")
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;");
+}
+
+
+function setupMobileMenu() {
+  const toggle = document.getElementById("mobileMenuToggle");
+  const nav = document.getElementById("primaryNav");
+  if (!toggle || !nav) return;
+
+  const closeMenu = () => {
+    document.body.classList.remove("nav-open");
+    toggle.setAttribute("aria-expanded", "false");
+  };
+
+  toggle.addEventListener("click", () => {
+    const open = !document.body.classList.contains("nav-open");
+    document.body.classList.toggle("nav-open", open);
+    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+  });
+
+  nav.addEventListener("click", (event) => {
+    if (event.target?.closest?.("a") && window.matchMedia("(max-width: 700px)").matches) {
+      closeMenu();
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (window.matchMedia("(min-width: 701px)").matches) {
+      closeMenu();
+    }
+  });
 }
 
 function renderFatal(message, detail = "") {
@@ -52,6 +82,7 @@ async function reloadCoreSpeciesWithCurrentPatch(coreModule) {
 }
 
 async function start() {
+  setupMobileMenu();
   showVersion();
 
   try {
