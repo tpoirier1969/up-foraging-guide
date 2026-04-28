@@ -5,7 +5,8 @@ export const SPECIES_PATHS = [
 ];
 
 export const PHOTO_PATCH_PATHS = [
-  "data/mushroom-photo-patch-v4.2.51.json"
+  "data/mushroom-photo-patch-v4.2.51.json",
+  "data/mushroom-photo-patch-v4.2.67-addendum.json"
 ];
 
 export const OPTIONAL_PATHS = [

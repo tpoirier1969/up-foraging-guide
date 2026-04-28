@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact";
-const DISPLAY_VERSION = "V4.2.66-r26-04-28";
+const APP_VERSION = "v4.2.67-r2026-04-28-mushroom-photo-batchpack5-addendum";
+const DISPLAY_VERSION = "V4.2.67-r26-04-28";
 
 function esc(value) {
   return String(value ?? "")
