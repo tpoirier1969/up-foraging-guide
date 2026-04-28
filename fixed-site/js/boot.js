@@ -1,6 +1,6 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.53-r2026-04-28-phone-menu-cleanup1";
+const APP_VERSION = "v4.2.54-r2026-04-28-phone-menu-cleanup2-all-pages";
 
 function esc(value) {
   return String(value ?? "")

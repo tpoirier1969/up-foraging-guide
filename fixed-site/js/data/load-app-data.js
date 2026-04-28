@@ -1,6 +1,6 @@
 import { fetchJsonFromRepo } from "../lib/fetch-json.js";
-import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.53-r2026-04-28-phone-menu-cleanup1";
-import { SPECIES_PATHS, OPTIONAL_PATHS } from "./sources.js?v=v4.2.53-r2026-04-28-phone-menu-cleanup1";
+import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.54-r2026-04-28-phone-menu-cleanup2-all-pages";
+import { SPECIES_PATHS, OPTIONAL_PATHS } from "./sources.js?v=v4.2.54-r2026-04-28-phone-menu-cleanup2-all-pages";
 
 let rareCachePromise = null;
 let referencesCachePromise = null;
