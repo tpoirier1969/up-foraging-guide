@@ -1,6 +1,6 @@
 import { fetchJsonFromRepo } from "../lib/fetch-json.js";
-import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.58-r2026-04-28-references-inaturalist1";
-import { SPECIES_PATHS, OPTIONAL_PATHS } from "./sources.js?v=v4.2.58-r2026-04-28-references-inaturalist1";
+import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.59-r2026-04-28-references-buttons-fix1";
+import { SPECIES_PATHS, OPTIONAL_PATHS } from "./sources.js?v=v4.2.59-r2026-04-28-references-buttons-fix1";
 
 let rareCachePromise = null;
 let referencesCachePromise = null;

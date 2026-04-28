@@ -19,6 +19,10 @@ function slugify(value) {
   return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 }
 
+function renderJumpButton(className, targetId, label) {
+  return `<button class="${esc(className)}" type="button" data-ref-jump="${esc(targetId)}">${esc(label)}</button>`;
+}
+
 function renderRecord(item) {
   return `
     <article class="record-card ref-card">
@@ -29,7 +33,27 @@ function renderRecord(item) {
   `;
 }
 
+function installReferenceJumpHandler() {
+  if (typeof document === "undefined") return;
+  if (document.body?.dataset.refJumpHandlerInstalled === "1") return;
+  if (document.body) document.body.dataset.refJumpHandlerInstalled = "1";
+
+  document.addEventListener("click", (event) => {
+    const button = event.target?.closest?.("[data-ref-jump]");
+    if (!button) return;
+    const targetId = button.dataset.refJump || "";
+    if (!targetId) return;
+    const target = document.getElementById(targetId);
+    if (!target) return;
+    event.preventDefault();
+    target.scrollIntoView({ behavior: "smooth", block: "start" });
+    history.replaceState(null, "", "#/references");
+  });
+}
+
 export function renderReferencesPage(records, search = "") {
+  installReferenceJumpHandler();
+
   const q = norm(search);
   const filtered = (records || []).filter(item => {
     if (!q) return true;
@@ -61,7 +85,7 @@ export function renderReferencesPage(records, search = "") {
     }).join("");
 
     const subsectionButtons = SUBSECTION_ORDER.filter(subsection => sectionItems.some(item => item.subsection === subsection))
-      .map(subsection => `<a class="chip-button" href="#${sectionId}-${slugify(subsection)}">${esc(subsection)}</a>`)
+      .map(subsection => renderJumpButton("chip-button", `${sectionId}-${slugify(subsection)}`, subsection))
       .join("");
 
     return `
@@ -76,7 +100,7 @@ export function renderReferencesPage(records, search = "") {
   }).join("");
 
   const topButtons = SECTION_ORDER.filter(section => filtered.some(item => item.section === section))
-    .map(section => `<a class="section-jump-button" href="#ref-${slugify(section)}">${esc(section)}</a>`)
+    .map(section => renderJumpButton("section-jump-button", `ref-${slugify(section)}`, section))
     .join("");
 
   return `
