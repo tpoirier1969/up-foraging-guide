@@ -3,7 +3,7 @@
     "project": "Upper Michigan Foraging Guide",
     "build": "v4.2.51-r2026-04-27-mushroom-photo-patch2-cache-sync",
     "purpose": "Intentional mushroom photo data patch loaded after mushrooms.json when the full mushroom source file cannot be safely rewritten in this session.",
-    "record_count": 79,
+    "record_count": 55,
     "records_updated": [
       "leccinum-scabrum",
       "leccinum-versipelle",
@@ -31,64 +31,40 @@
       "tinder-conk-hoof-fungus",
       "aureoboletus-projectellus",
       "artist-s-conk",
-      "leccinum-insigne",
       "variable-stalk-bolete",
       "boletus-separans",
       "chicken-of-the-woods",
       "hen-of-the-woods",
-      "oyster-mushroom",
+      "pearl-oyster",
       "lion-s-mane",
       "turkey-tail",
-      "dryad-s-saddle",
-      "pheasant-back",
+      "dryad-s-saddle-pheasant-back",
       "giant-puffball",
       "shaggy-mane",
       "black-trumpet",
-      "chanterelle",
-      "hedgehog-mushroom",
+      "hedgehog-mushrooms",
       "velvet-foot",
-      "honey-mushroom",
+      "honey-mushrooms",
       "meadow-mushroom",
-      "false-morel",
+      "false-morel-gyromitra-group",
       "jack-o-lantern",
-      "fly-agaric",
-      "galerina",
-      "death-cap",
-      "green-spored-lepiota",
-      "lepiota-cristata",
-      "amanita-muscaria",
-      "deadly-galerina",
       "curry-bolete",
-      "morel",
-      "black-morel",
-      "yellow-morel",
-      "half-free-morel",
-      "verpa-bohemica",
+      "black-morels",
+      "yellow-morels",
+      "half-free-morels",
       "slippery-jack",
       "suillus-luteus",
-      "short-stalked-bolete",
       "suillus-brevipes",
-      "white-suillus",
+      "suillus-placidus",
       "lobster-mushroom",
-      "saffron-milk-cap",
-      "indigo-milk-cap",
-      "woolly-milkcap",
-      "shrimp-of-the-woods",
-      "crown-tipped-coral",
+      "shrimp-of-the-woods-aborted-entoloma",
       "cauliflower-mushroom",
-      "wood-ear",
-      "witch-s-butter",
-      "amber-jelly-roll",
-      "destroying-angel",
-      "eastern-destroying-angel",
-      "panther-cap",
-      "pigskin-poison-puffball",
-      "false-chanterelle"
+      "destroying-angel"
     ],
     "notes": "Uses structured Wikimedia Commons image entries so the existing image resolver can provide thumbnail/detail/full image behavior and source links. This file is intentionally appended/expanded instead of replaced with a new patch file.",
     "note": "Intentional mushroom photo patch layer loaded through SPECIES_PATHS because mushrooms.json could not be safely rewritten in-session.",
     "supersedes": "v4.2.50-r2026-04-27-mushroom-photo-patch1",
-    "last_updated_build": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
+    "last_updated_build": "v4.2.63-r2026-04-28-photo-patch-diagnostic-cleanup1",
     "appended_in_last_batch": [
       "morel",
       "black-morel",
@@ -116,8 +92,8 @@
       "pigskin-poison-puffball",
       "false-chanterelle"
     ],
-    "last_batch_note": "Second batch-pack: 5 mini-batches of 5 candidate photo records. Loader applies photo patches only to existing base species so unmatched slug candidates are ignored.",
-    "append_policy": "Continue appending to this patch file unless mushrooms.json can be safely rewritten directly.",
+    "last_batch_note": "Diagnostic cleanup after comparing photo patch slugs to uploaded mushrooms.json. Safe aliases were remapped/merged; unmatched candidates were removed from the active patch layer rather than being counted as applied work.",
+    "append_policy": "Append future photo batches only after checking candidate slugs against mushrooms.json or a current slug manifest.",
     "replaced_in_last_batch": [],
     "batch_group_count": 5,
     "records_per_batch_target": 5,
@@ -172,7 +148,153 @@
           "false-chanterelle"
         ]
       }
-    ]
+    ],
+    "uploaded_mushrooms_audit": {
+      "uploaded_build": "v4.2.37-r2026-04-26-bolete-forager-filters1",
+      "uploaded_record_count": 209,
+      "patch_records_before_cleanup": 79,
+      "exact_slug_matches_before_cleanup": 45,
+      "unmatched_patch_slugs_before_cleanup": 34,
+      "patch_records_after_cleanup": 55,
+      "unmatched_patch_slugs_after_cleanup": 0,
+      "safe_alias_remaps_applied": [
+        {
+          "from": "oyster-mushroom",
+          "to": "pearl-oyster"
+        },
+        {
+          "from": "dryad-s-saddle",
+          "to": "dryad-s-saddle-pheasant-back"
+        },
+        {
+          "from": "pheasant-back",
+          "to": "dryad-s-saddle-pheasant-back"
+        },
+        {
+          "from": "hedgehog-mushroom",
+          "to": "hedgehog-mushrooms"
+        },
+        {
+          "from": "honey-mushroom",
+          "to": "honey-mushrooms"
+        },
+        {
+          "from": "false-morel",
+          "to": "false-morel-gyromitra-group"
+        },
+        {
+          "from": "black-morel",
+          "to": "black-morels"
+        },
+        {
+          "from": "yellow-morel",
+          "to": "yellow-morels"
+        },
+        {
+          "from": "half-free-morel",
+          "to": "half-free-morels"
+        },
+        {
+          "from": "short-stalked-bolete",
+          "to": "suillus-brevipes"
+        },
+        {
+          "from": "white-suillus",
+          "to": "suillus-placidus"
+        },
+        {
+          "from": "shrimp-of-the-woods",
+          "to": "shrimp-of-the-woods-aborted-entoloma"
+        },
+        {
+          "from": "eastern-destroying-angel",
+          "to": "destroying-angel"
+        }
+      ],
+      "duplicate_alias_records_merged": [
+        {
+          "from": "pheasant-back",
+          "to": "dryad-s-saddle-pheasant-back"
+        },
+        {
+          "from": "suillus-brevipes",
+          "to": "suillus-brevipes"
+        },
+        {
+          "from": "eastern-destroying-angel",
+          "to": "destroying-angel"
+        }
+      ],
+      "removed_unmatched_candidate_slugs": [
+        "leccinum-insigne",
+        "chanterelle",
+        "fly-agaric",
+        "galerina",
+        "death-cap",
+        "green-spored-lepiota",
+        "lepiota-cristata",
+        "amanita-muscaria",
+        "deadly-galerina",
+        "morel",
+        "verpa-bohemica",
+        "saffron-milk-cap",
+        "indigo-milk-cap",
+        "woolly-milkcap",
+        "crown-tipped-coral",
+        "wood-ear",
+        "witch-s-butter",
+        "amber-jelly-roll",
+        "panther-cap",
+        "pigskin-poison-puffball",
+        "false-chanterelle"
+      ],
+      "missing_candidate_review_queue": [
+        {
+          "slug": "leccinum-insigne",
+          "reason": "Likely relevant scaber-stalk bolete; not present as a base slug in uploaded mushrooms.json."
+        },
+        {
+          "slug": "death-cap",
+          "reason": "Major poisonous caution species, but regional/app scope needs verification before adding as a base record."
+        },
+        {
+          "slug": "deadly-galerina",
+          "reason": "Important poisonous look-alike for velvet foot and other small brown mushrooms; should probably become a real caution record."
+        },
+        {
+          "slug": "galerina",
+          "reason": "Generic Galerina candidate; needs one precise app slug/species record rather than duplicate generic aliases."
+        },
+        {
+          "slug": "false-chanterelle",
+          "reason": "Useful chanterelle look-alike/caution record if not already represented elsewhere."
+        },
+        {
+          "slug": "green-spored-lepiota",
+          "reason": "Common poisonous lawn mushroom; app criteria fit as a caution species if regionally scoped."
+        },
+        {
+          "slug": "verpa-bohemica",
+          "reason": "Spring morel-adjacent caution species; useful if morel section includes early morel relatives."
+        },
+        {
+          "slug": "saffron-milk-cap",
+          "reason": "Potential edible/useful Lactarius entry; not present in uploaded base file."
+        },
+        {
+          "slug": "indigo-milk-cap",
+          "reason": "Potential edible/useful Lactarius entry; not present in uploaded base file."
+        },
+        {
+          "slug": "wood-ear",
+          "reason": "Useful edible/medicinal/other-use mushroom, but not present in uploaded base file."
+        },
+        {
+          "slug": "witch-s-butter",
+          "reason": "Common jelly fungus; probably lower-priority unless odd-form coverage is being expanded."
+        }
+      ]
+    }
   },
   "records": [
     {
@@ -1342,59 +1464,6 @@
       "photo_patch_batch": "v4.2.60-r2026-04-28-mushroom-photo-patch6"
     },
     {
-      "slug": "leccinum-insigne",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Aspen%20scaber-stalk%20Leccinum%20insigne%20-%20Flickr%20-%20gailhampshire.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Aspen%20scaber-stalk%20Leccinum%20insigne%20-%20Flickr%20-%20gailhampshire.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Aspen%20scaber-stalk%20Leccinum%20insigne%20-%20Flickr%20-%20gailhampshire.jpg",
-          "source": "commons-photo-patch",
-          "title": "Aspen scaber-stalk field view",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Aspen_scaber-stalk_Leccinum_insigne_-_Flickr_-_gailhampshire.jpg"
-        },
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Aspen%20Scaberstalk%20%28230424555%29.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Aspen%20Scaberstalk%20%28230424555%29.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Aspen%20Scaberstalk%20%28230424555%29.jpg",
-          "source": "commons-photo-patch",
-          "title": "Aspen scaberstalk supporting specimen",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Aspen_Scaberstalk_%28230424555%29.jpg"
-        },
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20insigne%2098865.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20insigne%2098865.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20insigne%2098865.jpg",
-          "source": "commons-photo-patch",
-          "title": "Leccinum insigne field specimen",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Leccinum_insigne_98865.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Aspen%20scaber-stalk%20Leccinum%20insigne%20-%20Flickr%20-%20gailhampshire.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Aspen%20Scaberstalk%20%28230424555%29.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20insigne%2098865.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Aspen%20scaber-stalk%20Leccinum%20insigne%20-%20Flickr%20-%20gailhampshire.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Aspen%20scaber-stalk%20Leccinum%20insigne%20-%20Flickr%20-%20gailhampshire.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Aspen%20Scaberstalk%20%28230424555%29.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20insigne%2098865.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Aspen%20scaber-stalk%20Leccinum%20insigne%20-%20Flickr%20-%20gailhampshire.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Aspen%20Scaberstalk%20%28230424555%29.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20insigne%2098865.jpg"
-      ],
-      "image_review_status": "field_photo_patch",
-      "image_review_reasons": [
-        "Commons-backed field photo patch appended in v4.2.60-r2026-04-28-mushroom-photo-patch6."
-      ],
-      "photo_patch_batch": "v4.2.60-r2026-04-28-mushroom-photo-patch6"
-    },
-    {
       "slug": "variable-stalk-bolete",
       "images_structured": [
         {
@@ -1549,7 +1618,7 @@
       "photo_patch_group": "Batch A — common shelf/wood edibles"
     },
     {
-      "slug": "oyster-mushroom",
+      "slug": "pearl-oyster",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus.jpg?width=480",
@@ -1576,7 +1645,8 @@
         "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch A — common shelf/wood edibles)."
       ],
       "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch A — common shelf/wood edibles"
+      "photo_patch_group": "Batch A — common shelf/wood edibles",
+      "photo_patch_alias_source_slug": "oyster-mushroom"
     },
     {
       "slug": "lion-s-mane",
@@ -1639,7 +1709,7 @@
       "photo_patch_group": "Batch A — common shelf/wood edibles"
     },
     {
-      "slug": "dryad-s-saddle",
+      "slug": "dryad-s-saddle-pheasant-back",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg?width=480",
@@ -1666,37 +1736,8 @@
         "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch B — common edible forms)."
       ],
       "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch B — common edible forms"
-    },
-    {
-      "slug": "pheasant-back",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg",
-          "source": "commons-photo-patch",
-          "title": "Pheasant back / dryad's saddle shelf",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Cerioporus_squamosus.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch B — common edible forms)."
-      ],
-      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch B — common edible forms"
+      "photo_patch_group": "Batch B — common edible forms",
+      "photo_patch_alias_source_slug": "dryad-s-saddle"
     },
     {
       "slug": "giant-puffball",
@@ -1789,37 +1830,7 @@
       "photo_patch_group": "Batch B — common edible forms"
     },
     {
-      "slug": "chanterelle",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20cibarius.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20cibarius.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20cibarius.jpg",
-          "source": "commons-photo-patch",
-          "title": "Chanterelle field/food view",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Cantharellus_cibarius.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20cibarius.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20cibarius.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20cibarius.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20cibarius.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch C — gilled/ridged edibles and caution-adjacent species)."
-      ],
-      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch C — gilled/ridged edibles and caution-adjacent species"
-    },
-    {
-      "slug": "hedgehog-mushroom",
+      "slug": "hedgehog-mushrooms",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Hydnum%20repandum.jpg?width=480",
@@ -1846,7 +1857,8 @@
         "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch C — gilled/ridged edibles and caution-adjacent species)."
       ],
       "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch C — gilled/ridged edibles and caution-adjacent species"
+      "photo_patch_group": "Batch C — gilled/ridged edibles and caution-adjacent species",
+      "photo_patch_alias_source_slug": "hedgehog-mushroom"
     },
     {
       "slug": "velvet-foot",
@@ -1879,7 +1891,7 @@
       "photo_patch_group": "Batch C — gilled/ridged edibles and caution-adjacent species"
     },
     {
-      "slug": "honey-mushroom",
+      "slug": "honey-mushrooms",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20mellea.JPG?width=480",
@@ -1906,7 +1918,8 @@
         "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch C — gilled/ridged edibles and caution-adjacent species)."
       ],
       "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch C — gilled/ridged edibles and caution-adjacent species"
+      "photo_patch_group": "Batch C — gilled/ridged edibles and caution-adjacent species",
+      "photo_patch_alias_source_slug": "honey-mushroom"
     },
     {
       "slug": "meadow-mushroom",
@@ -1939,7 +1952,7 @@
       "photo_patch_group": "Batch C — gilled/ridged edibles and caution-adjacent species"
     },
     {
-      "slug": "false-morel",
+      "slug": "false-morel-gyromitra-group",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Gyromitra%20esculenta.jpg?width=480",
@@ -1966,7 +1979,8 @@
         "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch D — poisonous/look-alike support records)."
       ],
       "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch D — poisonous/look-alike support records"
+      "photo_patch_group": "Batch D — poisonous/look-alike support records",
+      "photo_patch_alias_source_slug": "false-morel"
     },
     {
       "slug": "jack-o-lantern",
@@ -1997,216 +2011,6 @@
       ],
       "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
       "photo_patch_group": "Batch D — poisonous/look-alike support records"
-    },
-    {
-      "slug": "fly-agaric",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria.jpg",
-          "source": "commons-photo-patch",
-          "title": "Fly agaric field view",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Amanita_muscaria.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch D — poisonous/look-alike support records)."
-      ],
-      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch D — poisonous/look-alike support records"
-    },
-    {
-      "slug": "galerina",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Galerina%20marginata%20%286427147267%29.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Galerina%20marginata%20%286427147267%29.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Galerina%20marginata%20%286427147267%29.jpg",
-          "source": "commons-photo-patch",
-          "title": "Deadly galerina field view",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Galerina_marginata_%286427147267%29.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Galerina%20marginata%20%286427147267%29.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Galerina%20marginata%20%286427147267%29.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Galerina%20marginata%20%286427147267%29.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Galerina%20marginata%20%286427147267%29.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch D — poisonous/look-alike support records)."
-      ],
-      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch D — poisonous/look-alike support records"
-    },
-    {
-      "slug": "death-cap",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20phalloides.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20phalloides.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20phalloides.jpg",
-          "source": "commons-photo-patch",
-          "title": "Death cap field view",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Amanita_phalloides.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20phalloides.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20phalloides.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20phalloides.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20phalloides.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch D — poisonous/look-alike support records)."
-      ],
-      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch D — poisonous/look-alike support records"
-    },
-    {
-      "slug": "green-spored-lepiota",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Chlorophyllum%20molybdites.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Chlorophyllum%20molybdites.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Chlorophyllum%20molybdites.jpg",
-          "source": "commons-photo-patch",
-          "title": "Green-spored lepiota field view",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Chlorophyllum_molybdites.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Chlorophyllum%20molybdites.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Chlorophyllum%20molybdites.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Chlorophyllum%20molybdites.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Chlorophyllum%20molybdites.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch E — common caution/other likely app aliases)."
-      ],
-      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch E — common caution/other likely app aliases"
-    },
-    {
-      "slug": "lepiota-cristata",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepiota%20cristata.JPG?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepiota%20cristata.JPG?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepiota%20cristata.JPG",
-          "source": "commons-photo-patch",
-          "title": "Stinking dapperling / Lepiota cristata",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Lepiota_cristata.JPG"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepiota%20cristata.JPG"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepiota%20cristata.JPG?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepiota%20cristata.JPG?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepiota%20cristata.JPG"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch E — common caution/other likely app aliases)."
-      ],
-      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch E — common caution/other likely app aliases"
-    },
-    {
-      "slug": "amanita-muscaria",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita-muscaria.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita-muscaria.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita-muscaria.jpg",
-          "source": "commons-photo-patch",
-          "title": "Amanita muscaria supporting field view",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Amanita-muscaria.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita-muscaria.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita-muscaria.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita-muscaria.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita-muscaria.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch E — common caution/other likely app aliases)."
-      ],
-      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch E — common caution/other likely app aliases"
-    },
-    {
-      "slug": "deadly-galerina",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Galerina%20marginata%20%2823766255521%29.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Galerina%20marginata%20%2823766255521%29.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Galerina%20marginata%20%2823766255521%29.jpg",
-          "source": "commons-photo-patch",
-          "title": "Deadly galerina supporting image",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Galerina_marginata_%2823766255521%29.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Galerina%20marginata%20%2823766255521%29.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Galerina%20marginata%20%2823766255521%29.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Galerina%20marginata%20%2823766255521%29.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Galerina%20marginata%20%2823766255521%29.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch E — common caution/other likely app aliases)."
-      ],
-      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch E — common caution/other likely app aliases"
     },
     {
       "slug": "curry-bolete",
@@ -2251,37 +2055,7 @@
       "photo_patch_group": "Batch E — common caution/other likely app aliases"
     },
     {
-      "slug": "morel",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20esculenta%20080510wb.JPG?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20esculenta%20080510wb.JPG?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20esculenta%20080510wb.JPG",
-          "source": "commons-photo-patch",
-          "title": "Morel field view",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Morchella_esculenta_080510wb.JPG"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20esculenta%20080510wb.JPG"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20esculenta%20080510wb.JPG?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20esculenta%20080510wb.JPG?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20esculenta%20080510wb.JPG"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch A — morels and early morel relatives)."
-      ],
-      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch A — morels and early morel relatives"
-    },
-    {
-      "slug": "black-morel",
+      "slug": "black-morels",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2063116.jpg?width=480",
@@ -2308,10 +2082,11 @@
         "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch A — morels and early morel relatives)."
       ],
       "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch A — morels and early morel relatives"
+      "photo_patch_group": "Batch A — morels and early morel relatives",
+      "photo_patch_alias_source_slug": "black-morel"
     },
     {
-      "slug": "yellow-morel",
+      "slug": "yellow-morels",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20americana%2070966.jpg?width=480",
@@ -2338,10 +2113,11 @@
         "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch A — morels and early morel relatives)."
       ],
       "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch A — morels and early morel relatives"
+      "photo_patch_group": "Batch A — morels and early morel relatives",
+      "photo_patch_alias_source_slug": "yellow-morel"
     },
     {
-      "slug": "half-free-morel",
+      "slug": "half-free-morels",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20121362.jpg?width=480",
@@ -2368,37 +2144,8 @@
         "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch A — morels and early morel relatives)."
       ],
       "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch A — morels and early morel relatives"
-    },
-    {
-      "slug": "verpa-bohemica",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Verpa%20bohemica%2085377.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Verpa%20bohemica%2085377.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Verpa%20bohemica%2085377.jpg",
-          "source": "commons-photo-patch",
-          "title": "Early morel relative / Verpa bohemica",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Verpa_bohemica_85377.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Verpa%20bohemica%2085377.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Verpa%20bohemica%2085377.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Verpa%20bohemica%2085377.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Verpa%20bohemica%2085377.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch A — morels and early morel relatives)."
-      ],
-      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch A — morels and early morel relatives"
+      "photo_patch_group": "Batch A — morels and early morel relatives",
+      "photo_patch_alias_source_slug": "half-free-morel"
     },
     {
       "slug": "slippery-jack",
@@ -2461,7 +2208,7 @@
       "photo_patch_group": "Batch B — Suillus and slippery-cap allies"
     },
     {
-      "slug": "short-stalked-bolete",
+      "slug": "suillus-brevipes",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2054956.jpg?width=480",
@@ -2471,28 +2218,7 @@
           "title": "Short-stalked bolete field view",
           "part_or_stage": "field view",
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_brevipes_54956.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2054956.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2054956.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2054956.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2054956.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch B — Suillus and slippery-cap allies)."
-      ],
-      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch B — Suillus and slippery-cap allies"
-    },
-    {
-      "slug": "suillus-brevipes",
-      "images_structured": [
+        },
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2069047.jpg?width=480",
           "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2069047.jpg?width=900",
@@ -2504,13 +2230,16 @@
         }
       ],
       "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2054956.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2069047.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2069047.jpg?width=480",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2054956.jpg?width=480",
       "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2054956.jpg?width=900",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2069047.jpg?width=900"
       ],
       "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2054956.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2069047.jpg"
       ],
       "image_review_status": "field_photo_batchpack",
@@ -2518,10 +2247,11 @@
         "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch B — Suillus and slippery-cap allies)."
       ],
       "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch B — Suillus and slippery-cap allies"
+      "photo_patch_group": "Batch B — Suillus and slippery-cap allies",
+      "photo_patch_alias_source_slug": "short-stalked-bolete"
     },
     {
-      "slug": "white-suillus",
+      "slug": "suillus-placidus",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20placidus%20157923.jpg?width=480",
@@ -2548,7 +2278,8 @@
         "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch B — Suillus and slippery-cap allies)."
       ],
       "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch B — Suillus and slippery-cap allies"
+      "photo_patch_group": "Batch B — Suillus and slippery-cap allies",
+      "photo_patch_alias_source_slug": "white-suillus"
     },
     {
       "slug": "lobster-mushroom",
@@ -2581,97 +2312,7 @@
       "photo_patch_group": "Batch C — milkcaps, russula-adjacent edibles, and parasitized forms"
     },
     {
-      "slug": "saffron-milk-cap",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20deliciosus%2020061014w.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20deliciosus%2020061014w.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20deliciosus%2020061014w.jpg",
-          "source": "commons-photo-patch",
-          "title": "Saffron milk cap field view",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Lactarius_deliciosus_20061014w.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20deliciosus%2020061014w.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20deliciosus%2020061014w.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20deliciosus%2020061014w.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20deliciosus%2020061014w.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch C — milkcaps, russula-adjacent edibles, and parasitized forms)."
-      ],
-      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch C — milkcaps, russula-adjacent edibles, and parasitized forms"
-    },
-    {
-      "slug": "indigo-milk-cap",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20indigo%2048597.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20indigo%2048597.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20indigo%2048597.jpg",
-          "source": "commons-photo-patch",
-          "title": "Indigo milk cap field view",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Lactarius_indigo_48597.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20indigo%2048597.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20indigo%2048597.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20indigo%2048597.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20indigo%2048597.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch C — milkcaps, russula-adjacent edibles, and parasitized forms)."
-      ],
-      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch C — milkcaps, russula-adjacent edibles, and parasitized forms"
-    },
-    {
-      "slug": "woolly-milkcap",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20torminosus%20JPG1.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20torminosus%20JPG1.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20torminosus%20JPG1.jpg",
-          "source": "commons-photo-patch",
-          "title": "Woolly milkcap field view",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Lactarius_torminosus_JPG1.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20torminosus%20JPG1.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20torminosus%20JPG1.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20torminosus%20JPG1.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lactarius%20torminosus%20JPG1.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch C — milkcaps, russula-adjacent edibles, and parasitized forms)."
-      ],
-      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch C — milkcaps, russula-adjacent edibles, and parasitized forms"
-    },
-    {
-      "slug": "shrimp-of-the-woods",
+      "slug": "shrimp-of-the-woods-aborted-entoloma",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Entoloma%20abortivum%20117422.jpg?width=480",
@@ -2698,37 +2339,8 @@
         "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch C — milkcaps, russula-adjacent edibles, and parasitized forms)."
       ],
       "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch C — milkcaps, russula-adjacent edibles, and parasitized forms"
-    },
-    {
-      "slug": "crown-tipped-coral",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Artomyces%20pyxidatus%2077657.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Artomyces%20pyxidatus%2077657.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Artomyces%20pyxidatus%2077657.jpg",
-          "source": "commons-photo-patch",
-          "title": "Crown-tipped coral fungus",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Artomyces_pyxidatus_77657.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Artomyces%20pyxidatus%2077657.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Artomyces%20pyxidatus%2077657.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Artomyces%20pyxidatus%2077657.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Artomyces%20pyxidatus%2077657.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch D — coral, jelly, and odd-form mushrooms)."
-      ],
-      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch D — coral, jelly, and odd-form mushrooms"
+      "photo_patch_group": "Batch C — milkcaps, russula-adjacent edibles, and parasitized forms",
+      "photo_patch_alias_source_slug": "shrimp-of-the-woods"
     },
     {
       "slug": "cauliflower-mushroom",
@@ -2761,96 +2373,6 @@
       "photo_patch_group": "Batch D — coral, jelly, and odd-form mushrooms"
     },
     {
-      "slug": "wood-ear",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Auricularia%20auricula-judae%202009%20G1.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Auricularia%20auricula-judae%202009%20G1.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Auricularia%20auricula-judae%202009%20G1.jpg",
-          "source": "commons-photo-patch",
-          "title": "Wood ear fungus on wood",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Auricularia_auricula-judae_2009_G1.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Auricularia%20auricula-judae%202009%20G1.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Auricularia%20auricula-judae%202009%20G1.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Auricularia%20auricula-judae%202009%20G1.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Auricularia%20auricula-judae%202009%20G1.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch D — coral, jelly, and odd-form mushrooms)."
-      ],
-      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch D — coral, jelly, and odd-form mushrooms"
-    },
-    {
-      "slug": "witch-s-butter",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Tremella%20mesenterica%201.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tremella%20mesenterica%201.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Tremella%20mesenterica%201.jpg",
-          "source": "commons-photo-patch",
-          "title": "Witch's butter jelly fungus",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Tremella_mesenterica_1.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Tremella%20mesenterica%201.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tremella%20mesenterica%201.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Tremella%20mesenterica%201.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Tremella%20mesenterica%201.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch D — coral, jelly, and odd-form mushrooms)."
-      ],
-      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch D — coral, jelly, and odd-form mushrooms"
-    },
-    {
-      "slug": "amber-jelly-roll",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Exidia%20recisa%2083554.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Exidia%20recisa%2083554.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Exidia%20recisa%2083554.jpg",
-          "source": "commons-photo-patch",
-          "title": "Amber jelly roll fungus",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Exidia_recisa_83554.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Exidia%20recisa%2083554.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Exidia%20recisa%2083554.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Exidia%20recisa%2083554.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Exidia%20recisa%2083554.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch D — coral, jelly, and odd-form mushrooms)."
-      ],
-      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch D — coral, jelly, and odd-form mushrooms"
-    },
-    {
       "slug": "destroying-angel",
       "images_structured": [
         {
@@ -2861,28 +2383,7 @@
           "title": "Destroying angel field view",
           "part_or_stage": "field view",
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Amanita_bisporigera_17955.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2017955.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2017955.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2017955.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2017955.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch E — poisonous and caution look-alike support)."
-      ],
-      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch E — poisonous and caution look-alike support"
-    },
-    {
-      "slug": "eastern-destroying-angel",
-      "images_structured": [
+        },
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%20104269.jpg?width=480",
           "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%20104269.jpg?width=900",
@@ -2894,104 +2395,17 @@
         }
       ],
       "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2017955.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%20104269.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%20104269.jpg?width=480",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2017955.jpg?width=480",
       "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2017955.jpg?width=900",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%20104269.jpg?width=900"
       ],
       "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2017955.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%20104269.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch E — poisonous and caution look-alike support)."
-      ],
-      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch E — poisonous and caution look-alike support"
-    },
-    {
-      "slug": "panther-cap",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20pantherina%20100415.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20pantherina%20100415.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20pantherina%20100415.jpg",
-          "source": "commons-photo-patch",
-          "title": "Panther cap field view",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Amanita_pantherina_100415.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20pantherina%20100415.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20pantherina%20100415.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20pantherina%20100415.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20pantherina%20100415.jpg"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch E — poisonous and caution look-alike support)."
-      ],
-      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch E — poisonous and caution look-alike support"
-    },
-    {
-      "slug": "pigskin-poison-puffball",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Scleroderma%20citrinum%20110920wc.JPG?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Scleroderma%20citrinum%20110920wc.JPG?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Scleroderma%20citrinum%20110920wc.JPG",
-          "source": "commons-photo-patch",
-          "title": "Pigskin poison puffball / earthball",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Scleroderma_citrinum_110920wc.JPG"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Scleroderma%20citrinum%20110920wc.JPG"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Scleroderma%20citrinum%20110920wc.JPG?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Scleroderma%20citrinum%20110920wc.JPG?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Scleroderma%20citrinum%20110920wc.JPG"
-      ],
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch E — poisonous and caution look-alike support)."
-      ],
-      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch E — poisonous and caution look-alike support"
-    },
-    {
-      "slug": "false-chanterelle",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Hygrophoropsis%20aurantiaca%20LC0320.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hygrophoropsis%20aurantiaca%20LC0320.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Hygrophoropsis%20aurantiaca%20LC0320.jpg",
-          "source": "commons-photo-patch",
-          "title": "False chanterelle field view",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Hygrophoropsis_aurantiaca_LC0320.jpg"
-        }
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Hygrophoropsis%20aurantiaca%20LC0320.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hygrophoropsis%20aurantiaca%20LC0320.jpg?width=480",
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Hygrophoropsis%20aurantiaca%20LC0320.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Hygrophoropsis%20aurantiaca%20LC0320.jpg"
       ],
       "image_review_status": "field_photo_batchpack",
       "image_review_reasons": [
