@@ -1,6 +1,6 @@
 import { fetchJsonFromRepo } from "../lib/fetch-json.js";
-import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.69-r2026-04-28-needs-review-reasons1";
-import { SPECIES_PATHS, PHOTO_PATCH_PATHS, OPTIONAL_PATHS } from "./sources.js?v=v4.2.69-r2026-04-28-needs-review-reasons1";
+import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.70-r2026-04-29-slippery-jack-merge1";
+import { SPECIES_PATHS, PHOTO_PATCH_PATHS, OPTIONAL_PATHS } from "./sources.js?v=v4.2.70-r2026-04-29-slippery-jack-merge1";
 
 let rareCachePromise = null;
 let referencesCachePromise = null;
@@ -28,25 +28,50 @@ async function fetchOptionalPatchPaths(paths = [], log) {
   return payloads;
 }
 
+function aliasValuesForRecord(record = {}) {
+  return [
+    ...(Array.isArray(record.former_slugs) ? record.former_slugs : []),
+    ...(Array.isArray(record.aliases) ? record.aliases : []),
+    ...(Array.isArray(record.common_names) ? record.common_names : [])
+  ]
+    .map((value) => String(value || "").trim())
+    .filter((value) => value && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value));
+}
+
 function applyRecordPatches(baseRecords = [], patchPayloads = [], log) {
   const bySlug = new Map(baseRecords.map((record) => [record?.slug, record]).filter(([slug]) => slug));
+  const aliasToSlug = new Map();
+
+  for (const record of baseRecords || []) {
+    if (!record?.slug) continue;
+    for (const alias of aliasValuesForRecord(record)) {
+      if (!bySlug.has(alias) && !aliasToSlug.has(alias)) {
+        aliasToSlug.set(alias, record.slug);
+      }
+    }
+  }
+
   let applied = 0;
+  let remapped = 0;
   let ignored = 0;
 
   for (const payload of patchPayloads || []) {
     for (const patch of asRecords(payload)) {
       const slug = patch?.slug;
-      if (!slug || !bySlug.has(slug)) {
+      const targetSlug = bySlug.has(slug) ? slug : aliasToSlug.get(slug);
+      if (!slug || !targetSlug || !bySlug.has(targetSlug)) {
         ignored += 1;
         continue;
       }
-      bySlug.set(slug, { ...bySlug.get(slug), ...patch, slug });
+      const normalizedPatch = targetSlug === slug ? patch : { ...patch, former_patch_slug: slug };
+      bySlug.set(targetSlug, { ...bySlug.get(targetSlug), ...normalizedPatch, slug: targetSlug });
       applied += 1;
+      if (targetSlug !== slug) remapped += 1;
     }
   }
 
   if (patchPayloads?.length) {
-    log?.(`Applied ${applied} photo patch records; ignored ${ignored} unmatched photo patch records`);
+    log?.(`Applied ${applied} photo patch records; remapped ${remapped} alias patch records; ignored ${ignored} unmatched photo patch records`);
   }
 
   return baseRecords.map((record) => bySlug.get(record.slug) || record);
