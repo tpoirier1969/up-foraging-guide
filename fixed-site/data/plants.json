@@ -1,10 +1,10 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.6-r2026-04-19-plants-image-batch2-copyback-merged",
+    "build": "v4.2.75-r2026-04-29-plant-data-lanes1",
     "primary_type": "plant",
     "record_count": 94,
-    "notes": "Master plant file with structured image roles. First batch had 13 image-ready species from existing hardwired entries; this batch adds sourced and curated image sets for 3 more species (American beech, ramps, basswood). Copyback content merged directly into plants.json from batch10 for 74 matching species on 2026-04-21."
+    "notes": "Master plant file with structured image roles. First batch had 13 image-ready species from existing hardwired entries; this batch adds sourced and curated image sets for 3 more species (American beech, ramps, basswood). Copyback content merged directly into plants.json from batch10 for 74 matching species on 2026-04-21. Plant data normalization pass on 2026-04-29 added explicit usable_parts, plant_lanes, plant_lane_note, plant_card_note, and plant_data_flags fields for all records."
   },
   "records": [
     {
@@ -108,6 +108,20 @@
       ],
       "use_tags": [
         "E"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Seed / nut / cone"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "nuts-seeds",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Nuts / Seeds, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: leaf / green, seed / nut / cone. Edible nuts, though years of heavy production can vary a lot.",
+      "plant_data_flags": [
+        "needs_source_links"
       ]
     },
     {
@@ -165,7 +179,20 @@
         "Sweet",
         "Astringent"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: fruit / berry. Unripe fruit is intensely astringent.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "angelica",
@@ -232,7 +259,23 @@
         "White",
         "Greenish"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Root / tuber / bulb"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "roots-tubers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Roots / Tubers.",
+      "plant_card_note": "Useful parts: leaf / green, flower, root / tuber / bulb. This is a knowledge plant, not a beginner nibble.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "barberries",
@@ -287,7 +330,25 @@
       "taste": [
         "Tart"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Fruit / berry",
+        "Root / tuber / bulb",
+        "Bark / cambium"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "berries-fruits",
+        "roots-tubers",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Berries / Fruits, Roots / Tubers, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: leaf / green, fruit / berry, root / tuber / bulb, bark / cambium. Edible berries, usually best processed.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "basswood",
@@ -400,7 +461,22 @@
       "leafShape": [
         "Heart-shaped"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Flower"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, flower. Best as young leaves and blossoms; older leaves become less tender.",
+      "plant_data_flags": [
+        "needs_source_links"
+      ]
     },
     {
       "slug": "bearberries",
@@ -465,6 +541,22 @@
         "E",
         "T",
         "M"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "berries-fruits",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Berries / Fruits, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, fruit / berry. Edible, but the fruit is mealy and usually not considered a prime fresh-eating berry.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
       ]
     },
     {
@@ -524,7 +616,22 @@
         "Aromatic",
         "Minty / cool"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Flower"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, flower. Leaves can be used fresh or dried for tea and aromatic seasoning.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "birch",
@@ -585,7 +692,25 @@
         "Mild",
         "Sweet"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Seed / nut / cone",
+        "Sap",
+        "Bark / cambium"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "nuts-seeds",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Nuts / Seeds, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, seed / nut / cone, sap, bark / cambium. Sap is the main beginner-friendly use.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "black-cherry",
@@ -650,7 +775,24 @@
       "flowerColor": [
         "White"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Flower",
+        "Fruit / berry",
+        "Sap",
+        "Bark / cambium"
+      ],
+      "plant_lanes": [
+        "flowers",
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Flowers, Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: flower, fruit / berry, sap, bark / cambium. Ripe fruit is edible; pits and wilted foliage are not food.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "black-currants",
@@ -708,7 +850,23 @@
         "Rich / fruity",
         "Tart"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Fruit / berry",
+        "Sap"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: leaf / green, fruit / berry, sap. Edible ripe berries with a strong currant flavor.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "black-raspberries",
@@ -767,7 +925,21 @@
         "Sweet",
         "Rich / fruity"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Fruit / berry",
+        "Sap"
+      ],
+      "plant_lanes": [
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: fruit / berry, sap. Edible ripe fruit. Best fully dark and easily removed from the receptacle.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "blueberries",
@@ -827,7 +999,21 @@
         "Sweet",
         "Mild"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Fruit / berry",
+        "Sap"
+      ],
+      "plant_lanes": [
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: fruit / berry, sap. Edible ripe berries; flavor and size vary by species and site.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "bunchberry",
@@ -945,7 +1131,22 @@
       "flowerColor": [
         "White"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "berries-fruits"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Berries / Fruits.",
+      "plant_card_note": "Useful parts: leaf / green, flower, fruit / berry. Edible, but mild. Best understood as a small northern woodland fruit rather than a major calorie species.",
+      "plant_data_flags": [
+        "needs_source_links"
+      ]
     },
     {
       "slug": "burdock",
@@ -1011,6 +1212,22 @@
       "taste": [
         "Earthy",
         "Mild"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Root / tuber / bulb"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "roots-tubers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Roots / Tubers.",
+      "plant_card_note": "Useful parts: leaf / green, flower, root / tuber / bulb. Best in the first year before flowering.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
       ]
     },
     {
@@ -1136,7 +1353,22 @@
         "Mild",
         "Green / vegetal"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Root / tuber / bulb"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "roots-tubers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Roots / Tubers.",
+      "plant_card_note": "Useful parts: leaf / green, flower, root / tuber / bulb. Many edible parts, but harvest timing matters and clean water matters even more.",
+      "plant_data_flags": [
+        "needs_source_links"
+      ]
     },
     {
       "slug": "chickweed",
@@ -1207,6 +1439,20 @@
       ],
       "use_tags": [
         "E"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Flower"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers.",
+      "plant_card_note": "Useful parts: leaf / green, flower. Edible and best fresh when tender.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
       ]
     },
     {
@@ -1334,7 +1580,22 @@
       "flowerColor": [
         "Blue"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Root / tuber / bulb"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "roots-tubers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Roots / Tubers.",
+      "plant_card_note": "Useful parts: leaf / green, flower, root / tuber / bulb. Root and young leaves are the main uses.",
+      "plant_data_flags": [
+        "needs_source_links"
+      ]
     },
     {
       "slug": "chokeberry-aronia",
@@ -1396,7 +1657,25 @@
       "flowerColor": [
         "White"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Fruit / berry",
+        "Sap"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: leaf / green, flower, fruit / berry, sap. Edible, but usually better processed than eaten plain.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "chokecherries",
@@ -1462,7 +1741,24 @@
       "flowerColor": [
         "White"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Flower",
+        "Fruit / berry",
+        "Sap",
+        "Bark / cambium"
+      ],
+      "plant_lanes": [
+        "flowers",
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Flowers, Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: flower, fruit / berry, sap, bark / cambium. Edible ripe fruit, but usually processed because of puckery astringency.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "clover",
@@ -1537,6 +1833,21 @@
       "use_tags": [
         "E",
         "M"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Flower"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, flower. Edible, though often more useful as tea or adjunct food than a main vegetable.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
       ]
     },
     {
@@ -1653,7 +1964,22 @@
         "Mild",
         "Green / vegetal"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Sap"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: leaf / green, flower, sap. Not edible raw. Traditional food use requires correct species identification and proper boiling/cooking.",
+      "plant_data_flags": [
+        "needs_source_links"
+      ]
     },
     {
       "slug": "cow-parsnip",
@@ -1765,7 +2091,22 @@
         "Aromatic",
         "Green / vegetal"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Sap"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: leaf / green, flower, sap. Use only very young peeled shoots with solid identification and caution around sap exposure.",
+      "plant_data_flags": [
+        "needs_source_links"
+      ]
     },
     {
       "slug": "dandelion",
@@ -1801,7 +2142,25 @@
       "list_thumbnail": "",
       "detail_images": [],
       "enlarge_images": [],
-      "image_audit_status": "pending"
+      "image_audit_status": "pending",
+      "usable_parts": [
+        "Leaf / green",
+        "Flower"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Tea / Infusions.",
+      "plant_card_note": "Leaves and flowers are the current food-side focus; the record still needs fuller root/tea/source detail.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage",
+        "needs_season_detail",
+        "needs_habitat_detail",
+        "needs_copyback_detail"
+      ]
     },
     {
       "slug": "daylily",
@@ -1871,6 +2230,22 @@
       "use_tags": [
         "E",
         "P"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Root / tuber / bulb"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "roots-tubers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Roots / Tubers.",
+      "plant_card_note": "Useful parts: leaf / green, flower, root / tuber / bulb. Edible with known culinary use, though some people do not tolerate it well.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
       ]
     },
     {
@@ -1929,7 +2304,21 @@
       "taste": [
         "Sweet"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Fruit / berry",
+        "Sap"
+      ],
+      "plant_lanes": [
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: fruit / berry, sap. Edible ripe fruit. This is best treated as a practical berry bucket near blackberry.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "eastern-hemlock",
@@ -1990,7 +2379,22 @@
         "Resinous / piney",
         "Aromatic"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Sap"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, sap. Tips and tea are the practical use.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "elder",
@@ -2063,7 +2467,26 @@
       "leafArrangement": [
         "Opposite"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Fruit / berry",
+        "Sap"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "berries-fruits",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Berries / Fruits, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, flower, fruit / berry, sap. Flowers are broadly used; berries should be fully ripe and usually cooked.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "evening-primrose",
@@ -2185,6 +2608,21 @@
       ],
       "flowerColor": [
         "Yellow"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Root / tuber / bulb"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "roots-tubers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Roots / Tubers.",
+      "plant_card_note": "Useful parts: leaf / green, flower, root / tuber / bulb. Edible with preparation; more of a broad-use species than a top-tier foraging food.",
+      "plant_data_flags": [
+        "needs_source_links"
       ]
     },
     {
@@ -2246,7 +2684,19 @@
         "Mild",
         "Green / vegetal"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green"
+      ],
+      "plant_lanes": [
+        "leaves-greens"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens.",
+      "plant_card_note": "Useful parts: leaf / green. Cook thoroughly before eating. Do not eat raw fiddleheads.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "fireweed",
@@ -2373,7 +2823,21 @@
       "leafArrangement": [
         "Alternate"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Flower"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, flower. Best when young. Older stems get tough quickly.",
+      "plant_data_flags": [
+        "needs_source_links"
+      ]
     },
     {
       "slug": "fox-grapes",
@@ -2431,7 +2895,22 @@
         "Rich / fruity",
         "Tart"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: leaf / green, fruit / berry. Edible ripe grapes; many people prefer them processed.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "garlic-mustard",
@@ -2501,6 +2980,23 @@
       "use_tags": [
         "E",
         "T"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Seed / nut / cone"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "nuts-seeds",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Nuts / Seeds, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, flower, seed / nut / cone. Edible and often worth using because it is invasive.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
       ]
     },
     {
@@ -2570,7 +3066,22 @@
       "flowerColor": [
         "Yellow"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Flower"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, flower. Mostly a tea and herb plant, not a calorie food.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "gooseberries",
@@ -2629,7 +3140,22 @@
         "Tart",
         "Sweet"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: leaf / green, fruit / berry. Edible berries, usually best ripe and often best processed.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "goosefoot-close-cousin-of-lamb-s-quarters",
@@ -2687,7 +3213,19 @@
         "Mild",
         "Green / vegetal"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green"
+      ],
+      "plant_lanes": [
+        "leaves-greens"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens.",
+      "plant_card_note": "Useful parts: leaf / green. Treat like the lamb’s quarters lane: young greens are the main use.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "ground-cherries",
@@ -2746,7 +3284,21 @@
         "Sweet",
         "Tart"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "berries-fruits"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Berries / Fruits.",
+      "plant_card_note": "Useful parts: leaf / green, fruit / berry. Eat only fully ripe fruit; green fruit and many other plant parts are not the same story.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "groundnut",
@@ -2815,6 +3367,23 @@
       ],
       "use_tags": [
         "E"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Root / tuber / bulb"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "roots-tubers",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Roots / Tubers, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: leaf / green, flower, root / tuber / bulb. Edible tubers with real food value, though harvest takes patience.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
       ]
     },
     {
@@ -2851,7 +3420,24 @@
       "list_thumbnail": "",
       "detail_images": [],
       "enlarge_images": [],
-      "image_audit_status": "pending"
+      "image_audit_status": "pending",
+      "usable_parts": [
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "berries-fruits",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Fruits are the food-side focus; this record still needs stronger season, habitat, image, and source detail.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage",
+        "needs_season_detail",
+        "needs_habitat_detail",
+        "needs_copyback_detail"
+      ]
     },
     {
       "slug": "hazel",
@@ -2918,6 +3504,21 @@
       ],
       "use_tags": [
         "E"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Seed / nut / cone"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "nuts-seeds",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Nuts / Seeds, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: leaf / green, seed / nut / cone. Edible ripe nuts. Usually gathered before squirrels clean you out.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
       ]
     },
     {
@@ -2990,6 +3591,25 @@
         "E",
         "P",
         "T"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Fruit / berry",
+        "Sap"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "berries-fruits",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Berries / Fruits, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, flower, fruit / berry, sap. Edible, but often best after frost or cooking.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
       ]
     },
     {
@@ -3051,7 +3671,23 @@
         "Floral",
         "Sweet"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Flower",
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "flowers",
+        "berries-fruits",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Flowers, Berries / Fruits, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Useful parts: flower, fruit / berry. Think flowers/nectar, not berries.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "hop",
@@ -3117,7 +3753,24 @@
         "Bitter",
         "Aromatic"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Seed / nut / cone"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "nuts-seeds",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Nuts / Seeds, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: leaf / green, flower, seed / nut / cone. Shoots are the approachable edible use; cone use is more aromatic/herbal than snack food.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "huckleberries",
@@ -3172,7 +3825,21 @@
       "taste": [
         "Sweet"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Fruit / berry",
+        "Seed / nut / cone"
+      ],
+      "plant_lanes": [
+        "berries-fruits",
+        "nuts-seeds"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Nuts / Seeds.",
+      "plant_card_note": "Useful parts: fruit / berry, seed / nut / cone. Edible ripe fruit.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "jerusalem-artichoke",
@@ -3242,6 +3909,22 @@
       ],
       "use_tags": [
         "E"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Root / tuber / bulb"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "roots-tubers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Roots / Tubers.",
+      "plant_card_note": "Useful parts: leaf / green, flower, root / tuber / bulb. Edible tubers, often best harvested after frost or in cool seasons.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
       ]
     },
     {
@@ -3330,7 +4013,21 @@
         "https://upload.wikimedia.org/wikipedia/commons/8/83/Orange_jewelweed_%28Whitefish_Island%29_2.JPG",
         "https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg"
       ],
-      "image_audit_status": "batch1_complete"
+      "image_audit_status": "batch1_complete",
+      "usable_parts": [
+        "Flower"
+      ],
+      "plant_lanes": [
+        "flowers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Flowers.",
+      "plant_card_note": "Flower/topical-use entry with good images, but the food and medicinal notes still need detail review.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_season_detail",
+        "needs_habitat_detail",
+        "needs_copyback_detail"
+      ]
     },
     {
       "slug": "juneberries-serviceberries",
@@ -3394,6 +4091,21 @@
       ],
       "use_tags": [
         "E"
+      ],
+      "usable_parts": [
+        "Flower",
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "flowers",
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Flowers, Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: flower, fruit / berry. Edible ripe fruit. Best when fully colored and sweet.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
       ]
     },
     {
@@ -3472,6 +4184,24 @@
       "taste": [
         "Aromatic",
         "Resinous / piney"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Fruit / berry",
+        "Seed / nut / cone"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "berries-fruits",
+        "nuts-seeds",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Berries / Fruits, Nuts / Seeds, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, fruit / berry, seed / nut / cone. Used in small amounts as flavoring or tea.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
       ]
     },
     {
@@ -3595,6 +4325,21 @@
       ],
       "leafArrangement": [
         "Alternate"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Flower"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, flower. Tea use is traditional, but this is a use-with-knowledge plant rather than a carefree daily beverage.",
+      "plant_data_flags": [
+        "needs_source_links"
       ]
     },
     {
@@ -3662,6 +4407,20 @@
       ],
       "use_tags": [
         "E"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Seed / nut / cone"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "nuts-seeds"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Nuts / Seeds.",
+      "plant_card_note": "Useful parts: leaf / green, seed / nut / cone. Edible young leaves and shoots, especially cooked.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
       ]
     },
     {
@@ -3719,7 +4478,21 @@
       "taste": [
         "Sweet"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Fruit / berry",
+        "Sap"
+      ],
+      "plant_lanes": [
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: fruit / berry, sap. Edible ripe fruit. One of the best practical wild blueberry species.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "lowbush-cranberries",
@@ -3775,7 +4548,21 @@
       "taste": [
         "Tart"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Fruit / berry",
+        "Sap"
+      ],
+      "plant_lanes": [
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: fruit / berry, sap. Edible ripe fruit, usually best cooked or sweetened.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "maple",
@@ -3890,7 +4677,21 @@
       "taste": [
         "Sweet"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Sap",
+        "Bark / cambium"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: leaf / green, sap, bark / cambium. Sap is the practical use. Tree identification matters before tapping, and yield varies by species and weather.",
+      "plant_data_flags": [
+        "needs_source_links"
+      ]
     },
     {
       "slug": "miner-s-lettuce-winter-purslane",
@@ -3947,7 +4748,19 @@
       "taste": [
         "Mild"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green"
+      ],
+      "plant_lanes": [
+        "leaves-greens"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens.",
+      "plant_card_note": "Useful parts: leaf / green. Edible tender greens; the practical point is mild spring salad use.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "mulberries",
@@ -4001,7 +4814,21 @@
       "taste": [
         "Sweet"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Fruit / berry",
+        "Sap"
+      ],
+      "plant_lanes": [
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: fruit / berry, sap. Edible ripe fruit, but very perishable and messy.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "nannyberry",
@@ -4066,6 +4893,23 @@
       ],
       "leafArrangement": [
         "Opposite"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: leaf / green, flower, fruit / berry. Edible ripe fruit. Best when fully dark and soft.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
       ]
     },
     {
@@ -4139,7 +4983,21 @@
       "taste": [
         "Green / vegetal"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Seed / nut / cone"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "nuts-seeds"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Nuts / Seeds.",
+      "plant_card_note": "Useful parts: leaf / green, seed / nut / cone. Must be cooked, blanched, dried, or otherwise processed before eating.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "oak",
@@ -4174,7 +5032,23 @@
       "list_thumbnail": "",
       "detail_images": [],
       "enlarge_images": [],
-      "image_audit_status": "pending"
+      "image_audit_status": "pending",
+      "usable_parts": [
+        "Seed / nut / cone"
+      ],
+      "plant_lanes": [
+        "nuts-seeds",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Nuts / Seeds, Trees / Shrubs / Sap.",
+      "plant_card_note": "Acorns are the useful food part after leaching; this record still needs season, habitat, image, and source detail.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage",
+        "needs_season_detail",
+        "needs_habitat_detail",
+        "needs_copyback_detail"
+      ]
     },
     {
       "slug": "oval-leaf-blueberry",
@@ -4231,7 +5105,21 @@
       "taste": [
         "Sweet"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "berries-fruits"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Berries / Fruits.",
+      "plant_card_note": "Useful parts: leaf / green, fruit / berry. Edible ripe fruit.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "pawpaw",
@@ -4263,7 +5151,23 @@
       "list_thumbnail": "",
       "detail_images": [],
       "enlarge_images": [],
-      "image_audit_status": "pending"
+      "image_audit_status": "pending",
+      "usable_parts": [
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Fruit entry restored from the old app; needs U.P. relevance, season, habitat, and source review.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage",
+        "needs_season_detail",
+        "needs_habitat_detail",
+        "needs_copyback_detail"
+      ]
     },
     {
       "slug": "pin-cherries",
@@ -4299,7 +5203,23 @@
       "list_thumbnail": "",
       "detail_images": [],
       "enlarge_images": [],
-      "image_audit_status": "pending"
+      "image_audit_status": "pending",
+      "usable_parts": [
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Pin cherry fruit entry retained for compatibility; needs season, habitat, image, and source detail.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage",
+        "needs_season_detail",
+        "needs_habitat_detail",
+        "needs_copyback_detail"
+      ]
     },
     {
       "slug": "pine",
@@ -4380,7 +5300,24 @@
         "Resinous / piney",
         "Aromatic"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Seed / nut / cone",
+        "Resin / gum"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "nuts-seeds",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Nuts / Seeds, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, seed / nut / cone, resin / gum. Needle tea is the most approachable use.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "pine-needles-tea",
@@ -4458,7 +5395,22 @@
       "list_thumbnail": "",
       "detail_images": [],
       "enlarge_images": [],
-      "image_audit_status": "pending"
+      "image_audit_status": "pending",
+      "usable_parts": [
+        "Leaf / green",
+        "Seed / nut / cone"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "nuts-seeds",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Nuts / Seeds, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, seed / nut / cone. Steeped as a vitamin C-rich tea",
+      "plant_data_flags": [
+        "needs_source_links"
+      ]
     },
     {
       "slug": "pine-resin-gum",
@@ -4535,7 +5487,24 @@
       "list_thumbnail": "",
       "detail_images": [],
       "enlarge_images": [],
-      "image_audit_status": "pending"
+      "image_audit_status": "pending",
+      "usable_parts": [
+        "Leaf / green",
+        "Seed / nut / cone",
+        "Sap",
+        "Resin / gum"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "nuts-seeds",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Nuts / Seeds, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, seed / nut / cone, sap, resin / gum. Sap boiled into syrup or crystallized; resin and tips used in teas or chewed",
+      "plant_data_flags": [
+        "needs_source_links"
+      ]
     },
     {
       "slug": "plantain-broadleaf",
@@ -4567,7 +5536,23 @@
       "list_thumbnail": "",
       "detail_images": [],
       "enlarge_images": [],
-      "image_audit_status": "pending"
+      "image_audit_status": "pending",
+      "usable_parts": [
+        "Leaf / green"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Tea / Infusions.",
+      "plant_card_note": "Broadleaf plantain leaf entry restored from the old app; needs fuller food/tea/field-identification detail.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage",
+        "needs_season_detail",
+        "needs_habitat_detail",
+        "needs_copyback_detail"
+      ]
     },
     {
       "slug": "purslane",
@@ -4632,6 +5617,18 @@
       ],
       "use_tags": [
         "E"
+      ],
+      "usable_parts": [
+        "Leaf / green"
+      ],
+      "plant_lanes": [
+        "leaves-greens"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens.",
+      "plant_card_note": "Useful parts: leaf / green. Edible and crisp, especially when young and fresh.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
       ]
     },
     {
@@ -4707,7 +5704,23 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Allium%20tricoccum%20-%20Ramps.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Allium%20tricoccum%20var.%20tricoccum%20BW-1979-0630-0406.jpg"
       ],
-      "image_audit_status": "batch2_complete"
+      "image_audit_status": "batch2_complete",
+      "usable_parts": [
+        "Leaf / green",
+        "Root / tuber / bulb"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "roots-tubers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Roots / Tubers.",
+      "plant_card_note": "Leaves and bulbs are the sought parts; existing images are present but the record still needs season/habitat/source detail.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_season_detail",
+        "needs_habitat_detail",
+        "needs_copyback_detail"
+      ]
     },
     {
       "slug": "raspberries",
@@ -4766,7 +5779,24 @@
         "Sweet",
         "Tart"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Fruit / berry",
+        "Sap"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "berries-fruits",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Berries / Fruits, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, fruit / berry, sap. Edible ripe fruit. This broad entry stands in for the general raspberry bucket.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "red-currants",
@@ -4823,7 +5853,23 @@
       "taste": [
         "Tart"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Fruit / berry",
+        "Sap"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: leaf / green, fruit / berry, sap. Edible ripe berries, though many people prefer them sweetened or processed.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "red-sorrel",
@@ -4886,6 +5932,18 @@
       ],
       "use_tags": [
         "E"
+      ],
+      "usable_parts": [
+        "Leaf / green"
+      ],
+      "plant_lanes": [
+        "leaves-greens"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens.",
+      "plant_card_note": "Useful parts: leaf / green. Edible in small amounts; tartness is the point.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
       ]
     },
     {
@@ -4946,7 +6004,20 @@
       "taste": [
         "Tart"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: fruit / berry. Edible ripe fruit, usually best processed.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "sassafras",
@@ -5026,7 +6097,24 @@
         "Aromatic",
         "Sweet"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Root / tuber / bulb",
+        "Bark / cambium"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "roots-tubers",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Roots / Tubers, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, root / tuber / bulb, bark / cambium. Root bark is the old classic use, but this is a flavoring/tea plant more than a bulk food.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "sassafras-root-bark",
@@ -5104,7 +6192,19 @@
       "list_thumbnail": "",
       "detail_images": [],
       "enlarge_images": [],
-      "image_audit_status": "pending"
+      "image_audit_status": "pending",
+      "usable_parts": [
+        "Root / tuber / bulb",
+        "Bark / cambium"
+      ],
+      "plant_lanes": [
+        "roots-tubers",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Roots / Tubers, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Useful parts: root / tuber / bulb, bark / cambium. Used to flavor root beer or as filé powder",
+      "plant_data_flags": []
     },
     {
       "slug": "spruce",
@@ -5140,7 +6240,26 @@
       "list_thumbnail": "",
       "detail_images": [],
       "enlarge_images": [],
-      "image_audit_status": "pending"
+      "image_audit_status": "pending",
+      "usable_parts": [
+        "Leaf / green",
+        "Sap",
+        "Resin / gum"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Tips, needles, and resin/gum are the useful parts; this consolidated record needs fuller season and source detail.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage",
+        "needs_season_detail",
+        "needs_habitat_detail",
+        "needs_copyback_detail"
+      ]
     },
     {
       "slug": "staghorn-sumac",
@@ -5211,7 +6330,24 @@
         "E",
         "T"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Fruit / berry",
+        "Bark / cambium"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "berries-fruits",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Berries / Fruits, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, fruit / berry, bark / cambium. Edible fruit clusters, usually used as a souring ingredient rather than eaten whole.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "sweet-cicely",
@@ -5282,6 +6418,23 @@
       "use_tags": [
         "E",
         "T"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Root / tuber / bulb",
+        "Seed / nut / cone"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "roots-tubers",
+        "nuts-seeds",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Roots / Tubers, Nuts / Seeds, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, root / tuber / bulb, seed / nut / cone. Edible, but carrot-family caution applies: identification should be solid.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
       ]
     },
     {
@@ -5345,7 +6498,22 @@
         "Aromatic",
         "Bitter"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Root / tuber / bulb"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "roots-tubers",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Roots / Tubers, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, root / tuber / bulb. Use is traditional and knowledge-dependent.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "sweetfern",
@@ -5464,6 +6632,21 @@
       ],
       "leafArrangement": [
         "Alternate"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "berries-fruits",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Berries / Fruits, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, fruit / berry. Used mainly as tea or flavoring.",
+      "plant_data_flags": [
+        "needs_source_links"
       ]
     },
     {
@@ -5518,7 +6701,22 @@
       "taste": [
         "Sweet"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: leaf / green, fruit / berry. Edible ripe fruit, but delicate and not very shelf-stable.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "toothwort",
@@ -5551,7 +6749,24 @@
       "list_thumbnail": "",
       "detail_images": [],
       "enlarge_images": [],
-      "image_audit_status": "pending"
+      "image_audit_status": "pending",
+      "usable_parts": [
+        "Leaf / green",
+        "Root / tuber / bulb"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "roots-tubers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Roots / Tubers.",
+      "plant_card_note": "Spring woodland edible entry; usable part details still need review.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage",
+        "needs_season_detail",
+        "needs_habitat_detail",
+        "needs_copyback_detail"
+      ]
     },
     {
       "slug": "velvetleaf-blueberry",
@@ -5608,7 +6823,21 @@
       "taste": [
         "Sweet"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "berries-fruits"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Berries / Fruits.",
+      "plant_card_note": "Useful parts: leaf / green, fruit / berry. Edible ripe fruit.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "violet",
@@ -5681,6 +6910,21 @@
       ],
       "use_tags": [
         "E"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Flower"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, flower. Widely edible leaves and flowers, especially young leaves.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
       ]
     },
     {
@@ -5742,7 +6986,21 @@
         "Sweet",
         "Rich / fruity"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Fruit / berry",
+        "Sap"
+      ],
+      "plant_lanes": [
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: fruit / berry, sap. Edible ripe fruit. Harvest dark glossy berries at full ripeness.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "wild-carrot",
@@ -5774,7 +7032,22 @@
       "list_thumbnail": "",
       "detail_images": [],
       "enlarge_images": [],
-      "image_audit_status": "pending"
+      "image_audit_status": "pending",
+      "usable_parts": [
+        "Root / tuber / bulb"
+      ],
+      "plant_lanes": [
+        "roots-tubers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Roots / Tubers.",
+      "plant_card_note": "Root entry restored from the old app; carrot-family identification and look-alike warnings need fuller detail.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage",
+        "needs_season_detail",
+        "needs_habitat_detail",
+        "needs_copyback_detail"
+      ]
     },
     {
       "slug": "wild-ginger",
@@ -5806,7 +7079,23 @@
       "list_thumbnail": "",
       "detail_images": [],
       "enlarge_images": [],
-      "image_audit_status": "pending"
+      "image_audit_status": "pending",
+      "usable_parts": [
+        "Root / tuber / bulb"
+      ],
+      "plant_lanes": [
+        "roots-tubers",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Roots / Tubers, Tea / Infusions.",
+      "plant_card_note": "Root/rhizome entry restored from the old app; food and medicinal detail still need review.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage",
+        "needs_season_detail",
+        "needs_habitat_detail",
+        "needs_copyback_detail"
+      ]
     },
     {
       "slug": "wild-mustard-greens",
@@ -5838,7 +7127,24 @@
       "list_thumbnail": "",
       "detail_images": [],
       "enlarge_images": [],
-      "image_audit_status": "pending"
+      "image_audit_status": "pending",
+      "usable_parts": [
+        "Leaf / green"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "nuts-seeds"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Nuts / Seeds.",
+      "plant_card_note": "Leafy mustard green entry restored from the old app; needs season, habitat, image, and source detail.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage",
+        "needs_season_detail",
+        "needs_habitat_detail",
+        "needs_copyback_detail"
+      ]
     },
     {
       "slug": "wild-plums",
@@ -5901,7 +7207,22 @@
       "flowerColor": [
         "White"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Flower",
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "flowers",
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Flowers, Berries / Fruits, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: flower, fruit / berry. Edible ripe fruit; tart skins and clingstone pits are common.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "wild-rose",
@@ -5958,7 +7279,28 @@
       "taste": [
         "Tart"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Fruit / berry",
+        "Seed / nut / cone",
+        "Sap"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "berries-fruits",
+        "nuts-seeds",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Berries / Fruits, Nuts / Seeds, Trees / Shrubs / Sap, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, flower, fruit / berry, seed / nut / cone, sap. Fruits can be used for tea, syrup, jelly, and puree once the irritating inner hairs and seeds are handled carefully.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "wild-strawberries",
@@ -5990,7 +7332,25 @@
       "list_thumbnail": "",
       "detail_images": [],
       "enlarge_images": [],
-      "image_audit_status": "pending"
+      "image_audit_status": "pending",
+      "usable_parts": [
+        "Flower",
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "flowers",
+        "berries-fruits",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Flowers, Berries / Fruits, Tea / Infusions.",
+      "plant_card_note": "Fruit entry restored from the old app; needs season, habitat, image, and source detail.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage",
+        "needs_season_detail",
+        "needs_habitat_detail",
+        "needs_copyback_detail"
+      ]
     },
     {
       "slug": "willow",
@@ -6047,7 +7407,22 @@
       "taste": [
         "Bitter"
       ],
-      "weekPrecision": "month-window-reviewed"
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green",
+        "Sap",
+        "Bark / cambium"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Trees / Shrubs / Sap.",
+      "plant_card_note": "Useful parts: leaf / green, sap, bark / cambium. Not a routine food entry. Bark use belongs in the medicine lane and carries medication-style cautions.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
     },
     {
       "slug": "wintergreen",
@@ -6171,6 +7546,22 @@
         "E",
         "T",
         "M"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "berries-fruits",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Berries / Fruits, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / green, flower, fruit / berry. Edible in modest use as tea, flavoring, or small fruit.",
+      "plant_data_flags": [
+        "needs_source_links"
       ]
     },
     {
@@ -6234,6 +7625,20 @@
         "White",
         "Pink",
         "Yellow"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Flower"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers.",
+      "plant_card_note": "Useful parts: leaf / green, flower. Edible in modest amounts. Its bright tartness is the point, not bulk eating.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
       ]
     },
     {
@@ -6266,7 +7671,24 @@
       "list_thumbnail": "",
       "detail_images": [],
       "enlarge_images": [],
-      "image_audit_status": "pending"
+      "image_audit_status": "pending",
+      "usable_parts": [
+        "Leaf / green",
+        "Flower"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers.",
+      "plant_card_note": "Tangy leaf/flower entry restored from the old app; likely overlaps the broader wood-sorrel entry.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage",
+        "needs_season_detail",
+        "needs_habitat_detail",
+        "needs_copyback_detail"
+      ]
     },
     {
       "slug": "yarrow",
@@ -6354,7 +7776,24 @@
         "https://upload.wikimedia.org/wikipedia/commons/3/34/Achillea_millefolium_habito.jpg",
         "https://upload.wikimedia.org/wikipedia/commons/d/d3/Achillea_millefolium_4.jpg"
       ],
-      "image_audit_status": "batch1_complete"
+      "image_audit_status": "batch1_complete",
+      "usable_parts": [
+        "Leaf / green",
+        "Flower"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Tea / Infusions.",
+      "plant_card_note": "Aromatic flower/leaf tea and herb entry; needs fuller culinary and medicinal detail.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_season_detail",
+        "needs_habitat_detail",
+        "needs_copyback_detail"
+      ]
     },
     {
       "slug": "yellow-pond-lily",
@@ -6390,7 +7829,22 @@
       "list_thumbnail": "",
       "detail_images": [],
       "enlarge_images": [],
-      "image_audit_status": "pending"
+      "image_audit_status": "pending",
+      "usable_parts": [
+        "Root / tuber / bulb"
+      ],
+      "plant_lanes": [
+        "roots-tubers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Roots / Tubers.",
+      "plant_card_note": "Underground parts are the focus; this record needs stronger identification, season, habitat, and source detail.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage",
+        "needs_season_detail",
+        "needs_habitat_detail",
+        "needs_copyback_detail"
+      ]
     }
   ]
 }

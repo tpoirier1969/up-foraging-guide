@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.74-r2026-04-29-plant-card-polish1";
-const DISPLAY_VERSION = "V4.2.74-r26-04-29";
+const APP_VERSION = "v4.2.75-r2026-04-29-plant-data-lanes1";
+const DISPLAY_VERSION = "V4.2.75-r26-04-29";
 
 function esc(value) {
   return String(value ?? "")

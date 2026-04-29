@@ -126,10 +126,14 @@ function plantRecordText(record = {}) {
     record.general_notes,
     record.overview,
     record.short_reason,
+    record.plant_card_note,
+    record.plant_lane_note,
     record.culinary_uses,
     record.edibility_detail,
     record.edibility_notes,
     record.other_uses,
+    ...asList(record.usable_parts),
+    ...asList(record.plant_lanes),
     ...asList(record.observedPart),
     ...asList(record.parts_used),
     ...asList(record.plant_parts),
@@ -146,6 +150,12 @@ function plantRecordText(record = {}) {
 }
 
 function plantLanesForRecord(record = {}) {
+  const explicitIds = cleanOptionValues(record.plant_lanes).map((value) => value.toLowerCase());
+  if (explicitIds.length) {
+    const explicit = PLANT_LANES.filter((lane) => explicitIds.includes(lane.id));
+    if (explicit.length) return explicit;
+  }
+
   const text = plantRecordText(record);
   const lanes = PLANT_LANES.filter((lane) => {
     const patternHit = lane.patterns.some((pattern) => pattern.test(text));
@@ -157,6 +167,12 @@ function plantLanesForRecord(record = {}) {
 
 function plantLaneIdsForRecord(record = {}) {
   return new Set(plantLanesForRecord(record).map((lane) => lane.id));
+}
+
+function usablePartsForRecord(record = {}) {
+  const explicit = cleanOptionValues(record.usable_parts);
+  if (explicit.length) return explicit;
+  return cleanOptionValues(collectValues(record, [["observedPart"], ["parts_used"], ["plant_parts"], ["category"], ["foraging_class"]]));
 }
 
 export function renderPlantLaneControls(records = [], filters = {}) {
@@ -547,7 +563,7 @@ function reviewFlagValues(record) {
 function valuesForFilter(record, valueKey) {
   switch (valueKey) {
     case "month": return monthValues(record);
-    case "plantPart": return cleanOptionValues(collectValues(record, [["observedPart"], ["parts_used"], ["plant_parts"], ["category"], ["foraging_class"]]));
+    case "plantPart": return cleanOptionValues([...usablePartsForRecord(record), ...collectValues(record, [["observedPart"], ["parts_used"], ["plant_parts"], ["category"], ["foraging_class"]])]);
     case "plantHabitat": return cleanOptionValues(collectValues(record, [["habitats"], ["habitat"]]));
     case "plantSize": return cleanOptionValues(collectValues(record, [["size"]]));
     case "plantTaste": return cleanOptionValues(collectValues(record, [["taste"]]));
@@ -758,6 +774,8 @@ function makeMeta(record, route = "general") {
     bits.push(labelTag("Type", record.category));
   }
   if (route === "plants") {
+    const parts = usablePartsForRecord(record);
+    if (parts.length) bits.push(labelTag("Useful parts", parts.slice(0, 4).join(", ")));
     plantLanesForRecord(record).slice(0, 4).forEach((lane) => bits.push(`<span class="tag">${esc(lane.label)}</span>`));
   }
   if (route === "other-uses" && info.otherUses) bits.push(`<span class="tag">Other use</span>`);
@@ -786,6 +804,8 @@ function matchesSearch(record, q) {
     record.foraging_class,
     record.overview,
     record.field_identification,
+    record.plant_card_note,
+    record.plant_lane_note,
     record.culinary_uses,
     record.medicinal_uses,
     medicinal.summary,
@@ -802,6 +822,9 @@ function matchesSearch(record, q) {
     record.poisoning_effects,
     record.toxicity_notes,
     ...(record.search_aliases || []),
+    ...(record.usable_parts || []),
+    ...(record.plant_lanes || []),
+    ...(record.plant_data_flags || []),
     ...(record.reviewReasons || []),
     ...(record.look_alikes || []),
     ...(record.confused_with || []),
@@ -987,6 +1010,7 @@ function generatedMushroomSnippet(record = {}) {
 function cardSnippet(record) {
   const rare = record.rare_profile || {};
   const candidates = [
+    record.plant_card_note,
     record.overview,
     record.field_identification,
     generatedMushroomSnippet(record),
