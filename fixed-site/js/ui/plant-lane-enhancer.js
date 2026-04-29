@@ -55,52 +55,20 @@ const PLANT_LANES = [
     ]
   },
   {
-    id: "medicinal-tea",
-    label: "Medicinal / Tea",
-    short: "Tea plants, traditional medicinal use",
+    id: "tea-infusions",
+    label: "Tea / Infusions",
+    short: "Leaves, flowers, bark, or needles used as tea",
     patterns: [
-      /\btea\b|\binfusion\b|\bmedicinal\b|\bmedicine\b|\btraditional\b|\bherbal\b|\btonic\b|\bremedy\b|\btincture\b|\bpoultice\b|\bsalve\b|\burinary\b|\bsoothing\b|\baromatic\b/i
+      /\btea\b|\binfusion\b|\binfusions\b|\bsteep\b|\bsteeped\b|\bbrew\b|\bbrewed\b|\btisane\b/i
     ],
     extraMatch(record) {
       const tags = asList(record.use_tags).map((value) => String(value || "").trim().toUpperCase());
-      const medicinal = [
-        record.medicinal_uses,
-        record.medicinal?.summary,
-        ...asList(record.medicinalAction),
-        ...asList(record.medicinalSystem),
-        ...asList(record.medicinalTerms)
-      ].join(" ").trim();
-      const normalized = medicinal.toLowerCase().replace(/\s+/g, " ").trim();
-      const filler = /^(primarily|mostly|mainly) (a )?(food|fruit|culinary|food tree|fruit tree)\.?$/.test(normalized)
-        || /primarily a food|primarily a fruit|mostly a fruit|mostly culinary/.test(normalized);
-      return tags.includes("M") || tags.includes("T") || (!!normalized && !filler);
-    }
-  },
-  {
-    id: "caution",
-    label: "Caution / Look-alikes",
-    short: "Poison risk, serious look-alikes, preparation warnings",
-    patterns: [
-      /\bcaution\b|\bpoison\b|\bpoisonous\b|\btoxic\b|\bunsafe\b|\bavoid\b|\bdeadly\b|\bfatal\b|\blook[- ]?alike\b|\bnot recommended\b|\bunripe\b|\bastringent\b|\braw\b|\bundercooked\b|\bhemlock\b|\bnightshade\b|\blily-of-the-valley\b/i
-    ],
-    extraMatch(record) {
-      return String(record.review_status || "").toLowerCase() === "needs_review"
-        || asList(record.look_alikes).length > 0
-        || /poison|toxic|deadly|fatal|avoid|not edible|not_edible|unsafe|caution|look[- ]?alike/i.test([
-          record.edibility_status,
-          record.non_edible_severity,
-          record.danger_level,
-          record.poisoning_effects,
-          record.toxicity_notes,
-          record.edibility_detail,
-          record.edibility_notes,
-          record.look_alike_notes
-        ].join(" "));
+      return tags.includes("T");
     }
   }
 ];
 
-const selectedLaneIds = new Set();
+let selectedLaneId = "";
 let observerInstalled = false;
 let lastAppliedSignature = "";
 
@@ -112,6 +80,10 @@ function asList(value) {
 
 function normalize(value = "") {
   return String(value || "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+}
+
+function readable(value = "") {
+  return String(value || "").toLowerCase().replace(/[_-]+/g, " ");
 }
 
 function isPlantsRoute() {
@@ -127,6 +99,37 @@ function plantRecords() {
   });
 }
 
+function hasPositiveFoodSignal(record = {}) {
+  const text = [
+    record.food_role,
+    record.category,
+    record.foraging_class,
+    record.culinary_uses,
+    record.edibility_detail,
+    record.edibility_notes,
+    ...asList(record.use_tags)
+  ].join(" ").toLowerCase();
+  if (/\b(eat|edible|food|culinary|tea|infusion|sap|syrup|berry|fruit|green|root|nut|seed|flower|cook|cooked|fresh|jam|jelly|preserve|preserves|beverage)\b/.test(text)) return true;
+  return /\bE\b|\bT\b/.test(asList(record.use_tags).join(" ").toUpperCase());
+}
+
+function isEdiblePlantRecord(record = {}) {
+  const edibility = readable(record.edibility_status);
+  const foodRole = readable(record.food_role);
+  const severity = readable(record.non_edible_severity);
+  const danger = readable([record.danger_level, record.poisoning_effects, record.toxicity_notes].join(" "));
+  const notes = readable([record.edibility_detail, record.edibility_notes, record.culinary_uses].join(" "));
+  const hay = `${edibility} ${foodRole} ${severity} ${danger} ${notes}`;
+
+  const explicitlyAvoidOnly = /\b(deadly|fatal|poisonous|toxic|not edible|not_edible|inedible|avoid|unsafe|not recommended as food|not treated as food|not treated as an edible|look alike \/ not a food entry)\b/.test(hay);
+  const conditionalFood = /\b(edible|food|culinary|tea|infusion|sap|syrup|ripe fruit|young leaves|cooked|properly prepared|with preparation|requires preparation)\b/.test(hay)
+    || hasPositiveFoodSignal(record);
+
+  if (explicitlyAvoidOnly && !conditionalFood) return false;
+  if (foodRole === "avoid") return false;
+  return conditionalFood || !explicitlyAvoidOnly;
+}
+
 function recordText(record = {}) {
   const profile = record.plant_profile || {};
   return [
@@ -136,11 +139,6 @@ function recordText(record = {}) {
     record.category,
     record.foraging_class,
     record.food_role,
-    record.edibility_status,
-    record.non_edible_severity,
-    record.danger_level,
-    record.poisoning_effects,
-    record.toxicity_notes,
     record.notes,
     record.general_notes,
     record.overview,
@@ -148,14 +146,11 @@ function recordText(record = {}) {
     record.culinary_uses,
     record.edibility_detail,
     record.edibility_notes,
-    record.medicinal_uses,
     record.other_uses,
-    record.look_alike_notes,
     ...asList(record.observedPart),
     ...asList(record.parts_used),
     ...asList(record.plant_parts),
     ...asList(record.use_tags),
-    ...asList(record.look_alikes),
     ...asList(record.size),
     ...asList(record.habitat),
     ...asList(record.habitats),
@@ -174,12 +169,12 @@ function lanesForRecord(record = {}) {
     const extraHit = typeof lane.extraMatch === "function" && lane.extraMatch(record);
     return patternHit || extraHit;
   });
-  return lanes.length ? lanes : [{ id: "other", label: "Other", short: "Other plant use" }];
+  return lanes.length ? lanes : [{ id: "other", label: "Other", short: "Other edible plant use" }];
 }
 
 function countByLane(records = []) {
   const counts = new Map(PLANT_LANES.map((lane) => [lane.id, 0]));
-  for (const record of records) {
+  for (const record of records.filter(isEdiblePlantRecord)) {
     const lanes = lanesForRecord(record).filter((lane) => lane.id !== "other");
     for (const lane of lanes) counts.set(lane.id, (counts.get(lane.id) || 0) + 1);
   }
@@ -227,12 +222,12 @@ function escapeHtml(value = "") {
 function findPlantCards() {
   const cards = Array.from(document.querySelectorAll(".record-card"));
   if (cards.length) return cards;
-  const buttons = Array.from(document.querySelectorAll("[data-detail]"));
+  const nodes = Array.from(document.querySelectorAll("[data-detail]"));
   const seen = new Set();
-  return buttons
-    .map((button) => button.closest("article, section, .panel, .card, li, div"))
+  return nodes
+    .map((node) => node.closest("article, section, .panel, .card, li, div"))
     .filter((node) => {
-      if (!node || seen.has(node)) return false;
+      if (!node || node.id === PANEL_ID || seen.has(node)) return false;
       seen.add(node);
       return true;
     });
@@ -241,8 +236,19 @@ function findPlantCards() {
 function recordForCard(card) {
   const detail = card?.querySelector?.("[data-detail]");
   const slug = detail?.dataset?.detail || card?.dataset?.slug || "";
-  if (!slug) return null;
-  return plantRecords().find((record) => record.slug === slug) || null;
+  if (slug) {
+    const found = plantRecords().find((record) => record.slug === slug);
+    if (found) return found;
+  }
+
+  const headingText = card?.querySelector?.("h2,h3,h4,strong")?.textContent || "";
+  const key = normalize(headingText);
+  if (!key) return null;
+  return plantRecords().find((record) => {
+    return normalize(record.display_name || record.common_name || record.slug) === key
+      || normalize(record.common_name || "") === key
+      || normalize(record.slug || "") === key;
+  }) || null;
 }
 
 function currentRenderedPlantRecords() {
@@ -267,13 +273,13 @@ function ensurePanel() {
     <div class="home-focus-heading">
       <div>
         <h3>Start with what you see or what you want</h3>
-        <p class="muted small">Plants can appear in more than one lane when multiple parts are useful. Pick one or several quick lanes, then use the detailed filters below if you want to get fussy.</p>
+        <p class="muted small">Pick one edible-plant lane. Plants with multiple useful parts can appear in more than one lane, but lane selection is single-choice so the list does not turn into filter soup.</p>
       </div>
     </div>
     <div class="plant-lane-grid" data-plant-lane-grid></div>
     <div class="plant-lane-toolbar">
-      <p id="${SUMMARY_ID}" class="plant-lane-summary">Showing all plant records.</p>
-      <button id="plantLaneClearBtn" type="button">Clear plant lanes</button>
+      <p id="${SUMMARY_ID}" class="plant-lane-summary">Showing all edible plant records.</p>
+      <button id="plantLaneClearBtn" type="button">Show all edible plants</button>
     </div>
   `;
 
@@ -287,13 +293,14 @@ function ensurePanel() {
     const button = event.target.closest?.("[data-plant-lane]");
     if (button) {
       const laneId = button.dataset.plantLane;
-      if (selectedLaneIds.has(laneId)) selectedLaneIds.delete(laneId);
-      else selectedLaneIds.add(laneId);
+      selectedLaneId = selectedLaneId === laneId ? "" : laneId;
+      lastAppliedSignature = "";
       renderPanelAndApply();
       return;
     }
     if (event.target.closest?.("#plantLaneClearBtn")) {
-      selectedLaneIds.clear();
+      selectedLaneId = "";
+      lastAppliedSignature = "";
       renderPanelAndApply();
     }
   });
@@ -316,9 +323,28 @@ function updateCardLaneTags(card, lanes) {
     .join("");
 }
 
+function setCardVisible(card, show) {
+  card.hidden = !show;
+  if (show) {
+    card.style.removeProperty("display");
+  } else {
+    card.style.setProperty("display", "none", "important");
+  }
+}
+
+function updateVisiblePlantHeading(visible, totalEligible) {
+  const headings = Array.from(document.querySelectorAll("main .panel h2"));
+  const plantsHeading = headings.find((heading) => /^Plants\s*\(/i.test(heading.textContent || ""));
+  if (!plantsHeading) return;
+  const lane = PLANT_LANES.find((item) => item.id === selectedLaneId);
+  plantsHeading.textContent = lane
+    ? `Plants — ${lane.label} (${visible})`
+    : `Plants (${totalEligible})`;
+}
+
 function renderPanelAndApply() {
   if (!isPlantsRoute()) {
-    selectedLaneIds.clear();
+    selectedLaneId = "";
     lastAppliedSignature = "";
     return;
   }
@@ -327,45 +353,52 @@ function renderPanelAndApply() {
   if (!panel) return;
 
   const renderedRecords = currentRenderedPlantRecords();
-  const counts = countByLane(renderedRecords.length ? renderedRecords : plantRecords());
+  const baseRecords = renderedRecords.length ? renderedRecords : plantRecords();
+  const eligibleRecords = baseRecords.filter(isEdiblePlantRecord);
+  const counts = countByLane(eligibleRecords);
   const grid = panel.querySelector("[data-plant-lane-grid]");
   if (grid) {
     grid.innerHTML = PLANT_LANES
-      .map((lane) => buttonHtml(lane, counts.get(lane.id) || 0, selectedLaneIds.has(lane.id)))
+      .map((lane) => buttonHtml(lane, counts.get(lane.id) || 0, selectedLaneId === lane.id))
       .join("");
   }
 
   const cards = findPlantCards();
   let visible = 0;
-  let totalCards = 0;
+  let totalEligibleCards = 0;
   for (const card of cards) {
     const record = recordForCard(card);
     if (!record) continue;
-    totalCards += 1;
+    const isEligible = isEdiblePlantRecord(record);
     const lanes = lanesForRecord(record);
     updateCardLaneTags(card, lanes);
     const laneIds = new Set(lanes.map((lane) => lane.id));
-    const show = selectedLaneIds.size === 0 || Array.from(selectedLaneIds).some((laneId) => laneIds.has(laneId));
-    card.style.display = show ? "" : "none";
+    const laneMatch = !selectedLaneId || laneIds.has(selectedLaneId);
+    const show = isEligible && laneMatch;
     card.dataset.plantLanes = lanes.map((lane) => lane.id).join(",");
+    card.dataset.plantEdibleQuickLane = isEligible ? "1" : "0";
+    setCardVisible(card, show);
+    if (isEligible) totalEligibleCards += 1;
     if (show) visible += 1;
   }
 
-  const selectedLabels = PLANT_LANES.filter((lane) => selectedLaneIds.has(lane.id)).map((lane) => lane.label);
+  updateVisiblePlantHeading(visible, totalEligibleCards || eligibleRecords.length);
+
+  const selectedLabel = PLANT_LANES.find((lane) => lane.id === selectedLaneId)?.label || "";
   const summary = document.getElementById(SUMMARY_ID);
   if (summary) {
-    summary.textContent = selectedLabels.length
-      ? `Showing ${visible} of ${totalCards} current plant records in: ${selectedLabels.join(", ")}.`
-      : `Showing all ${totalCards || renderedRecords.length || plantRecords().length} current plant records.`;
+    summary.textContent = selectedLabel
+      ? `Showing ${visible} edible plant records in: ${selectedLabel}.`
+      : `Showing all ${totalEligibleCards || eligibleRecords.length} edible plant records.`;
   }
 
-  lastAppliedSignature = `${window.location.hash}|${cards.length}|${Array.from(selectedLaneIds).sort().join("|")}`;
+  lastAppliedSignature = `${window.location.hash}|${cards.length}|${selectedLaneId}`;
 }
 
 function scheduleApply() {
   window.requestAnimationFrame(() => {
     const cards = findPlantCards();
-    const signature = `${window.location.hash}|${cards.length}|${Array.from(selectedLaneIds).sort().join("|")}`;
+    const signature = `${window.location.hash}|${cards.length}|${selectedLaneId}`;
     if (signature === lastAppliedSignature && document.getElementById(PANEL_ID)) return;
     renderPanelAndApply();
   });
@@ -375,7 +408,7 @@ function installObserver() {
   if (observerInstalled) return;
   observerInstalled = true;
   window.addEventListener("hashchange", () => {
-    if (!isPlantsRoute()) selectedLaneIds.clear();
+    if (!isPlantsRoute()) selectedLaneId = "";
     lastAppliedSignature = "";
     scheduleApply();
   });

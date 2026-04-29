@@ -1,7 +1,15 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.71-r2026-04-29-plants-quick-lanes1";
-const DISPLAY_VERSION = "V4.2.71-r26-04-29";
+const APP_VERSION = "v4.2.72-r2026-04-29-plants-quick-lanes2";
+const DISPLAY_VERSION = "V4.2.72-r26-04-29";
+const STALE_VERSION_PATTERNS = [
+  /v4\.2\.47-r2026-04-27-mushroom-photo-fix1/g,
+  /V4\.2\.47-r26-04-27/g,
+  /v4\.2\.71-r2026-04-29-plants-quick-lanes1/g,
+  /V4\.2\.71-r26-04-29/g
+];
+
+let staleVersionObserver = null;
 
 function esc(value) {
   return String(value ?? "")
@@ -10,6 +18,34 @@ function esc(value) {
     .replaceAll(">", "&gt;");
 }
 
+function scrubStaleVersionText(root = document.body) {
+  if (!root) return;
+  const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) nodes.push(walker.currentNode);
+  for (const node of nodes) {
+    let text = node.nodeValue || "";
+    const original = text;
+    for (const pattern of STALE_VERSION_PATTERNS) {
+      text = text.replace(pattern, APP_VERSION);
+    }
+    if (text !== original) node.nodeValue = text;
+  }
+  showVersion();
+}
+
+function startStaleVersionScrubber() {
+  if (staleVersionObserver || !document.body) return;
+  staleVersionObserver = new MutationObserver(() => scrubStaleVersionText());
+  staleVersionObserver.observe(document.body, { childList: true, subtree: true, characterData: true });
+  scrubStaleVersionText();
+}
+
+function stopStaleVersionScrubber() {
+  scrubStaleVersionText();
+  staleVersionObserver?.disconnect();
+  staleVersionObserver = null;
+}
 
 function setupMobileMenu() {
   const toggle = document.getElementById("mobileMenuToggle");
@@ -79,12 +115,14 @@ async function reloadCoreSpeciesWithCurrentPatch(coreModule) {
     console.warn("Current-build species patch reload failed:", err?.message || err);
   } finally {
     showVersion();
+    scrubStaleVersionText();
   }
 }
 
 async function start() {
   setupMobileMenu();
   showVersion();
+  startStaleVersionScrubber();
 
   try {
     const mod = await import(`./app-core.js?v=${encodeURIComponent(APP_VERSION)}`);
@@ -92,9 +130,12 @@ async function start() {
       throw new Error("app-core.js loaded, but startApp was not exported.");
     }
     await mod.startApp();
+    scrubStaleVersionText();
     await reloadCoreSpeciesWithCurrentPatch(mod);
     showVersion();
+    stopStaleVersionScrubber();
   } catch (err) {
+    stopStaleVersionScrubber();
     renderFatal(
       "The shell loaded, but the app core failed before the first route rendered.",
       err?.message || String(err)
