@@ -1,4 +1,4 @@
-import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js?v=v4.2.47-r2026-04-27-mushroom-photo-fix1";
+import { classifyRecord, cleanUserFacingText, isBuildNoteText } from "../lib/merge.js";
 import { esc } from "../lib/escape.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
@@ -60,6 +60,134 @@ const OTHER_MUSHROOM_FILTER_DEFS = [
   { key: "mushroomStaining", label: "Staining", blankLabel: "Any staining", valueKey: "mushroomStaining" },
   { key: "mushroomCapSurface", label: "Surface", blankLabel: "Any surface", valueKey: "mushroomCapSurface" }
 ];
+
+
+
+const PLANT_LANES = [
+  {
+    id: "leaves-greens",
+    label: "Leaves / Greens",
+    short: "Leaves, shoots, fiddleheads, tender stems",
+    patterns: [/\bleaf\b|\bleaves\b|\bgreen\b|\bgreens\b|\bshoot\b|\bshoots\b|\bfiddlehead\b|\bfiddleheads\b|\bstem\b|\bstalk\b|\bstalks\b|\bneedle\b|\bneedles\b/i]
+  },
+  {
+    id: "flowers",
+    label: "Flowers",
+    short: "Flowers, blossoms, petals, pollen",
+    patterns: [/\bflower\b|\bflowers\b|\bblossom\b|\bblossoms\b|\bpetal\b|\bpetals\b|\bpollen\b/i]
+  },
+  {
+    id: "berries-fruits",
+    label: "Berries / Fruits",
+    short: "Berries, fruits, hips, cherries, pomes",
+    patterns: [/\bberry\b|\bberries\b|\bfruit\b|\bfruits\b|\bhip\b|\bhips\b|\bcherry\b|\bcherries\b|\bapple\b|\bcrabapple\b|\bplum\b|\bgrape\b|\bgrapes\b|\bcurrant\b|\bcurrants\b|\bpersimmon\b|\bserviceberry\b|\bserviceberries\b/i]
+  },
+  {
+    id: "roots-tubers",
+    label: "Roots / Tubers",
+    short: "Roots, rhizomes, bulbs, tubers",
+    patterns: [/\broot\b|\broots\b|\brhizome\b|\brhizomes\b|\btuber\b|\btubers\b|\bbulb\b|\bbulbs\b|\bcorm\b|\bcorms\b|\bunderground\b/i]
+  },
+  {
+    id: "nuts-seeds",
+    label: "Nuts / Seeds",
+    short: "Nuts, seeds, cones, grain-like parts",
+    patterns: [/\bnut\b|\bnuts\b|\bseed\b|\bseeds\b|\bacorn\b|\bacorns\b|\bhazelnut\b|\bhazelnuts\b|\bbeechnut\b|\bbeechnuts\b|\bcone\b|\bcones\b|\bcatkin\b|\bcatkins\b/i]
+  },
+  {
+    id: "trees-shrubs-sap",
+    label: "Trees / Shrubs / Sap",
+    short: "Trees, shrubs, sap, bark, twigs",
+    patterns: [/\btree\b|\btrees\b|\bshrub\b|\bshrubs\b|\bsap\b|\bsyrup\b|\bbark\b|\bcambium\b|\btwig\b|\btwigs\b|\bcatkin\b|\bcatkins\b|\bmaple\b|\bbirch\b|\bpine\b|\bspruce\b|\bhemlock\b|\bwillow\b/i]
+  },
+  {
+    id: "tea-infusions",
+    label: "Tea / Infusions",
+    short: "Leaves, flowers, bark, or needles used as tea",
+    patterns: [/\btea\b|\binfusion\b|\binfusions\b|\bsteep\b|\bsteeped\b|\bbrew\b|\bbrewed\b|\btisane\b/i],
+    extraMatch(record) {
+      const tags = asList(record.use_tags).map((value) => String(value || "").trim().toUpperCase());
+      return tags.includes("T");
+    }
+  }
+];
+
+function plantRecordText(record = {}) {
+  const profile = record.plant_profile || {};
+  return [
+    record.slug,
+    record.display_name,
+    record.common_name,
+    ...(record.common_names || []),
+    record.category,
+    record.foraging_class,
+    record.food_role,
+    record.notes,
+    record.general_notes,
+    record.overview,
+    record.short_reason,
+    record.culinary_uses,
+    record.edibility_detail,
+    record.edibility_notes,
+    record.other_uses,
+    ...asList(record.observedPart),
+    ...asList(record.parts_used),
+    ...asList(record.plant_parts),
+    ...asList(record.use_tags),
+    ...asList(record.size),
+    ...asList(record.habitat),
+    ...asList(record.habitats),
+    ...asList(record.flowerColor),
+    ...asList(record.fruitColor),
+    profile.parts_used,
+    profile.useful_parts,
+    profile.summary
+  ].join(" ");
+}
+
+function plantLanesForRecord(record = {}) {
+  const text = plantRecordText(record);
+  const lanes = PLANT_LANES.filter((lane) => {
+    const patternHit = lane.patterns.some((pattern) => pattern.test(text));
+    const extraHit = typeof lane.extraMatch === "function" && lane.extraMatch(record);
+    return patternHit || extraHit;
+  });
+  return lanes.length ? lanes : [];
+}
+
+function plantLaneIdsForRecord(record = {}) {
+  return new Set(plantLanesForRecord(record).map((lane) => lane.id));
+}
+
+export function renderPlantLaneControls(records = [], filters = {}) {
+  const selected = String(filters?.plantLane || "");
+  const baseRecords = (records || []).filter((record) => !record?.hidden && routeMatch(record, "plants"));
+  const counts = new Map(PLANT_LANES.map((lane) => [lane.id, 0]));
+  for (const record of baseRecords) {
+    for (const lane of plantLanesForRecord(record)) {
+      counts.set(lane.id, (counts.get(lane.id) || 0) + 1);
+    }
+  }
+  const buttonHtml = (lane) => {
+    const active = selected === lane.id;
+    return `<button class="lane-card${active ? " active" : ""}" type="button" data-plant-lane="${esc(lane.id)}" aria-pressed="${active ? "true" : "false"}"><strong>${esc(lane.label)} <span class="plant-lane-count">${counts.get(lane.id) || 0}</span></strong><span>${esc(lane.short)}</span></button>`;
+  };
+  const selectedLabel = PLANT_LANES.find((lane) => lane.id === selected)?.label || "";
+  return `
+    <section class="panel plant-lane-switcher">
+      <div class="home-focus-heading">
+        <div>
+          <h3>Start with what you see or want</h3>
+          <p class="muted small">Pick one edible-plant lane. A plant can belong to several lanes, but this view shows one lane at a time.</p>
+        </div>
+        ${selected ? `<button id="plantLaneClearBtn" type="button">Show all edible plants</button>` : ""}
+      </div>
+      <div class="lane-grid">${PLANT_LANES.map(buttonHtml).join("")}</div>
+      <p class="muted small">${selectedLabel ? `Showing lane: ${esc(selectedLabel)}.` : `Showing all edible plant records. Pick a lane to narrow the list.`}</p>
+    </section>
+  `;
+}
+
 
 const SKIP_OPTION_VALUES = new Set(["", "unknown", "needs-review", "needs review", "review_required", "n/a", "not sure"]);
 const MISSING_FILTER_VALUE = "__missing__";
@@ -629,6 +757,9 @@ function makeMeta(record, route = "general") {
   } else if (record.category) {
     bits.push(labelTag("Type", record.category));
   }
+  if (route === "plants") {
+    plantLanesForRecord(record).slice(0, 4).forEach((lane) => bits.push(`<span class="tag">${esc(lane.label)}</span>`));
+  }
   if (route === "other-uses" && info.otherUses) bits.push(`<span class="tag">Other use</span>`);
   if (record.commonness) bits.push(labelTag("Commonality", record.commonness));
   bits.push(labelTag("Season", seasonSummary(record)));
@@ -712,6 +843,7 @@ function normalizeFilters(filtersOrSearch) {
     plantLeafShape: filtersOrSearch?.plantLeafShape || "",
     plantLeafArrangement: filtersOrSearch?.plantLeafArrangement || "",
     plantStem: filtersOrSearch?.plantStem || "",
+    plantLane: filtersOrSearch?.plantLane || "",
     mushroomMonth: filtersOrSearch?.mushroomMonth || "",
     mushroomHabitat: filtersOrSearch?.mushroomHabitat || "",
     mushroomSubstrate: filtersOrSearch?.mushroomSubstrate || "",
@@ -773,6 +905,7 @@ export function filterRecords(records, route, filtersOrSearch = "") {
     if (record.hidden) return false;
     const matchRoute = route === "search" ? "general" : route;
     if (!routeMatch(record, matchRoute)) return false;
+    if (matchRoute === "plants" && filters.plantLane && !plantLaneIdsForRecord(record).has(filters.plantLane)) return false;
     if (route === "medicinal" && !matchesMedicinalFilters(record, filters)) return false;
     if (!matchesTraitFilters(record, matchRoute, filters)) return false;
     if (!q) return true;

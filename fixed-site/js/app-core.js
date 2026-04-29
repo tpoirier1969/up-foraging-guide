@@ -1,15 +1,15 @@
+import { APP_VERSION as CONFIG_APP_VERSION } from "./config.js";
 import { state, setRoute, setSpecies, setRareSpecies, setReferences, logBoot } from "./state.js";
 import { MEDICINAL_VOCAB } from "./data/medicinal-vocabulary.js";
-import { renderPage, openModal, closeModal, els } from "./ui/dom.js?v=v4.2.47-r2026-04-27-mushroom-photo-fix1";
+import { renderPage, openModal, closeModal, els } from "./ui/dom.js";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 
-const APP_VERSION = "v4.2.47-r2026-04-27-mushroom-photo-fix1";
+const APP_VERSION = new URL(import.meta.url).searchParams.get("v") || CONFIG_APP_VERSION || "dev";
 const REVIEW_STORAGE_KEY = "foraging_review_overlay_v1";
 const moduleCache = new Map();
 let loadAppDataPromise = null;
 let renderToken = 0;
-let previousRoute = "";
 
 function versionedPath(path) {
   return path.includes("?") ? path : `${path}?v=${encodeURIComponent(APP_VERSION)}`;
@@ -26,7 +26,7 @@ function routeTitle(route) {
     plants: "Plants",
     mushrooms: "Mushrooms",
     "mushrooms-gilled": "Gilled mushrooms",
-    boletes: "Pores / spongy underside",
+    boletes: "Boletes",
     "mushrooms-other": "Other mushrooms",
     medicinal: "Medicinal",
     rare: "Rare",
@@ -80,26 +80,8 @@ function mushroomLaneLandingHtml() {
       <p>Start with the underside. That gets most people to the right part of the guide faster than taxonomy ever will.</p>
       <div class="lane-grid">
         <a class="lane-card" href="#/mushrooms-gilled"><strong>Gilled</strong><span>Thin blade-like gills under the cap.</span></a>
-        <a class="lane-card" href="#/boletes"><strong>Pores / spongy underside</strong><span>Pore surface or sponge-like underside. These are the boletes once you open the section.</span></a>
-        <a class="lane-card" href="#/mushrooms-other"><strong>Other forms</strong><span>Teeth, ridges, shelves, coral, jelly, and oddballs.</span></a>
-      </div>
-    </section>
-  `;
-}
-
-function mushroomLaneNavHtml(route = "") {
-  if (!["mushrooms-gilled", "boletes", "mushrooms-other"].includes(route)) return "";
-  const item = (href, key, label, note) => {
-    const active = route === key ? " active" : "";
-    return `<a class="lane-card${active}" href="${href}"><strong>${esc(label)}</strong><span>${esc(note)}</span></a>`;
-  };
-  return `
-    <section class="panel mushroom-lane-switcher">
-      <h3>Mushroom underside / form</h3>
-      <div class="lane-grid">
-        ${item("#/mushrooms-gilled", "mushrooms-gilled", "Gilled", "Thin blade-like gills under the cap.")}
-        ${item("#/boletes", "boletes", "Pores / spongy underside", "Pore surface or sponge-like underside.")}
-        ${item("#/mushrooms-other", "mushrooms-other", "Other forms", "Teeth, ridges, shelves, coral, jelly, and oddballs.")}
+        <a class="lane-card" href="#/boletes"><strong>Boletes</strong><span>Pores or sponge-like underside.</span></a>
+        <a class="lane-card" href="#/mushrooms-other"><strong>Other</strong><span>Teeth, ridges, shelves, coral, jelly, and oddballs.</span></a>
       </div>
     </section>
   `;
@@ -107,106 +89,12 @@ function mushroomLaneNavHtml(route = "") {
 
 function optionHtml(values, current, blankLabel) {
   return [`<option value="">${esc(blankLabel)}</option>`]
-    .concat((values || []).map((item) => {
-      const value = item && typeof item === "object" ? String(item.value || "") : String(item || "");
-      const label = item && typeof item === "object" ? String(item.label || item.value || "") : value;
-      return `<option value="${esc(value)}" ${current === value ? "selected" : ""}>${esc(label)}</option>`;
-    }))
+    .concat((values || []).map(value => `<option value="${esc(value)}" ${current === value ? "selected" : ""}>${esc(value)}</option>`))
     .join("");
 }
 
-const PLANT_TRAIT_FILTER_KEYS = [
-  "plantMonth", "plantPart", "plantHabitat", "plantSize", "plantTaste",
-  "plantFlowerColor", "plantFruitColor", "plantLeafShape", "plantLeafArrangement", "plantStem"
-];
-
-const MUSHROOM_TRAIT_FILTER_KEYS = [
-  "mushroomMonth", "mushroomHabitat", "mushroomSubstrate", "mushroomTreeType", "mushroomHost", "mushroomUnderside",
-  "mushroomRing", "mushroomTexture", "mushroomSmell", "mushroomStaining", "mushroomCapSurface",
-  "mushroomStemFeature", "mushroomBoleteGroup", "mushroomBoleteSubgroup", "mushroomPoreColor",
-  "mushroomReviewFlag", "mushroomTreeAssociation", "mushroomTaste"
-];
-
-const SORT_OPTIONS = [
-  { value: "default", label: "Default order" },
-  { value: "name", label: "Name A–Z" },
-  { value: "commonness", label: "Commonality — common first" },
-  { value: "foodQuality", label: "Food quality / taste — best first" },
-  { value: "season", label: "Season — earliest first" }
-];
-
-function isSortableRoute(route) {
-  return [
-    "plants", "mushrooms-gilled", "boletes", "mushrooms-other",
-    "medicinal", "lookalikes", "caution", "other-uses", "search", "review"
-  ].includes(route);
-}
-
-function renderSortControls(route) {
-  if (!isSortableRoute(route)) return "";
-  const current = state.filters.sortSpecies || "default";
-  return `
-    <section class="panel">
-      <div class="medicinal-filter-row" style="display:grid;grid-template-columns:minmax(220px,320px) minmax(260px,1fr);gap:12px;align-items:end;">
-        <div class="medicinal-filter-cell">
-          <label for="speciesSortSelect" class="muted small">Sort</label>
-          <select id="speciesSortSelect" style="width:100%">${optionHtml(SORT_OPTIONS, current, "Default order")}</select>
-        </div>
-        <p class="muted small" style="margin:0;">Sorting applies after the current filters. Season sorting pushes records with missing or review-needed season data to the end.</p>
-      </div>
-    </section>
-  `;
-}
-
-function isPlantFilterRoute(route) {
-  return route === "plants";
-}
-
-function isMushroomFilterRoute(route) {
-  return ["mushrooms-gilled", "boletes", "mushrooms-other"].includes(route);
-}
-
-function clearTraitFiltersForRoute(route) {
-  const keys = isPlantFilterRoute(route)
-    ? PLANT_TRAIT_FILTER_KEYS
-    : (isMushroomFilterRoute(route) ? MUSHROOM_TRAIT_FILTER_KEYS : []);
-  keys.forEach((key) => { state.filters[key] = ""; });
-}
-
-function renderTraitFilters(route, filterFields = [], activeTraitFilters = false) {
-  if (!filterFields.length) return "";
-  const title = isPlantFilterRoute(route) ? "Plant filters" : (route === "boletes" ? "Pored mushroom filters" : "Mushroom filters");
-  const hasMissing = filterFields.some((field) => (field.options || []).some((option) => option?.value === "__missing__"));
-  const hasReviewFlag = filterFields.some((field) => field.valueKey === "mushroomReviewFlag");
-  const hasSubstrateReview = filterFields.some((field) => field.valueKey === "mushroomSubstrate" && (field.options || []).some((option) => option?.value === "__missing__"));
-  const noteBits = [];
-  if (hasReviewFlag) noteBits.push("Data review is an audit filter: it helps find boletes with inherited/default season data, missing substrate, missing host/tree clues, missing bruising notes, weak food-quality labels, or missing photo/source work.");
-  if (hasSubstrateReview) noteBits.push("Needs substrate review marks boletes where growing context is missing and should be investigated.");
-  else if (hasMissing) noteBits.push("Not recorded / needs review is selectable so records with missing filter data can be found and fixed.");
-  return `
-    <section class="panel">
-      <div class="home-focus-heading">
-        <h3>${esc(title)}</h3>
-        ${activeTraitFilters ? `<button id="traitClearBtn" type="button">Clear filters</button>` : ""}
-      </div>
-      ${noteBits.length ? `<p class="muted small">${esc(noteBits.join(" "))}</p>` : ""}
-      <div class="medicinal-filter-row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;align-items:end;">
-        ${filterFields.map((field) => `
-          <div class="medicinal-filter-cell">
-            <label for="traitFilter_${esc(field.key)}" class="muted small">${esc(field.label)}</label>
-            <select id="traitFilter_${esc(field.key)}" data-trait-filter="${esc(field.key)}" style="width:100%">
-              ${optionHtml(field.options, state.filters[field.key] || "", field.blankLabel || "Any")}
-            </select>
-          </div>
-        `).join("")}
-      </div>
-    </section>
-  `;
-}
-
-function controlsHtml(route = "general", placeholder = "Search species", filterFields = [], activeTraitFilters = false) {
+function controlsHtml(route = "general", placeholder = "Search species") {
   const search = state.filters.search || "";
-  const sortControls = renderSortControls(route);
   if (route === "medicinal") {
     return `
       <section class="panel">
@@ -228,7 +116,6 @@ function controlsHtml(route = "general", placeholder = "Search species", filterF
           </div>
         </div>
       </section>
-      ${sortControls}
     `;
   }
   if (route === "search") {
@@ -240,13 +127,9 @@ function controlsHtml(route = "general", placeholder = "Search species", filterF
           ${search ? `<button id="speciesClearBtn" type="button">Clear</button>` : ""}
         </div>
       </section>
-      ${sortControls}
     `;
   }
-  if (isPlantFilterRoute(route) || isMushroomFilterRoute(route)) {
-    return `${mushroomLaneNavHtml(route)}${renderTraitFilters(route, filterFields, activeTraitFilters)}${sortControls}`;
-  }
-  return sortControls;
+  return "";
 }
 
 const BUILT_IN_LOOKALIKE_STUBS = new Map([
@@ -330,17 +213,10 @@ function makeBuiltInLookalikeStub(slug = "") {
   return record ? { ...record } : null;
 }
 
-function resolveCanonicalRecord(record) {
-  if (!record?.duplicate_of) return record;
-  const canonical = state.species.find(candidate => candidate.slug === record.duplicate_of)
-    || state.rareSpecies.find(candidate => candidate.slug === record.duplicate_of);
-  return canonical || record;
-}
-
 function getRecordBySlug(slug) {
-  const record = state.species.find(candidate => candidate.slug === slug)
-    || state.rareSpecies.find(candidate => candidate.slug === slug);
-  return resolveCanonicalRecord(record) || makeBuiltInLookalikeStub(slug);
+  return state.species.find(record => record.slug === slug)
+    || state.rareSpecies.find(record => record.slug === slug)
+    || makeBuiltInLookalikeStub(slug);
 }
 
 function loadReviewOverlay() {
@@ -456,12 +332,14 @@ function wireActionButtons(root = document) {
 
 function clearRouteFilters(route) {
   state.filters.search = "";
+  if (route === "plants") {
+    state.filters.plantLane = "";
+  }
   if (route === "medicinal") {
     state.filters.medicinalAction = "";
     state.filters.medicinalSystem = "";
     state.filters.medicinalTerm = "";
   }
-  clearTraitFiltersForRoute(route);
 }
 
 function wireCommonEvents(route) {
@@ -477,6 +355,16 @@ function wireCommonEvents(route) {
     clearRouteFilters(route);
     renderCurrentRoute();
   });
+  document.querySelectorAll("[data-plant-lane]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.filters.plantLane = button.dataset.plantLane || "";
+      renderCurrentRoute();
+    });
+  });
+  document.getElementById("plantLaneClearBtn")?.addEventListener("click", () => {
+    state.filters.plantLane = "";
+    renderCurrentRoute();
+  });
   document.getElementById("medicinalActionFilter")?.addEventListener("change", (event) => {
     state.filters.medicinalAction = event.currentTarget.value || "";
     renderCurrentRoute();
@@ -487,22 +375,6 @@ function wireCommonEvents(route) {
   });
   document.getElementById("medicinalTermFilter")?.addEventListener("change", (event) => {
     state.filters.medicinalTerm = event.currentTarget.value || "";
-    renderCurrentRoute();
-  });
-  document.querySelectorAll("[data-trait-filter]").forEach((select) => {
-    select.addEventListener("change", (event) => {
-      const key = event.currentTarget.dataset.traitFilter || "";
-      if (!key) return;
-      state.filters[key] = event.currentTarget.value || "";
-      renderCurrentRoute();
-    });
-  });
-  document.getElementById("speciesSortSelect")?.addEventListener("change", (event) => {
-    state.filters.sortSpecies = event.currentTarget.value || "default";
-    renderCurrentRoute();
-  });
-  document.getElementById("traitClearBtn")?.addEventListener("click", () => {
-    clearTraitFiltersForRoute(route);
     renderCurrentRoute();
   });
   wireActionButtons(document);
@@ -544,18 +416,17 @@ async function renderHomeRoute(token) {
 }
 
 async function renderSpeciesRoute(route, token) {
-  const { filterRecords, renderRecordCards, getFilterFieldsForRoute, hasActiveTraitFilters, sortRecords } = await importModule("./ui/render-list.js");
+  const { filterRecords, renderRecordCards, renderPlantLaneControls } = await importModule("./ui/render-list.js");
   if (token !== renderToken) return;
-  const matchRoute = route === "search" ? "general" : route;
-  const filterFields = getFilterFieldsForRoute(state.species, matchRoute, state.filters);
-  const activeTraitFilters = hasActiveTraitFilters(matchRoute, state.filters);
-  const filtered = filterRecords(state.species, matchRoute, state.filters);
-  const sorted = sortRecords(filtered, state.filters.sortSpecies || "default");
+  const filtered = filterRecords(state.species, route === "search" ? "general" : route, state.filters);
   const title = `${routeTitle(route)} (${filtered.length})`;
+  const controls = route === "plants"
+    ? renderPlantLaneControls(state.species, state.filters)
+    : controlsHtml(route, route === "search" ? "Search all species" : `Search ${routeTitle(route).toLowerCase()}`);
   renderPage(`
-    ${controlsHtml(route, route === "search" ? "Search all species" : `Search ${routeTitle(route).toLowerCase()}`, filterFields, activeTraitFilters)}
+    ${controls}
     <section class="panel"><h2>${esc(title)}</h2></section>
-    ${renderRecordCards(sorted, route)}
+    ${renderRecordCards(filtered, route)}
   `);
   wireCommonEvents(route);
 }
@@ -605,33 +476,9 @@ async function renderCreditsRoute(token) {
   wireCommonEvents("credits");
 }
 
-function clearFiltersWhenLeavingRoute(fromRoute = "", toRoute = "") {
-  if (!fromRoute || fromRoute === toRoute) return;
-
-  if (fromRoute === "search" && toRoute !== "search") {
-    state.filters.search = "";
-  }
-
-  if (fromRoute === "medicinal" && toRoute !== "medicinal") {
-    state.filters.medicinalAction = "";
-    state.filters.medicinalSystem = "";
-    state.filters.medicinalTerm = "";
-  }
-
-  if (isPlantFilterRoute(fromRoute) || isMushroomFilterRoute(fromRoute)) {
-    clearTraitFiltersForRoute(fromRoute);
-  }
-
-  if (isPlantFilterRoute(toRoute) || isMushroomFilterRoute(toRoute)) {
-    clearTraitFiltersForRoute(toRoute);
-  }
-}
-
 export async function renderCurrentRoute() {
   const token = ++renderToken;
   const route = parseRoute();
-  clearFiltersWhenLeavingRoute(previousRoute, route);
-  previousRoute = route;
   setRoute(route);
   markActiveNav(route === "search" ? "search" : (route.startsWith("mushrooms-") || route === "boletes" ? "mushrooms" : (route === "other-uses" ? "other-uses" : route)));
 
