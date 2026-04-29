@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.70-r2026-04-29-slippery-jack-merge1";
-const DISPLAY_VERSION = "V4.2.70-r26-04-29";
+const APP_VERSION = "v4.2.71-r2026-04-29-plants-quick-lanes1";
+const DISPLAY_VERSION = "V4.2.71-r26-04-29";
 
 function esc(value) {
   return String(value ?? "")
