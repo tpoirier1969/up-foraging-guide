@@ -1,14 +1,14 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.68-r2026-04-28-mushroom-data-split1",
+    "build": "v4.2.70-r2026-04-29-slippery-jack-merge1",
     "primary_type": "mushroom",
     "split_version": "mushroom-data-split-v1",
     "split_file": "data/mushrooms.json",
     "split_role": "Core/restored baseline mushroom records kept at the original path.",
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
-    "record_count": 55,
+    "record_count": 54,
     "notes": "Core/restored mushroom records retained at the original mushrooms.json path. Expanded mushroom records now load from smaller grouped files listed in split_manifest.",
     "split_manifest": [
       {
@@ -36,7 +36,17 @@
         "record_count": 24,
         "role": "Expanded long-stemmed, peppery, gilled-bolete, wood-inhabiting, and oddball bolete records."
       }
-    ]
+    ],
+    "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
+    "review_reason_audit": {
+      "audited_on": "2026-04-28",
+      "rule": "Normalize explicit review signals into review_reasons/review_note and prefix notes for Needs Review list visibility.",
+      "review_records_in_file": 8,
+      "cleared_image_only_slugs_not_reopened": [
+        "slippery-jack"
+      ]
+    },
+    "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1"
   },
   "records": [
     {
@@ -456,7 +466,7 @@
       "display_name": "Bay Bolete",
       "common_name": "Bay Bolete",
       "category": "Mushroom",
-      "notes": "",
+      "notes": "Bay Bolete is treated here as Imleria badia. Older app data also used the scientific-name slug imleria-badia; that duplicate has been merged into this page.",
       "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "July",
@@ -479,7 +489,11 @@
       "lane": "bolete",
       "reviewReasons": [],
       "review_status": "ok",
-      "search_aliases": [],
+      "search_aliases": [
+        "bay-bolete",
+        "Bay Bolete",
+        "Imleria badia"
+      ],
       "host_filter_tokens": [
         "Softwood",
         "Pine",
@@ -501,8 +515,14 @@
         9,
         10
       ],
-      "look_alikes": [],
-      "confused_with": [],
+      "look_alikes": [
+        "false-king-bolete",
+        "bitter-bolete"
+      ],
+      "confused_with": [
+        "false-king-bolete",
+        "true-bitter-bolete"
+      ],
       "edibility_detail": "Use only after confirming the bay-brown cap, yellow pores that bruise grayish blue, conifer/decayed-wood setting, and non-reticulate wrinkled stem.",
       "food_role": "food",
       "mushroom_profile": {
@@ -550,16 +570,35 @@
           "Pores"
         ],
         "staining": [
-          "Pores bruise grayish blue"
+          "Pores bruise grayish blue",
+          "Unknown"
         ],
         "texture": [
-          "Fleshy / firm when young"
+          "Fleshy / firm when young",
+          "Fleshy / firm"
         ],
         "smell": [
           "Mild / not distinctive"
         ],
         "taste": [
           "Mild / not distinctive"
+        ],
+        "scientific_name": "Imleria badia",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Minimal bolete seed entry for Bay Bolete. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "ecology": "bolete",
+        "wood_type": [],
+        "host_certainty": "unknown",
+        "ring": "Unknown",
+        "odor": "Unknown",
+        "spore_print": "",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs image coverage.",
+          "Needs source links and fuller field notes."
         ]
       },
       "scientific_name": "Imleria badia",
@@ -634,7 +673,54 @@
       "alias_record_note": "Hidden from lists as a duplicate/legacy alias of Imleria badia; retained so older look-alike links and searches do not break.",
       "legacy_alias": true,
       "list_visibility": "hidden-duplicate",
-      "duplicate_note": "Duplicate Bay Bolete record kept only as a legacy slug alias."
+      "duplicate_note": "Duplicate Bay Bolete record kept only as a legacy slug alias.",
+      "mushroom_family": "Porcini & brown allies",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "former_slugs": [
+        "imleria-badia"
+      ],
+      "aliases": [
+        "imleria-badia"
+      ],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Bay%20Bolete%2C%20Boletus%20badius%20%2821195318373%29.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Bay%20Bolete%2C%20Boletus%20badius%20%2821195318373%29.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Bay%20Bolete%2C%20Boletus%20badius%20%2821195318373%29.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Bay Bolete, Boletus badius (21195318373).jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Bay_Bolete,_Boletus_badius_(21195318373).jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20badius%205052175998%20df099ccc79%20b.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20badius%205052175998%20df099ccc79%20b.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20badius%205052175998%20df099ccc79%20b.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Boletus badius 5052175998 df099ccc79 b.jpg",
+          "part_or_stage": "Field photo 2",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Boletus_badius_5052175998_df099ccc79_b.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20badius%20G1.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20badius%20G1.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20badius%20G1.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Boletus badius G1.jpg",
+          "part_or_stage": "Field photo 3",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Boletus_badius_G1.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "needs_review": false,
+      "review_note": "",
+      "review_notes": ""
     },
     {
       "slug": "bear-s-head-tooth",
@@ -849,7 +935,7 @@
       "display_name": "Bitter Bolete",
       "common_name": "Bitter Bolete",
       "category": "Mushroom",
-      "notes": "",
+      "notes": "Bitter Bolete is treated here as the Tylopilus felleus concept: a bitter, pink-pored bolete often confused with porcini-type mushrooms. North American material may not all be true European T. felleus, so use this page as a field-guide concept rather than a final microscope-level taxonomy claim.",
       "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "July",
@@ -857,7 +943,9 @@
         "September",
         "October"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/tylopilus_felleus.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%281%29.JPG",
@@ -871,7 +959,11 @@
       "lane": "bolete",
       "reviewReasons": [],
       "review_status": "ok",
-      "search_aliases": [],
+      "search_aliases": [
+        "bitter-bolete",
+        "Bitter Bolete",
+        "Tylopilus felleus"
+      ],
       "host_filter_tokens": [],
       "commonness": "Common",
       "food_quality": "Niche / acquired taste",
@@ -887,18 +979,27 @@
         9,
         10
       ],
-      "look_alikes": [],
-      "confused_with": [],
+      "look_alikes": [
+        "bay-bolete",
+        "king-bolete"
+      ],
+      "confused_with": [
+        "bay-bolete",
+        "king-bolete"
+      ],
       "food_role": "food",
       "mushroom_profile": {
         "cap_surface": [
           "Dry to slightly tacky"
         ],
         "stem_feature": [
-          "Smooth to netted stem"
+          "Smooth to netted stem",
+          "Reticulate/netted stem"
         ],
         "pore_color": [
-          "Whitish to yellow pores"
+          "Whitish to yellow pores",
+          "Whitish aging pinkish pores",
+          "Pinkish mature pores"
         ],
         "growth_form": [
           "Cap and stem"
@@ -914,7 +1015,33 @@
         "caution_level": "low",
         "summary": "Pink-pored Tylopilus with an intensely bitter taste. Not poisonous in the usual field-guide sense, but most foragers skip it because it can ruin a meal; kept here as a niche/acquired-taste edible.",
         "taste": [
-          "Bitter"
+          "Bitter",
+          "Very bitter"
+        ],
+        "scientific_name": "Tylopilus felleus",
+        "entry_scope": "species",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "None",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": "Unknown",
+        "spore_print": "",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan / Upper Midwest bolete pass.",
+          "Needs image coverage.",
+          "Needs source links and fuller field notes."
         ]
       },
       "common_names": [
@@ -967,15 +1094,84 @@
         "warnings": "",
         "claims": []
       },
-      "use_links": [],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Tylopilus felleus",
+          "url": "https://www.mushroomexpert.com/tylopilus_felleus.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Pink pore surface, bitter taste, conifer association, and Michigan taxonomic note."
+        }
+      ],
       "hidden": true,
       "duplicate_of": "true-bitter-bolete",
       "legacy_alias": true,
       "list_visibility": "hidden-duplicate",
       "duplicate_note": "Duplicate Bitter Bolete record kept only as a legacy slug alias.",
-      "manual_review_reasons": [],
+      "manual_review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links"
+      ],
       "is_non_edible": false,
-      "toxicity_notes": "Not treated as a poison species in this guide; retained as a niche/acquired-taste edible with a strong bitter flavor."
+      "toxicity_notes": "Not treated as a poison species in this guide; retained as a niche/acquired-taste edible with a strong bitter flavor.",
+      "medicinal_uses": "",
+      "mushroom_family": "Pink-pored Tylopilus & bitter allies",
+      "boleteGroup": [
+        "Pink-pored Tylopilus & bitter allies"
+      ],
+      "boleteSubgroup": [
+        "Pink-pored bitters"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "needs_review": false,
+      "review_note": "",
+      "review_notes": "",
+      "former_slugs": [
+        "true-bitter-bolete"
+      ],
+      "aliases": [
+        "true-bitter-bolete",
+        "tylopilus-felleus"
+      ],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Tylopilus felleus.jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Tylopilus_felleus.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%281%29.JPG",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%281%29.JPG",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%281%29.JPG",
+          "source": "Wikimedia Commons",
+          "title": "Tylopilus felleus (1).JPG",
+          "part_or_stage": "Field photo 2",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Tylopilus_felleus_(1).JPG",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2823431150244%29.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2823431150244%29.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2823431150244%29.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Tylopilus felleus (23431150244).jpg",
+          "part_or_stage": "Field photo 3",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Tylopilus_felleus_(23431150244).jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ]
     },
     {
       "slug": "black-morels",
@@ -2959,7 +3155,7 @@
       "display_name": "King Bolete",
       "common_name": "King Bolete",
       "category": "Mushroom",
-      "notes": "",
+      "notes": "King Bolete / porcini is kept as a practical field-guide page, but North American Boletus edulis-like mushrooms are taxonomically messy. Treat this as an edulis-group/porcini-style entry unless a collection is confirmed to species level.",
       "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "July",
@@ -2967,7 +3163,9 @@
         "September",
         "October"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/boletus_edulis.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20edulis.jpg"
       ],
@@ -2976,8 +3174,10 @@
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "bolete",
-      "reviewReasons": [],
-      "review_status": "ok",
+      "reviewReasons": [
+        "Needs regional/taxonomy confirmation for North American Boletus edulis group"
+      ],
+      "review_status": "needs_review",
       "search_aliases": [
         "boletus-edulis",
         "King Bolete",
@@ -3003,7 +3203,7 @@
       ],
       "look_alikes": [
         "false-king-bolete",
-        "true-bitter-bolete"
+        "bitter-bolete"
       ],
       "confused_with": [
         "false-king-bolete",
@@ -3016,7 +3216,8 @@
           "Dry to slightly tacky"
         ],
         "stem_feature": [
-          "Smooth to netted stem"
+          "Smooth to netted stem",
+          "Reticulate/netted stem"
         ],
         "pore_color": [
           "Whitish to yellow pores"
@@ -3030,11 +3231,44 @@
         "fruitbody_shape": [
           "Convex cap with central stem"
         ],
-        "season_note": "Usually encountered from July through October in the Upper Midwest / Great Lakes window."
+        "season_note": "Usually encountered from July through October in the Upper Midwest / Great Lakes window.",
+        "scientific_name": "Boletus edulis / Boletus edulis group",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Minimal bolete seed entry for King Bolete. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Unknown",
+          "No notable bruising"
+        ],
+        "taste": [
+          "Mild / pleasant"
+        ],
+        "spore_print": "",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs image coverage.",
+          "Needs source links and fuller field notes."
+        ]
       },
       "common_names": [
-        "boletus-edulis",
-        "Boletus edulis",
+        "King Bolete",
         "Porcini",
         "Cep"
       ],
@@ -3043,7 +3277,61 @@
         "needs source links",
         "needs species-level notes review"
       ],
-      "scientific_name": "Boletus edulis"
+      "scientific_name": "Boletus edulis",
+      "needs_review": true,
+      "review_reasons": [
+        "Needs regional/taxonomy confirmation for North American Boletus edulis group"
+      ],
+      "review_note": "Needs review: regional/taxonomy confirmation for North American Boletus edulis group.",
+      "review_notes": "Needs review: regional/taxonomy confirmation for North American Boletus edulis group.",
+      "mushroom_family": "Porcini & brown allies",
+      "boleteGroup": [
+        "Porcini & brown allies"
+      ],
+      "boleteSubgroup": [
+        "Boletus",
+        "Brown cap allies"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "hidden": true,
+      "duplicate_of": "king-bolete",
+      "legacy_alias": true,
+      "list_visibility": "hidden-duplicate",
+      "duplicate_note": "Duplicate King Bolete record kept only as a legacy slug alias.",
+      "former_slugs": [
+        "boletus-edulis"
+      ],
+      "aliases": [
+        "boletus-edulis",
+        "porcini",
+        "cep"
+      ],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20edulis.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20edulis.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20edulis.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Boletus edulis.jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Boletus_edulis.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Boletus edulis",
+          "url": "https://www.mushroomexpert.com/boletus_edulis.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Edulis-group traits and caution that North American edulis-like mushrooms are taxonomically complex."
+        }
+      ]
     },
     {
       "slug": "king-oyster",
@@ -3140,14 +3428,16 @@
       "display_name": "Larch Suillus",
       "common_name": "Larch Suillus",
       "category": "Mushroom",
-      "notes": "",
+      "notes": "Larch Suillus is treated here as Suillus clintonianus, the North American larch/tamarack-associated species often shown in older guides as Suillus grevillei. Check for larch/tamarack nearby.",
       "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "July",
         "August",
         "September"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus_clintonianus.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20374653.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20374654.jpg",
@@ -3175,7 +3465,8 @@
         ],
         "wood_type": [],
         "host_trees": [
-          "Tamarack / larch"
+          "Tamarack / larch",
+          "Larch"
         ],
         "host_certainty": "low",
         "underside": [
@@ -3186,8 +3477,12 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
-        "taste": [],
+        "staining": [
+          "Not a strong blue-stainer"
+        ],
+        "taste": [
+          "Mild / not distinctive"
+        ],
         "spore_print": "",
         "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
         "processing_required": [],
@@ -3196,7 +3491,8 @@
           "Needs source links and fuller field notes."
         ],
         "cap_surface": [
-          "Dry to slightly tacky"
+          "Brownish red cap",
+          "Sticky / slimy when fresh"
         ],
         "stem_feature": [
           "Glandular dots or smooth stem"
@@ -3238,8 +3534,7 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "needs species-level notes review",
-        "needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -3257,14 +3552,29 @@
       "food_quality_score": 3,
       "look_alikes": [
         "butterball",
-        "larch-suillus",
         "slippery-jack"
       ],
       "confused_with": [
         "butterball",
         "slippery-jack"
       ],
-      "food_role": "food"
+      "food_role": "food",
+      "needs_review": true,
+      "review_reasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "review_note": "Needs review: needs real field photo / image coverage.",
+      "review_notes": "Needs review: needs real field photo / image coverage.",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Suillus clintonianus",
+          "url": "https://www.mushroomexpert.com/suillus_clintonianus.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "North American larch/tamarack Suillus; separated from European Suillus grevillei."
+        }
+      ]
     },
     {
       "slug": "lion-s-mane",
@@ -3485,8 +3795,7 @@
       "food_role": "food",
       "look_alikes": [
         "destroying-angel",
-        "field-mushroom",
-        "meadow-mushroom"
+        "field-mushroom"
       ],
       "confused_with": [
         "destroying-angel",
@@ -3541,7 +3850,7 @@
       "display_name": "Old Man of the Woods",
       "common_name": "Old Man of the Woods",
       "category": "Mushroom",
-      "notes": "",
+      "notes": "Old Man of the Woods is kept under the common-name slug. The former scientific-name slug strobilomyces-strobilaceus has been merged here to avoid duplicate listings.",
       "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "July",
@@ -3631,7 +3940,8 @@
           "Whitish to gray pores becoming blackish"
         ],
         "staining": [
-          "Flesh reddens then blackens"
+          "Flesh reddens then blackens",
+          "Unknown"
         ],
         "cap_surface": [
           "Dry",
@@ -3642,7 +3952,8 @@
           "Possible ring zone"
         ],
         "texture": [
-          "Fleshy becoming coarse"
+          "Fleshy becoming coarse",
+          "Fleshy / firm"
         ],
         "smell": [
           "Mild / not distinctive"
@@ -3650,14 +3961,29 @@
         "taste": [
           "Mild / not distinctive"
         ],
-        "season_note": "Summer and fall; often July through October."
+        "season_note": "Summer and fall; often July through October.",
+        "scientific_name": "Strobilomyces strobilaceus",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Minimal bolete seed entry for Old Man of the Woods. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "ecology": "bolete",
+        "wood_type": [],
+        "host_certainty": "unknown",
+        "ring": "Unknown",
+        "odor": "Unknown",
+        "spore_print": "",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs source links and fuller field notes."
+        ]
       },
       "primary_type": "mushroom",
       "review_reasons": [],
       "manual_review_reasons": [],
       "common_names": [
-        "Old Man of the Woods",
-        "strobilomyces-strobilaceus"
+        "Old Man of the Woods"
       ],
       "kingdom_type": "mushroom",
       "species_scope": "species",
@@ -3697,7 +4023,82 @@
         "preparation_notes": "",
         "warnings": "",
         "claims": []
-      }
+      },
+      "mushroom_family": "Shaggy & scaly oddballs",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "hidden": true,
+      "duplicate_of": "old-man-of-the-woods",
+      "legacy_alias": true,
+      "list_visibility": "hidden-duplicate",
+      "duplicate_note": "Duplicate Old Man of the Woods record kept only as a legacy slug alias.",
+      "former_slugs": [
+        "strobilomyces-strobilaceus"
+      ],
+      "aliases": [
+        "strobilomyces-strobilaceus",
+        "strobilomyces-floccopus"
+      ],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%205.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%205.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%205.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Strobilomyces strobilaceus 5.jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Strobilomyces_strobilaceus_5.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2006-09-03%20Strobilomyces%20strobilaceus%201.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2006-09-03%20Strobilomyces%20strobilaceus%201.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2006-09-03%20Strobilomyces%20strobilaceus%201.jpg",
+          "source": "Wikimedia Commons",
+          "title": "2006-09-03 Strobilomyces strobilaceus 1.jpg",
+          "part_or_stage": "Field photo 2",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2006-09-03_Strobilomyces_strobilaceus_1.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2006-09-03%20Strobilomyces%20strobilaceus%202.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2006-09-03%20Strobilomyces%20strobilaceus%202.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2006-09-03%20Strobilomyces%20strobilaceus%202.jpg",
+          "source": "Wikimedia Commons",
+          "title": "2006-09-03 Strobilomyces strobilaceus 2.jpg",
+          "part_or_stage": "Field photo 3",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2006-09-03_Strobilomyces_strobilaceus_2.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%206.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%206.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%206.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Strobilomyces strobilaceus 6.jpg",
+          "part_or_stage": "Field photo 4",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Strobilomyces_strobilaceus_6.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%203.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%203.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%203.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Strobilomyces strobilaceus 3.jpg",
+          "part_or_stage": "Field photo 5",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Strobilomyces_strobilaceus_3.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "needs_review": false,
+      "review_note": "",
+      "review_notes": ""
     },
     {
       "slug": "pearl-oyster",
@@ -3945,7 +4346,7 @@
       "display_name": "Reindeer lichen",
       "common_name": "Reindeer lichen",
       "category": "Mushroom",
-      "notes": "",
+      "notes": "Needs review: category should be reviewed.",
       "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "January",
@@ -4046,21 +4447,27 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "category should be reviewed: lichen, not mushroom"
+        "Category should be reviewed"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
       "host_filter_tokens": [],
       "commonness": "",
       "food_quality": "",
-      "habitat": []
+      "habitat": [],
+      "needs_review": true,
+      "review_reasons": [
+        "Category should be reviewed"
+      ],
+      "review_note": "Needs review: category should be reviewed.",
+      "review_notes": "Needs review: category should be reviewed."
     },
     {
       "slug": "rock-tripe-lichen",
       "display_name": "Rock tripe (lichen)",
       "common_name": "Rock tripe (lichen)",
       "category": "Mushroom",
-      "notes": "",
+      "notes": "Needs review: category should be reviewed.",
       "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "January",
@@ -4159,7 +4566,7 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "category should be reviewed: lichen, not mushroom"
+        "Category should be reviewed"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -4167,7 +4574,13 @@
       "commonness": "",
       "food_quality": "",
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "needs_review": true,
+      "review_reasons": [
+        "Category should be reviewed"
+      ],
+      "review_note": "Needs review: category should be reviewed.",
+      "review_notes": "Needs review: category should be reviewed."
     },
     {
       "slug": "scaber-stalk-boletes-birch-aspen-boletes",
@@ -4293,7 +4706,7 @@
       "display_name": "Short-stemmed russula",
       "common_name": "Short-stemmed russula",
       "category": "Mushroom",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage.",
       "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "July",
@@ -4310,10 +4723,9 @@
       "record_type": "mushroom",
       "lane": "gilled",
       "reviewReasons": [
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage"
       ],
-      "review_status": "ok",
+      "review_status": "needs_review",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
@@ -4383,9 +4795,11 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+        "Needs real field photo / image coverage"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage.",
+      "review_notes": "Needs review: needs real field photo / image coverage."
     },
     {
       "slug": "shrimp-of-the-woods-aborted-entoloma",
@@ -4424,7 +4838,7 @@
       "display_name": "Shrimp russulas",
       "common_name": "Shrimp russulas",
       "category": "Mushroom",
-      "notes": "Russula group with seafood-like odor.",
+      "notes": "Needs review: needs real field photo / image coverage. Russula group with seafood-like odor.",
       "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "July",
@@ -4441,10 +4855,9 @@
       "record_type": "mushroom",
       "lane": "gilled",
       "reviewReasons": [
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage"
       ],
-      "review_status": "ok",
+      "review_status": "needs_review",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
@@ -4515,56 +4928,11 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "placeholder image inserted",
-        "needs field photo"
-      ]
-    },
-    {
-      "slug": "slippery-jack",
-      "display_name": "Slippery jack",
-      "common_name": "Slippery jack",
-      "category": "Mushroom",
-      "notes": "",
-      "short_reason": "Original app species restored into the standalone modular build.",
-      "months_available": [],
-      "links": [],
-      "images": [
-        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ESlippery%20jack%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+        "Needs real field photo / image coverage"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
-      "non_edible_severity": "Edible with caution",
-      "edibility_detail": "Treat as caution / not for meals in this guide until species-level edibility is clarified.",
-      "general_notes": "",
-      "record_type": "mushroom",
-      "lane": "other",
-      "reviewReasons": [
-        "placeholder image inserted",
-        "needs field photo"
-      ],
-      "review_status": "ok",
-      "search_aliases": [],
-      "host_filter_tokens": [],
-      "commonness": "",
-      "food_quality": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
-      "hidden": true,
-      "duplicate_of": "suillus-luteus",
-      "legacy_alias": true,
-      "list_visibility": "hidden-duplicate",
-      "duplicate_note": "Duplicate Slippery Jack record kept only as a legacy slug alias.",
-      "image_review_status": "needs_field_photo",
-      "image_review_reasons": [
-        "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
-      ],
-      "review_reasons": [
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage.",
+      "review_notes": "Needs review: needs real field photo / image coverage."
     },
     {
       "slug": "smooth-chanterelles",
@@ -4636,7 +5004,8 @@
         "preparation_required": false,
         "notes": ""
       },
-      "review_reasons": []
+      "review_reasons": [],
+      "needs_review": false
     },
     {
       "slug": "turkey-tail",
@@ -4774,7 +5143,7 @@
       "display_name": "Yellow chanterelles (conifer-associated complex)",
       "common_name": "Yellow chanterelles (conifer-associated complex)",
       "category": "Mushroom",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage.",
       "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [],
       "links": [],
@@ -4787,10 +5156,9 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage"
       ],
-      "review_status": "ok",
+      "review_status": "needs_review",
       "search_aliases": [],
       "host_filter_tokens": [],
       "commonness": "",
@@ -4806,16 +5174,18 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+        "Needs real field photo / image coverage"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage.",
+      "review_notes": "Needs review: needs real field photo / image coverage."
     },
     {
       "slug": "yellow-chanterelles-hardwood-associated-complex",
       "display_name": "Yellow chanterelles (hardwood-associated complex)",
       "common_name": "Yellow chanterelles (hardwood-associated complex)",
       "category": "Mushroom",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage.",
       "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [],
       "links": [],
@@ -4828,10 +5198,9 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage"
       ],
-      "review_status": "ok",
+      "review_status": "needs_review",
       "search_aliases": [],
       "host_filter_tokens": [],
       "commonness": "",
@@ -4847,9 +5216,11 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+        "Needs real field photo / image coverage"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage.",
+      "review_notes": "Needs review: needs real field photo / image coverage."
     },
     {
       "slug": "yellow-fly-agaric-guessowii",

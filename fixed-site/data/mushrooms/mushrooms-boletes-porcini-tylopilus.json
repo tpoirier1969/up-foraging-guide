@@ -1,15 +1,23 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.68-r2026-04-28-mushroom-data-split1",
+    "build": "v4.2.70-r2026-04-29-slippery-jack-merge1",
     "primary_type": "mushroom",
     "split_version": "mushroom-data-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-porcini-tylopilus.json",
     "split_role": "Expanded porcini, Tylopilus, dark-pored, and brown bolete records.",
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
-    "record_count": 41,
-    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file."
+    "record_count": 38,
+    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file.",
+    "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
+    "review_reason_audit": {
+      "audited_on": "2026-04-28",
+      "rule": "Normalize explicit review signals into review_reasons/review_note and prefix notes for Needs Review list visibility.",
+      "review_records_in_file": 36,
+      "cleared_image_only_slugs_not_reopened": []
+    },
+    "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1"
   },
   "records": [
     {
@@ -144,7 +152,7 @@
       "food_quality_score": 5,
       "look_alikes": [
         "false-king-bolete",
-        "true-bitter-bolete"
+        "bitter-bolete"
       ],
       "confused_with": [
         "false-king-bolete",
@@ -199,412 +207,13 @@
       "use_links": []
     },
     {
-      "slug": "imleria-badia",
-      "display_name": "Bay Bolete",
-      "common_name": "Bay Bolete",
-      "category": "Mushroom",
-      "culinary_uses": "Generally regarded as edible when confidently identified and cooked; avoid old, buggy, or waterlogged specimens.",
-      "medicinal_uses": "",
-      "notes": "",
-      "months_available": [
-        "July",
-        "August",
-        "September",
-        "October"
-      ],
-      "month_numbers": [
-        7,
-        8,
-        9,
-        10
-      ],
-      "links": [
-        "https://www.mushroomexpert.com/imleria_badia.html"
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Bay%20Bolete%2C%20Boletus%20badius%20%2821195318373%29.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20badius%205052175998%20df099ccc79%20b.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20badius%20G1.jpg"
-      ],
-      "scientific_name": "Imleria badia",
-      "mushroom_profile": {
-        "scientific_name": "Imleria badia",
-        "entry_scope": "species",
-        "edibility_status": "review_required",
-        "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Bay Bolete. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
-        "ecology": "bolete",
-        "substrate": [
-          "Forest soil",
-          "Near decayed wood",
-          "Mossy stumps"
-        ],
-        "wood_type": [],
-        "host_trees": [
-          "Pine",
-          "Eastern hemlock",
-          "Conifers"
-        ],
-        "host_certainty": "unknown",
-        "underside": [
-          "Pores"
-        ],
-        "ring": "Unknown",
-        "texture": [
-          "Fleshy / firm",
-          "Fleshy / firm when young"
-        ],
-        "odor": "Unknown",
-        "staining": [
-          "Unknown",
-          "Pores bruise grayish blue"
-        ],
-        "taste": [
-          "Mild / not distinctive"
-        ],
-        "spore_print": "",
-        "season_note": "Summer and fall in northeastern North America and the upper Midwest.",
-        "processing_required": [],
-        "research_notes": [
-          "Species seed added from the Michigan bolete audit.",
-          "Needs image coverage.",
-          "Needs source links and fuller field notes."
-        ],
-        "cap_surface": [
-          "Dry to slightly tacky",
-          "Sticky when fresh then dry",
-          "Bay-brown cap"
-        ],
-        "stem_feature": [
-          "Smooth to netted stem",
-          "Wrinkled non-reticulate stem"
-        ],
-        "pore_color": [
-          "Whitish to yellow pores",
-          "Pale yellow becoming dirty yellow-brown"
-        ],
-        "growth_form": [
-          "Cap and stem"
-        ],
-        "fertile_surface": [
-          "Pores"
-        ],
-        "fruitbody_shape": [
-          "Convex cap with central stem"
-        ],
-        "lane": "bolete",
-        "host_filter_tokens": [
-          "Softwood",
-          "Pine",
-          "Hemlock",
-          "Decayed wood"
-        ],
-        "smell": [
-          "Mild / not distinctive"
-        ]
-      },
-      "manual_review_reasons": [],
-      "mushroom_family": "Porcini & brown allies",
-      "boleteGroup": [
-        "Porcini & brown allies",
-        "Xerocomus / blue-bruising brown boletes"
-      ],
-      "boleteSubgroup": [
-        "Imleria",
-        "Brown cap allies",
-        "Bay bolete",
-        "Conifer associate",
-        "Decayed wood vicinity"
-      ],
-      "weekPrecision": "species-level-reviewed",
-      "primary_type": "mushroom",
-      "is_medicinal": false,
-      "is_non_edible": false,
-      "commonness": "Occasional",
-      "commonness_score": 4,
-      "food_quality": "Good",
-      "food_quality_score": 4,
-      "lane": "bolete",
-      "host_filter_tokens": [
-        "Softwood",
-        "Pine",
-        "Hemlock",
-        "Decayed wood"
-      ],
-      "look_alikes": [
-        "false-king-bolete",
-        "true-bitter-bolete"
-      ],
-      "confused_with": [
-        "false-king-bolete",
-        "true-bitter-bolete"
-      ],
-      "general_notes": "",
-      "edibility_detail": "Use only after confirming the bay-brown cap, yellow pores that bruise grayish blue, conifer/decayed-wood setting, and non-reticulate wrinkled stem.",
-      "food_role": "food",
-      "edibility_status": "edible_with_caution",
-      "field_identification": "Bay-brown to reddish-brown cap, pale yellow pores that bruise grayish blue, wrinkled non-reticulate stem, and frequent fruiting near conifers or very decayed mossy wood.",
-      "use_links": [
-        {
-          "label": "MushroomExpert: Imleria badia",
-          "url": "https://www.mushroomexpert.com/imleria_badia.html",
-          "link_type": "identification",
-          "applies_to_part": "whole mushroom",
-          "source_quality": "mycology reference",
-          "notes": "Conifer/decayed wood association, blue-gray bruising pores, and stem traits."
-        }
-      ],
-      "record_type": "mushroom",
-      "review_status": "ok",
-      "reviewReasons": [],
-      "review_reasons": [],
-      "common_names": [
-        "Bay Bolete",
-        "bay-bolete"
-      ],
-      "kingdom_type": "mushroom",
-      "species_scope": "species",
-      "foraging_class": "mushroom",
-      "season_months": [
-        7,
-        8,
-        9,
-        10
-      ],
-      "habitats": [],
-      "look_alike_risk": "",
-      "look_alike_notes": "",
-      "rare_profile": null,
-      "overview": "",
-      "other_uses": "",
-      "edibility_notes": "Cooked food. Generally regarded as edible when confidently identified and cooked; avoid old, buggy, or waterlogged specimens.",
-      "curation_notes": [
-        "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
-        "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
-      ],
-      "search_aliases": [
-        "bay-bolete",
-        "Bay Bolete",
-        "Imleria badia"
-      ],
-      "non_edible_severity": "",
-      "edible_use": {
-        "has_ingestible_use": true,
-        "method": "Cooked food",
-        "preparation_required": true,
-        "notes": "Generally regarded as edible when confidently identified and cooked; avoid old, buggy, or waterlogged specimens."
-      },
-      "medicinal": {
-        "has_meaningful_content": false,
-        "summary": "",
-        "evidence_tier": "",
-        "actions": [],
-        "body_systems": [],
-        "medical_terms": [],
-        "parts_used": [],
-        "preparation_notes": "",
-        "warnings": "",
-        "claims": []
-      },
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": []
-    },
-    {
-      "slug": "true-bitter-bolete",
-      "display_name": "Bitter Bolete",
-      "common_name": "Bitter Bolete",
-      "category": "Mushroom",
-      "culinary_uses": "Niche edible with an intensely bitter flavor. Most foragers skip it because even a small amount can make a dish unpleasant, but it is retained in the edible mushroom list as an acquired-taste bittering mushroom rather than a poison/caution species.",
-      "medicinal_uses": "",
-      "notes": "",
-      "months_available": [
-        "July",
-        "August",
-        "September",
-        "October"
-      ],
-      "month_numbers": [
-        7,
-        8,
-        9,
-        10
-      ],
-      "links": [],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%281%29.JPG",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2823431150244%29.jpg"
-      ],
-      "scientific_name": "Tylopilus felleus",
-      "mushroom_profile": {
-        "scientific_name": "Tylopilus felleus",
-        "entry_scope": "species",
-        "edibility_status": "edible_niche_acquired_taste",
-        "caution_level": "low",
-        "summary": "Pink-pored Tylopilus with an intensely bitter taste. Not poisonous in the usual field-guide sense, but most foragers skip it because it can ruin a meal; kept here as a niche/acquired-taste edible.",
-        "ecology": "bolete",
-        "substrate": [
-          "Forest soil"
-        ],
-        "wood_type": [],
-        "host_trees": [],
-        "host_certainty": "unknown",
-        "underside": [
-          "Pores"
-        ],
-        "ring": "None",
-        "texture": [
-          "Fleshy / firm"
-        ],
-        "odor": "Unknown",
-        "staining": "Unknown",
-        "taste": [
-          "Bitter"
-        ],
-        "spore_print": "",
-        "season_note": "Usually encountered from July through October in the Upper Midwest / Great Lakes window.",
-        "processing_required": [],
-        "research_notes": [
-          "Species seed added from the Michigan / Upper Midwest bolete pass.",
-          "Needs image coverage.",
-          "Needs source links and fuller field notes."
-        ],
-        "cap_surface": [
-          "Dry to slightly tacky"
-        ],
-        "stem_feature": [
-          "Smooth to netted stem"
-        ],
-        "pore_color": [
-          "Whitish aging pinkish pores"
-        ],
-        "growth_form": [
-          "Cap and stem"
-        ],
-        "fertile_surface": [
-          "Pores"
-        ],
-        "fruitbody_shape": [
-          "Convex cap with central stem"
-        ]
-      },
-      "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links"
-      ],
-      "mushroom_family": "Pink-pored Tylopilus & bitter allies",
-      "boleteGroup": [
-        "Pink-pored Tylopilus & bitter allies"
-      ],
-      "boleteSubgroup": [
-        "Pink-pored bitters"
-      ],
-      "weekPrecision": "needs-review",
-      "primary_type": "mushroom",
-      "is_medicinal": false,
-      "is_non_edible": false,
-      "general_notes": "Key field clues: pinkish pores as it matures, a strongly bitter nibble-and-spit taste, and dark netting on the stalk. Often confused with porcini/king bolete types.",
-      "record_type": "mushroom",
-      "lane": "bolete",
-      "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links"
-      ],
-      "review_status": "ok",
-      "search_aliases": [
-        "bitter-bolete",
-        "Bitter Bolete",
-        "Tylopilus felleus"
-      ],
-      "host_filter_tokens": [],
-      "commonness": "Common",
-      "food_quality": "Niche / acquired taste",
-      "non_edible_severity": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
-      "commonness_score": 4,
-      "food_quality_score": 2,
-      "look_alikes": [
-        "bay-bolete",
-        "king-bolete",
-        "true-bitter-bolete"
-      ],
-      "confused_with": [
-        "bay-bolete",
-        "king-bolete"
-      ],
-      "edibility_detail": "Use only if intentionally seeking strong bitterness; otherwise keep it separate from good edible boletes because a small piece can dominate a pan.",
-      "food_role": "food",
-      "common_names": [
-        "Bitter Bolete",
-        "False Porcini",
-        "bitter-bolete"
-      ],
-      "edibility_status": "edible_niche_acquired_taste",
-      "look_alike_risk": "",
-      "danger_level": "Niche edible / intensely bitter",
-      "poisoning_effects": "Large amounts may cause stomach upset in some people; the practical problem is intense bitterness and confusion with better edible porcini-type boletes.",
-      "affected_systems": [],
-      "kingdom_type": "mushroom",
-      "species_scope": "species",
-      "foraging_class": "mushroom",
-      "field_identification": "",
-      "season_months": [
-        7,
-        8,
-        9,
-        10
-      ],
-      "habitats": [],
-      "look_alike_notes": "",
-      "rare_profile": null,
-      "overview": "",
-      "other_uses": "",
-      "edibility_notes": "Inedible because of intense bitterness rather than dangerous poisoning. Keep it out of the Caution page unless a future record adds a real toxicity concern.",
-      "curation_notes": [
-        "Minimal species seed. Added during the bolete expansion pass for the clean app; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
-        "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
-      ],
-      "review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links"
-      ],
-      "edible_use": {
-        "has_ingestible_use": false,
-        "method": "",
-        "preparation_required": false,
-        "notes": ""
-      },
-      "medicinal": {
-        "has_meaningful_content": false,
-        "summary": "",
-        "evidence_tier": "",
-        "actions": [],
-        "body_systems": [],
-        "medical_terms": [],
-        "parts_used": [],
-        "preparation_notes": "",
-        "warnings": "",
-        "claims": []
-      },
-      "use_links": [],
-      "toxicity_notes": "Not treated as a poison species in this guide; retained as a niche/acquired-taste edible with a strong bitter flavor."
-    },
-    {
       "slug": "tylopilus-intermedius",
       "display_name": "Bitter Parchment Bolete",
       "common_name": "Bitter Parchment Bolete",
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -698,7 +307,7 @@
       "look_alikes": [
         "bay-bolete",
         "king-bolete",
-        "true-bitter-bolete"
+        "bitter-bolete"
       ],
       "confused_with": [
         "bay-bolete",
@@ -709,13 +318,26 @@
       "food_role": "avoid",
       "edibility_status": "not_edible",
       "non_edible_severity": "Caution / not recommended as food",
-      "review_status": "ok",
+      "review_status": "needs_review",
       "edible_use": {
         "has_ingestible_use": false,
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "needs_review": true,
+      "review_reasons": [
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "reviewReasons": [
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "neoporphyrellus-alboater",
@@ -724,7 +346,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -819,7 +441,21 @@
       "confused_with": [],
       "general_notes": "",
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "reviewReasons": [
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "gyroporus-cyanescens",
@@ -828,7 +464,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -923,7 +559,21 @@
       "confused_with": [],
       "general_notes": "",
       "edibility_detail": "A worthwhile edible.",
-      "food_role": "food"
+      "food_role": "food",
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "reviewReasons": [
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "boletus-atkinsonii",
@@ -932,7 +582,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -1025,7 +675,7 @@
       "host_filter_tokens": [],
       "look_alikes": [
         "false-king-bolete",
-        "true-bitter-bolete"
+        "bitter-bolete"
       ],
       "confused_with": [
         "false-king-bolete",
@@ -1033,7 +683,21 @@
       ],
       "general_notes": "",
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "reviewReasons": [
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "boletus-variipes-fagicola",
@@ -1164,7 +828,7 @@
       ],
       "look_alikes": [
         "false-king-bolete",
-        "true-bitter-bolete"
+        "bitter-bolete"
       ],
       "confused_with": [
         "false-king-bolete",
@@ -1251,7 +915,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -1342,7 +1006,7 @@
       "host_filter_tokens": [],
       "look_alikes": [
         "false-king-bolete",
-        "true-bitter-bolete"
+        "bitter-bolete"
       ],
       "confused_with": [
         "false-king-bolete",
@@ -1350,7 +1014,21 @@
       ],
       "general_notes": "",
       "edibility_detail": "Included for identification and comparison; not generally a high-value food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "reviewReasons": [
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "boletus-auripes",
@@ -1479,7 +1157,7 @@
       ],
       "look_alikes": [
         "false-king-bolete",
-        "true-bitter-bolete"
+        "bitter-bolete"
       ],
       "confused_with": [
         "false-king-bolete",
@@ -1558,7 +1236,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -1660,12 +1338,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "porphyrellus-porphyrosporus",
@@ -1674,7 +1359,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -1770,13 +1455,26 @@
       "food_role": "avoid",
       "edibility_status": "not_edible",
       "non_edible_severity": "Caution / not recommended as food",
-      "review_status": "ok",
+      "review_status": "needs_review",
       "edible_use": {
         "has_ingestible_use": false,
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "needs_review": true,
+      "review_reasons": [
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "reviewReasons": [
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "false-king-bolete",
@@ -1785,7 +1483,7 @@
       "category": "Mushroom",
       "culinary_uses": "Not a food mushroom. Added as a high-value warning species because it can be mistaken for king-bolete allies.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [
         "July",
         "August",
@@ -1876,11 +1574,9 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -1895,8 +1591,7 @@
       "commonness_score": 1,
       "food_quality_score": 1,
       "look_alikes": [
-        "false-king-bolete",
-        "true-bitter-bolete"
+        "bitter-bolete"
       ],
       "confused_with": [
         "false-king-bolete",
@@ -1917,12 +1612,13 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "retiboletus-griseus",
@@ -1931,7 +1627,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -2022,7 +1718,7 @@
       "host_filter_tokens": [],
       "look_alikes": [
         "false-king-bolete",
-        "true-bitter-bolete"
+        "bitter-bolete"
       ],
       "confused_with": [
         "false-king-bolete",
@@ -2030,7 +1726,21 @@
       ],
       "general_notes": "",
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "reviewReasons": [
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "indecisus-bolete",
@@ -2039,7 +1749,7 @@
       "category": "Mushroom",
       "culinary_uses": "Added as a separate Tylopilus ally pending fuller review.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [
         "July",
         "August",
@@ -2127,9 +1837,9 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -2146,130 +1856,22 @@
       "look_alikes": [
         "bay-bolete",
         "king-bolete",
-        "true-bitter-bolete"
+        "bitter-bolete"
       ],
       "confused_with": [
         "bay-bolete",
         "king-bolete"
       ],
       "edibility_detail": "Included for identification and comparison; not generally a high-value food mushroom.",
-      "food_role": "food"
-    },
-    {
-      "slug": "boletus-edulis",
-      "display_name": "King Bolete",
-      "common_name": "King Bolete",
-      "category": "Mushroom",
-      "culinary_uses": "",
-      "medicinal_uses": "",
-      "notes": "",
-      "months_available": [
-        "July",
-        "August",
-        "September",
-        "October"
-      ],
-      "month_numbers": [
-        7,
-        8,
-        9,
-        10
-      ],
-      "links": [],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20edulis.jpg"
-      ],
-      "scientific_name": "Boletus edulis",
-      "mushroom_profile": {
-        "scientific_name": "Boletus edulis",
-        "entry_scope": "species",
-        "edibility_status": "review_required",
-        "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for King Bolete. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
-        "ecology": "bolete",
-        "substrate": [
-          "Forest soil"
-        ],
-        "wood_type": [],
-        "host_trees": [],
-        "host_certainty": "unknown",
-        "underside": [
-          "Pores"
-        ],
-        "ring": "Unknown",
-        "texture": [
-          "Fleshy / firm"
-        ],
-        "odor": "Unknown",
-        "staining": "Unknown",
-        "taste": [],
-        "spore_print": "",
-        "season_note": "Usually encountered from July through October in the Upper Midwest / Great Lakes window.",
-        "processing_required": [],
-        "research_notes": [
-          "Species seed added from the Michigan bolete audit.",
-          "Needs image coverage.",
-          "Needs source links and fuller field notes."
-        ],
-        "cap_surface": [
-          "Dry to slightly tacky"
-        ],
-        "stem_feature": [
-          "Smooth to netted stem"
-        ],
-        "pore_color": [
-          "Whitish to yellow pores"
-        ],
-        "growth_form": [
-          "Cap and stem"
-        ],
-        "fertile_surface": [
-          "Pores"
-        ],
-        "fruitbody_shape": [
-          "Convex cap with central stem"
-        ]
-      },
-      "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review"
-      ],
-      "mushroom_family": "Porcini & brown allies",
-      "boleteGroup": [
-        "Porcini & brown allies"
-      ],
-      "boleteSubgroup": [
-        "Boletus",
-        "Brown cap allies"
-      ],
-      "weekPrecision": "needs-review",
-      "primary_type": "mushroom",
-      "is_medicinal": false,
-      "is_non_edible": false,
-      "commonness": "Occasional",
-      "commonness_score": 3,
-      "food_quality": "Choice",
-      "food_quality_score": 5,
-      "lane": "bolete",
-      "host_filter_tokens": [],
-      "look_alikes": [
-        "false-king-bolete",
-        "true-bitter-bolete"
-      ],
-      "confused_with": [
-        "false-king-bolete",
-        "true-bitter-bolete"
-      ],
-      "general_notes": "",
-      "edibility_detail": "Highly regarded.",
       "food_role": "food",
-      "hidden": true,
-      "duplicate_of": "king-bolete",
-      "legacy_alias": true,
-      "list_visibility": "hidden-duplicate",
-      "duplicate_note": "Duplicate King Bolete record kept only as a legacy slug alias.",
-      "review_status": "ok"
+      "needs_review": true,
+      "review_reasons": [
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "boletus-alutaceus",
@@ -2278,7 +1880,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs source links and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -2367,7 +1969,7 @@
       "host_filter_tokens": [],
       "look_alikes": [
         "false-king-bolete",
-        "true-bitter-bolete"
+        "bitter-bolete"
       ],
       "confused_with": [
         "false-king-bolete",
@@ -2375,7 +1977,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "reviewReasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "review_note": "Needs review: needs source links and needs species-specific notes review.",
+      "review_notes": "Needs review: needs source links and needs species-specific notes review."
     },
     {
       "slug": "boletus-separans",
@@ -2504,7 +2118,7 @@
       ],
       "look_alikes": [
         "false-king-bolete",
-        "true-bitter-bolete"
+        "bitter-bolete"
       ],
       "confused_with": [
         "false-king-bolete",
@@ -2584,7 +2198,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs source links and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -2676,7 +2290,19 @@
       "confused_with": [],
       "general_notes": "",
       "edibility_detail": "A worthwhile edible.",
-      "food_role": "food"
+      "food_role": "food",
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "reviewReasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "review_note": "Needs review: needs source links and needs species-specific notes review.",
+      "review_notes": "Needs review: needs source links and needs species-specific notes review."
     },
     {
       "slug": "noble-bolete",
@@ -2685,7 +2311,7 @@
       "category": "Mushroom",
       "culinary_uses": "Treated as an edible king-bolete ally pending fuller notes.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs species-specific notes review and needs source links.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -2741,8 +2367,8 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "needs species-level notes review",
-        "needs source links"
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -2753,7 +2379,14 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "needs_review": true,
+      "review_reasons": [
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "review_note": "Needs review: needs species-specific notes review and needs source links.",
+      "review_notes": "Needs review: needs species-specific notes review and needs source links."
     },
     {
       "slug": "retiboletus-ornatipes",
@@ -2762,7 +2395,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs source links and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -2816,7 +2449,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "reviewReasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "review_note": "Needs review: needs source links and needs species-specific notes review.",
+      "review_notes": "Needs review: needs source links and needs species-specific notes review."
     },
     {
       "slug": "tylopilus-rhoadsiae",
@@ -2825,7 +2470,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs source links and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -2879,7 +2524,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "reviewReasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "review_note": "Needs review: needs source links and needs species-specific notes review.",
+      "review_notes": "Needs review: needs source links and needs species-specific notes review."
     },
     {
       "slug": "imleria-pallida",
@@ -2888,7 +2545,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs source links and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -2941,7 +2598,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "reviewReasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "review_note": "Needs review: needs source links and needs species-specific notes review.",
+      "review_notes": "Needs review: needs source links and needs species-specific notes review."
     },
     {
       "slug": "porphyrellus-nebulosus",
@@ -2950,7 +2619,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -3013,12 +2682,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "porphyrellus-sordidus",
@@ -3027,7 +2703,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -3090,12 +2766,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "gyroporus-purpurinus",
@@ -3104,7 +2787,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs source links and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -3158,7 +2841,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "reviewReasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "review_note": "Needs review: needs source links and needs species-specific notes review.",
+      "review_notes": "Needs review: needs source links and needs species-specific notes review."
     },
     {
       "slug": "tylopilus-rubrobrunneus",
@@ -3167,7 +2862,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -3230,12 +2925,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "russells-bolete",
@@ -3244,7 +2946,7 @@
       "category": "Mushroom",
       "culinary_uses": "Likely edible, but fuller species notes still need review.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -3305,11 +3007,9 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -3327,12 +3027,13 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "xanthoconium-affine",
@@ -3341,7 +3042,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -3404,12 +3105,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "tylopilus-appalachiensis",
@@ -3418,7 +3126,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -3481,12 +3189,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "tylopilus-badiceps",
@@ -3495,7 +3210,7 @@
       "category": "Mushroom",
       "culinary_uses": "Mild-tasting Tylopilus; edible reports exist, but confirm it is not a bitter Tylopilus before using.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage.",
       "months_available": [
         "June",
         "July",
@@ -3613,12 +3328,12 @@
       ],
       "lane": "bolete",
       "record_type": "mushroom",
-      "review_status": "ok",
+      "review_status": "needs_review",
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage"
       ],
       "common_names": [
         "Maroon Bolete"
@@ -3672,7 +3387,10 @@
       "image_review_reasons": [
         "No usable field-view photo is currently available in the app.",
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
-      ]
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage.",
+      "review_notes": "Needs review: needs real field photo / image coverage."
     },
     {
       "slug": "tylopilus-ferrugineus",
@@ -3681,7 +3399,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -3744,12 +3462,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "tylopilus-peralbidus",
@@ -3758,7 +3483,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, needs species-specific notes review, and needs U.P. relevance check.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -3822,12 +3547,21 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review",
+        "Needs U.P. relevance check"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review",
+        "Needs U.P. relevance check"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, needs species-specific notes review, and needs U.P. relevance check.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, needs species-specific notes review, and needs U.P. relevance check."
     },
     {
       "slug": "tylopilus-tabacinus",
@@ -3836,7 +3570,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -3899,12 +3633,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "variable-stalk-bolete",
@@ -3913,7 +3654,7 @@
       "category": "Mushroom",
       "culinary_uses": "Porcini-group edible when confidently identified and in good condition.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage.",
       "months_available": [
         "August",
         "September",
@@ -4011,9 +3752,9 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage"
       ],
-      "review_status": "ok",
+      "review_status": "needs_review",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
@@ -4041,7 +3782,7 @@
         }
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage"
       ],
       "common_names": [
         "Varied-stalk Bolete"
@@ -4092,7 +3833,10 @@
       "image_review_reasons": [
         "No usable field-view photo is currently available in the app.",
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
-      ]
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage.",
+      "review_notes": "Needs review: needs real field photo / image coverage."
     },
     {
       "slug": "tylopilus-violatinctus",
@@ -4101,7 +3845,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -4164,12 +3908,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "tylopilus-plumbeoviolaceus",
@@ -4178,7 +3929,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -4241,12 +3992,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "xanthoconium-purpureum",
@@ -4255,7 +4013,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -4318,12 +4076,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "xerocomus-illudens",
@@ -4332,7 +4097,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -4395,12 +4160,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "xerocomus-tenax",
@@ -4409,7 +4181,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs source links and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -4463,7 +4235,19 @@
       "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false
+      "is_non_edible": false,
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "reviewReasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "review_note": "Needs review: needs source links and needs species-specific notes review.",
+      "review_notes": "Needs review: needs source links and needs species-specific notes review."
     },
     {
       "slug": "xerocomus-subtomentosus",
@@ -4472,7 +4256,7 @@
       "category": "Mushroom",
       "culinary_uses": "Often listed as edible, but this is a species-group entry; use only young, firm specimens after careful ID.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage.",
       "months_available": [
         "July",
         "August",
@@ -4601,12 +4385,12 @@
       ],
       "lane": "bolete",
       "record_type": "mushroom",
-      "review_status": "ok",
+      "review_status": "needs_review",
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage"
       ],
       "common_names": [
         "Suede Bolete"
@@ -4660,7 +4444,10 @@
       "image_review_reasons": [
         "No usable field-view photo is currently available in the app.",
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
-      ]
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage.",
+      "review_notes": "Needs review: needs real field photo / image coverage."
     }
   ]
 }

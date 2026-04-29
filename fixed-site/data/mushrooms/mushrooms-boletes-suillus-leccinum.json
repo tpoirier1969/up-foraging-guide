@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.68-r2026-04-28-mushroom-data-split1",
+    "build": "v4.2.70-r2026-04-29-slippery-jack-merge1",
     "primary_type": "mushroom",
     "split_version": "mushroom-data-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-suillus-leccinum.json",
@@ -9,9 +9,258 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 50,
-    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file."
+    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file.",
+    "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
+    "review_reason_audit": {
+      "audited_on": "2026-04-28",
+      "rule": "Normalize explicit review signals into review_reasons/review_note and prefix notes for Needs Review list visibility.",
+      "review_records_in_file": 44,
+      "cleared_image_only_slugs_not_reopened": []
+    },
+    "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1"
   },
   "records": [
+    {
+      "slug": "slippery-jack",
+      "display_name": "Slippery Jack",
+      "common_name": "Slippery Jack",
+      "category": "Mushroom",
+      "culinary_uses": "Edible by many field guides when correctly identified and cooked, but slimy and often modest quality. Many people peel the cap skin and discard old or buggy specimens.",
+      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
+      "notes": "In this guide, Slippery Jack means Suillus luteus: the slimy brown-capped, ringed Suillus usually found with pines. Some foragers use “slippery jack” loosely for other slimy-capped Suillus species, so compare the related Suillus entries before assuming a sticky Suillus is this species.",
+      "months_available": [
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/suillus_luteus.html",
+        "https://www.first-nature.com/fungi/suillus-luteus.php"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%20%2830896753828%29.jpg",
+        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ESlippery%20jack%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+      ],
+      "scientific_name": "Suillus luteus",
+      "mushroom_profile": {
+        "scientific_name": "Suillus luteus",
+        "entry_scope": "species",
+        "edibility_status": "edible_with_caution",
+        "caution_level": "medium",
+        "summary": "Ringed slippery Suillus with a glutinous brown cap, yellow pores, and pine association. Treat the common name broadly only with caution: this page is for Suillus luteus.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil",
+          "Needle duff",
+          "Near pine"
+        ],
+        "wood_type": [],
+        "host_trees": [
+          "Pine",
+          "Red pine",
+          "Scots pine",
+          "Austrian pine",
+          "Eastern white pine"
+        ],
+        "host_certainty": "unknown",
+        "underside": "Pores",
+        "ring": "Ring present; whitish when young, often purple-brown beneath with age",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Not strongly bruising",
+          "Unknown"
+        ],
+        "taste": [
+          "Mild / not distinctive"
+        ],
+        "spore_print": "",
+        "season_note": "Summer into fall; often with pine.",
+        "processing_required": [],
+        "research_notes": [
+          "Canonical Slippery Jack record; merged former suillus-luteus duplicate in v4.2.70.",
+          "Species seed added from the Michigan bolete audit.",
+          "Needs image coverage.",
+          "Needs source links and fuller field notes.",
+          "Placeholder image inserted pending real public-usable photo."
+        ],
+        "lane": "bolete",
+        "host_filter_tokens": [
+          "Softwood / conifer",
+          "Pine"
+        ],
+        "pore_color": [
+          "Pale yellow to yellow pores",
+          "Yellow pores"
+        ],
+        "cap_surface": [
+          "Sticky / slimy",
+          "Glutinous brown cap",
+          "Often radially streaked when wet"
+        ],
+        "stem_feature": [
+          "Ring",
+          "Glandular dots"
+        ]
+      },
+      "manual_review_reasons": [
+        "needs source links",
+        "needs species-level notes review"
+      ],
+      "mushroom_family": "Suillus / slippery jacks",
+      "boleteGroup": [
+        "Suillus / slippery jacks"
+      ],
+      "boleteSubgroup": [
+        "Suillus",
+        "Pine/larch allies"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "search_aliases": [
+        "slippery-jack",
+        "Slippery jack"
+      ],
+      "common_names": [
+        "Slippery Jack",
+        "Sticky Bun",
+        "Pine Bolete",
+        "Purple-veiled Slippery Jack"
+      ],
+      "host_filter_tokens": [],
+      "reviewReasons": [],
+      "lane": "bolete",
+      "record_type": "mushroom",
+      "food_role": "food",
+      "food_quality": "Fair",
+      "food_quality_score": 3,
+      "commonness": "Occasional",
+      "commonness_score": 3,
+      "review_reasons": [],
+      "review_status": "ok",
+      "general_notes": "Often abundant under pines. Texture is the limiting factor for many foragers; better young and firm than old and soggy.",
+      "needs_review": false,
+      "review_note": "",
+      "review_notes": "",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "non_edible_severity": "Edible with caution",
+      "edibility_detail": "Treat as caution / not for meals in this guide until species-level edibility is clarified.",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "hidden": true,
+      "duplicate_of": "suillus-luteus",
+      "legacy_alias": true,
+      "list_visibility": "hidden-duplicate",
+      "duplicate_note": "Duplicate Slippery Jack record kept only as a legacy slug alias.",
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "former_slugs": [
+        "suillus-luteus"
+      ],
+      "aliases": [
+        "suillus-luteus"
+      ],
+      "species_scope": "In this guide, Slippery Jack means Suillus luteus specifically, not every slimy-capped Suillus.",
+      "entry_scope": "canonical_species",
+      "look_alike_notes": "Related Suillus species and loose “slippery jack” usage: these are comparison links, not a claim that every one is the same species.",
+      "look_alikes": [
+        "suillus-brevipes",
+        "suillus-placidus",
+        "larch-suillus",
+        "butterball",
+        "suillus-americanus",
+        "suillus-spraguei",
+        "suillus-punctipes",
+        "suillus-salmonicolor"
+      ],
+      "related_species": [
+        {
+          "label": "Short-stalked Bolete / Suillus brevipes",
+          "slug": "suillus-brevipes",
+          "relationship": "related Suillus often compared with slippery jacks"
+        },
+        {
+          "label": "White Suillus / Suillus placidus",
+          "slug": "suillus-placidus",
+          "relationship": "pale sticky Suillus associated with eastern white pine"
+        },
+        {
+          "label": "Larch Suillus / Suillus clintonianus",
+          "slug": "larch-suillus",
+          "relationship": "slimy/ringed Suillus associated with larch or tamarack"
+        },
+        {
+          "label": "Butterball / Suillus weaverae",
+          "slug": "butterball",
+          "relationship": "sticky Suillus associated with eastern white pine"
+        },
+        {
+          "label": "Chicken-fat Bolete / Suillus americanus",
+          "slug": "suillus-americanus",
+          "relationship": "yellow/red-fibrillose Suillus associated with white pine"
+        },
+        {
+          "label": "Painted Suillus / Suillus spraguei",
+          "slug": "suillus-spraguei",
+          "relationship": "scaly pink-red Suillus associated with white pine"
+        },
+        {
+          "label": "Dotted-stalk Suillus / Suillus punctipes",
+          "slug": "suillus-punctipes",
+          "relationship": "sticky yellow-brown Suillus with glandular dots"
+        },
+        {
+          "label": "Slippery Jill / Suillus salmonicolor",
+          "slug": "suillus-salmonicolor",
+          "relationship": "another slimy Suillus-style comparison species"
+        }
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Suillus luteus",
+          "url": "https://www.mushroomexpert.com/suillus_luteus.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Ringed Suillus with glutinous brown cap, yellow pores, pine association, and Midwest notes."
+        },
+        {
+          "label": "First Nature: Suillus luteus / Slippery Jack",
+          "url": "https://www.first-nature.com/fungi/suillus-luteus.php",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "field-guide reference",
+          "notes": "Notes that the common name Slippery Jack can be applied more broadly to several Suillus species."
+        }
+      ],
+      "edibility_status": "edible_with_caution",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%20%2830896753828%29.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%20%2830896753828%29.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%20%2830896753828%29.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Suillus luteus (30896753828).jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Suillus_luteus_(30896753828).jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ]
+    },
     {
       "slug": "hemileccinum-rubropunctum",
       "display_name": "Ashtray Bolete",
@@ -138,7 +387,7 @@
       ],
       "look_alikes": [
         "false-king-bolete",
-        "true-bitter-bolete"
+        "bitter-bolete"
       ],
       "confused_with": [
         "false-king-bolete",
@@ -425,7 +674,7 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [
         "July",
         "August",
@@ -520,9 +769,9 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -549,7 +798,15 @@
         "slippery-jack"
       ],
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "needs_review": true,
+      "review_reasons": [
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "boreal-bolete",
@@ -558,7 +815,7 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [
         "July",
         "August",
@@ -652,11 +909,9 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -690,12 +945,13 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "butterball",
@@ -704,7 +960,7 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Butterball is treated here as Suillus weaverae, the eastern white-pine-associated species that many older North American guides called Suillus granulatus. Host tree is a major clue.",
       "months_available": [
         "July",
         "August",
@@ -715,7 +971,9 @@
         8,
         9
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus_weaverae.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20weaverae%20%2851607506386%29.jpg"
       ],
@@ -732,7 +990,7 @@
         ],
         "wood_type": [],
         "host_trees": [
-          "Pine"
+          "Eastern white pine"
         ],
         "host_certainty": "low",
         "underside": [
@@ -743,8 +1001,12 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
-        "taste": [],
+        "staining": [
+          "Not bruising or sometimes spotting brownish"
+        ],
+        "taste": [
+          "Slightly sour or mild"
+        ],
         "spore_print": "",
         "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
         "processing_required": [],
@@ -753,13 +1015,14 @@
           "Needs source links and fuller field notes."
         ],
         "cap_surface": [
-          "Dry to slightly tacky"
+          "Sticky / slimy when fresh",
+          "Orange-brown to reddish brown cap"
         ],
         "stem_feature": [
           "Glandular dots or smooth stem"
         ],
         "pore_color": [
-          "Yellow pores"
+          "Whitish young, then yellowish to dull brownish yellow"
         ],
         "growth_form": [
           "Cap and stem"
@@ -795,8 +1058,7 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "needs species-level notes review",
-        "needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -814,7 +1076,6 @@
       "commonness_score": 3,
       "food_quality_score": 4,
       "look_alikes": [
-        "butterball",
         "larch-suillus",
         "slippery-jack"
       ],
@@ -823,7 +1084,23 @@
         "slippery-jack"
       ],
       "edibility_detail": "A worthwhile edible.",
-      "food_role": "food"
+      "food_role": "food",
+      "needs_review": true,
+      "review_reasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "review_note": "Needs review: needs real field photo / image coverage.",
+      "review_notes": "Needs review: needs real field photo / image coverage.",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Suillus weaverae",
+          "url": "https://www.mushroomexpert.com/suillus_weaverae.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Eastern white pine Suillus formerly treated as North American Suillus granulatus in many guides."
+        }
+      ]
     },
     {
       "slug": "suillus-americanus",
@@ -1041,7 +1318,7 @@
       "category": "Mushroom",
       "culinary_uses": "Culinary specifics still need review.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [
         "July",
         "August",
@@ -1129,11 +1406,9 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -1149,7 +1424,7 @@
       "food_quality_score": 3,
       "look_alikes": [
         "false-king-bolete",
-        "true-bitter-bolete"
+        "bitter-bolete"
       ],
       "confused_with": [
         "false-king-bolete",
@@ -1163,12 +1438,13 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "gastroleccinum-scabrosum",
@@ -1177,7 +1453,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -1283,12 +1559,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "ghost-bolete",
@@ -1297,7 +1580,7 @@
       "category": "Mushroom",
       "culinary_uses": "Included as a northern wetland birch scaber-stalk.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [
         "July",
         "August",
@@ -1392,9 +1675,9 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -1418,7 +1701,15 @@
         "scaber-stalk-boletes-birch-aspen-boletes"
       ],
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "needs_review": true,
+      "review_reasons": [
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "grayish-suillus",
@@ -1427,7 +1718,7 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [
         "July",
         "August",
@@ -1522,11 +1813,9 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -1560,12 +1849,13 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "hemileccinum-subglabripes",
@@ -1574,7 +1864,7 @@
       "category": "Mushroom",
       "culinary_uses": "Included to separate it from the true Ash-tree Bolete record.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [
         "July",
         "August",
@@ -1662,9 +1952,9 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -1680,14 +1970,22 @@
       "food_quality_score": 3,
       "look_alikes": [
         "false-king-bolete",
-        "true-bitter-bolete"
+        "bitter-bolete"
       ],
       "confused_with": [
         "false-king-bolete",
         "true-bitter-bolete"
       ],
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "needs_review": true,
+      "review_reasons": [
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "hollow-stalked-larch-bolete",
@@ -1696,7 +1994,7 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [
         "July",
         "August",
@@ -1789,9 +2087,9 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -1818,7 +2116,15 @@
         "slippery-jack"
       ],
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "needs_review": true,
+      "review_reasons": [
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "leccinum-albellum",
@@ -1827,7 +2133,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs source links and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -1924,7 +2230,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "reviewReasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "review_note": "Needs review: needs source links and needs species-specific notes review.",
+      "review_notes": "Needs review: needs source links and needs species-specific notes review."
     },
     {
       "slug": "leccinum-areolatum",
@@ -1933,7 +2251,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs source links and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -2028,7 +2346,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "reviewReasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "review_note": "Needs review: needs source links and needs species-specific notes review.",
+      "review_notes": "Needs review: needs source links and needs species-specific notes review."
     },
     {
       "slug": "leccinum-crocipodium",
@@ -2037,7 +2367,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs source links and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -2134,7 +2464,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "Included for identification and comparison; not generally a high-value food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "reviewReasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "review_note": "Needs review: needs source links and needs species-specific notes review.",
+      "review_notes": "Needs review: needs source links and needs species-specific notes review."
     },
     {
       "slug": "leccinum-discolor",
@@ -2143,7 +2485,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -2249,12 +2591,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "leccinum-glutinopallens",
@@ -2263,7 +2612,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -2369,12 +2718,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "leccinum-griseonigrum",
@@ -2383,7 +2739,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -2489,12 +2845,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "leccinum-insolens",
@@ -2503,7 +2866,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs source links and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -2598,7 +2961,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "Included for identification and comparison; not generally a high-value food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "reviewReasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "review_note": "Needs review: needs source links and needs species-specific notes review.",
+      "review_notes": "Needs review: needs source links and needs species-specific notes review."
     },
     {
       "slug": "leccinum-insolens-var-brunneo-maculatum",
@@ -2607,7 +2982,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs source links and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -2702,7 +3077,19 @@
       ],
       "general_notes": "",
       "edibility_detail": "Included for identification and comparison; not generally a high-value food mushroom.",
-      "food_role": "food"
+      "food_role": "food",
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "reviewReasons": [
+        "Needs source links",
+        "Needs species-specific notes review"
+      ],
+      "review_note": "Needs review: needs source links and needs species-specific notes review.",
+      "review_notes": "Needs review: needs source links and needs species-specific notes review."
     },
     {
       "slug": "leccinum-longicurvipes",
@@ -2711,7 +3098,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -2817,12 +3204,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "leccinum-luteum",
@@ -2831,7 +3225,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -2937,12 +3331,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "leccinum-potteri",
@@ -2951,7 +3352,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -3057,12 +3458,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "leccinum-pseudoinsigne",
@@ -3071,7 +3479,7 @@
       "category": "Mushroom",
       "culinary_uses": "Some Leccinum are eaten, but this group needs thorough cooking and careful host/tree notes. Do not treat scaber-stalk boletes as beginner mushrooms.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage.",
       "months_available": [
         "July",
         "August",
@@ -3211,12 +3619,12 @@
         }
       ],
       "record_type": "mushroom",
-      "review_status": "ok",
+      "review_status": "needs_review",
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage"
       ],
       "common_names": [
         "Leccinum Pseudoinsigne"
@@ -3269,7 +3677,10 @@
       "image_review_reasons": [
         "No usable field-view photo is currently available in the app.",
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
-      ]
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage.",
+      "review_notes": "Needs review: needs real field photo / image coverage."
     },
     {
       "slug": "leccinum-quercophilum",
@@ -3278,7 +3689,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -3384,12 +3795,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "leccinum-subgranulosum",
@@ -3398,7 +3816,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -3504,12 +3922,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "leccinum-subleucophaeum",
@@ -3518,7 +3943,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -3624,12 +4049,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "leccinum-subtestaceum",
@@ -3638,7 +4070,7 @@
       "category": "Mushroom",
       "culinary_uses": "Culinary specifics still need review.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [
         "July",
         "August",
@@ -3726,11 +4158,9 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -3758,12 +4188,13 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "leccinum-versipelle",
@@ -4128,7 +4559,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -4191,12 +4622,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "suillus-brevipes",
@@ -4205,10 +4643,12 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "Short-stemmed slippery jack with a sticky cap and yellow pores, usually near pine. The squat stem and pine association are the main field clues.",
+      "notes": "Short-stalked Suillus with a very slimy brown cap, yellow pores, no ring, and hard-pine association. Do not rely on shortness alone; host pine and cap/stem details matter.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus_brevipes.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2098931.jpg"
       ],
@@ -4224,16 +4664,24 @@
           "Forest soil"
         ],
         "wood_type": [],
-        "host_trees": [],
+        "host_trees": [
+          "Red pine",
+          "Jack pine",
+          "Hard pines with needles in bundles of 2 or 3"
+        ],
         "host_certainty": "unknown",
         "underside": "Pores",
-        "ring": "Unknown",
+        "ring": "None",
         "texture": [
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
-        "taste": [],
+        "staining": [
+          "Not bruising on pore surface"
+        ],
+        "taste": [
+          "Mild / not distinctive"
+        ],
         "spore_print": "",
         "season_note": "",
         "processing_required": [],
@@ -4242,6 +4690,13 @@
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
           "Placeholder image inserted pending real public-usable photo."
+        ],
+        "cap_surface": [
+          "Very slimy when fresh",
+          "Dark brown to reddish/orangish brown"
+        ],
+        "pore_color": [
+          "Pale yellow becoming dingy brownish yellow"
         ]
       },
       "manual_review_reasons": [
@@ -4260,15 +4715,32 @@
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
-      "reviewReasons": [],
-      "review_reasons": [],
+      "reviewReasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "review_reasons": [
+        "Needs real field photo / image coverage"
+      ],
       "review_status": "needs_review",
       "lane": "bolete",
       "record_type": "mushroom",
       "food_role": "food",
       "food_quality": "Fair",
       "commonness": "Occasional",
-      "general_notes": "Edible but usually not a top-tier mushroom; many people prefer young firm specimens and discard older slimy ones."
+      "general_notes": "Edible but usually not a top-tier mushroom; many people prefer young firm specimens and discard older slimy ones.",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage.",
+      "review_notes": "Needs review: needs real field photo / image coverage.",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Suillus brevipes",
+          "url": "https://www.mushroomexpert.com/suillus_brevipes.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Short/slimy Suillus under hard pines; compares with Suillus weaverae."
+        }
+      ]
     },
     {
       "slug": "slim-jack",
@@ -4277,7 +4749,7 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -4340,11 +4812,9 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -4362,121 +4832,13 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
-      ]
-    },
-    {
-      "slug": "suillus-luteus",
-      "display_name": "Slippery Jack",
-      "common_name": "Slippery Jack",
-      "category": "Mushroom",
-      "culinary_uses": "",
-      "medicinal_uses": "",
-      "notes": "Classic slippery jack type: sticky to slimy brown cap, yellow pores, and a ring on the stem, usually with pine. Peel the slimy cap skin if it bothers your stomach or texture tolerance.",
-      "months_available": [
-        "July",
-        "August",
-        "September",
-        "October"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
-      "month_numbers": [
-        7,
-        8,
-        9,
-        10
-      ],
-      "links": [],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%20%2830896753828%29.jpg"
-      ],
-      "scientific_name": "Suillus luteus",
-      "mushroom_profile": {
-        "scientific_name": "Suillus luteus",
-        "entry_scope": "species",
-        "edibility_status": "review_required",
-        "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Slippery Jack. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
-        "ecology": "bolete",
-        "substrate": [
-          "Forest soil"
-        ],
-        "wood_type": [],
-        "host_trees": [
-          "Pine"
-        ],
-        "host_certainty": "unknown",
-        "underside": "Pores",
-        "ring": "Unknown",
-        "texture": [
-          "Fleshy / firm"
-        ],
-        "odor": "Unknown",
-        "staining": "Unknown",
-        "taste": [],
-        "spore_print": "",
-        "season_note": "Summer into fall; often with pine.",
-        "processing_required": [],
-        "research_notes": [
-          "Species seed added from the Michigan bolete audit.",
-          "Needs image coverage.",
-          "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
-        ],
-        "lane": "bolete",
-        "host_filter_tokens": [
-          "Softwood / conifer",
-          "Pine"
-        ],
-        "pore_color": [
-          "Yellow pores"
-        ],
-        "cap_surface": [
-          "Sticky / slimy"
-        ],
-        "stem_feature": [
-          "Ring",
-          "Glandular dots"
-        ]
-      },
-      "manual_review_reasons": [
-        "needs source links",
-        "needs species-level notes review"
-      ],
-      "mushroom_family": "Suillus / slippery jacks",
-      "boleteGroup": [
-        "Suillus / slippery jacks"
-      ],
-      "boleteSubgroup": [
-        "Suillus",
-        "Pine/larch allies"
-      ],
-      "weekPrecision": "needs-review",
-      "primary_type": "mushroom",
-      "is_medicinal": false,
-      "is_non_edible": false,
-      "search_aliases": [
-        "slippery-jack",
-        "Slippery jack"
-      ],
-      "common_names": [
-        "slippery-jack"
-      ],
-      "host_filter_tokens": [],
-      "reviewReasons": [],
-      "lane": "bolete",
-      "record_type": "mushroom",
-      "food_role": "food",
-      "food_quality": "Fair",
-      "food_quality_score": 3,
-      "commonness": "Occasional",
-      "commonness_score": 3,
-      "review_reasons": [],
-      "review_status": "needs_review",
-      "general_notes": "Often abundant under pines. Texture is the limiting factor for many foragers; better young and firm than old and soggy."
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "suillus-salmonicolor",
@@ -4485,7 +4847,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -4548,12 +4910,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "snells-bolete",
@@ -4562,7 +4931,7 @@
       "category": "Mushroom",
       "culinary_uses": "Culinary specifics still need review.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -4622,11 +4991,9 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -4644,12 +5011,13 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "sour-cap-suillus",
@@ -4658,7 +5026,7 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -4718,11 +5086,9 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -4740,12 +5106,13 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "suillus-elbensis",
@@ -4754,7 +5121,7 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -4817,11 +5184,9 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -4839,12 +5204,13 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "suillus-granulatus",
@@ -4853,7 +5219,7 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -4916,11 +5282,9 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -4938,12 +5302,13 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "suillus-hirtellus",
@@ -4952,7 +5317,7 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -5014,11 +5379,9 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -5036,12 +5399,13 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "suillus-punctatipes",
@@ -5050,7 +5414,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -5113,12 +5477,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "suillus-punctipes",
@@ -5303,7 +5674,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -5366,12 +5737,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
     },
     {
       "slug": "suillus-spectabilis",
@@ -5380,7 +5758,7 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -5443,11 +5821,9 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -5465,12 +5841,13 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "suillus-subaureus",
@@ -5479,7 +5856,7 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -5539,11 +5916,9 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -5561,12 +5936,13 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "suillus-lakei",
@@ -5575,7 +5951,7 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, needs species-specific notes review, and needs U.P. relevance check.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -5639,12 +6015,21 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review",
+        "Needs U.P. relevance check"
       ],
       "review_reasons": [
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs source links",
+        "Needs species-specific notes review",
+        "Needs U.P. relevance check"
       ],
-      "review_status": "needs_review"
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs source links, needs species-specific notes review, and needs U.P. relevance check.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, needs species-specific notes review, and needs U.P. relevance check."
     },
     {
       "slug": "suillus-placidus",
@@ -5653,10 +6038,12 @@
       "category": "Mushroom",
       "culinary_uses": "",
       "medicinal_uses": "",
-      "notes": "Pale whitish Suillus with yellowing pores and white-pine association. Look for the pale cap/stem, glandular dots, and white pine nearby.",
+      "notes": "White Suillus: a pale sticky Suillus strongly associated with eastern white pine. Look for the whitish cap/stem and contrasting glandular dots rather than treating every pale Suillus as this species.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus_placidus.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/2009-10-13%20Suillus%20placidus%20%28Bonord.%29%20Singer%20282595.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20placidus%2097717%20cropped.jpg",
@@ -5674,16 +6061,22 @@
           "Forest soil"
         ],
         "wood_type": [],
-        "host_trees": [],
+        "host_trees": [
+          "Eastern white pine"
+        ],
         "host_certainty": "unknown",
         "underside": "Pores",
-        "ring": "Unknown",
+        "ring": "None",
         "texture": [
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
-        "taste": [],
+        "staining": [
+          "May slowly stain pinkish to reddish when sliced"
+        ],
+        "taste": [
+          "Mild / not distinctive"
+        ],
         "spore_print": "",
         "season_note": "",
         "processing_required": [],
@@ -5692,6 +6085,13 @@
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
           "Placeholder image inserted pending real public-usable photo."
+        ],
+        "cap_surface": [
+          "Sticky when fresh",
+          "White to yellowish white cap"
+        ],
+        "pore_color": [
+          "White when very young becoming dull yellow"
         ]
       },
       "manual_review_reasons": [
@@ -5710,15 +6110,32 @@
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
-      "reviewReasons": [],
-      "review_reasons": [],
+      "reviewReasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "review_reasons": [
+        "Needs real field photo / image coverage"
+      ],
       "review_status": "needs_review",
       "lane": "bolete",
       "record_type": "mushroom",
       "food_role": "food",
       "food_quality": "Fair",
       "commonness": "Occasional",
-      "general_notes": "A white-pine associate; useful in the guide because pale Suillus species can look odd compared with the brown slippery jacks."
+      "general_notes": "A white-pine associate; useful in the guide because pale Suillus species can look odd compared with the brown slippery jacks.",
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage.",
+      "review_notes": "Needs review: needs real field photo / image coverage.",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Suillus placidus",
+          "url": "https://www.mushroomexpert.com/suillus_placidus.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "White sticky cap, glandular dots, and eastern white pine association."
+        }
+      ]
     },
     {
       "slug": "white-stemmed-bolete",
@@ -5727,7 +6144,7 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -5790,11 +6207,9 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -5812,12 +6227,13 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "wrinkled-bolete",
@@ -5826,7 +6242,7 @@
       "category": "Mushroom",
       "culinary_uses": "Culinary specifics still need review.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -5886,11 +6302,9 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -5908,12 +6322,13 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     },
     {
       "slug": "yellow-stemmed-bolete",
@@ -5922,7 +6337,7 @@
       "category": "Mushroom",
       "culinary_uses": "Included as a northern scaber-stalk bolete.",
       "medicinal_uses": "",
-      "notes": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [],
       "month_numbers": [],
       "links": [],
@@ -5982,11 +6397,9 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -6004,12 +6417,13 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted",
-        "needs field photo"
-      ]
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review",
+        "Needs source links"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
     }
   ]
 }
