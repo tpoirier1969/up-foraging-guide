@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <title>Upper Michigan Foraging Guide</title>
+  <meta name="theme-color" content="#2f5d46">
+  <link rel="manifest" href="site.webmanifest?v=v4.2.81-r2026-04-29-mushroom-bolete-credibility1">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/up-foraging-guide-icon-32.png?v=v4.2.81-r2026-04-29-mushroom-bolete-credibility1">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/up-foraging-guide-icon-180.png?v=v4.2.81-r2026-04-29-mushroom-bolete-credibility1">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/up-foraging-guide-icon-192.png?v=v4.2.81-r2026-04-29-mushroom-bolete-credibility1">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/up-foraging-guide-icon-512.png?v=v4.2.81-r2026-04-29-mushroom-bolete-credibility1">
+  <link rel="stylesheet" href="styles/base.css?v=v4.2.81-r2026-04-29-mushroom-bolete-credibility1">
+  <style>
+    .image-lightbox[hidden]{display:none !important;}
+    .image-lightbox{position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;padding:20px;}
+    .image-lightbox-backdrop{position:absolute;inset:0;background:rgba(10,14,10,.78);backdrop-filter:blur(2px);}
+    .image-lightbox-card{position:relative;z-index:1;width:min(1100px,96vw);max-height:94vh;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:10px;background:#fffdf9;border:1px solid rgba(255,255,255,.28);border-radius:20px;box-shadow:0 24px 80px rgba(0,0,0,.38);padding:12px;}
+    .image-lightbox-close{justify-self:end;}
+    .image-lightbox-body{min-height:0;display:grid;place-items:center;overflow:auto;background:#111;border-radius:14px;}
+    .image-lightbox-image{max-width:100%;max-height:78vh;width:auto;height:auto;object-fit:contain;}
+    .image-lightbox-meta{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;color:#1f2a1f;}
+    .image-lightbox-title{font-weight:700;}
+    body.lightbox-open{overflow:hidden;}
+    .lookalike-title-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px;}
+
+    .mobile-menu-toggle{display:none;align-items:center;justify-content:center;gap:.45rem;padding:10px 14px;border:1px solid var(--accent);border-radius:14px;background:#fff;color:var(--accent);font-weight:800;cursor:pointer;}
+    .mobile-menu-toggle::before{content:"☰";font-size:1.1rem;line-height:1;}
+    body.nav-open .mobile-menu-toggle::before{content:"×";font-size:1.25rem;}
+    @media (max-width: 700px){
+      .site-header{padding:14px 14px 12px;gap:10px;}
+      .brand-row{
+        display:grid;
+        grid-template-columns:minmax(0,1fr) auto;
+        grid-template-areas:"title title" "subhead version";
+        align-items:center;
+        column-gap:8px;
+        row-gap:4px;
+      }
+      .brand-row > div:first-child{display:contents;}
+      .brand-row h1{grid-area:title;font-size:1.45rem;line-height:1.12;}
+      .subhead{grid-area:subhead;font-size:.9rem;margin:.1rem 0 0;}
+      .version-pill{grid-area:version;justify-self:end;align-self:center;font-size:.72rem;padding:5px 8px;max-width:100%;white-space:nowrap;}
+      .mobile-menu-toggle{display:flex;width:100%;}
+      .main-nav{display:none;flex-direction:column;flex-wrap:nowrap;gap:7px;border-top:1px solid var(--line);padding-top:10px;}
+      body.nav-open .main-nav{display:flex;}
+      .main-nav a{width:100%;justify-content:flex-start;border-radius:14px;padding:10px 12px;font-size:.95rem;}
+    }
+    @media (min-width: 701px){
+      .main-nav{display:flex !important;}
+      .mobile-menu-toggle{display:none !important;}
+    }
+
+    /* Responsive control/menu cleanup for all app pages: filters, lane cards, chips, sort/search rows. */
+    html, body{max-width:100%;overflow-x:hidden;}
+    .app-shell,.page-root,.panel,.site-header,.record-card,.detail-block,.modal-card{min-width:0;max-width:100%;}
+    .control-row,.medicinal-filter-row,.section-jump-row,.chip-row,.lane-grid,.record-meta,.quick-actions,.image-meta-line{min-width:0;max-width:100%;}
+    .control-row > *, .medicinal-filter-row > *, .lane-grid > *, .section-jump-row > *, .chip-row > *{min-width:0;max-width:100%;}
+    input[type="search"], select, textarea{max-width:100%;min-width:0;}
+    button,.buttonish,.section-jump-button,.chip-button,.lane-card,.main-nav a{max-width:100%;min-width:0;white-space:normal;overflow-wrap:anywhere;}
+    .lane-card{align-content:start;}
+    @media (max-width: 700px){
+      .app-shell{width:100%;padding:10px;overflow-x:hidden;}
+      .page-root{width:100%;overflow-x:hidden;}
+      .panel{width:100%;padding:14px;overflow-x:hidden;}
+      .control-row{display:grid !important;grid-template-columns:minmax(0,1fr) !important;width:100%;}
+      .control-row > *{width:100% !important;}
+      .medicinal-filter-row{display:grid !important;grid-template-columns:minmax(0,1fr) !important;width:100% !important;gap:10px !important;}
+      .medicinal-filter-cell,.medicinal-filter-actions{width:100% !important;grid-column:auto !important;}
+      .medicinal-filter-actions{display:grid !important;grid-template-columns:minmax(0,1fr) !important;white-space:normal !important;}
+      .medicinal-filter-actions > *{width:100% !important;}
+      .lane-grid,.grid-2,.grid-3,.grid-4,.home-focus-highlights{grid-template-columns:minmax(0,1fr) !important;width:100%;}
+      .section-jump-row,.chip-row,.quick-actions{display:grid !important;grid-template-columns:minmax(0,1fr) !important;width:100%;}
+      .section-jump-button,.chip-button,.quick-actions > *,button.buttonish,.buttonish{width:100%;justify-content:center;}
+      .record-card.with-image,.detail-hero{grid-template-columns:minmax(0,1fr) !important;}
+      .record-image-slot.card,.record-image-slot.detail,.record-image-slot.gallery{grid-template-columns:minmax(0,1fr) !important;max-width:100%;}
+      .kv{grid-template-columns:minmax(0,1fr) !important;}
+      .modal-card{width:calc(100vw - 20px);max-width:calc(100vw - 20px);}
+    }
+
+    .plant-lane-switcher .lane-card{display:grid;text-align:left;border:1px solid var(--line,#d7dfd6);background:#fff;border-radius:16px;padding:12px 13px;cursor:pointer;text-decoration:none;color:inherit;}
+    .plant-lane-switcher .lane-card strong{color:var(--accent,#2f5d46);}
+    .plant-lane-switcher .lane-card span{font-size:.8rem;color:#536257;line-height:1.25;}
+    .plant-lane-switcher .lane-card.active{border-color:var(--accent,#2f5d46);box-shadow:0 0 0 2px rgba(47,93,70,.14);background:#f6fbf5;}
+    .plant-lane-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+    .plant-lane-card-tags .tag{font-size:.72rem;}
+
+  </style>
+</head>
+<body>
+  <div class="app-shell">
+    <header class="site-header">
+      <div class="brand-row">
+        <div>
+          <h1>Upper Michigan Foraging Guide</h1>
+          <p class="subhead">Merged master build</p>
+        </div>
+        <div class="version-pill" id="versionBadge">V4.2.81-r26-04-29</div>
+      </div>
+
+      <button id="mobileMenuToggle" class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="primaryNav">Menu</button>
+      <nav id="primaryNav" class="main-nav" aria-label="Primary">
+        <a href="#/home" data-nav="home">Home</a>
+        <a href="#/plants" data-nav="plants">Plants</a>
+        <a href="#/mushrooms" data-nav="mushrooms">Mushrooms</a>
+        <a href="#/medicinal" data-nav="medicinal">Medicinal</a>
+        <a href="#/rare" data-nav="rare">Rare</a>
+        <a href="#/lookalikes" data-nav="lookalikes">Caution</a>
+        <a href="#/other-uses" data-nav="other-uses">Other Uses</a>
+        <a href="#/review" data-nav="review">Needs Review</a>
+        <a href="#/references" data-nav="references">References</a>
+        <a href="#/credits" data-nav="credits">Credits</a>
+        <a href="#/search" data-nav="search">Search</a>
+      </nav>
+    </header>
+
+    <main class="page-root" id="pageRoot" aria-live="polite">
+      <section class="panel">
+        <h2>Loading…</h2>
+        <p id="bootStatus">Starting app shell…</p>
+      </section>
+    </main>
+  </div>
+
+  <dialog id="detailModal" class="detail-modal">
+    <article class="modal-card">
+      <button id="closeModalBtn" class="close-btn" type="button" aria-label="Close">×</button>
+      <div id="modalContent"></div>
+    </article>
+  </dialog>
+
+  <script type="module" src="js/boot.js?v=v4.2.81-r2026-04-29-mushroom-bolete-credibility1"></script>
+</body>
+</html>
