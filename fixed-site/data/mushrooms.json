@@ -1,15 +1,15 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.70-r2026-04-29-slippery-jack-merge1",
+    "build": "v4.2.80-r2026-04-29-mushroom-core-credibility1",
     "primary_type": "mushroom",
     "split_version": "mushroom-data-split-v1",
     "split_file": "data/mushrooms.json",
     "split_role": "Core/restored baseline mushroom records kept at the original path.",
-    "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
+    "source_mushrooms_build": "pre-split uploaded mushrooms baseline",
     "source_record_count_before_split": 209,
     "record_count": 54,
-    "notes": "Core/restored mushroom records retained at the original mushrooms.json path. Expanded mushroom records now load from smaller grouped files listed in split_manifest.",
+    "notes": "Core/restored mushroom records retained at the original mushrooms.json path. Expanded mushroom records now load from smaller grouped files listed in split_manifest. v4.2.80 adds a core mushroom credibility pass: source links, use roles, foraging values, card notes, and cleaned placeholder use text for high-visibility mushrooms.",
     "split_manifest": [
       {
         "path": "data/mushrooms.json",
@@ -70,14 +70,16 @@
         "November",
         "December"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/fungionwood/poroid%20fungi/species%20pages/Ganoderma%20applanatum.htm"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%201259894.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%20%28Ganodermataceae%29.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Artists%20conk-Ganoderma%20applanatum%20%287402107040%29.jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Traditional/reishi-adjacent interest exists in some sources, but this app treats it mainly as a non-food identification and practical-use species.",
+      "culinary_uses": "Not a food mushroom; woody, perennial bracket.",
       "non_edible_severity": "Inedible",
       "edibility_detail": "Avoid for food in this guide; keep as an identification/caution record.",
       "general_notes": "Best treated as a shelf fungus ID entry rather than a food species.",
@@ -166,7 +168,16 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "scientific_name": "Ganoderma applanatum",
+      "use_roles": [
+        "Other use"
+      ],
+      "foraging_value": "Other use — excellent craft/tinder curiosity; not food",
+      "foraging_value_score": 2,
+      "other_uses": "Classic artist's conk: the fresh white pore surface bruises brown and can be scratched to make durable drawings. Hard dried brackets are also useful as teaching/display specimens.",
+      "field_identification": "Hard woody shelf on hardwoods; dull zoned upper surface; white pore surface stains brown where scratched.",
+      "mushroom_card_note": "Useful as an artist's conk, not as food: scratch the white pore surface to make brown drawings."
     },
     {
       "slug": "ash-tree-bolete",
@@ -384,14 +395,16 @@
         "October",
         "November"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/pleurotus_populinus.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%2013996.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%20742181.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%2089533.jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Primarily culinary in this guide.",
+      "culinary_uses": "Cooked like other oyster mushrooms: sauté, add to soups, or use in mixed mushroom dishes. Best when young and fresh before the margins dry out.",
       "general_notes": "Treat as a gilled wood-rotting oyster rather than 'other'. In the U.P. this is a late-season hardwood oyster-type entry and should be compared with pearl and summer oysters.",
       "record_type": "mushroom",
       "lane": "gilled",
@@ -459,7 +472,15 @@
         "season_note": "Late summer into fall on dead aspen and related hardwoods."
       },
       "commonness_score": 3,
-      "food_quality_score": 4
+      "food_quality_score": 4,
+      "scientific_name": "Pleurotus populinus",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Good forage",
+      "foraging_value_score": 4,
+      "field_identification": "Shelf-like oyster mushroom on aspen or other Populus wood, with decurrent white gills and little to no central stem.",
+      "mushroom_card_note": "A good edible oyster on aspen/poplar wood; best young and cooked."
     },
     {
       "slug": "bay-bolete",
@@ -734,14 +755,17 @@
         "September",
         "October"
       ],
-      "links": [],
+      "links": [
+        "https://mushroomexpert.com/fungionwood/teeth%20and%20spine/species%20pages/Hericium%20americanum.htm",
+        "https://www.mushroomexpert.com/hericium.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2001.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2002.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2003.jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Hericium species have modern supplement interest, but this entry is treated primarily as a food mushroom.",
+      "culinary_uses": "Choice edible when young and white. Cook like lion's mane or other Hericium: sauté, brown in butter, or use in rich mushroom dishes.",
       "general_notes": "One of the Hericium mushrooms; useful to distinguish from lion's mane and coral tooth.",
       "record_type": "mushroom",
       "lane": "other",
@@ -813,7 +837,15 @@
         "season_note": "Late summer through fall on hardwood logs and trunks."
       },
       "commonness_score": 2,
-      "food_quality_score": 5
+      "food_quality_score": 5,
+      "scientific_name": "Hericium americanum",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Prime foraging",
+      "foraging_value_score": 5,
+      "field_identification": "Branched white tooth fungus with longer teeth clustered on branch tips; found on hardwood logs or wounds.",
+      "mushroom_card_note": "Choice Hericium: branched white clusters with hanging teeth, usually on hardwood."
     },
     {
       "slug": "birch-polypore",
@@ -836,14 +868,17 @@
         "November",
         "December"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/fomitopsis_betulina.html",
+        "https://link.springer.com/article/10.1007/s11274-017-2247-0"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Piptoporus%20Betulinus.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Polyporus%20Betulinus.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20100134091.jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Traditional tea/decoction and historical medicinal-use interest; use conservatively and do not treat as a cure.",
+      "culinary_uses": "Not a table mushroom; corky, bitter, and tough.",
       "non_edible_severity": "Non-culinary / tea",
       "edibility_detail": "Generally treated as non-culinary; better known for utility and tea-type use than as food.",
       "photo_subject": "Birch",
@@ -928,7 +963,17 @@
         "season_note": "Fruiting bodies persist and can be found year-round on birch."
       },
       "commonness_score": 4,
-      "food_quality_score": 1
+      "food_quality_score": 1,
+      "scientific_name": "Fomitopsis betulina",
+      "use_roles": [
+        "Medicinal",
+        "Other use"
+      ],
+      "foraging_value": "Niche / traditional use",
+      "foraging_value_score": 2,
+      "other_uses": "Also known historically as razor-strop fungus and as an ember/tinder material.",
+      "field_identification": "Whitish to tan annual bracket on birch, often with a rounded inrolled margin and sunken pore surface.",
+      "mushroom_card_note": "A birch-only polypore with traditional tea/tinder/utility interest, not a frying-pan mushroom."
     },
     {
       "slug": "bitter-bolete",
@@ -1185,14 +1230,16 @@
         "May",
         "June"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/morchella_angusticeps.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2083497.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2083536.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%20group%2038336.jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Primarily culinary in this guide.",
+      "culinary_uses": "Choice spring edible; always cook thoroughly. Slice lengthwise to confirm a hollow interior and to clean out grit or insects.",
       "general_notes": "Grouped here as a practical field-guide complex rather than a single strict species concept.",
       "record_type": "mushroom",
       "lane": "other",
@@ -1268,7 +1315,15 @@
         "season_note": "Primarily a spring mushroom, often during leaf-out and warming soil."
       },
       "commonness_score": 3,
-      "food_quality_score": 5
+      "food_quality_score": 5,
+      "scientific_name": "Morchella angusticeps / Morchella septentrionalis complex",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Prime foraging",
+      "foraging_value_score": 5,
+      "field_identification": "True morel with pitted cap, hollow interior from cap through stem, and cap attached to the stem; darkening ridges in black morels.",
+      "mushroom_card_note": "Prime spring mushroom; confirm hollow true-morel structure and cook thoroughly."
     },
     {
       "slug": "black-trumpet",
@@ -1283,14 +1338,16 @@
         "September",
         "October"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/craterellus_fallax"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20fallax%20822088.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides%20362779.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides%20362782.jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Primarily culinary in this guide.",
+      "culinary_uses": "Choice edible with deep, aromatic flavor. Excellent fresh or dried; use in sauces, soups, eggs, rice, or anywhere a concentrated mushroom flavor helps.",
       "general_notes": "Easy to miss because of its dark color, especially in leaf litter.",
       "record_type": "mushroom",
       "lane": "other",
@@ -1363,7 +1420,15 @@
         "season_note": "Most often late summer into fall in moist hardwood woods."
       },
       "commonness_score": 3,
-      "food_quality_score": 5
+      "food_quality_score": 5,
+      "scientific_name": "Craterellus fallax",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Prime foraging",
+      "foraging_value_score": 5,
+      "field_identification": "Dark hollow trumpet or vase with no true gills; fertile outer surface smooth to shallowly wrinkled.",
+      "mushroom_card_note": "Prime edible trumpet; easy to miss on the forest floor but excellent fresh or dried."
     },
     {
       "slug": "blewit-mushroom",
@@ -1377,14 +1442,16 @@
         "October",
         "November"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/clitocybe_nuda"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%20%282%29.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%2001.jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Primarily culinary in this guide.",
+      "culinary_uses": "Good edible when properly identified and cooked; flavor is earthy/aromatic. Avoid old soggy specimens and confirm spore print/ID against purple Cortinarius look-alikes.",
       "general_notes": "A practical gilled entry for the guide because the color, smell, and late-season habit are all useful identification cues.",
       "record_type": "mushroom",
       "lane": "gilled",
@@ -1449,7 +1516,15 @@
         "season_note": "Mostly fall after cool weather begins."
       },
       "commonness_score": 3,
-      "food_quality_score": 4
+      "food_quality_score": 4,
+      "scientific_name": "Clitocybe nuda",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Good forage",
+      "foraging_value_score": 4,
+      "field_identification": "Purple-lilac young mushroom fading brownish, with pinkish spore print, no veil, and growth in leaf litter or organic debris.",
+      "mushroom_card_note": "Good cooked edible, but confirm it is a blewit and not a purple Cortinarius."
     },
     {
       "slug": "blue-staining-red-pored-boletes-caution-group",
@@ -1638,14 +1713,17 @@
         "November",
         "December"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/inonotus_obliquus.html",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC11132974/"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%288237818667%29.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20Mushroom%20-%20Inonotus%20obliquus%20%2830222675437%29.jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry.",
-      "culinary_uses": "Woody conk is not eaten like a normal mushroom, but it is commonly simmered or steeped as a bitter tea / coffee-like beverage.",
+      "medicinal_uses": "Traditional medicinal and modern research interest, mostly as extracts/tea; evidence and safety vary, and it should not be treated as a cure.",
+      "culinary_uses": "Used as a tea/decoction rather than a table mushroom. Harvest sparingly from living birch and avoid taking all material from one tree.",
       "non_edible_severity": "",
       "edibility_detail": "Used for tea/extract traditions rather than as food.",
       "general_notes": "Not a culinary mushroom; better filed under medicinal/other uses despite being a fungus.",
@@ -1834,7 +1912,7 @@
       "kingdom_type": "mushroom",
       "species_scope": "species",
       "foraging_class": "mushroom",
-      "field_identification": "",
+      "field_identification": "Black, cracked, charcoal-like sterile conk protruding from living birch; interior is orange-brown, not wood.",
       "season_months": [
         1,
         2,
@@ -1864,7 +1942,14 @@
         "method": "Tea / infusion",
         "preparation_required": true,
         "notes": "Woody conk is not eaten like a normal mushroom, but it is commonly simmered or steeped as a bitter tea / coffee-like beverage. Used for tea/extract traditions rather than as food."
-      }
+      },
+      "use_roles": [
+        "Tea",
+        "Medicinal"
+      ],
+      "foraging_value": "Good tea / traditional use",
+      "foraging_value_score": 3,
+      "mushroom_card_note": "Birch conk used for tea/decoction; harvest conservatively and avoid cure-all thinking."
     },
     {
       "slug": "charcoal-burners-mild-flexible-gill-russulas",
@@ -1966,14 +2051,17 @@
         "August",
         "September"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/laetiporus_sulphureus.html",
+        "https://www.mushroomexpert.com/laetiporus.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Laetiporus%20Sulphureus.JPG",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Chicken%20of%20the%20Woods%20-%20Laetiporus%20sulphureus%2C%20Point%20of%20View%2C%20Mason%20Neck%2C%20Virginia%20%2844536583375%29.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Chicken%20of%20the%20Woods%20Laetiporus%20sulphureus.jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Primarily culinary in this guide.",
+      "culinary_uses": "Good edible when young and tender. Cook thoroughly; some people get stomach upset, and old, tough, or bug-ridden shelves are not worth it.",
       "general_notes": "Some people react to it, especially older specimens or those from some conifers.",
       "record_type": "mushroom",
       "lane": "other",
@@ -2047,7 +2135,15 @@
         "season_note": "Summer into early fall on trunks, stumps, and buried roots."
       },
       "commonness_score": 4,
-      "food_quality_score": 4
+      "food_quality_score": 4,
+      "scientific_name": "Laetiporus sulphureus / Laetiporus spp.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Good forage",
+      "foraging_value_score": 4,
+      "field_identification": "Bright orange/yellow overlapping shelves with a pore surface, growing from wood; host tree and pore color help separate Laetiporus species.",
+      "mushroom_card_note": "Good edible shelf mushroom when young; host tree and tenderness matter."
     },
     {
       "slug": "coral-tooth-fungus",
@@ -2061,14 +2157,17 @@
         "September",
         "October"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/hericium_coralloides",
+        "https://www.mushroomexpert.com/hericium.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium-coralloides.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/2009-09-25%20Hericium%20coralloides%20%28Scop.%29%20Pers%2058068.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/2015-10-11%20Hericium%20coralloides%20%28Scop.%29%20Pers%20564137.jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Hericium species have medicinal/supplement interest, but this entry is treated primarily as food.",
+      "culinary_uses": "Choice edible when young and white. Cook gently; older yellowing specimens lose quality.",
       "general_notes": "Another Hericium ally that benefits from side-by-side comparison with lion's mane and bear's head tooth.",
       "record_type": "mushroom",
       "lane": "other",
@@ -2139,7 +2238,15 @@
         "season_note": "Late summer through fall on hardwood logs."
       },
       "commonness_score": 2,
-      "food_quality_score": 5
+      "food_quality_score": 5,
+      "scientific_name": "Hericium coralloides",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Prime foraging",
+      "foraging_value_score": 5,
+      "field_identification": "Branched white Hericium with short teeth hanging in rows along the branches, usually on dead hardwood.",
+      "mushroom_card_note": "Choice toothed edible; short teeth hang along delicate branches on hardwood."
     },
     {
       "slug": "destroying-angel",
@@ -2153,13 +2260,15 @@
         "August",
         "September"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/amanita_bisporigera.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2017933.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2017932.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2097861769.jpg"
       ],
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "culinary_uses": "Deadly poisonous. No food use.",
       "non_edible_severity": "Deadly",
       "edibility_detail": "Avoid for food in this guide; keep as an identification/caution record.",
       "general_notes": "One of the highest-priority caution mushrooms in the guide. The combination of white gills, ring, and volva matters more than almost anything else in the gilled lane.",
@@ -2234,8 +2343,17 @@
         "has_ingestible_use": false,
         "method": "",
         "preparation_required": false,
-        "notes": ""
-      }
+        "notes": "Deadly poisonous. No food use."
+      },
+      "scientific_name": "Amanita bisporigera group",
+      "use_roles": [
+        "Caution"
+      ],
+      "foraging_value": "Deadly — never forage for food",
+      "foraging_value_score": 0,
+      "medicinal_uses": "No medicinal use in this guide.",
+      "field_identification": "Deadly white Amanita with white gills, ring, bulbous base, and a sack-like volva; the volva may be buried, so dig the base for ID.",
+      "mushroom_card_note": "Deadly white Amanita. Never eat; confirm the base/volva when identifying."
     },
     {
       "slug": "dryad-s-saddle-pheasant-back",
@@ -2249,14 +2367,17 @@
         "May",
         "June"
       ],
-      "links": [],
+      "links": [
+        "https://mushroomexpert.com/fungionwood/poroid%20fungi/species%20pages/Cerioporus%20squamosus.htm",
+        "https://www.nps.gov/articles/000/dryads-saddle.htm"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/0%20Polyporus%20squamosus.JPG",
         "https://commons.wikimedia.org/wiki/Special:FilePath/2014-05-01%20Polyporus%20squamosus%20%28Huds.%29%20Fr%20418219.jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Primarily culinary in this guide.",
+      "culinary_uses": "Edible when very young and tender; older caps become leathery. Good sliced thin, sautéed, or dried for stock when still fragrant.",
       "non_edible_severity": "Edible young only",
       "edibility_detail": "Edible young only; quality drops quickly with age.",
       "general_notes": "Mostly worth collecting young; older specimens get leathery fast.",
@@ -2328,7 +2449,15 @@
         "season_note": "Most useful as a young spring mushroom before it toughens."
       },
       "commonness_score": 4,
-      "food_quality_score": 3
+      "food_quality_score": 3,
+      "scientific_name": "Cerioporus squamosus",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Fair / best very young",
+      "foraging_value_score": 3,
+      "field_identification": "Large scaly tan-to-brown shelf with big angular pores and a watermelon-rind/cucumber-like odor.",
+      "mushroom_card_note": "Fair edible only when young and tender; older pheasant backs are stock material at best."
     },
     {
       "slug": "false-morel-gyromitra-group",
@@ -2342,13 +2471,15 @@
         "May",
         "June"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/gyromitra.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Gyromitra%20esculenta.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/2007-04-02%20Gyromitra%20esculenta%20cropped.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Conifer%20false%20morel-%20Gyromitra%20esculenta%20%287320510562%29.jpg"
       ],
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "culinary_uses": "Do not eat. This group includes dangerous false morels with toxins that can cause serious illness or death.",
       "non_edible_severity": "Potentially deadly",
       "edibility_detail": "Avoid for food in this guide; keep as an identification/caution record.",
       "general_notes": "",
@@ -2409,7 +2540,16 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "scientific_name": "Gyromitra spp.",
+      "use_roles": [
+        "Caution"
+      ],
+      "foraging_value": "Potentially deadly — avoid",
+      "foraging_value_score": 0,
+      "medicinal_uses": "No medicinal use in this guide.",
+      "field_identification": "Wrinkled, folded, brain-like cap rather than true pitted morel structure; interior may not be cleanly hollow like a true morel.",
+      "mushroom_card_note": "False morel warning group. Do not treat as a food mushroom."
     },
     {
       "slug": "field-mushroom",
@@ -2513,14 +2653,16 @@
         "September",
         "October"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/calvatia_gigantea"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia%20gigantea.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/20120629Calvatia%20gigantea1.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/20190524Calvatia%20gigantea1.jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Primarily culinary in this guide.",
+      "culinary_uses": "Good edible only while the interior is pure white and uniform. Slice open every specimen; discard any yellowing, browning, developing gills, or odd structure.",
       "general_notes": "A cut-open check is mandatory because immature deadly amanitas can fool people when still buttoned.",
       "record_type": "mushroom",
       "lane": "other",
@@ -2589,7 +2731,15 @@
         "season_note": "Late summer into fall in open ground and edges."
       },
       "commonness_score": 3,
-      "food_quality_score": 4
+      "food_quality_score": 4,
+      "scientific_name": "Calvatia gigantea",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Good forage",
+      "foraging_value_score": 4,
+      "field_identification": "Large white ball-like puffball with no developing cap, stem, gills, or internal outline when cut open.",
+      "mushroom_card_note": "Good edible only when cut-open flesh is pure white all the way through."
     },
     {
       "slug": "half-free-morels",
@@ -2878,14 +3028,16 @@
         "September",
         "October"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/grifola_frondosa"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Autumn%20mushrooms%201%20Hen%20of%20the%20woods%20%28Grifola%20frondosa%29%20%284035115888%29.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Cultivated%20grifola%20frondosa.jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Maitake has supplement interest, but this guide treats wild hens mainly as a prime food mushroom.",
+      "culinary_uses": "Choice edible; trim away tough bases, clean well, and cook. Excellent sautéed, roasted, dried, or used in soups and gravies.",
       "general_notes": "A good host-linked species and one of the better fall edible clusters.",
       "record_type": "mushroom",
       "lane": "other",
@@ -2957,7 +3109,15 @@
         "season_note": "Mostly fall, especially at oak bases."
       },
       "commonness_score": 3,
-      "food_quality_score": 5
+      "food_quality_score": 5,
+      "scientific_name": "Grifola frondosa",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Prime foraging",
+      "foraging_value_score": 5,
+      "field_identification": "Large gray-brown rosette of many overlapping fronds at the base of oak or other hardwoods; pores underneath.",
+      "mushroom_card_note": "Prime fall mushroom; look for recurring rosettes at hardwood bases, especially oak."
     },
     {
       "slug": "honey-mushrooms",
@@ -3169,13 +3329,14 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20edulis.jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Primarily culinary in this guide.",
+      "culinary_uses": "Choice edible when a true porcini-type bolete is confidently identified and cooked; avoid bitter, staining, old, buggy, or waterlogged specimens.",
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "Needs regional/taxonomy confirmation for North American Boletus edulis group"
+        "Needs regional/taxonomy confirmation for North American Boletus edulis group",
+        "Regional/taxonomy confirmation for the North American Boletus edulis group"
       ],
       "review_status": "needs_review",
       "search_aliases": [
@@ -3280,10 +3441,11 @@
       "scientific_name": "Boletus edulis",
       "needs_review": true,
       "review_reasons": [
-        "Needs regional/taxonomy confirmation for North American Boletus edulis group"
+        "Needs regional/taxonomy confirmation for North American Boletus edulis group",
+        "Regional/taxonomy confirmation for the North American Boletus edulis group"
       ],
-      "review_note": "Needs review: regional/taxonomy confirmation for North American Boletus edulis group.",
-      "review_notes": "Needs review: regional/taxonomy confirmation for North American Boletus edulis group.",
+      "review_note": "Needs review: regional/taxonomy confirmation for the North American Boletus edulis group.",
+      "review_notes": "Needs review: regional/taxonomy confirmation for the North American Boletus edulis group.",
       "mushroom_family": "Porcini & brown allies",
       "boleteGroup": [
         "Porcini & brown allies"
@@ -3331,7 +3493,14 @@
           "source_quality": "mycology reference",
           "notes": "Edulis-group traits and caution that North American edulis-like mushrooms are taxonomically complex."
         }
-      ]
+      ],
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Prime foraging — species group needs care",
+      "foraging_value_score": 5,
+      "mushroom_card_note": "Prime bolete/porcini-type food mushroom, but North American Boletus edulis-group naming needs caution.",
+      "field_identification": "Porcini-type bolete with firm flesh, whitish-to-yellowish pore surface, and netted stem; avoid bitter or staining look-alikes."
     },
     {
       "slug": "king-oyster",
@@ -3443,8 +3612,8 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20374654.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20805098.jpg"
       ],
-      "medicinal_uses": "",
-      "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
+      "medicinal_uses": "Primarily culinary/ID interest in this guide.",
+      "culinary_uses": "Edible when young and carefully prepared, but sticky cap skin and soft texture make it less desirable than prime boletes. Best cooked; peel slimy cap skin if objectionable.",
       "non_edible_severity": "Edible with caution",
       "edibility_detail": "Treat as caution / not for meals in this guide until species-level edibility is clarified.",
       "month_numbers": [
@@ -3514,10 +3683,7 @@
           "Tamarack / larch"
         ]
       },
-      "manual_review_reasons": [
-        "needs species-level notes review",
-        "needs source links"
-      ],
+      "manual_review_reasons": [],
       "mushroom_family": "Suillus / slippery jacks",
       "boleteGroup": [
         "Suillus / slippery jacks"
@@ -3533,10 +3699,8 @@
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "bolete",
-      "reviewReasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_status": "needs_review",
+      "reviewReasons": [],
+      "review_status": "ok",
       "search_aliases": [],
       "host_filter_tokens": [
         "Conifer / softwood",
@@ -3559,12 +3723,10 @@
         "slippery-jack"
       ],
       "food_role": "food",
-      "needs_review": true,
-      "review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_note": "Needs review: needs real field photo / image coverage.",
-      "review_notes": "Needs review: needs real field photo / image coverage.",
+      "needs_review": false,
+      "review_reasons": [],
+      "review_note": "",
+      "review_notes": "",
       "use_links": [
         {
           "label": "MushroomExpert: Suillus clintonianus",
@@ -3574,7 +3736,14 @@
           "source_quality": "mycology reference",
           "notes": "North American larch/tamarack Suillus; separated from European Suillus grevillei."
         }
-      ]
+      ],
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Fair / sticky-cap Suillus",
+      "foraging_value_score": 2,
+      "field_identification": "Sticky orange-yellow to reddish Suillus associated with larch/tamarack; check for nearby larch and a slimy cap.",
+      "mushroom_card_note": "Fair Suillus tied to larch/tamarack; edible but not a prime bolete."
     },
     {
       "slug": "lion-s-mane",
@@ -3589,14 +3758,17 @@
         "October",
         "November"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/hericium_erinaceus.html",
+        "https://www.mushroomexpert.com/hericium.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/2006-11-03%20Hericium%20erinaceus%20crop.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Bearded%20Hedgehog%20-%20Hericium%20erinaceus%2C%20Occoquan%20Bay%20National%20Wildlife%20Refuge%2C%20Woodbridge%2C%20Virginia.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/2012-10-02%20Hericium%20erinaceus%20%28Bull.%29%20Pers%20268392.jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Traditional and modern supplement interest exists, especially around cognition/gut health, but human evidence is still limited; this app treats it as food first.",
+      "culinary_uses": "Choice edible when young and white. Slice or tear and brown well; texture works nicely for crab-cake style preparations, sautés, and soups.",
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "other",
@@ -3648,7 +3820,16 @@
           "Dead wood"
         ],
         "season_note": "Usually encountered from August through November in the Upper Midwest / Great Lakes window."
-      }
+      },
+      "scientific_name": "Hericium erinaceus",
+      "use_roles": [
+        "Food",
+        "Medicinal"
+      ],
+      "foraging_value": "Prime foraging",
+      "foraging_value_score": 5,
+      "field_identification": "Unbranched clump of long dangling white teeth, usually from wounds on living or recently cut hardwood.",
+      "mushroom_card_note": "Prime Hericium: unbranched white pom-pom of hanging teeth; food first, medicinal claims second."
     },
     {
       "slug": "lobster-mushroom",
@@ -4633,12 +4814,14 @@
         "September",
         "October"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/coprinus_comatus.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinus%20comatus.jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Primarily culinary in this guide.",
+      "culinary_uses": "Good edible only when young, white, and before the gills darken/ink. Cook soon after picking; it deteriorates quickly.",
       "general_notes": "This is a classic 'find it and use it quickly' species. The deliquescing black gills are part of why it must sit in the gilled lane.",
       "record_type": "mushroom",
       "lane": "gilled",
@@ -4699,7 +4882,15 @@
         "season_note": "Spring through fall in rich disturbed ground."
       },
       "commonness_score": 3,
-      "food_quality_score": 4
+      "food_quality_score": 4,
+      "scientific_name": "Coprinus comatus",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Good forage — very time-sensitive",
+      "foraging_value_score": 4,
+      "field_identification": "Tall shaggy white cap that becomes black ink as it matures; often in lawns, roadsides, and disturbed ground.",
+      "mushroom_card_note": "Good edible but extremely time-sensitive: use young white specimens before they ink."
     },
     {
       "slug": "short-stemmed-russula",
@@ -4713,17 +4904,20 @@
         "August",
         "September"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/russula_brevipes.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EShort-stemmed%20russula%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Primarily culinary/ID interest in this guide.",
+      "culinary_uses": "Edible reports exist, but quality is variable and ID can be confusing; better treated as a cautious/advanced edible unless converted into lobster mushroom.",
       "general_notes": "A good reminder that russulas belong in the gilled lane too. The short thick stem and brittle white flesh matter more than generic 'mushroom' features.",
       "record_type": "mushroom",
       "lane": "gilled",
       "reviewReasons": [
-        "Needs real field photo / image coverage"
+        "Needs real field photo / image coverage",
+        "Russula species/group ID should be kept conservative"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -4795,11 +4989,20 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage"
+        "Needs real field photo / image coverage",
+        "Russula species/group ID should be kept conservative"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage.",
-      "review_notes": "Needs review: needs real field photo / image coverage."
+      "review_note": "Needs review: Needs real field photo / image coverage; Russula species/group ID should be kept conservative.",
+      "review_notes": "Needs review: Needs real field photo / image coverage; Russula species/group ID should be kept conservative.",
+      "scientific_name": "Russula brevipes group",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Fair / expert confirmation",
+      "foraging_value_score": 2,
+      "field_identification": "Sturdy pale russula with short thick stem; gills and stem often bruise brownish. Can be hard to separate from similar Lactarius without checking for latex.",
+      "mushroom_card_note": "Fair/advanced russula; useful partly because it can become lobster mushroom."
     },
     {
       "slug": "shrimp-of-the-woods-aborted-entoloma",
@@ -4845,17 +5048,20 @@
         "August",
         "September"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/russula_shrimp.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EShrimp%20russulas%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Primarily culinary/ID interest in this guide.",
+      "culinary_uses": "Often considered edible when confidently identified, but North American shrimp russulas are a complex; use only with strong Russula skills.",
       "general_notes": "This belongs in the gilled lane even though it does not look like a typical agaric. Russula brittleness and odor are important criteria for the mushroom schema.",
       "record_type": "mushroom",
       "lane": "gilled",
       "reviewReasons": [
-        "Needs real field photo / image coverage"
+        "Needs real field photo / image coverage",
+        "Russula species/group ID should be kept conservative"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -4928,11 +5134,20 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage"
+        "Needs real field photo / image coverage",
+        "Russula species/group ID should be kept conservative"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage.",
-      "review_notes": "Needs review: needs real field photo / image coverage."
+      "review_note": "Needs review: Needs real field photo / image coverage; Russula species/group ID should be kept conservative.",
+      "review_notes": "Needs review: Needs real field photo / image coverage; Russula species/group ID should be kept conservative.",
+      "scientific_name": "Russula xerampelina group / North American shrimp russulas",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Fair / expert confirmation",
+      "foraging_value_score": 2,
+      "field_identification": "Russulas with shrimp/fishy odor, brown staining, mild taste, and brittle flesh; species-level ID is messy in North America.",
+      "mushroom_card_note": "Fair edible for Russula people; shrimp odor helps, but the group is taxonomically messy."
     },
     {
       "slug": "smooth-chanterelles",
@@ -4942,14 +5157,17 @@
       "notes": "",
       "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/cantharellus_lateritius.html",
+        "https://mdc.mo.gov/discover-nature/field-guide/smooth-chanterelle"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2054894.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2051632.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2049073.jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Primarily culinary in this guide.",
+      "culinary_uses": "Choice edible chanterelle-type mushroom. Cook fresh in butter, eggs, sauces, or cream dishes; avoid confusing with jack-o'-lanterns.",
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "other",
@@ -4963,7 +5181,15 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "scientific_name": "Cantharellus lateritius",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Prime foraging",
+      "foraging_value_score": 5,
+      "field_identification": "Orange-yellow chanterelle with a smooth to shallowly wrinkled underside rather than true blade-like gills.",
+      "mushroom_card_note": "Prime chanterelle-type edible with a smooth or barely wrinkled underside."
     },
     {
       "slug": "tinder-conk-hoof-fungus",
@@ -5015,13 +5241,15 @@
       "notes": "",
       "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [],
-      "links": [],
+      "links": [
+        "https://mushroomexpert.com/trametes_versicolor.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Red%20Turkey%20Tail.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Turkey%20Tail%20(4063595386).jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Traditional and supplement interest, especially as tea/extract; this app does not treat it as a cure.",
+      "culinary_uses": "Too tough for table eating; usually dried and simmered for tea/decoction.",
       "non_edible_severity": "Inedible",
       "edibility_detail": "Avoid for food in this guide; keep as an identification/caution record.",
       "general_notes": "",
@@ -5044,7 +5272,16 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "scientific_name": "Trametes versicolor",
+      "use_roles": [
+        "Tea",
+        "Medicinal"
+      ],
+      "foraging_value": "Good tea / traditional use",
+      "foraging_value_score": 3,
+      "field_identification": "Thin leathery shelf with strongly zoned, fuzzy cap surface and a true tiny-pored white underside.",
+      "mushroom_card_note": "Tea/decoction mushroom, not table food; confirm true pores underneath."
     },
     {
       "slug": "velvet-foot",
@@ -5146,17 +5383,21 @@
       "notes": "Needs review: needs real field photo / image coverage.",
       "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/cantharellus_cibarius.html",
+        "https://www.mushroomexpert.com/cantharellaceae.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EYellow%20chanterelles%20%28conifer-associated%20complex%29%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Primarily culinary in this guide.",
+      "culinary_uses": "Choice edible chanterelle-type mushrooms when positively identified. Cook; do not confuse with jack-o'-lanterns or true-gilled orange mushrooms.",
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "Needs real field photo / image coverage"
+        "Needs real field photo / image coverage",
+        "Species-complex wording should be kept conservative"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -5174,11 +5415,20 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage"
+        "Needs real field photo / image coverage",
+        "Species-complex wording should be kept conservative"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage.",
-      "review_notes": "Needs review: needs real field photo / image coverage."
+      "review_note": "Needs review: Needs real field photo / image coverage; Species-complex wording should be kept conservative.",
+      "review_notes": "Needs review: Needs real field photo / image coverage; Species-complex wording should be kept conservative.",
+      "scientific_name": "Cantharellus spp. / conifer-associated yellow chanterelles",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Prime foraging — species complex",
+      "foraging_value_score": 5,
+      "field_identification": "Yellow-orange chanterelle complex with blunt forked false gills, solid flesh, and conifer association; species-level names are unsettled in North America.",
+      "mushroom_card_note": "Prime chanterelle group, but this entry still needs a real field photo and careful species-complex wording."
     },
     {
       "slug": "yellow-chanterelles-hardwood-associated-complex",
@@ -5188,17 +5438,21 @@
       "notes": "Needs review: needs real field photo / image coverage.",
       "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/cantharellus_cibarius.html",
+        "https://www.mushroomexpert.com/cantharellaceae.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EYellow%20chanterelles%20%28hardwood-associated%20complex%29%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Primarily culinary in this guide.",
+      "culinary_uses": "Choice edible chanterelle-type mushrooms when positively identified. Cook; check false gills, growth from soil, and lack of jack-o'-lantern clustering on wood.",
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "Needs real field photo / image coverage"
+        "Needs real field photo / image coverage",
+        "Species-complex wording should be kept conservative"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -5216,11 +5470,20 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage"
+        "Needs real field photo / image coverage",
+        "Species-complex wording should be kept conservative"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage.",
-      "review_notes": "Needs review: needs real field photo / image coverage."
+      "review_note": "Needs review: Needs real field photo / image coverage; Species-complex wording should be kept conservative.",
+      "review_notes": "Needs review: Needs real field photo / image coverage; Species-complex wording should be kept conservative.",
+      "scientific_name": "Cantharellus spp. / hardwood-associated yellow chanterelles",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Prime foraging — species complex",
+      "foraging_value_score": 5,
+      "field_identification": "Yellow-orange chanterelle complex with blunt forked false gills and hardwood association; North American species naming is still unsettled.",
+      "mushroom_card_note": "Prime chanterelle group, but this entry still needs a real field photo and careful species-complex wording."
     },
     {
       "slug": "yellow-fly-agaric-guessowii",
@@ -5350,13 +5613,15 @@
       "notes": "",
       "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/craterellus_tubaeformis.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20(37555429931).jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20(24592812038).jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "Primarily culinary in this guide.",
+      "culinary_uses": "Good edible small chanterelle. Excellent sautéed or dried; stems can be tougher than caps.",
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "other",
@@ -5370,7 +5635,15 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "scientific_name": "Craterellus tubaeformis",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Good forage",
+      "foraging_value_score": 4,
+      "field_identification": "Small brownish funnel cap with well-developed false gills and a yellow to orange-yellow hollow stem, often in mossy conifer bogs.",
+      "mushroom_card_note": "Good late-season small chanterelle; brown cap, false gills, yellow hollow stem."
     }
   ]
 }
