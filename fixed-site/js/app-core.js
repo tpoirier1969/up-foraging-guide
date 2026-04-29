@@ -87,14 +87,119 @@ function mushroomLaneLandingHtml() {
   `;
 }
 
+function mushroomLaneNavHtml(route = "") {
+  if (!["mushrooms-gilled", "boletes", "mushrooms-other"].includes(route)) return "";
+  const item = (href, key, label, note) => {
+    const active = route === key ? " active" : "";
+    return `<a class="lane-card${active}" href="${href}"><strong>${esc(label)}</strong><span>${esc(note)}</span></a>`;
+  };
+  return `
+    <section class="panel mushroom-lane-switcher">
+      <h3>Mushroom underside / form</h3>
+      <div class="lane-grid">
+        ${item("#/mushrooms-gilled", "mushrooms-gilled", "Gilled", "Thin blade-like gills under the cap.")}
+        ${item("#/boletes", "boletes", "Boletes", "Pores or sponge-like underside.")}
+        ${item("#/mushrooms-other", "mushrooms-other", "Other", "Teeth, ridges, shelves, coral, jelly, and oddballs.")}
+      </div>
+    </section>
+  `;
+}
+
 function optionHtml(values, current, blankLabel) {
   return [`<option value="">${esc(blankLabel)}</option>`]
-    .concat((values || []).map(value => `<option value="${esc(value)}" ${current === value ? "selected" : ""}>${esc(value)}</option>`))
+    .concat((values || []).map((item) => {
+      const value = item && typeof item === "object" ? String(item.value || "") : String(item || "");
+      const label = item && typeof item === "object" ? String(item.label || item.value || "") : value;
+      return `<option value="${esc(value)}" ${current === value ? "selected" : ""}>${esc(label)}</option>`;
+    }))
     .join("");
 }
 
-function controlsHtml(route = "general", placeholder = "Search species") {
+const PLANT_TRAIT_FILTER_KEYS = [
+  "plantMonth", "plantPart", "plantHabitat", "plantSize", "plantTaste",
+  "plantFlowerColor", "plantFruitColor", "plantLeafShape", "plantLeafArrangement", "plantStem",
+  "plantLane"
+];
+
+const MUSHROOM_TRAIT_FILTER_KEYS = [
+  "mushroomMonth", "mushroomHabitat", "mushroomSubstrate", "mushroomTreeType", "mushroomHost", "mushroomUnderside",
+  "mushroomRing", "mushroomTexture", "mushroomSmell", "mushroomStaining", "mushroomCapSurface",
+  "mushroomStemFeature", "mushroomBoleteGroup", "mushroomBoleteSubgroup", "mushroomPoreColor",
+  "mushroomReviewFlag", "mushroomTreeAssociation", "mushroomTaste"
+];
+
+const SORT_OPTIONS = [
+  { value: "default", label: "Default order" },
+  { value: "name", label: "Name A–Z" },
+  { value: "commonness", label: "Commonality — common first" },
+  { value: "foodQuality", label: "Foraging value — best first" },
+  { value: "season", label: "Season — earliest first" }
+];
+
+function isSortableRoute(route) {
+  return [
+    "plants", "mushrooms-gilled", "boletes", "mushrooms-other",
+    "medicinal", "lookalikes", "caution", "other-uses", "search", "review"
+  ].includes(route);
+}
+
+function isPlantFilterRoute(route) {
+  return route === "plants";
+}
+
+function isMushroomFilterRoute(route) {
+  return ["mushrooms-gilled", "boletes", "mushrooms-other"].includes(route);
+}
+
+function clearTraitFiltersForRoute(route) {
+  const keys = isPlantFilterRoute(route)
+    ? PLANT_TRAIT_FILTER_KEYS
+    : (isMushroomFilterRoute(route) ? MUSHROOM_TRAIT_FILTER_KEYS : []);
+  keys.forEach((key) => { state.filters[key] = ""; });
+}
+
+function renderSortControls(route) {
+  if (!isSortableRoute(route)) return "";
+  const current = state.filters.sortSpecies || "default";
+  return `
+    <section class="panel">
+      <div class="medicinal-filter-row" style="display:grid;grid-template-columns:minmax(220px,320px) minmax(260px,1fr);gap:12px;align-items:end;">
+        <div class="medicinal-filter-cell">
+          <label for="speciesSortSelect" class="muted small">Sort</label>
+          <select id="speciesSortSelect" style="width:100%">${optionHtml(SORT_OPTIONS, current, "Default order")}</select>
+        </div>
+        <p class="muted small" style="margin:0;">Sorting applies after the current filters. Foraging value sorting puts prime and high-value foods first when those records have value data.</p>
+      </div>
+    </section>
+  `;
+}
+
+function renderTraitFilters(route, filterFields = [], activeTraitFilters = false) {
+  if (!filterFields.length) return "";
+  const title = isPlantFilterRoute(route) ? "Plant filters" : (route === "boletes" ? "Bolete filters" : "Mushroom filters");
+  return `
+    <section class="panel">
+      <div class="home-focus-heading">
+        <h3>${esc(title)}</h3>
+        ${activeTraitFilters ? `<button id="traitClearBtn" type="button">Clear filters</button>` : ""}
+      </div>
+      <div class="medicinal-filter-row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;align-items:end;">
+        ${filterFields.map((field) => `
+          <div class="medicinal-filter-cell">
+            <label for="traitFilter_${esc(field.key)}" class="muted small">${esc(field.label)}</label>
+            <select id="traitFilter_${esc(field.key)}" data-trait-filter="${esc(field.key)}" style="width:100%">
+              ${optionHtml(field.options, state.filters[field.key] || "", field.blankLabel || "Any")}
+            </select>
+          </div>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
+function controlsHtml(route = "general", placeholder = "Search species", filterFields = [], activeTraitFilters = false, plantLaneControls = "") {
   const search = state.filters.search || "";
+  const sortControls = renderSortControls(route);
   if (route === "medicinal") {
     return `
       <section class="panel">
@@ -116,6 +221,7 @@ function controlsHtml(route = "general", placeholder = "Search species") {
           </div>
         </div>
       </section>
+      ${sortControls}
     `;
   }
   if (route === "search") {
@@ -127,11 +233,14 @@ function controlsHtml(route = "general", placeholder = "Search species") {
           ${search ? `<button id="speciesClearBtn" type="button">Clear</button>` : ""}
         </div>
       </section>
+      ${sortControls}
     `;
   }
-  return "";
+  if (isPlantFilterRoute(route) || isMushroomFilterRoute(route)) {
+    return `${mushroomLaneNavHtml(route)}${plantLaneControls}${renderTraitFilters(route, filterFields, activeTraitFilters)}${sortControls}`;
+  }
+  return sortControls;
 }
-
 const BUILT_IN_LOOKALIKE_STUBS = new Map([
   ["bracken-fern", {
     slug: "bracken-fern",
@@ -332,14 +441,12 @@ function wireActionButtons(root = document) {
 
 function clearRouteFilters(route) {
   state.filters.search = "";
-  if (route === "plants") {
-    state.filters.plantLane = "";
-  }
   if (route === "medicinal") {
     state.filters.medicinalAction = "";
     state.filters.medicinalSystem = "";
     state.filters.medicinalTerm = "";
   }
+  clearTraitFiltersForRoute(route);
 }
 
 function wireCommonEvents(route) {
@@ -355,16 +462,6 @@ function wireCommonEvents(route) {
     clearRouteFilters(route);
     renderCurrentRoute();
   });
-  document.querySelectorAll("[data-plant-lane]").forEach((button) => {
-    button.addEventListener("click", () => {
-      state.filters.plantLane = button.dataset.plantLane || "";
-      renderCurrentRoute();
-    });
-  });
-  document.getElementById("plantLaneClearBtn")?.addEventListener("click", () => {
-    state.filters.plantLane = "";
-    renderCurrentRoute();
-  });
   document.getElementById("medicinalActionFilter")?.addEventListener("change", (event) => {
     state.filters.medicinalAction = event.currentTarget.value || "";
     renderCurrentRoute();
@@ -375,6 +472,33 @@ function wireCommonEvents(route) {
   });
   document.getElementById("medicinalTermFilter")?.addEventListener("change", (event) => {
     state.filters.medicinalTerm = event.currentTarget.value || "";
+    renderCurrentRoute();
+  });
+  document.querySelectorAll("[data-trait-filter]").forEach((select) => {
+    select.addEventListener("change", (event) => {
+      const key = event.currentTarget.dataset.traitFilter || "";
+      if (!key) return;
+      state.filters[key] = event.currentTarget.value || "";
+      renderCurrentRoute();
+    });
+  });
+  document.querySelectorAll("[data-plant-lane]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const lane = button.dataset.plantLane || "";
+      state.filters.plantLane = state.filters.plantLane === lane ? "" : lane;
+      renderCurrentRoute();
+    });
+  });
+  document.getElementById("plantLaneClearBtn")?.addEventListener("click", () => {
+    state.filters.plantLane = "";
+    renderCurrentRoute();
+  });
+  document.getElementById("speciesSortSelect")?.addEventListener("change", (event) => {
+    state.filters.sortSpecies = event.currentTarget.value || "default";
+    renderCurrentRoute();
+  });
+  document.getElementById("traitClearBtn")?.addEventListener("click", () => {
+    clearTraitFiltersForRoute(route);
     renderCurrentRoute();
   });
   wireActionButtons(document);
@@ -416,17 +540,26 @@ async function renderHomeRoute(token) {
 }
 
 async function renderSpeciesRoute(route, token) {
-  const { filterRecords, renderRecordCards, renderPlantLaneControls } = await importModule("./ui/render-list.js");
+  const {
+    filterRecords,
+    renderRecordCards,
+    getFilterFieldsForRoute,
+    hasActiveTraitFilters,
+    sortRecords,
+    renderPlantLaneControls
+  } = await importModule("./ui/render-list.js");
   if (token !== renderToken) return;
-  const filtered = filterRecords(state.species, route === "search" ? "general" : route, state.filters);
+  const matchRoute = route === "search" ? "general" : route;
+  const filterFields = getFilterFieldsForRoute(state.species, matchRoute, state.filters);
+  const activeTraitFilters = hasActiveTraitFilters(matchRoute, state.filters);
+  const plantLaneControls = route === "plants" ? renderPlantLaneControls(state.species, state.filters) : "";
+  const filtered = filterRecords(state.species, matchRoute, state.filters);
+  const sorted = sortRecords(filtered, state.filters.sortSpecies || "default");
   const title = `${routeTitle(route)} (${filtered.length})`;
-  const controls = route === "plants"
-    ? renderPlantLaneControls(state.species, state.filters)
-    : controlsHtml(route, route === "search" ? "Search all species" : `Search ${routeTitle(route).toLowerCase()}`);
   renderPage(`
-    ${controls}
+    ${controlsHtml(route, route === "search" ? "Search all species" : `Search ${routeTitle(route).toLowerCase()}`, filterFields, activeTraitFilters, plantLaneControls)}
     <section class="panel"><h2>${esc(title)}</h2></section>
-    ${renderRecordCards(filtered, route)}
+    ${renderRecordCards(sorted, route)}
   `);
   wireCommonEvents(route);
 }

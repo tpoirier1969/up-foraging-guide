@@ -749,6 +749,78 @@ function isRedundantCautionMeta(record = {}) {
   return false;
 }
 
+function realText(value = "") {
+  return String(value || "").replace(/\s+/g, " ").trim();
+}
+
+function hasTeaUse(record = {}) {
+  const tags = asList(record.use_tags).map((value) => String(value || "").trim().toUpperCase());
+  if (tags.includes("T")) return true;
+  if (asList(record.plant_lanes).map((value) => String(value || "").toLowerCase()).includes("tea-infusions")) return true;
+  const edibleUse = record.edible_use || {};
+  if (/tea|infusion|beverage/i.test(String(edibleUse.method || ""))) return true;
+  const text = [
+    record.culinary_uses,
+    record.medicinal_uses,
+    record.plant_card_note,
+    record.plant_lane_note,
+    record.other_uses,
+    ...asList(record.usable_parts)
+  ].join(" ");
+  return /\btea\b|\binfusion\b|\binfusions\b|\bsteep\b|\bsteeped\b|\btisane\b/i.test(text);
+}
+
+function hasRealOtherUse(record = {}, info = {}) {
+  if (info.otherUses) return true;
+  return !!realText(record.other_uses || record.otherUses || record.practical_uses);
+}
+
+function useRoleLabels(record = {}, info = {}) {
+  const explicit = cleanOptionValues(record.use_roles);
+  const roles = [];
+  if (explicit.length) {
+    explicit.forEach((role) => roles.push(role));
+  } else {
+    if (info.edible) roles.push("Food");
+    if (hasTeaUse(record)) roles.push("Tea");
+    if (info.medicinal) roles.push("Medicinal");
+    if (hasRealOtherUse(record, info)) roles.push("Other use");
+  }
+  return [...new Set(roles.map((role) => String(role || "").trim()).filter(Boolean))];
+}
+
+function useRoleTag(record = {}, info = {}) {
+  const roles = useRoleLabels(record, info);
+  if (!roles.length) return "";
+  return `<span class="tag good">Uses: ${esc(roles.join(" · "))}</span>`;
+}
+
+function isQualityValue(value = "") {
+  const text = String(value || "").trim();
+  if (!text) return false;
+  if (/^(food|edible|tea|medicinal|other use|other|yes|true)$/i.test(text)) return false;
+  return /prime|choice|excellent|very good|good|fair|poor|occasional|niche|processed|tea|flavoring|caution|avoid|not recommended|expert/i.test(text);
+}
+
+function foragingValueText(record = {}) {
+  const explicit = realText(record.foraging_value || record.food_value || "");
+  if (explicit) return explicit;
+  const legacy = realText(record.food_quality || "");
+  return isQualityValue(legacy) ? legacy : "";
+}
+
+function isPrimeForagingValue(value = "") {
+  return /\bprime\b|\bchoice\b|\bexcellent\b|\bbest\b|\btop[- ]?tier\b/i.test(value);
+}
+
+function foragingValueTag(record = {}) {
+  const value = foragingValueText(record);
+  if (!value) return "";
+  if (isPrimeForagingValue(value)) return `<span class="tag good">Prime foraging</span>`;
+  const danger = /not recommended|avoid|poor|inedible|caution|expert/i.test(value);
+  return labelTag("Foraging value", value, danger ? "danger" : "good");
+}
+
 function makeMeta(record, route = "general") {
   const info = classifyRecord(record);
   const edibleUse = record.edible_use || null;
@@ -760,16 +832,15 @@ function makeMeta(record, route = "general") {
   } else if (record.category) {
     bits.push(labelTag("Type", record.category));
   }
+  bits.push(useRoleTag(record, info));
   if (route === "plants") {
     const parts = usablePartsForRecord(record);
     if (parts.length) bits.push(labelTag("Useful parts", parts.slice(0, 4).join(", ")));
-    plantLanesForRecord(record).slice(0, 4).forEach((lane) => bits.push(`<span class="tag">${esc(lane.label)}</span>`));
   }
-  if (route === "other-uses" && info.otherUses) bits.push(`<span class="tag">Other use</span>`);
   if (record.commonness) bits.push(labelTag("Commonality", record.commonness));
   bits.push(labelTag("Season", seasonSummary(record)));
-  if (record.food_quality) bits.push(labelTag("Food quality", record.food_quality, /not recommended|avoid|poor|inedible/i.test(String(record.food_quality)) ? "danger" : "good"));
-  if (edibleUse?.has_ingestible_use && /tea|infusion|beverage/i.test(edibleUse.method || "")) {
+  bits.push(foragingValueTag(record));
+  if (edibleUse?.has_ingestible_use && /tea|infusion|beverage/i.test(String(edibleUse.method || "")) && !hasTeaUse(record)) {
     bits.push(`<span class="tag good">Tea / infusion</span>`);
   }
   if (record.non_edible_severity && !edibleUse?.has_ingestible_use && !isRedundantCautionMeta(record)) bits.push(labelTag("Safety", record.non_edible_severity, "danger"));
@@ -802,6 +873,9 @@ function matchesSearch(record, q) {
     record.edibility_notes,
     record.edibility_detail,
     record.commonness,
+    record.foraging_value,
+    record.food_value,
+    ...(record.use_roles || []),
     rare.reason,
     rare.field_marks,
     rare.care_note,
@@ -1067,7 +1141,9 @@ function commonnessScore(record = {}) {
 }
 
 function foodQualityScore(record = {}) {
-  const explicit = numericScore(record.food_quality_score)
+  const explicit = numericScore(record.foraging_value_score)
+    ?? numericScore(record.food_quality_score)
+    ?? scoreFromText(record.foraging_value, FOOD_QUALITY_TEXT_SCORES)
     ?? scoreFromText(record.food_quality, FOOD_QUALITY_TEXT_SCORES);
   if (explicit !== null) return explicit;
 
@@ -1132,7 +1208,6 @@ export function renderRecordCards(records, route = "general") {
         <div class="control-row">
           <button class="primary" type="button" data-detail="${esc(record.slug)}">Open details</button>
           ${record.review_status === "needs_review" ? `<button class="warn" type="button" data-review-action="mark-ok" data-slug="${esc(record.slug)}">Mark OK</button>` : ""}
-          ${route !== "review" && record.review_status !== "needs_review" ? `<button class="subtle" type="button" data-review-action="send-review" data-slug="${esc(record.slug)}">Send to Needs Review</button>` : ""}
         </div>
       </div>
     </article>

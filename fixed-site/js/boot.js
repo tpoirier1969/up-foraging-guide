@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.77-r2026-04-29-plant-quality-correctness1";
-const DISPLAY_VERSION = "V4.2.77-r26-04-29";
+const APP_VERSION = "v4.2.79-r2026-04-29-filter-sort-icon-fix1";
+const DISPLAY_VERSION = "V4.2.79-r26-04-29";
 
 function esc(value) {
   return String(value ?? "")
