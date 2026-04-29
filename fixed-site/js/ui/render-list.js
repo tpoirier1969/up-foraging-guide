@@ -1072,6 +1072,7 @@ function cardSnippet(record) {
   const rare = record.rare_profile || {};
   const candidates = [
     record.plant_card_note,
+    record.mushroom_card_note,
     record.overview,
     record.field_identification,
     generatedMushroomSnippet(record),
