@@ -1,10 +1,10 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.76-r2026-04-29-plant-lane-correction1",
+    "build": "v4.2.77-r2026-04-29-plant-quality-correctness1",
     "primary_type": "plant",
-    "record_count": 93,
-    "notes": "Master plant file with structured image roles. First batch had 13 image-ready species from existing hardwired entries; this batch adds sourced and curated image sets for 3 more species (American beech, ramps, basswood). Copyback content merged directly into plants.json from batch10 for 74 matching species on 2026-04-21. Plant data normalization pass on 2026-04-29 added explicit usable_parts, plant_lanes, plant_lane_note, plant_card_note, and plant_data_flags fields for all records. Plant lane correction pass on 2026-04-29 tightened Leaves/Greens and Flowers to actual useful parts, limited the tree/sap lane to trees/shrubs, merged Sassafras root bark into Sassafras, and improved Wild mustard greens."
+    "record_count": 90,
+    "notes": "Master plant file with structured image roles. First batch had 13 image-ready species from existing hardwired entries; this batch adds sourced and curated image sets for 3 more species (American beech, ramps, basswood). Copyback content merged directly into plants.json from batch10 for 74 matching species on 2026-04-21. Plant data normalization pass on 2026-04-29 added explicit usable_parts, plant_lanes, plant_lane_note, plant_card_note, and plant_data_flags fields for all records. Plant lane correction pass on 2026-04-29 tightened Leaves/Greens and Flowers to actual useful parts, limited the tree/sap lane to trees/shrubs, merged Sassafras root bark into Sassafras, and improved Wild mustard greens. Plant quality/correctness pass on 2026-04-29 filled weak copyback records for dandelion, hawthorn, plantain, pawpaw, pin cherry, spruce, and jewelweed; tightened safety wording for sassafras; improved wild mustard greens source data; and merged duplicate pine and wood-sorrel part records. Follow-up in the same pass cleared remaining old copyback placeholders for ramps, oak, wild carrot, wild ginger, wild strawberries, and yellow pond lily where safe, while flagging caution-heavy entries for review. Also filled toothwort and yarrow season/habitat/use basics and flagged yarrow safety wording for review."
   },
   "records": [
     {
@@ -2072,13 +2072,24 @@
       "display_name": "Dandelion",
       "common_name": "Dandelion",
       "category": "Green",
-      "notes": "This single plant entry replaces separate part listings: Dandelion greens, Dandelion flowers. Recreated locally from the original app baseline checklist for the modular standalone build. Photos should focus on the whole plant for identification, while the text explains which part is used.",
+      "notes": "Common lawn and disturbed-ground perennial with a basal rosette of toothed leaves, hollow leafless flower stalks, yellow composite flowers, and wind-borne puffball seed heads.",
       "short_reason": "Consolidated to one plant entry with details covering the usable parts.",
-      "months_available": [],
-      "links": [],
+      "months_available": [
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "links": [
+        "https://hort.extension.wisc.edu/articles/dandelion-taraxacum-officinale/",
+        "https://extension.umass.edu/weed-herbarium/weeds/taraxacum-officinale/index.html"
+      ],
       "images": [],
-      "medicinal_uses": "Dandelion greens: Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Dandelion greens: The plant to recognize is dandelion. The greens are one of the main edible parts.\n\nDandelion flowers: The plant to recognize is dandelion. The flowers are one of the usable parts.",
+      "medicinal_uses": "Traditional bitter/tonic and tea plant; this guide treats it mainly as a food and tea plant, not as medical advice.",
+      "culinary_uses": "Leaves are used as bitter greens, flowers for fritters/tea/wine-style preparations, and roasted roots for a coffee-like drink.",
       "photo_subject": "Dandelion",
       "plant_name": "Dandelion",
       "photo_scientific_name": "Taraxacum officinale",
@@ -2096,7 +2107,11 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": [],
+      "habitat": [
+        "Yard / garden / orchard",
+        "Roadside / disturbed",
+        "Field / meadow"
+      ],
       "images_structured": [],
       "list_thumbnail": "",
       "detail_images": [],
@@ -2105,7 +2120,9 @@
       "usable_parts": [
         "Leaf / green",
         "Flower",
-        "Root / tuber / bulb"
+        "Root / tuber / bulb",
+        "Leaf / tea",
+        "Root / tea"
       ],
       "plant_lanes": [
         "leaves-greens",
@@ -2113,14 +2130,25 @@
         "roots-tubers",
         "tea-infusions"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Roots / Tubers, Tea / Infusions.",
-      "plant_card_note": "Leaves and flowers are the current food-side focus; the record still needs fuller root/tea/source detail.",
+      "plant_lane_note": "Leaves, flowers, and roots are all useful; the most beginner-friendly uses are young greens and flowers.",
+      "plant_card_note": "Leaves are bitter greens, flowers can be used for fritters or tea, and roasted roots can make a coffee-like drink. Avoid sprayed lawns.",
       "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage",
-        "needs_season_detail",
-        "needs_habitat_detail",
-        "needs_copyback_detail"
+        "needs_image_coverage"
+      ],
+      "month_numbers": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "edibility_detail": "Leaves, flowers, and roots are edible from clean, unsprayed sites. Older leaves and green flower parts can be bitter.",
+      "observedPart": [
+        "Leaf",
+        "Flower",
+        "Root"
       ]
     },
     {
@@ -3332,13 +3360,20 @@
       "display_name": "Hawthorn",
       "common_name": "Hawthorn",
       "category": "Fruit",
-      "notes": "This entry is shown as the whole plant (Hawthorn) while the details describe the usable plant part. Recreated locally from the original app baseline checklist for the modular standalone build. Photos should focus on the whole plant for identification, while the text explains which part is used.",
+      "notes": "Thorny shrub or small tree with white spring flowers and red apple-like fruits (haws) later in the season. This is a broad Crataegus entry.",
       "short_reason": "Consolidated to one plant entry with details covering the usable parts.",
-      "months_available": [],
-      "links": [],
+      "months_available": [
+        "May",
+        "June",
+        "September",
+        "October"
+      ],
+      "links": [
+        "https://www.bhg.com/gardening/plant-dictionary/tree/hawthorn/"
+      ],
       "images": [],
-      "medicinal_uses": "Hawthorn berries: Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Hawthorn berries: The plant to recognize is hawthorn. The berries are the edible part.",
+      "medicinal_uses": "Hawthorn has strong traditional herbal associations, but this app keeps the food-side focus on fruit and tea context only.",
+      "culinary_uses": "Ripe haws can be cooked into jelly, syrup, fruit leather, or preserves; flowers and leaves are sometimes used in tea traditions.",
       "photo_subject": "Hawthorn",
       "plant_name": "Hawthorn",
       "photo_scientific_name": "Crataegus spp.",
@@ -3356,7 +3391,12 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": [],
+      "habitat": [
+        "Forest edge / openings",
+        "Field / meadow",
+        "Roadside / disturbed",
+        "Yard / garden / orchard"
+      ],
       "images_structured": [],
       "list_thumbnail": "",
       "detail_images": [],
@@ -3364,21 +3404,31 @@
       "image_audit_status": "pending",
       "usable_parts": [
         "Fruit / berry",
-        "Flower / tea"
+        "Flower / tea",
+        "Leaf / tea"
       ],
       "plant_lanes": [
         "berries-fruits",
+        "flowers",
         "trees-shrubs-sap",
         "tea-infusions"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs, Tea / Infusions.",
-      "plant_card_note": "Fruits are the food-side focus; this record still needs stronger season, habitat, image, and source detail.",
+      "plant_lane_note": "Fruit is the main food-side part; flowers/leaves are included mainly for tea/traditional-use context.",
+      "plant_card_note": "Ripe haws are mainly a cooked fruit for jelly, syrup, or preserves; flowers and leaves have tea/herbal tradition. Broad genus ID needs care.",
       "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage",
-        "needs_season_detail",
-        "needs_habitat_detail",
-        "needs_copyback_detail"
+        "needs_image_coverage"
+      ],
+      "month_numbers": [
+        5,
+        6,
+        9,
+        10
+      ],
+      "edibility_detail": "Use ripe fruit; avoid seeds/pits as a food. Because hawthorns are a difficult genus, keep this as a broad comparison record.",
+      "observedPart": [
+        "Fruit / berry",
+        "Flower",
+        "Leaf"
       ]
     },
     {
@@ -3859,10 +3909,17 @@
       "common_name": "Jewelweed",
       "scientific_name": "Impatiens capensis",
       "category": "Flower",
-      "notes": "Added as a name-first plant entry for later detail expansion. Includes edible-flower and traditional topical-use interest in a single plant entry.",
+      "notes": "Moist-ground annual with watery stems, alternate toothed leaves, orange spotted pouch-shaped flowers, and spring-loaded seed capsules.",
       "short_reason": "Added in plant expansion pass for Upper Michigan edible and medicinal species.",
-      "months_available": [],
-      "links": [],
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "links": [
+        "https://hort.extension.wisc.edu/articles/jewelweed-impatiens-capensis/",
+        "https://www.fs.usda.gov/wildflowers/plant-of-the-week/impatiens_capensis.shtml"
+      ],
       "images": [
         {
           "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg/480px-2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg",
@@ -3883,13 +3940,15 @@
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg"
         }
       ],
-      "culinary_uses": "Edible-flower plant entry. Detailed culinary notes still to be added.",
-      "medicinal_uses": "Traditional topical medicinal context expected; detailed notes still to be added.",
+      "culinary_uses": "Not treated as a food plant in this guide; any edible-flower note needs verification before this belongs in the Plants food list.",
+      "medicinal_uses": "Traditional topical use for itching/skin irritation is the main use context.",
       "general_notes": "",
       "record_type": "plant",
       "lane": "",
-      "reviewReasons": [],
-      "review_status": "ok",
+      "reviewReasons": [
+        "Food-side use is questionable; may belong outside the edible Plants section."
+      ],
+      "review_status": "needs_review",
       "search_aliases": [],
       "host_filter_tokens": [],
       "commonness": "",
@@ -3898,7 +3957,12 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": [],
+      "habitat": [
+        "Wetland / marsh",
+        "Shoreline / riverbank",
+        "Forest edge / openings",
+        "Roadside / disturbed"
+      ],
       "images_structured": [
         {
           "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg/320px-2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg",
@@ -3941,17 +4005,27 @@
       ],
       "image_audit_status": "batch1_complete",
       "usable_parts": [
+        "Topical-use plant",
         "Flower"
       ],
       "plant_lanes": [
         "flowers"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Flowers.",
-      "plant_card_note": "Flower/topical-use entry with good images, but the food and medicinal notes still need detail review.",
+      "plant_lane_note": "Kept temporarily in Flowers but flagged because the food-side reason is weak.",
+      "plant_card_note": "Good image record and common wet-ground plant, but food-side use is questionable. Candidate to move out of Plants unless a solid edible-use source is added.",
       "plant_data_flags": [
-        "needs_source_links",
-        "needs_season_detail",
-        "needs_habitat_detail"
+        "needs_edible_use_review"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "edibility_detail": "Flagged: food-side usefulness is weak/questionable. This may belong in Medicinal/Other Uses rather than the edible Plants list.",
+      "observedPart": [
+        "Flower",
+        "Leaf",
+        "Stem / stalk"
       ]
     },
     {
@@ -4912,13 +4986,20 @@
       "display_name": "Oak",
       "common_name": "Oak",
       "category": "Tree Product",
-      "notes": "This entry is shown as the whole plant (Oak) while the details describe the usable plant part. Recreated locally from the original app baseline checklist for the modular standalone build. Photos should focus on the whole plant for identification, while the text explains which part is used.",
+      "notes": "Broad oak entry focused on acorns. Oaks are trees/shrubs with lobed or toothed leaves and acorns in caps; acorn tannin levels vary by species.",
       "short_reason": "Consolidated to one plant entry with details covering the usable parts.",
-      "months_available": [],
-      "links": [],
+      "months_available": [
+        "September",
+        "October",
+        "November"
+      ],
+      "links": [
+        "https://www.webmd.com/diet/are-acorns-safe-to-eat",
+        "https://www.healthline.com/nutrition/can-you-eat-acorns"
+      ],
       "images": [],
-      "medicinal_uses": "Acorns (leached): Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Acorns (leached): The plant to recognize is oak. The acorns can be leached to remove bitterness and make them more usable for flour, meal, or other foraged food uses.",
+      "medicinal_uses": "Not treated as a medicinal plant in this guide.",
+      "culinary_uses": "Acorns can be shelled, leached to remove tannins/bitterness, dried, and used as meal or flour.",
       "photo_subject": "Oak",
       "photo_scientific_name": "Quercus spp.",
       "scientific_name": "Quercus spp.",
@@ -4935,7 +5016,11 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": [],
+      "habitat": [
+        "Upland / dry forest",
+        "Mixed woods",
+        "Forest edge / openings"
+      ],
       "images_structured": [],
       "list_thumbnail": "",
       "detail_images": [],
@@ -4948,14 +5033,19 @@
         "nuts-seeds",
         "trees-shrubs-sap"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Nuts / Seeds, Trees / Shrubs.",
-      "plant_card_note": "Useful parts: seed / nut / cone. Acorns (leached): The plant to recognize is oak. The acorns can be leached to remove bitterness and make them more usable for flour, meal, or other foraged food uses.",
+      "plant_lane_note": "Acorns are the useful part; this is a processing-heavy food, not a quick nibble.",
+      "plant_card_note": "Acorns are usable after shelling and leaching tannins; best treated as flour/meal, not a raw snack.",
       "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage",
-        "needs_season_detail",
-        "needs_habitat_detail",
-        "needs_copyback_detail"
+        "needs_image_coverage"
+      ],
+      "month_numbers": [
+        9,
+        10,
+        11
+      ],
+      "edibility_detail": "Acorns must be processed/leached before eating. Do not eat bitter raw acorns as a casual snack.",
+      "observedPart": [
+        "Seed / cone / nut"
       ]
     },
     {
@@ -5033,18 +5123,26 @@
       "display_name": "Pawpaw",
       "common_name": "Pawpaw",
       "category": "Fruit",
-      "notes": "Recreated locally from the original app baseline checklist for the modular standalone build.",
+      "notes": "Small understory tree with large tropical-looking leaves, dark purple spring flowers, and soft greenish-yellow fruits in fall. Native in Michigan but more southern than the U.P. core list.",
       "short_reason": "Original app species restored into the standalone modular build.",
-      "months_available": [],
-      "links": [],
+      "months_available": [
+        "September",
+        "October"
+      ],
+      "links": [
+        "https://www.michigan.gov/dnr/education/michigan-species/plants-trees/paw-paw",
+        "https://www.nps.gov/articles/pawpaw.htm"
+      ],
       "images": [],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Original app included edible, culinary, or practical foraging use notes for this plant entry. Detailed copyback is still pending.",
+      "medicinal_uses": "Not treated as a medicinal plant in this guide.",
+      "culinary_uses": "Fully ripe fruit is eaten fresh or used in soft desserts and pulp preparations; it is highly perishable.",
       "general_notes": "",
       "record_type": "plant",
       "lane": "",
-      "reviewReasons": [],
-      "review_status": "ok",
+      "reviewReasons": [
+        "U.P. relevance questionable; likely more southern Michigan than core Upper Peninsula foraging."
+      ],
+      "review_status": "needs_review",
       "search_aliases": [],
       "host_filter_tokens": [],
       "commonness": "",
@@ -5053,7 +5151,11 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": [],
+      "habitat": [
+        "Shoreline / riverbank",
+        "Forest edge / openings",
+        "Moist woods"
+      ],
       "images_structured": [],
       "list_thumbnail": "",
       "detail_images": [],
@@ -5066,14 +5168,20 @@
         "berries-fruits",
         "trees-shrubs-sap"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
-      "plant_card_note": "Fruit entry restored from the old app; needs U.P. relevance, season, habitat, and source review.",
+      "plant_lane_note": "Fruit is the only food-side part tracked here; U.P. relevance is questionable enough to keep flagged.",
+      "plant_card_note": "Largest native North American fruit, but this is more of a Michigan/southern-range entry than a solid U.P. core species. Keep flagged for U.P. relevance.",
       "plant_data_flags": [
-        "needs_source_links",
         "needs_image_coverage",
-        "needs_season_detail",
-        "needs_habitat_detail",
-        "needs_copyback_detail"
+        "needs_up_relevance_review"
+      ],
+      "scientific_name": "Asimina triloba",
+      "month_numbers": [
+        9,
+        10
+      ],
+      "edibility_detail": "Fruit pulp is the edible part. Do not treat seeds, skin, leaves, or bark as food. U.P. wild occurrence should be reviewed.",
+      "observedPart": [
+        "Fruit / berry"
       ]
     },
     {
@@ -5081,13 +5189,21 @@
       "display_name": "Pin Cherry",
       "common_name": "Pin Cherry",
       "category": "Fruit",
-      "notes": "Species-level cherry entry for pin cherry retained on the existing slug for compatibility with the current app structure.",
+      "notes": "Small pioneer tree with reddish-brown bark marked by horizontal lenticels, narrow toothed leaves, white spring flowers, and small bright red sour cherries in clusters.",
       "short_reason": "Species-level pin cherry record retained without changing slug wiring.",
-      "months_available": [],
-      "links": [],
+      "months_available": [
+        "May",
+        "June",
+        "July",
+        "August"
+      ],
+      "links": [
+        "https://www.dnr.state.mn.us/trees/pin-cherry.html",
+        "https://research.fs.usda.gov/feis/species-reviews/prupen"
+      ],
       "images": [],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Original app included edible, culinary, or practical foraging use notes for this plant entry. Detailed copyback is still pending.",
+      "medicinal_uses": "Not treated as a medicinal plant in this guide.",
+      "culinary_uses": "Small sour fruits are mainly useful for jelly, syrup, preserves, or cooked fruit preparations.",
       "scientific_name": "Prunus pensylvanica",
       "plant_name": "Pin Cherry",
       "photo_subject": "Pin Cherry",
@@ -5105,7 +5221,12 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": [],
+      "habitat": [
+        "Forest edge / openings",
+        "Roadside / disturbed",
+        "Old fields / cutover land",
+        "Upland / dry forest"
+      ],
       "images_structured": [],
       "list_thumbnail": "",
       "detail_images": [],
@@ -5118,14 +5239,21 @@
         "berries-fruits",
         "trees-shrubs-sap"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
-      "plant_card_note": "Useful parts: fruit / berry. Original app included edible, culinary, or practical foraging use notes for this plant entry. Detailed copyback is still pending.",
+      "plant_lane_note": "Fruit is the useful part; flowers are listed for identification timing, not as a food lane.",
+      "plant_card_note": "Small sour red cherries ripen in mid-to-late summer and are better for jelly or preserves than fresh eating. Avoid pits and non-fruit parts.",
       "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage",
-        "needs_season_detail",
-        "needs_habitat_detail",
-        "needs_copyback_detail"
+        "needs_image_coverage"
+      ],
+      "month_numbers": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "edibility_detail": "Ripe fruit flesh is edible and sour. Do not treat pits, leaves, bark, or wilted foliage as food.",
+      "observedPart": [
+        "Fruit / berry",
+        "Flower"
       ]
     },
     {
@@ -5133,7 +5261,7 @@
       "display_name": "Pine",
       "common_name": "Pine",
       "category": "Tree Product",
-      "notes": "Consolidated pine entry replacing separate needles/resin records. The tree must be recognized first; safe use depends on knowing which pine you have.",
+      "notes": "Consolidated pine entry replacing separate pine needles and pine resin/gum records. The tree must be recognized first; safe use depends on knowing which pine you have.",
       "short_reason": "Consolidated to one plant entry with details covering the usable parts.",
       "months_available": [
         "January",
@@ -5149,10 +5277,15 @@
         "November",
         "December"
       ],
-      "links": [],
-      "images": [],
-      "medicinal_uses": "Needle tea is a traditional winter aromatic for respiratory and nutritive support; resin has old topical and chewing uses.",
-      "culinary_uses": "Needles are used for tea, some species provide edible nuts, and resin has traditional chew, pitch, or flavor uses.",
+      "links": [
+        "https://edibleplantdb.org/plants/7653/pinus-strobus"
+      ],
+      "images": [
+        "assets/images/plants-2/pine-needles-and-cones-v18.jpg",
+        "assets/images/plants-2/pine-tree-identification-v18.jpg"
+      ],
+      "medicinal_uses": "Needle tea and resin/gum have traditional respiratory, aromatic, and topical-use associations; this guide treats those as traditional-use context.",
+      "culinary_uses": "Needles/tips are used for tea and flavoring; some species provide edible nuts; resin/gum has traditional chew/pitch use but is not a bulk food.",
       "photo_subject": "Pine",
       "plant_name": "Pine",
       "photo_scientific_name": "Pinus spp.",
@@ -5162,7 +5295,12 @@
       "lane": "",
       "reviewReasons": [],
       "review_status": "ok",
-      "search_aliases": [],
+      "search_aliases": [
+        "pine needles tea",
+        "pine resin gum",
+        "pine gum",
+        "pine resin"
+      ],
       "host_filter_tokens": [],
       "commonness": "",
       "food_quality": "",
@@ -5180,7 +5318,7 @@
       "detail_images": [],
       "enlarge_images": [],
       "image_audit_status": "pending",
-      "edibility_detail": "Needle tea is the most approachable use. Pine nuts depend heavily on species, and resin use is more traditional than routine.",
+      "edibility_detail": "Needle tea is the most approachable use. Pine nuts depend heavily on species, and resin/gum use is more traditional than routine food.",
       "month_numbers": [
         1,
         2,
@@ -5219,190 +5357,13 @@
         "tea-infusions"
       ],
       "plant_lane_note": "Explicit plant-lane placement: Nuts / Seeds, Trees / Shrubs, Tea / Infusions.",
-      "plant_card_note": "Useful parts: leaf / tea, seed / nut / cone, resin / gum. Needle tea is the most approachable use. Pine nuts depend heavily on species, and resin use is more traditional than routine.",
+      "plant_card_note": "Needles/tips are the practical tea/flavoring use; some pines provide nuts, and resin/gum is more traditional than routine food.",
       "plant_data_flags": [
-        "needs_source_links",
         "needs_image_coverage"
-      ]
-    },
-    {
-      "slug": "pine-needles-tea",
-      "display_name": "Pine needles (tea)",
-      "common_name": "Pine needles (tea)",
-      "category": "Tree Product",
-      "culinary_uses": "Steeped as a vitamin C-rich tea",
-      "medicinal_uses": "Immune support; respiratory relief",
-      "notes": "",
-      "months_available": [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
       ],
-      "month_numbers": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12
-      ],
-      "links": [],
-      "images": [
-        "assets/images/plants-2/pine-needles-and-cones-v18.jpg",
-        "assets/images/plants-2/pine-tree-identification-v18.jpg"
-      ],
-      "scientific_name": "Pinus spp.",
-      "habitat": [
-        "Evergreens / conifers",
-        "Sandy / dry upland",
-        "Mixed woods"
-      ],
-      "medicinalAction": [
-        "Immune support",
-        "Respiratory support"
-      ],
-      "medicinalSystem": [
-        "Respiratory",
-        "Immune system"
-      ],
-      "medicinalTerms": [
-        "Immune support"
-      ],
-      "weekPrecision": "month-window-reviewed",
-      "primary_type": "plant",
-      "is_medicinal": true,
-      "is_non_edible": false,
-      "general_notes": "",
-      "record_type": "plant",
-      "lane": "",
-      "reviewReasons": [],
-      "review_status": "ok",
-      "search_aliases": [],
-      "host_filter_tokens": [],
-      "commonness": "",
-      "food_quality": "",
-      "non_edible_severity": "",
-      "images_structured": [],
-      "list_thumbnail": "",
-      "detail_images": [],
-      "enlarge_images": [],
-      "image_audit_status": "pending",
-      "usable_parts": [
-        "Leaf / tea"
-      ],
-      "plant_lanes": [
-        "trees-shrubs-sap",
-        "tea-infusions"
-      ],
-      "plant_lane_note": "Explicit plant-lane placement: Trees / Shrubs, Tea / Infusions.",
-      "plant_card_note": "Useful parts: leaf / tea. Steeped as a vitamin C-rich tea",
-      "plant_data_flags": [
-        "needs_source_links"
-      ]
-    },
-    {
-      "slug": "pine-resin-gum",
-      "display_name": "Pine resin (gum)",
-      "common_name": "Pine resin (gum)",
-      "category": "Tree Product",
-      "culinary_uses": "Sap boiled into syrup or crystallized; resin and tips used in teas or chewed",
-      "medicinal_uses": "Natural diuretic and tonic; antiseptic and mineral-rich",
-      "notes": "",
-      "months_available": [
-        "January",
-        "February",
-        "March",
-        "April",
-        "May",
-        "June",
-        "July",
-        "August",
-        "September",
-        "October",
-        "November",
-        "December"
-      ],
-      "month_numbers": [
-        1,
-        2,
-        3,
-        4,
-        5,
-        6,
-        7,
-        8,
-        9,
-        10,
-        11,
-        12
-      ],
-      "links": [],
-      "images": [
-        "assets/images/plants-2/pine-tree-identification-v18.jpg",
-        "assets/images/plants-2/pine-needles-and-cones-v18.jpg"
-      ],
-      "scientific_name": "Pinus spp.",
-      "habitat": [
-        "Evergreens / conifers",
-        "Sandy / dry upland",
-        "Mixed woods"
-      ],
-      "medicinalAction": [
-        "Antimicrobial",
-        "Diuretic / urinary support",
-        "Tonic / restorative",
-        "Nutritive / nutrient-dense"
-      ],
-      "medicinalSystem": [
-        "Urinary"
-      ],
-      "weekPrecision": "month-window-reviewed",
-      "primary_type": "plant",
-      "is_medicinal": true,
-      "is_non_edible": false,
-      "general_notes": "",
-      "record_type": "plant",
-      "lane": "",
-      "reviewReasons": [],
-      "review_status": "ok",
-      "search_aliases": [],
-      "host_filter_tokens": [],
-      "commonness": "",
-      "food_quality": "",
-      "non_edible_severity": "",
-      "medicinalTerms": [],
-      "images_structured": [],
-      "list_thumbnail": "",
-      "detail_images": [],
-      "enlarge_images": [],
-      "image_audit_status": "pending",
-      "usable_parts": [
-        "Resin / gum",
-        "Sap"
-      ],
-      "plant_lanes": [
-        "trees-shrubs-sap",
-        "tea-infusions"
-      ],
-      "plant_lane_note": "Explicit plant-lane placement: Trees / Shrubs, Tea / Infusions.",
-      "plant_card_note": "Useful parts: resin / gum, sap. Sap boiled into syrup or crystallized; resin and tips used in teas or chewed",
-      "plant_data_flags": [
-        "needs_source_links"
+      "former_slugs": [
+        "pine-needles-tea",
+        "pine-resin-gum"
       ]
     },
     {
@@ -5410,13 +5371,24 @@
       "display_name": "Plantain (broadleaf)",
       "common_name": "Plantain (broadleaf)",
       "category": "Green",
-      "notes": "Recreated locally from the original app baseline checklist for the modular standalone build.",
+      "notes": "Low perennial lawn and path weed with a basal rosette of broad oval leaves, strong parallel veins, and leafless flower/seed spikes.",
       "short_reason": "Original app species restored into the standalone modular build.",
-      "months_available": [],
-      "links": [],
+      "months_available": [
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "links": [
+        "https://www.canr.msu.edu/resources/broadleaf-plantain-plantago-major",
+        "https://extension.umn.edu/weeds/plantain",
+        "https://plantscience.psu.edu/outreach/plant-id/broadleaf/broadleaf-plantain"
+      ],
       "images": [],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Original app included edible, culinary, or practical foraging use notes for this plant entry. Detailed copyback is still pending.",
+      "medicinal_uses": "Traditional soothing/topical leaf use exists; in this guide it is mainly tracked as an edible green and tea plant.",
+      "culinary_uses": "Young tender leaves can be eaten raw or cooked; older leaves get fibrous and are better cooked or used as tea.",
       "general_notes": "",
       "record_type": "plant",
       "lane": "",
@@ -5430,7 +5402,11 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": [],
+      "habitat": [
+        "Yard / garden / orchard",
+        "Roadside / disturbed",
+        "Field / meadow"
+      ],
       "images_structured": [],
       "list_thumbnail": "",
       "detail_images": [],
@@ -5438,20 +5414,32 @@
       "image_audit_status": "pending",
       "usable_parts": [
         "Leaf / green",
-        "Leaf / tea"
+        "Leaf / tea",
+        "Seed / seasoning"
       ],
       "plant_lanes": [
         "leaves-greens",
-        "tea-infusions"
+        "tea-infusions",
+        "nuts-seeds"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Tea / Infusions.",
-      "plant_card_note": "Broadleaf plantain leaf entry restored from the old app; needs fuller food/tea/field-identification detail.",
+      "plant_lane_note": "Young leaves are the main edible part; dried leaves can be used for tea, and seed use is secondary.",
+      "plant_card_note": "Young leaves are the practical edible part; older leaves become fibrous but can be cooked or used for tea. Look for the basal rosette and strong parallel veins.",
       "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage",
-        "needs_season_detail",
-        "needs_habitat_detail",
-        "needs_copyback_detail"
+        "needs_image_coverage"
+      ],
+      "scientific_name": "Plantago major",
+      "month_numbers": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "edibility_detail": "Best as young leaves from clean, unsprayed ground. Older leaves are tougher and stringier.",
+      "observedPart": [
+        "Leaf",
+        "Seed / cone / nut"
       ]
     },
     {
@@ -5537,13 +5525,21 @@
       "display_name": "Ramps",
       "common_name": "Ramps",
       "category": "Green",
-      "notes": "This single plant entry replaces separate part listings: Wild Leek (Ramp), Ramps (Wild onion). Recreated locally from the original app baseline checklist for the modular standalone build. Photos should focus on the whole plant for identification, while the text explains which part is used.",
+      "notes": "Spring ephemeral wild onion of rich deciduous woods, often in colonies. Broad leaves emerge early, then die back as the plant flowers and goes dormant.",
       "short_reason": "Consolidated to one plant entry with details covering the usable parts.",
-      "months_available": [],
-      "links": [],
+      "months_available": [
+        "March",
+        "April",
+        "May",
+        "June"
+      ],
+      "links": [
+        "https://extension.psu.edu/ramps-allium-tricoccum",
+        "https://hort.extension.wisc.edu/articles/ramps-allium-tricoccum/"
+      ],
       "images": [],
-      "medicinal_uses": "Wild Leek (Ramp): Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Wild Leek (Ramp): The plant to recognize is ramps. The leaves and bulbs are the edible parts people usually seek.",
+      "medicinal_uses": "Mostly a food allium in this guide.",
+      "culinary_uses": "Leaves and bulbs are edible and strongly onion/garlic flavored, but harvest should be conservative; leaf-only harvest is less damaging than digging bulbs.",
       "photo_subject": "Ramps",
       "plant_name": "Ramps",
       "photo_scientific_name": "Allium tricoccum",
@@ -5561,7 +5557,11 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": [],
+      "habitat": [
+        "Rich deciduous woods",
+        "Upland / dry forest",
+        "Mixed woods"
+      ],
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Allium%20tricoccum%20var.%20tricoccum.png?width=320",
@@ -5614,13 +5614,19 @@
         "leaves-greens",
         "roots-tubers"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Roots / Tubers.",
-      "plant_card_note": "Leaves and bulbs are the sought parts; existing images are present but the record still needs season/habitat/source detail.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_season_detail",
-        "needs_habitat_detail",
-        "needs_copyback_detail"
+      "plant_lane_note": "Leaves and bulbs are useful, but the leaves are the more sustainable practical harvest.",
+      "plant_card_note": "Spring wild onion of rich woods; leaves and bulbs are edible, but leaf-only harvest is the better conservation habit.",
+      "plant_data_flags": [],
+      "month_numbers": [
+        3,
+        4,
+        5,
+        6
+      ],
+      "edibility_detail": "Leaves and bulbs are edible. Sustainability matters: avoid stripping patches, and harvest lightly if at all.",
+      "observedPart": [
+        "Leaf",
+        "Root"
       ]
     },
     {
@@ -5936,13 +5942,14 @@
         "December"
       ],
       "links": [
-        "https://burdockandrose.com/2022/10/03/foraging-sassafras-rootbeer/"
+        "https://burdockandrose.com/2022/10/03/foraging-sassafras-rootbeer/",
+        "https://www.law.cornell.edu/cfr/text/21/172.580"
       ],
       "images": [
         "assets/images/plants/sassafras-root-bark-1.jpg"
       ],
-      "medicinal_uses": "Traditional digestive and tonic plant, centered especially on root bark in older use.",
-      "culinary_uses": "Root bark is the classic flavoring for old root-beer style drinks, and dried leaves can be used as filé-style seasoning. This consolidated record absorbs the former Sassafras root bark entry.",
+      "medicinal_uses": "Historical/traditional use exists, but root bark and safrole raise safety concerns; this is not treated as a medicinal recommendation.",
+      "culinary_uses": "Dried leaves can be used as filé-style seasoning. Root bark is historically associated with root-beer flavor, but safrole/safety concerns mean this guide should treat root-bark use as historical rather than routine food.",
       "photo_subject": "Sassafras",
       "plant_name": "Sassafras",
       "photo_scientific_name": "Sassafras albidum",
@@ -5950,8 +5957,10 @@
       "general_notes": "",
       "record_type": "plant",
       "lane": "",
-      "reviewReasons": [],
-      "review_status": "ok",
+      "reviewReasons": [
+        "Sassafras root-bark use needs safety wording review because of safrole concerns."
+      ],
+      "review_status": "needs_review",
       "search_aliases": [
         "Sassafras root bark",
         "sassafras-root-bark",
@@ -5981,7 +5990,7 @@
       "detail_images": [],
       "enlarge_images": [],
       "image_audit_status": "pending",
-      "edibility_detail": "Root bark is the old classic use, but this is a flavoring/tea plant more than a bulk food.",
+      "edibility_detail": "Leaves are the safer culinary angle for filé-style seasoning. Root bark/root tea should be treated with caution because safrole-containing sassafras has regulatory and safety concerns.",
       "month_numbers": [
         1,
         2,
@@ -6019,9 +6028,10 @@
         "tea-infusions"
       ],
       "plant_lane_note": "Explicit plant-lane placement: Roots / Tubers, Trees / Shrubs, Tea / Infusions.",
-      "plant_card_note": "Root bark is the classic old root-beer flavoring; dried leaves can be used as filé-style seasoning. Use as a flavoring/tea plant, not a bulk food.",
+      "plant_card_note": "Leaves can be dried for filé-style seasoning; root bark is historical root-beer flavoring but should be treated cautiously because of safrole concerns.",
       "plant_data_flags": [
-        "needs_image_coverage"
+        "needs_image_coverage",
+        "needs_safety_wording_review"
       ],
       "former_slugs": [
         "sassafras-root-bark"
@@ -6032,13 +6042,19 @@
       "display_name": "Spruce",
       "common_name": "Spruce",
       "category": "Tree Product",
-      "notes": "This single plant entry replaces separate part listings: Spruce gum, Spruce tips. Recreated locally from the original app baseline checklist for the modular standalone build. Photos should focus on the whole plant for identification, while the text explains which part is used.",
+      "notes": "Evergreen conifer with single sharp needles on small woody pegs and hanging cones. Young spring tips and resin/gum are the useful parts in this broad spruce entry.",
       "short_reason": "Consolidated to one plant entry with details covering the usable parts.",
-      "months_available": [],
-      "links": [],
+      "months_available": [
+        "May",
+        "June",
+        "July"
+      ],
+      "links": [
+        "https://www.srs.fs.usda.gov/pubs/misc/ag_654/volume_1/picea/glauca.htm"
+      ],
       "images": [],
-      "medicinal_uses": "Spruce gum: Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Spruce gum: The plant to recognize is spruce. The resin or gum is the useful part discussed in this entry.\n\nSpruce tips: The plant to recognize is spruce. The young spruce tips can be used for a healthy and nutritious tea, syrup, or other bright evergreen uses.",
+      "medicinal_uses": "Traditional use includes needle/tip tea and pitch/resin preparations; this guide treats those as traditional-use context.",
+      "culinary_uses": "Tender new spring tips can be used fresh or cooked for tea, syrup, jelly, seasoning, or bright evergreen flavor. Resin/gum has traditional chew/topical use but is not bulk food.",
       "photo_subject": "Spruce",
       "plant_name": "Spruce",
       "photo_scientific_name": "Picea spp.",
@@ -6056,7 +6072,12 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": [],
+      "habitat": [
+        "Evergreens / conifers",
+        "Mixed woods",
+        "Wetland / marsh",
+        "Upland / dry forest"
+      ],
       "images_structured": [],
       "list_thumbnail": "",
       "detail_images": [],
@@ -6064,20 +6085,29 @@
       "image_audit_status": "pending",
       "usable_parts": [
         "Leaf / tea",
+        "Leaf / green",
         "Resin / gum"
       ],
       "plant_lanes": [
+        "leaves-greens",
         "trees-shrubs-sap",
         "tea-infusions"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Trees / Shrubs, Tea / Infusions.",
-      "plant_card_note": "Tips, needles, and resin/gum are the useful parts; this consolidated record needs fuller season and source detail.",
+      "plant_lane_note": "Young spring tips belong in Leaves/Greens and Tea; resin/gum keeps it in Trees/Shrubs.",
+      "plant_card_note": "Young soft spring tips are the useful edible/tea part; resin/gum is more traditional than routine food. Confirm true spruce before using.",
       "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage",
-        "needs_season_detail",
-        "needs_habitat_detail",
-        "needs_copyback_detail"
+        "needs_image_coverage"
+      ],
+      "month_numbers": [
+        5,
+        6,
+        7
+      ],
+      "edibility_detail": "Use positively identified spruce. Young tips are the practical food/tea part; mature needles and resin are much more resinous.",
+      "observedPart": [
+        "Leaf",
+        "Resin / gum",
+        "Seed / cone / nut"
       ]
     },
     {
@@ -6531,15 +6561,22 @@
       "slug": "toothwort",
       "display_name": "Toothwort",
       "common_name": "Toothwort",
-      "scientific_name": "Cardamine concatenata group",
+      "scientific_name": "Cardamine diphylla / Cardamine spp.",
       "category": "Green",
-      "notes": "Added as a name-first plant entry for later detail expansion. Spring woodland edible.",
+      "notes": "Spring woodland mustard-family plant with paired or whorled leaves depending on species and white to pale pink flowers. Also called crinkleroot or pepper root.",
       "short_reason": "Added in plant expansion pass for Upper Michigan edible and medicinal species.",
-      "months_available": [],
-      "links": [],
+      "months_available": [
+        "April",
+        "May",
+        "June"
+      ],
+      "links": [
+        "https://plants.ces.ncsu.edu/plants/cardamine-diphylla/common-name/two-leaf-toothwort/",
+        "https://www.britannica.com/plant/bittercress"
+      ],
       "images": [],
-      "culinary_uses": "Spring edible woodland plant entry. Detailed culinary notes still to be added.",
-      "medicinal_uses": "Traditional use context may apply; detailed notes still to be added.",
+      "culinary_uses": "Leaves and roots/rhizomes have peppery mustard-family food use, raw or cooked, in small quantities.",
+      "medicinal_uses": "Not treated as a medicinal plant in this guide.",
       "general_notes": "",
       "record_type": "plant",
       "lane": "",
@@ -6553,7 +6590,11 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": [],
+      "habitat": [
+        "Rich woods",
+        "Mixed woods",
+        "Forest edge / openings"
+      ],
       "images_structured": [],
       "list_thumbnail": "",
       "detail_images": [],
@@ -6565,15 +6606,24 @@
       ],
       "plant_lanes": [
         "leaves-greens",
-        "roots-tubers"
+        "roots-tubers",
+        "flowers"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Roots / Tubers.",
-      "plant_card_note": "Spring woodland edible entry; usable part details still need review.",
+      "plant_lane_note": "Leaves and roots/rhizomes are the useful parts; flowers help with spring ID.",
+      "plant_card_note": "Peppery spring woodland mustard relative; leaves and roots/rhizomes are the useful parts in small amounts.",
       "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage",
-        "needs_season_detail",
-        "needs_habitat_detail"
+        "needs_image_coverage"
+      ],
+      "month_numbers": [
+        4,
+        5,
+        6
+      ],
+      "edibility_detail": "Edible as a peppery spring green/root in small amounts. Confirm Cardamine/toothwort traits before using.",
+      "observedPart": [
+        "Leaf",
+        "Root",
+        "Flower"
       ]
     },
     {
@@ -6810,21 +6860,34 @@
     },
     {
       "slug": "wild-carrot",
-      "display_name": "Wild carrot",
-      "common_name": "Wild carrot",
+      "display_name": "Wild carrot / Queen Anne’s lace",
+      "common_name": "Wild carrot / Queen Anne’s lace",
       "category": "Root",
-      "notes": "Recreated locally from the original app baseline checklist for the modular standalone build.",
+      "notes": "Biennial Apiaceae with first-year rosettes, feathery leaves, hairy stems, white umbrella flower clusters, and a carrot-scented taproot. Serious hemlock confusion risk.",
       "short_reason": "Original app species restored into the standalone modular build.",
-      "months_available": [],
-      "links": [],
+      "months_available": [
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September"
+      ],
+      "links": [
+        "https://extension.psu.edu/wild-carrot-or-queen-annes-lace",
+        "https://blogs.cornell.edu/weedid/wild-carrot/",
+        "https://blogs.cornell.edu/weedid/poison-hemlock/"
+      ],
       "images": [],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Original app included edible, culinary, or practical foraging use notes for this plant entry. Detailed copyback is still pending.",
+      "medicinal_uses": "Traditional use exists, but this guide treats it as a caution-heavy root entry only.",
+      "culinary_uses": "First-year taproots are the food-side part, but only with expert-level identification; this is not a beginner nibble.",
       "general_notes": "",
       "record_type": "plant",
       "lane": "",
-      "reviewReasons": [],
-      "review_status": "ok",
+      "reviewReasons": [
+        "Apiaceae look-alike risk is serious; safety wording should be reviewed."
+      ],
+      "review_status": "needs_review",
       "search_aliases": [],
       "host_filter_tokens": [],
       "commonness": "",
@@ -6833,7 +6896,11 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": [],
+      "habitat": [
+        "Field / meadow",
+        "Roadside / disturbed",
+        "Dry open ground"
+      ],
       "images_structured": [],
       "list_thumbnail": "",
       "detail_images": [],
@@ -6845,14 +6912,31 @@
       "plant_lanes": [
         "roots-tubers"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Roots / Tubers.",
-      "plant_card_note": "Root entry restored from the old app; carrot-family identification and look-alike warnings need fuller detail.",
+      "plant_lane_note": "Root is the useful part; flowers/leaves are ID clues, not extra food lanes.",
+      "plant_card_note": "Caution-heavy root entry: first-year root is the use, but hemlock confusion can be deadly. Not a beginner plant.",
       "plant_data_flags": [
-        "needs_source_links",
         "needs_image_coverage",
-        "needs_season_detail",
-        "needs_habitat_detail",
-        "needs_copyback_detail"
+        "needs_safety_wording_review"
+      ],
+      "scientific_name": "Daucus carota",
+      "month_numbers": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "edibility_detail": "Only consider first-year roots with certain ID. Poison hemlock and water hemlock confusion can be deadly.",
+      "look_alikes": [
+        "Poison hemlock",
+        "Water hemlock",
+        "Other Apiaceae species"
+      ],
+      "observedPart": [
+        "Root",
+        "Flower",
+        "Leaf"
       ]
     },
     {
@@ -6860,18 +6944,29 @@
       "display_name": "Wild ginger",
       "common_name": "Wild ginger",
       "category": "Root",
-      "notes": "Recreated locally from the original app baseline checklist for the modular standalone build.",
+      "notes": "Low woodland groundcover with paired heart-shaped leaves and hidden brown-purple flowers near the ground. Historical rhizome use exists, but safety concerns make this a questionable food entry.",
       "short_reason": "Original app species restored into the standalone modular build.",
-      "months_available": [],
-      "links": [],
+      "months_available": [
+        "April",
+        "May",
+        "June",
+        "July",
+        "August"
+      ],
+      "links": [
+        "https://www.fs.usda.gov/wildflowers/plant-of-the-week/asarum_canadense.shtml",
+        "https://www.britannica.com/plant/wild-ginger"
+      ],
       "images": [],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Original app included edible, culinary, or practical foraging use notes for this plant entry. Detailed copyback is still pending.",
+      "medicinal_uses": "Historical medicinal use exists, but internal use needs caution and is not recommended by this guide.",
+      "culinary_uses": "Historical rhizome flavoring only; not treated as a practical edible plant in this guide until safety is reviewed.",
       "general_notes": "",
       "record_type": "plant",
       "lane": "",
-      "reviewReasons": [],
-      "review_status": "ok",
+      "reviewReasons": [
+        "Food-side use is questionable due to safety concerns; may belong outside edible Plants."
+      ],
+      "review_status": "needs_review",
       "search_aliases": [],
       "host_filter_tokens": [],
       "commonness": "",
@@ -6880,27 +6975,42 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": [],
+      "habitat": [
+        "Rich woods",
+        "Mixed woods",
+        "Shady deciduous forest"
+      ],
       "images_structured": [],
       "list_thumbnail": "",
       "detail_images": [],
       "enlarge_images": [],
       "image_audit_status": "pending",
       "usable_parts": [
-        "Root / tuber / bulb"
+        "Historical rhizome use"
       ],
       "plant_lanes": [
-        "roots-tubers",
-        "tea-infusions"
+        "roots-tubers"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Roots / Tubers, Tea / Infusions.",
-      "plant_card_note": "Root/rhizome entry restored from the old app; food and medicinal detail still need review.",
+      "plant_lane_note": "Kept temporarily as a root entry but flagged because food-side use is questionable.",
+      "plant_card_note": "Historical rhizome/flavoring plant, but modern safety concerns make it a candidate to move out of edible Plants.",
       "plant_data_flags": [
-        "needs_source_links",
         "needs_image_coverage",
-        "needs_season_detail",
-        "needs_habitat_detail",
-        "needs_copyback_detail"
+        "needs_edible_use_review",
+        "needs_safety_wording_review"
+      ],
+      "scientific_name": "Asarum canadense",
+      "month_numbers": [
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "edibility_detail": "Flagged for safety review. This may belong outside the edible Plants section because of modern safety concerns around wild ginger/internal use.",
+      "observedPart": [
+        "Root",
+        "Leaf",
+        "Flower"
       ]
     },
     {
@@ -6908,14 +7018,16 @@
       "display_name": "Wild mustard greens",
       "common_name": "Wild mustard greens",
       "category": "Green",
-      "notes": "Broad mustard-family greens bucket. Look for peppery-tasting young leaves, four-petaled flowers, and slender seed pods; avoid sprayed roadsides, farm edges, or polluted sites.",
+      "notes": "Broad mustard-family greens bucket. Look for peppery young leaves, four-petaled yellow or white flowers, and slender seed pods; avoid sprayed roadsides, farm edges, or polluted sites.",
       "short_reason": "Improved from placeholder copyback into a practical mustard-greens bucket.",
       "months_available": [
         "May",
         "June",
         "July"
       ],
-      "links": [],
+      "links": [
+        "https://cals.cornell.edu/weed-science/weed-profiles/wild-mustard"
+      ],
       "images": [],
       "medicinal_uses": "Mostly culinary in this guide.",
       "culinary_uses": "Young leaves are the main use and are best before the plant gets tough and strongly bitter. Flower buds, flowers, and mature seeds can also be used as peppery seasoning.",
@@ -6953,12 +7065,11 @@
         "nuts-seeds"
       ],
       "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Nuts / Seeds.",
-      "plant_card_note": "Young peppery leaves are the main use; flower buds, flowers, and mature seeds can also season food. Avoid sprayed or polluted disturbed ground.",
+      "plant_card_note": "Young peppery leaves are the main use; buds, flowers, and mature seeds can season food. Avoid sprayed or polluted disturbed ground.",
       "plant_data_flags": [
-        "needs_source_links",
         "needs_image_coverage"
       ],
-      "scientific_name": "Brassicaceae / Brassica spp.",
+      "scientific_name": "Sinapis arvensis / Brassica spp.",
       "month_numbers": [
         5,
         6,
@@ -7142,13 +7253,20 @@
       "display_name": "Wild strawberries",
       "common_name": "Wild strawberries",
       "category": "Fruit",
-      "notes": "Recreated locally from the original app baseline checklist for the modular standalone build.",
+      "notes": "Low perennial with trifoliate toothed leaves, white five-petaled flowers, runners, and small red strawberries.",
       "short_reason": "Original app species restored into the standalone modular build.",
-      "months_available": [],
-      "links": [],
+      "months_available": [
+        "May",
+        "June",
+        "July"
+      ],
+      "links": [
+        "https://plants.ces.ncsu.edu/plants/fragaria-virginiana/common-name/wild-strawberry/",
+        "https://edibleplantdb.org/plants/4558/fragaria-virginiana"
+      ],
       "images": [],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Original app included edible, culinary, or practical foraging use notes for this plant entry. Detailed copyback is still pending.",
+      "medicinal_uses": "Leaf tea has traditional use, but this guide treats it mainly as a fruit and tea plant.",
+      "culinary_uses": "Small ripe berries are eaten fresh or used like cultivated strawberries; leaves can be used for mild tea.",
       "general_notes": "",
       "record_type": "plant",
       "lane": "",
@@ -7162,7 +7280,12 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": [],
+      "habitat": [
+        "Field / meadow",
+        "Forest edge / openings",
+        "Yard / garden / orchard",
+        "Sandy / dry upland"
+      ],
       "images_structured": [],
       "list_thumbnail": "",
       "detail_images": [],
@@ -7174,16 +7297,25 @@
       ],
       "plant_lanes": [
         "berries-fruits",
+        "flowers",
         "tea-infusions"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Tea / Infusions.",
-      "plant_card_note": "Useful parts: fruit / berry, leaf / tea. Original app included edible, culinary, or practical foraging use notes for this plant entry. Detailed copyback is still pending.",
+      "plant_lane_note": "Fruit is the main part; flowers help ID the plant, and leaves are a secondary tea use.",
+      "plant_card_note": "Small red fruits are the main prize; look for white flowers, trifoliate toothed leaves, and runners.",
       "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage",
-        "needs_season_detail",
-        "needs_habitat_detail",
-        "needs_copyback_detail"
+        "needs_image_coverage"
+      ],
+      "scientific_name": "Fragaria virginiana / Fragaria spp.",
+      "month_numbers": [
+        5,
+        6,
+        7
+      ],
+      "edibility_detail": "Ripe fruit is edible. Leaves are a secondary tea use; avoid confusing with bland mock strawberry if the fruit/flower traits do not match.",
+      "observedPart": [
+        "Fruit / berry",
+        "Leaf",
+        "Flower"
       ]
     },
     {
@@ -7399,7 +7531,7 @@
       "display_name": "Wood sorrel",
       "common_name": "Wood sorrel",
       "category": "Green",
-      "notes": "Low shamrock-like plant with trifoliate leaves and small delicate flowers.",
+      "notes": "Low shamrock-like Oxalis with trifoliate leaves and small delicate flowers. This consolidated record also absorbs the old yellow wood-sorrel part record.",
       "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "May",
@@ -7407,16 +7539,23 @@
         "July",
         "August"
       ],
-      "links": [],
+      "links": [
+        "https://www.fs.usda.gov/wildflowers/plant-of-the-week/oxalis_stricta.shtml",
+        "https://www.canr.msu.edu/resources/yellow-woodsorrel-oxalis-stricta/"
+      ],
       "images": [],
       "medicinal_uses": "Mostly a flavoring green here.",
-      "culinary_uses": "Tangy leaves and flowers are used fresh in small amounts.",
+      "culinary_uses": "Tangy leaves and flowers are used fresh in small amounts as a sour accent, not as a bulk green.",
       "general_notes": "",
       "record_type": "plant",
       "lane": "",
       "reviewReasons": [],
       "review_status": "ok",
-      "search_aliases": [],
+      "search_aliases": [
+        "yellow woodsorrel",
+        "yellow wood sorrel",
+        "Oxalis stricta"
+      ],
       "host_filter_tokens": [],
       "commonness": "",
       "food_quality": "",
@@ -7434,7 +7573,7 @@
       "enlarge_images": [],
       "image_audit_status": "pending",
       "scientific_name": "Oxalis spp.",
-      "edibility_detail": "Edible in modest amounts. Its bright tartness is the point, not bulk eating.",
+      "edibility_detail": "Edible in modest amounts; tart oxalic-acid flavor is the point, not heavy eating.",
       "month_numbers": [
         5,
         6,
@@ -7465,59 +7604,12 @@
         "flowers"
       ],
       "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers.",
-      "plant_card_note": "Useful parts: leaf / green, flower. Edible in modest amounts. Its bright tartness is the point, not bulk eating.",
+      "plant_card_note": "Tangy leaves and flowers are useful as a sour accent in small amounts; this is not a bulk green.",
       "plant_data_flags": [
-        "needs_source_links",
         "needs_image_coverage"
-      ]
-    },
-    {
-      "slug": "wood-sorrel-yellow-woodsorrel",
-      "display_name": "Wood Sorrel | Yellow Woodsorrel",
-      "common_name": "Wood Sorrel | Yellow Woodsorrel",
-      "category": "Green",
-      "notes": "Recreated locally from the original app baseline checklist for the modular standalone build.",
-      "short_reason": "Original app species restored into the standalone modular build.",
-      "months_available": [],
-      "links": [],
-      "images": [],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Original app included edible, culinary, or practical foraging use notes for this plant entry. Detailed copyback is still pending.",
-      "general_notes": "",
-      "record_type": "plant",
-      "lane": "",
-      "reviewReasons": [],
-      "review_status": "ok",
-      "search_aliases": [],
-      "host_filter_tokens": [],
-      "commonness": "",
-      "food_quality": "",
-      "non_edible_severity": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
-      "images_structured": [],
-      "list_thumbnail": "",
-      "detail_images": [],
-      "enlarge_images": [],
-      "image_audit_status": "pending",
-      "usable_parts": [
-        "Leaf / green",
-        "Flower"
       ],
-      "plant_lanes": [
-        "leaves-greens",
-        "flowers"
-      ],
-      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers.",
-      "plant_card_note": "Tangy leaf/flower entry restored from the old app; likely overlaps the broader wood-sorrel entry.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage",
-        "needs_season_detail",
-        "needs_habitat_detail",
-        "needs_copyback_detail"
+      "former_slugs": [
+        "wood-sorrel-yellow-woodsorrel"
       ]
     },
     {
@@ -7526,10 +7618,17 @@
       "common_name": "Yarrow",
       "scientific_name": "Achillea millefolium",
       "category": "Flower",
-      "notes": "Added as a name-first plant entry for later detail expansion.",
+      "notes": "Aromatic perennial with finely divided feathery leaves and flat-topped clusters of small white to pale flowers.",
       "short_reason": "Added in plant expansion pass for Upper Michigan edible and medicinal species.",
-      "months_available": [],
-      "links": [],
+      "months_available": [
+        "June",
+        "July",
+        "August",
+        "September"
+      ],
+      "links": [
+        "https://edibleplantdb.org/plants/200/achillea-millefolium"
+      ],
       "images": [
         {
           "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Achillea_millefolium_vallee-de-grace-amiens_80_22062007_1.jpg/480px-Achillea_millefolium_vallee-de-grace-amiens_80_22062007_1.jpg",
@@ -7550,13 +7649,15 @@
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Achillea_millefolium_4.jpg"
         }
       ],
-      "culinary_uses": "Aromatic and small-quantity culinary herb entry. Detailed culinary notes still to be added.",
-      "medicinal_uses": "Important medicinal plant entry. Detailed notes still to be added.",
+      "culinary_uses": "Young leaves are a bitter aromatic herb in small amounts; flowers and leaves are more commonly used for tea.",
+      "medicinal_uses": "Traditional tea and wound/herbal plant; this guide treats it as tea/traditional-use context, not medical advice.",
       "general_notes": "",
       "record_type": "plant",
       "lane": "",
-      "reviewReasons": [],
-      "review_status": "ok",
+      "reviewReasons": [
+        "Small-quantity tea/herb safety wording should be reviewed."
+      ],
+      "review_status": "needs_review",
       "search_aliases": [],
       "host_filter_tokens": [],
       "commonness": "",
@@ -7565,7 +7666,12 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": [],
+      "habitat": [
+        "Field / meadow",
+        "Roadside / disturbed",
+        "Forest edge / openings",
+        "Dry open ground"
+      ],
       "images_structured": [
         {
           "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Achillea_millefolium_vallee-de-grace-amiens_80_22062007_1.jpg/320px-Achillea_millefolium_vallee-de-grace-amiens_80_22062007_1.jpg",
@@ -7608,19 +7714,30 @@
       ],
       "image_audit_status": "batch1_complete",
       "usable_parts": [
+        "Leaf / tea",
         "Flower / tea",
-        "Leaf / tea"
+        "Leaf / green"
       ],
       "plant_lanes": [
+        "leaves-greens",
         "flowers",
         "tea-infusions"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Flowers, Tea / Infusions.",
-      "plant_card_note": "Aromatic flower/leaf tea and herb entry; needs fuller culinary and medicinal detail.",
+      "plant_lane_note": "Flowers/leaves are mainly tea/herb parts; leaf use as a green is small-quantity only.",
+      "plant_card_note": "Aromatic bitter leaves and flowers are mostly a tea/herb use, not a bulk food. Keep safety context visible.",
       "plant_data_flags": [
-        "needs_source_links",
-        "needs_season_detail",
-        "needs_habitat_detail"
+        "needs_safety_wording_review"
+      ],
+      "month_numbers": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "edibility_detail": "Use as a small-quantity bitter herb or tea plant. Avoid heavy use and review safety if pregnant, on medication, or sensitive to Asteraceae plants.",
+      "observedPart": [
+        "Leaf",
+        "Flower"
       ]
     },
     {
@@ -7628,17 +7745,25 @@
       "display_name": "Yellow pond lily",
       "common_name": "Yellow pond lily",
       "category": "Root",
-      "notes": "This entry is shown as the whole plant (Yellow pond lily) while the details describe the usable plant part. Recreated locally from the original app baseline checklist for the modular standalone build. Photos should focus on the whole plant for identification, while the text explains which part is used.",
+      "notes": "Aquatic plant with floating or emergent leaves and yellow cup-like flowers. This is a broad pond-lily food-use record focused on underground parts and seeds.",
       "short_reason": "Consolidated to one plant entry with details covering the usable parts.",
-      "months_available": [],
-      "links": [],
+      "months_available": [
+        "June",
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "links": [
+        "https://edibleplantdb.org/plants/21769/nuphar-lutea-subsp-advena"
+      ],
       "images": [],
-      "medicinal_uses": "Yellow pond lily bulbs: Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Yellow pond lily bulbs: The plant to recognize is yellow pond lily. The underground parts are the part discussed in this entry.",
+      "medicinal_uses": "Traditional use exists, but this guide treats it mainly as a difficult aquatic food plant.",
+      "culinary_uses": "Traditional food use centers on cooked rhizomes/roots and seeds that can be popped or ground into meal.",
       "photo_subject": "Yellow pond lily",
       "plant_name": "Yellow pond lily",
       "photo_scientific_name": "Nuphar variegata",
-      "scientific_name": "Nuphar variegata",
+      "scientific_name": "Nuphar variegata / Nuphar spp.",
       "general_notes": "",
       "record_type": "plant",
       "lane": "",
@@ -7652,26 +7777,43 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": [],
+      "habitat": [
+        "Wetland / marsh",
+        "Shoreline / riverbank",
+        "Pond / lake edge"
+      ],
       "images_structured": [],
       "list_thumbnail": "",
       "detail_images": [],
       "enlarge_images": [],
       "image_audit_status": "pending",
       "usable_parts": [
-        "Root / tuber / bulb"
+        "Root / tuber / bulb",
+        "Seed / seasoning"
       ],
       "plant_lanes": [
-        "roots-tubers"
+        "roots-tubers",
+        "nuts-seeds",
+        "flowers"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Roots / Tubers.",
-      "plant_card_note": "Underground parts are the focus; this record needs stronger identification, season, habitat, and source detail.",
+      "plant_lane_note": "Rhizomes/roots and seeds are the useful parts; flowers are included mostly as ID context.",
+      "plant_card_note": "Aquatic, processing-heavy plant: cooked rhizomes/roots and seeds are the useful parts. Water quality and legal harvest matter.",
       "plant_data_flags": [
-        "needs_source_links",
         "needs_image_coverage",
-        "needs_season_detail",
-        "needs_habitat_detail",
-        "needs_copyback_detail"
+        "needs_source_links"
+      ],
+      "month_numbers": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "edibility_detail": "Processing-heavy aquatic food. Harvest legality, water quality, and correct ID matter before any use.",
+      "observedPart": [
+        "Root",
+        "Seed / cone / nut",
+        "Flower"
       ]
     }
   ]

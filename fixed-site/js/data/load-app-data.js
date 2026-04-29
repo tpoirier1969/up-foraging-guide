@@ -1,6 +1,6 @@
 import { fetchJsonFromRepo } from "../lib/fetch-json.js";
-import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.76-r2026-04-29-plant-lane-correction1";
-import { SPECIES_PATHS, PHOTO_PATCH_PATHS, OPTIONAL_PATHS } from "./sources.js?v=v4.2.76-r2026-04-29-plant-lane-correction1";
+import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.77-r2026-04-29-plant-quality-correctness1";
+import { SPECIES_PATHS, PHOTO_PATCH_PATHS, OPTIONAL_PATHS } from "./sources.js?v=v4.2.77-r2026-04-29-plant-quality-correctness1";
 
 let rareCachePromise = null;
 let referencesCachePromise = null;
