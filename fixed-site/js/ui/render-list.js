@@ -96,9 +96,9 @@ const PLANT_LANES = [
   },
   {
     id: "trees-shrubs-sap",
-    label: "Trees / Shrubs / Sap",
-    short: "Trees, shrubs, sap, bark, twigs",
-    patterns: [/\btree\b|\btrees\b|\bshrub\b|\bshrubs\b|\bsap\b|\bsyrup\b|\bbark\b|\bcambium\b|\btwig\b|\btwigs\b|\bcatkin\b|\bcatkins\b|\bmaple\b|\bbirch\b|\bpine\b|\bspruce\b|\bhemlock\b|\bwillow\b/i]
+    label: "Trees / Shrubs",
+    short: "Woody trees and shrubs, including sap or bark uses",
+    patterns: [/\btree\b|\btrees\b|\bshrub\b|\bshrubs\b|\bwoody\b|\bbramble\b|\bconifer\b|\bmaple\b|\bbirch\b|\bpine\b|\bspruce\b|\bhemlock\b|\bwillow\b/i]
   },
   {
     id: "tea-infusions",
@@ -118,34 +118,21 @@ function plantRecordText(record = {}) {
     record.slug,
     record.display_name,
     record.common_name,
-    ...(record.common_names || []),
     record.category,
     record.foraging_class,
     record.food_role,
-    record.notes,
-    record.general_notes,
-    record.overview,
-    record.short_reason,
     record.plant_card_note,
     record.plant_lane_note,
     record.culinary_uses,
     record.edibility_detail,
     record.edibility_notes,
     record.other_uses,
-    ...asList(record.usable_parts),
-    ...asList(record.plant_lanes),
-    ...asList(record.observedPart),
-    ...asList(record.parts_used),
-    ...asList(record.plant_parts),
-    ...asList(record.use_tags),
-    ...asList(record.size),
-    ...asList(record.habitat),
-    ...asList(record.habitats),
-    ...asList(record.flowerColor),
-    ...asList(record.fruitColor),
     profile.parts_used,
     profile.useful_parts,
-    profile.summary
+    profile.summary,
+    ...asList(record.usable_parts),
+    ...asList(record.plant_lanes),
+    ...asList(record.use_tags)
   ].join(" ");
 }
 
