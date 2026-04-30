@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.88-r2026-04-30-mushroom-porcini-red-credibility5";
-const DISPLAY_VERSION = "V4.2.88-r26-04-30";
+const APP_VERSION = "v4.2.89-r2026-04-30-image-distinctness-guard1";
+const DISPLAY_VERSION = "V4.2.89-r26-04-30";
 
 function esc(value) {
   return String(value ?? "")

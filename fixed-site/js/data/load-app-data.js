@@ -1,6 +1,6 @@
 import { fetchJsonFromRepo } from "../lib/fetch-json.js";
-import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.88-r2026-04-30-mushroom-porcini-red-credibility5";
-import { SPECIES_PATHS, PHOTO_PATCH_PATHS, OPTIONAL_PATHS } from "./sources.js?v=v4.2.88-r2026-04-30-mushroom-porcini-red-credibility5";
+import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.89-r2026-04-30-image-distinctness-guard1";
+import { SPECIES_PATHS, PHOTO_PATCH_PATHS, OPTIONAL_PATHS } from "./sources.js?v=v4.2.89-r2026-04-30-image-distinctness-guard1";
 
 let rareCachePromise = null;
 let referencesCachePromise = null;
@@ -49,6 +49,96 @@ function hasUsableImageFields(record = {}) {
     return item && (item.thumb || item.detail || item.full || item.src);
   })) return true;
   return false;
+}
+
+
+function canonicalImageUrl(url = "") {
+  const raw = String(url || "").trim();
+  if (!raw) return "";
+  if (raw.startsWith("data:image/")) return "__data_image__";
+  const noQuery = raw.split("?")[0];
+  return noQuery
+    .replace("/thumb/", "/")
+    .replace(/\/\d+px-/, "/");
+}
+
+function canonicalStructuredImageKey(image = {}) {
+  if (!image || typeof image !== "object") return "";
+  return canonicalImageUrl(image.full || image.detail || image.thumb || image.src || "") || String(image.source_page || "").trim();
+}
+
+function dedupeStrings(values = [], seen = new Set(), { stripPlaceholders = false } = {}) {
+  const out = [];
+  for (const value of Array.isArray(values) ? values : []) {
+    if (!value) continue;
+    const text = String(value || "").trim();
+    if (!text) continue;
+    if (stripPlaceholders && text.startsWith("data:image/")) continue;
+    const key = canonicalImageUrl(text) || text;
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    out.push(text);
+  }
+  return out;
+}
+
+function dedupeImageObjects(values = [], seen = new Set(), { stripPlaceholders = false } = {}) {
+  const out = [];
+  for (const value of Array.isArray(values) ? values : []) {
+    if (!value) continue;
+    if (typeof value === "string") {
+      const deduped = dedupeStrings([value], seen, { stripPlaceholders });
+      if (deduped.length) out.push(...deduped);
+      continue;
+    }
+    if (typeof value !== "object") continue;
+    const key = canonicalStructuredImageKey(value);
+    const sourceString = [value.full, value.detail, value.thumb, value.src].find(Boolean) || "";
+    if (stripPlaceholders && String(sourceString).startsWith("data:image/")) continue;
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    out.push(value);
+  }
+  return out;
+}
+
+function normalizeLoadedRecordImageCoverage(record = {}) {
+  const next = { ...record };
+  const structured = dedupeImageObjects(next.images_structured || [], new Set(), { stripPlaceholders: true });
+  const structuredSeen = new Set(structured.map((item) => canonicalStructuredImageKey(item)).filter(Boolean));
+  next.images_structured = structured;
+
+  // If structured images exist, treat them as canonical and remove duplicate fallbacks
+  // so the UI does not show the same photo multiple times just because it is stored
+  // in thumb/detail/full/fallback arrays.
+  const stripFallbackPlaceholders = structuredSeen.size > 0;
+  next.detail_images = dedupeStrings(next.detail_images || [], new Set(structuredSeen), { stripPlaceholders: stripFallbackPlaceholders });
+  next.enlarge_images = dedupeStrings(next.enlarge_images || [], new Set(structuredSeen), { stripPlaceholders: stripFallbackPlaceholders });
+  next.images = dedupeImageObjects(next.images || [], new Set(structuredSeen), { stripPlaceholders: stripFallbackPlaceholders });
+
+  if (structured.length) {
+    next.list_thumbnail = String(next.list_thumbnail || structured[0]?.thumb || structured[0]?.detail || structured[0]?.full || "").trim() || null;
+  }
+
+  const distinctKeys = new Set();
+  for (const image of structured) {
+    const key = canonicalStructuredImageKey(image);
+    if (key) distinctKeys.add(key);
+  }
+  for (const value of next.detail_images || []) {
+    const key = canonicalImageUrl(value);
+    if (key && key !== "__data_image__") distinctKeys.add(key);
+  }
+  for (const value of next.enlarge_images || []) {
+    const key = canonicalImageUrl(value);
+    if (key && key !== "__data_image__") distinctKeys.add(key);
+  }
+  for (const value of next.images || []) {
+    const key = typeof value === "string" ? canonicalImageUrl(value) : canonicalStructuredImageKey(value);
+    if (key && key !== "__data_image__") distinctKeys.add(key);
+  }
+  next.image_distinct_count = distinctKeys.size;
+  return next;
 }
 
 const IMAGE_PATCH_FIELDS = new Set([
@@ -171,7 +261,7 @@ export async function loadCoreSpecies(log) {
   const mergedSpecies = mergeRecordLayers(...speciesPayloads);
   const patchPayloads = await fetchOptionalPatchPaths(PHOTO_PATCH_PATHS, log);
   const patchedSpecies = applyRecordPatches(mergedSpecies, patchPayloads, log);
-  const species = patchedSpecies.map(normalizeRecord);
+  const species = patchedSpecies.map(normalizeRecord).map(normalizeLoadedRecordImageCoverage);
   log?.(`Merged ${species.length} species records`);
   return { species, errors };
 }
@@ -180,7 +270,7 @@ export function loadRareSpecies(log) {
   if (!rareCachePromise) {
     rareCachePromise = (async () => {
       const payload = await fetchPath(OPTIONAL_PATHS[1], log);
-      return Array.isArray(payload?.records) ? payload.records.map(normalizeRecord) : [];
+      return Array.isArray(payload?.records) ? payload.records.map(normalizeRecord).map(normalizeLoadedRecordImageCoverage) : [];
     })();
   }
   return rareCachePromise;
