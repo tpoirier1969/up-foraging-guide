@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.83-r2026-04-30-mushroom-bolete-photo-credibility3",
+    "build": "v4.2.86-r2026-04-30-photo-patch-fill-only1",
     "primary_type": "mushroom",
     "split_version": "mushroom-data-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-porcini-tylopilus.json",
@@ -9,7 +9,7 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 38,
-    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records. Updated in v4.2.82 with 25-record mushroom credibility pass including Black Velvet Bolete and Blue-staining Slippery Jack. v4.2.83: mushroom bolete photo/credibility batch; Commons images added for Neoporphyrellus alboater and Suillus tomentosus; 25-record Suillus/Leccinum/Neoporphyrellus pass.",
+    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records. Updated in v4.2.82 with 25-record mushroom credibility pass including Black Velvet Bolete and Blue-staining Slippery Jack. v4.2.83: mushroom bolete photo/credibility batch; Commons images added for Neoporphyrellus alboater and Suillus tomentosus; 25-record Suillus/Leccinum/Neoporphyrellus pass. v4.2.85 refreshed Black Velvet Bolete image URLs to direct upload.wikimedia.org files and carried forward v4.2.83 image coverage. v4.2.86: optional photo patches are treated as fill-only for existing base-record image fields; direct image fallback hardened for Black Velvet Bolete and Suillus tomentosus where applicable.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -377,9 +377,7 @@
         "https://www.mushroomexpert.com/tylopilus_alboater.html"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20alboater%2036716974255.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20alboater%2037003009051.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20alboater%2037155404400.jpg"
+        "https://upload.wikimedia.org/wikipedia/commons/5/52/Tylopilus_alboater_%28Schwein.%29_Murrill_650766.jpg"
       ],
       "scientific_name": "Neoporphyrellus alboater",
       "mushroom_profile": {
@@ -497,53 +495,40 @@
       ],
       "images_structured": [
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tylopilus%20alboater%20%28Schwein.%29%20Murrill%20650766.jpg?width=320",
-          "detail": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tylopilus%20alboater%20%28Schwein.%29%20Murrill%20650766.jpg?width=960",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20alboater%20%28Schwein.%29%20Murrill%20650766.jpg",
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Tylopilus_alboater_%28Schwein.%29_Murrill_650766.jpg/320px-Tylopilus_alboater_%28Schwein.%29_Murrill_650766.jpg",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Tylopilus_alboater_%28Schwein.%29_Murrill_650766.jpg/960px-Tylopilus_alboater_%28Schwein.%29_Murrill_650766.jpg",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/5/52/Tylopilus_alboater_%28Schwein.%29_Murrill_650766.jpg",
           "title": "Black Velvet Bolete fruiting bodies",
           "part_or_stage": "whole_mushroom",
           "source": "Wikimedia Commons",
           "source_page": "https://commons.wikimedia.org/wiki/File:Tylopilus_alboater_(Schwein.)_Murrill_650766.jpg",
           "credit": "Walt Sturgeon (Mycowalt) / Mushroom Observer / Wikimedia Commons",
-          "license": "CC BY-SA 3.0"
-        },
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tylopilus%20alboater%2054698.jpg?width=320",
-          "detail": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tylopilus%20alboater%2054698.jpg?width=960",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20alboater%2054698.jpg",
-          "title": "Black Velvet Bolete dark cap and pores",
-          "part_or_stage": "whole_mushroom",
-          "source": "Wikimedia Commons",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Tylopilus_alboater_54698.jpg",
-          "credit": "Dan Molter (shroomydan) / Mushroom Observer / Wikimedia Commons",
-          "license": "CC BY-SA 3.0"
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
         }
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tylopilus%20alboater%20%28Schwein.%29%20Murrill%20650766.jpg?width=320",
+      "list_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Tylopilus_alboater_%28Schwein.%29_Murrill_650766.jpg/320px-Tylopilus_alboater_%28Schwein.%29_Murrill_650766.jpg",
       "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tylopilus%20alboater%20%28Schwein.%29%20Murrill%20650766.jpg?width=960",
-        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Tylopilus%20alboater%2054698.jpg?width=960"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Tylopilus_alboater_%28Schwein.%29_Murrill_650766.jpg/960px-Tylopilus_alboater_%28Schwein.%29_Murrill_650766.jpg"
       ],
       "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20alboater%20%28Schwein.%29%20Murrill%20650766.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20alboater%2054698.jpg"
+        "https://upload.wikimedia.org/wikipedia/commons/5/52/Tylopilus_alboater_%28Schwein.%29_Murrill_650766.jpg"
       ],
-      "image_audit_status": "v4.2.83_commons_image_added",
-      "image_review_status": "commons_image_added",
+      "image_audit_status": "v4.2.86_direct_upload_fallback_and_patch_fill_only",
+      "image_review_status": "direct_commons_image_added",
       "image_review_reasons": [],
       "photo_credits": [
         {
+          "source": "Wikimedia Commons",
           "source_page": "https://commons.wikimedia.org/wiki/File:Tylopilus_alboater_(Schwein.)_Murrill_650766.jpg",
           "credit": "Walt Sturgeon (Mycowalt) / Mushroom Observer / Wikimedia Commons",
-          "license": "CC BY-SA 3.0"
-        },
-        {
-          "source_page": "https://commons.wikimedia.org/wiki/File:Tylopilus_alboater_54698.jpg",
-          "credit": "Dan Molter (shroomydan) / Mushroom Observer / Wikimedia Commons",
-          "license": "CC BY-SA 3.0"
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
         }
       ],
-      "v4283_checked": true
+      "v4283_checked": true,
+      "v4285_checked": "direct upload.wikimedia image URL used to avoid Commons redirect-image loading issues",
+      "v4286_checked": "v4.2.86 converted legacy images[] fallback to direct upload.wikimedia.org URL and made photo patches fill-only so older redirect patch images cannot override structured base images."
     },
     {
       "slug": "gyroporus-cyanescens",
