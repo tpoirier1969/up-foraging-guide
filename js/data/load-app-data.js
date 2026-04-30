@@ -1,6 +1,6 @@
 import { fetchJsonFromRepo } from "../lib/fetch-json.js";
-import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.40-r2026-04-27-list-lookalike-cleanup1";
-import { SPECIES_PATHS, OPTIONAL_PATHS } from "./sources.js";
+import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.83-r2026-04-30-mushroom-bolete-photo-credibility3";
+import { SPECIES_PATHS, PHOTO_PATCH_PATHS, OPTIONAL_PATHS } from "./sources.js?v=v4.2.83-r2026-04-30-mushroom-bolete-photo-credibility3";
 
 let rareCachePromise = null;
 let referencesCachePromise = null;
@@ -14,6 +14,67 @@ async function fetchPath(path, log) {
   const payload = await fetchJsonFromRepo(path);
   log?.(`Loaded ${path} (${asRecords(payload).length || (Array.isArray(payload) ? payload.length : 0)} records)`);
   return payload;
+}
+
+async function fetchOptionalPatchPaths(paths = [], log) {
+  const payloads = [];
+  for (const path of paths || []) {
+    try {
+      payloads.push(await fetchPath(path, log));
+    } catch (err) {
+      log?.(`Skipped optional photo patch ${path}: ${err?.message || String(err)}`);
+    }
+  }
+  return payloads;
+}
+
+function aliasValuesForRecord(record = {}) {
+  return [
+    ...(Array.isArray(record.former_slugs) ? record.former_slugs : []),
+    ...(Array.isArray(record.aliases) ? record.aliases : []),
+    ...(Array.isArray(record.common_names) ? record.common_names : [])
+  ]
+    .map((value) => String(value || "").trim())
+    .filter((value) => value && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(value));
+}
+
+function applyRecordPatches(baseRecords = [], patchPayloads = [], log) {
+  const bySlug = new Map(baseRecords.map((record) => [record?.slug, record]).filter(([slug]) => slug));
+  const aliasToSlug = new Map();
+
+  for (const record of baseRecords || []) {
+    if (!record?.slug) continue;
+    for (const alias of aliasValuesForRecord(record)) {
+      if (!bySlug.has(alias) && !aliasToSlug.has(alias)) {
+        aliasToSlug.set(alias, record.slug);
+      }
+    }
+  }
+
+  let applied = 0;
+  let remapped = 0;
+  let ignored = 0;
+
+  for (const payload of patchPayloads || []) {
+    for (const patch of asRecords(payload)) {
+      const slug = patch?.slug;
+      const targetSlug = bySlug.has(slug) ? slug : aliasToSlug.get(slug);
+      if (!slug || !targetSlug || !bySlug.has(targetSlug)) {
+        ignored += 1;
+        continue;
+      }
+      const normalizedPatch = targetSlug === slug ? patch : { ...patch, former_patch_slug: slug };
+      bySlug.set(targetSlug, { ...bySlug.get(targetSlug), ...normalizedPatch, slug: targetSlug });
+      applied += 1;
+      if (targetSlug !== slug) remapped += 1;
+    }
+  }
+
+  if (patchPayloads?.length) {
+    log?.(`Applied ${applied} photo patch records; remapped ${remapped} alias patch records; ignored ${ignored} unmatched photo patch records`);
+  }
+
+  return baseRecords.map((record) => bySlug.get(record.slug) || record);
 }
 
 export async function loadCoreSpecies(log) {
@@ -36,7 +97,10 @@ export async function loadCoreSpecies(log) {
     throw new Error(`No species data layers loaded.\n${detail}`);
   }
 
-  const species = mergeRecordLayers(...speciesPayloads).map(normalizeRecord);
+  const mergedSpecies = mergeRecordLayers(...speciesPayloads);
+  const patchPayloads = await fetchOptionalPatchPaths(PHOTO_PATCH_PATHS, log);
+  const patchedSpecies = applyRecordPatches(mergedSpecies, patchPayloads, log);
+  const species = patchedSpecies.map(normalizeRecord);
   log?.(`Merged ${species.length} species records`);
   return { species, errors };
 }
