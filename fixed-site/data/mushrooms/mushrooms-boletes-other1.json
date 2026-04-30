@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.90-r2026-04-30-bolete-other-split1",
+    "build": "v4.2.91-r2026-04-30-bolete-other-review1",
     "primary_type": "mushroom",
     "split_version": "mushroom-data-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-other1.json",
@@ -9,7 +9,7 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 12,
-    "notes": "Split from former mushrooms-boletes-other.json in v4.2.90 to reduce large-file handling/static. Record bodies and order were preserved; each canonical slug still appears in exactly one base mushroom split file. Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records.",
+    "notes": "Split from former mushrooms-boletes-other.json in v4.2.90 to reduce large-file handling/static. Record bodies and order were preserved; each canonical slug still appears in exactly one base mushroom split file. Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records. v4.2.91: other-bolete review pass updated review flags using the 2-3 distinct-image rule; records with only one real image were kept or reopened for more distinct photo coverage, while records with 2+ distinct Commons/file images had stale image-only review flags cleared.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -21,7 +21,10 @@
     "source_split_file": "data/mushrooms/mushrooms-boletes-other.json",
     "source_split_record_count": 23,
     "split_part": 1,
-    "split_part_count": 2
+    "split_part_count": 2,
+    "last_credibility_batch": "v4.2.91-r2026-04-30-bolete-other-review1",
+    "last_other_bolete_review": "v4.2.91-r2026-04-30-bolete-other-review1",
+    "distinct_image_rule": "2-3 image coverage means 2-3 genuinely different source images; thumbnails/detail/full variants or placeholders do not count."
   },
   "records": [
     {
@@ -31,7 +34,7 @@
       "category": "Mushroom",
       "culinary_uses": "Not treated as a food target in this guide; included mainly for identification and distribution review.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "Needs review: Needs U.P. relevance check.",
       "months_available": [
         "July",
         "August",
@@ -88,7 +91,8 @@
         "processing_required": [],
         "research_notes": [
           "Look for a granular to felty dark reddish-brown cap, yellow pore surface that does not bruise blue, and a dark brown to reddish-brown stem with paler streaks or coarse reticulation near the top. Often tied to mossy, decayed hemlock wood in western sources, so do not assume this is a routine U.P. bolete.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "v4.2.91 image review: 3 distinct real image URLs present."
         ],
         "cap_surface": [
           "Granular-felty dark reddish-brown cap"
@@ -111,7 +115,6 @@
         ]
       },
       "manual_review_reasons": [
-        "Needs real field photo / image coverage",
         "Needs U.P. relevance check"
       ],
       "mushroom_family": "Long-stemmed & textured boletes",
@@ -140,22 +143,26 @@
       "needs_review": true,
       "review_status": "needs_review",
       "review_reasons": [
-        "Needs real field photo / image coverage",
         "Needs U.P. relevance check"
       ],
       "reviewReasons": [
-        "Needs real field photo / image coverage",
         "Needs U.P. relevance check"
       ],
-      "review_note": "Needs review: Needs real field photo / image coverage; Needs U.P. relevance check.",
-      "review_notes": "Needs review: Needs real field photo / image coverage; Needs U.P. relevance check.",
+      "review_note": "Needs review: Needs U.P. relevance check.",
+      "review_notes": "Needs review: Needs U.P. relevance check.",
       "mushroom_card_note": "Distinctive mossy-hemlock bolete with a dark reddish-brown cap, yellow non-bruising pores, and a dark streaked/reticulate stem; its fit for Upper Michigan should be checked carefully.",
       "field_identification": "Look for a granular to felty dark reddish-brown cap, yellow pore surface that does not bruise blue, and a dark brown to reddish-brown stem with paler streaks or coarse reticulation near the top. Often tied to mossy, decayed hemlock wood in western sources, so do not assume this is a routine U.P. bolete.",
       "use_roles": [
         "ID / comparison"
       ],
       "foraging_value": "ID / distribution review",
-      "foraging_value_score": 1
+      "foraging_value_score": 1,
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
+      "curation_notes": [
+        "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
+      ]
     },
     {
       "slug": "aureoboletus-projectellus",
@@ -221,8 +228,7 @@
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
-          "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "v4.2.91 image review: 3 distinct real image URLs present."
         ],
         "cap_surface": [
           "Dry to slightly tacky",
@@ -324,7 +330,8 @@
       "edibility_notes": "Reported edible when young and in good condition, but treat as a confident-ID bolete rather than a beginner mushroom. Best approached as an edible-with-caution species: confirm pine association, very long ridged stem, yellow pores, and lack of dangerous red-pored traits.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
-        "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
+        "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering.",
+        "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
       ],
       "search_aliases": [],
       "non_edible_severity": "",
@@ -349,7 +356,13 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
+      "needs_review": false,
+      "review_note": "",
+      "review_notes": ""
     },
     {
       "slug": "aureoboletus-roxanae",
@@ -415,8 +428,7 @@
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
-          "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "v4.2.91 image review: 3 distinct real image URLs present."
         ],
         "cap_surface": [
           "Dry to slightly tacky",
@@ -514,7 +526,8 @@
       "edibility_notes": "Yellow-pored, dotted-stem Aureoboletus/Xerocomus-type bolete. Do not infer kitchen use from nearby bolete relatives.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
-        "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
+        "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering.",
+        "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
       ],
       "search_aliases": [],
       "non_edible_severity": "Caution / not recommended as food",
@@ -539,7 +552,13 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
+      "needs_review": false,
+      "review_note": "",
+      "review_notes": ""
     },
     {
       "slug": "boletellus-chrysenteroides",
@@ -548,7 +567,7 @@
       "category": "Mushroom",
       "culinary_uses": "Not a prime food target; useful mainly as an identification species among cracked-cap and pitted/ridged-spored boletes.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "",
       "months_available": [
         "July",
         "August",
@@ -606,7 +625,8 @@
         "processing_required": [],
         "research_notes": [
           "Check the brown to dark-brown cap that may crack, yellow pores that slowly stain blue then brown, and a stem with brown scaber-like dots or hairy/scaly patches. Often found near or from well-decayed oak wood, which is unusual for a bolete.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "v4.2.91 image review: 2 distinct real image URLs present."
         ],
         "cap_surface": [
           "Brown cap",
@@ -629,9 +649,7 @@
           "Convex cap with central stem"
         ]
       },
-      "manual_review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
+      "manual_review_reasons": [],
       "mushroom_family": "Long-stemmed & textured boletes",
       "boleteGroup": [
         "Long-stemmed & textured boletes"
@@ -640,7 +658,7 @@
         "Boletellus",
         "Textured / elongated forms"
       ],
-      "weekPrecision": "needs-review",
+      "weekPrecision": "species-level-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
@@ -655,23 +673,25 @@
       "general_notes": "",
       "edibility_detail": "Treat as an ID/comparison species rather than a reliable table mushroom.",
       "food_role": "food",
-      "needs_review": true,
-      "review_status": "needs_review",
-      "review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "reviewReasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_note": "Needs review: Needs real field photo / image coverage.",
-      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "needs_review": false,
+      "review_status": "ok",
+      "review_reasons": [],
+      "reviewReasons": [],
+      "review_note": "",
+      "review_notes": "",
       "mushroom_card_note": "Odd cracked-cap bolete with a brown cap, yellow pores that slowly blue, scaber-like stem texture, and a habit of appearing near decayed oak wood.",
       "field_identification": "Check the brown to dark-brown cap that may crack, yellow pores that slowly stain blue then brown, and a stem with brown scaber-like dots or hairy/scaly patches. Often found near or from well-decayed oak wood, which is unusual for a bolete.",
       "use_roles": [
         "ID / comparison"
       ],
       "foraging_value": "Occasional / niche use",
-      "foraging_value_score": 2
+      "foraging_value_score": 2,
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
+      "curation_notes": [
+        "v4.2.91 image review: 2 distinct real image URLs are present; stale image-only review flags cleared."
+      ]
     },
     {
       "slug": "boletellus-pseudochrysenteroides",
@@ -680,7 +700,7 @@
       "category": "Mushroom",
       "culinary_uses": "Not a practical food target; included for recognition and comparison among red cracked-cap boletes.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "",
       "months_available": [
         "July",
         "August",
@@ -739,7 +759,8 @@
         "processing_required": [],
         "research_notes": [
           "Look for a brick-red to reddish cracked cap with pale flesh showing in the cracks, yellow pores that bruise blue then brown, and flesh that is yellow in the cap but reddish in the stem. Microscopic ridged spores separate it from look-alikes.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "v4.2.91 image review: 2 distinct real image URLs present."
         ],
         "cap_surface": [
           "Brick-red cracked cap"
@@ -761,9 +782,7 @@
           "Convex cap with central stem"
         ]
       },
-      "manual_review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
+      "manual_review_reasons": [],
       "mushroom_family": "Long-stemmed & textured boletes",
       "boleteGroup": [
         "Long-stemmed & textured boletes"
@@ -772,7 +791,7 @@
         "Boletellus",
         "Textured / elongated forms"
       ],
-      "weekPrecision": "needs-review",
+      "weekPrecision": "species-level-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
@@ -787,23 +806,25 @@
       "general_notes": "",
       "edibility_detail": "Treat as a specialist ID species, not a beginner edible.",
       "food_role": "food",
-      "needs_review": true,
-      "review_status": "needs_review",
-      "review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "reviewReasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_note": "Needs review: Needs real field photo / image coverage.",
-      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "needs_review": false,
+      "review_status": "ok",
+      "review_reasons": [],
+      "reviewReasons": [],
+      "review_note": "",
+      "review_notes": "",
       "mushroom_card_note": "Reddish cracked-cap bolete with yellow pores that bruise blue and red-toned flesh in the stem; described from Michigan, but still a specialist ID species.",
       "field_identification": "Look for a brick-red to reddish cracked cap with pale flesh showing in the cracks, yellow pores that bruise blue then brown, and flesh that is yellow in the cap but reddish in the stem. Microscopic ridged spores separate it from look-alikes.",
       "use_roles": [
         "ID / comparison"
       ],
       "foraging_value": "Occasional / niche use",
-      "foraging_value_score": 2
+      "foraging_value_score": 2,
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
+      "curation_notes": [
+        "v4.2.91 image review: 2 distinct real image URLs are present; stale image-only review flags cleared."
+      ]
     },
     {
       "slug": "buchwaldoboletus-sphaerocephalus",
@@ -812,7 +833,7 @@
       "category": "Mushroom",
       "culinary_uses": "Not recommended as a foraging food in this guide; included for recognition of an odd wood-associated bolete group.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "Needs review: Needs taxonomy / species-level ID check.",
       "months_available": [
         "July",
         "August",
@@ -871,7 +892,8 @@
         "processing_required": [],
         "research_notes": [
           "Expect a yellow to yellow-brown bolete on or near pine wood/sawdust or associated wood-decay situations, yellow pores/stem, yellow basal mycelium, and flesh that can bruise blue. Compare carefully with B. hemichrysus and B. lignicola.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "v4.2.91 image review: 3 distinct real image URLs present."
         ],
         "cap_surface": [
           "Yellow to yellow-brown cap"
@@ -894,7 +916,6 @@
         ]
       },
       "manual_review_reasons": [
-        "Needs real field photo / image coverage",
         "Needs taxonomy / species-level ID check"
       ],
       "mushroom_family": "Wood-inhabiting & oddball boletes",
@@ -931,22 +952,26 @@
       },
       "needs_review": true,
       "review_reasons": [
-        "Needs real field photo / image coverage",
         "Needs taxonomy / species-level ID check"
       ],
       "reviewReasons": [
-        "Needs real field photo / image coverage",
         "Needs taxonomy / species-level ID check"
       ],
-      "review_note": "Needs review: Needs real field photo / image coverage; Needs taxonomy / species-level ID check.",
-      "review_notes": "Needs review: Needs real field photo / image coverage; Needs taxonomy / species-level ID check.",
+      "review_note": "Needs review: Needs taxonomy / species-level ID check.",
+      "review_notes": "Needs review: Needs taxonomy / species-level ID check.",
       "mushroom_card_note": "Yellow wood-associated Buchwaldoboletus with bluing flesh; keep this conservative because names in this group are tangled and wood/fungus associations matter.",
       "field_identification": "Expect a yellow to yellow-brown bolete on or near pine wood/sawdust or associated wood-decay situations, yellow pores/stem, yellow basal mycelium, and flesh that can bruise blue. Compare carefully with B. hemichrysus and B. lignicola.",
       "use_roles": [
         "ID / comparison"
       ],
       "foraging_value": "ID / taxonomy review",
-      "foraging_value_score": 1
+      "foraging_value_score": 1,
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
+      "curation_notes": [
+        "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
+      ]
     },
     {
       "slug": "chalciporus-piperatoides",
@@ -955,7 +980,7 @@
       "category": "Mushroom",
       "culinary_uses": "Peppery/bitter taste makes this a seasoning-or-curiosity mushroom at best, not a meal mushroom.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "Needs review: Needs more distinct photo coverage.",
       "months_available": [
         "July",
         "August",
@@ -1011,7 +1036,8 @@
         "processing_required": [],
         "research_notes": [
           "Small drab pinkish-tan to reddish-brown bolete with reddish pores, yellow basal mycelium, and a peppery/bitter taste. Unlike C. piperatus, it can bruise blue and has an olive spore print.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "Needs more distinct photo coverage: only one real image is currently loaded."
         ],
         "cap_surface": [
           "Pinkish-tan to reddish-brown cap"
@@ -1034,7 +1060,7 @@
         ]
       },
       "manual_review_reasons": [
-        "Needs real field photo / image coverage"
+        "Needs more distinct photo coverage"
       ],
       "mushroom_family": "Peppery & chalciporoid boletes",
       "boleteGroup": [
@@ -1062,20 +1088,27 @@
       "needs_review": true,
       "review_status": "needs_review",
       "review_reasons": [
-        "Needs real field photo / image coverage"
+        "Needs more distinct photo coverage"
       ],
       "reviewReasons": [
-        "Needs real field photo / image coverage"
+        "Needs more distinct photo coverage"
       ],
-      "review_note": "Needs review: Needs real field photo / image coverage.",
-      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "review_note": "Needs review: Needs more distinct photo coverage.",
+      "review_notes": "Needs review: Needs more distinct photo coverage.",
       "mushroom_card_note": "Peppery reddish-pored bolete like C. piperatus, but with blue bruising and an olive spore print; originally described from Michigan.",
       "field_identification": "Small drab pinkish-tan to reddish-brown bolete with reddish pores, yellow basal mycelium, and a peppery/bitter taste. Unlike C. piperatus, it can bruise blue and has an olive spore print.",
       "use_roles": [
         "ID / comparison"
       ],
       "foraging_value": "Occasional / niche use",
-      "foraging_value_score": 2
+      "foraging_value_score": 2,
+      "image_review_status": "needs_more_distinct_photos",
+      "image_review_reasons": [
+        "Only one distinct real image is currently loaded. Add 1-2 more different source photos; thumbnail/detail/full reuse does not count."
+      ],
+      "curation_notes": [
+        "v4.2.91 image review: only one distinct real image is loaded; keep in Needs Review until at least 2 genuinely different photos are available."
+      ]
     },
     {
       "slug": "chalciporus-piperatus",
@@ -1084,7 +1117,7 @@
       "category": "Mushroom",
       "culinary_uses": "Sometimes treated as a peppery seasoning mushroom, but not a bulk food. Taste test only by nibbling and spitting out.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "",
       "months_available": [
         "July",
         "August",
@@ -1142,7 +1175,8 @@
         "processing_required": [],
         "research_notes": [
           "Look for a small drab reddish-brown to pinkish-tan bolete with brownish-red pores that darken but do not blue, yellow basal mycelium, and a very peppery taste. Usually under conifers but not exclusively.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "v4.2.91 image review: 3 distinct real image URLs present."
         ],
         "cap_surface": [
           "Dull reddish-brown cap"
@@ -1163,9 +1197,7 @@
           "Convex cap with central stem"
         ]
       },
-      "manual_review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
+      "manual_review_reasons": [],
       "mushroom_family": "Peppery & chalciporoid boletes",
       "boleteGroup": [
         "Peppery & chalciporoid boletes"
@@ -1174,7 +1206,7 @@
         "Chalciporus",
         "Small / acrid allies"
       ],
-      "weekPrecision": "needs-review",
+      "weekPrecision": "species-level-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
@@ -1189,23 +1221,25 @@
       "general_notes": "",
       "edibility_detail": "Not a prime edible; useful mostly as a recognizable peppery bolete.",
       "food_role": "food",
-      "needs_review": true,
-      "review_status": "needs_review",
-      "review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "reviewReasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_note": "Needs review: Needs real field photo / image coverage.",
-      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "needs_review": false,
+      "review_status": "ok",
+      "review_reasons": [],
+      "reviewReasons": [],
+      "review_note": "",
+      "review_notes": "",
       "mushroom_card_note": "Classic peppery bolete: dull reddish-brown cap, reddish pores, yellow basal mycelium, and a sharp peppery taste.",
       "field_identification": "Look for a small drab reddish-brown to pinkish-tan bolete with brownish-red pores that darken but do not blue, yellow basal mycelium, and a very peppery taste. Usually under conifers but not exclusively.",
       "use_roles": [
         "ID / comparison"
       ],
       "foraging_value": "Occasional / niche use",
-      "foraging_value_score": 2
+      "foraging_value_score": 2,
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
+      "curation_notes": [
+        "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
+      ]
     },
     {
       "slug": "chalciporus-pseudorubinellus",
@@ -1214,7 +1248,7 @@
       "category": "Mushroom",
       "culinary_uses": "Not a core food target; included for comparison among small red-pored boletes.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "Needs review: Needs more distinct photo coverage.",
       "months_available": [
         "July",
         "August",
@@ -1272,7 +1306,8 @@
         "processing_required": [],
         "research_notes": [
           "Look for a small yellow to red-pink cap, red-pink pores fading yellow-orange/brown, yellow flesh that does not blue, and a yellow-based pinkish stem. Best treated as a specialist Chalciporus ID.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "Needs more distinct photo coverage: only one real image is currently loaded."
         ],
         "cap_surface": [
           "Yellow to red-pink cap"
@@ -1295,7 +1330,7 @@
         ]
       },
       "manual_review_reasons": [
-        "Needs real field photo / image coverage"
+        "Needs more distinct photo coverage"
       ],
       "mushroom_family": "Peppery & chalciporoid boletes",
       "boleteGroup": [
@@ -1323,20 +1358,27 @@
       "needs_review": true,
       "review_status": "needs_review",
       "review_reasons": [
-        "Needs real field photo / image coverage"
+        "Needs more distinct photo coverage"
       ],
       "reviewReasons": [
-        "Needs real field photo / image coverage"
+        "Needs more distinct photo coverage"
       ],
-      "review_note": "Needs review: Needs real field photo / image coverage.",
-      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "review_note": "Needs review: Needs more distinct photo coverage.",
+      "review_notes": "Needs review: Needs more distinct photo coverage.",
       "mushroom_card_note": "Small red-pored Chalciporus with yellow flesh and pinkish-red pores; type material was collected in Michigan, but use a conservative ID standard.",
       "field_identification": "Look for a small yellow to red-pink cap, red-pink pores fading yellow-orange/brown, yellow flesh that does not blue, and a yellow-based pinkish stem. Best treated as a specialist Chalciporus ID.",
       "use_roles": [
         "ID / comparison"
       ],
       "foraging_value": "ID / comparison",
-      "foraging_value_score": 1
+      "foraging_value_score": 1,
+      "image_review_status": "needs_more_distinct_photos",
+      "image_review_reasons": [
+        "Only one distinct real image is currently loaded. Add 1-2 more different source photos; thumbnail/detail/full reuse does not count."
+      ],
+      "curation_notes": [
+        "v4.2.91 image review: only one distinct real image is loaded; keep in Needs Review until at least 2 genuinely different photos are available."
+      ]
     },
     {
       "slug": "chalciporus-rubinellus",
@@ -1345,7 +1387,7 @@
       "category": "Mushroom",
       "culinary_uses": "Not a main food mushroom in this guide; keep as a comparison species.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "",
       "months_available": [
         "July",
         "August",
@@ -1400,7 +1442,8 @@
         "processing_required": [],
         "research_notes": [
           "Small convex cap often purple-red to reddish brown, red to pinkish pore surface, yellow flesh that generally does not blue, and a bare stem. Compare with C. pseudorubinellus and C. piperatus.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "v4.2.91 image review: 2 distinct real image URLs present."
         ],
         "cap_surface": [
           "Purple-red to reddish-brown cap"
@@ -1421,9 +1464,7 @@
           "Convex cap with central stem"
         ]
       },
-      "manual_review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
+      "manual_review_reasons": [],
       "mushroom_family": "Peppery & chalciporoid boletes",
       "boleteGroup": [
         "Peppery & chalciporoid boletes"
@@ -1432,7 +1473,7 @@
         "Chalciporus",
         "Small / acrid allies"
       ],
-      "weekPrecision": "needs-review",
+      "weekPrecision": "species-level-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
@@ -1447,23 +1488,25 @@
       "general_notes": "",
       "edibility_detail": "Caution/ID entry rather than a prime edible.",
       "food_role": "food",
-      "needs_review": true,
-      "review_status": "needs_review",
-      "review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "reviewReasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_note": "Needs review: Needs real field photo / image coverage.",
-      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "needs_review": false,
+      "review_status": "ok",
+      "review_reasons": [],
+      "reviewReasons": [],
+      "review_note": "",
+      "review_notes": "",
       "mushroom_card_note": "Small purple-red/red-pored bolete; useful as a comparison species among peppery/red-pored Chalciporus rather than a major edible.",
       "field_identification": "Small convex cap often purple-red to reddish brown, red to pinkish pore surface, yellow flesh that generally does not blue, and a bare stem. Compare with C. pseudorubinellus and C. piperatus.",
       "use_roles": [
         "ID / comparison"
       ],
       "foraging_value": "ID / comparison",
-      "foraging_value_score": 1
+      "foraging_value_score": 1,
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
+      "curation_notes": [
+        "v4.2.91 image review: 2 distinct real image URLs are present; stale image-only review flags cleared."
+      ]
     },
     {
       "slug": "harrya-chromapes",
@@ -1472,7 +1515,7 @@
       "category": "Mushroom",
       "culinary_uses": "Generally treated as edible but not usually a top-tier table mushroom; larvae often ruin mature stems.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs source links and needs species-specific notes review.",
+      "notes": "",
       "months_available": [
         "July",
         "August",
@@ -1530,7 +1573,8 @@
         "processing_required": [],
         "research_notes": [
           "The key combination is pinkish to tan cap, creamy pores becoming pinkish/brownish, pinkish scabers on the stem, and a bright chrome-yellow stem base/basal mycelium. Often formerly listed as Tylopilus or Leccinum chromapes.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "v4.2.91 image review: 3 distinct real image URLs present."
         ],
         "cap_surface": [
           "Pinkish young cap"
@@ -1561,7 +1605,7 @@
         "Harrya",
         "Textured / elongated forms"
       ],
-      "weekPrecision": "needs-review",
+      "weekPrecision": "species-level-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
@@ -1589,7 +1633,12 @@
         "Food"
       ],
       "foraging_value": "Good forage",
-      "foraging_value_score": 3
+      "foraging_value_score": 3,
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "curation_notes": [
+        "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
+      ]
     },
     {
       "slug": "aureoboletus-innixus",
@@ -1598,7 +1647,7 @@
       "category": "Mushroom",
       "culinary_uses": "Not highlighted as a prime edible; useful mainly as a recognizable yellow-pored bolete.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "",
       "months_available": [
         "July",
         "August",
@@ -1656,7 +1705,8 @@
         "processing_required": [],
         "research_notes": [
           "Look for clustered growth, dry brown to reddish-brown cap, bright yellow pores that do not bruise blue, yellow basal mycelium, and a stem swollen near the base before tapering into a short root.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "v4.2.91 image review: 3 distinct real image URLs present."
         ],
         "cap_surface": [
           "Dry brown to reddish-brown cap"
@@ -1688,7 +1738,7 @@
         "Aureoboletus",
         "Textured / elongated forms"
       ],
-      "weekPrecision": "needs-review",
+      "weekPrecision": "species-level-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
@@ -1715,7 +1765,13 @@
         "ID / comparison"
       ],
       "foraging_value": "Occasional / niche use",
-      "foraging_value_score": 2
+      "foraging_value_score": 2,
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
+      "curation_notes": [
+        "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
+      ]
     }
   ]
 }

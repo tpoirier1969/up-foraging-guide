@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.90-r2026-04-30-bolete-other-split1",
+    "build": "v4.2.91-r2026-04-30-bolete-other-review1",
     "primary_type": "mushroom",
     "split_version": "mushroom-data-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-other2.json",
@@ -9,7 +9,7 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 11,
-    "notes": "Split from former mushrooms-boletes-other.json in v4.2.90 to reduce large-file handling/static. Record bodies and order were preserved; each canonical slug still appears in exactly one base mushroom split file. Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records.",
+    "notes": "Split from former mushrooms-boletes-other.json in v4.2.90 to reduce large-file handling/static. Record bodies and order were preserved; each canonical slug still appears in exactly one base mushroom split file. Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records. v4.2.91: other-bolete review pass updated review flags using the 2-3 distinct-image rule; records with only one real image were kept or reopened for more distinct photo coverage, while records with 2+ distinct Commons/file images had stale image-only review flags cleared.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -21,7 +21,10 @@
     "source_split_file": "data/mushrooms/mushrooms-boletes-other.json",
     "source_split_record_count": 23,
     "split_part": 2,
-    "split_part_count": 2
+    "split_part_count": 2,
+    "last_credibility_batch": "v4.2.91-r2026-04-30-bolete-other-review1",
+    "last_other_bolete_review": "v4.2.91-r2026-04-30-bolete-other-review1",
+    "distinct_image_rule": "2-3 image coverage means 2-3 genuinely different source images; thumbnails/detail/full variants or placeholders do not count."
   },
   "records": [
     {
@@ -31,7 +34,7 @@
       "category": "Mushroom",
       "culinary_uses": "Not emphasized as a food mushroom; better kept as a confusing look-alike/comparison entry.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "notes": "",
       "months_available": [
         "July",
         "August",
@@ -89,7 +92,8 @@
         "processing_required": [],
         "research_notes": [
           "Small erect blackish cap scales over pale gray ground, whitish pores that bruise reddish gray then black, and flesh that turns red then black. Separating it from S. floccopus / Old Man of the Woods can require spore characters.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "v4.2.91 image review: 3 distinct real image URLs present."
         ],
         "cap_surface": [
           "Small erect dark scales"
@@ -111,9 +115,7 @@
           "Convex cap with central stem"
         ]
       },
-      "manual_review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
+      "manual_review_reasons": [],
       "mushroom_family": "Oddballs / veined / shaggy boletes",
       "boleteGroup": [
         "Oddballs / veined / shaggy boletes"
@@ -121,17 +123,15 @@
       "boleteSubgroup": [
         "Shaggy / dark oddballs"
       ],
-      "weekPrecision": "needs-review",
+      "weekPrecision": "species-level-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "bolete",
-      "reviewReasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_status": "needs_review",
+      "reviewReasons": [],
+      "review_status": "ok",
       "search_aliases": [],
       "host_filter_tokens": [],
       "commonness": "Occasional",
@@ -153,19 +153,23 @@
       ],
       "edibility_detail": "Treat conservatively; ID can be difficult without microscopy.",
       "food_role": "food",
-      "needs_review": true,
-      "review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_note": "Needs review: Needs real field photo / image coverage.",
-      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "needs_review": false,
+      "review_reasons": [],
+      "review_note": "",
+      "review_notes": "",
       "mushroom_card_note": "Shaggy Strobilomyces species close to Old Man of the Woods; field ID is tricky and spores are the reliable separator.",
       "field_identification": "Small erect blackish cap scales over pale gray ground, whitish pores that bruise reddish gray then black, and flesh that turns red then black. Separating it from S. floccopus / Old Man of the Woods can require spore characters.",
       "use_roles": [
         "ID / comparison"
       ],
       "foraging_value": "ID / comparison",
-      "foraging_value_score": 1
+      "foraging_value_score": 1,
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
+      "curation_notes": [
+        "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
+      ]
     },
     {
       "slug": "phylloporus-leucomycelinus",
@@ -174,7 +178,7 @@
       "category": "Mushroom",
       "culinary_uses": "Often considered edible, but this guide treats it as a careful-ID species rather than a beginner mushroom.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, needs species-specific notes review, and needs UI/filter placement check.",
+      "notes": "",
       "months_available": [
         "July",
         "August",
@@ -232,7 +236,8 @@
         "processing_required": [],
         "research_notes": [
           "Looks like a bolete from above but has gills. Fresh gills are bright yellow, and the basal mycelium should be white rather than yellow. Compare with P. rhodoxanthus; Hypomyces can obscure the stem base.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "v4.2.91 image review: 3 distinct real image URLs present."
         ],
         "gill_attachment": "Attached",
         "gill_spacing": "Close to medium",
@@ -266,7 +271,7 @@
         "Phylloporus",
         "Odd ecology / wood or unusual hymenium"
       ],
-      "weekPrecision": "needs-review",
+      "weekPrecision": "species-level-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
@@ -299,7 +304,13 @@
         "Food"
       ],
       "foraging_value": "Good forage",
-      "foraging_value_score": 3
+      "foraging_value_score": 3,
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
+      "curation_notes": [
+        "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
+      ]
     },
     {
       "slug": "phylloporus-rhodoxanthus",
@@ -308,7 +319,7 @@
       "category": "Mushroom",
       "culinary_uses": "Often treated as edible, but keep the ID conservative because gilled bolete concepts are shifting.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, needs species-specific notes review, and needs UI/filter placement check.",
+      "notes": "",
       "months_available": [
         "July",
         "August",
@@ -366,7 +377,8 @@
         "processing_required": [],
         "research_notes": [
           "Bolete-like cap and stem but with bright yellow gills. Yellow basal mycelium helps separate it from P. leucomycelinus, though Hypomyces can hide the base. Associated with hardwoods east of the Rockies.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "v4.2.91 image review: 3 distinct real image URLs present."
         ],
         "gill_attachment": "Attached",
         "gill_spacing": "Close to medium",
@@ -400,7 +412,7 @@
         "Phylloporus",
         "Odd ecology / wood or unusual hymenium"
       ],
-      "weekPrecision": "needs-review",
+      "weekPrecision": "species-level-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
@@ -433,7 +445,13 @@
         "Food"
       ],
       "foraging_value": "Good forage",
-      "foraging_value_score": 3
+      "foraging_value_score": 3,
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
+      "curation_notes": [
+        "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
+      ]
     },
     {
       "slug": "austroboletus-gracilis",
@@ -442,7 +460,7 @@
       "category": "Mushroom",
       "culinary_uses": "Not a high-value edible; better as an identification/comparison species.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "",
       "months_available": [
         "July",
         "August",
@@ -499,7 +517,8 @@
         "processing_required": [],
         "research_notes": [
           "Long slender stem, whitish pore surface becoming pinkish to pinkish-brown, and association with hemlock or other conifers. Older guides may call it Tylopilus gracilis.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "v4.2.91 image review: 3 distinct real image URLs present."
         ],
         "cap_surface": [
           "Brown/yellow variable cap"
@@ -530,7 +549,7 @@
         "Austroboletus",
         "Textured / elongated forms"
       ],
-      "weekPrecision": "needs-review",
+      "weekPrecision": "species-level-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
@@ -557,7 +576,13 @@
         "ID / comparison"
       ],
       "foraging_value": "Occasional / niche use",
-      "foraging_value_score": 2
+      "foraging_value_score": 2,
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
+      "curation_notes": [
+        "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
+      ]
     },
     {
       "slug": "paragyrodon-sphaerosporus",
@@ -566,7 +591,7 @@
       "category": "Mushroom",
       "culinary_uses": "Not treated as a food target; useful as a Great Lakes specialty ID species.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
       "links": [
@@ -614,7 +639,8 @@
         "processing_required": [],
         "research_notes": [
           "Look for a sticky yellow-brown to brown cap, yellow pore surface that bruises dark brown, a sheathing ring zone/veil remnant low on the stem, and oak association. Nearly round spores are a key confirmation feature.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "Needs real field photo / image coverage: no usable real image is currently loaded."
         ],
         "pore_color": [
           "Yellow pores bruising strongly brown"
@@ -647,7 +673,7 @@
       "image_review_status": "needs_field_photo",
       "image_review_reasons": [
         "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+        "Replace placeholder with 2-3 genuinely different source photos when available."
       ],
       "reviewReasons": [
         "Needs real field photo / image coverage"
@@ -667,7 +693,10 @@
       ],
       "foraging_value": "ID / comparison",
       "foraging_value_score": 1,
-      "lane": "bolete"
+      "lane": "bolete",
+      "curation_notes": [
+        "v4.2.91 image review: placeholder/no real image remains; keep in Needs Review until real distinct photos are found."
+      ]
     },
     {
       "slug": "parasitic-bolete",
@@ -676,7 +705,7 @@
       "category": "Mushroom",
       "culinary_uses": "Not recommended as food because it grows directly on Scleroderma earthballs, which are poisonous.",
       "medicinal_uses": "",
-      "notes": "Grows directly on earthballs rather than from plain soil or wood. Look for small yellow-brown pored caps attached to the surface of an earthball; that parasitic habit is the main field clue.",
+      "notes": "Needs review: Needs more distinct photo coverage.",
       "months_available": [
         "July",
         "August",
@@ -731,9 +760,8 @@
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
-          "Needs image coverage.",
-          "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Needs more distinct photo coverage: only one real image is currently loaded."
         ],
         "lane": "bolete",
         "host_filter_tokens": [
@@ -755,7 +783,9 @@
           "Mild / not distinctive"
         ]
       },
-      "manual_review_reasons": [],
+      "manual_review_reasons": [
+        "Needs more distinct photo coverage"
+      ],
       "mushroom_family": "Oddballs / veined / shaggy boletes",
       "boleteGroup": [
         "Oddballs / veined / shaggy boletes"
@@ -765,15 +795,17 @@
         "Parasitic bolete",
         "Earthball associate"
       ],
-      "weekPrecision": "species-level-reviewed",
+      "weekPrecision": "needs-review",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
       "general_notes": "Useful as a caution/curiosity species because the growth habit is distinctive: a bolete growing on another fungus.",
       "record_type": "mushroom",
       "lane": "bolete",
-      "reviewReasons": [],
-      "review_status": "ok",
+      "reviewReasons": [
+        "Needs more distinct photo coverage"
+      ],
+      "review_status": "needs_review",
       "search_aliases": [],
       "host_filter_tokens": [
         "Fungus host",
@@ -803,7 +835,9 @@
       "look_alikes": [
         "Earthballs"
       ],
-      "review_reasons": [],
+      "review_reasons": [
+        "Needs more distinct photo coverage"
+      ],
       "common_names": [
         "Parasitic Bolete"
       ],
@@ -824,7 +858,8 @@
       "other_uses": "",
       "edibility_notes": "The mushroom itself is sometimes described as edible, but this guide treats it as avoid/not recommended because of its poisonous earthball host.",
       "curation_notes": [
-        "Minimal species seed. Added during the bolete expansion pass for the clean app; details, seasonality, and images still need a later review."
+        "Minimal species seed. Added during the bolete expansion pass for the clean app; details, seasonality, and images still need a later review.",
+        "v4.2.91 image review: only one distinct real image is loaded; keep in Needs Review until at least 2 genuinely different photos are available."
       ],
       "edible_use": {
         "has_ingestible_use": false,
@@ -843,7 +878,14 @@
         "preparation_notes": "",
         "warnings": "",
         "claims": []
-      }
+      },
+      "image_review_status": "needs_more_distinct_photos",
+      "image_review_reasons": [
+        "Only one distinct real image is currently loaded. Add 1-2 more different source photos; thumbnail/detail/full reuse does not count."
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: Needs more distinct photo coverage.",
+      "review_notes": "Needs review: Needs more distinct photo coverage."
     },
     {
       "slug": "pseudomerulius-curtisii",
@@ -852,7 +894,7 @@
       "category": "Mushroom",
       "culinary_uses": "Not recommended as food in this guide.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs source links, needs species-specific notes review, and needs UI/filter placement check.",
+      "notes": "Needs review: Needs stronger field-guide source; Needs UI/filter placement check; Needs more distinct photo coverage.",
       "months_available": [],
       "month_numbers": [],
       "links": [
@@ -897,7 +939,8 @@
         "processing_required": [],
         "research_notes": [
           "Look for a wood-associated fruit body with a strongly veined to merulioid underside rather than normal round bolete pores. This is not a classic cap-and-stem bolete target.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "Needs more distinct photo coverage: only one real image is currently loaded."
         ],
         "pore_color": [
           "Strongly veined pores"
@@ -914,7 +957,8 @@
       },
       "manual_review_reasons": [
         "Needs stronger field-guide source",
-        "Needs UI/filter placement check"
+        "Needs UI/filter placement check",
+        "Needs more distinct photo coverage"
       ],
       "mushroom_family": "Wood-inhabiting & oddball boletes",
       "boleteGroup": [
@@ -932,14 +976,16 @@
       "review_status": "needs_review",
       "review_reasons": [
         "Needs stronger field-guide source",
-        "Needs UI/filter placement check"
+        "Needs UI/filter placement check",
+        "Needs more distinct photo coverage"
       ],
       "reviewReasons": [
         "Needs stronger field-guide source",
-        "Needs UI/filter placement check"
+        "Needs UI/filter placement check",
+        "Needs more distinct photo coverage"
       ],
-      "review_note": "Needs review: Needs stronger field-guide source; Needs UI/filter placement check.",
-      "review_notes": "Needs review: Needs stronger field-guide source; Needs UI/filter placement check.",
+      "review_note": "Needs review: Needs stronger field-guide source; Needs UI/filter placement check; Needs more distinct photo coverage.",
+      "review_notes": "Needs review: Needs stronger field-guide source; Needs UI/filter placement check; Needs more distinct photo coverage.",
       "mushroom_card_note": "Wood-growing veined-pored Boletales oddball; keep it out of normal edible assumptions and use it as a form/comparison record.",
       "field_identification": "Look for a wood-associated fruit body with a strongly veined to merulioid underside rather than normal round bolete pores. This is not a classic cap-and-stem bolete target.",
       "edibility_detail": "Keep as an identification/odd-form record, not a forage target.",
@@ -948,7 +994,14 @@
       ],
       "foraging_value": "ID / comparison",
       "foraging_value_score": 1,
-      "lane": "other"
+      "lane": "other",
+      "image_review_status": "needs_more_distinct_photos",
+      "image_review_reasons": [
+        "Only one distinct real image is currently loaded. Add 1-2 more different source photos; thumbnail/detail/full reuse does not count."
+      ],
+      "curation_notes": [
+        "v4.2.91 image review: only one distinct real image is loaded; keep in Needs Review until at least 2 genuinely different photos are available."
+      ]
     },
     {
       "slug": "pulveroboletus-ravenelii",
@@ -957,7 +1010,7 @@
       "category": "Mushroom",
       "culinary_uses": "Not treated as a food target; the distinctive yellow veil makes it more useful for identification.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
       "links": [
@@ -1007,7 +1060,8 @@
         "processing_required": [],
         "research_notes": [
           "Young mushrooms have a powdery bright yellow veil covering the pore surface and stem; older specimens show yellow veil remnants, reddish to orange cap colors, yellowish pores, and greenish-blue bruising.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "Needs real field photo / image coverage: no usable real image is currently loaded."
         ],
         "pore_color": [
           "Yellowish pores; blue-green bruising"
@@ -1042,7 +1096,7 @@
       "image_review_status": "needs_field_photo",
       "image_review_reasons": [
         "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+        "Replace placeholder with 2-3 genuinely different source photos when available."
       ],
       "reviewReasons": [
         "Needs real field photo / image coverage"
@@ -1062,7 +1116,10 @@
       ],
       "foraging_value": "ID / comparison",
       "foraging_value_score": 1,
-      "lane": "bolete"
+      "lane": "bolete",
+      "curation_notes": [
+        "v4.2.91 image review: placeholder/no real image remains; keep in Needs Review until real distinct photos are found."
+      ]
     },
     {
       "slug": "aureoboletus-betula",
@@ -1071,7 +1128,7 @@
       "category": "Mushroom",
       "culinary_uses": "Not a target food mushroom; included for identification/comparison.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
       "links": [
@@ -1119,7 +1176,8 @@
         "processing_required": [],
         "research_notes": [
           "Check for sticky bright yellow/orange to reddish cap, yellow non-bruising pores, and a striking long stem that is deeply ridged or lacerate-reticulate. Oak or mixed oak-pine association.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "Needs real field photo / image coverage: no usable real image is currently loaded."
         ],
         "pore_color": [
           "Bright yellow pores; not bruising"
@@ -1152,7 +1210,7 @@
       "image_review_status": "needs_field_photo",
       "image_review_reasons": [
         "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+        "Replace placeholder with 2-3 genuinely different source photos when available."
       ],
       "reviewReasons": [
         "Needs real field photo / image coverage"
@@ -1172,7 +1230,10 @@
       ],
       "foraging_value": "ID / comparison",
       "foraging_value_score": 1,
-      "lane": "bolete"
+      "lane": "bolete",
+      "curation_notes": [
+        "v4.2.91 image review: placeholder/no real image remains; keep in Needs Review until real distinct photos are found."
+      ]
     },
     {
       "slug": "aureoboletus-auriporus",
@@ -1181,7 +1242,7 @@
       "category": "Mushroom",
       "culinary_uses": "Not a prime food; useful as a distinctive yellow-pored bolete and comparison species.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
       "links": [
@@ -1228,7 +1289,8 @@
         "processing_required": [],
         "research_notes": [
           "Look for a sticky pinkish-brown to reddish-brown cap, bright yellow pore surface that does not bruise, white basal mycelium, and slender reddish/yellowish stem. Compare with B. innixus.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "Needs real field photo / image coverage: no usable real image is currently loaded."
         ],
         "pore_color": [
           "Bright yellow pores; not bruising"
@@ -1262,7 +1324,7 @@
       "image_review_status": "needs_field_photo",
       "image_review_reasons": [
         "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+        "Replace placeholder with 2-3 genuinely different source photos when available."
       ],
       "reviewReasons": [
         "Needs real field photo / image coverage"
@@ -1282,7 +1344,10 @@
       ],
       "foraging_value": "Occasional / niche use",
       "foraging_value_score": 2,
-      "lane": "bolete"
+      "lane": "bolete",
+      "curation_notes": [
+        "v4.2.91 image review: placeholder/no real image remains; keep in Needs Review until real distinct photos are found."
+      ]
     },
     {
       "slug": "buchwaldoboletus-lignicola",
@@ -1291,7 +1356,7 @@
       "category": "Mushroom",
       "culinary_uses": "Not recommended as food; included for odd wood-associated bolete recognition.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
       "links": [
@@ -1341,7 +1406,8 @@
         "processing_required": [],
         "research_notes": [
           "Yellow-brown cap, yellow pore surface, wood association, and possible relationship with the dyer’s polypore Phaeolus schweinitzii are the useful clues. Compare with B. hemichrysus and B. sphaerocephalus.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch."
+          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
+          "Needs real field photo / image coverage: no usable real image is currently loaded."
         ],
         "pore_color": [
           "Yellow pores"
@@ -1375,7 +1441,7 @@
       "image_review_status": "needs_field_photo",
       "image_review_reasons": [
         "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+        "Replace placeholder with 2-3 genuinely different source photos when available."
       ],
       "reviewReasons": [
         "Needs real field photo / image coverage"
@@ -1395,7 +1461,10 @@
       ],
       "foraging_value": "ID / comparison",
       "foraging_value_score": 1,
-      "lane": "bolete"
+      "lane": "bolete",
+      "curation_notes": [
+        "v4.2.91 image review: placeholder/no real image remains; keep in Needs Review until real distinct photos are found."
+      ]
     }
   ]
 }
