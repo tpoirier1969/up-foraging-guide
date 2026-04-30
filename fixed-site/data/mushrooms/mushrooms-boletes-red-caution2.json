@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.96-r2026-04-30-red-caution-split1",
+    "build": "v4.2.97-r2026-04-30-red-caution-review1",
     "primary_type": "mushroom",
     "split_version": "mushroom-data-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-red-caution2.json",
@@ -9,7 +9,7 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 13,
-    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.84 updated 25 red/caution bolete records with conservative notes, sources, and explicit remaining review reasons. v4.2.86: optional photo patches are treated as fill-only for existing base-record image fields; direct image fallback hardened for Black Velvet Bolete and Suillus tomentosus where applicable. v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4: carried forward with patch-precedence-safe image handling. v4.2.88: 25-record mushroom credibility/review pass; porcini/Tylopilus/Xerocomus records rechecked and remaining red/caution records improved while preserving true image/local-taxonomy review flags. v4.2.96: large red-caution source split into 3 chunks of 13 records; record bodies preserved and original order retained.",
+    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.84 updated 25 red/caution bolete records with conservative notes, sources, and explicit remaining review reasons. v4.2.86: optional photo patches are treated as fill-only for existing base-record image fields; direct image fallback hardened for Black Velvet Bolete and Suillus tomentosus where applicable. v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4: carried forward with patch-precedence-safe image handling. v4.2.88: 25-record mushroom credibility/review pass; porcini/Tylopilus/Xerocomus records rechecked and remaining red/caution records improved while preserving true image/local-taxonomy review flags. v4.2.96: large red-caution source split into 3 chunks of 13 records; record bodies preserved and original order retained. v4.2.97 reviewed first 25 remaining red-caution Needs Review records after the file split; stale image-only flags were cleared only where 2+ genuinely distinct real image URLs existed, one-photo/placeholder records stayed in review, taxonomy flags were preserved, and duplicate food/caution language was cleaned.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -18,11 +18,42 @@
       "cleared_image_only_slugs_not_reopened": []
     },
     "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
-    "last_credibility_batch": "v4.2.88-r2026-04-30-mushroom-porcini-red-credibility5",
+    "last_credibility_batch": "v4.2.97-r2026-04-30-red-caution-review1",
     "split_part": 2,
     "split_parts_total": 3,
     "split_series": "data/mushrooms/mushrooms-boletes-red-caution*.json",
-    "split_note": "v4.2.96 split the red-caution bolete source into three real source files. The original filename is now part 1; parts 2 and 3 continue the same record order."
+    "split_note": "v4.2.96 split the red-caution bolete source into three real source files. The original filename is now part 1; parts 2 and 3 continue the same record order.",
+    "review_pass_notes": {
+      "last_pass": "v4.2.97-r2026-04-30-red-caution-review1",
+      "records_reviewed": [
+        "boletus-bicoloroides",
+        "boletus-miniato-olivaceus",
+        "boletus-rubissimus",
+        "boletus-rufocinnamomeus",
+        "boletus-speciosus",
+        "boletus-subdepauperatus",
+        "boletus-subfraternus",
+        "boletus-subgraveolens",
+        "boletus-vermiculosoides",
+        "boletus-vermiculosus",
+        "butyriboletus-brunneus",
+        "caloboletus-calopus",
+        "caloboletus-inedulis",
+        "caloboletus-peckii",
+        "exsudoporus-frostii",
+        "cyanoboletus-cyaneitinctus",
+        "dark-capped-scarletina-complex",
+        "suillellus-hypocarycinus",
+        "hortiboletus-campestris",
+        "hortiboletus-flavorubellus",
+        "butyriboletus-taughannockensis",
+        "lanmaoa-fallax",
+        "lurid-bolete",
+        "neoboletus-pseudosulphureus",
+        "neoboletus-subluridellus"
+      ],
+      "rule": "Clear stale image-only review only when at least two distinct real source-image URLs exist; keep one-photo and placeholder records in review."
+    }
   },
   "records": [
     {
@@ -32,7 +63,7 @@
       "category": "Mushroom",
       "culinary_uses": "Avoid for food because of bitterness.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "",
       "months_available": [
         "July",
         "August",
@@ -88,10 +119,7 @@
         "spore_print": "",
         "season_note": "Summer to fall; confirm locally.",
         "processing_required": [],
-        "research_notes": [
-          "Updated in v4.2.84 with conservative field-guide wording and source links.",
-          "Still needs: Needs real field photo / image coverage."
-        ],
+        "research_notes": [],
         "cap_surface": [
           "Whitish to pale tan/brown cap"
         ],
@@ -112,11 +140,7 @@
           "Convex cap with central stem"
         ]
       },
-      "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review"
-      ],
+      "manual_review_reasons": [],
       "mushroom_family": "Red-staining & red-pored caution boletes",
       "boleteGroup": [
         "Red-staining & red-pored caution boletes"
@@ -131,7 +155,7 @@
       "is_non_edible": false,
       "commonness": "Rare",
       "commonness_score": 1,
-      "food_quality": "Use with caution",
+      "food_quality": "Not recommended",
       "food_quality_score": 1,
       "lane": "bolete",
       "host_filter_tokens": [],
@@ -149,36 +173,33 @@
       "food_role": "avoid",
       "edibility_status": "review_required",
       "non_edible_severity": "Caution / not recommended as food",
-      "review_status": "needs_review",
+      "review_status": "ok",
       "edible_use": {
         "has_ingestible_use": false,
         "method": "",
         "preparation_required": false,
         "notes": ""
       },
-      "needs_review": true,
-      "review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "reviewReasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_note": "Needs review: Needs real field photo / image coverage.",
-      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "needs_review": false,
+      "review_reasons": [],
+      "reviewReasons": [],
+      "review_note": "",
+      "review_notes": "",
       "mushroom_card_note": "Bitter eastern Caloboletus with pale cap, yellow pores, pink-red stem tones, and blue bruising.",
       "field_identification": "Whitish to pale tan/brown cap, dull yellow pores that blue, pink-to-red stem streaks or reticulation, whitish flesh staining pale blue, and bitter taste.",
       "use_roles": [
         "ID / caution"
       ],
       "foraging_value": "Use with caution",
-      "foraging_value_score": 1
+      "foraging_value_score": 1,
+      "curation_notes": []
     },
     {
       "slug": "caloboletus-peckii",
       "display_name": "Caloboletus Peckii",
       "common_name": "Caloboletus Peckii",
       "category": "Mushroom",
-      "culinary_uses": "Avoid; not a food target.",
+      "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
       "medicinal_uses": "",
       "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
@@ -233,10 +254,7 @@
         "spore_print": "",
         "season_note": "Summer to fall; confirm locally.",
         "processing_required": [],
-        "research_notes": [
-          "Updated in v4.2.84 with conservative field-guide wording and source links.",
-          "Still needs: Needs real field photo / image coverage."
-        ],
+        "research_notes": [],
         "cap_surface": [
           "Pale to brown or reddish tones possible"
         ],
@@ -258,9 +276,7 @@
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Red-staining & red-pored caution boletes",
       "boleteGroup": [
@@ -276,7 +292,7 @@
       "is_non_edible": false,
       "commonness": "Rare",
       "commonness_score": 1,
-      "food_quality": "Use with caution",
+      "food_quality": "Not recommended",
       "food_quality_score": 1,
       "lane": "bolete",
       "host_filter_tokens": [],
@@ -316,7 +332,13 @@
         "ID / caution"
       ],
       "foraging_value": "Use with caution",
-      "foraging_value_score": 1
+      "foraging_value_score": 1,
+      "curation_notes": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "Fewer than two genuinely distinct real source images are currently available in the app.",
+        "Replace placeholder or single-photo coverage with clear field photos showing cap/stem/underside or growth context."
+      ]
     },
     {
       "slug": "exsudoporus-frostii",
@@ -325,7 +347,7 @@
       "category": "Mushroom",
       "culinary_uses": "Often admired more than targeted for food here; red-pored bolete caution applies.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "",
       "months_available": [
         "July",
         "August",
@@ -382,10 +404,7 @@
         "spore_print": "",
         "season_note": "Summer to fall; confirm locally.",
         "processing_required": [],
-        "research_notes": [
-          "Updated in v4.2.84 with conservative field-guide wording and source links.",
-          "Still needs: Needs real field photo / image coverage."
-        ],
+        "research_notes": [],
         "cap_surface": [
           "Sticky bright red cap"
         ],
@@ -410,11 +429,7 @@
           "Oak"
         ]
       },
-      "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review"
-      ],
+      "manual_review_reasons": [],
       "mushroom_family": "Red-staining & red-pored caution boletes",
       "boleteGroup": [
         "Red-staining & red-pored caution boletes",
@@ -474,17 +489,10 @@
       "overview": "",
       "other_uses": "",
       "edibility_notes": "Avoid for food in this guide; keep as an identification/caution record.",
-      "curation_notes": [
-        "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
-        "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
-      ],
-      "reviewReasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_status": "needs_review",
+      "curation_notes": [],
+      "reviewReasons": [],
+      "review_reasons": [],
+      "review_status": "ok",
       "search_aliases": [],
       "edible_use": {
         "has_ingestible_use": false,
@@ -526,9 +534,9 @@
         }
       ],
       "habitat": [],
-      "needs_review": true,
-      "review_note": "Needs review: Needs real field photo / image coverage.",
-      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "needs_review": false,
+      "review_note": "",
+      "review_notes": "",
       "mushroom_card_note": "Candy Apple Bolete: sticky bright red cap, red pores, coarsely reticulate red/yellow stem, and prompt blue bruising.",
       "use_roles": [
         "ID / caution"
@@ -742,7 +750,7 @@
       "display_name": "Cyanoboletus Cyaneitinctus",
       "common_name": "Cyanoboletus Cyaneitinctus",
       "category": "Mushroom",
-      "culinary_uses": "Not a food target in this guide.",
+      "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
       "medicinal_uses": "",
       "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
@@ -797,10 +805,7 @@
         "spore_print": "",
         "season_note": "Summer to fall; confirm locally.",
         "processing_required": [],
-        "research_notes": [
-          "Updated in v4.2.84 with conservative field-guide wording and source links.",
-          "Still needs: Needs real field photo / image coverage."
-        ],
+        "research_notes": [],
         "cap_surface": [
           "Brown to reddish-brown cap possible"
         ],
@@ -822,10 +827,7 @@
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Red-staining & red-pored caution boletes",
       "boleteGroup": [
@@ -841,7 +843,7 @@
       "is_non_edible": false,
       "commonness": "Rare",
       "commonness_score": 1,
-      "food_quality": "Use with caution",
+      "food_quality": "Not recommended",
       "food_quality_score": 1,
       "lane": "bolete",
       "host_filter_tokens": [],
@@ -868,8 +870,8 @@
       },
       "image_review_status": "needs_field_photo",
       "image_review_reasons": [
-        "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+        "Fewer than two genuinely distinct real source images are currently available in the app.",
+        "Replace placeholder or single-photo coverage with clear field photos showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
         "Needs real field photo / image coverage"
@@ -886,7 +888,8 @@
         "ID / caution"
       ],
       "foraging_value": "Use with caution",
-      "foraging_value_score": 1
+      "foraging_value_score": 1,
+      "curation_notes": []
     },
     {
       "slug": "dark-capped-scarletina-complex",
@@ -895,7 +898,7 @@
       "category": "Mushroom",
       "culinary_uses": "Not a beginner food target in this guide.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "notes": "",
       "months_available": [
         "July",
         "August",
@@ -951,10 +954,7 @@
         "spore_print": "",
         "season_note": "Summer to fall; confirm locally.",
         "processing_required": [],
-        "research_notes": [
-          "Updated in v4.2.84 with conservative field-guide wording and source links.",
-          "Still needs: Needs real field photo / image coverage."
-        ],
+        "research_notes": [],
         "cap_surface": [
           "Dark brown to reddish-brown cap"
         ],
@@ -974,11 +974,7 @@
           "Convex cap with central stem"
         ]
       },
-      "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links"
-      ],
+      "manual_review_reasons": [],
       "mushroom_family": "Red-staining & red-pored caution boletes",
       "boleteGroup": [
         "Red-staining & red-pored caution boletes"
@@ -993,14 +989,12 @@
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "bolete",
-      "reviewReasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_status": "needs_review",
+      "reviewReasons": [],
+      "review_status": "ok",
       "search_aliases": [],
       "host_filter_tokens": [],
       "commonness": "Rare",
-      "food_quality": "Use with caution",
+      "food_quality": "Not recommended",
       "non_edible_severity": "Caution / not recommended as food",
       "medicinalAction": [],
       "medicinalSystem": [],
@@ -1027,26 +1021,25 @@
         "preparation_required": false,
         "notes": ""
       },
-      "needs_review": true,
-      "review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_note": "Needs review: Needs real field photo / image coverage.",
-      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "needs_review": false,
+      "review_reasons": [],
+      "review_note": "",
+      "review_notes": "",
       "mushroom_card_note": "Dark-capped scarletina-style bolete complex; red pores and blue staining make this a caution/comparison group.",
       "field_identification": "Dark cap with red to orange-red pores and blue bruising. Treat as a complex, not a single settled beginner species; compare with Neoboletus/Suillellus red-pored boletes.",
       "use_roles": [
         "ID / caution"
       ],
       "foraging_value": "Use with caution",
-      "foraging_value_score": 1
+      "foraging_value_score": 1,
+      "curation_notes": []
     },
     {
       "slug": "suillellus-hypocarycinus",
       "display_name": "Hickory Bolete",
       "common_name": "Hickory Bolete",
       "category": "Mushroom",
-      "culinary_uses": "Not a food target here.",
+      "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
       "medicinal_uses": "",
       "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
@@ -1102,10 +1095,7 @@
         "spore_print": "",
         "season_note": "Summer to fall; confirm locally.",
         "processing_required": [],
-        "research_notes": [
-          "Updated in v4.2.84 with conservative field-guide wording and source links.",
-          "Still needs: Needs real field photo / image coverage."
-        ],
+        "research_notes": [],
         "cap_surface": [
           "Brown to reddish cap possible"
         ],
@@ -1126,10 +1116,7 @@
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Red-staining & red-pored caution boletes",
       "boleteGroup": [
@@ -1145,7 +1132,7 @@
       "is_non_edible": false,
       "commonness": "Rare",
       "commonness_score": 1,
-      "food_quality": "Use with caution",
+      "food_quality": "Not recommended",
       "food_quality_score": 1,
       "lane": "bolete",
       "host_filter_tokens": [],
@@ -1172,8 +1159,8 @@
       },
       "image_review_status": "needs_field_photo",
       "image_review_reasons": [
-        "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+        "Fewer than two genuinely distinct real source images are currently available in the app.",
+        "Replace placeholder or single-photo coverage with clear field photos showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
         "Needs real field photo / image coverage"
@@ -1190,14 +1177,15 @@
         "ID / caution"
       ],
       "foraging_value": "Use with caution",
-      "foraging_value_score": 1
+      "foraging_value_score": 1,
+      "curation_notes": []
     },
     {
       "slug": "hortiboletus-campestris",
       "display_name": "Hortiboletus Campestris",
       "common_name": "Hortiboletus Campestris",
       "category": "Mushroom",
-      "culinary_uses": "Not a food target in this guide; too easy to mix with similar small red boletes.",
+      "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
       "medicinal_uses": "",
       "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
@@ -1252,10 +1240,7 @@
         "spore_print": "",
         "season_note": "Summer to fall; confirm locally.",
         "processing_required": [],
-        "research_notes": [
-          "Updated in v4.2.84 with conservative field-guide wording and source links.",
-          "Still needs: Needs real field photo / image coverage."
-        ],
+        "research_notes": [],
         "cap_surface": [
           "Brick red to dull red cap"
         ],
@@ -1278,9 +1263,7 @@
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Red-staining & red-pored caution boletes",
       "boleteGroup": [
@@ -1296,7 +1279,7 @@
       "is_non_edible": false,
       "commonness": "Occasional",
       "commonness_score": 3,
-      "food_quality": "Use with caution",
+      "food_quality": "Not recommended",
       "food_quality_score": 1,
       "lane": "bolete",
       "host_filter_tokens": [],
@@ -1330,14 +1313,20 @@
       "foraging_value": "Use with caution",
       "foraging_value_score": 1,
       "edibility_status": "review_required",
-      "non_edible_severity": "Caution / not a beginner food target"
+      "non_edible_severity": "Caution / not a beginner food target",
+      "curation_notes": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "Fewer than two genuinely distinct real source images are currently available in the app.",
+        "Replace placeholder or single-photo coverage with clear field photos showing cap/stem/underside or growth context."
+      ]
     },
     {
       "slug": "hortiboletus-flavorubellus",
       "display_name": "Hortiboletus Flavorubellus",
       "common_name": "Hortiboletus Flavorubellus",
       "category": "Mushroom",
-      "culinary_uses": "Not a food target in this guide.",
+      "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
       "medicinal_uses": "",
       "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
@@ -1392,10 +1381,7 @@
         "spore_print": "",
         "season_note": "Summer to fall; confirm locally.",
         "processing_required": [],
-        "research_notes": [
-          "Updated in v4.2.84 with conservative field-guide wording and source links.",
-          "Still needs: Needs real field photo / image coverage."
-        ],
+        "research_notes": [],
         "cap_surface": [
           "Red to reddish cap"
         ],
@@ -1417,10 +1403,7 @@
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Red-staining & red-pored caution boletes",
       "boleteGroup": [
@@ -1436,7 +1419,7 @@
       "is_non_edible": false,
       "commonness": "Occasional",
       "commonness_score": 3,
-      "food_quality": "Use with caution",
+      "food_quality": "Not recommended",
       "food_quality_score": 1,
       "lane": "bolete",
       "host_filter_tokens": [],
@@ -1454,8 +1437,8 @@
       "food_role": "avoid",
       "image_review_status": "needs_field_photo",
       "image_review_reasons": [
-        "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+        "Fewer than two genuinely distinct real source images are currently available in the app.",
+        "Replace placeholder or single-photo coverage with clear field photos showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
         "Needs real field photo / image coverage"
@@ -1475,14 +1458,15 @@
       "foraging_value": "Use with caution",
       "foraging_value_score": 1,
       "edibility_status": "review_required",
-      "non_edible_severity": "Caution / not a beginner food target"
+      "non_edible_severity": "Caution / not a beginner food target",
+      "curation_notes": []
     },
     {
       "slug": "butyriboletus-taughannockensis",
       "display_name": "Igor's Bolete",
       "common_name": "Igor's Bolete",
       "category": "Mushroom",
-      "culinary_uses": "Not a food target here.",
+      "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
       "medicinal_uses": "",
       "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
@@ -1537,10 +1521,7 @@
         "spore_print": "",
         "season_note": "Summer to fall; confirm locally.",
         "processing_required": [],
-        "research_notes": [
-          "Updated in v4.2.84 with conservative field-guide wording and source links.",
-          "Still needs: Needs real field photo / image coverage."
-        ],
+        "research_notes": [],
         "cap_surface": [
           "Brown to yellow-brown cap possible"
         ],
@@ -1561,10 +1542,7 @@
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Red-staining & red-pored caution boletes",
       "boleteGroup": [
@@ -1580,7 +1558,7 @@
       "is_non_edible": false,
       "commonness": "Rare",
       "commonness_score": 1,
-      "food_quality": "Use with caution",
+      "food_quality": "Not recommended",
       "food_quality_score": 1,
       "lane": "bolete",
       "host_filter_tokens": [],
@@ -1598,8 +1576,8 @@
       "food_role": "avoid",
       "image_review_status": "needs_field_photo",
       "image_review_reasons": [
-        "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+        "Fewer than two genuinely distinct real source images are currently available in the app.",
+        "Replace placeholder or single-photo coverage with clear field photos showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
         "Needs real field photo / image coverage"
@@ -1619,7 +1597,8 @@
       "foraging_value": "Use with caution",
       "foraging_value_score": 1,
       "edibility_status": "review_required",
-      "non_edible_severity": "Caution / not a beginner food target"
+      "non_edible_severity": "Caution / not a beginner food target",
+      "curation_notes": []
     },
     {
       "slug": "lanmaoa-borealis",
@@ -1761,7 +1740,7 @@
       "display_name": "Lanmaoa Fallax",
       "common_name": "Lanmaoa Fallax",
       "category": "Mushroom",
-      "culinary_uses": "Not a food target in this guide.",
+      "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
       "medicinal_uses": "",
       "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
@@ -1817,10 +1796,7 @@
         "spore_print": "",
         "season_note": "Summer to fall; confirm locally.",
         "processing_required": [],
-        "research_notes": [
-          "Updated in v4.2.84 with conservative field-guide wording and source links.",
-          "Still needs: Needs real field photo / image coverage."
-        ],
+        "research_notes": [],
         "cap_surface": [
           "Red to brownish-red cap"
         ],
@@ -1842,10 +1818,7 @@
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Red-staining & red-pored caution boletes",
       "boleteGroup": [
@@ -1861,7 +1834,7 @@
       "is_non_edible": false,
       "commonness": "Rare",
       "commonness_score": 1,
-      "food_quality": "Use with caution",
+      "food_quality": "Not recommended",
       "food_quality_score": 1,
       "lane": "bolete",
       "host_filter_tokens": [],
@@ -1888,8 +1861,8 @@
       },
       "image_review_status": "needs_field_photo",
       "image_review_reasons": [
-        "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+        "Fewer than two genuinely distinct real source images are currently available in the app.",
+        "Replace placeholder or single-photo coverage with clear field photos showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
         "Needs real field photo / image coverage"
@@ -1906,7 +1879,8 @@
         "ID / caution"
       ],
       "foraging_value": "Use with caution",
-      "foraging_value_score": 1
+      "foraging_value_score": 1,
+      "curation_notes": []
     },
     {
       "slug": "lanmaoa-pallidorosea",

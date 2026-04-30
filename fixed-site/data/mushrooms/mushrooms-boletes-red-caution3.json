@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.96-r2026-04-30-red-caution-split1",
+    "build": "v4.2.97-r2026-04-30-red-caution-review1",
     "primary_type": "mushroom",
     "split_version": "mushroom-data-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-red-caution3.json",
@@ -9,7 +9,7 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 13,
-    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.84 updated 25 red/caution bolete records with conservative notes, sources, and explicit remaining review reasons. v4.2.86: optional photo patches are treated as fill-only for existing base-record image fields; direct image fallback hardened for Black Velvet Bolete and Suillus tomentosus where applicable. v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4: carried forward with patch-precedence-safe image handling. v4.2.88: 25-record mushroom credibility/review pass; porcini/Tylopilus/Xerocomus records rechecked and remaining red/caution records improved while preserving true image/local-taxonomy review flags. v4.2.96: large red-caution source split into 3 chunks of 13 records; record bodies preserved and original order retained.",
+    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.84 updated 25 red/caution bolete records with conservative notes, sources, and explicit remaining review reasons. v4.2.86: optional photo patches are treated as fill-only for existing base-record image fields; direct image fallback hardened for Black Velvet Bolete and Suillus tomentosus where applicable. v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4: carried forward with patch-precedence-safe image handling. v4.2.88: 25-record mushroom credibility/review pass; porcini/Tylopilus/Xerocomus records rechecked and remaining red/caution records improved while preserving true image/local-taxonomy review flags. v4.2.96: large red-caution source split into 3 chunks of 13 records; record bodies preserved and original order retained. v4.2.97 reviewed first 25 remaining red-caution Needs Review records after the file split; stale image-only flags were cleared only where 2+ genuinely distinct real image URLs existed, one-photo/placeholder records stayed in review, taxonomy flags were preserved, and duplicate food/caution language was cleaned.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -18,11 +18,42 @@
       "cleared_image_only_slugs_not_reopened": []
     },
     "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
-    "last_credibility_batch": "v4.2.88-r2026-04-30-mushroom-porcini-red-credibility5",
+    "last_credibility_batch": "v4.2.97-r2026-04-30-red-caution-review1",
     "split_part": 3,
     "split_parts_total": 3,
     "split_series": "data/mushrooms/mushrooms-boletes-red-caution*.json",
-    "split_note": "v4.2.96 split the red-caution bolete source into three real source files. The original filename is now part 1; parts 2 and 3 continue the same record order."
+    "split_note": "v4.2.96 split the red-caution bolete source into three real source files. The original filename is now part 1; parts 2 and 3 continue the same record order.",
+    "review_pass_notes": {
+      "last_pass": "v4.2.97-r2026-04-30-red-caution-review1",
+      "records_reviewed": [
+        "boletus-bicoloroides",
+        "boletus-miniato-olivaceus",
+        "boletus-rubissimus",
+        "boletus-rufocinnamomeus",
+        "boletus-speciosus",
+        "boletus-subdepauperatus",
+        "boletus-subfraternus",
+        "boletus-subgraveolens",
+        "boletus-vermiculosoides",
+        "boletus-vermiculosus",
+        "butyriboletus-brunneus",
+        "caloboletus-calopus",
+        "caloboletus-inedulis",
+        "caloboletus-peckii",
+        "exsudoporus-frostii",
+        "cyanoboletus-cyaneitinctus",
+        "dark-capped-scarletina-complex",
+        "suillellus-hypocarycinus",
+        "hortiboletus-campestris",
+        "hortiboletus-flavorubellus",
+        "butyriboletus-taughannockensis",
+        "lanmaoa-fallax",
+        "lurid-bolete",
+        "neoboletus-pseudosulphureus",
+        "neoboletus-subluridellus"
+      ],
+      "rule": "Clear stale image-only review only when at least two distinct real source-image URLs exist; keep one-photo and placeholder records in review."
+    }
   },
   "records": [
     {
@@ -175,7 +206,7 @@
       "category": "Mushroom",
       "culinary_uses": "Avoid in this guide. Red-pored blue-staining boletes are not beginner targets, and species boundaries are messy.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "notes": "",
       "months_available": [],
       "month_numbers": [],
       "links": [
@@ -217,12 +248,7 @@
         "spore_print": "",
         "season_note": "",
         "processing_required": [],
-        "research_notes": [
-          "Species seed added from the Michigan / Upper Midwest bolete pass.",
-          "Needs image coverage.",
-          "Needs source links and fuller field notes.",
-          "v4.2.88: species/card field notes and source/review cleanup pass applied."
-        ],
+        "research_notes": [],
         "pore_color": [
           "Red to orange pores",
           "Strong blue bruising"
@@ -231,9 +257,7 @@
           "Pores"
         ]
       },
-      "manual_review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
+      "manual_review_reasons": [],
       "mushroom_family": "Red-staining & red-pored caution boletes",
       "boleteGroup": [
         "Red-staining & red-pored caution boletes"
@@ -248,10 +272,8 @@
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "bolete",
-      "reviewReasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_status": "needs_review",
+      "reviewReasons": [],
+      "review_status": "ok",
       "search_aliases": [],
       "host_filter_tokens": [],
       "commonness": "",
@@ -271,26 +293,25 @@
         "preparation_required": false,
         "notes": ""
       },
-      "needs_review": true,
-      "review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_note": "Needs review: Needs real field photo / image coverage.",
-      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "needs_review": false,
+      "review_reasons": [],
+      "review_note": "",
+      "review_notes": "",
       "mushroom_card_note": "Lurid Bolete group: red/orange-pored, blue-staining bolete; not a beginner edible and not something to toss casually in a pan.",
       "use_roles": [
         "ID / comparison"
       ],
       "foraging_value": "Use with caution",
       "foraging_value_score": 1,
-      "v4288_checked": true
+      "v4288_checked": true,
+      "curation_notes": []
     },
     {
       "slug": "neoboletus-pseudosulphureus",
       "display_name": "Neoboletus pseudosulphureus",
       "common_name": "Neoboletus pseudosulphureus",
       "category": "Mushroom",
-      "culinary_uses": "Not a food target in this guide.",
+      "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
       "medicinal_uses": "",
       "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [],
@@ -328,13 +349,7 @@
         "spore_print": "",
         "season_note": "",
         "processing_required": [],
-        "research_notes": [
-          "Species seed added from the Michigan / Upper Midwest bolete pass.",
-          "Needs image coverage.",
-          "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo.",
-          "v4.2.88: species/card field notes and source/review cleanup pass applied."
-        ],
+        "research_notes": [],
         "pore_color": [
           "Yellow to red pores",
           "Blue bruising"
@@ -381,8 +396,8 @@
       },
       "image_review_status": "needs_field_photo",
       "image_review_reasons": [
-        "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+        "Fewer than two genuinely distinct real source images are currently available in the app.",
+        "Replace placeholder or single-photo coverage with clear field photos showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
         "Needs real field photo / image coverage"
@@ -397,14 +412,15 @@
       ],
       "foraging_value": "Use with caution",
       "foraging_value_score": 1,
-      "v4288_checked": true
+      "v4288_checked": true,
+      "curation_notes": []
     },
     {
       "slug": "neoboletus-subluridellus",
       "display_name": "Neoboletus subluridellus",
       "common_name": "Neoboletus subluridellus",
       "category": "Mushroom",
-      "culinary_uses": "Not recommended for food in this guide.",
+      "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
       "medicinal_uses": "",
       "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [],
@@ -444,13 +460,7 @@
         "spore_print": "",
         "season_note": "",
         "processing_required": [],
-        "research_notes": [
-          "Species seed added from the Michigan / Upper Midwest bolete pass.",
-          "Needs image coverage.",
-          "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo.",
-          "v4.2.88: species/card field notes and source/review cleanup pass applied."
-        ],
+        "research_notes": [],
         "pore_color": [
           "Red to orange pores",
           "Blue bruising"
@@ -500,8 +510,8 @@
       },
       "image_review_status": "needs_field_photo",
       "image_review_reasons": [
-        "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+        "Fewer than two genuinely distinct real source images are currently available in the app.",
+        "Replace placeholder or single-photo coverage with clear field photos showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
         "Needs real field photo / image coverage"
@@ -516,7 +526,8 @@
       ],
       "foraging_value": "Use with caution",
       "foraging_value_score": 1,
-      "v4288_checked": true
+      "v4288_checked": true,
+      "curation_notes": []
     },
     {
       "slug": "rubroboletus-rhodosanguineus",
