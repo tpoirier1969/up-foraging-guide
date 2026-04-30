@@ -4,6 +4,8 @@ export const SPECIES_PATHS = [
   "data/mushrooms.json",
   "data/mushrooms/mushrooms-boletes-porcini-tylopilus.json",
   "data/mushrooms/mushrooms-boletes-red-caution.json",
+  "data/mushrooms/mushrooms-boletes-red-caution2.json",
+  "data/mushrooms/mushrooms-boletes-red-caution3.json",
   "data/mushrooms/mushrooms-boletes-suillus-leccinum.json",
   "data/mushrooms/mushrooms-boletes-other1.json",
   "data/mushrooms/mushrooms-boletes-other2.json"
