@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.70-r2026-04-29-slippery-jack-merge1",
+    "build": "v4.2.81-r2026-04-29-mushroom-bolete-credibility1",
     "primary_type": "mushroom",
     "split_version": "mushroom-data-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-porcini-tylopilus.json",
@@ -9,7 +9,7 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 38,
-    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file.",
+    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -211,7 +211,7 @@
       "display_name": "Bitter Parchment Bolete",
       "common_name": "Bitter Parchment Bolete",
       "category": "Mushroom",
-      "culinary_uses": "",
+      "culinary_uses": "Bitter; not a food target. One bitter bolete can wreck a meal.",
       "medicinal_uses": "",
       "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
@@ -224,7 +224,9 @@
         8,
         9
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/tylopilus.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20intermedius%20460246.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20intermedius%20460247.jpg",
@@ -236,14 +238,20 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "high",
-        "summary": "Minimal bolete seed entry for Bitter Parchment Bolete. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Bitter Tylopilus with pale cap skin that can peel or fragment; useful to recognize so it does not ruin a basket of boletes.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
-        "wood_type": [],
-        "host_trees": [],
-        "host_certainty": "unknown",
+        "wood_type": [
+          "Hardwood",
+          "Softwood / conifer"
+        ],
+        "host_trees": [
+          "Hardwoods",
+          "Conifers possible"
+        ],
+        "host_certainty": "probable/field-guide",
         "underside": [
           "Pores"
         ],
@@ -252,24 +260,28 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
-        "taste": [],
+        "staining": [
+          "Brown staining"
+        ],
+        "taste": [
+          "Bitter"
+        ],
         "spore_print": "",
-        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "season_note": "Summer and fall; northeastern/Midwestern distribution noted in keys.",
         "processing_required": [],
         "research_notes": [
-          "Species seed added from the Michigan bolete audit.",
-          "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "White to pale cap, brown-staining stem, bitter taste, and a thin papery cap surface that may peel or fragment with age. In the Tylopilus group, taste is a spit-out clue only.",
+          "Source links and species-specific notes added in v4.2.81 mushroom batch."
         ],
         "cap_surface": [
-          "Dry to slightly tacky"
+          "White to pale cap",
+          "Papery peeling cap skin"
         ],
         "stem_feature": [
-          "Smooth to netted stem"
+          "Stem bruising/staining brown"
         ],
         "pore_color": [
-          "Whitish aging pinkish pores"
+          "Whitish pores becoming pinkish/brownish"
         ],
         "growth_form": [
           "Cap and stem"
@@ -282,9 +294,7 @@
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Pink-pored Tylopilus & bitter allies",
       "boleteGroup": [
@@ -314,7 +324,7 @@
         "king-bolete"
       ],
       "general_notes": "",
-      "edibility_detail": "Avoid for food in this guide; keep as an identification/caution record.",
+      "edibility_detail": "Avoid for food because of bitterness and Tylopilus complexity.",
       "food_role": "avoid",
       "edibility_status": "not_edible",
       "non_edible_severity": "Caution / not recommended as food",
@@ -327,24 +337,27 @@
       },
       "needs_review": true,
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
-      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Bitter Tylopilus with pale cap skin that can peel or fragment; useful to recognize so it does not ruin a basket of boletes.",
+      "field_identification": "White to pale cap, brown-staining stem, bitter taste, and a thin papery cap surface that may peel or fragment with age. In the Tylopilus group, taste is a spit-out clue only.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1
     },
     {
       "slug": "neoporphyrellus-alboater",
       "display_name": "Black Velvet Bolete",
       "common_name": "Black Velvet Bolete",
       "category": "Mushroom",
-      "culinary_uses": "",
+      "culinary_uses": "Often considered edible and one of the better Tylopilus-type boletes, but use only with confident ID.",
       "medicinal_uses": "",
       "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
@@ -357,7 +370,10 @@
         8,
         9
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/tylopilus_alboater.html",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC12595509/"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20alboater%2036716974255.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20alboater%2037003009051.jpg",
@@ -369,14 +385,19 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Black Velvet Bolete. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Black velvet bolete: dark velvety cap and stem, white pores becoming pinkish, and flesh/pore bruising that turns red then black.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
-        "wood_type": [],
-        "host_trees": [],
-        "host_certainty": "unknown",
+        "wood_type": [
+          "Hardwood"
+        ],
+        "host_trees": [
+          "Oak",
+          "Hardwoods"
+        ],
+        "host_certainty": "probable/field-guide",
         "underside": [
           "Pores"
         ],
@@ -385,24 +406,28 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
-        "taste": [],
+        "staining": [
+          "Red then black staining"
+        ],
+        "taste": [
+          "Mild / not distinctive"
+        ],
         "spore_print": "",
-        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "season_note": "Summer and fall, east of the Rockies.",
         "processing_required": [],
         "research_notes": [
-          "Species seed added from the Michigan bolete audit.",
-          "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Dark blackish velvety cap, dark stem, white pore surface becoming pinkish, and bruising that turns red then brown/black are the key field marks. Often under oaks.",
+          "Source links and species-specific notes added in v4.2.81 mushroom batch."
         ],
         "cap_surface": [
-          "Dry to slightly tacky"
+          "Blackish velvety cap"
         ],
         "stem_feature": [
-          "Smooth to netted stem"
+          "Dark smooth stem"
         ],
         "pore_color": [
-          "Whitish to yellow pores"
+          "White pores becoming pinkish",
+          "Bruises red then black"
         ],
         "growth_form": [
           "Cap and stem"
@@ -415,9 +440,7 @@
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Dark-pored & obscure boletes",
       "boleteGroup": [
@@ -440,29 +463,32 @@
       "look_alikes": [],
       "confused_with": [],
       "general_notes": "",
-      "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
+      "edibility_detail": "Good edible reputation with correct ID; still not a beginner shortcut.",
       "food_role": "food",
       "needs_review": true,
       "review_status": "needs_review",
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
-      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Black velvet bolete: dark velvety cap and stem, white pores becoming pinkish, and flesh/pore bruising that turns red then black.",
+      "field_identification": "Dark blackish velvety cap, dark stem, white pore surface becoming pinkish, and bruising that turns red then brown/black are the key field marks. Often under oaks.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Good forage",
+      "foraging_value_score": 3
     },
     {
       "slug": "gyroporus-cyanescens",
       "display_name": "Bluing Bolete",
       "common_name": "Bluing Bolete",
       "category": "Mushroom",
-      "culinary_uses": "",
+      "culinary_uses": "Edible reputation exists, but this guide treats it as a cautious ID-first species because blue-staining boletes need care.",
       "medicinal_uses": "",
       "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
@@ -475,7 +501,10 @@
         8,
         9
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/gyroporus_cyanescens.html",
+        "https://www.mushroomexpert.com/gyroporus.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Gyroporus%20cyanescens%2062587839.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Gyroporus%20cyanescens%2062587843.jpg",
@@ -487,14 +516,20 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Bluing Bolete. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Straw-colored brittle bolete with dramatic blue staining and a yellow spore print; usually in sandy hardwood-edge habitats.",
         "ecology": "bolete",
         "substrate": [
-          "Forest soil"
+          "Sandy soil",
+          "Woods edges",
+          "Road banks"
         ],
-        "wood_type": [],
-        "host_trees": [],
-        "host_certainty": "unknown",
+        "wood_type": [
+          "Hardwood"
+        ],
+        "host_trees": [
+          "Hardwoods"
+        ],
+        "host_certainty": "probable/field-guide",
         "underside": [
           "Pores"
         ],
@@ -503,24 +538,27 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
-        "taste": [],
+        "staining": [
+          "Strong blue staining"
+        ],
+        "taste": [
+          "Mild / not distinctive"
+        ],
         "spore_print": "",
-        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "season_note": "Summer and fall in eastern North America.",
         "processing_required": [],
         "research_notes": [
-          "Species seed added from the Michigan bolete audit.",
-          "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Straw-yellow cap and stem, brittle/chalky texture, strong blue staining when cut or bruised, and yellow spore print separate it from most boletes.",
+          "Source links and species-specific notes added in v4.2.81 mushroom batch."
         ],
         "cap_surface": [
-          "Dry to slightly tacky"
+          "Straw-yellow cap"
         ],
         "stem_feature": [
-          "Smooth to netted stem"
+          "Brittle/chalky stem"
         ],
         "pore_color": [
-          "Whitish to yellow pores"
+          "Pale pores; blue-bruising"
         ],
         "growth_form": [
           "Cap and stem"
@@ -533,9 +571,7 @@
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Gyroporus / brittle hollow-stem boletes",
       "boleteGroup": [
@@ -558,29 +594,32 @@
       "look_alikes": [],
       "confused_with": [],
       "general_notes": "",
-      "edibility_detail": "A worthwhile edible.",
+      "edibility_detail": "Use only with confident ID; not for casual beginner harvesting.",
       "food_role": "food",
       "needs_review": true,
       "review_status": "needs_review",
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
-      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Straw-colored brittle bolete with dramatic blue staining and a yellow spore print; usually in sandy hardwood-edge habitats.",
+      "field_identification": "Straw-yellow cap and stem, brittle/chalky texture, strong blue staining when cut or bruised, and yellow spore print separate it from most boletes.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Good forage",
+      "foraging_value_score": 3
     },
     {
       "slug": "boletus-atkinsonii",
       "display_name": "Boletus Atkinsonii",
       "common_name": "Boletus Atkinsonii",
       "category": "Mushroom",
-      "culinary_uses": "",
+      "culinary_uses": "Potentially good porcini-type edible with confident ID, but the North American edulis group is messy and should be handled conservatively.",
       "medicinal_uses": "",
       "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
@@ -593,7 +632,9 @@
         8,
         9
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/boletus_atkinsonii.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20atkinsonii%20630278.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20atkinsonii%20687057.jpg",
@@ -605,14 +646,20 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Boletus Atkinsonii. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Eastern porcini-group bolete with wrinkled grayish-brown cap, hardwood association, white flesh, and a magenta/purple ammonia reaction on the cap.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
-        "wood_type": [],
-        "host_trees": [],
-        "host_certainty": "unknown",
+        "wood_type": [
+          "Hardwood"
+        ],
+        "host_trees": [
+          "Oak",
+          "Beech",
+          "Hardwoods"
+        ],
+        "host_certainty": "probable/field-guide",
         "underside": [
           "Pores"
         ],
@@ -621,24 +668,27 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
-        "taste": [],
+        "staining": [
+          "White flesh not staining"
+        ],
+        "taste": [
+          "Mild / not distinctive"
+        ],
         "spore_print": "",
-        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "season_note": "Summer and fall in eastern North America.",
         "processing_required": [],
         "research_notes": [
-          "Species seed added from the Michigan bolete audit.",
-          "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Porcini-type build, wrinkled or pocked grayish-brown cap, white pores becoming yellow/olive, prominent stem reticulation, white non-staining flesh, and hardwood association. Chemical reaction can help separate it from nearby edulis-like species.",
+          "Source links and species-specific notes added in v4.2.81 mushroom batch."
         ],
         "cap_surface": [
-          "Dry to slightly tacky"
+          "Wrinkled grayish-brown cap"
         ],
         "stem_feature": [
-          "Smooth to netted stem"
+          "Prominent reticulation"
         ],
         "pore_color": [
-          "Whitish to yellow pores"
+          "White pores becoming yellow/olive; not bruising"
         ],
         "growth_form": [
           "Cap and stem"
@@ -651,9 +701,8 @@
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review"
+        "Needs real field photo / image coverage",
+        "Needs regional/taxonomy confirmation for edulis-like group"
       ],
       "mushroom_family": "Porcini & brown allies",
       "boleteGroup": [
@@ -682,22 +731,27 @@
         "true-bitter-bolete"
       ],
       "general_notes": "",
-      "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
+      "edibility_detail": "Good forage only after careful porcini-group confirmation.",
       "food_role": "food",
       "needs_review": true,
       "review_status": "needs_review",
       "review_reasons": [
         "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs regional/taxonomy confirmation for edulis-like group"
       ],
       "reviewReasons": [
         "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs regional/taxonomy confirmation for edulis-like group"
       ],
-      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
+      "review_note": "Needs review: Needs real field photo / image coverage; Needs regional/taxonomy confirmation for edulis-like group.",
+      "review_notes": "Needs review: Needs real field photo / image coverage; Needs regional/taxonomy confirmation for edulis-like group.",
+      "mushroom_card_note": "Eastern porcini-group bolete with wrinkled grayish-brown cap, hardwood association, white flesh, and a magenta/purple ammonia reaction on the cap.",
+      "field_identification": "Porcini-type build, wrinkled or pocked grayish-brown cap, white pores becoming yellow/olive, prominent stem reticulation, white non-staining flesh, and hardwood association. Chemical reaction can help separate it from nearby edulis-like species.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Good forage",
+      "foraging_value_score": 3
     },
     {
       "slug": "boletus-variipes-fagicola",
@@ -913,7 +967,7 @@
       "display_name": "Bothia Castanella",
       "common_name": "Bothia Castanella",
       "category": "Mushroom",
-      "culinary_uses": "",
+      "culinary_uses": "Not treated as a food target; included because it is distinctive and taxonomically odd.",
       "medicinal_uses": "",
       "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [
@@ -926,7 +980,9 @@
         8,
         9
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/bothia_castanella.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Bothia%20castanella%20188132.jpg"
       ],
@@ -936,14 +992,18 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Bothia Castanella. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Odd oak-associated bolete with soft brown cap, dull yellow boletinoid pores running slightly down the stem, and brown-to-reddish bruising.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
-        "wood_type": [],
-        "host_trees": [],
-        "host_certainty": "unknown",
+        "wood_type": [
+          "Hardwood"
+        ],
+        "host_trees": [
+          "Oak"
+        ],
+        "host_certainty": "probable/field-guide",
         "underside": [
           "Pores"
         ],
@@ -952,24 +1012,28 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
-        "taste": [],
+        "staining": [
+          "Slow brown/reddish-brown bruising"
+        ],
+        "taste": [
+          "Not a food target"
+        ],
         "spore_print": "",
-        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "season_note": "Summer and fall east of the Rocky Mountains.",
         "processing_required": [],
         "research_notes": [
-          "Species seed added from the Michigan bolete audit.",
-          "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Soft brown cap, dull yellow pore surface that begins to run down the stem, slow brown to reddish-brown bruising, and brown reticulation at the stem apex. Usually associated with oaks.",
+          "Source links and species-specific notes added in v4.2.81 mushroom batch."
         ],
         "cap_surface": [
-          "Dry to slightly tacky"
+          "Soft brown cap"
         ],
         "stem_feature": [
-          "Smooth to netted stem"
+          "Brown reticulation at apex"
         ],
         "pore_color": [
-          "Whitish to yellow pores"
+          "Dull yellow boletinoid pores",
+          "Pores run slightly down stem"
         ],
         "growth_form": [
           "Cap and stem"
@@ -982,9 +1046,7 @@
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Porcini & brown allies",
       "boleteGroup": [
@@ -1013,22 +1075,25 @@
         "true-bitter-bolete"
       ],
       "general_notes": "",
-      "edibility_detail": "Included for identification and comparison; not generally a high-value food mushroom.",
+      "edibility_detail": "ID/comparison only in this guide.",
       "food_role": "food",
       "needs_review": true,
       "review_status": "needs_review",
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
-      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Odd oak-associated bolete with soft brown cap, dull yellow boletinoid pores running slightly down the stem, and brown-to-reddish bruising.",
+      "field_identification": "Soft brown cap, dull yellow pore surface that begins to run down the stem, slow brown to reddish-brown bruising, and brown reticulation at the stem apex. Usually associated with oaks.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "ID / comparison",
+      "foraging_value_score": 1
     },
     {
       "slug": "boletus-auripes",
