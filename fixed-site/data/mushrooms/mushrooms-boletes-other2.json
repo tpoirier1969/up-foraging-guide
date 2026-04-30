@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.91-r2026-04-30-bolete-other-review1",
+    "build": "v4.2.92-r2026-04-30-bolete-other-stale-review-cleanup1",
     "primary_type": "mushroom",
     "split_version": "mushroom-data-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-other2.json",
@@ -9,7 +9,7 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 11,
-    "notes": "Split from former mushrooms-boletes-other.json in v4.2.90 to reduce large-file handling/static. Record bodies and order were preserved; each canonical slug still appears in exactly one base mushroom split file. Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records. v4.2.91: other-bolete review pass updated review flags using the 2-3 distinct-image rule; records with only one real image were kept or reopened for more distinct photo coverage, while records with 2+ distinct Commons/file images had stale image-only review flags cleared.",
+    "notes": "Split from former mushrooms-boletes-other.json in v4.2.90 to reduce large-file handling/static. Record bodies and order were preserved; each canonical slug still appears in exactly one base mushroom split file. Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records. v4.2.91: other-bolete review pass updated review flags using the 2-3 distinct-image rule. v4.2.92: removed stale seed/review/build notes from user-facing nested profile fields while preserving active review reasons.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -24,7 +24,9 @@
     "split_part_count": 2,
     "last_credibility_batch": "v4.2.91-r2026-04-30-bolete-other-review1",
     "last_other_bolete_review": "v4.2.91-r2026-04-30-bolete-other-review1",
-    "distinct_image_rule": "2-3 image coverage means 2-3 genuinely different source images; thumbnails/detail/full variants or placeholders do not count."
+    "distinct_image_rule": "2-3 image coverage means 2-3 genuinely different source images; thumbnails/detail/full variants or placeholders do not count.",
+    "last_other_bolete_cleanup": "v4.2.92-r2026-04-30-bolete-other-stale-review-cleanup1",
+    "last_stale_review_text_cleanup": "v4.2.92-r2026-04-30-bolete-other-stale-review-cleanup1"
   },
   "records": [
     {
@@ -92,7 +94,6 @@
         "processing_required": [],
         "research_notes": [
           "Small erect blackish cap scales over pale gray ground, whitish pores that bruise reddish gray then black, and flesh that turns red then black. Separating it from S. floccopus / Old Man of the Woods can require spore characters.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
           "v4.2.91 image review: 3 distinct real image URLs present."
         ],
         "cap_surface": [
@@ -164,8 +165,6 @@
       ],
       "foraging_value": "ID / comparison",
       "foraging_value_score": 1,
-      "image_review_status": "ok",
-      "image_review_reasons": [],
       "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
       "curation_notes": [
         "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
@@ -236,7 +235,6 @@
         "processing_required": [],
         "research_notes": [
           "Looks like a bolete from above but has gills. Fresh gills are bright yellow, and the basal mycelium should be white rather than yellow. Compare with P. rhodoxanthus; Hypomyces can obscure the stem base.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
           "v4.2.91 image review: 3 distinct real image URLs present."
         ],
         "gill_attachment": "Attached",
@@ -305,8 +303,6 @@
       ],
       "foraging_value": "Good forage",
       "foraging_value_score": 3,
-      "image_review_status": "ok",
-      "image_review_reasons": [],
       "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
       "curation_notes": [
         "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
@@ -377,7 +373,6 @@
         "processing_required": [],
         "research_notes": [
           "Bolete-like cap and stem but with bright yellow gills. Yellow basal mycelium helps separate it from P. leucomycelinus, though Hypomyces can hide the base. Associated with hardwoods east of the Rockies.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
           "v4.2.91 image review: 3 distinct real image URLs present."
         ],
         "gill_attachment": "Attached",
@@ -446,8 +441,6 @@
       ],
       "foraging_value": "Good forage",
       "foraging_value_score": 3,
-      "image_review_status": "ok",
-      "image_review_reasons": [],
       "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
       "curation_notes": [
         "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
@@ -517,7 +510,6 @@
         "processing_required": [],
         "research_notes": [
           "Long slender stem, whitish pore surface becoming pinkish to pinkish-brown, and association with hemlock or other conifers. Older guides may call it Tylopilus gracilis.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
           "v4.2.91 image review: 3 distinct real image URLs present."
         ],
         "cap_surface": [
@@ -577,8 +569,6 @@
       ],
       "foraging_value": "Occasional / niche use",
       "foraging_value_score": 2,
-      "image_review_status": "ok",
-      "image_review_reasons": [],
       "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
       "curation_notes": [
         "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
@@ -639,7 +629,6 @@
         "processing_required": [],
         "research_notes": [
           "Look for a sticky yellow-brown to brown cap, yellow pore surface that bruises dark brown, a sheathing ring zone/veil remnant low on the stem, and oak association. Nearly round spores are a key confirmation feature.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
           "Needs real field photo / image coverage: no usable real image is currently loaded."
         ],
         "pore_color": [
@@ -759,8 +748,6 @@
         "season_note": "Summer and fall, when earthballs are present.",
         "processing_required": [],
         "research_notes": [
-          "Species seed added from the Michigan / Upper Midwest bolete pass.",
-          "Placeholder image inserted pending real public-usable photo.",
           "Needs more distinct photo coverage: only one real image is currently loaded."
         ],
         "lane": "bolete",
@@ -939,7 +926,6 @@
         "processing_required": [],
         "research_notes": [
           "Look for a wood-associated fruit body with a strongly veined to merulioid underside rather than normal round bolete pores. This is not a classic cap-and-stem bolete target.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
           "Needs more distinct photo coverage: only one real image is currently loaded."
         ],
         "pore_color": [
@@ -1060,7 +1046,6 @@
         "processing_required": [],
         "research_notes": [
           "Young mushrooms have a powdery bright yellow veil covering the pore surface and stem; older specimens show yellow veil remnants, reddish to orange cap colors, yellowish pores, and greenish-blue bruising.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
           "Needs real field photo / image coverage: no usable real image is currently loaded."
         ],
         "pore_color": [
@@ -1176,7 +1161,6 @@
         "processing_required": [],
         "research_notes": [
           "Check for sticky bright yellow/orange to reddish cap, yellow non-bruising pores, and a striking long stem that is deeply ridged or lacerate-reticulate. Oak or mixed oak-pine association.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
           "Needs real field photo / image coverage: no usable real image is currently loaded."
         ],
         "pore_color": [
@@ -1289,7 +1273,6 @@
         "processing_required": [],
         "research_notes": [
           "Look for a sticky pinkish-brown to reddish-brown cap, bright yellow pore surface that does not bruise, white basal mycelium, and slender reddish/yellowish stem. Compare with B. innixus.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
           "Needs real field photo / image coverage: no usable real image is currently loaded."
         ],
         "pore_color": [
@@ -1406,7 +1389,6 @@
         "processing_required": [],
         "research_notes": [
           "Yellow-brown cap, yellow pore surface, wood association, and possible relationship with the dyer’s polypore Phaeolus schweinitzii are the useful clues. Compare with B. hemichrysus and B. sphaerocephalus.",
-          "Source links and species-specific notes added in v4.2.81 mushroom batch.",
           "Needs real field photo / image coverage: no usable real image is currently loaded."
         ],
         "pore_color": [
