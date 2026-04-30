@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.70-r2026-04-29-slippery-jack-merge1",
+    "build": "v4.2.82-r2026-04-30-mushroom-bolete-credibility2",
     "primary_type": "mushroom",
     "split_version": "mushroom-data-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-suillus-leccinum.json",
@@ -9,7 +9,7 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 50,
-    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file.",
+    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. Updated in v4.2.82 with 25-record mushroom credibility pass including Black Velvet Bolete and Blue-staining Slippery Jack.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -672,9 +672,9 @@
       "display_name": "Blue-staining Slippery Jack",
       "common_name": "Blue-staining Slippery Jack",
       "category": "Mushroom",
-      "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
+      "culinary_uses": "Edible reports exist for some Suillus, but this one is best treated as a cautious/niche mushroom because texture and ID confidence matter.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "notes": "Blue-staining Slippery Jack: yellow-orange, finely velvety Suillus under two-needle pines, with pore/flesh staining blue.",
       "months_available": [
         "July",
         "August",
@@ -685,7 +685,10 @@
         8,
         9
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus_tomentosus.html",
+        "https://www.inaturalist.org/guide_taxa/1930093"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893261.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893411.jpg",
@@ -697,13 +700,15 @@
         "entry_scope": "species",
         "edibility_status": "good",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Blue-staining Slippery Jack. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Blue-staining Slippery Jack: yellow-orange, finely velvety Suillus under two-needle pines, with pore/flesh staining blue.",
         "ecology": "bolete",
         "substrate": [
-          "Forest soil"
+          "Forest soil under pine"
         ],
         "wood_type": [],
         "host_trees": [
+          "Jack pine",
+          "Two-needle pines",
           "Pine"
         ],
         "host_certainty": "low",
@@ -715,24 +720,32 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Blue bruising possible",
-        "taste": [],
+        "staining": [
+          "Blue staining"
+        ],
+        "taste": [
+          "Not distinctive"
+        ],
         "spore_print": "",
-        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "season_note": "Summer and fall in jack-pine forests / upper Midwest.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "Key marks are the yellow to orangish finely velvety cap, brownish-yellow pores bruising blue, glandular dots on the stem, no ring, and association with jack pine or other two-needle pines.",
+          "Species-specific notes and source links updated in v4.2.82 mushroom batch."
         ],
         "cap_surface": [
-          "Dry to slightly tacky"
+          "Yellow to orangish finely velvety cap"
         ],
         "stem_feature": [
-          "Glandular dots or smooth stem"
+          "Glandular dots",
+          "No ring"
         ],
         "pore_color": [
-          "Yellow pores"
+          "Brownish-yellow pores",
+          "Bruises blue"
         ],
         "growth_form": [
           "Cap and stem"
@@ -769,14 +782,18 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
-      "search_aliases": [],
+      "search_aliases": [
+        "Suillus tomentosus",
+        "Blue-Staining Slippery Jack",
+        "Poor Man's Slippery Jack",
+        "Woolly-capped Suillus"
+      ],
       "host_filter_tokens": [
-        "Conifer / softwood",
+        "Jack pine",
+        "Two-needle pines",
         "Pine"
       ],
       "commonness": "Occasional",
@@ -797,25 +814,30 @@
         "butterball",
         "slippery-jack"
       ],
-      "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
+      "edibility_detail": "Use with caution; a good ID mushroom, not a beginner food shortcut.",
       "food_role": "food",
       "needs_review": true,
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
-      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Blue-staining Slippery Jack: yellow-orange, finely velvety Suillus under two-needle pines, with pore/flesh staining blue.",
+      "field_identification": "Key marks are the yellow to orangish finely velvety cap, brownish-yellow pores bruising blue, glandular dots on the stem, no ring, and association with jack pine or other two-needle pines.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Occasional / niche use",
+      "foraging_value_score": 2
     },
     {
       "slug": "boreal-bolete",
       "display_name": "Boreal Bolete",
       "common_name": "Boreal Bolete",
       "category": "Mushroom",
-      "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
+      "culinary_uses": "Not a prime food target; keep as a cautious Suillus record unless local ID is strong.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "notes": "Boreal Bolete: glandular-dotted Suillus-type record; useful mainly where its conifer host and cap/stem details line up.",
       "months_available": [
         "July",
         "August",
@@ -826,7 +848,9 @@
         8,
         9
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EBoreal%20Bolete%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ESuillus%20glandulosus%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -836,13 +860,14 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Boreal Bolete. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Boreal Bolete: glandular-dotted Suillus-type record; useful mainly where its conifer host and cap/stem details line up.",
         "ecology": "bolete",
         "substrate": [
-          "Forest soil"
+          "Forest soil under conifers"
         ],
         "wood_type": [],
         "host_trees": [
+          "Conifers",
           "Pine"
         ],
         "host_certainty": "low",
@@ -854,25 +879,31 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
-        "taste": [],
+        "staining": [
+          "Variable / needs field confirmation"
+        ],
+        "taste": [
+          "Mild / not distinctive"
+        ],
         "spore_print": "",
-        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "season_note": "Summer and fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Check host tree, sticky/slimy cap feel, glandular dots, ring/veil absence or presence, and pore color before trusting the name.",
+          "Species-specific notes and source links updated in v4.2.82 mushroom batch."
         ],
         "cap_surface": [
-          "Dry to slightly tacky"
+          "Sticky to dry Suillus cap"
         ],
         "stem_feature": [
-          "Glandular dots or smooth stem"
+          "Glandular dots possible"
         ],
         "pore_color": [
-          "Yellow pores"
+          "Yellowish pores"
         ],
         "growth_form": [
           "Cap and stem"
@@ -909,14 +940,15 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
-      "search_aliases": [],
+      "search_aliases": [
+        "Suillus glandulosus",
+        "Boreal Bolete"
+      ],
       "host_filter_tokens": [
-        "Conifer / softwood",
+        "Conifers",
         "Pine"
       ],
       "commonness": "Uncommon",
@@ -937,7 +969,7 @@
         "butterball",
         "slippery-jack"
       ],
-      "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
+      "edibility_detail": "Occasional/niche; Suillus texture and host-specific ID matter.",
       "food_role": "food",
       "image_review_status": "needs_field_photo",
       "image_review_reasons": [
@@ -945,20 +977,25 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Boreal Bolete: glandular-dotted Suillus-type record; useful mainly where its conifer host and cap/stem details line up.",
+      "field_identification": "Check host tree, sticky/slimy cap feel, glandular dots, ring/veil absence or presence, and pore color before trusting the name.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Occasional / niche use",
+      "foraging_value_score": 2
     },
     {
       "slug": "butterball",
       "display_name": "Butterball",
       "common_name": "Butterball",
       "category": "Mushroom",
-      "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
+      "culinary_uses": "Edible but usually a modest Suillus; best young and firm if used at all.",
       "medicinal_uses": "",
       "notes": "Butterball is treated here as Suillus weaverae, the eastern white-pine-associated species that many older North American guides called Suillus granulatus. Host tree is a major clue.",
       "months_available": [
@@ -983,14 +1020,15 @@
         "entry_scope": "species",
         "edibility_status": "good",
         "caution_level": "low",
-        "summary": "Minimal bolete seed entry for Butterball. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Butterball / eastern white-pine Suillus: sticky orange-brown cap, no ring, glandular dots, and eastern white pine association.",
         "ecology": "bolete",
         "substrate": [
-          "Forest soil"
+          "Forest soil under white pine"
         ],
         "wood_type": [],
         "host_trees": [
-          "Eastern white pine"
+          "Eastern white pine",
+          "Pine"
         ],
         "host_certainty": "low",
         "underside": [
@@ -1002,27 +1040,29 @@
         ],
         "odor": "Unknown",
         "staining": [
-          "Not bruising or sometimes spotting brownish"
+          "Little to no staining"
         ],
         "taste": [
           "Slightly sour or mild"
         ],
         "spore_print": "",
-        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "season_note": "Summer through fall with eastern white pine.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "Use eastern white pine association, sticky orange-brown cap, no ring, small glandular dots on the stem, and dull yellow pore surface.",
+          "Species-specific notes and source links updated in v4.2.82 mushroom batch."
         ],
         "cap_surface": [
-          "Sticky / slimy when fresh",
-          "Orange-brown to reddish brown cap"
+          "Sticky orange-brown cap"
         ],
         "stem_feature": [
-          "Glandular dots or smooth stem"
+          "Glandular dots",
+          "No ring"
         ],
         "pore_color": [
-          "Whitish young, then yellowish to dull brownish yellow"
+          "Dull yellow pores"
         ],
         "growth_form": [
           "Cap and stem"
@@ -1061,9 +1101,13 @@
         "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
-      "search_aliases": [],
+      "search_aliases": [
+        "Suillus weaverae",
+        "Butterball",
+        "Eastern white-pine Suillus"
+      ],
       "host_filter_tokens": [
-        "Conifer / softwood",
+        "Eastern white pine",
         "Pine"
       ],
       "commonness": "Occasional",
@@ -1083,14 +1127,14 @@
         "butterball",
         "slippery-jack"
       ],
-      "edibility_detail": "A worthwhile edible.",
+      "edibility_detail": "Occasional edible, not prime; texture can be the deal-breaker.",
       "food_role": "food",
       "needs_review": true,
       "review_reasons": [
         "Needs real field photo / image coverage"
       ],
-      "review_note": "Needs review: needs real field photo / image coverage.",
-      "review_notes": "Needs review: needs real field photo / image coverage.",
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
       "use_links": [
         {
           "label": "MushroomExpert: Suillus weaverae",
@@ -1100,7 +1144,14 @@
           "source_quality": "mycology reference",
           "notes": "Eastern white pine Suillus formerly treated as North American Suillus granulatus in many guides."
         }
-      ]
+      ],
+      "mushroom_card_note": "Butterball / eastern white-pine Suillus: sticky orange-brown cap, no ring, glandular dots, and eastern white pine association.",
+      "field_identification": "Use eastern white pine association, sticky orange-brown cap, no ring, small glandular dots on the stem, and dull yellow pore surface.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Occasional / niche use",
+      "foraging_value_score": 2
     },
     {
       "slug": "suillus-americanus",
@@ -1578,9 +1629,9 @@
       "display_name": "Ghost Bolete",
       "common_name": "Ghost Bolete",
       "category": "Mushroom",
-      "culinary_uses": "Included as a northern wetland birch scaber-stalk.",
+      "culinary_uses": "Leccinum edibility is handled conservatively here. Do not treat it as a casual edible without expert confidence and proper cooking.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "notes": "Ghost Bolete: pale Leccinum of wet/boggy birch-type places; pretty, but still a Leccinum caution record.",
       "months_available": [
         "July",
         "August",
@@ -1591,7 +1642,9 @@
         8,
         9
       ],
-      "links": [],
+      "links": [
+        "https://en.wikipedia.org/wiki/Leccinum_holopus"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Ghost%20bolete%20mushrooms.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20holopus%201.jpg",
@@ -1603,14 +1656,16 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Ghost Bolete. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Ghost Bolete: pale Leccinum of wet/boggy birch-type places; pretty, but still a Leccinum caution record.",
         "ecology": "bolete",
         "substrate": [
-          "Forest soil"
+          "Wet forest soil",
+          "Boggy ground"
         ],
         "wood_type": [],
         "host_trees": [
-          "Birch"
+          "Birch",
+          "Wet woods"
         ],
         "host_certainty": "low",
         "underside": [
@@ -1621,24 +1676,30 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
-        "taste": [],
+        "staining": [
+          "Variable discoloration"
+        ],
+        "taste": [
+          "Mild / not distinctive"
+        ],
         "spore_print": "",
-        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "season_note": "Summer and fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "Very pale whitish cap, scaber-stalk Leccinum stem, wet/boggy habitat, and birch association are the important checks.",
+          "Species-specific notes and source links updated in v4.2.82 mushroom batch."
         ],
         "cap_surface": [
-          "Dry to slightly tacky"
+          "Pale whitish cap"
         ],
         "stem_feature": [
-          "Scabers"
+          "Scaber stalk"
         ],
         "pore_color": [
-          "Whitish to grayish pores"
+          "Whitish pores"
         ],
         "growth_form": [
           "Cap and stem"
@@ -1675,15 +1736,16 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
-      "search_aliases": [],
+      "search_aliases": [
+        "Leccinum holopus",
+        "Ghost Bolete"
+      ],
       "host_filter_tokens": [
-        "Hardwood",
-        "Birch"
+        "Birch",
+        "Wet woods"
       ],
       "commonness": "Uncommon",
       "food_quality": "Fair",
@@ -1700,25 +1762,30 @@
       "confused_with": [
         "scaber-stalk-boletes-birch-aspen-boletes"
       ],
-      "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
+      "edibility_detail": "Use caution; Leccinum group needs careful ID and cooking if used.",
       "food_role": "food",
       "needs_review": true,
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
-      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Ghost Bolete: pale Leccinum of wet/boggy birch-type places; pretty, but still a Leccinum caution record.",
+      "field_identification": "Very pale whitish cap, scaber-stalk Leccinum stem, wet/boggy habitat, and birch association are the important checks.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1
     },
     {
       "slug": "grayish-suillus",
       "display_name": "Grayish Suillus",
       "common_name": "Grayish Suillus",
       "category": "Mushroom",
-      "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
+      "culinary_uses": "Not a prime food target; keep as a niche Suillus record.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "notes": "Grayish Suillus: Suillus-type bolete needing host-tree confirmation; keep as a cautious conifer associate.",
       "months_available": [
         "July",
         "August",
@@ -1729,7 +1796,9 @@
         8,
         9
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EGrayish%20Suillus%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ESuillus%20grisellus%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -1739,14 +1808,15 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Grayish Suillus. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Grayish Suillus: Suillus-type bolete needing host-tree confirmation; keep as a cautious conifer associate.",
         "ecology": "bolete",
         "substrate": [
-          "Forest soil"
+          "Forest soil under conifers"
         ],
         "wood_type": [],
         "host_trees": [
-          "Tamarack / larch"
+          "Conifers",
+          "Pine"
         ],
         "host_certainty": "low",
         "underside": [
@@ -1757,25 +1827,31 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
-        "taste": [],
+        "staining": [
+          "Variable / needs field confirmation"
+        ],
+        "taste": [
+          "Mild / not distinctive"
+        ],
         "spore_print": "",
-        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "season_note": "Summer and fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Check conifer host, cap stickiness/color, pore color, stem glandular dots, and whether ring/veil traces are present.",
+          "Species-specific notes and source links updated in v4.2.82 mushroom batch."
         ],
         "cap_surface": [
-          "Dry to slightly tacky"
+          "Grayish to brownish Suillus cap"
         ],
         "stem_feature": [
-          "Glandular dots or smooth stem"
+          "Glandular dots possible"
         ],
         "pore_color": [
-          "Yellow pores"
+          "Yellowish pores"
         ],
         "growth_form": [
           "Cap and stem"
@@ -1813,15 +1889,16 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
-      "search_aliases": [],
+      "search_aliases": [
+        "Suillus grisellus",
+        "Grayish Suillus"
+      ],
       "host_filter_tokens": [
-        "Conifer / softwood",
-        "Tamarack / larch"
+        "Conifers",
+        "Pine"
       ],
       "commonness": "Uncommon",
       "food_quality": "Fair",
@@ -1841,7 +1918,7 @@
         "butterball",
         "slippery-jack"
       ],
-      "edibility_detail": "Potentially edible or useful, but not usually a top-tier food mushroom.",
+      "edibility_detail": "Occasional/niche at best until local ID/photo support improves.",
       "food_role": "food",
       "image_review_status": "needs_field_photo",
       "image_review_reasons": [
@@ -1849,13 +1926,18 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Grayish Suillus: Suillus-type bolete needing host-tree confirmation; keep as a cautious conifer associate.",
+      "field_identification": "Check conifer host, cap stickiness/color, pore color, stem glandular dots, and whether ring/veil traces are present.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Occasional / niche use",
+      "foraging_value_score": 2
     },
     {
       "slug": "hemileccinum-subglabripes",

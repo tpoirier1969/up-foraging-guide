@@ -1,6 +1,6 @@
 import { fetchJsonFromRepo } from "../lib/fetch-json.js";
-import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.81-r2026-04-29-mushroom-bolete-credibility1";
-import { SPECIES_PATHS, PHOTO_PATCH_PATHS, OPTIONAL_PATHS } from "./sources.js?v=v4.2.81-r2026-04-29-mushroom-bolete-credibility1";
+import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.82-r2026-04-30-mushroom-bolete-credibility2";
+import { SPECIES_PATHS, PHOTO_PATCH_PATHS, OPTIONAL_PATHS } from "./sources.js?v=v4.2.82-r2026-04-30-mushroom-bolete-credibility2";
 
 let rareCachePromise = null;
 let referencesCachePromise = null;
