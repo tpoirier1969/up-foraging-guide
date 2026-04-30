@@ -8,6 +8,12 @@ const MONTHS = [
   "July","August","September","October","November","December"
 ];
 
+function asArray(value) {
+  if (Array.isArray(value)) return value;
+  if (value === undefined || value === null || value === "") return [];
+  return [value];
+}
+
 function clean(value) {
   return cleanUserFacingText(value)
     .replace(/\bwhen correctly identified and(?: collected)? in good condition\b/gi, "")
@@ -18,24 +24,17 @@ function clean(value) {
     .trim();
 }
 
-function slugifyLookup(value = "") {
-  return String(value || "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-}
-
 function lineIf(label, value) {
   const text = clean(value);
   if (!text) return "";
   return `<dt>${esc(label)}</dt><dd>${esc(text)}</dd>`;
 }
 
-function listBlock(title, values) {
-  if (!Array.isArray(values) || !values.length) return "";
-  const cleaned = values.map(clean).filter(Boolean);
-  if (!cleaned.length) return "";
-  return `<section class="detail-block"><h4>${esc(title)}</h4><ul class="list-tight">${cleaned.map(v => `<li>${esc(v)}</li>`).join("")}</ul></section>`;
+function slugifyLookup(value = "") {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
 }
 
 function titleFromSlugOrName(value = "") {
@@ -45,6 +44,71 @@ function titleFromSlugOrName(value = "") {
     return raw.replace(/-/g, " ").replace(/\b\w/g, letter => letter.toUpperCase());
   }
   return raw;
+}
+
+function normalizeForDuplicateCheck(value = "") {
+  return String(value || "")
+    .toLowerCase()
+    .replace(/&amp;/g, "and")
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function splitSentences(value = "") {
+  return String(value || "")
+    .replace(/\s+/g, " ")
+    .trim()
+    .split(/(?<=[.!?])\s+/)
+    .map(part => part.trim())
+    .filter(Boolean);
+}
+
+function uniqueLines(values = []) {
+  const seen = new Set();
+  const out = [];
+  for (const value of values) {
+    for (const sentence of splitSentences(clean(value))) {
+      const key = normalizeForDuplicateCheck(sentence);
+      if (!key || seen.has(key)) continue;
+      // Drop shorter sentence fragments if a longer already contains them.
+      if ([...seen].some(existing => existing.includes(key) || key.includes(existing))) {
+        continue;
+      }
+      seen.add(key);
+      out.push(sentence);
+    }
+  }
+  return out;
+}
+
+function joinClean(values = []) {
+  return values.map(clean).filter(Boolean).join(", ");
+}
+
+function listBlock(title, values) {
+  const cleaned = asArray(values).map(clean).filter(Boolean);
+  if (!cleaned.length) return "";
+  return `<section class="detail-block"><h4>${esc(title)}</h4><ul class="list-tight">${cleaned.map(v => `<li>${esc(v)}</li>`).join("")}</ul></section>`;
+}
+
+function seasonText(record) {
+  if (Array.isArray(record.months_available) && record.months_available.length) return record.months_available.join(", ");
+  if (Array.isArray(record.season_months) && record.season_months.length) {
+    return record.season_months.map((n) => MONTHS[n - 1] || String(n)).join(", ");
+  }
+  return "";
+}
+
+function profileListValue(profile = {}, key) {
+  const value = profile?.[key];
+  if (Array.isArray(value)) return value.map(clean).filter(Boolean).join(", ");
+  return clean(value);
+}
+
+function fieldOrProfile(record = {}, key, profileKey = key) {
+  const profile = record.mushroom_profile || {};
+  return profileListValue(profile, profileKey) || profileListValue(record, key);
 }
 
 function findLookAlikeRecord(rawName = "") {
@@ -91,8 +155,7 @@ function statusTagHtml(status) {
 }
 
 function lookAlikeSeparationNote(record = {}, rawName = "") {
-  const slug = slugifyLookup(rawName);
-  const hay = `${slug} ${rawName}`.toLowerCase();
+  const hay = `${slugifyLookup(rawName)} ${rawName}`.toLowerCase();
   const recordHay = `${record.slug || ""} ${record.display_name || ""} ${record.common_name || ""} ${record.scientific_name || ""}`.toLowerCase();
 
   if (/bitter|tylopilus|felleus|pink-pored/.test(hay)) {
@@ -122,25 +185,19 @@ function lookAlikeSeparationNote(record = {}, rawName = "") {
   if (/galerina/.test(hay)) {
     return "Galerina is a serious/deadly wood-growing look-alike group. Check spore color, ring, cap texture, and growth on wood; do not treat small brown mushrooms as interchangeable.";
   }
-  if (/artist|tinder|hoof|birch-polypore|conk/.test(hay)) {
-    return "Separate shelf fungi by host tree, bracket shape, pore surface, and texture. Birch polypore is strongly tied to birch; artist's conk and tinder conk have different bracket forms and surfaces.";
-  }
-  if (/oyster|angel-wing/.test(hay)) {
-    return "Compare host wood, cap thickness, gill attachment, and overall form. Oyster-type mushrooms should not be identified from pale color alone.";
-  }
-  return "Compare the linked page against this one using the practical field marks: underside, pore/gill color, bruising, stem clues, host tree/substrate, season, and any taste warning.";
+  return "Compare the linked page against this one using underside, pore/gill color, bruising, stem clues, host tree/substrate, season, and any taste warning.";
 }
 
 function lookAlikeBlock(record) {
-  const cleaned = Array.isArray(record.look_alikes) ? record.look_alikes.map(clean).filter(Boolean) : [];
+  const names = asArray(record.look_alikes).map(clean).filter(Boolean);
   const notes = clean(record.look_alike_notes);
-  if (!cleaned.length && !notes) return "";
-  const items = cleaned.map((name) => {
+  if (!names.length && !notes) return "";
+  const items = names.map((name) => {
     const linkedRecord = findLookAlikeRecord(name);
     const slug = linkedRecord?.slug || slugifyLookup(name);
     const label = linkedRecord ? (linkedRecord.display_name || linkedRecord.common_name || titleFromSlugOrName(name)) : titleFromSlugOrName(name);
-    const note = lookAlikeSeparationNote(record, name);
     const status = lookAlikeStatus(linkedRecord);
+    const note = lookAlikeSeparationNote(record, name);
     return `<li><div class="lookalike-title-row"><button class="subtle" type="button" data-detail="${esc(slug)}">${esc(label)}</button>${statusTagHtml(status)}</div>${note ? `<div class="muted small">How to tell apart: ${esc(note)}</div>` : ""}</li>`;
   }).join("");
   return `
@@ -152,12 +209,86 @@ function lookAlikeBlock(record) {
   `;
 }
 
-function seasonText(record) {
-  if (Array.isArray(record.months_available) && record.months_available.length) return record.months_available.join(", ");
-  if (Array.isArray(record.season_months) && record.season_months.length) {
-    return record.season_months.map((n) => MONTHS[n - 1] || String(n)).join(", ");
-  }
-  return "";
+function isCautionText(value = "") {
+  const text = String(value || "").toLowerCase();
+  return /\b(caution|avoid|unsafe|poison|toxic|raw|uncooked|undercooked|cook thoroughly|must be cooked|only when|only if|confident|careful[- ]?id|conservative|correctly identified|properly identified|good condition|look[- ]?alike|bitter|peppery|nibble|spit|not recommended|not a beginner|beginner shortcut|species concepts|shifting|gi distress|stomach|nausea|vomit|diarrhea|local confidence|specialist)\b/.test(text);
+}
+
+function isUsefulFoodText(value = "") {
+  const text = String(value || "").toLowerCase();
+  if (!text || isCautionText(text)) return false;
+  return /\b(choice|excellent|good|fair|edible|food|culinary|meal|seasoning|tea|broth|soup|fried|sauté|saute|cook|cooked|dry|dried|powder|occasional|niche|target|table)\b/.test(text);
+}
+
+function foodUseBlock(record) {
+  const edibleUse = record.edible_use || null;
+  const profile = record.mushroom_profile || {};
+  const culinaryUses = clean(record.culinary_uses);
+  const edibilityNotes = clean(record.edibility_notes || record.edibility_detail);
+  const edibleNotes = clean(edibleUse?.notes || "");
+  const processing = joinClean([
+    ...asArray(record.processing_required),
+    ...asArray(profile.processing_required)
+  ]);
+  const method = clean(edibleUse?.method || "");
+  const taste = joinClean([
+    ...asArray(record.taste),
+    ...asArray(profile.taste)
+  ]);
+  const texture = joinClean([
+    ...asArray(record.texture),
+    ...asArray(profile.texture)
+  ]);
+
+  const bestUses = isUsefulFoodText(culinaryUses) ? culinaryUses : "";
+  const cautionLines = uniqueLines([
+    processing,
+    edibilityNotes,
+    edibleNotes,
+    isCautionText(culinaryUses) ? culinaryUses : ""
+  ]);
+
+  const lines = [
+    lineIf("Food quality", record.food_quality),
+    lineIf("Use form", method && method.toLowerCase() !== "food" ? method : ""),
+    lineIf("Taste", taste),
+    lineIf("Texture", texture),
+    lineIf("Best uses / cooking notes", bestUses),
+    lineIf("Caution", cautionLines.join(" "))
+  ].join("");
+
+  if (!lines.trim()) return "";
+  return `
+    <section class="detail-block food-use-block">
+      <h4>Food use</h4>
+      <dl class="kv">
+        ${lines}
+      </dl>
+    </section>
+  `;
+}
+
+function boleteDetailBlock(record) {
+  if (String(record?.lane || "").toLowerCase() !== "bolete") return "";
+  const profile = record.mushroom_profile || {};
+  const lines = [
+    lineIf("Pore color", profileListValue(profile, "pore_color") || profileListValue(record, "poreColor")),
+    lineIf("Bruising / staining", profileListValue(profile, "staining") || profileListValue(record, "staining")),
+    lineIf("Stem features", profileListValue(profile, "stem_feature") || profileListValue(record, "stemFeature")),
+    lineIf("Cap surface", profileListValue(profile, "cap_surface")),
+    lineIf("Growing from / with", profileListValue(profile, "substrate") || profileListValue(record, "substrate")),
+    lineIf("Associated trees", profileListValue(profile, "host_trees") || profileListValue(record, "hostTree")),
+    lineIf("Tree association", profileListValue(profile, "host_filter_tokens") || profileListValue(record, "host_filter_tokens")),
+    lineIf("Taste / warning clue", profileListValue(profile, "taste") || profileListValue(record, "taste")),
+    lineIf("Season note", profile.season_note)
+  ].join("");
+  if (!lines.trim()) return "";
+  return `
+    <section class="detail-block bolete-id-block">
+      <h4>Pored mushroom field marks</h4>
+      <dl class="kv">${lines}</dl>
+    </section>
+  `;
 }
 
 function rareBlock(record) {
@@ -181,44 +312,26 @@ function rareBlock(record) {
   `;
 }
 
-function isClearlyNonPoisonous(record, text = "") {
-  const ed = String(record.edibility_status || "").trim().toLowerCase();
-  const hay = `${record.non_edible_severity || ""} ${record.danger_level || ""} ${record.poisoning_effects || ""} ${record.toxicity_notes || ""} ${text}`.toLowerCase();
-  if (ed === "poisonous" || ed === "deadly") return false;
-  return /not poisonous|non[- ]poisonous|not treated here as poisonous|bitter[, ]+not poisonous|not toxic/.test(hay);
-}
-
 function dangerBlock(record) {
   const ed = String(record.edibility_status || "").trim().toLowerCase();
   const severity = clean(record.non_edible_severity);
   const level = clean(record.danger_level || (ed === "deadly" ? "Deadly" : ed === "poisonous" ? "Poisonous" : severity));
   const effects = clean(record.poisoning_effects || record.toxicity_notes || "");
-  const affected = Array.isArray(record.affected_systems) ? record.affected_systems.map(clean).filter(Boolean) : [];
-  const notes = clean(record.edibility_notes || record.edibility_detail || "");
-  const dangerHay = `${ed} ${severity} ${level} ${effects} ${notes}`;
-  const isDanger = ed === "poisonous"
-    || ed === "deadly"
-    || /poison|deadly|toxic|danger|fatal|liver|kidney|neurolog|gastrointestinal|gi distress|vomit|diarrhea/i.test(dangerHay);
+  const affected = asArray(record.affected_systems).map(clean).filter(Boolean);
+  const notes = clean(record.danger_notes || "");
+  const hay = `${ed} ${severity} ${level} ${effects} ${notes}`.toLowerCase();
+  const isDanger = /poison|deadly|toxic|danger|fatal|liver|kidney|neurolog|gastrointestinal|gi distress|vomit|diarrhea|unsafe/.test(hay);
 
-  if (isClearlyNonPoisonous(record, dangerHay) && !/deadly|fatal|liver|kidney|neurolog/i.test(dangerHay)) return "";
   if (!isDanger && !effects && !affected.length) return "";
-
   const fallbackEffects = effects || (ed === "deadly"
     ? "Potentially life-threatening poisoning. Avoid entirely."
     : "Can cause poisoning or serious illness. Treat as unsafe to eat.");
-  const seriousness = clean(record.danger_seriousness) || (ed === "deadly"
-    ? "High seriousness: this entry should be treated as potentially life-threatening, not as a beginner mistake."
-    : ed === "poisonous"
-      ? "Seriousness varies by species and amount eaten, but this is not a casual caution entry. Avoid eating it."
-      : "Unsafe or not recommended as food; review the caution notes before handling or comparing with edible species.");
-
   return `
     <section class="detail-block danger-detail-block">
       <h4>Danger / poisoning</h4>
       <dl class="kv">
         ${lineIf("Danger level", level || (ed === "deadly" ? "Deadly" : "Poisonous / unsafe"))}
         ${lineIf("Expected effects / symptoms", fallbackEffects)}
-        ${lineIf("Seriousness", seriousness)}
         ${lineIf("Body systems affected", affected.join(", "))}
         ${lineIf("Notes", notes)}
       </dl>
@@ -229,7 +342,10 @@ function dangerBlock(record) {
 function imageReviewBlock(record = {}) {
   const reasons = asArray(record.image_review_reasons).map(clean).filter(Boolean);
   const status = clean(record.image_review_status);
-  const hasPlaceholder = asArray(record.images).some((value) => String(value || "").toLowerCase().startsWith("data:image/svg") || String(value || "").toLowerCase().includes("image%20needed"));
+  const hasPlaceholder = asArray(record.images).some((value) => {
+    const text = String(value || "").toLowerCase();
+    return text.startsWith("data:image/svg") || text.includes("image%20needed") || text.includes("image needed");
+  });
   const lines = [
     lineIf("Photo status", status ? status.replaceAll("_", " ") : (hasPlaceholder ? "Needs field photo" : "")),
     lineIf("Photo notes", reasons.join(" "))
@@ -239,7 +355,9 @@ function imageReviewBlock(record = {}) {
 }
 
 function linkBlock(record) {
-  const links = Array.isArray(record.use_links) ? record.use_links : (Array.isArray(record.links) ? record.links.map((url) => ({ label: url, url })) : []);
+  const links = Array.isArray(record.use_links)
+    ? record.use_links
+    : (Array.isArray(record.links) ? record.links.map((url) => ({ label: url, url })) : []);
   if (!links.length) return "";
   const items = links.map((item) => {
     const url = typeof item === "string" ? item : item.url;
@@ -251,128 +369,15 @@ function linkBlock(record) {
   return `<section class="detail-block"><h4>Links</h4><ul class="list-tight">${items.join("")}</ul></section>`;
 }
 
-function joinClean(values = []) {
-  return values.map(clean).filter(Boolean).join(", ");
-}
-
-function normalizeForDuplicateCheck(value = "") {
-  return String(value || "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim();
-}
-
-function uniqueFoodLines(values = []) {
-  const seen = new Set();
-  const out = [];
-  for (const value of values) {
-    const text = clean(value);
-    if (!text) continue;
-    const key = normalizeForDuplicateCheck(text);
-    if (!key || seen.has(key)) continue;
-    seen.add(key);
-    out.push(text);
-  }
-  return out;
-}
-
-function isFoodCautionText(value = "") {
-  const text = String(value || "").toLowerCase();
-  return /\b(caution|avoid|unsafe|poison|toxic|raw|uncooked|undercooked|cook thoroughly|must be cooked|only when|only if|confidently identified|correctly identified|properly identified|good condition|look[- ]?alike|bitter|not recommended|gi distress|stomach|nausea|vomit|diarrhea)\b/.test(text);
-}
-
-function foodUseBlock(record) {
-  const edibleUse = record.edible_use || null;
-  const profile = record.mushroom_profile || {};
-  const culinaryUses = clean(record.culinary_uses);
-  const edibilityNotes = clean(record.edibility_notes || record.edibility_detail);
-  const taste = joinClean([
-    ...asArray(record.taste),
-    ...asArray(profile.taste)
-  ]);
-  const texture = joinClean([
-    ...asArray(record.texture),
-    ...asArray(profile.texture)
-  ]);
-  const processing = joinClean([
-    ...asArray(record.processing_required),
-    ...asArray(profile.processing_required)
-  ]);
-  const method = clean(edibleUse?.method || "");
-  const edibleNotes = clean(edibleUse?.notes || "");
-  const bestUses = isFoodCautionText(culinaryUses) ? "" : culinaryUses;
-  const cautionLines = uniqueFoodLines([
-    processing,
-    edibilityNotes,
-    edibleNotes,
-    isFoodCautionText(culinaryUses) ? culinaryUses : ""
-  ]);
-  const lines = [
-    lineIf("Food quality", record.food_quality),
-    lineIf("Use form", method && method.toLowerCase() !== "food" ? method : ""),
-    lineIf("Taste", taste),
-    lineIf("Texture", texture),
-    lineIf("Best uses / cooking notes", bestUses),
-    lineIf("Preparation / caution", cautionLines.join(" "))
-  ].join("");
-  if (!lines.trim()) return "";
-  return `
-    <section class="detail-block food-use-block">
-      <h4>Food-Use</h4>
-      <dl class="kv">
-        ${lines}
-      </dl>
-    </section>
-  `;
-}
-
-function asArray(value) {
-  if (Array.isArray(value)) return value;
-  if (value === undefined || value === null || value === "") return [];
-  return [value];
-}
-
-function profileListValue(profile = {}, key) {
-  const value = profile?.[key];
-  if (Array.isArray(value)) return value.map(clean).filter(Boolean).join(", ");
-  return clean(value);
-}
-
-function boleteDetailBlock(record) {
-  if (String(record?.lane || "").toLowerCase() !== "bolete") return "";
-  const profile = record.mushroom_profile || {};
-  const lines = [
-    lineIf("Pore color", profileListValue(profile, "pore_color") || profileListValue(record, "poreColor")),
-    lineIf("Bruising / staining", profileListValue(profile, "staining") || profileListValue(record, "staining")),
-    lineIf("Stem features", profileListValue(profile, "stem_feature") || profileListValue(record, "stemFeature")),
-    lineIf("Cap surface", profileListValue(profile, "cap_surface")),
-    lineIf("Growing from / with", profileListValue(profile, "substrate") || profileListValue(record, "substrate")),
-    lineIf("Associated trees", profileListValue(profile, "host_trees") || profileListValue(record, "hostTree")),
-    lineIf("Tree association", profileListValue(profile, "host_filter_tokens") || profileListValue(record, "host_filter_tokens")),
-    lineIf("Taste / warning clue", profileListValue(profile, "taste") || profileListValue(record, "taste")),
-    lineIf("Season note", profile.season_note)
-  ].join("");
-  if (!lines.trim()) return "";
-  return `
-    <section class="detail-block bolete-id-block">
-      <h4>Pored mushroom field marks</h4>
-      <dl class="kv">
-        ${lines}
-      </dl>
-    </section>
-  `;
-}
-
 export function renderDetail(record) {
   const typeLabel = record.foraging_class ? String(record.foraging_class).replaceAll("_", " ") : (record.category || record.group || "");
   const medicinal = getMedicinalData(record);
   const medicinalUses = clean(medicinal.summary || "");
   const medicinalWarnings = clean(medicinal.warnings || "");
-  const habitats = Array.isArray(record.habitats) && record.habitats.length ? record.habitats.join(", ") : (Array.isArray(record.habitat) ? record.habitat.join(", ") : (record.habitat_detail || ""));
-  const culinaryUses = clean(record.culinary_uses);
+  const habitats = Array.isArray(record.habitats) && record.habitats.length
+    ? record.habitats.join(", ")
+    : (Array.isArray(record.habitat) ? record.habitat.join(", ") : (record.habitat_detail || ""));
   const otherUses = clean(record.other_uses);
-  const edibilityNotes = clean(record.edibility_notes || record.edibility_detail);
   const notes = !isBuildNoteText(record.notes) ? clean(record.notes) : "";
   const generalNotes = !isBuildNoteText(record.general_notes) ? clean(record.general_notes) : "";
   const overview = clean(record.overview);
@@ -382,7 +387,7 @@ export function renderDetail(record) {
   return `
     <article class="detail-grid">
       <section class="detail-block detail-hero">
-        ${renderImageSlot(record, 'detail')}
+        ${renderImageSlot(record, "detail")}
         <div>
           <h3>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</h3>
           <p class="muted">${esc(record.scientific_name || "")}</p>
@@ -392,13 +397,8 @@ export function renderDetail(record) {
             ${seasonText(record) ? `<span class="tag">Season: ${esc(seasonText(record))}</span>` : ""}
             ${record.food_quality ? `<span class="tag ${/not recommended|avoid|poor|inedible/i.test(String(record.food_quality)) ? "danger" : "good"}">Food quality: ${esc(record.food_quality)}</span>` : ""}
             ${record.non_edible_severity && !edibleUse?.has_ingestible_use ? `<span class="tag danger">${esc(record.non_edible_severity)}</span>` : ""}
-            ${record.image_review_status ? `<span class="tag review">Photo: ${esc(String(record.image_review_status).replaceAll("_", " "))}</span>` : ''}
-            ${record.review_status === 'needs_review' ? `<span class="tag review">Needs review</span>` : ''}
-          </div>
-          <div class="quick-actions">
-            ${record.review_status === 'needs_review'
-              ? `<button class="warn" type="button" data-review-action="mark-ok" data-slug="${esc(record.slug)}">Mark OK</button>`
-              : `<button class="subtle" type="button" data-review-action="send-review" data-slug="${esc(record.slug)}">Send to Needs Review</button>`}
+            ${record.image_review_status ? `<span class="tag review">Photo: ${esc(String(record.image_review_status).replaceAll("_", " "))}</span>` : ""}
+            ${record.review_status === "needs_review" ? `<span class="tag review">Needs review</span>` : ""}
           </div>
         </div>
       </section>
@@ -427,7 +427,6 @@ export function renderDetail(record) {
       ${rareBlock(record)}
       ${notes ? `<section class="detail-block"><h4>Notes</h4><p>${esc(notes)}</p></section>` : ""}
       ${generalNotes ? `<section class="detail-block"><h4>General notes</h4><p>${esc(generalNotes)}</p></section>` : ""}
-
       ${lookAlikeBlock(record)}
       ${listBlock("Medicinal actions", medicinal.actions)}
       ${listBlock("Medicinal systems", medicinal.body_systems)}

@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.93-r2026-04-30-bolete-other-final-review1",
+    "build": "v4.2.94-r2026-04-30-food-caution-language1",
     "primary_type": "mushroom",
     "split_version": "mushroom-data-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-other2.json",
@@ -9,7 +9,7 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 11,
-    "notes": "Split from former mushrooms-boletes-other.json in v4.2.90 to reduce large-file handling/static. Record bodies and order were preserved; each canonical slug still appears in exactly one base mushroom split file. Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records. v4.2.91: other-bolete review pass updated review flags using the 2-3 distinct-image rule. v4.2.92: removed stale seed/review/build notes from user-facing nested profile fields while preserving active review reasons. v4.2.93 reviewed the 11 remaining other-bolete Needs Review records, resolving records with adequate source/photo support and retaining only true blocked review reasons.",
+    "notes": "Split from former mushrooms-boletes-other.json in v4.2.90 to reduce large-file handling/static. Record bodies and order were preserved; each canonical slug still appears in exactly one base mushroom split file. Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records. v4.2.91: other-bolete review pass updated review flags using the 2-3 distinct-image rule. v4.2.92: removed stale seed/review/build notes from user-facing nested profile fields while preserving active review reasons. v4.2.93 reviewed the 11 remaining other-bolete Needs Review records, resolving records with adequate source/photo support and retaining only true blocked review reasons. v4.2.94 separated food-use text from caution text and removed duplicate edible/caution echoes in detail-facing fields.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -35,7 +35,8 @@
       "needs_review_after": 0,
       "needs_review_slugs_after": [],
       "rule": "Clear only when actual review reason is fixed; keep photo review when fewer than 2 genuinely distinct real images are available."
-    }
+    },
+    "last_food_caution_cleanup": "v4.2.94-r2026-04-30-food-caution-language1"
   },
   "records": [
     {
@@ -184,7 +185,7 @@
       "display_name": "Gilled Bolete — P. leucomycelinus",
       "common_name": "Gilled Bolete — P. leucomycelinus",
       "category": "Mushroom",
-      "culinary_uses": "Often considered edible, but this guide treats it as a careful-ID species rather than a beginner mushroom.",
+      "culinary_uses": "Occasional edible in some guides; not a prime target.",
       "medicinal_uses": "",
       "notes": "",
       "months_available": [
@@ -291,7 +292,7 @@
       "look_alikes": [],
       "confused_with": [],
       "general_notes": "",
-      "edibility_detail": "Edible only with confident ID; gilled-bolete separation can be subtle.",
+      "edibility_detail": "Use only with confident gilled-bolete ID. Fresh yellow gills and white basal mycelium are key; separate carefully from P. rhodoxanthus and other gilled-bolete concepts.",
       "food_role": "food",
       "search_aliases": [
         "Gilled Bolete"
@@ -315,14 +316,15 @@
       "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
       "curation_notes": [
         "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
-      ]
+      ],
+      "edibility_notes": "Use only with confident gilled-bolete ID. Fresh yellow gills and white basal mycelium are key; separate carefully from P. rhodoxanthus and other gilled-bolete concepts."
     },
     {
       "slug": "phylloporus-rhodoxanthus",
       "display_name": "Gilled Bolete — P. rhodoxanthus",
       "common_name": "Gilled Bolete — P. rhodoxanthus",
       "category": "Mushroom",
-      "culinary_uses": "Often treated as edible, but keep the ID conservative because gilled bolete concepts are shifting.",
+      "culinary_uses": "Occasional edible in some guides; not a prime target.",
       "medicinal_uses": "",
       "notes": "",
       "months_available": [
@@ -429,7 +431,7 @@
       "look_alikes": [],
       "confused_with": [],
       "general_notes": "",
-      "edibility_detail": "Edible with strong ID; not a beginner shortcut mushroom.",
+      "edibility_detail": "Keep the ID conservative because gilled-bolete concepts are shifting. Confirm the bolete-like cap, bright yellow gills, yellow basal mycelium, hardwood association, and lack of dangerous look-alike traits.",
       "food_role": "food",
       "search_aliases": [
         "Gilled Bolete"
@@ -453,14 +455,15 @@
       "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
       "curation_notes": [
         "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
-      ]
+      ],
+      "edibility_notes": "Keep the ID conservative because gilled-bolete concepts are shifting. Confirm the bolete-like cap, bright yellow gills, yellow basal mycelium, hardwood association, and lack of dangerous look-alike traits."
     },
     {
       "slug": "austroboletus-gracilis",
       "display_name": "Graceful Bolete",
       "common_name": "Graceful Bolete",
       "category": "Mushroom",
-      "culinary_uses": "Not a high-value edible; better as an identification/comparison species.",
+      "culinary_uses": "Low-value occasional edible/comparison species; not a prime table mushroom.",
       "medicinal_uses": "",
       "notes": "",
       "months_available": [
@@ -563,7 +566,7 @@
       "look_alikes": [],
       "confused_with": [],
       "general_notes": "",
-      "edibility_detail": "Use cautiously; not treated as a prime table mushroom here.",
+      "edibility_detail": "Use cautiously. Confirm the long slender stem, whitish pores becoming pinkish, and hemlock/conifer association before treating it as anything more than an ID record.",
       "food_role": "food",
       "needs_review": false,
       "review_status": "ok",
@@ -581,7 +584,8 @@
       "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
       "curation_notes": [
         "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
-      ]
+      ],
+      "edibility_notes": "Use cautiously. Confirm the long slender stem, whitish pores becoming pinkish, and hemlock/conifer association before treating it as anything more than an ID record."
     },
     {
       "slug": "paragyrodon-sphaerosporus",
@@ -691,7 +695,7 @@
       "review_notes": "",
       "mushroom_card_note": "Great Lakes-region oak bolete with sticky brownish cap, yellow pores that brown strongly, and nearly round spores.",
       "field_identification": "Look for a sticky yellow-brown to brown cap, yellow pore surface that bruises dark brown, a sheathing veil/ring zone low on the stem, oak association, and nearly round spores. Known especially from Great Lakes oak settings.",
-      "edibility_detail": "ID/comparison entry, not a recommended edible in this guide.",
+      "edibility_detail": "ID/comparison entry, not a recommended edible. Confirm sticky brownish cap, yellow pores that bruise dark brown, oak association, and the unusual veil/ring-zone clues.",
       "use_roles": [
         "ID / comparison"
       ],
@@ -722,14 +726,15 @@
           "source_quality": "taxon/media reference",
           "notes": "Two public image files."
         }
-      ]
+      ],
+      "edibility_notes": "ID/comparison entry, not a recommended edible. Confirm sticky brownish cap, yellow pores that bruise dark brown, oak association, and the unusual veil/ring-zone clues."
     },
     {
       "slug": "parasitic-bolete",
       "display_name": "Parasitic Bolete",
       "common_name": "Parasitic Bolete",
       "category": "Mushroom",
-      "culinary_uses": "Not recommended as food because it grows directly on Scleroderma earthballs, which are poisonous.",
+      "culinary_uses": "Not recommended as food in this guide; valuable mainly as a curiosity/caution species.",
       "medicinal_uses": "",
       "notes": "Needs review: Needs more distinct photo coverage.",
       "months_available": [
@@ -845,7 +850,7 @@
       "habitat": [],
       "food_role": "avoid",
       "edibility_status": "not_edible",
-      "edibility_detail": "Avoid for food in this guide; keep as an identification/caution record.",
+      "edibility_detail": "Avoid for food here because it grows directly on Scleroderma earthballs, which are poisonous. Confirm the parasitic habit on an earthball before naming it.",
       "field_identification": "Small yellow-brown bolete that grows directly from common earthballs (Scleroderma), usually the most important ID feature. Pores are yellow to olive and the stem is small and often curved.",
       "use_links": [
         {
@@ -887,7 +892,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "The mushroom itself is sometimes described as edible, but this guide treats it as avoid/not recommended because of its poisonous earthball host.",
+      "edibility_notes": "Avoid for food here because it grows directly on Scleroderma earthballs, which are poisonous. Confirm the parasitic habit on an earthball before naming it.",
       "curation_notes": [
         "Minimal species seed. Added during the bolete expansion pass for the clean app; details, seasonality, and images still need a later review.",
         "v4.2.91 image review: only one distinct real image is loaded; keep in Needs Review until at least 2 genuinely different photos are available.",
@@ -923,7 +928,7 @@
       "display_name": "Pseudomerulius Curtisii",
       "common_name": "Pseudomerulius Curtisii",
       "category": "Mushroom",
-      "culinary_uses": "Not recommended as food in this guide.",
+      "culinary_uses": "Not recommended as food; useful as a wood-growing Boletales oddball.",
       "medicinal_uses": "",
       "notes": "Needs review: Needs stronger field-guide source; Needs UI/filter placement check; Needs more distinct photo coverage.",
       "months_available": [],
@@ -1011,7 +1016,7 @@
       "review_notes": "",
       "mushroom_card_note": "Wood-growing Boletales oddball with a veined/merulioid yellow-orange fertile surface; not a normal cap-and-stem bolete target.",
       "field_identification": "Look for a sessile or reduced-stem fruit body on dead/debarked conifer wood, with a fuzzy yellow cap surface and wavy, gill-like to veined yellow-orange underside rather than round bolete pores. Keep in the Other lane, not the main bolete lane.",
-      "edibility_detail": "Keep as an identification/odd-form record, not a forage target.",
+      "edibility_detail": "Keep as an identification/form record, not a forage target. Confirm the wood-associated fruitbody and strongly veined to merulioid underside.",
       "use_roles": [
         "ID / comparison"
       ],
@@ -1042,14 +1047,15 @@
           "source_quality": "taxon/media reference",
           "notes": "Genus category with Pseudomerulius curtisii media."
         }
-      ]
+      ],
+      "edibility_notes": "Keep as an identification/form record, not a forage target. Confirm the wood-associated fruitbody and strongly veined to merulioid underside."
     },
     {
       "slug": "pulveroboletus-ravenelii",
       "display_name": "Ravenel's Bolete",
       "common_name": "Ravenel's Bolete",
       "category": "Mushroom",
-      "culinary_uses": "Not treated as a food target; the distinctive yellow veil makes it more useful for identification.",
+      "culinary_uses": "Not treated as food; more useful for recognizing the bright yellow-veiled bolete form.",
       "medicinal_uses": "",
       "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [
@@ -1154,7 +1160,7 @@
       "review_notes": "",
       "mushroom_card_note": "Bright yellow-veiled bolete when young, often with reddish/orange cap tones and blue-green bruising on pores.",
       "field_identification": "Young mushrooms have a powdery bright yellow veil over the pore surface and stem; older mushrooms show yellow veil remnants, reddish to orange cap colors, yellowish pores, and greenish-blue bruising.",
-      "edibility_detail": "Avoid as a food target in this guide.",
+      "edibility_detail": "Avoid as a food target. Confirm the powdery yellow veil in young specimens, yellowish pores, reddish/orange cap tones, and greenish-blue bruising.",
       "use_roles": [
         "ID / comparison"
       ],
@@ -1183,14 +1189,15 @@
           "source_quality": "taxon/media reference",
           "notes": "Public image category with seven files."
         }
-      ]
+      ],
+      "edibility_notes": "Avoid as a food target. Confirm the powdery yellow veil in young specimens, yellowish pores, reddish/orange cap tones, and greenish-blue bruising."
     },
     {
       "slug": "aureoboletus-betula",
       "display_name": "Shaggy Stalked Bolete",
       "common_name": "Shaggy Stalked Bolete",
       "category": "Mushroom",
-      "culinary_uses": "Not a target food mushroom; included for identification/comparison.",
+      "culinary_uses": "Not a target food mushroom; useful mainly for identification/comparison.",
       "medicinal_uses": "",
       "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
@@ -1280,7 +1287,7 @@
       "review_notes": "",
       "mushroom_card_note": "Small sticky yellow-orange to reddish bolete with an unusually long, deeply reticulate stem; reported from Michigan but more southern/Appalachian in emphasis.",
       "field_identification": "Check for sticky bright yellow/orange to reddish cap, yellow non-bruising pores, and a striking long stem that is deeply ridged or lacerate-reticulate. Oak or mixed oak-pine association.",
-      "edibility_detail": "Treat as ID/comparison until local confidence is stronger.",
+      "edibility_detail": "Treat as ID/comparison until local confidence is stronger. Confirm sticky yellow/orange to reddish cap, yellow non-bruising pores, long deeply reticulate stem, and oak or mixed oak-pine setting.",
       "use_roles": [
         "ID / comparison"
       ],
@@ -1309,14 +1316,15 @@
           "source_quality": "image reference",
           "notes": "Public field image."
         }
-      ]
+      ],
+      "edibility_notes": "Treat as ID/comparison until local confidence is stronger. Confirm sticky yellow/orange to reddish cap, yellow non-bruising pores, long deeply reticulate stem, and oak or mixed oak-pine setting."
     },
     {
       "slug": "aureoboletus-auriporus",
       "display_name": "Sour Gold-Pored Bolete",
       "common_name": "Sour Gold-Pored Bolete",
       "category": "Mushroom",
-      "culinary_uses": "Not a prime food; useful as a distinctive yellow-pored bolete and comparison species.",
+      "culinary_uses": "Occasional/niche edible comparison species; not a main target.",
       "medicinal_uses": "",
       "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [
@@ -1417,7 +1425,7 @@
       "review_notes": "",
       "mushroom_card_note": "Eastern oak-forest bolete with sticky pinkish-brown cap and bright yellow non-bruising pores; cap surface may taste sour.",
       "field_identification": "Look for sticky pinkish-brown to reddish-brown cap, bright yellow pore surface that does not bruise, white basal mycelium, and a slender reddish/yellowish stem. Mycorrhizal with oaks and other hardwoods in eastern North America.",
-      "edibility_detail": "Occasional/niche use only; not a main target.",
+      "edibility_detail": "Confirm sticky pinkish-brown cap, bright yellow non-bruising pores, white basal mycelium, and oak/hardwood association. Do not infer food value from yellow pores alone.",
       "use_roles": [
         "ID / comparison"
       ],
@@ -1446,14 +1454,15 @@
           "source_quality": "taxon/media reference",
           "notes": "Public image category with multiple files."
         }
-      ]
+      ],
+      "edibility_notes": "Confirm sticky pinkish-brown cap, bright yellow non-bruising pores, white basal mycelium, and oak/hardwood association. Do not infer food value from yellow pores alone."
     },
     {
       "slug": "buchwaldoboletus-lignicola",
       "display_name": "Wood Bolete",
       "common_name": "Wood Bolete",
       "category": "Mushroom",
-      "culinary_uses": "Not recommended as food; included for odd wood-associated bolete recognition.",
+      "culinary_uses": "Not recommended as food; useful as an odd wood-associated bolete record.",
       "medicinal_uses": "",
       "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
@@ -1546,7 +1555,7 @@
       "review_notes": "",
       "mushroom_card_note": "Wood-associated Buchwaldoboletus tied to conifer wood and possibly Phaeolus schweinitzii; keep as an oddball ID record.",
       "field_identification": "Yellow-brown cap, yellow pore surface, wood association, and possible relationship with the dyer’s polypore Phaeolus schweinitzii are the useful clues. Compare with B. hemichrysus and B. sphaerocephalus.",
-      "edibility_detail": "ID/comparison only in this guide.",
+      "edibility_detail": "ID/comparison only in this guide. Confirm wood association and compare carefully with B. hemichrysus and B. sphaerocephalus.",
       "use_roles": [
         "ID / comparison"
       ],
@@ -1575,7 +1584,8 @@
           "source_quality": "image reference",
           "notes": "Pore-surface context."
         }
-      ]
+      ],
+      "edibility_notes": "ID/comparison only in this guide. Confirm wood association and compare carefully with B. hemichrysus and B. sphaerocephalus."
     }
   ]
 }

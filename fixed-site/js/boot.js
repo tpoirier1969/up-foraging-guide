@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.93-r2026-04-30-bolete-other-final-review1";
-const DISPLAY_VERSION = "V4.2.93-r26-04-30";
+const APP_VERSION = "v4.2.94-r2026-04-30-food-caution-language1";
+const DISPLAY_VERSION = "V4.2.94-r26-04-30";
 
 function esc(value) {
   return String(value ?? "")

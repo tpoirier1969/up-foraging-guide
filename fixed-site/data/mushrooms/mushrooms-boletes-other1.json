@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.93-r2026-04-30-bolete-other-final-review1",
+    "build": "v4.2.94-r2026-04-30-food-caution-language1",
     "primary_type": "mushroom",
     "split_version": "mushroom-data-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-other1.json",
@@ -9,7 +9,7 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 12,
-    "notes": "Split from former mushrooms-boletes-other.json in v4.2.90 to reduce large-file handling/static. Record bodies and order were preserved; each canonical slug still appears in exactly one base mushroom split file. Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records. v4.2.91: other-bolete review pass updated review flags using the 2-3 distinct-image rule. v4.2.92: removed stale seed/review/build notes from user-facing nested profile fields while preserving active review reasons. v4.2.93 reviewed the 11 remaining other-bolete Needs Review records, resolving records with adequate source/photo support and retaining only true blocked review reasons.",
+    "notes": "Split from former mushrooms-boletes-other.json in v4.2.90 to reduce large-file handling/static. Record bodies and order were preserved; each canonical slug still appears in exactly one base mushroom split file. Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records. v4.2.91: other-bolete review pass updated review flags using the 2-3 distinct-image rule. v4.2.92: removed stale seed/review/build notes from user-facing nested profile fields while preserving active review reasons. v4.2.93 reviewed the 11 remaining other-bolete Needs Review records, resolving records with adequate source/photo support and retaining only true blocked review reasons. v4.2.94 separated food-use text from caution text and removed duplicate edible/caution echoes in detail-facing fields.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -38,7 +38,8 @@
         "chalciporus-pseudorubinellus"
       ],
       "rule": "Clear only when actual review reason is fixed; keep photo review when fewer than 2 genuinely distinct real images are available."
-    }
+    },
+    "last_food_caution_cleanup": "v4.2.94-r2026-04-30-food-caution-language1"
   },
   "records": [
     {
@@ -191,7 +192,7 @@
       "display_name": "Long-stemmed Bolete",
       "common_name": "Long-stemmed Bolete",
       "category": "Mushroom",
-      "culinary_uses": "Reported edible when young and in good condition, but treat as a confident-ID bolete rather than a beginner mushroom.",
+      "culinary_uses": "Occasional edible when young and firm; not a prime beginner bolete.",
       "medicinal_uses": "",
       "notes": "",
       "months_available": [
@@ -311,7 +312,7 @@
       "look_alikes": [],
       "confused_with": [],
       "general_notes": "",
-      "edibility_detail": "Best approached as an edible-with-caution species: confirm pine association, very long ridged stem, yellow pores, and lack of dangerous red-pored traits.",
+      "edibility_detail": "Use only with confident pine-associated long-stemmed bolete ID. Confirm the very long ridged stem, yellow pores, prominent white basal mycelium, and absence of dangerous red-pored traits.",
       "food_role": "food",
       "common_names": [
         "Long-stemmed Bolete",
@@ -348,7 +349,7 @@
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Reported edible when young and in good condition, but treat as a confident-ID bolete rather than a beginner mushroom. Best approached as an edible-with-caution species: confirm pine association, very long ridged stem, yellow pores, and lack of dangerous red-pored traits.",
+      "edibility_notes": "Use only with confident pine-associated long-stemmed bolete ID. Confirm the very long ridged stem, yellow pores, prominent white basal mycelium, and absence of dangerous red-pored traits.",
       "curation_notes": [],
       "search_aliases": [],
       "non_edible_severity": "",
@@ -356,7 +357,7 @@
         "has_ingestible_use": true,
         "method": "Food",
         "preparation_required": false,
-        "notes": "Reported edible when young and in good condition, but treat as a confident-ID bolete rather than a beginner mushroom. Best approached as an edible-with-caution species: confirm pine association, very long ridged stem, yellow pores, and lack of dangerous red-pored traits."
+        "notes": "Use only with confident pine-associated long-stemmed bolete ID. Confirm the very long ridged stem, yellow pores, prominent white basal mycelium, and absence of dangerous red-pored traits."
       },
       "medicinal": {
         "has_meaningful_content": false,
@@ -994,7 +995,7 @@
       "display_name": "Chalciporus Piperatoides",
       "common_name": "Chalciporus Piperatoides",
       "category": "Mushroom",
-      "culinary_uses": "Peppery/bitter taste makes this a seasoning-or-curiosity mushroom at best, not a meal mushroom.",
+      "culinary_uses": "Peppery/bitter seasoning-or-curiosity mushroom at best; not a meal mushroom.",
       "medicinal_uses": "",
       "notes": "Needs review: Needs more distinct photo coverage.",
       "months_available": [
@@ -1098,7 +1099,7 @@
       "look_alikes": [],
       "confused_with": [],
       "general_notes": "",
-      "edibility_detail": "Use caution; taste clue is spit-out only and the species is mainly useful for ID comparison.",
+      "edibility_detail": "Use only as a careful ID/comparison species. The peppery/bitter taste clue should be nibble-and-spit only, and this record still needs more distinct public image coverage.",
       "food_role": "food",
       "needs_review": true,
       "review_status": "needs_review",
@@ -1126,14 +1127,15 @@
         "v4.2.91 image review: only one distinct real image is loaded; keep in Needs Review until at least 2 genuinely different photos are available.",
         "v4.2.93 confirmed this remains image-blocked: one distinct Commons image found."
       ],
-      "photo_subject": "Only one distinct Commons image currently available; do not count thumbnail/detail/enlarge variants as extra coverage."
+      "photo_subject": "Only one distinct Commons image currently available; do not count thumbnail/detail/enlarge variants as extra coverage.",
+      "edibility_notes": "Use only as a careful ID/comparison species. The peppery/bitter taste clue should be nibble-and-spit only, and this record still needs more distinct public image coverage."
     },
     {
       "slug": "chalciporus-piperatus",
       "display_name": "Chalciporus Piperatus",
       "common_name": "Chalciporus Piperatus",
       "category": "Mushroom",
-      "culinary_uses": "Sometimes treated as a peppery seasoning mushroom, but not a bulk food. Taste test only by nibbling and spitting out.",
+      "culinary_uses": "Peppery seasoning mushroom at most; not a bulk food.",
       "medicinal_uses": "",
       "notes": "",
       "months_available": [
@@ -1236,7 +1238,7 @@
       "look_alikes": [],
       "confused_with": [],
       "general_notes": "",
-      "edibility_detail": "Not a prime edible; useful mostly as a recognizable peppery bolete.",
+      "edibility_detail": "Taste testing should be nibble-and-spit only. Confirm dull reddish-brown cap, brownish-red pores that do not blue, yellow basal mycelium, and very peppery taste.",
       "food_role": "food",
       "needs_review": false,
       "review_status": "ok",
@@ -1254,14 +1256,15 @@
       "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
       "curation_notes": [
         "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
-      ]
+      ],
+      "edibility_notes": "Taste testing should be nibble-and-spit only. Confirm dull reddish-brown cap, brownish-red pores that do not blue, yellow basal mycelium, and very peppery taste."
     },
     {
       "slug": "chalciporus-pseudorubinellus",
       "display_name": "Chalciporus Pseudorubinellus",
       "common_name": "Chalciporus Pseudorubinellus",
       "category": "Mushroom",
-      "culinary_uses": "Not a core food target; included for comparison among small red-pored boletes.",
+      "culinary_uses": "Not a core food target; mainly useful for comparison among small red-pored boletes.",
       "medicinal_uses": "",
       "notes": "Needs review: Needs more distinct photo coverage.",
       "months_available": [
@@ -1367,7 +1370,7 @@
       "look_alikes": [],
       "confused_with": [],
       "general_notes": "",
-      "edibility_detail": "Treat cautiously; exact ID and local confirmation matter more than food value.",
+      "edibility_detail": "Treat as specialist-ID only. Confirm the small yellow to red-pink cap, red-pink pores fading orange-brown, yellow flesh that does not blue, and yellow-based pinkish stem; this record still needs more distinct public image coverage.",
       "food_role": "food",
       "needs_review": true,
       "review_status": "needs_review",
@@ -1395,14 +1398,15 @@
         "v4.2.91 image review: only one distinct real image is loaded; keep in Needs Review until at least 2 genuinely different photos are available.",
         "v4.2.93 confirmed this remains image-blocked: one distinct Commons image found."
       ],
-      "photo_subject": "Only one distinct Commons image currently available; do not count thumbnail/detail/enlarge variants as extra coverage."
+      "photo_subject": "Only one distinct Commons image currently available; do not count thumbnail/detail/enlarge variants as extra coverage.",
+      "edibility_notes": "Treat as specialist-ID only. Confirm the small yellow to red-pink cap, red-pink pores fading orange-brown, yellow flesh that does not blue, and yellow-based pinkish stem; this record still needs more distinct public image coverage."
     },
     {
       "slug": "chalciporus-rubinellus",
       "display_name": "Chalciporus Rubinellus",
       "common_name": "Chalciporus Rubinellus",
       "category": "Mushroom",
-      "culinary_uses": "Not a main food mushroom in this guide; keep as a comparison species.",
+      "culinary_uses": "Comparison species rather than a main food mushroom.",
       "medicinal_uses": "",
       "notes": "",
       "months_available": [
@@ -1502,7 +1506,7 @@
       "look_alikes": [],
       "confused_with": [],
       "general_notes": "",
-      "edibility_detail": "Caution/ID entry rather than a prime edible.",
+      "edibility_detail": "Use caution with small red-pored boletes. Confirm red to pinkish pores, yellow flesh that generally does not blue, and separation from C. pseudorubinellus and C. piperatus.",
       "food_role": "food",
       "needs_review": false,
       "review_status": "ok",
@@ -1520,7 +1524,8 @@
       "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
       "curation_notes": [
         "v4.2.91 image review: 2 distinct real image URLs are present; stale image-only review flags cleared."
-      ]
+      ],
+      "edibility_notes": "Use caution with small red-pored boletes. Confirm red to pinkish pores, yellow flesh that generally does not blue, and separation from C. pseudorubinellus and C. piperatus."
     },
     {
       "slug": "harrya-chromapes",
