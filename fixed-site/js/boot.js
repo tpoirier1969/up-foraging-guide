@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.82-r2026-04-30-mushroom-bolete-credibility2";
-const DISPLAY_VERSION = "V4.2.82-r26-04-30";
+const APP_VERSION = "v4.2.84-r2026-04-30-mushroom-red-caution-credibility1";
+const DISPLAY_VERSION = "V4.2.84-r26-04-30";
 
 function esc(value) {
   return String(value ?? "")
