@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4",
+    "build": "v4.2.88-r2026-04-30-mushroom-porcini-red-credibility5",
     "primary_type": "mushroom",
     "split_version": "mushroom-data-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-red-caution.json",
@@ -9,7 +9,7 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 39,
-    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.84 updated 25 red/caution bolete records with conservative notes, sources, and explicit remaining review reasons. v4.2.86: optional photo patches are treated as fill-only for existing base-record image fields; direct image fallback hardened for Black Velvet Bolete and Suillus tomentosus where applicable. v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4: carried forward with patch-precedence-safe image handling.",
+    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.84 updated 25 red/caution bolete records with conservative notes, sources, and explicit remaining review reasons. v4.2.86: optional photo patches are treated as fill-only for existing base-record image fields; direct image fallback hardened for Black Velvet Bolete and Suillus tomentosus where applicable. v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4: carried forward with patch-precedence-safe image handling. v4.2.88: 25-record mushroom credibility/review pass; porcini/Tylopilus/Xerocomus records rechecked and remaining red/caution records improved while preserving true image/local-taxonomy review flags.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -17,7 +17,8 @@
       "review_records_in_file": 36,
       "cleared_image_only_slugs_not_reopened": []
     },
-    "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1"
+    "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
+    "last_credibility_batch": "v4.2.88-r2026-04-30-mushroom-porcini-red-credibility5"
   },
   "records": [
     {
@@ -4142,14 +4143,15 @@
       "display_name": "Lurid Bolete",
       "common_name": "Lurid Bolete",
       "category": "Mushroom",
-      "culinary_uses": "Added as part of the red-pored / staining caution lane.",
+      "culinary_uses": "Avoid in this guide. Red-pored blue-staining boletes are not beginner targets, and species boundaries are messy.",
       "medicinal_uses": "",
       "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [],
       "month_numbers": [],
       "links": [
         "https://www.wildfooduk.com/mushroom-guide/lurid-bolete/",
-        "https://www.discoverthewild.co.uk/MushroomGuide/lurid-bolete"
+        "https://www.discoverthewild.co.uk/MushroomGuide/lurid-bolete",
+        "https://www.mushroomexpert.com/boletes_red_capped_blue_staining.html"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/2010-09-13%20Boletus%20luridus%20Schaeff%20104527.jpg",
@@ -4162,7 +4164,7 @@
         "entry_scope": "species",
         "edibility_status": "toxic_or_dangerous",
         "caution_level": "high",
-        "summary": "Minimal bolete seed entry for Lurid Bolete. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Red/orange-pored, blue-staining bolete group; included for caution and comparison.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -4178,7 +4180,9 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Blue bruising possible",
+        "staining": [
+          "Strong blue staining"
+        ],
         "taste": [],
         "spore_print": "",
         "season_note": "",
@@ -4186,19 +4190,19 @@
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "v4.2.88: species/card field notes and source/review cleanup pass applied."
         ],
         "pore_color": [
-          "Orange-red to red pores"
+          "Red to orange pores",
+          "Strong blue bruising"
         ],
         "fertile_surface": [
           "Pores"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Red-staining & red-pored caution boletes",
       "boleteGroup": [
@@ -4215,9 +4219,7 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -4231,8 +4233,8 @@
       "habitat": [],
       "food_role": "avoid",
       "edibility_status": "not_edible",
-      "edibility_detail": "Avoid for food in this guide. Red/orange-pored, blue-staining boletes are a caution zone because some cause stomach upset and several are confused with toxic look-alikes.",
-      "field_identification": "Red/orange pores, strong blue bruising when cut or handled, and a netted reddish stem pattern. Similar red-pored blue-staining boletes are easy to confuse, so this guide keeps it out of the edible list.",
+      "edibility_detail": "Treat as not recommended; high confusion risk with toxic red-pored boletes.",
+      "field_identification": "Red to orange pore surface, strong blue staining, reticulate or patterned stem, and hardwood association place it in the high-caution red-pored bolete lane.",
       "edible_use": {
         "has_ingestible_use": false,
         "method": "",
@@ -4241,24 +4243,31 @@
       },
       "needs_review": true,
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
-      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Lurid Bolete group: red/orange-pored, blue-staining bolete; not a beginner edible and not something to toss casually in a pan.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "v4288_checked": true
     },
     {
       "slug": "neoboletus-pseudosulphureus",
       "display_name": "Neoboletus pseudosulphureus",
       "common_name": "Neoboletus pseudosulphureus",
       "category": "Mushroom",
-      "culinary_uses": "Added as part of the red-pored / staining caution lane.",
+      "culinary_uses": "Not a food target in this guide.",
       "medicinal_uses": "",
       "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/boletes_red_capped_blue_staining.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ENeoboletus%20pseudosulphureus%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -4268,7 +4277,7 @@
         "entry_scope": "species",
         "edibility_status": "toxic_or_dangerous",
         "caution_level": "high",
-        "summary": "Minimal bolete seed entry for Neoboletus pseudosulphureus. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Neoboletus-type red/yellow-pored blue-staining bolete; high-caution comparison record.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -4282,7 +4291,9 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Blue bruising possible",
+        "staining": [
+          "Rapid blue staining"
+        ],
         "taste": [],
         "spore_print": "",
         "season_note": "",
@@ -4291,14 +4302,16 @@
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "v4.2.88: species/card field notes and source/review cleanup pass applied."
+        ],
+        "pore_color": [
+          "Yellow to red pores",
+          "Blue bruising"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Red-staining & red-pored caution boletes",
       "boleteGroup": [
@@ -4315,9 +4328,7 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -4331,7 +4342,7 @@
       "habitat": [],
       "food_role": "avoid",
       "edibility_status": "not_edible",
-      "edibility_detail": "Avoid for food in this guide; keep as an identification/caution record.",
+      "edibility_detail": "Avoid for food due to red-pored blue-staining confusion risk.",
       "edible_use": {
         "has_ingestible_use": false,
         "method": "",
@@ -4344,25 +4355,33 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Yellow/red-pored blue-staining Neoboletus-type record; keep in the caution lane until identity is rock solid.",
+      "field_identification": "Check for yellow to red pore tones, rapid blue staining, yellow flesh, and Neoboletus-style red-pored bolete traits. This is a microscope/taxonomy-heavy neighborhood.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "v4288_checked": true
     },
     {
       "slug": "neoboletus-subluridellus",
       "display_name": "Neoboletus subluridellus",
       "common_name": "Neoboletus subluridellus",
       "category": "Mushroom",
-      "culinary_uses": "Added as part of the red-pored / staining caution lane.",
+      "culinary_uses": "Not recommended for food in this guide.",
       "medicinal_uses": "",
       "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/boletes_red_capped_blue_staining.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ENeoboletus%20subluridellus%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -4372,7 +4391,7 @@
         "entry_scope": "species",
         "edibility_status": "toxic_or_dangerous",
         "caution_level": "high",
-        "summary": "Minimal bolete seed entry for Neoboletus subluridellus. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Red-pored blue-staining Neoboletus comparison species; high caution.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -4388,7 +4407,9 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Blue bruising possible",
+        "staining": [
+          "Blue staining"
+        ],
         "taste": [],
         "spore_print": "",
         "season_note": "",
@@ -4397,20 +4418,19 @@
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "v4.2.88: species/card field notes and source/review cleanup pass applied."
         ],
         "pore_color": [
-          "Orange-red to red pores"
+          "Red to orange pores",
+          "Blue bruising"
         ],
         "fertile_surface": [
           "Pores"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Red-staining & red-pored caution boletes",
       "boleteGroup": [
@@ -4427,9 +4447,7 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
@@ -4443,7 +4461,7 @@
       "habitat": [],
       "food_role": "avoid",
       "edibility_status": "not_edible",
-      "edibility_detail": "Avoid for food in this guide. Red/orange-pored, blue-staining boletes are a caution zone because some cause stomach upset and several are confused with toxic look-alikes.",
+      "edibility_detail": "Avoid for food unless independently expert-confirmed; this guide keeps it as a caution record.",
       "edible_use": {
         "has_ingestible_use": false,
         "method": "",
@@ -4456,25 +4474,33 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Red-pored blue-staining Neoboletus comparison species; useful mainly for keeping red-pored boletes out of the easy-edible bucket.",
+      "field_identification": "Look for red/orange pore surface, blue bruising, yellowish flesh, and red-pored bolete build. Treat name-level ID conservatively.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "v4288_checked": true
     },
     {
       "slug": "rubroboletus-rhodosanguineus",
       "display_name": "Perfumed Bolete",
       "common_name": "Perfumed Bolete",
       "category": "Mushroom",
-      "culinary_uses": "",
+      "culinary_uses": "Do not treat as edible in this guide.",
       "medicinal_uses": "",
       "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/boletes_red_capped_blue_staining.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EPerfumed%20Bolete%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ERubroboletus%20rhodosanguineus%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -4484,7 +4510,7 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "high",
-        "summary": "Minimal bolete seed entry for Perfumed Bolete. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Rubroboletus-style red-pored bolete with blue staining; avoid/comparison record.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -4498,8 +4524,12 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
-        "taste": [],
+        "staining": [
+          "Blue staining"
+        ],
+        "taste": [
+          "Not relied on"
+        ],
         "spore_print": "",
         "season_note": "",
         "processing_required": [],
@@ -4507,14 +4537,15 @@
           "Species seed added from the Michigan bolete audit.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "v4.2.88: species/card field notes and source/review cleanup pass applied."
+        ],
+        "pore_color": [
+          "Red pores"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Red-staining & red-pored caution boletes",
       "boleteGroup": [
@@ -4534,31 +4565,38 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Perfumed Bolete / Rubroboletus-type caution species: red tones, blue staining, and toxicity/look-alike concern.",
+      "field_identification": "Red to rosy cap/stem/pore elements, blue staining, and Rubroboletus-style red-pored features put this in the avoid/comparison lane.",
+      "edibility_detail": "Avoid. Red-pored Rubroboletus-style boletes include toxic species and require expert-level ID.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "v4288_checked": true
     },
     {
       "slug": "caloboletus-firmus",
       "display_name": "Piedmont Bolete",
       "common_name": "Piedmont Bolete",
       "category": "Mushroom",
-      "culinary_uses": "",
+      "culinary_uses": "Not recommended for food.",
       "medicinal_uses": "",
       "notes": "Needs review: needs source links and needs species-specific notes review.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/boletes_red_capped_blue_staining.html"
+      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/2014-07-29%20Boletus%20firmus%20Frost%20439076.jpg"
       ],
@@ -4568,7 +4606,7 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "high",
-        "summary": "Minimal bolete seed entry for Piedmont Bolete. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Caloboletus-style caution record; useful for comparison with edible boletes, not a table species.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -4583,19 +4621,25 @@
         ],
         "odor": "Unknown",
         "staining": "Unknown",
-        "taste": [],
+        "taste": [
+          "Bitter / unpleasant possible"
+        ],
         "spore_print": "",
         "season_note": "",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "v4.2.88: species/card field notes and source/review cleanup pass applied."
+        ],
+        "pore_color": [
+          "Yellowish pores"
+        ],
+        "stem_feature": [
+          "Reticulation possible"
         ]
       },
-      "manual_review_reasons": [
-        "needs source links",
-        "needs species-level notes review"
-      ],
+      "manual_review_reasons": [],
       "mushroom_family": "Red-staining & red-pored caution boletes",
       "boleteGroup": [
         "Red-staining & red-pored caution boletes"
@@ -4604,22 +4648,25 @@
         "Caloboletus",
         "Blue staining / caution"
       ],
-      "weekPrecision": "needs-review",
+      "weekPrecision": "species-level-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
-      "needs_review": true,
-      "review_status": "needs_review",
-      "review_reasons": [
-        "Needs source links",
-        "Needs species-specific notes review"
+      "needs_review": false,
+      "review_status": "ok",
+      "review_reasons": [],
+      "reviewReasons": [],
+      "review_note": "",
+      "review_notes": "",
+      "mushroom_card_note": "Piedmont Bolete: Caloboletus-style caution species; included for comparison, not for the skillet.",
+      "field_identification": "Caloboletus records often involve pale to yellow pore surfaces, reticulate stems, bitter or unpleasant taste, and confusion with edible boletes; treat this one conservatively.",
+      "edibility_detail": "Avoid unless independently confirmed; kept as a caution/comparison record.",
+      "use_roles": [
+        "ID / comparison"
       ],
-      "reviewReasons": [
-        "Needs source links",
-        "Needs species-specific notes review"
-      ],
-      "review_note": "Needs review: needs source links and needs species-specific notes review.",
-      "review_notes": "Needs review: needs source links and needs species-specific notes review."
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "v4288_checked": true
     },
     {
       "slug": "pulchroboletus-pseudosclerotiorum",

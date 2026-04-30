@@ -1,6 +1,6 @@
 import { fetchJsonFromRepo } from "../lib/fetch-json.js";
-import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4";
-import { SPECIES_PATHS, PHOTO_PATCH_PATHS, OPTIONAL_PATHS } from "./sources.js?v=v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4";
+import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.88-r2026-04-30-mushroom-porcini-red-credibility5";
+import { SPECIES_PATHS, PHOTO_PATCH_PATHS, OPTIONAL_PATHS } from "./sources.js?v=v4.2.88-r2026-04-30-mushroom-porcini-red-credibility5";
 
 let rareCachePromise = null;
 let referencesCachePromise = null;
