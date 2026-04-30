@@ -1,6 +1,6 @@
 import { fetchJsonFromRepo } from "../lib/fetch-json.js";
-import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.85-r2026-04-30-mushroom-image-loader-defense1";
-import { SPECIES_PATHS, PHOTO_PATCH_PATHS, OPTIONAL_PATHS } from "./sources.js?v=v4.2.85-r2026-04-30-mushroom-image-loader-defense1";
+import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.2.86-r2026-04-30-photo-patch-fill-only1";
+import { SPECIES_PATHS, PHOTO_PATCH_PATHS, OPTIONAL_PATHS } from "./sources.js?v=v4.2.86-r2026-04-30-photo-patch-fill-only1";
 
 let rareCachePromise = null;
 let referencesCachePromise = null;
@@ -77,11 +77,15 @@ function sanitizePhotoPatchForRecord(baseRecord = {}, patch = {}) {
   const baseHasUsableImages = hasUsableImageFields(baseRecord);
   const clean = { ...patch };
 
-  // Old optional photo patches are allowed to add images, but they should not
-  // wipe out newer base-record images with empty strings/arrays or stale review flags.
-  if (!patchHasUsableImages && baseHasUsableImages) {
+  // Optional photo patch files are now fill-only for images.
+  // They may add image coverage to records that have no usable base images,
+  // but they must never replace newer, structured base-record image fields.
+  // This prevents older Commons redirect/FilePath patch URLs from clobbering
+  // newer direct upload.wikimedia.org image URLs.
+  if (baseHasUsableImages) {
     for (const field of IMAGE_PATCH_FIELDS) delete clean[field];
     for (const field of IMAGE_REVIEW_PATCH_FIELDS) delete clean[field];
+    clean._image_patch_skipped = patchHasUsableImages ? "base_record_images_preserved" : "empty_patch_ignored";
   }
 
   for (const field of ["images_structured", "detail_images", "enlarge_images", "images", "photo_credits", "image_review_reasons", "review_reasons", "reviewReasons"]) {
@@ -114,6 +118,7 @@ function applyRecordPatches(baseRecords = [], patchPayloads = [], log) {
   let remapped = 0;
   let ignored = 0;
   let protectedImageRecords = 0;
+  let imagePatchFillOnlySkips = 0;
 
   for (const payload of patchPayloads || []) {
     for (const patch of asRecords(payload)) {
@@ -126,7 +131,10 @@ function applyRecordPatches(baseRecords = [], patchPayloads = [], log) {
       const current = bySlug.get(targetSlug);
       const normalizedPatch = targetSlug === slug ? patch : { ...patch, former_patch_slug: slug };
       const sanitizedPatch = sanitizePhotoPatchForRecord(current, normalizedPatch);
-      if (hasUsableImageFields(current) && !hasUsableImageFields(normalizedPatch)) protectedImageRecords += 1;
+      if (hasUsableImageFields(current)) {
+        protectedImageRecords += 1;
+        if (hasUsableImageFields(normalizedPatch)) imagePatchFillOnlySkips += 1;
+      }
       bySlug.set(targetSlug, { ...current, ...sanitizedPatch, slug: targetSlug });
       applied += 1;
       if (targetSlug !== slug) remapped += 1;
@@ -134,7 +142,7 @@ function applyRecordPatches(baseRecords = [], patchPayloads = [], log) {
   }
 
   if (patchPayloads?.length) {
-    log?.(`Applied ${applied} photo patch records; remapped ${remapped} alias patch records; protected ${protectedImageRecords} existing image records from stale/empty patch overwrite; ignored ${ignored} unmatched photo patch records`);
+    log?.(`Applied ${applied} photo patch records; remapped ${remapped} alias patch records; protected ${protectedImageRecords} existing image records from photo patch overwrite; skipped ${imagePatchFillOnlySkips} older image-bearing patch overrides; ignored ${ignored} unmatched photo patch records`);
   }
 
   return baseRecords.map((record) => bySlug.get(record.slug) || record);

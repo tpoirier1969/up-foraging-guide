@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.85-r2026-04-30-mushroom-image-loader-defense1";
-const DISPLAY_VERSION = "V4.2.85-r26-04-30";
+const APP_VERSION = "v4.2.86-r2026-04-30-photo-patch-fill-only1";
+const DISPLAY_VERSION = "V4.2.86-r26-04-30";
 
 function esc(value) {
   return String(value ?? "")
