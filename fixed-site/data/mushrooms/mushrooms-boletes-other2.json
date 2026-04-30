@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.92-r2026-04-30-bolete-other-stale-review-cleanup1",
+    "build": "v4.2.93-r2026-04-30-bolete-other-final-review1",
     "primary_type": "mushroom",
     "split_version": "mushroom-data-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-other2.json",
@@ -9,7 +9,7 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 11,
-    "notes": "Split from former mushrooms-boletes-other.json in v4.2.90 to reduce large-file handling/static. Record bodies and order were preserved; each canonical slug still appears in exactly one base mushroom split file. Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records. v4.2.91: other-bolete review pass updated review flags using the 2-3 distinct-image rule. v4.2.92: removed stale seed/review/build notes from user-facing nested profile fields while preserving active review reasons.",
+    "notes": "Split from former mushrooms-boletes-other.json in v4.2.90 to reduce large-file handling/static. Record bodies and order were preserved; each canonical slug still appears in exactly one base mushroom split file. Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records. v4.2.91: other-bolete review pass updated review flags using the 2-3 distinct-image rule. v4.2.92: removed stale seed/review/build notes from user-facing nested profile fields while preserving active review reasons. v4.2.93 reviewed the 11 remaining other-bolete Needs Review records, resolving records with adequate source/photo support and retaining only true blocked review reasons.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -22,11 +22,20 @@
     "source_split_record_count": 23,
     "split_part": 2,
     "split_part_count": 2,
-    "last_credibility_batch": "v4.2.91-r2026-04-30-bolete-other-review1",
+    "last_credibility_batch": "v4.2.93-r2026-04-30-bolete-other-final-review1",
     "last_other_bolete_review": "v4.2.91-r2026-04-30-bolete-other-review1",
     "distinct_image_rule": "2-3 image coverage means 2-3 genuinely different source images; thumbnails/detail/full variants or placeholders do not count.",
     "last_other_bolete_cleanup": "v4.2.92-r2026-04-30-bolete-other-stale-review-cleanup1",
-    "last_stale_review_text_cleanup": "v4.2.92-r2026-04-30-bolete-other-stale-review-cleanup1"
+    "last_stale_review_text_cleanup": "v4.2.92-r2026-04-30-bolete-other-stale-review-cleanup1",
+    "last_remaining_review_cleanup": "v4.2.93-r2026-04-30-bolete-other-final-review1",
+    "v4_2_93_review_audit": {
+      "reviewed_on": "2026-04-30",
+      "scope": "Remaining Needs Review records in other-bolete split files.",
+      "record_count": 11,
+      "needs_review_after": 0,
+      "needs_review_slugs_after": [],
+      "rule": "Clear only when actual review reason is fixed; keep photo review when fewer than 2 genuinely distinct real images are available."
+    }
   },
   "records": [
     {
@@ -582,13 +591,24 @@
       "culinary_uses": "Not treated as a food target; useful as a Great Lakes specialty ID species.",
       "medicinal_uses": "",
       "notes": "Needs review: Needs real field photo / image coverage.",
-      "months_available": [],
-      "month_numbers": [],
+      "months_available": [
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9,
+        10
+      ],
       "links": [
         "https://www.mushroomexpert.com/paragyrodon_sphaerosporus.html"
       ],
       "images": [
-        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EParagyrodon%20Sphaerosporus%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EParagyrodon%20sphaerosporus%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Paragyrodon%20sphaerosporus%20%28Peck%29%20Singer%20601987.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Paragyrodon%20sphaerosporus%2073872.jpg"
       ],
       "scientific_name": "Paragyrodon sphaerosporus",
       "mushroom_profile": {
@@ -625,11 +645,10 @@
           "Not a food target"
         ],
         "spore_print": "",
-        "season_note": "Summer and fall, with Great Lakes records emphasized.",
+        "season_note": "Summer and fall, often in Great Lakes oak settings.",
         "processing_required": [],
         "research_notes": [
-          "Look for a sticky yellow-brown to brown cap, yellow pore surface that bruises dark brown, a sheathing ring zone/veil remnant low on the stem, and oak association. Nearly round spores are a key confirmation feature.",
-          "Needs real field photo / image coverage: no usable real image is currently loaded."
+          "Reviewed in v4.2.93: MushroomExpert emphasizes Great Lakes/oak habitat and Michigan suburban oak collections; Commons provides two distinct public images."
         ],
         "pore_color": [
           "Yellow pores bruising strongly brown"
@@ -664,18 +683,14 @@
         "No usable field-view photo is currently available in the app.",
         "Replace placeholder with 2-3 genuinely different source photos when available."
       ],
-      "reviewReasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_status": "needs_review",
-      "needs_review": true,
-      "review_note": "Needs review: Needs real field photo / image coverage.",
-      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "reviewReasons": [],
+      "review_reasons": [],
+      "review_status": "ok",
+      "needs_review": false,
+      "review_note": "",
+      "review_notes": "",
       "mushroom_card_note": "Great Lakes-region oak bolete with sticky brownish cap, yellow pores that brown strongly, and nearly round spores.",
-      "field_identification": "Look for a sticky yellow-brown to brown cap, yellow pore surface that bruises dark brown, a sheathing ring zone/veil remnant low on the stem, and oak association. Nearly round spores are a key confirmation feature.",
+      "field_identification": "Look for a sticky yellow-brown to brown cap, yellow pore surface that bruises dark brown, a sheathing veil/ring zone low on the stem, oak association, and nearly round spores. Known especially from Great Lakes oak settings.",
       "edibility_detail": "ID/comparison entry, not a recommended edible in this guide.",
       "use_roles": [
         "ID / comparison"
@@ -684,7 +699,29 @@
       "foraging_value_score": 1,
       "lane": "bolete",
       "curation_notes": [
-        "v4.2.91 image review: placeholder/no real image remains; keep in Needs Review until real distinct photos are found."
+        "v4.2.91 image review: placeholder/no real image remains; keep in Needs Review until real distinct photos are found.",
+        "v4.2.93 added two distinct Commons images and resolved image coverage."
+      ],
+      "commonness": "Uncommon",
+      "commonness_score": 2,
+      "photo_subject": "Two distinct Commons field images from Michigan/Great Lakes context; enough for coverage but still a specialist ID species.",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Paragyrodon sphaerosporus",
+          "url": "https://www.mushroomexpert.com/paragyrodon_sphaerosporus.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Great Lakes/oak habitat, Michigan note, field traits, and spore traits."
+        },
+        {
+          "label": "Wikimedia Commons: Paragyrodon sphaerosporus",
+          "url": "https://commons.wikimedia.org/wiki/Category:Paragyrodon_sphaerosporus",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "taxon/media reference",
+          "notes": "Two public image files."
+        }
       ]
     },
     {
@@ -711,7 +748,9 @@
         "https://www.mushroomexpert.com/pseudoboletus_parasiticus.html"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Pseudoboletus%20parasiticus.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pseudoboletus%20parasiticus.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Parasitic%20Bolete%20%28Pseudoboletus%20parasiticus%29%20%2851393311099%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-09-04%20Pseudoboletus%20parasiticus%20%28Bull.%29%20Sutara%20258674.jpg"
       ],
       "scientific_name": "Pseudoboletus parasiticus",
       "mushroom_profile": {
@@ -748,7 +787,8 @@
         "season_note": "Summer and fall, when earthballs are present.",
         "processing_required": [],
         "research_notes": [
-          "Needs more distinct photo coverage: only one real image is currently loaded."
+          "Reviewed in v4.2.93: Commons category has extensive Pseudoboletus parasiticus media; record now has three distinct field images.",
+          "Key field clue remains growth directly on Scleroderma earthballs."
         ],
         "lane": "bolete",
         "host_filter_tokens": [
@@ -789,10 +829,8 @@
       "general_notes": "Useful as a caution/curiosity species because the growth habit is distinctive: a bolete growing on another fungus.",
       "record_type": "mushroom",
       "lane": "bolete",
-      "reviewReasons": [
-        "Needs more distinct photo coverage"
-      ],
-      "review_status": "needs_review",
+      "reviewReasons": [],
+      "review_status": "ok",
       "search_aliases": [],
       "host_filter_tokens": [
         "Fungus host",
@@ -817,14 +855,20 @@
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
           "notes": "Earthball host/substrate and field traits."
+        },
+        {
+          "label": "Wikimedia Commons: Pseudoboletus parasiticus",
+          "url": "https://commons.wikimedia.org/wiki/Category:Pseudoboletus_parasiticus",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "taxon/media reference",
+          "notes": "Large public media set and taxon category."
         }
       ],
       "look_alikes": [
         "Earthballs"
       ],
-      "review_reasons": [
-        "Needs more distinct photo coverage"
-      ],
+      "review_reasons": [],
       "common_names": [
         "Parasitic Bolete"
       ],
@@ -846,7 +890,8 @@
       "edibility_notes": "The mushroom itself is sometimes described as edible, but this guide treats it as avoid/not recommended because of its poisonous earthball host.",
       "curation_notes": [
         "Minimal species seed. Added during the bolete expansion pass for the clean app; details, seasonality, and images still need a later review.",
-        "v4.2.91 image review: only one distinct real image is loaded; keep in Needs Review until at least 2 genuinely different photos are available."
+        "v4.2.91 image review: only one distinct real image is loaded; keep in Needs Review until at least 2 genuinely different photos are available.",
+        "v4.2.93 added distinct Commons images and resolved photo coverage."
       ],
       "edible_use": {
         "has_ingestible_use": false,
@@ -866,13 +911,12 @@
         "warnings": "",
         "claims": []
       },
-      "image_review_status": "needs_more_distinct_photos",
-      "image_review_reasons": [
-        "Only one distinct real image is currently loaded. Add 1-2 more different source photos; thumbnail/detail/full reuse does not count."
-      ],
-      "needs_review": true,
-      "review_note": "Needs review: Needs more distinct photo coverage.",
-      "review_notes": "Needs review: Needs more distinct photo coverage."
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "needs_review": false,
+      "review_note": "",
+      "review_notes": "",
+      "photo_subject": "Three distinct Commons field images, including host-earthball context where available."
     },
     {
       "slug": "pseudomerulius-curtisii",
@@ -889,7 +933,8 @@
         "https://commons.wikimedia.org/wiki/File:Pseudomerulius_curtisii_103833.jpg"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Pseudomerulius%20curtisii%20(Berk.)%20Redhead%20%26%20Ginns%20768121.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pseudomerulius%20curtisii%20%28Berk.%29%20Redhead%20%26%20Ginns%20768121.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pseudomerulius%20curtisii%20%28Berk.%29%20Redhead%20%26%20Ginns%20897787.jpg"
       ],
       "scientific_name": "Pseudomerulius curtisii",
       "mushroom_profile": {
@@ -897,7 +942,7 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Wood-growing veined-pored Boletales oddball; keep it out of normal edible assumptions and use it as a form/comparison record.",
+        "summary": "Wood-growing Boletales oddball with a veined/merulioid yellow-orange fertile surface; not a normal cap-and-stem bolete target.",
         "ecology": "bolete",
         "substrate": [
           "Dead wood"
@@ -925,8 +970,8 @@
         "season_note": "Late summer to fall where observed.",
         "processing_required": [],
         "research_notes": [
-          "Look for a wood-associated fruit body with a strongly veined to merulioid underside rather than normal round bolete pores. This is not a classic cap-and-stem bolete target.",
-          "Needs more distinct photo coverage: only one real image is currently loaded."
+          "Reviewed in v4.2.93: kept in Other lane because it is a wood-growing veined/merulioid Boletales oddball, not a classic cap-and-stem bolete.",
+          "Added additional Commons image and a field-guide style source link."
         ],
         "pore_color": [
           "Strongly veined pores"
@@ -958,22 +1003,14 @@
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
-      "needs_review": true,
-      "review_status": "needs_review",
-      "review_reasons": [
-        "Needs stronger field-guide source",
-        "Needs UI/filter placement check",
-        "Needs more distinct photo coverage"
-      ],
-      "reviewReasons": [
-        "Needs stronger field-guide source",
-        "Needs UI/filter placement check",
-        "Needs more distinct photo coverage"
-      ],
-      "review_note": "Needs review: Needs stronger field-guide source; Needs UI/filter placement check; Needs more distinct photo coverage.",
-      "review_notes": "Needs review: Needs stronger field-guide source; Needs UI/filter placement check; Needs more distinct photo coverage.",
-      "mushroom_card_note": "Wood-growing veined-pored Boletales oddball; keep it out of normal edible assumptions and use it as a form/comparison record.",
-      "field_identification": "Look for a wood-associated fruit body with a strongly veined to merulioid underside rather than normal round bolete pores. This is not a classic cap-and-stem bolete target.",
+      "needs_review": false,
+      "review_status": "ok",
+      "review_reasons": [],
+      "reviewReasons": [],
+      "review_note": "",
+      "review_notes": "",
+      "mushroom_card_note": "Wood-growing Boletales oddball with a veined/merulioid yellow-orange fertile surface; not a normal cap-and-stem bolete target.",
+      "field_identification": "Look for a sessile or reduced-stem fruit body on dead/debarked conifer wood, with a fuzzy yellow cap surface and wavy, gill-like to veined yellow-orange underside rather than round bolete pores. Keep in the Other lane, not the main bolete lane.",
       "edibility_detail": "Keep as an identification/odd-form record, not a forage target.",
       "use_roles": [
         "ID / comparison"
@@ -981,12 +1018,30 @@
       "foraging_value": "ID / comparison",
       "foraging_value_score": 1,
       "lane": "other",
-      "image_review_status": "needs_more_distinct_photos",
-      "image_review_reasons": [
-        "Only one distinct real image is currently loaded. Add 1-2 more different source photos; thumbnail/detail/full reuse does not count."
-      ],
+      "image_review_status": "ok",
+      "image_review_reasons": [],
       "curation_notes": [
-        "v4.2.91 image review: only one distinct real image is loaded; keep in Needs Review until at least 2 genuinely different photos are available."
+        "v4.2.91 image review: only one distinct real image is loaded; keep in Needs Review until at least 2 genuinely different photos are available.",
+        "v4.2.93 resolved image/source/UI placement review by adding a second Commons image, field-guide style source, and confirming Other lane placement."
+      ],
+      "photo_subject": "Two distinct Commons field images; keep in Other rather than normal pored-bolete lane.",
+      "use_links": [
+        {
+          "label": "FungiKingdom: Pseudomerulius curtisii",
+          "url": "https://www.fungikingdom.net/fungi-photos--descriptions/basidiomycota/boletales-order/sclerodermatineae-suborder/tapinellineae-suborder/tapinellaceae-family/pseudomerulius-curtisii-4.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "field-guide style reference",
+          "notes": "Wood substrate and veined yellow-orange fertile surface."
+        },
+        {
+          "label": "Wikimedia Commons: Pseudomerulius",
+          "url": "https://commons.wikimedia.org/wiki/Category:Pseudomerulius",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "taxon/media reference",
+          "notes": "Genus category with Pseudomerulius curtisii media."
+        }
       ]
     },
     {
@@ -997,13 +1052,25 @@
       "culinary_uses": "Not treated as a food target; the distinctive yellow veil makes it more useful for identification.",
       "medicinal_uses": "",
       "notes": "Needs review: Needs real field photo / image coverage.",
-      "months_available": [],
-      "month_numbers": [],
+      "months_available": [
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9,
+        10
+      ],
       "links": [
         "https://www.mushroomexpert.com/pulveroboletus_ravenelii.html"
       ],
       "images": [
-        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ERavenel%27s%20Bolete%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPulveroboletus%20ravenelii%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pulveroboletus%20ravenelii%20%28Berk.%20%26%20M.A.%20Curtis%29%20Murrill%20635687%202016-07-13.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pulveroboletus%20ravenelii%20%28Berk.%20%26%20M.A.%20Curtis%29%20Murrill%20635688%202016-07-13.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pulveroboletus%20ravenelii%2058493.jpg"
       ],
       "scientific_name": "Pulveroboletus ravenelii",
       "mushroom_profile": {
@@ -1042,11 +1109,10 @@
           "Not distinctive / acrid possible"
         ],
         "spore_print": "",
-        "season_note": "Summer and fall; widespread but more southern.",
+        "season_note": "Summer and fall; primarily with conifers, especially pine, hemlock, and spruce.",
         "processing_required": [],
         "research_notes": [
-          "Young mushrooms have a powdery bright yellow veil covering the pore surface and stem; older specimens show yellow veil remnants, reddish to orange cap colors, yellowish pores, and greenish-blue bruising.",
-          "Needs real field photo / image coverage: no usable real image is currently loaded."
+          "Reviewed in v4.2.93: MushroomExpert describes the bright yellow veil, blue-green bruising, and broad North American distribution; Commons has seven media files."
         ],
         "pore_color": [
           "Yellowish pores; blue-green bruising"
@@ -1078,23 +1144,16 @@
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
-      "image_review_status": "needs_field_photo",
-      "image_review_reasons": [
-        "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with 2-3 genuinely different source photos when available."
-      ],
-      "reviewReasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_status": "needs_review",
-      "needs_review": true,
-      "review_note": "Needs review: Needs real field photo / image coverage.",
-      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "reviewReasons": [],
+      "review_reasons": [],
+      "review_status": "ok",
+      "needs_review": false,
+      "review_note": "",
+      "review_notes": "",
       "mushroom_card_note": "Bright yellow-veiled bolete when young, often with reddish/orange cap tones and blue-green bruising on pores.",
-      "field_identification": "Young mushrooms have a powdery bright yellow veil covering the pore surface and stem; older specimens show yellow veil remnants, reddish to orange cap colors, yellowish pores, and greenish-blue bruising.",
+      "field_identification": "Young mushrooms have a powdery bright yellow veil over the pore surface and stem; older mushrooms show yellow veil remnants, reddish to orange cap colors, yellowish pores, and greenish-blue bruising.",
       "edibility_detail": "Avoid as a food target in this guide.",
       "use_roles": [
         "ID / comparison"
@@ -1103,7 +1162,27 @@
       "foraging_value_score": 1,
       "lane": "bolete",
       "curation_notes": [
-        "v4.2.91 image review: placeholder/no real image remains; keep in Needs Review until real distinct photos are found."
+        "v4.2.91 image review: placeholder/no real image remains; keep in Needs Review until real distinct photos are found.",
+        "v4.2.93 added distinct Commons images and resolved photo coverage."
+      ],
+      "photo_subject": "Three distinct Commons field images showing the bright yellow-veiled bolete form.",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Pulveroboletus ravenelii",
+          "url": "https://www.mushroomexpert.com/pulveroboletus_ravenelii.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Field marks, habitat, and distribution."
+        },
+        {
+          "label": "Wikimedia Commons: Pulveroboletus ravenelii",
+          "url": "https://commons.wikimedia.org/wiki/Category:Pulveroboletus_ravenelii",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "taxon/media reference",
+          "notes": "Public image category with seven files."
+        }
       ]
     },
     {
@@ -1120,7 +1199,8 @@
         "https://www.mushroomexpert.com/aureoboletus_betula.html"
       ],
       "images": [
-        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EShaggy%20Stalked%20Bolete%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EAureoboletus%20betula%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20betula%2090342936.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20betula%2090342970.jpg"
       ],
       "scientific_name": "Aureoboletus betula",
       "mushroom_profile": {
@@ -1160,8 +1240,7 @@
         "season_note": "Summer and fall; recorded from Michigan to southeastern U.S.",
         "processing_required": [],
         "research_notes": [
-          "Check for sticky bright yellow/orange to reddish cap, yellow non-bruising pores, and a striking long stem that is deeply ridged or lacerate-reticulate. Oak or mixed oak-pine association.",
-          "Needs real field photo / image coverage: no usable real image is currently loaded."
+          "Reviewed in v4.2.93: two distinct Commons/iNaturalist images added; kept as ID/comparison rather than a food target."
         ],
         "pore_color": [
           "Bright yellow pores; not bruising"
@@ -1191,21 +1270,14 @@
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
-      "image_review_status": "needs_field_photo",
-      "image_review_reasons": [
-        "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with 2-3 genuinely different source photos when available."
-      ],
-      "reviewReasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_status": "needs_review",
-      "needs_review": true,
-      "review_note": "Needs review: Needs real field photo / image coverage.",
-      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "reviewReasons": [],
+      "review_reasons": [],
+      "review_status": "ok",
+      "needs_review": false,
+      "review_note": "",
+      "review_notes": "",
       "mushroom_card_note": "Small sticky yellow-orange to reddish bolete with an unusually long, deeply reticulate stem; reported from Michigan but more southern/Appalachian in emphasis.",
       "field_identification": "Check for sticky bright yellow/orange to reddish cap, yellow non-bruising pores, and a striking long stem that is deeply ridged or lacerate-reticulate. Oak or mixed oak-pine association.",
       "edibility_detail": "Treat as ID/comparison until local confidence is stronger.",
@@ -1216,7 +1288,27 @@
       "foraging_value_score": 1,
       "lane": "bolete",
       "curation_notes": [
-        "v4.2.91 image review: placeholder/no real image remains; keep in Needs Review until real distinct photos are found."
+        "v4.2.91 image review: placeholder/no real image remains; keep in Needs Review until real distinct photos are found.",
+        "v4.2.93 added two distinct Commons images and resolved photo coverage."
+      ],
+      "photo_subject": "Two distinct Commons/iNaturalist images; enough for coverage, but retain conservative non-target status.",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Aureoboletus betula",
+          "url": "https://www.mushroomexpert.com/aureoboletus_betula.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Field marks and regional context."
+        },
+        {
+          "label": "Wikimedia Commons file: Aureoboletus betula 90342936",
+          "url": "https://commons.wikimedia.org/wiki/File:Aureoboletus_betula_90342936.jpg",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "image reference",
+          "notes": "Public field image."
+        }
       ]
     },
     {
@@ -1227,13 +1319,25 @@
       "culinary_uses": "Not a prime food; useful as a distinctive yellow-pored bolete and comparison species.",
       "medicinal_uses": "",
       "notes": "Needs review: Needs real field photo / image coverage.",
-      "months_available": [],
-      "month_numbers": [],
+      "months_available": [
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9,
+        10
+      ],
       "links": [
         "https://www.mushroomexpert.com/aureoboletus_auriporus.html"
       ],
       "images": [
-        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ESour%20Gold-Pored%20Bolete%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EAureoboletus%20auriporus%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20auriporus%20%28Peck%29%20Pouzar%20476455.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20auriporus%20227205.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20auriporus%20264294.jpg"
       ],
       "scientific_name": "Aureoboletus auriporus",
       "mushroom_profile": {
@@ -1272,8 +1376,7 @@
         "season_note": "Summer and fall in eastern North America.",
         "processing_required": [],
         "research_notes": [
-          "Look for a sticky pinkish-brown to reddish-brown cap, bright yellow pore surface that does not bruise, white basal mycelium, and slender reddish/yellowish stem. Compare with B. innixus.",
-          "Needs real field photo / image coverage: no usable real image is currently loaded."
+          "Reviewed in v4.2.93: MushroomExpert places it in eastern North American oak forests; Commons provides several public images."
         ],
         "pore_color": [
           "Bright yellow pores; not bruising"
@@ -1304,23 +1407,16 @@
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
-      "image_review_status": "needs_field_photo",
-      "image_review_reasons": [
-        "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with 2-3 genuinely different source photos when available."
-      ],
-      "reviewReasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_status": "needs_review",
-      "needs_review": true,
-      "review_note": "Needs review: Needs real field photo / image coverage.",
-      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "reviewReasons": [],
+      "review_reasons": [],
+      "review_status": "ok",
+      "needs_review": false,
+      "review_note": "",
+      "review_notes": "",
       "mushroom_card_note": "Eastern oak-forest bolete with sticky pinkish-brown cap and bright yellow non-bruising pores; cap surface may taste sour.",
-      "field_identification": "Look for a sticky pinkish-brown to reddish-brown cap, bright yellow pore surface that does not bruise, white basal mycelium, and slender reddish/yellowish stem. Compare with B. innixus.",
+      "field_identification": "Look for sticky pinkish-brown to reddish-brown cap, bright yellow pore surface that does not bruise, white basal mycelium, and a slender reddish/yellowish stem. Mycorrhizal with oaks and other hardwoods in eastern North America.",
       "edibility_detail": "Occasional/niche use only; not a main target.",
       "use_roles": [
         "ID / comparison"
@@ -1329,7 +1425,27 @@
       "foraging_value_score": 2,
       "lane": "bolete",
       "curation_notes": [
-        "v4.2.91 image review: placeholder/no real image remains; keep in Needs Review until real distinct photos are found."
+        "v4.2.91 image review: placeholder/no real image remains; keep in Needs Review until real distinct photos are found.",
+        "v4.2.93 added distinct Commons images and resolved photo coverage."
+      ],
+      "photo_subject": "Three distinct Commons field images.",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Aureoboletus auriporus",
+          "url": "https://www.mushroomexpert.com/aureoboletus_auriporus.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Oak/hardwood ecology and ID traits."
+        },
+        {
+          "label": "Wikimedia Commons: Aureoboletus auriporus",
+          "url": "https://commons.wikimedia.org/wiki/Category:Aureoboletus_auriporus",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "taxon/media reference",
+          "notes": "Public image category with multiple files."
+        }
       ]
     },
     {
@@ -1348,7 +1464,8 @@
         "https://www.sciencedirect.com/science/article/pii/S1754504822000022"
       ],
       "images": [
-        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EWood%20Bolete%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EBuchwaldoboletus%20lignicola%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Buchwaldoboletus%20lignicola%20102704.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Buchwaldoboletus%20lignicola%20102705.jpg"
       ],
       "scientific_name": "Buchwaldoboletus lignicola",
       "mushroom_profile": {
@@ -1388,8 +1505,7 @@
         "season_note": "Summer and fall where recorded.",
         "processing_required": [],
         "research_notes": [
-          "Yellow-brown cap, yellow pore surface, wood association, and possible relationship with the dyer’s polypore Phaeolus schweinitzii are the useful clues. Compare with B. hemichrysus and B. sphaerocephalus.",
-          "Needs real field photo / image coverage: no usable real image is currently loaded."
+          "Reviewed in v4.2.93: Commons provides field and pore-surface images; retained as wood-associated oddball ID/comparison record."
         ],
         "pore_color": [
           "Yellow pores"
@@ -1420,21 +1536,14 @@
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
-      "image_review_status": "needs_field_photo",
-      "image_review_reasons": [
-        "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with 2-3 genuinely different source photos when available."
-      ],
-      "reviewReasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_status": "needs_review",
-      "needs_review": true,
-      "review_note": "Needs review: Needs real field photo / image coverage.",
-      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "image_review_status": "ok",
+      "image_review_reasons": [],
+      "reviewReasons": [],
+      "review_reasons": [],
+      "review_status": "ok",
+      "needs_review": false,
+      "review_note": "",
+      "review_notes": "",
       "mushroom_card_note": "Wood-associated Buchwaldoboletus tied to conifer wood and possibly Phaeolus schweinitzii; keep as an oddball ID record.",
       "field_identification": "Yellow-brown cap, yellow pore surface, wood association, and possible relationship with the dyer’s polypore Phaeolus schweinitzii are the useful clues. Compare with B. hemichrysus and B. sphaerocephalus.",
       "edibility_detail": "ID/comparison only in this guide.",
@@ -1445,7 +1554,27 @@
       "foraging_value_score": 1,
       "lane": "bolete",
       "curation_notes": [
-        "v4.2.91 image review: placeholder/no real image remains; keep in Needs Review until real distinct photos are found."
+        "v4.2.91 image review: placeholder/no real image remains; keep in Needs Review until real distinct photos are found.",
+        "v4.2.93 added distinct Commons images and resolved photo coverage."
+      ],
+      "photo_subject": "Two distinct Commons field images including pore-surface context.",
+      "use_links": [
+        {
+          "label": "Wikimedia Commons: Buchwaldoboletus lignicola",
+          "url": "https://commons.wikimedia.org/wiki/Buchwaldoboletus_lignicola",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "taxon/media reference",
+          "notes": "Taxon page and public images."
+        },
+        {
+          "label": "Wikimedia Commons file: Buchwaldoboletus lignicola pore surface",
+          "url": "https://commons.wikimedia.org/wiki/File:Buchwaldoboletus_lignicola_102705.jpg",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "image reference",
+          "notes": "Pore-surface context."
+        }
       ]
     }
   ]

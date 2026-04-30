@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.92-r2026-04-30-bolete-other-stale-review-cleanup1",
+    "build": "v4.2.93-r2026-04-30-bolete-other-final-review1",
     "primary_type": "mushroom",
     "split_version": "mushroom-data-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-other1.json",
@@ -9,7 +9,7 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 12,
-    "notes": "Split from former mushrooms-boletes-other.json in v4.2.90 to reduce large-file handling/static. Record bodies and order were preserved; each canonical slug still appears in exactly one base mushroom split file. Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records. v4.2.91: other-bolete review pass updated review flags using the 2-3 distinct-image rule. v4.2.92: removed stale seed/review/build notes from user-facing nested profile fields while preserving active review reasons.",
+    "notes": "Split from former mushrooms-boletes-other.json in v4.2.90 to reduce large-file handling/static. Record bodies and order were preserved; each canonical slug still appears in exactly one base mushroom split file. Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records. v4.2.91: other-bolete review pass updated review flags using the 2-3 distinct-image rule. v4.2.92: removed stale seed/review/build notes from user-facing nested profile fields while preserving active review reasons. v4.2.93 reviewed the 11 remaining other-bolete Needs Review records, resolving records with adequate source/photo support and retaining only true blocked review reasons.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -22,11 +22,23 @@
     "source_split_record_count": 23,
     "split_part": 1,
     "split_part_count": 2,
-    "last_credibility_batch": "v4.2.91-r2026-04-30-bolete-other-review1",
+    "last_credibility_batch": "v4.2.93-r2026-04-30-bolete-other-final-review1",
     "last_other_bolete_review": "v4.2.91-r2026-04-30-bolete-other-review1",
     "distinct_image_rule": "2-3 image coverage means 2-3 genuinely different source images; thumbnails/detail/full variants or placeholders do not count.",
     "last_other_bolete_cleanup": "v4.2.92-r2026-04-30-bolete-other-stale-review-cleanup1",
-    "last_stale_review_text_cleanup": "v4.2.92-r2026-04-30-bolete-other-stale-review-cleanup1"
+    "last_stale_review_text_cleanup": "v4.2.92-r2026-04-30-bolete-other-stale-review-cleanup1",
+    "last_remaining_review_cleanup": "v4.2.93-r2026-04-30-bolete-other-final-review1",
+    "v4_2_93_review_audit": {
+      "reviewed_on": "2026-04-30",
+      "scope": "Remaining Needs Review records in other-bolete split files.",
+      "record_count": 12,
+      "needs_review_after": 2,
+      "needs_review_slugs_after": [
+        "chalciporus-piperatoides",
+        "chalciporus-pseudorubinellus"
+      ],
+      "rule": "Clear only when actual review reason is fixed; keep photo review when fewer than 2 genuinely distinct real images are available."
+    }
   },
   "records": [
     {
@@ -34,7 +46,7 @@
       "display_name": "Admirable Bolete",
       "common_name": "Admirable Bolete",
       "category": "Mushroom",
-      "culinary_uses": "Not treated as a food target in this guide; included mainly for identification and distribution review.",
+      "culinary_uses": "Not treated as an Upper Michigan food target; retained only as an out-of-region comparison for hemlock/wood-associated boletes.",
       "medicinal_uses": "",
       "notes": "Needs review: Needs U.P. relevance check.",
       "months_available": [
@@ -61,7 +73,7 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Distinctive mossy-hemlock bolete with a dark reddish-brown cap, yellow non-bruising pores, and a dark streaked/reticulate stem; its fit for Upper Michigan should be checked carefully.",
+        "summary": "Distinctive Pacific Northwest hemlock bolete; kept here only as an out-of-region comparison, not a U.P. foraging target.",
         "ecology": "bolete",
         "substrate": [
           "Mossy decayed conifer wood",
@@ -89,11 +101,10 @@
           "Mild / not distinctive"
         ],
         "spore_print": "",
-        "season_note": "Fall; western source material emphasizes PNW hemlock forests.",
+        "season_note": "Fall and winter in Pacific Northwest hemlock forests; out-of-region for this U.P. guide.",
         "processing_required": [],
         "research_notes": [
-          "Look for a granular to felty dark reddish-brown cap, yellow pore surface that does not bruise blue, and a dark brown to reddish-brown stem with paler streaks or coarse reticulation near the top. Often tied to mossy, decayed hemlock wood in western sources, so do not assume this is a routine U.P. bolete.",
-          "v4.2.91 image review: 3 distinct real image URLs present."
+          "Reviewed in v4.2.93: MushroomExpert treats this as a Pacific Northwest species from northern California to Alaska, associated with hemlock and decayed mossy wood. Kept as a comparison/out-of-region record only."
         ],
         "cap_surface": [
           "Granular-felty dark reddish-brown cap"
@@ -130,39 +141,49 @@
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
-      "commonness": "Uncommon",
-      "commonness_score": 2,
-      "food_quality": "Good",
-      "food_quality_score": 4,
+      "commonness": "Out of region",
+      "commonness_score": 0,
+      "food_quality": "Not recommended",
+      "food_quality_score": 1,
       "lane": "bolete",
       "host_filter_tokens": [],
       "look_alikes": [],
       "confused_with": [],
       "general_notes": "",
-      "edibility_detail": "Not a prime food entry. Needs regional relevance confirmation before it should be treated as a normal Upper Michigan target.",
-      "food_role": "food",
-      "needs_review": true,
-      "review_status": "needs_review",
-      "review_reasons": [
-        "Needs U.P. relevance check"
-      ],
-      "reviewReasons": [
-        "Needs U.P. relevance check"
-      ],
-      "review_note": "Needs review: Needs U.P. relevance check.",
-      "review_notes": "Needs review: Needs U.P. relevance check.",
-      "mushroom_card_note": "Distinctive mossy-hemlock bolete with a dark reddish-brown cap, yellow non-bruising pores, and a dark streaked/reticulate stem; its fit for Upper Michigan should be checked carefully.",
-      "field_identification": "Look for a granular to felty dark reddish-brown cap, yellow pore surface that does not bruise blue, and a dark brown to reddish-brown stem with paler streaks or coarse reticulation near the top. Often tied to mossy, decayed hemlock wood in western sources, so do not assume this is a routine U.P. bolete.",
+      "edibility_detail": "MushroomExpert places this species in Pacific Northwest hemlock forests from northern California to Alaska. Do not treat it as a normal Upper Michigan target.",
+      "food_role": "avoid",
+      "needs_review": false,
+      "review_status": "ok",
+      "review_reasons": [],
+      "reviewReasons": [],
+      "review_note": "",
+      "review_notes": "",
+      "mushroom_card_note": "Distinctive Pacific Northwest hemlock bolete; kept here only as an out-of-region comparison, not a U.P. foraging target.",
+      "field_identification": "Pacific Northwest hemlock-associated bolete with granular-felty dark reddish-brown cap, yellow non-bruising pores, and dark streaked/reticulate stem. This should not be assumed for Upper Michigan.",
       "use_roles": [
         "ID / comparison"
       ],
-      "foraging_value": "ID / distribution review",
+      "foraging_value": "Out-of-region comparison",
       "foraging_value_score": 1,
       "image_review_status": "ok",
       "image_review_reasons": [],
       "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
       "curation_notes": [
-        "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
+        "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared.",
+        "v4.2.93 resolved the U.P. relevance review by marking this as out-of-region/comparison-only rather than a local foraging target."
+      ],
+      "edibility_status": "out_of_scope",
+      "non_edible_severity": "Out-of-region / not a U.P. foraging target",
+      "distribution_note": "Reviewed in v4.2.93: treated as out-of-region for the Upper Michigan guide unless a verified local record is later supplied.",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Aureoboletus mirabilis",
+          "url": "https://www.mushroomexpert.com/aureoboletus_mirabilis.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Pacific Northwest hemlock distribution and ID traits."
+        }
       ]
     },
     {
@@ -840,7 +861,7 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Yellow wood-associated Buchwaldoboletus with bluing flesh; keep this conservative because names in this group are tangled and wood/fungus associations matter.",
+        "summary": "Yellow wood-associated Buchwaldoboletus with bluing flesh; use as a taxonomy-aware comparison record, not a food target.",
         "ecology": "bolete",
         "substrate": [
           "Pine sawdust",
@@ -872,8 +893,7 @@
         "season_note": "Late summer to fall where recorded.",
         "processing_required": [],
         "research_notes": [
-          "Expect a yellow to yellow-brown bolete on or near pine wood/sawdust or associated wood-decay situations, yellow pores/stem, yellow basal mycelium, and flesh that can bruise blue. Compare carefully with B. hemichrysus and B. lignicola.",
-          "v4.2.91 image review: 3 distinct real image URLs present."
+          "Reviewed in v4.2.93: kept under Buchwaldoboletus sphaerocephalus with explicit comparison to B. hemichrysus and B. lignicola; not treated as a food target."
         ],
         "cap_surface": [
           "Yellow to yellow-brown cap"
@@ -923,24 +943,20 @@
       "food_role": "avoid",
       "edibility_status": "not_edible",
       "non_edible_severity": "Caution / not recommended as food",
-      "review_status": "needs_review",
+      "review_status": "ok",
       "edible_use": {
         "has_ingestible_use": false,
         "method": "",
         "preparation_required": false,
         "notes": ""
       },
-      "needs_review": true,
-      "review_reasons": [
-        "Needs taxonomy / species-level ID check"
-      ],
-      "reviewReasons": [
-        "Needs taxonomy / species-level ID check"
-      ],
-      "review_note": "Needs review: Needs taxonomy / species-level ID check.",
-      "review_notes": "Needs review: Needs taxonomy / species-level ID check.",
-      "mushroom_card_note": "Yellow wood-associated Buchwaldoboletus with bluing flesh; keep this conservative because names in this group are tangled and wood/fungus associations matter.",
-      "field_identification": "Expect a yellow to yellow-brown bolete on or near pine wood/sawdust or associated wood-decay situations, yellow pores/stem, yellow basal mycelium, and flesh that can bruise blue. Compare carefully with B. hemichrysus and B. lignicola.",
+      "needs_review": false,
+      "review_reasons": [],
+      "reviewReasons": [],
+      "review_note": "",
+      "review_notes": "",
+      "mushroom_card_note": "Yellow wood-associated Buchwaldoboletus with bluing flesh; use as a taxonomy-aware comparison record, not a food target.",
+      "field_identification": "Yellow to yellow-brown bolete on or near pine wood/sawdust or wood-decay situations, with yellow pores/stem, yellow basal mycelium, and flesh that can bruise blue. Compare carefully with Buchwaldoboletus hemichrysus and B. lignicola; taxonomy and names in this group are tangled.",
       "use_roles": [
         "ID / comparison"
       ],
@@ -950,7 +966,27 @@
       "image_review_reasons": [],
       "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
       "curation_notes": [
-        "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
+        "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared.",
+        "v4.2.93 resolved the taxonomy review as a conservative complex-aware ID record."
+      ],
+      "taxonomy_note": "Reviewed in v4.2.93: treated as Buchwaldoboletus sphaerocephalus in the app, with synonym/complex warning against B. hemichrysus and B. lignicola.",
+      "use_links": [
+        {
+          "label": "Wikimedia Commons: Buchwaldoboletus sphaerocephalus",
+          "url": "https://commons.wikimedia.org/wiki/Category:Buchwaldoboletus_sphaerocephalus",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "taxon/media reference",
+          "notes": "Taxon category, synonyms, and public image set."
+        },
+        {
+          "label": "MushroomExpert: Buchwaldoboletus hemichrysus",
+          "url": "https://www.mushroomexpert.com/buchwaldoboletus_hemichrysus.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Comparison group and wood-associated Buchwaldoboletus traits."
+        }
       ]
     },
     {
@@ -1015,8 +1051,8 @@
         "season_note": "Summer and fall; described from Michigan.",
         "processing_required": [],
         "research_notes": [
-          "Small drab pinkish-tan to reddish-brown bolete with reddish pores, yellow basal mycelium, and a peppery/bitter taste. Unlike C. piperatus, it can bruise blue and has an olive spore print.",
-          "Needs more distinct photo coverage: only one real image is currently loaded."
+          "Reviewed in v4.2.93: Commons category currently contains only one file; image coverage remains blocked by lack of distinct public images.",
+          "Small drab pinkish-tan to reddish-brown bolete with reddish pores, yellow basal mycelium, and peppery/bitter taste; unlike C. piperatus, it can bruise blue and has an olive spore print."
         ],
         "cap_surface": [
           "Pinkish-tan to reddish-brown cap"
@@ -1083,11 +1119,14 @@
       "foraging_value_score": 2,
       "image_review_status": "needs_more_distinct_photos",
       "image_review_reasons": [
-        "Only one distinct real image is currently loaded. Add 1-2 more different source photos; thumbnail/detail/full reuse does not count."
+        "Only one public Commons field image was found in this pass.",
+        "Keep flagged until at least one more genuinely different usable source image is available."
       ],
       "curation_notes": [
-        "v4.2.91 image review: only one distinct real image is loaded; keep in Needs Review until at least 2 genuinely different photos are available."
-      ]
+        "v4.2.91 image review: only one distinct real image is loaded; keep in Needs Review until at least 2 genuinely different photos are available.",
+        "v4.2.93 confirmed this remains image-blocked: one distinct Commons image found."
+      ],
+      "photo_subject": "Only one distinct Commons image currently available; do not count thumbnail/detail/enlarge variants as extra coverage."
     },
     {
       "slug": "chalciporus-piperatus",
@@ -1281,8 +1320,8 @@
         "season_note": "July to September in reported North American material.",
         "processing_required": [],
         "research_notes": [
-          "Look for a small yellow to red-pink cap, red-pink pores fading yellow-orange/brown, yellow flesh that does not blue, and a yellow-based pinkish stem. Best treated as a specialist Chalciporus ID.",
-          "Needs more distinct photo coverage: only one real image is currently loaded."
+          "Reviewed in v4.2.93: only one distinct Commons field image found; image coverage remains open.",
+          "Small yellow to red-pink cap, red-pink pores fading yellow-orange/brown, yellow flesh that does not blue, and yellow-based pinkish stem."
         ],
         "cap_surface": [
           "Yellow to red-pink cap"
@@ -1349,11 +1388,14 @@
       "foraging_value_score": 1,
       "image_review_status": "needs_more_distinct_photos",
       "image_review_reasons": [
-        "Only one distinct real image is currently loaded. Add 1-2 more different source photos; thumbnail/detail/full reuse does not count."
+        "Only one public Commons field image was found in this pass.",
+        "Keep flagged until at least one more genuinely different usable source image is available."
       ],
       "curation_notes": [
-        "v4.2.91 image review: only one distinct real image is loaded; keep in Needs Review until at least 2 genuinely different photos are available."
-      ]
+        "v4.2.91 image review: only one distinct real image is loaded; keep in Needs Review until at least 2 genuinely different photos are available.",
+        "v4.2.93 confirmed this remains image-blocked: one distinct Commons image found."
+      ],
+      "photo_subject": "Only one distinct Commons image currently available; do not count thumbnail/detail/enlarge variants as extra coverage."
     },
     {
       "slug": "chalciporus-rubinellus",
