@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.86-r2026-04-30-photo-patch-fill-only1",
+    "build": "v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4",
     "primary_type": "mushroom",
     "split_version": "mushroom-data-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-suillus-leccinum.json",
@@ -9,7 +9,7 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 50,
-    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. Updated in v4.2.82 with 25-record mushroom credibility pass including Black Velvet Bolete and Blue-staining Slippery Jack. v4.2.83: mushroom bolete photo/credibility batch; Commons images added for Neoporphyrellus alboater and Suillus tomentosus; 25-record Suillus/Leccinum/Neoporphyrellus pass. v4.2.85 refreshed Blue-staining Slippery Jack image URLs to direct upload.wikimedia.org files and carried forward v4.2.83 image coverage. v4.2.86: optional photo patches are treated as fill-only for existing base-record image fields; direct image fallback hardened for Black Velvet Bolete and Suillus tomentosus where applicable.",
+    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. Updated in v4.2.82 with 25-record mushroom credibility pass including Black Velvet Bolete and Blue-staining Slippery Jack. v4.2.83: mushroom bolete photo/credibility batch; Commons images added for Neoporphyrellus alboater and Suillus tomentosus; 25-record Suillus/Leccinum/Neoporphyrellus pass. v4.2.85 refreshed Blue-staining Slippery Jack image URLs to direct upload.wikimedia.org files and carried forward v4.2.83 image coverage. v4.2.86: optional photo patches are treated as fill-only for existing base-record image fields; direct image fallback hardened for Black Velvet Bolete and Suillus tomentosus where applicable. v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4: 25-record Suillus/Leccinum credibility pass; source/species-note issues reduced while image/local/taxonomy reviews were retained.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -17,7 +17,8 @@
       "review_records_in_file": 44,
       "cleared_image_only_slugs_not_reopened": []
     },
-    "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1"
+    "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
+    "last_suillus_leccinum_batch": "v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4"
   },
   "records": [
     {
@@ -3949,7 +3950,7 @@
       "category": "Mushroom",
       "culinary_uses": "Leccinum records are handled conservatively here; do not treat as casual edibles without expert-level ID and proper cooking.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [
         "July",
         "August",
@@ -3972,13 +3973,16 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Leccinum Quercophilum: check host tree needs field confirmation; Dry to slightly tacky; Whitish to grayish pores; and Scabers.",
+        "summary": "Oak-associated leccinoid bolete with a dull, pitted/cracked brown cap, fine brown scabers, and bluish-green staining near cap margin or stem base.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
-        "host_trees": [],
+        "host_trees": [
+          "Oak",
+          "Hardwoods"
+        ],
         "host_certainty": "unknown",
         "underside": [
           "Pores"
@@ -3988,7 +3992,10 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "Blue-green staining possible"
+        ],
         "taste": [],
         "spore_print": "",
         "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
@@ -3998,16 +4005,21 @@
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
           "Placeholder image inserted pending real public-usable photo.",
-          "Checked in v4.2.83 mushroom batch; source/field-note pass applied. Remaining Needs Review reasons were retained when image coverage or local/species certainty is still weak."
+          "Checked in v4.2.83 mushroom batch; source/field-note pass applied. Remaining Needs Review reasons were retained when image coverage or local/species certainty is still weak.",
+          "Look for an oak association, cracked or pitted brown cap, whitish-gray pore surface aging yellowish brown, fine longitudinal rows of brown scabers, and bluish/greenish staining near the margin or stem base.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
         ],
         "cap_surface": [
-          "Dry to slightly tacky"
+          "Dry to slightly tacky",
+          "Dull brown cracked/pitted cap"
         ],
         "stem_feature": [
-          "Scabers"
+          "Scabers",
+          "Fine brown scabers in longitudinal rows"
         ],
         "pore_color": [
-          "Whitish to grayish pores"
+          "Whitish to grayish pores",
+          "Whitish-gray to yellowish-brown pores"
         ],
         "growth_form": [
           "Cap and stem"
@@ -4020,9 +4032,7 @@
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Leccinum / scaber stalks",
       "boleteGroup": [
@@ -4041,7 +4051,10 @@
       "food_quality": "Fair",
       "food_quality_score": 3,
       "lane": "bolete",
-      "host_filter_tokens": [],
+      "host_filter_tokens": [
+        "Oak",
+        "Hardwoods"
+      ],
       "look_alikes": [
         "scaber-stalk-boletes-birch-aspen-boletes"
       ],
@@ -4049,7 +4062,7 @@
         "scaber-stalk-boletes-birch-aspen-boletes"
       ],
       "general_notes": "",
-      "edibility_detail": "Use caution. Leccinum-style boletes can be hard to separate, and local ID matters.",
+      "edibility_detail": "Treat as a comparison/species-level Leccinum until confirmed. Leccinum identification is not beginner-simple; avoid relying on cap color alone.",
       "food_role": "food",
       "image_review_status": "needs_field_photo",
       "image_review_reasons": [
@@ -4057,25 +4070,24 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "needs_review": true,
-      "review_note": "Needs review: Needs real field photo / image coverage; Needs species-specific notes review.",
-      "review_notes": "Needs review: Needs real field photo / image coverage; Needs species-specific notes review.",
-      "mushroom_card_note": "Leccinum Quercophilum: check host tree needs field confirmation; Dry to slightly tacky; Whitish to grayish pores; and Scabers.",
-      "field_identification": "Check host association (host tree needs field confirmation), cap surface (Dry to slightly tacky), pore surface (Whitish to grayish pores), stem traits (Scabers), and staining reaction (Unknown). Treat this as a comparison/ID record until image and local confirmation improve.",
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Oak-associated leccinoid bolete with a dull, pitted/cracked brown cap, fine brown scabers, and bluish-green staining near cap margin or stem base.",
+      "field_identification": "Look for an oak association, cracked or pitted brown cap, whitish-gray pore surface aging yellowish brown, fine longitudinal rows of brown scabers, and bluish/greenish staining near the margin or stem base.",
       "foraging_value": "Use with caution",
       "foraging_value_score": 1,
       "use_roles": [
-        "Food"
+        "ID / comparison"
       ],
-      "v4283_checked": true
+      "v4283_checked": true,
+      "v4287_checked": true
     },
     {
       "slug": "leccinum-subgranulosum",
@@ -4084,7 +4096,7 @@
       "category": "Mushroom",
       "culinary_uses": "Leccinum records are handled conservatively here; do not treat as casual edibles without expert-level ID and proper cooking.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [
         "July",
         "August",
@@ -4107,13 +4119,15 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Leccinum Subgranulosum: check host tree needs field confirmation; Dry to slightly tacky; Whitish to grayish pores; and Scabers.",
+        "summary": "Leccinum-group species kept for comparison; needs field-photo confirmation and should not be treated as a casual edible target.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
-        "host_trees": [],
+        "host_trees": [
+          "Hardwoods"
+        ],
         "host_certainty": "unknown",
         "underside": [
           "Pores"
@@ -4123,7 +4137,10 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "Staining behavior needs confirmation"
+        ],
         "taste": [],
         "spore_print": "",
         "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
@@ -4133,16 +4150,21 @@
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
           "Placeholder image inserted pending real public-usable photo.",
-          "Checked in v4.2.83 mushroom batch; source/field-note pass applied. Remaining Needs Review reasons were retained when image coverage or local/species certainty is still weak."
+          "Checked in v4.2.83 mushroom batch; source/field-note pass applied. Remaining Needs Review reasons were retained when image coverage or local/species certainty is still weak.",
+          "Use as a Leccinum comparison record: pore-bearing bolete with scabers on the stem. Confirm host tree, cap color, staining, and scaber color before naming.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
         ],
         "cap_surface": [
-          "Dry to slightly tacky"
+          "Dry to slightly tacky",
+          "Brown/orange cap possible"
         ],
         "stem_feature": [
-          "Scabers"
+          "Scabers",
+          "Scabered stem"
         ],
         "pore_color": [
-          "Whitish to grayish pores"
+          "Whitish to grayish pores",
+          "Pores"
         ],
         "growth_form": [
           "Cap and stem"
@@ -4155,9 +4177,7 @@
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Leccinum / scaber stalks",
       "boleteGroup": [
@@ -4176,7 +4196,9 @@
       "food_quality": "Fair",
       "food_quality_score": 3,
       "lane": "bolete",
-      "host_filter_tokens": [],
+      "host_filter_tokens": [
+        "Hardwoods"
+      ],
       "look_alikes": [
         "scaber-stalk-boletes-birch-aspen-boletes"
       ],
@@ -4184,7 +4206,7 @@
         "scaber-stalk-boletes-birch-aspen-boletes"
       ],
       "general_notes": "",
-      "edibility_detail": "Use caution. Leccinum-style boletes can be hard to separate, and local ID matters.",
+      "edibility_detail": "Leccinum species can be difficult and sometimes cause stomach upset even when considered edible; keep this one in review until better local documentation exists.",
       "food_role": "food",
       "image_review_status": "needs_field_photo",
       "image_review_reasons": [
@@ -4192,25 +4214,24 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "needs_review": true,
-      "review_note": "Needs review: Needs real field photo / image coverage; Needs species-specific notes review.",
-      "review_notes": "Needs review: Needs real field photo / image coverage; Needs species-specific notes review.",
-      "mushroom_card_note": "Leccinum Subgranulosum: check host tree needs field confirmation; Dry to slightly tacky; Whitish to grayish pores; and Scabers.",
-      "field_identification": "Check host association (host tree needs field confirmation), cap surface (Dry to slightly tacky), pore surface (Whitish to grayish pores), stem traits (Scabers), and staining reaction (Unknown). Treat this as a comparison/ID record until image and local confirmation improve.",
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Leccinum-group species kept for comparison; needs field-photo confirmation and should not be treated as a casual edible target.",
+      "field_identification": "Use as a Leccinum comparison record: pore-bearing bolete with scabers on the stem. Confirm host tree, cap color, staining, and scaber color before naming.",
       "foraging_value": "Use with caution",
       "foraging_value_score": 1,
       "use_roles": [
-        "Food"
+        "ID / comparison"
       ],
-      "v4283_checked": true
+      "v4283_checked": true,
+      "v4287_checked": true
     },
     {
       "slug": "leccinum-subleucophaeum",
@@ -4219,7 +4240,7 @@
       "category": "Mushroom",
       "culinary_uses": "Leccinum records are handled conservatively here; do not treat as casual edibles without expert-level ID and proper cooking.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [
         "July",
         "August",
@@ -4242,13 +4263,15 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Leccinum Subleucophaeum: check host tree needs field confirmation; Dry to slightly tacky; Whitish to grayish pores; and Scabers.",
+        "summary": "Pale Leccinum-type bolete kept as an ID/comparison record; host and staining details still need local confirmation.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
-        "host_trees": [],
+        "host_trees": [
+          "Hardwoods"
+        ],
         "host_certainty": "unknown",
         "underside": [
           "Pores"
@@ -4258,7 +4281,10 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "Staining behavior needs confirmation"
+        ],
         "taste": [],
         "spore_print": "",
         "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
@@ -4268,16 +4294,21 @@
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
           "Placeholder image inserted pending real public-usable photo.",
-          "Checked in v4.2.83 mushroom batch; source/field-note pass applied. Remaining Needs Review reasons were retained when image coverage or local/species certainty is still weak."
+          "Checked in v4.2.83 mushroom batch; source/field-note pass applied. Remaining Needs Review reasons were retained when image coverage or local/species certainty is still weak.",
+          "Look for a Leccinum-style bolete with a scabered stem; verify host, cap tone, pore color, and any flesh staining before applying the name.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
         ],
         "cap_surface": [
-          "Dry to slightly tacky"
+          "Dry to slightly tacky",
+          "Pale to brownish cap possible"
         ],
         "stem_feature": [
-          "Scabers"
+          "Scabers",
+          "Scabered stem"
         ],
         "pore_color": [
-          "Whitish to grayish pores"
+          "Whitish to grayish pores",
+          "Pores"
         ],
         "growth_form": [
           "Cap and stem"
@@ -4290,9 +4321,7 @@
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Leccinum / scaber stalks",
       "boleteGroup": [
@@ -4311,7 +4340,9 @@
       "food_quality": "Fair",
       "food_quality_score": 3,
       "lane": "bolete",
-      "host_filter_tokens": [],
+      "host_filter_tokens": [
+        "Hardwoods"
+      ],
       "look_alikes": [
         "scaber-stalk-boletes-birch-aspen-boletes"
       ],
@@ -4319,7 +4350,7 @@
         "scaber-stalk-boletes-birch-aspen-boletes"
       ],
       "general_notes": "",
-      "edibility_detail": "Use caution. Leccinum-style boletes can be hard to separate, and local ID matters.",
+      "edibility_detail": "Not a prime food target in this guide. Keep as a comparison species unless locally documented and confidently identified.",
       "food_role": "food",
       "image_review_status": "needs_field_photo",
       "image_review_reasons": [
@@ -4327,25 +4358,24 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "needs_review": true,
-      "review_note": "Needs review: Needs real field photo / image coverage; Needs species-specific notes review.",
-      "review_notes": "Needs review: Needs real field photo / image coverage; Needs species-specific notes review.",
-      "mushroom_card_note": "Leccinum Subleucophaeum: check host tree needs field confirmation; Dry to slightly tacky; Whitish to grayish pores; and Scabers.",
-      "field_identification": "Check host association (host tree needs field confirmation), cap surface (Dry to slightly tacky), pore surface (Whitish to grayish pores), stem traits (Scabers), and staining reaction (Unknown). Treat this as a comparison/ID record until image and local confirmation improve.",
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Pale Leccinum-type bolete kept as an ID/comparison record; host and staining details still need local confirmation.",
+      "field_identification": "Look for a Leccinum-style bolete with a scabered stem; verify host, cap tone, pore color, and any flesh staining before applying the name.",
       "foraging_value": "Use with caution",
       "foraging_value_score": 1,
       "use_roles": [
-        "Food"
+        "ID / comparison"
       ],
-      "v4283_checked": true
+      "v4283_checked": true,
+      "v4287_checked": true
     },
     {
       "slug": "leccinum-subtestaceum",
@@ -4354,7 +4384,7 @@
       "category": "Mushroom",
       "culinary_uses": "Culinary specifics still need review.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [
         "July",
         "August",
@@ -4365,7 +4395,9 @@
         8,
         9
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/leccinum.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ELeccinum%20subtestaceum%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -4375,13 +4407,15 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Leccinum subtestaceum. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Orange/brown Leccinum-type record that still needs stronger regional confirmation and field photos.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
-        "host_trees": [],
+        "host_trees": [
+          "Hardwoods"
+        ],
         "host_certainty": "unknown",
         "underside": [
           "Pores"
@@ -4391,7 +4425,10 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "Staining behavior needs confirmation"
+        ],
         "taste": [],
         "spore_print": "",
         "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
@@ -4400,16 +4437,21 @@
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Treat as a Leccinum comparison: cap-and-stem bolete with pores and scabers. Confirm host tree, stem scaber color, flesh staining, and range before naming.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
         ],
         "cap_surface": [
-          "Dry to slightly tacky"
+          "Dry to slightly tacky",
+          "Orange to brown cap possible"
         ],
         "stem_feature": [
-          "Scabers"
+          "Scabers",
+          "Scabered stem"
         ],
         "pore_color": [
-          "Whitish to grayish pores"
+          "Whitish to grayish pores",
+          "Pores"
         ],
         "growth_form": [
           "Cap and stem"
@@ -4422,10 +4464,7 @@
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Leccinum / scaber stalks",
       "boleteGroup": [
@@ -4442,13 +4481,13 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
-      "host_filter_tokens": [],
+      "host_filter_tokens": [
+        "Hardwoods"
+      ],
       "commonness": "Uncommon",
       "food_quality": "Good",
       "non_edible_severity": "",
@@ -4464,7 +4503,7 @@
       "confused_with": [
         "scaber-stalk-boletes-birch-aspen-boletes"
       ],
-      "edibility_detail": "A worthwhile edible.",
+      "edibility_detail": "Not recommended as a casual edible until the record is better documented for this region.",
       "food_role": "food",
       "image_review_status": "needs_field_photo",
       "image_review_reasons": [
@@ -4472,13 +4511,19 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Orange/brown Leccinum-type record that still needs stronger regional confirmation and field photos.",
+      "field_identification": "Treat as a Leccinum comparison: cap-and-stem bolete with pores and scabers. Confirm host tree, stem scaber color, flesh staining, and range before naming.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "v4287_checked": true
     },
     {
       "slug": "leccinum-versipelle",
@@ -4512,7 +4557,7 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Orange Birch Bolete. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Orange birch-associated Leccinum with a bright orange cap and darkening scabers; a useful comparison species but still needs cautious ID.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -4534,7 +4579,8 @@
         "odor": "Unknown",
         "staining": [
           "Unknown",
-          "Staining varies by species; slice and observe over 30 minutes"
+          "Staining varies by species; slice and observe over 30 minutes",
+          "Flesh may darken or discolor"
         ],
         "taste": [
           "Mild / not distinctive"
@@ -4545,7 +4591,9 @@
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
           "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "Look for birch association, orange cap, pale pores, and a scabered stem that darkens with age. Compare carefully with other orange-capped Leccinum.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
         ],
         "lane": "bolete",
         "host_filter_tokens": [
@@ -4554,13 +4602,16 @@
           "Aspen / poplar"
         ],
         "pore_color": [
-          "Whitish to grayish or yellowish pores depending on species"
+          "Whitish to grayish or yellowish pores depending on species",
+          "Pale pores"
         ],
         "cap_surface": [
-          "Dry cap; color varies by species"
+          "Dry cap; color varies by species",
+          "Orange cap"
         ],
         "stem_feature": [
-          "Scabers on stem"
+          "Scabers on stem",
+          "Scabered stem darkening with age"
         ],
         "smell": [
           "Mild / not distinctive"
@@ -4586,8 +4637,8 @@
       "food_quality": "Edible with caution",
       "food_role": "food",
       "edibility_status": "edible_with_preparation",
-      "edibility_detail": "Leccinum species are host-specific and can be difficult to pin down in North America. Record host tree, staining changes over 30 minutes, pore color, and scaber color before using.",
-      "field_identification": "Leccinum-type boletes have pore surfaces and a central stem covered with scabers rather than glandular dots or netting. Host tree is a key identification clue; many are birch, aspen, oak, or other specific-tree associates.",
+      "edibility_detail": "Often listed as edible after thorough cooking, but Leccinum reactions vary and this guide treats it cautiously.",
+      "field_identification": "Look for birch association, orange cap, pale pores, and a scabered stem that darkens with age. Compare carefully with other orange-capped Leccinum.",
       "use_links": [
         {
           "label": "MushroomExpert: The Genus Leccinum",
@@ -4655,7 +4706,17 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "mushroom_card_note": "Orange birch-associated Leccinum with a bright orange cap and darkening scabers; a useful comparison species but still needs cautious ID.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 2,
+      "needs_review": false,
+      "review_note": "",
+      "review_notes": "",
+      "v4287_checked": true
     },
     {
       "slug": "suillus-spraguei",
@@ -4687,7 +4748,7 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Painted Suillus. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Painted Suillus: colorful, shaggy/scaly red to brick cap with yellow pores and eastern white pine association.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil",
@@ -4697,7 +4758,8 @@
         "wood_type": [],
         "host_trees": [
           "Eastern white pine",
-          "5-needle pines"
+          "5-needle pines",
+          "White pine"
         ],
         "host_certainty": "unknown",
         "underside": [
@@ -4711,7 +4773,8 @@
         "odor": "Unknown",
         "staining": [
           "Unknown",
-          "May bruise reddish or brownish; flesh can stain pinkish to reddish/brownish"
+          "May bruise reddish or brownish; flesh can stain pinkish to reddish/brownish",
+          "Not a key blue-staining species"
         ],
         "taste": [
           "Mild / not distinctive"
@@ -4722,7 +4785,9 @@
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
           "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "Look for eastern white pine, dry shaggy red/brick cap scales, pale yellow pore surface, and a stem with reddish colors. Not the usual slimy Suillus look.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
         ],
         "lane": "bolete",
         "host_filter_tokens": [
@@ -4731,16 +4796,19 @@
           "Eastern white pine"
         ],
         "pore_color": [
-          "Yellow becoming brownish yellow"
+          "Yellow becoming brownish yellow",
+          "Pale yellow pores"
         ],
         "cap_surface": [
           "Dry",
-          "Shaggy pinkish to brick-rose scales"
+          "Shaggy pinkish to brick-rose scales",
+          "Shaggy/scaly red to brick cap"
         ],
         "stem_feature": [
           "Ring",
           "Shaggy below ring",
-          "No glandular dots"
+          "No glandular dots",
+          "Colorful reddish/yellow stem"
         ],
         "smell": [
           "Mild / not distinctive"
@@ -4766,8 +4834,8 @@
       "food_quality": "Fair",
       "food_role": "food",
       "edibility_status": "edible_with_caution",
-      "edibility_detail": "Confirm eastern white pine association, shaggy red/pink cap scales, yellow pores, and ringed/shaggy stem. Not a choice mushroom for everyone.",
-      "field_identification": "Rose-brick to pinkish-red shaggy/scaly cap, yellow pores, partial veil/ring, shaggy stem below the ring, and strong association with eastern white pine in northern Michigan and the Great Lakes region.",
+      "edibility_detail": "Edible reputation exists, but texture and personal tolerance vary; peel/clean well and cook thoroughly.",
+      "field_identification": "Look for eastern white pine, dry shaggy red/brick cap scales, pale yellow pore surface, and a stem with reddish colors. Not the usual slimy Suillus look.",
       "use_links": [
         {
           "label": "MushroomExpert: Suillus spraguei",
@@ -4781,7 +4849,8 @@
       "host_filter_tokens": [
         "Softwood",
         "Pine",
-        "Eastern white pine"
+        "Eastern white pine",
+        "White pine"
       ],
       "lane": "bolete",
       "record_type": "mushroom",
@@ -4834,19 +4903,31 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "mushroom_card_note": "Painted Suillus: colorful, shaggy/scaly red to brick cap with yellow pores and eastern white pine association.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Good forage",
+      "foraging_value_score": 3,
+      "needs_review": false,
+      "review_note": "",
+      "review_notes": "",
+      "v4287_checked": true
     },
     {
       "slug": "suillus-paluster",
       "display_name": "Red Bog Bolete",
       "common_name": "Red Bog Bolete",
       "category": "Mushroom",
-      "culinary_uses": "",
+      "culinary_uses": "Keep as ID/comparison rather than food target until regional occurrence and images are better verified.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ERed%20Bog%20Bolete%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ESuillus%20paluster%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -4856,13 +4937,17 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Red Bog Bolete. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Red bog Suillus keyed as a larch/tamarack-type comparison species with red tones and wide/boletinoid pores.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
-        "host_trees": [],
+        "host_trees": [
+          "Tamarack",
+          "Larch",
+          "Conifers"
+        ],
         "host_certainty": "unknown",
         "underside": "Pores",
         "ring": "Unknown",
@@ -4870,23 +4955,34 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "Staining needs confirmation"
+        ],
         "taste": [],
         "spore_print": "",
-        "season_note": "",
+        "season_note": "Summer into fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Use host and structure: wet/boggy larch or conifer habitat, reddish cap, and Suillus-style pore surface that may look elongated or boletinoid.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Red to pink/red cap possible"
+        ],
+        "stem_feature": [
+          "Suillus-style stem"
+        ],
+        "pore_color": [
+          "Wide or boletinoid pores"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Suillus / slippery jacks",
       "boleteGroup": [
@@ -4906,26 +5002,36 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Red bog Suillus keyed as a larch/tamarack-type comparison species with red tones and wide/boletinoid pores.",
+      "field_identification": "Use host and structure: wet/boggy larch or conifer habitat, reddish cap, and Suillus-style pore surface that may look elongated or boletinoid.",
+      "edibility_detail": "Keep as ID/comparison rather than food target until regional occurrence and images are better verified.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "host_filter_tokens": [
+        "Tamarack",
+        "Larch",
+        "Conifers"
+      ],
+      "v4287_checked": true
     },
     {
       "slug": "suillus-brevipes",
       "display_name": "Short Stalked Bolete",
       "common_name": "Short Stalked Bolete",
       "category": "Mushroom",
-      "culinary_uses": "",
+      "culinary_uses": "Edible for some after peeling/slime removal and cooking, but not a prime target for everyone.",
       "medicinal_uses": "",
       "notes": "Short-stalked Suillus with a very slimy brown cap, yellow pores, no ring, and hard-pine association. Do not rely on shortness alone; host pine and cap/stem details matter.",
       "months_available": [],
@@ -4942,7 +5048,7 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Short Stalked Bolete. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Short-stalked pine Suillus with a slimy brown cap, yellow pores, very subtle glandular dots, and hard-pine association.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -4951,7 +5057,9 @@
         "host_trees": [
           "Red pine",
           "Jack pine",
-          "Hard pines with needles in bundles of 2 or 3"
+          "Hard pines with needles in bundles of 2 or 3",
+          "Pine",
+          "Hard pine"
         ],
         "host_certainty": "unknown",
         "underside": "Pores",
@@ -4961,31 +5069,38 @@
         ],
         "odor": "Unknown",
         "staining": [
-          "Not bruising on pore surface"
+          "Not bruising on pore surface",
+          "Not distinctive"
         ],
         "taste": [
           "Mild / not distinctive"
         ],
         "spore_print": "",
-        "season_note": "",
+        "season_note": "Summer into fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Look under 2- or 3-needle pines for a slimy brown cap, yellow pore surface, short/squat tendency, no ring, and glandular dots that may be nearly invisible.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
         ],
         "cap_surface": [
           "Very slimy when fresh",
-          "Dark brown to reddish/orangish brown"
+          "Dark brown to reddish/orangish brown",
+          "Slimy brown cap"
         ],
         "pore_color": [
-          "Pale yellow becoming dingy brownish yellow"
+          "Pale yellow becoming dingy brownish yellow",
+          "Yellow pores"
+        ],
+        "stem_feature": [
+          "Short/squat tendency; subtle glandular dots"
         ]
       },
       "manual_review_reasons": [
-        "needs source links",
-        "needs species-level notes review"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Suillus / slippery jacks",
       "boleteGroup": [
@@ -5013,8 +5128,8 @@
       "commonness": "Occasional",
       "general_notes": "Edible but usually not a top-tier mushroom; many people prefer young firm specimens and discard older slimy ones.",
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage.",
-      "review_notes": "Needs review: needs real field photo / image coverage.",
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
       "use_links": [
         {
           "label": "MushroomExpert: Suillus brevipes",
@@ -5024,7 +5139,20 @@
           "source_quality": "mycology reference",
           "notes": "Short/slimy Suillus under hard pines; compares with Suillus weaverae."
         }
-      ]
+      ],
+      "mushroom_card_note": "Short-stalked pine Suillus with a slimy brown cap, yellow pores, very subtle glandular dots, and hard-pine association.",
+      "field_identification": "Look under 2- or 3-needle pines for a slimy brown cap, yellow pore surface, short/squat tendency, no ring, and glandular dots that may be nearly invisible.",
+      "edibility_detail": "Edible for some after peeling/slime removal and cooking, but not a prime target for everyone.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Good processed food",
+      "foraging_value_score": 3,
+      "host_filter_tokens": [
+        "Pine",
+        "Hard pine"
+      ],
+      "v4287_checked": true
     },
     {
       "slug": "slim-jack",
@@ -5033,10 +5161,12 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ESlim%20Jack%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ESuillus%20flavidus%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -5046,14 +5176,15 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Slim Jack. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Slimy Suillus-type record kept for comparison; needs local photo and source confirmation before being treated as settled.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
         "host_trees": [
-          "Pine"
+          "Pine",
+          "Conifers"
         ],
         "host_certainty": "low",
         "underside": "Pores",
@@ -5062,23 +5193,34 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "Staining needs confirmation"
+        ],
         "taste": [],
         "spore_print": "",
-        "season_note": "",
+        "season_note": "Summer into fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Check for a sticky/slimy cap, pine or conifer association, ring or ring-zone characters, glandular dots, and pore shape before naming.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Slimy cap"
+        ],
+        "stem_feature": [
+          "Ring/glandular-dot characters need confirmation"
+        ],
+        "pore_color": [
+          "Pores"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Suillus / slippery jacks",
       "boleteGroup": [
@@ -5096,13 +5238,14 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
-      "host_filter_tokens": [],
+      "host_filter_tokens": [
+        "Pine",
+        "Conifers"
+      ],
       "commonness": "",
       "food_quality": "",
       "non_edible_severity": "",
@@ -5116,25 +5259,34 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Slimy Suillus-type record kept for comparison; needs local photo and source confirmation before being treated as settled.",
+      "field_identification": "Check for a sticky/slimy cap, pine or conifer association, ring or ring-zone characters, glandular dots, and pore shape before naming.",
+      "edibility_detail": "Not a food target in this guide until the ID and regional treatment are cleaned up.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "v4287_checked": true
     },
     {
       "slug": "suillus-salmonicolor",
       "display_name": "Slippery Jill",
       "common_name": "Slippery Jill",
       "category": "Mushroom",
-      "culinary_uses": "",
+      "culinary_uses": "Usually treated as edible with Suillus caveats: peel slime if needed, cook thoroughly, and expect texture/tolerance issues.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus_salmonicolor.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ESlippery%20Jill%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ESuillus%20salmonicolor%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -5144,13 +5296,17 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Slippery Jill. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Sticky dirty-orange Suillus with orange flesh, dark glandular dots, and a flaring glutinous ring; associated with hard pines.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
-        "host_trees": [],
+        "host_trees": [
+          "Jack pine",
+          "Hard pine",
+          "Pitch pine"
+        ],
         "host_certainty": "unknown",
         "underside": "Pores",
         "ring": "Unknown",
@@ -5158,23 +5314,34 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "Orange flesh"
+        ],
         "taste": [],
         "spore_print": "",
-        "season_note": "",
+        "season_note": "Summer into fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Look for jack/pitch/Virginia pine association, sticky orange cap, orange flesh, dark red-to-brown glandular dots, and a glutinous sheathing ring with a white lower edge.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Sticky dirty-orange cap"
+        ],
+        "stem_feature": [
+          "Glutinous ring; dark glandular dots"
+        ],
+        "pore_color": [
+          "Yellow to orange pores"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Suillus / slippery jacks",
       "boleteGroup": [
@@ -5194,19 +5361,29 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Sticky dirty-orange Suillus with orange flesh, dark glandular dots, and a flaring glutinous ring; associated with hard pines.",
+      "field_identification": "Look for jack/pitch/Virginia pine association, sticky orange cap, orange flesh, dark red-to-brown glandular dots, and a glutinous sheathing ring with a white lower edge.",
+      "edibility_detail": "Usually treated as edible with Suillus caveats: peel slime if needed, cook thoroughly, and expect texture/tolerance issues.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Good processed food",
+      "foraging_value_score": 3,
+      "host_filter_tokens": [
+        "Jack pine",
+        "Hard pine",
+        "Pitch pine"
+      ],
+      "v4287_checked": true
     },
     {
       "slug": "snells-bolete",
@@ -5215,10 +5392,12 @@
       "category": "Mushroom",
       "culinary_uses": "Culinary specifics still need review.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/leccinum.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ESnell%27s%20Bolete%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ELeccinum%20snellii%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -5228,13 +5407,15 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Snell's Bolete. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Leccinum/Snellii comparison record; needs field images and stronger species-source support before food use.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
-        "host_trees": [],
+        "host_trees": [
+          "Hardwoods"
+        ],
         "host_certainty": "unknown",
         "underside": "Pores",
         "ring": "None",
@@ -5242,23 +5423,34 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "Staining behavior needs confirmation"
+        ],
         "taste": [],
         "spore_print": "",
-        "season_note": "",
+        "season_note": "Summer into fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Treat as a scabered-stem Leccinum-type bolete. Confirm host, cap color, pore color, and staining before applying the name.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Cap color needs confirmation"
+        ],
+        "stem_feature": [
+          "Scabered stem"
+        ],
+        "pore_color": [
+          "Pores"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Leccinum / scaber stalks",
       "boleteGroup": [
@@ -5275,13 +5467,13 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
-      "host_filter_tokens": [],
+      "host_filter_tokens": [
+        "Hardwoods"
+      ],
       "commonness": "",
       "food_quality": "",
       "non_edible_severity": "",
@@ -5295,13 +5487,20 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Leccinum/Snellii comparison record; needs field images and stronger species-source support before food use.",
+      "field_identification": "Treat as a scabered-stem Leccinum-type bolete. Confirm host, cap color, pore color, and staining before applying the name.",
+      "edibility_detail": "Not recommended as a casual edible target in this app; keep for identification comparison until better documented.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "v4287_checked": true
     },
     {
       "slug": "sour-cap-suillus",
@@ -5310,10 +5509,12 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus_acidus.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ESour%20Cap%20Suillus%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ESuillus%20acidus%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -5323,13 +5524,16 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Sour Cap Suillus. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Sour Cap Suillus: pale yellow to whitish slimy cap, glandular-dotted stem, ring zone, and sour/acrid cap slime; red/eastern white pine associate.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
-        "host_trees": [],
+        "host_trees": [
+          "Red pine",
+          "Eastern white pine"
+        ],
         "host_certainty": "unknown",
         "underside": "Pores",
         "ring": "None",
@@ -5337,23 +5541,34 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "Lower stem/flesh may show pinkish-orange tones"
+        ],
         "taste": [],
         "spore_print": "",
-        "season_note": "",
+        "season_note": "Summer into fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Look for red pine or eastern white pine, pale slimy cap with veil remnants, skinny tough stem with glandular dots, rolled/gelatinous ring zone, and acidic cap slime.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Whitish to dull yellow slimy cap"
+        ],
+        "stem_feature": [
+          "Glandular dots; rolled/gelatinous ring zone"
+        ],
+        "pore_color": [
+          "Yellow pores"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Suillus / slippery jacks",
       "boleteGroup": [
@@ -5370,13 +5585,14 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
-      "host_filter_tokens": [],
+      "host_filter_tokens": [
+        "Red pine",
+        "Eastern white pine"
+      ],
       "commonness": "",
       "food_quality": "",
       "non_edible_severity": "",
@@ -5390,13 +5606,20 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Sour Cap Suillus: pale yellow to whitish slimy cap, glandular-dotted stem, ring zone, and sour/acrid cap slime; red/eastern white pine associate.",
+      "field_identification": "Look for red pine or eastern white pine, pale slimy cap with veil remnants, skinny tough stem with glandular dots, rolled/gelatinous ring zone, and acidic cap slime.",
+      "edibility_detail": "Not a prime food target; the sour/acrid cap slime and Suillus texture make this more of an ID species than basket filler.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "v4287_checked": true
     },
     {
       "slug": "suillus-elbensis",
@@ -5405,10 +5628,12 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ESuillus%20elbensis%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -5418,14 +5643,16 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Suillus elbensis. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Brown to gray-brown sticky Suillus keyed near pale-pored species; needs photo and local confirmation.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
         "host_trees": [
-          "Tamarack / larch"
+          "Tamarack / larch",
+          "Conifers",
+          "Pine possible"
         ],
         "host_certainty": "low",
         "underside": "Pores",
@@ -5434,23 +5661,34 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "Slight blue staining possible"
+        ],
         "taste": [],
         "spore_print": "",
-        "season_note": "",
+        "season_note": "Summer into fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Use with the Suillus key: sticky brown/gray-brown cap, whitish to grayish young pores, glandular-dot/ring characters, and possible slight blue staining when sliced.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Sticky brown to gray-brown cap"
+        ],
+        "stem_feature": [
+          "Glandular-dot details need confirmation"
+        ],
+        "pore_color": [
+          "Whitish to grayish young pores"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Suillus / slippery jacks",
       "boleteGroup": [
@@ -5468,13 +5706,14 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
-      "host_filter_tokens": [],
+      "host_filter_tokens": [
+        "Conifers",
+        "Pine possible"
+      ],
       "commonness": "",
       "food_quality": "",
       "non_edible_severity": "",
@@ -5488,13 +5727,20 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Brown to gray-brown sticky Suillus keyed near pale-pored species; needs photo and local confirmation.",
+      "field_identification": "Use with the Suillus key: sticky brown/gray-brown cap, whitish to grayish young pores, glandular-dot/ring characters, and possible slight blue staining when sliced.",
+      "edibility_detail": "Keep as ID/comparison until stronger regional documentation and images are added.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "v4287_checked": true
     },
     {
       "slug": "suillus-granulatus",
@@ -5503,10 +5749,12 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus_granulatus.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ESuillus%20granulatus%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -5516,14 +5764,16 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Suillus granulatus. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Granulated Suillus: sticky orangish-brown cap, yellow non-bruising pores with milky droplets when young, no ring, and glandular dots.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
         "host_trees": [
-          "Pine"
+          "Pine",
+          "2-needle pine",
+          "Red pine possible"
         ],
         "host_certainty": "low",
         "underside": "Pores",
@@ -5532,23 +5782,34 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "Non-bruising yellow pores"
+        ],
         "taste": [],
         "spore_print": "",
-        "season_note": "",
+        "season_note": "Summer into fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "For true S. granulatus, expect 2-needle pine association, sticky orangish-brown cap, small yellow pores often beading milky liquid, no ring, and glandular dots on the stem. North American records need host caution.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Sticky orangish-brown cap"
+        ],
+        "stem_feature": [
+          "No ring; glandular dots"
+        ],
+        "pore_color": [
+          "Yellow pores; milky droplets when young"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Suillus / slippery jacks",
       "boleteGroup": [
@@ -5566,13 +5827,14 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
-      "host_filter_tokens": [],
+      "host_filter_tokens": [
+        "2-needle pine",
+        "Red pine possible"
+      ],
       "commonness": "",
       "food_quality": "",
       "non_edible_severity": "",
@@ -5586,13 +5848,20 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Granulated Suillus: sticky orangish-brown cap, yellow non-bruising pores with milky droplets when young, no ring, and glandular dots.",
+      "field_identification": "For true S. granulatus, expect 2-needle pine association, sticky orangish-brown cap, small yellow pores often beading milky liquid, no ring, and glandular dots on the stem. North American records need host caution.",
+      "edibility_detail": "Edible in some guides but not a high-value target; taxonomy/host issues mean this app treats it cautiously.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Good processed food",
+      "foraging_value_score": 2,
+      "v4287_checked": true
     },
     {
       "slug": "suillus-hirtellus",
@@ -5601,10 +5870,12 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus_hirtellus.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ESuillus%20hirtellus%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -5614,14 +5885,16 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Suillus hirtellus. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Dull-yellow hard-pine Suillus with a finely fibrillose cap and glandular dots; U.P. relevance should be checked.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
         "host_trees": [
-          "Pine"
+          "Pine",
+          "Hard pine",
+          "Southern hard pines"
         ],
         "host_certainty": "low",
         "underside": "Pores",
@@ -5630,23 +5903,34 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "No major staining noted"
+        ],
         "taste": [],
         "spore_print": "",
-        "season_note": "",
+        "season_note": "Summer into fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Look for hard-pine association, dull yellow fibrillose cap, yellow pores aging brownish-yellow, and glandular dots that become more visible with age.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Dull yellow finely fibrillose cap"
+        ],
+        "stem_feature": [
+          "Glandular dots"
+        ],
+        "pore_color": [
+          "Yellow to brownish-yellow pores"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Suillus / slippery jacks",
       "boleteGroup": [
@@ -5663,13 +5947,14 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
-      "host_filter_tokens": [],
+      "host_filter_tokens": [
+        "Hard pine",
+        "Southern hard pines"
+      ],
       "commonness": "",
       "food_quality": "",
       "non_edible_severity": "",
@@ -5683,25 +5968,34 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Dull-yellow hard-pine Suillus with a finely fibrillose cap and glandular dots; U.P. relevance should be checked.",
+      "field_identification": "Look for hard-pine association, dull yellow fibrillose cap, yellow pores aging brownish-yellow, and glandular dots that become more visible with age.",
+      "edibility_detail": "Not a priority edible in this guide; range/host overlap makes it a review species for Upper Michigan.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "v4287_checked": true
     },
     {
       "slug": "suillus-punctatipes",
       "display_name": "Suillus Punctatipes",
       "common_name": "Suillus Punctatipes",
       "category": "Mushroom",
-      "culinary_uses": "",
+      "culinary_uses": "Hold as an ID/taxonomy review record rather than a food target.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ESuillus%20Punctatipes%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ESuillus%20punctatipes%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -5711,13 +6005,16 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Suillus Punctatipes. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Suillus punctatipes record kept separate from dotted-stalk Suillus until taxonomy/image review settles it.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
-        "host_trees": [],
+        "host_trees": [
+          "Pine",
+          "Eastern white pine possible"
+        ],
         "host_certainty": "unknown",
         "underside": "Pores",
         "ring": "Unknown",
@@ -5725,23 +6022,34 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "Staining needs confirmation"
+        ],
         "taste": [],
         "spore_print": "",
-        "season_note": "",
+        "season_note": "Summer into fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Compare with Suillus punctipes and other white-pine Suillus: check pore color when young, glandular dots, host pine, cap slime, and any ring zone.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Slimy yellow/brown cap possible"
+        ],
+        "stem_feature": [
+          "Glandular dots"
+        ],
+        "pore_color": [
+          "Pore color must be checked young"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Suillus / slippery jacks",
       "boleteGroup": [
@@ -5761,19 +6069,28 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Suillus punctatipes record kept separate from dotted-stalk Suillus until taxonomy/image review settles it.",
+      "field_identification": "Compare with Suillus punctipes and other white-pine Suillus: check pore color when young, glandular dots, host pine, cap slime, and any ring zone.",
+      "edibility_detail": "Hold as an ID/taxonomy review record rather than a food target.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "host_filter_tokens": [
+        "Pine",
+        "Eastern white pine possible"
+      ],
+      "v4287_checked": true
     },
     {
       "slug": "suillus-punctipes",
@@ -5805,7 +6122,7 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Suillus Punctipes. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Dotted-stalk Suillus: eastern white pine associate with brown young pores and dense darkening glandular dots.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil",
@@ -5813,7 +6130,8 @@
         ],
         "wood_type": [],
         "host_trees": [
-          "Eastern white pine"
+          "Eastern white pine",
+          "White pine"
         ],
         "host_certainty": "unknown",
         "underside": [
@@ -5828,7 +6146,8 @@
         "odor": "Unknown",
         "staining": [
           "Unknown",
-          "Not bruising"
+          "Not bruising",
+          "Not a major staining species"
         ],
         "taste": [
           "Mild / not distinctive"
@@ -5838,7 +6157,9 @@
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "Look under eastern white pine for a slimy yellow to yellow-brown cap, brown young pore surface, and a stem densely dotted with glandular spots that darken with age.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
         ],
         "lane": "bolete",
         "host_filter_tokens": [
@@ -5847,15 +6168,18 @@
           "Eastern white pine"
         ],
         "pore_color": [
-          "Brown to orange-brown when young; yellowish to olive with age"
+          "Brown to orange-brown when young; yellowish to olive with age",
+          "Brown young pores aging yellow/olive"
         ],
         "cap_surface": [
           "Sticky / slimy",
-          "Yellow to yellow-brown cap"
+          "Yellow to yellow-brown cap",
+          "Slimy yellow to yellow-brown cap"
         ],
         "stem_feature": [
           "Dense glandular dots",
-          "No ring"
+          "No ring",
+          "Dense darkening glandular dots"
         ],
         "smell": [
           "Mild or fragrant"
@@ -5881,8 +6205,8 @@
       "food_quality": "Fair",
       "food_role": "food",
       "edibility_status": "edible_with_preparation",
-      "edibility_detail": "A white-pine Suillus with glandular dots. Avoid old, soggy specimens.",
-      "field_identification": "Associates with eastern white pine. Cap is sticky to slimy, yellow to dull yellow-brown; young pore surface is brown to orange-brown before becoming yellowish/olive; stem is densely dotted with brown glandular dots and lacks a ring.",
+      "edibility_detail": "Edible reputation is modest; cook well and expect typical Suillus texture/slime issues.",
+      "field_identification": "Look under eastern white pine for a slimy yellow to yellow-brown cap, brown young pore surface, and a stem densely dotted with glandular spots that darken with age.",
       "use_links": [
         {
           "label": "MushroomExpert: Suillus punctipes",
@@ -5896,7 +6220,8 @@
       "host_filter_tokens": [
         "Softwood",
         "Pine",
-        "Eastern white pine"
+        "Eastern white pine",
+        "White pine"
       ],
       "lane": "bolete",
       "record_type": "mushroom",
@@ -5949,19 +6274,31 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "mushroom_card_note": "Dotted-stalk Suillus: eastern white pine associate with brown young pores and dense darkening glandular dots.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Good processed food",
+      "foraging_value_score": 2,
+      "needs_review": false,
+      "review_note": "",
+      "review_notes": "",
+      "v4287_checked": true
     },
     {
       "slug": "suillus-sinuspaulianus",
       "display_name": "Suillus Sinuspaulianus",
       "common_name": "Suillus Sinuspaulianus",
       "category": "Mushroom",
-      "culinary_uses": "",
+      "culinary_uses": "Not a food target in this guide until taxonomy and regional relevance are clearer.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ESuillus%20Sinuspaulianus%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ESuillus%20sinuspaulianus%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -5971,13 +6308,15 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Suillus Sinuspaulianus. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Suillus sinuspaulianus is keyed near glandular yellow/brown Suillus; needs source/image confirmation and may overlap older names.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
-        "host_trees": [],
+        "host_trees": [
+          "Pine"
+        ],
         "host_certainty": "unknown",
         "underside": "Pores",
         "ring": "Unknown",
@@ -5985,23 +6324,34 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "Staining needs confirmation"
+        ],
         "taste": [],
         "spore_print": "",
-        "season_note": "",
+        "season_note": "Summer into fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Check pine host, cap color, pore shape, glandular dots, and ring/false-veil traits. This record should be treated as taxonomy-sensitive.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Brown to reddish-brown cap possible"
+        ],
+        "stem_feature": [
+          "Glandular dots possible"
+        ],
+        "pore_color": [
+          "Pores"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Suillus / slippery jacks",
       "boleteGroup": [
@@ -6021,19 +6371,27 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Suillus sinuspaulianus is keyed near glandular yellow/brown Suillus; needs source/image confirmation and may overlap older names.",
+      "field_identification": "Check pine host, cap color, pore shape, glandular dots, and ring/false-veil traits. This record should be treated as taxonomy-sensitive.",
+      "edibility_detail": "Not a food target in this guide until taxonomy and regional relevance are clearer.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "host_filter_tokens": [
+        "Pine"
+      ],
+      "v4287_checked": true
     },
     {
       "slug": "suillus-spectabilis",
@@ -6042,10 +6400,12 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus_spectabilis.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ESuillus%20spectabilis%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -6055,14 +6415,16 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Suillus spectabilis. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Showy tamarack/larch Suillus with sticky red cap, grayish patches, red gelatinous veil, and a sticky ring.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
         "host_trees": [
-          "Tamarack / larch"
+          "Tamarack / larch",
+          "Tamarack",
+          "Larch"
         ],
         "host_certainty": "low",
         "underside": "Pores",
@@ -6071,23 +6433,34 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "Not a key blue-staining species"
+        ],
         "taste": [],
         "spore_print": "",
-        "season_note": "",
+        "season_note": "Summer into fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Look with tamarack/larch for a sticky red cap with grayish patches, gelatinous red partial veil, sticky ring, yellow stem above the ring, and red/fibrillose stem below.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Sticky red cap with grayish patches"
+        ],
+        "stem_feature": [
+          "Sticky ring; yellow above, red/fibrillose below"
+        ],
+        "pore_color": [
+          "Yellow pores"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Suillus / slippery jacks",
       "boleteGroup": [
@@ -6105,13 +6478,14 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
-      "host_filter_tokens": [],
+      "host_filter_tokens": [
+        "Tamarack",
+        "Larch"
+      ],
       "commonness": "",
       "food_quality": "",
       "non_edible_severity": "",
@@ -6125,13 +6499,20 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Showy tamarack/larch Suillus with sticky red cap, grayish patches, red gelatinous veil, and a sticky ring.",
+      "field_identification": "Look with tamarack/larch for a sticky red cap with grayish patches, gelatinous red partial veil, sticky ring, yellow stem above the ring, and red/fibrillose stem below.",
+      "edibility_detail": "Usually treated cautiously; distinctive but slimy. Useful as an ID species and possible cooked food with confidence.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Good processed food",
+      "foraging_value_score": 3,
+      "v4287_checked": true
     },
     {
       "slug": "suillus-subaureus",
@@ -6140,10 +6521,12 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus_subaureus.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ESuillus%20subaureus%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -6153,13 +6536,17 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Suillus subaureus. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Yellow/orange Suillus that may occur with aspens, oaks, or pine; ringless, glandular-dotted, and often red-streaked.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
-        "host_trees": [],
+        "host_trees": [
+          "Aspen",
+          "Oak",
+          "Eastern white pine possible"
+        ],
         "host_certainty": "unknown",
         "underside": "Pores",
         "ring": "None",
@@ -6167,23 +6554,34 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "Reddish staining in stem/flesh"
+        ],
         "taste": [],
         "spore_print": "",
-        "season_note": "",
+        "season_note": "Summer into fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Look for yellow cap with red streaks/spots, orange young pores, ringless stem with glandular dots, reddish staining in flesh/stem base, and hardwood/aspen/oak association.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Yellow cap with red streaks/spots"
+        ],
+        "stem_feature": [
+          "Ringless; glandular dots"
+        ],
+        "pore_color": [
+          "Orange young pores"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Suillus / slippery jacks",
       "boleteGroup": [
@@ -6200,13 +6598,15 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
-      "host_filter_tokens": [],
+      "host_filter_tokens": [
+        "Aspen",
+        "Oak",
+        "Eastern white pine possible"
+      ],
       "commonness": "",
       "food_quality": "",
       "non_edible_severity": "",
@@ -6220,25 +6620,34 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Yellow/orange Suillus that may occur with aspens, oaks, or pine; ringless, glandular-dotted, and often red-streaked.",
+      "field_identification": "Look for yellow cap with red streaks/spots, orange young pores, ringless stem with glandular dots, reddish staining in flesh/stem base, and hardwood/aspen/oak association.",
+      "edibility_detail": "Not a beginner food target, but useful to know because it breaks the “Suillus equals conifer” rule.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 2,
+      "v4287_checked": true
     },
     {
       "slug": "suillus-lakei",
       "display_name": "Western Painted Suillus",
       "common_name": "Western Painted Suillus",
       "category": "Mushroom",
-      "culinary_uses": "",
+      "culinary_uses": "Hold as comparison only for this Upper Michigan guide unless a local planted-Douglas-fir context is documented.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, needs species-specific notes review, and needs U.P. relevance check.",
+      "notes": "Needs review: Needs real field photo / image coverage; Needs U.P. relevance check.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus_lakei.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EWestern%20Painted%20Suillus%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ESuillus%20lakei%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -6248,13 +6657,15 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Western Painted Suillus. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Western painted Suillus with Douglas-fir; included as a comparison but U.P. relevance is doubtful unless planted Douglas-fir is involved.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
-        "host_trees": [],
+        "host_trees": [
+          "Douglas-fir"
+        ],
         "host_certainty": "unknown",
         "underside": "Pores",
         "ring": "Unknown",
@@ -6262,24 +6673,35 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "Bluish-green in stem base"
+        ],
         "taste": [],
         "spore_print": "",
-        "season_note": "",
+        "season_note": "Summer into fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Look for Douglas-fir association, dull brick-red scruffy cap, partial veil/ring, and bluish-green staining in the stem base. Treat local records skeptically.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Dull brick-red scruffy cap"
+        ],
+        "stem_feature": [
+          "Ring; stem base may turn bluish-green"
+        ],
+        "pore_color": [
+          "Yellow pores"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs source links",
-        "needs species-level notes review",
-        "western or planted-tree-associated record should be checked for U.P. relevance",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage",
+        "Needs U.P. relevance check"
       ],
       "mushroom_family": "Suillus / slippery jacks",
       "boleteGroup": [
@@ -6300,27 +6722,35 @@
       ],
       "reviewReasons": [
         "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review",
         "Needs U.P. relevance check"
       ],
       "review_reasons": [
         "Needs real field photo / image coverage",
-        "Needs source links",
-        "Needs species-specific notes review",
         "Needs U.P. relevance check"
       ],
       "review_status": "needs_review",
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs source links, needs species-specific notes review, and needs U.P. relevance check.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs source links, needs species-specific notes review, and needs U.P. relevance check."
+      "review_note": "Needs review: Needs real field photo / image coverage; Needs U.P. relevance check.",
+      "review_notes": "Needs review: Needs real field photo / image coverage; Needs U.P. relevance check.",
+      "mushroom_card_note": "Western painted Suillus with Douglas-fir; included as a comparison but U.P. relevance is doubtful unless planted Douglas-fir is involved.",
+      "field_identification": "Look for Douglas-fir association, dull brick-red scruffy cap, partial veil/ring, and bluish-green staining in the stem base. Treat local records skeptically.",
+      "edibility_detail": "Hold as comparison only for this Upper Michigan guide unless a local planted-Douglas-fir context is documented.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "host_filter_tokens": [
+        "Douglas-fir"
+      ],
+      "v4287_checked": true
     },
     {
       "slug": "suillus-placidus",
       "display_name": "White Suillus",
       "common_name": "White Suillus",
       "category": "Mushroom",
-      "culinary_uses": "",
+      "culinary_uses": "Edible reputation exists but texture is modest; better treated as an ID species than a prime food.",
       "medicinal_uses": "",
       "notes": "White Suillus: a pale sticky Suillus strongly associated with eastern white pine. Look for the whitish cap/stem and contrasting glandular dots rather than treating every pale Suillus as this species.",
       "months_available": [],
@@ -6339,14 +6769,15 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for White Suillus. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "White Suillus: eastern white pine associate with bald white cap and conspicuous glandular dots/smears on a slender stem.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
         "host_trees": [
-          "Eastern white pine"
+          "Eastern white pine",
+          "White pine"
         ],
         "host_certainty": "unknown",
         "underside": "Pores",
@@ -6356,31 +6787,38 @@
         ],
         "odor": "Unknown",
         "staining": [
-          "May slowly stain pinkish to reddish when sliced"
+          "May slowly stain pinkish to reddish when sliced",
+          "Not a major staining species"
         ],
         "taste": [
           "Mild / not distinctive"
         ],
         "spore_print": "",
-        "season_note": "",
+        "season_note": "Summer into fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan bolete audit.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Look under eastern white pine for a pale to white cap, slender stem with contrasting glandular dots/smears, no dramatic color staining, and yellowish pores with age.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
         ],
         "cap_surface": [
           "Sticky when fresh",
-          "White to yellowish white cap"
+          "White to yellowish white cap",
+          "Bald white cap"
         ],
         "pore_color": [
-          "White when very young becoming dull yellow"
+          "White when very young becoming dull yellow",
+          "Pale to yellowish pores"
+        ],
+        "stem_feature": [
+          "Slender stem with conspicuous glandular dots/smears"
         ]
       },
       "manual_review_reasons": [
-        "needs source links",
-        "needs species-level notes review"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Suillus / slippery jacks",
       "boleteGroup": [
@@ -6408,8 +6846,8 @@
       "commonness": "Occasional",
       "general_notes": "A white-pine associate; useful in the guide because pale Suillus species can look odd compared with the brown slippery jacks.",
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage.",
-      "review_notes": "Needs review: needs real field photo / image coverage.",
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
       "use_links": [
         {
           "label": "MushroomExpert: Suillus placidus",
@@ -6419,7 +6857,20 @@
           "source_quality": "mycology reference",
           "notes": "White sticky cap, glandular dots, and eastern white pine association."
         }
-      ]
+      ],
+      "mushroom_card_note": "White Suillus: eastern white pine associate with bald white cap and conspicuous glandular dots/smears on a slender stem.",
+      "field_identification": "Look under eastern white pine for a pale to white cap, slender stem with contrasting glandular dots/smears, no dramatic color staining, and yellowish pores with age.",
+      "edibility_detail": "Edible reputation exists but texture is modest; better treated as an ID species than a prime food.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Good processed food",
+      "foraging_value_score": 2,
+      "host_filter_tokens": [
+        "Eastern white pine",
+        "White pine"
+      ],
+      "v4287_checked": true
     },
     {
       "slug": "white-stemmed-bolete",
@@ -6428,10 +6879,12 @@
       "category": "Mushroom",
       "culinary_uses": "This Suillus still needs fuller culinary and host-tree notes.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/suillus.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EWhite-stemmed%20Bolete%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ESuillus%20glandulosipes%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -6441,14 +6894,15 @@
         "entry_scope": "species",
         "edibility_status": "good",
         "caution_level": "low",
-        "summary": "Minimal bolete seed entry for White-stemmed Bolete. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "White-stemmed Suillus/glandulosipes-type record; ringless or false-veiled yellow/brown Suillus with glandular dots.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
         "host_trees": [
-          "Pine"
+          "Pine",
+          "Oak possible"
         ],
         "host_certainty": "low",
         "underside": "Pores",
@@ -6457,23 +6911,34 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "Staining needs confirmation"
+        ],
         "taste": [],
         "spore_print": "",
-        "season_note": "",
+        "season_note": "Summer into fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Check for pine or mixed host context, ringless/false-veil characters, yellow to brown cap, yellow pores, and glandular dots. Compare with S. subaureus and S. acidus.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Yellow to brown cap"
+        ],
+        "stem_feature": [
+          "White to pale stem with glandular dots"
+        ],
+        "pore_color": [
+          "Yellow pores"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Suillus / slippery jacks",
       "boleteGroup": [
@@ -6491,13 +6956,14 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
-      "host_filter_tokens": [],
+      "host_filter_tokens": [
+        "Pine",
+        "Oak possible"
+      ],
       "commonness": "",
       "food_quality": "",
       "non_edible_severity": "",
@@ -6511,13 +6977,20 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "White-stemmed Suillus/glandulosipes-type record; ringless or false-veiled yellow/brown Suillus with glandular dots.",
+      "field_identification": "Check for pine or mixed host context, ringless/false-veil characters, yellow to brown cap, yellow pores, and glandular dots. Compare with S. subaureus and S. acidus.",
+      "edibility_detail": "Keep in review until images and local source support improve.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "v4287_checked": true
     },
     {
       "slug": "wrinkled-bolete",
@@ -6526,10 +6999,12 @@
       "category": "Mushroom",
       "culinary_uses": "Culinary specifics still need review.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/leccinum.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EWrinkled%20Bolete%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ELeccinum%20rugosiceps%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -6539,13 +7014,15 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Wrinkled Bolete. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Leccinum-type wrinkled-cap record kept for comparison; needs stronger source and photo support.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
-        "host_trees": [],
+        "host_trees": [
+          "Hardwoods"
+        ],
         "host_certainty": "unknown",
         "underside": "Pores",
         "ring": "None",
@@ -6553,23 +7030,34 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "Staining behavior needs confirmation"
+        ],
         "taste": [],
         "spore_print": "",
-        "season_note": "",
+        "season_note": "Summer into fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Treat as a scabered-stem bolete comparison. Confirm host, cap wrinkling, pore color, scaber pattern, and staining before naming.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Wrinkled cap"
+        ],
+        "stem_feature": [
+          "Scabered stem"
+        ],
+        "pore_color": [
+          "Pores"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Leccinum / scaber stalks",
       "boleteGroup": [
@@ -6586,13 +7074,13 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
-      "host_filter_tokens": [],
+      "host_filter_tokens": [
+        "Hardwoods"
+      ],
       "commonness": "",
       "food_quality": "",
       "non_edible_severity": "",
@@ -6606,13 +7094,20 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Leccinum-type wrinkled-cap record kept for comparison; needs stronger source and photo support.",
+      "field_identification": "Treat as a scabered-stem bolete comparison. Confirm host, cap wrinkling, pore color, scaber pattern, and staining before naming.",
+      "edibility_detail": "Not recommended as a food target until species treatment is better supported.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "v4287_checked": true
     },
     {
       "slug": "yellow-stemmed-bolete",
@@ -6621,10 +7116,12 @@
       "category": "Mushroom",
       "culinary_uses": "Included as a northern scaber-stalk bolete.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
+      "notes": "Needs review: Needs real field photo / image coverage.",
       "months_available": [],
       "month_numbers": [],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/leccinum.html"
+      ],
       "images": [
         "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EYellow-stemmed%20Bolete%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ELeccinum%20flavostipitatum%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
       ],
@@ -6634,13 +7131,15 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Yellow-stemmed Bolete. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Yellow-stemmed Leccinum-type record; useful for comparison but still needs photo/source confirmation.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "wood_type": [],
-        "host_trees": [],
+        "host_trees": [
+          "Hardwoods"
+        ],
         "host_certainty": "unknown",
         "underside": "Pores",
         "ring": "None",
@@ -6648,23 +7147,34 @@
           "Fleshy / firm"
         ],
         "odor": "Unknown",
-        "staining": "Unknown",
+        "staining": [
+          "Unknown",
+          "Staining behavior needs confirmation"
+        ],
         "taste": [],
         "spore_print": "",
-        "season_note": "",
+        "season_note": "Summer into fall.",
         "processing_required": [],
         "research_notes": [
           "Species seed added from the Michigan / Upper Midwest bolete pass.",
           "Needs image coverage.",
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Placeholder image inserted pending real public-usable photo.",
+          "Look for a yellowish stem with scabers, pore surface, host association, and staining behavior. Do not identify on stem color alone.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Cap color needs confirmation"
+        ],
+        "stem_feature": [
+          "Yellowish scabered stem"
+        ],
+        "pore_color": [
+          "Pores"
         ]
       },
       "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links",
-        "placeholder image inserted"
+        "Needs real field photo / image coverage"
       ],
       "mushroom_family": "Leccinum / scaber stalks",
       "boleteGroup": [
@@ -6681,13 +7191,13 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "review_status": "needs_review",
       "search_aliases": [],
-      "host_filter_tokens": [],
+      "host_filter_tokens": [
+        "Hardwoods"
+      ],
       "commonness": "",
       "food_quality": "",
       "non_edible_severity": "",
@@ -6701,13 +7211,20 @@
         "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
       ],
       "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Needs species-specific notes review",
-        "Needs source links"
+        "Needs real field photo / image coverage"
       ],
       "needs_review": true,
-      "review_note": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links.",
-      "review_notes": "Needs review: needs real field photo / image coverage, needs species-specific notes review, and needs source links."
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Yellow-stemmed Leccinum-type record; useful for comparison but still needs photo/source confirmation.",
+      "field_identification": "Look for a yellowish stem with scabers, pore surface, host association, and staining behavior. Do not identify on stem color alone.",
+      "edibility_detail": "Keep as comparison, not a primary edible recommendation.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "v4287_checked": true
     }
   ]
 }
