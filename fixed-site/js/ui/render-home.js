@@ -102,11 +102,36 @@ function isHighlightCandidate(record, month) {
   return info.isPlant || info.isMushroom;
 }
 
-function pickHighlights(species, month) {
-  const candidates = (species || []).filter((record) => isHighlightCandidate(record, month));
+function rankedHighlightCandidates(records = [], month, matcher = () => true) {
+  const candidates = records.filter((record) => isHighlightCandidate(record, month) && matcher(classifyRecord(record)));
   const preferred = candidates.filter(hasPreferredImageCandidate);
   const fallback = candidates.filter((record) => !hasPreferredImageCandidate(record));
-  return [...shuffle(preferred), ...shuffle(fallback)].slice(0, 6);
+  return [...shuffle(preferred), ...shuffle(fallback)];
+}
+
+function takeUnique(target, candidates, count) {
+  const seen = new Set(target.map((record) => record?.slug).filter(Boolean));
+  for (const record of candidates) {
+    if (!record?.slug || seen.has(record.slug)) continue;
+    target.push(record);
+    seen.add(record.slug);
+    if (target.length >= count) break;
+  }
+  return target;
+}
+
+function pickHighlights(species, month) {
+  const records = species || [];
+  const plantCandidates = rankedHighlightCandidates(records, month, (info) => info.isPlant);
+  const mushroomCandidates = rankedHighlightCandidates(records, month, (info) => info.isMushroom);
+  const allCandidates = rankedHighlightCandidates(records, month, (info) => info.isPlant || info.isMushroom);
+
+  const highlights = [];
+  takeUnique(highlights, plantCandidates, 3);
+  takeUnique(highlights, mushroomCandidates, 6);
+  takeUnique(highlights, plantCandidates, 6);
+  takeUnique(highlights, allCandidates, 6);
+  return highlights.slice(0, 6);
 }
 
 function renderHomeImage(record) {
