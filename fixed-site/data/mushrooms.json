@@ -9,7 +9,7 @@
     "source_mushrooms_build": "pre-split uploaded mushrooms baseline",
     "source_record_count_before_split": 209,
     "record_count": 54,
-    "notes": "Core/restored mushroom records retained at the original mushrooms.json path. Expanded mushroom records now load from smaller grouped files listed in split_manifest. v4.2.80 adds a core mushroom credibility pass: source links, use roles, foraging values, card notes, and cleaned placeholder use text for high-visibility mushrooms.",
+    "notes": "Core/restored mushroom records retained at the original mushrooms.json path. Expanded mushroom records now load from smaller grouped files listed in split_manifest. v4.2.80 adds a core mushroom credibility pass: source links, use roles, foraging values, card notes, and cleaned placeholder use text for high-visibility mushrooms. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS.",
     "split_manifest": [
       {
         "path": "data/mushrooms.json",
@@ -46,7 +46,9 @@
         "slippery-jack"
       ]
     },
-    "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1"
+    "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
+    "last_photo_patch_fold": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+    "photo_patch_folded_record_count": 50
   },
   "records": [
     {
@@ -177,7 +179,53 @@
       "foraging_value_score": 2,
       "other_uses": "Classic artist's conk: the fresh white pore surface bruises brown and can be scratched to make durable drawings. Hard dried brackets are also useful as teaching/display specimens.",
       "field_identification": "Hard woody shelf on hardwoods; dull zoned upper surface; white pore surface stains brown where scratched.",
-      "mushroom_card_note": "Useful as an artist's conk, not as food: scratch the white pore surface to make brown drawings."
+      "mushroom_card_note": "Useful as an artist's conk, not as food: scratch the white pore surface to make brown drawings.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%201259894.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%201259894.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%201259894.jpg",
+          "source": "commons-photo-patch",
+          "title": "Artist's conk bracket field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Ganoderma_applanatum_1259894.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%20%28Ganodermataceae%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%20%28Ganodermataceae%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%20%28Ganodermataceae%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Artist's conk shelf fungus",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Ganoderma_applanatum_%28Ganodermataceae%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Artists%20conk-Ganoderma%20applanatum%20%287402107040%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Artists%20conk-Ganoderma%20applanatum%20%287402107040%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Artists%20conk-Ganoderma%20applanatum%20%287402107040%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Artist's conk pore surface / drawing surface",
+          "part_or_stage": "pore surface",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Artists_conk-Ganoderma_applanatum_%287402107040%29.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%201259894.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%20%28Ganodermataceae%29.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Artists%20conk-Ganoderma%20applanatum%20%287402107040%29.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%201259894.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%20%28Ganodermataceae%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Artists%20conk-Ganoderma%20applanatum%20%287402107040%29.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%201259894.jpg?width=480",
+      "image_review_status": "field_photo_patch",
+      "image_review_reasons": [
+        "Commons-backed field photo patch appended in v4.2.60-r2026-04-28-mushroom-photo-patch6."
+      ],
+      "photo_patch_batch": "v4.2.60-r2026-04-28-mushroom-photo-patch6",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "ash-tree-bolete",
@@ -381,7 +429,53 @@
         "preparation_notes": "",
         "warnings": "",
         "claims": []
-      }
+      },
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg",
+          "source": "commons-photo-patch",
+          "title": "Ash-tree bolete field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:2012-08-10_Boletinellus_merulioides_%28Schwein.%29_Murrill_247593.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus%20merulioides%2095348.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus%20merulioides%2095348.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus%20merulioides%2095348.jpg",
+          "source": "commons-photo-patch",
+          "title": "Ash-tree bolete cap and pore surface",
+          "part_or_stage": "pore surface",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletinellus_merulioides_95348.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg",
+          "source": "commons-photo-patch",
+          "title": "Ash-tree bolete supporting field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletinellus.merulioides.vermont1.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus%20merulioides%2095348.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus%20merulioides%2095348.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg?width=480",
+      "image_review_status": "field_photo_patch",
+      "image_review_reasons": [
+        "Commons-backed field photo patch appended in v4.2.57-r2026-04-28-mushroom-photo-patch5."
+      ],
+      "photo_patch_batch": "v4.2.57-r2026-04-28-mushroom-photo-patch5",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "aspen-oyster",
@@ -480,7 +574,55 @@
       "foraging_value": "Good forage",
       "foraging_value_score": 4,
       "field_identification": "Shelf-like oyster mushroom on aspen or other Populus wood, with decurrent white gills and little to no central stem.",
-      "mushroom_card_note": "A good edible oyster on aspen/poplar wood; best young and cooked."
+      "mushroom_card_note": "A good edible oyster on aspen/poplar wood; best young and cooked.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%2013996.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%2013996.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%2013996.jpg",
+          "source": "commons-photo-patch",
+          "title": "Aspen oyster field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_populinus_13996.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%20742181.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%20742181.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%20742181.jpg",
+          "source": "commons-photo-patch",
+          "title": "Aspen oyster supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_populinus_O._Hilber_%26_O.K._Mill_742181.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%2089533.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%2089533.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%2089533.jpg",
+          "source": "commons-photo-patch",
+          "title": "Aspen oyster additional field view",
+          "part_or_stage": "additional field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_populinus_O._Hilber_%26_O.K._Mill_89533.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%2013996.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%20742181.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%2089533.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%2013996.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%20742181.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%2089533.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%2013996.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch A — gilled/toothed edible-style records); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+      "photo_patch_group": "Batch A — gilled/toothed edible-style records",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "bay-bolete",
@@ -501,7 +643,10 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Bay%20Bolete%2C%20Boletus%20badius%20%2821195318373%29.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20badius%205052175998%20df099ccc79%20b.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20badius%20G1.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20badius%20G1.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia%208.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia%2015.jpg"
       ],
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
       "culinary_uses": "Generally regarded as edible when confidently identified and cooked; avoid old, buggy, or waterlogged specimens.",
@@ -737,11 +882,44 @@
           "source_page": "https://commons.wikimedia.org/wiki/File:Boletus_badius_G1.jpg",
           "credit": "Wikimedia Commons",
           "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia.jpg",
+          "source": "commons-photo-patch",
+          "title": "Bay bolete field specimen",
+          "part_or_stage": "Bay bolete field specimen",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Imleria_badia.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia%208.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia%208.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia%208.jpg",
+          "source": "commons-photo-patch",
+          "title": "Bay bolete cap and pore view",
+          "part_or_stage": "Bay bolete cap and pore view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Imleria_badia_8.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia%2015.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia%2015.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia%2015.jpg",
+          "source": "commons-photo-patch",
+          "title": "Bay bolete group view",
+          "part_or_stage": "Bay bolete group view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Imleria_badia_15.jpg"
         }
       ],
       "needs_review": false,
       "review_note": "",
-      "review_notes": ""
+      "review_notes": "",
+      "image_review_status": "photo_patch_applied",
+      "image_review_reasons": [
+        "v4.2.52-r2026-04-27-mushroom-photo-patch3-append1 appended 3 Commons-backed image(s) for list/detail/lightbox use."
+      ],
+      "photo_patch_alias_source_slug": "imleria-badia",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "bear-s-head-tooth",
@@ -845,7 +1023,55 @@
       "foraging_value": "Prime foraging",
       "foraging_value_score": 5,
       "field_identification": "Branched white tooth fungus with longer teeth clustered on branch tips; found on hardwood logs or wounds.",
-      "mushroom_card_note": "Choice Hericium: branched white clusters with hanging teeth, usually on hardwood."
+      "mushroom_card_note": "Choice Hericium: branched white clusters with hanging teeth, usually on hardwood.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2001.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2001.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2001.jpg",
+          "source": "commons-photo-patch",
+          "title": "Bear's head tooth field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Bear%27s_Head_Tooth_%28Hericium_americanum%29_-_Mississauga%2C_Ontario_01.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2002.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2002.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2002.jpg",
+          "source": "commons-photo-patch",
+          "title": "Bear's head tooth supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Bear%27s_Head_Tooth_%28Hericium_americanum%29_-_Mississauga%2C_Ontario_02.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2003.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2003.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2003.jpg",
+          "source": "commons-photo-patch",
+          "title": "Bear's head tooth additional field view",
+          "part_or_stage": "additional field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Bear%27s_Head_Tooth_%28Hericium_americanum%29_-_Mississauga%2C_Ontario_03.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2001.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2002.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2003.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2001.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2002.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2003.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2001.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch A — gilled/toothed edible-style records); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+      "photo_patch_group": "Batch A — gilled/toothed edible-style records",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "birch-polypore",
@@ -875,7 +1101,10 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Piptoporus%20Betulinus.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Polyporus%20Betulinus.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20100134091.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20100134091.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20188725569.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20170006960.jpg"
       ],
       "medicinal_uses": "Traditional tea/decoction and historical medicinal-use interest; use conservatively and do not treat as a cure.",
       "culinary_uses": "Not a table mushroom; corky, bitter, and tough.",
@@ -973,7 +1202,53 @@
       "foraging_value_score": 2,
       "other_uses": "Also known historically as razor-strop fungus and as an ember/tinder material.",
       "field_identification": "Whitish to tan annual bracket on birch, often with a rounded inrolled margin and sunken pore surface.",
-      "mushroom_card_note": "A birch-only polypore with traditional tea/tinder/utility interest, not a frying-pan mushroom."
+      "mushroom_card_note": "A birch-only polypore with traditional tea/tinder/utility interest, not a frying-pan mushroom.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg",
+          "source": "commons-photo-patch",
+          "title": "Birch polypore on birch field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Fomitopsis_betulina_104965425.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20188725569.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20188725569.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20188725569.jpg",
+          "source": "commons-photo-patch",
+          "title": "Birch polypore shelf view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Fomitopsis_betulina_188725569.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20170006960.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20170006960.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20170006960.jpg",
+          "source": "commons-photo-patch",
+          "title": "Birch polypore supporting view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Fomitopsis_betulina_170006960.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20188725569.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20170006960.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20188725569.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20170006960.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg?width=480",
+      "image_review_status": "field_photo_patch",
+      "image_review_reasons": [
+        "Commons-backed field photo patch appended in v4.2.57-r2026-04-28-mushroom-photo-patch5."
+      ],
+      "photo_patch_batch": "v4.2.57-r2026-04-28-mushroom-photo-patch5",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "bitter-bolete",
@@ -994,7 +1269,8 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%281%29.JPG",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2823431150244%29.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2823431150244%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2836929909940%29.jpg"
       ],
       "culinary_uses": "Niche edible with an intensely bitter flavor. Most foragers skip it because even a small amount can make a dish unpleasant, but it is retained in the edible mushroom list as an acquired-taste bittering mushroom rather than a poison/caution species.",
       "non_edible_severity": "",
@@ -1215,8 +1491,41 @@
           "source_page": "https://commons.wikimedia.org/wiki/File:Tylopilus_felleus_(23431150244).jpg",
           "credit": "Wikimedia Commons",
           "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus.jpg",
+          "source": "commons-photo-patch",
+          "title": "Bitter bolete field view",
+          "part_or_stage": "Bitter bolete field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Tylopilus_felleus.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2836929909940%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2836929909940%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2836929909940%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Bitter bolete cap and stalk",
+          "part_or_stage": "Bitter bolete cap and stalk",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Tylopilus_felleus_%2836929909940%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2823431150244%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2823431150244%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2823431150244%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Bitter bolete pinkish pores",
+          "part_or_stage": "Bitter bolete pinkish pores",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Tylopilus_felleus_%2823431150244%29.jpg"
         }
-      ]
+      ],
+      "image_review_status": "photo_patch_applied",
+      "image_review_reasons": [
+        "v4.2.52-r2026-04-27-mushroom-photo-patch3-append1 appended 3 Commons-backed image(s) for list/detail/lightbox use."
+      ],
+      "photo_patch_alias_source_slug": "true-bitter-bolete",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "black-morels",
@@ -1236,7 +1545,8 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2083497.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2083536.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%20group%2038336.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%20group%2038336.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2063116.jpg"
       ],
       "medicinal_uses": "Primarily culinary in this guide.",
       "culinary_uses": "Choice spring edible; always cook thoroughly. Slice lengthwise to confirm a hollow interior and to clean out grit or insects.",
@@ -1323,7 +1633,33 @@
       "foraging_value": "Prime foraging",
       "foraging_value_score": 5,
       "field_identification": "True morel with pitted cap, hollow interior from cap through stem, and cap attached to the stem; darkening ridges in black morels.",
-      "mushroom_card_note": "Prime spring mushroom; confirm hollow true-morel structure and cook thoroughly."
+      "mushroom_card_note": "Prime spring mushroom; confirm hollow true-morel structure and cook thoroughly.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2063116.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2063116.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2063116.jpg",
+          "source": "commons-photo-patch",
+          "title": "Black morel field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Morchella_elata_63116.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2063116.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2063116.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2063116.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch A — morels and early morel relatives)."
+      ],
+      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
+      "photo_patch_group": "Batch A — morels and early morel relatives",
+      "photo_patch_alias_source_slug": "black-morel",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "black-trumpet",
@@ -1344,7 +1680,8 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20fallax%20822088.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides%20362779.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides%20362782.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides%20362782.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides.jpg"
       ],
       "medicinal_uses": "Primarily culinary in this guide.",
       "culinary_uses": "Choice edible with deep, aromatic flavor. Excellent fresh or dried; use in sauces, soups, eggs, rice, or anywhere a concentrated mushroom flavor helps.",
@@ -1428,7 +1765,32 @@
       "foraging_value": "Prime foraging",
       "foraging_value_score": 5,
       "field_identification": "Dark hollow trumpet or vase with no true gills; fertile outer surface smooth to shallowly wrinkled.",
-      "mushroom_card_note": "Prime edible trumpet; easy to miss on the forest floor but excellent fresh or dried."
+      "mushroom_card_note": "Prime edible trumpet; easy to miss on the forest floor but excellent fresh or dried.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides.jpg",
+          "source": "commons-photo-patch",
+          "title": "Black trumpet mushrooms",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Craterellus_cornucopioides.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch B — common edible forms)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch B — common edible forms",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "blewit-mushroom",
@@ -1524,7 +1886,55 @@
       "foraging_value": "Good forage",
       "foraging_value_score": 4,
       "field_identification": "Purple-lilac young mushroom fading brownish, with pinkish spore print, no veil, and growth in leaf litter or organic debris.",
-      "mushroom_card_note": "Good cooked edible, but confirm it is a blewit and not a purple Cortinarius."
+      "mushroom_card_note": "Good cooked edible, but confirm it is a blewit and not a purple Cortinarius.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda.jpg",
+          "source": "commons-photo-patch",
+          "title": "Blewit mushroom field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Lepista_nuda.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%20%282%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%20%282%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%20%282%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Blewit mushroom supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Lepista_nuda_%282%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%2001.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%2001.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%2001.jpg",
+          "source": "commons-photo-patch",
+          "title": "Blewit mushroom additional field view",
+          "part_or_stage": "additional field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Lepista_nuda_01.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%20%282%29.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%2001.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%20%282%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%2001.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch A — gilled/toothed edible-style records); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+      "photo_patch_group": "Batch A — gilled/toothed edible-style records",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "blue-staining-red-pored-boletes-caution-group",
@@ -1597,7 +2007,55 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Neoboletus%20luridiformis%2083371622.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Neoboletus%20luridiformis%2083371622.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Neoboletus%20luridiformis%2083371622.jpg",
+          "source": "commons-photo-patch",
+          "title": "Blue-staining / red-pored boletes (caution group) field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Neoboletus_luridiformis_83371622.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%20117238994.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%20117238994.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%20117238994.jpg",
+          "source": "commons-photo-patch",
+          "title": "Blue-staining / red-pored boletes (caution group) supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillellus_luridus_117238994.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Exsudoporus%20frostii%2039926151623.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Exsudoporus%20frostii%2039926151623.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Exsudoporus%20frostii%2039926151623.jpg",
+          "source": "commons-photo-patch",
+          "title": "Blue-staining / red-pored boletes (caution group) additional field view",
+          "part_or_stage": "additional field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Exsudoporus_frostii_39926151623.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Neoboletus%20luridiformis%2083371622.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%20117238994.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Exsudoporus%20frostii%2039926151623.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Neoboletus%20luridiformis%2083371622.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%20117238994.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Exsudoporus%20frostii%2039926151623.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Neoboletus%20luridiformis%2083371622.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch D — red/yellow/caution boletes); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+      "photo_patch_group": "Batch D — red/yellow/caution boletes",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "cauliflower-mushroom",
@@ -1615,7 +2073,8 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Sparassis%20crispa.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Sparassis%20spathulata%20%28Schwein.%29%20Fr%20545832.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Sparassis%20spathulata%20315469856.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Sparassis%20spathulata%20315469856.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Sparassis%20crispa%203.jpg"
       ],
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
       "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
@@ -1690,7 +2149,32 @@
         "season_note": "Late summer through fall, often at the base of pines or nearby roots."
       },
       "commonness_score": 3,
-      "food_quality_score": 4
+      "food_quality_score": 4,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Sparassis%20crispa%203.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Sparassis%20crispa%203.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Sparassis%20crispa%203.jpg",
+          "source": "commons-photo-patch",
+          "title": "Cauliflower mushroom field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Sparassis_crispa_3.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Sparassis%20crispa%203.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Sparassis%20crispa%203.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Sparassis%20crispa%203.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch D — coral, jelly, and odd-form mushrooms)."
+      ],
+      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
+      "photo_patch_group": "Batch D — coral, jelly, and odd-form mushrooms",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "chaga",
@@ -1720,7 +2204,9 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%288237818667%29.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20Mushroom%20-%20Inonotus%20obliquus%20%2830222675437%29.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20Mushroom%20-%20Inonotus%20obliquus%20%2830222675437%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%28Inonotus%20obliquus%29%20de%204%2C2%20kg.jpg"
       ],
       "medicinal_uses": "Traditional medicinal and modern research interest, mostly as extracts/tea; evidence and safety vary, and it should not be treated as a cure.",
       "culinary_uses": "Used as a tea/decoction rather than a table mushroom. Harvest sparingly from living birch and avoid taking all material from one tree.",
@@ -1949,7 +2435,53 @@
       ],
       "foraging_value": "Good tea / traditional use",
       "foraging_value_score": 3,
-      "mushroom_card_note": "Birch conk used for tea/decoction; harvest conservatively and avoid cure-all thinking."
+      "mushroom_card_note": "Birch conk used for tea/decoction; harvest conservatively and avoid cure-all thinking.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Chaga on birch field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Inonotus_obliquus_%2835578063011%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus.jpg",
+          "source": "commons-photo-patch",
+          "title": "Chaga sterile conk",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Inonotus_obliquus.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%28Inonotus%20obliquus%29%20de%204%2C2%20kg.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%28Inonotus%20obliquus%29%20de%204%2C2%20kg.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%28Inonotus%20obliquus%29%20de%204%2C2%20kg.jpg",
+          "source": "commons-photo-patch",
+          "title": "Chaga specimen on yellow birch",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Chaga_%28Inonotus_obliquus%29_de_4%2C2_kg.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%28Inonotus%20obliquus%29%20de%204%2C2%20kg.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%28Inonotus%20obliquus%29%20de%204%2C2%20kg.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg?width=480",
+      "image_review_status": "field_photo_patch",
+      "image_review_reasons": [
+        "Commons-backed field photo patch appended in v4.2.56-r2026-04-28-mushroom-photo-patch4."
+      ],
+      "photo_patch_batch": "v4.2.56-r2026-04-28-mushroom-photo-patch4",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "charcoal-burners-mild-flexible-gill-russulas",
@@ -2036,7 +2568,32 @@
         "season_note": "Summer into early fall in woods."
       },
       "commonness_score": 3,
-      "food_quality_score": 3
+      "food_quality_score": 3,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/GT%20Charcoal%20Burner%2C%20Russula%20cyanoxantha.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/GT%20Charcoal%20Burner%2C%20Russula%20cyanoxantha.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/GT%20Charcoal%20Burner%2C%20Russula%20cyanoxantha.jpg",
+          "source": "Wikimedia Commons",
+          "title": "GT Charcoal Burner, Russula cyanoxantha.jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:GT_Charcoal_Burner,_Russula_cyanoxantha.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20cyanoxantha%2001.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20cyanoxantha%2001.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20cyanoxantha%2001.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Russula cyanoxantha 01.jpg",
+          "part_or_stage": "Field photo 2",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Russula_cyanoxantha_01.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "chicken-of-the-woods",
@@ -2058,7 +2615,8 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Laetiporus%20Sulphureus.JPG",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Chicken%20of%20the%20Woods%20-%20Laetiporus%20sulphureus%2C%20Point%20of%20View%2C%20Mason%20Neck%2C%20Virginia%20%2844536583375%29.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Chicken%20of%20the%20Woods%20Laetiporus%20sulphureus.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Chicken%20of%20the%20Woods%20Laetiporus%20sulphureus.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Laetiporus%20sulphureus.jpg"
       ],
       "medicinal_uses": "Primarily culinary in this guide.",
       "culinary_uses": "Good edible when young and tender. Cook thoroughly; some people get stomach upset, and old, tough, or bug-ridden shelves are not worth it.",
@@ -2143,7 +2701,32 @@
       "foraging_value": "Good forage",
       "foraging_value_score": 4,
       "field_identification": "Bright orange/yellow overlapping shelves with a pore surface, growing from wood; host tree and pore color help separate Laetiporus species.",
-      "mushroom_card_note": "Good edible shelf mushroom when young; host tree and tenderness matter."
+      "mushroom_card_note": "Good edible shelf mushroom when young; host tree and tenderness matter.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Laetiporus%20sulphureus.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Laetiporus%20sulphureus.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Laetiporus%20sulphureus.jpg",
+          "source": "commons-photo-patch",
+          "title": "Chicken of the woods shelf cluster",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Laetiporus_sulphureus.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Laetiporus%20sulphureus.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Laetiporus%20sulphureus.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Laetiporus%20sulphureus.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch A — common shelf/wood edibles)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch A — common shelf/wood edibles",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "coral-tooth-fungus",
@@ -2246,7 +2829,55 @@
       "foraging_value": "Prime foraging",
       "foraging_value_score": 5,
       "field_identification": "Branched white Hericium with short teeth hanging in rows along the branches, usually on dead hardwood.",
-      "mushroom_card_note": "Choice toothed edible; short teeth hang along delicate branches on hardwood."
+      "mushroom_card_note": "Choice toothed edible; short teeth hang along delicate branches on hardwood.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium-coralloides.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium-coralloides.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium-coralloides.jpg",
+          "source": "commons-photo-patch",
+          "title": "Coral tooth fungus field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Hericium-coralloides.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2009-09-25%20Hericium%20coralloides%20%28Scop.%29%20Pers%2058068.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2009-09-25%20Hericium%20coralloides%20%28Scop.%29%20Pers%2058068.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2009-09-25%20Hericium%20coralloides%20%28Scop.%29%20Pers%2058068.jpg",
+          "source": "commons-photo-patch",
+          "title": "Coral tooth fungus supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:2009-09-25_Hericium_coralloides_%28Scop.%29_Pers_58068.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2015-10-11%20Hericium%20coralloides%20%28Scop.%29%20Pers%20564137.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2015-10-11%20Hericium%20coralloides%20%28Scop.%29%20Pers%20564137.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2015-10-11%20Hericium%20coralloides%20%28Scop.%29%20Pers%20564137.jpg",
+          "source": "commons-photo-patch",
+          "title": "Coral tooth fungus additional field view",
+          "part_or_stage": "additional field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:2015-10-11_Hericium_coralloides_%28Scop.%29_Pers_564137.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium-coralloides.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2009-09-25%20Hericium%20coralloides%20%28Scop.%29%20Pers%2058068.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2015-10-11%20Hericium%20coralloides%20%28Scop.%29%20Pers%20564137.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium-coralloides.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2009-09-25%20Hericium%20coralloides%20%28Scop.%29%20Pers%2058068.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2015-10-11%20Hericium%20coralloides%20%28Scop.%29%20Pers%20564137.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium-coralloides.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch A — gilled/toothed edible-style records); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+      "photo_patch_group": "Batch A — gilled/toothed edible-style records",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "destroying-angel",
@@ -2266,7 +2897,9 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2017933.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2017932.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2097861769.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2097861769.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2017955.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%20104269.jpg"
       ],
       "culinary_uses": "Deadly poisonous. No food use.",
       "non_edible_severity": "Deadly",
@@ -2353,7 +2986,43 @@
       "foraging_value_score": 0,
       "medicinal_uses": "No medicinal use in this guide.",
       "field_identification": "Deadly white Amanita with white gills, ring, bulbous base, and a sack-like volva; the volva may be buried, so dig the base for ID.",
-      "mushroom_card_note": "Deadly white Amanita. Never eat; confirm the base/volva when identifying."
+      "mushroom_card_note": "Deadly white Amanita. Never eat; confirm the base/volva when identifying.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2017955.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2017955.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2017955.jpg",
+          "source": "commons-photo-patch",
+          "title": "Destroying angel field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Amanita_bisporigera_17955.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%20104269.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%20104269.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%20104269.jpg",
+          "source": "commons-photo-patch",
+          "title": "Eastern destroying angel supporting view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Amanita_bisporigera_104269.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2017955.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%20104269.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2017955.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%20104269.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%2017955.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch E — poisonous and caution look-alike support)."
+      ],
+      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
+      "photo_patch_group": "Batch E — poisonous and caution look-alike support",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "dryad-s-saddle-pheasant-back",
@@ -2457,7 +3126,33 @@
       "foraging_value": "Fair / best very young",
       "foraging_value_score": 3,
       "field_identification": "Large scaly tan-to-brown shelf with big angular pores and a watermelon-rind/cucumber-like odor.",
-      "mushroom_card_note": "Fair edible only when young and tender; older pheasant backs are stock material at best."
+      "mushroom_card_note": "Fair edible only when young and tender; older pheasant backs are stock material at best.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg",
+          "source": "commons-photo-patch",
+          "title": "Dryad's saddle / pheasant back shelf",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Cerioporus_squamosus.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch B — common edible forms)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch B — common edible forms",
+      "photo_patch_alias_source_slug": "dryad-s-saddle",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "false-morel-gyromitra-group",
@@ -2549,7 +3244,33 @@
       "foraging_value_score": 0,
       "medicinal_uses": "No medicinal use in this guide.",
       "field_identification": "Wrinkled, folded, brain-like cap rather than true pitted morel structure; interior may not be cleanly hollow like a true morel.",
-      "mushroom_card_note": "False morel warning group. Do not treat as a food mushroom."
+      "mushroom_card_note": "False morel warning group. Do not treat as a food mushroom.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Gyromitra%20esculenta.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Gyromitra%20esculenta.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Gyromitra%20esculenta.jpg",
+          "source": "commons-photo-patch",
+          "title": "False morel field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Gyromitra_esculenta.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Gyromitra%20esculenta.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Gyromitra%20esculenta.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Gyromitra%20esculenta.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch D — poisonous/look-alike support records)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch D — poisonous/look-alike support records",
+      "photo_patch_alias_source_slug": "false-morel",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "field-mushroom",
@@ -2639,7 +3360,55 @@
       "duplicate_of": "meadow-mushroom",
       "legacy_alias": true,
       "list_visibility": "hidden-duplicate",
-      "duplicate_note": "Duplicate Field/Meadow Mushroom record kept only as a legacy slug alias."
+      "duplicate_note": "Duplicate Field/Meadow Mushroom record kept only as a legacy slug alias.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg",
+          "source": "commons-photo-patch",
+          "title": "Field mushroom field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Agaricus_campestris.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris.jpg",
+          "source": "commons-photo-patch",
+          "title": "Field mushroom supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:2010-08-07_Agaricus_campestris.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris%20gills.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris%20gills.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris%20gills.jpg",
+          "source": "commons-photo-patch",
+          "title": "Field mushroom additional field view",
+          "part_or_stage": "additional field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:2010-08-07_Agaricus_campestris_gills.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris%20gills.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris%20gills.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch A — gilled/toothed edible-style records); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+      "photo_patch_group": "Batch A — gilled/toothed edible-style records",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "giant-puffball",
@@ -2739,7 +3508,32 @@
       "foraging_value": "Good forage",
       "foraging_value_score": 4,
       "field_identification": "Large white ball-like puffball with no developing cap, stem, gills, or internal outline when cut open.",
-      "mushroom_card_note": "Good edible only when cut-open flesh is pure white all the way through."
+      "mushroom_card_note": "Good edible only when cut-open flesh is pure white all the way through.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia%20gigantea.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia%20gigantea.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia%20gigantea.jpg",
+          "source": "commons-photo-patch",
+          "title": "Giant puffball field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Calvatia_gigantea.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia%20gigantea.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia%20gigantea.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia%20gigantea.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch B — common edible forms)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch B — common edible forms",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "half-free-morels",
@@ -2756,7 +3550,8 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20202600.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/2013-04-15%20Morchella%20punctipes%20Peck%20%281903%29%20322536.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20205457.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20205457.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20121362.jpg"
       ],
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
       "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
@@ -2830,7 +3625,33 @@
         "season_note": "Spring morel season, often slightly earlier or alongside other morels."
       },
       "commonness_score": 3,
-      "food_quality_score": 4
+      "food_quality_score": 4,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20121362.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20121362.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20121362.jpg",
+          "source": "commons-photo-patch",
+          "title": "Half-free morel field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Morchella_punctipes_121362.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20121362.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20121362.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20121362.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch A — morels and early morel relatives)."
+      ],
+      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
+      "photo_patch_group": "Batch A — morels and early morel relatives",
+      "photo_patch_alias_source_slug": "half-free-morel",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "hedgehog-mushrooms",
@@ -2923,7 +3744,33 @@
         "season_note": "Late summer through fall in mixed woods."
       },
       "commonness_score": 3,
-      "food_quality_score": 5
+      "food_quality_score": 5,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Hydnum%20repandum.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hydnum%20repandum.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Hydnum%20repandum.jpg",
+          "source": "commons-photo-patch",
+          "title": "Hedgehog mushroom tooth underside",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Hydnum_repandum.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hydnum%20repandum.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hydnum%20repandum.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hydnum%20repandum.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch C — gilled/ridged edibles and caution-adjacent species)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch C — gilled/ridged edibles and caution-adjacent species",
+      "photo_patch_alias_source_slug": "hedgehog-mushroom",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "hemlock-varnish-shelf-reishi",
@@ -3015,7 +3862,55 @@
           "Dead wood"
         ],
         "season_note": "Usually encountered from January through December in the Upper Midwest / Great Lakes window."
-      }
+      },
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae.jpg",
+          "source": "commons-photo-patch",
+          "title": "Hemlock varnish shelf / reishi field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Ganoderma_tsugae.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20123102289.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20123102289.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20123102289.jpg",
+          "source": "commons-photo-patch",
+          "title": "Hemlock varnish shelf / reishi supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Ganoderma_tsugae_123102289.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20Vermont%2C%20USA.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20Vermont%2C%20USA.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20Vermont%2C%20USA.jpg",
+          "source": "commons-photo-patch",
+          "title": "Hemlock varnish shelf / reishi additional field view",
+          "part_or_stage": "additional field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Ganoderma_tsugae_Vermont%2C_USA.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20123102289.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20Vermont%2C%20USA.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20123102289.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20Vermont%2C%20USA.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch E — conks, chanterelle allies, and caution gilled record); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+      "photo_patch_group": "Batch E — conks, chanterelle allies, and caution gilled record",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "hen-of-the-woods",
@@ -3117,7 +4012,32 @@
       "foraging_value": "Prime foraging",
       "foraging_value_score": 5,
       "field_identification": "Large gray-brown rosette of many overlapping fronds at the base of oak or other hardwoods; pores underneath.",
-      "mushroom_card_note": "Prime fall mushroom; look for recurring rosettes at hardwood bases, especially oak."
+      "mushroom_card_note": "Prime fall mushroom; look for recurring rosettes at hardwood bases, especially oak.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg",
+          "source": "commons-photo-patch",
+          "title": "Hen of the woods rosette cluster",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Grifola_frondosa.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch A — common shelf/wood edibles)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch A — common shelf/wood edibles",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "honey-mushrooms",
@@ -3135,7 +4055,8 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20mellea%207724.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/2010-09-30%20Armillaria%20mellea%20s.str.%20cropped.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2015.10.10.-01-Viernheim--Honiggelber%20Hallimasch.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2015.10.10.-01-Viernheim--Honiggelber%20Hallimasch.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20mellea.JPG"
       ],
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
       "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
@@ -3208,7 +4129,33 @@
         "season_note": "Mostly late summer through fall in clusters on wood or roots."
       },
       "commonness_score": 4,
-      "food_quality_score": 3
+      "food_quality_score": 3,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20mellea.JPG?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20mellea.JPG?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20mellea.JPG",
+          "source": "commons-photo-patch",
+          "title": "Honey mushroom cluster",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Armillaria_mellea.JPG"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20mellea.JPG?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20mellea.JPG"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20mellea.JPG?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch C — gilled/ridged edibles and caution-adjacent species)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch C — gilled/ridged edibles and caution-adjacent species",
+      "photo_patch_alias_source_slug": "honey-mushroom",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "jack-o-lantern",
@@ -3308,7 +4255,32 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Jack-o'-lantern mushroom cluster",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Omphalotus_illudens_%2821630755718%29.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch D — poisonous/look-alike support records)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch D — poisonous/look-alike support records",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "king-bolete",
@@ -3500,7 +4472,8 @@
       "foraging_value": "Prime foraging — species group needs care",
       "foraging_value_score": 5,
       "mushroom_card_note": "Prime bolete/porcini-type food mushroom, but North American Boletus edulis-group naming needs caution.",
-      "field_identification": "Porcini-type bolete with firm flesh, whitish-to-yellowish pore surface, and netted stem; avoid bitter or staining look-alikes."
+      "field_identification": "Porcini-type bolete with firm flesh, whitish-to-yellowish pore surface, and netted stem; avoid bitter or staining look-alikes.",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "king-oyster",
@@ -3590,7 +4563,43 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20eryngii%2001.JPG",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20eryngii%2001.JPG",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20eryngii%2001.JPG",
+          "source": "Wikimedia Commons",
+          "title": "Pleurotus eryngii 01.JPG",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Pleurotus_eryngii_01.JPG",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2007-05-18%20Pleurotus%20eryngii%20%28DC.%29%20Gillet%20461699.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2007-05-18%20Pleurotus%20eryngii%20%28DC.%29%20Gillet%20461699.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2007-05-18%20Pleurotus%20eryngii%20%28DC.%29%20Gillet%20461699.jpg",
+          "source": "Wikimedia Commons",
+          "title": "2007-05-18 Pleurotus eryngii (DC.) Gillet 461699.jpg",
+          "part_or_stage": "Field photo 2",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2007-05-18_Pleurotus_eryngii_(DC.)_Gillet_461699.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2016-11-13%20Pleurotus%20eryngii%20%28DC.%29%20Gillet%20691527.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2016-11-13%20Pleurotus%20eryngii%20%28DC.%29%20Gillet%20691527.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2016-11-13%20Pleurotus%20eryngii%20%28DC.%29%20Gillet%20691527.jpg",
+          "source": "Wikimedia Commons",
+          "title": "2016-11-13 Pleurotus eryngii (DC.) Gillet 691527.jpg",
+          "part_or_stage": "Field photo 3",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2016-11-13_Pleurotus_eryngii_(DC.)_Gillet_691527.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "larch-suillus",
@@ -3743,7 +4752,43 @@
       "foraging_value": "Fair / sticky-cap Suillus",
       "foraging_value_score": 2,
       "field_identification": "Sticky orange-yellow to reddish Suillus associated with larch/tamarack; check for nearby larch and a slimy cap.",
-      "mushroom_card_note": "Fair Suillus tied to larch/tamarack; edible but not a prime bolete."
+      "mushroom_card_note": "Fair Suillus tied to larch/tamarack; edible but not a prime bolete.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20374653.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20374653.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20374653.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Suillus clintonianus (Peck) Kuntze 374653.jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Suillus_clintonianus_(Peck)_Kuntze_374653.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20374654.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20374654.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20374654.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Suillus clintonianus (Peck) Kuntze 374654.jpg",
+          "part_or_stage": "Field photo 2",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Suillus_clintonianus_(Peck)_Kuntze_374654.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20805098.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20805098.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20805098.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Suillus clintonianus (Peck) Kuntze 805098.jpg",
+          "part_or_stage": "Field photo 3",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Suillus_clintonianus_(Peck)_Kuntze_805098.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "lion-s-mane",
@@ -3765,7 +4810,8 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/2006-11-03%20Hericium%20erinaceus%20crop.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Bearded%20Hedgehog%20-%20Hericium%20erinaceus%2C%20Occoquan%20Bay%20National%20Wildlife%20Refuge%2C%20Woodbridge%2C%20Virginia.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-10-02%20Hericium%20erinaceus%20%28Bull.%29%20Pers%20268392.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-10-02%20Hericium%20erinaceus%20%28Bull.%29%20Pers%20268392.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium%20erinaceus.jpg"
       ],
       "medicinal_uses": "Traditional and modern supplement interest exists, especially around cognition/gut health, but human evidence is still limited; this app treats it as food first.",
       "culinary_uses": "Choice edible when young and white. Slice or tear and brown well; texture works nicely for crab-cake style preparations, sautés, and soups.",
@@ -3829,7 +4875,32 @@
       "foraging_value": "Prime foraging",
       "foraging_value_score": 5,
       "field_identification": "Unbranched clump of long dangling white teeth, usually from wounds on living or recently cut hardwood.",
-      "mushroom_card_note": "Prime Hericium: unbranched white pom-pom of hanging teeth; food first, medicinal claims second."
+      "mushroom_card_note": "Prime Hericium: unbranched white pom-pom of hanging teeth; food first, medicinal claims second.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium%20erinaceus.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium%20erinaceus.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium%20erinaceus.jpg",
+          "source": "commons-photo-patch",
+          "title": "Lion's mane tooth fungus",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Hericium_erinaceus.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium%20erinaceus.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium%20erinaceus.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium%20erinaceus.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch A — common shelf/wood edibles)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch A — common shelf/wood edibles",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "lobster-mushroom",
@@ -3847,7 +4918,8 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/%27Lobster%20Mushroom%27%20%28mold%29%2C%20Hypomyces%20lactifluorum%20%289818972044%29.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/2014-08-03%20Hypomyces%20lactifluorum%20%28Schwein.%29%20Tul.%20%26%20C.%20Tul%20440594.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%20%28Lobster%20mushroom%29.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%20%28Lobster%20mushroom%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%2043384.jpg"
       ],
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
       "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
@@ -3922,7 +4994,32 @@
         "season_note": "Summer into early fall where Russula/Lactarius hosts fruit."
       },
       "commonness_score": 3,
-      "food_quality_score": 4
+      "food_quality_score": 4,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%2043384.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%2043384.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%2043384.jpg",
+          "source": "commons-photo-patch",
+          "title": "Lobster mushroom field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Hypomyces_lactifluorum_43384.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%2043384.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%2043384.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%2043384.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch C — milkcaps, russula-adjacent edibles, and parasitized forms)."
+      ],
+      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
+      "photo_patch_group": "Batch C — milkcaps, russula-adjacent edibles, and parasitized forms",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "meadow-mushroom",
@@ -4024,7 +5121,32 @@
         "Meadow mushroom",
         "Agaricus campestris"
       ],
-      "scientific_name": "Agaricus campestris group"
+      "scientific_name": "Agaricus campestris group",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg",
+          "source": "commons-photo-patch",
+          "title": "Meadow mushroom field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Agaricus_campestris.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch C — gilled/ridged edibles and caution-adjacent species)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch C — gilled/ridged edibles and caution-adjacent species",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "old-man-of-the-woods",
@@ -4047,7 +5169,10 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/2006-09-03%20Strobilomyces%20strobilaceus%201.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/2006-09-03%20Strobilomyces%20strobilaceus%202.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%206.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%203.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%203.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%20110920wc.JPG",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%20%2823682362208%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%2030161300.jpg"
       ],
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
       "culinary_uses": "Edible by some accounts when young, but usually poor quality; included mainly because it is distinctive and useful for ID practice.",
@@ -4275,11 +5400,44 @@
           "source_page": "https://commons.wikimedia.org/wiki/File:Strobilomyces_strobilaceus_3.jpg",
           "credit": "Wikimedia Commons",
           "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%20110920wc.JPG?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%20110920wc.JPG?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%20110920wc.JPG",
+          "source": "commons-photo-patch",
+          "title": "Old man of the woods field view",
+          "part_or_stage": "Old man of the woods field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Strobilomyces_strobilaceus_110920wc.JPG"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%20%2823682362208%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%20%2823682362208%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%20%2823682362208%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Old man of the woods upright specimen",
+          "part_or_stage": "Old man of the woods upright specimen",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Strobilomyces_strobilaceus_%2823682362208%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%2030161300.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%2030161300.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Strobilomyces%20strobilaceus%2030161300.jpg",
+          "source": "commons-photo-patch",
+          "title": "Old man of the woods cap and stalk",
+          "part_or_stage": "Old man of the woods cap and stalk",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Strobilomyces_strobilaceus_30161300.jpg"
         }
       ],
       "needs_review": false,
       "review_note": "",
-      "review_notes": ""
+      "review_notes": "",
+      "image_review_status": "photo_patch_applied",
+      "image_review_reasons": [
+        "v4.2.52-r2026-04-27-mushroom-photo-patch3-append1 appended 3 Commons-backed image(s) for list/detail/lightbox use."
+      ],
+      "photo_patch_alias_source_slug": "strobilomyces-strobilaceus",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "pearl-oyster",
@@ -4364,7 +5522,33 @@
         "season_note": "Mostly fall in the U.P., often after cool weather arrives."
       },
       "commonness_score": 4,
-      "food_quality_score": 4
+      "food_quality_score": 4,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus.jpg",
+          "source": "commons-photo-patch",
+          "title": "Oyster mushroom shelf cluster",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_ostreatus.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch A — common shelf/wood edibles)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch A — common shelf/wood edibles",
+      "photo_patch_alias_source_slug": "oyster-mushroom",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "phoenix-oyster-summer-oyster",
@@ -4451,7 +5635,33 @@
         "season_note": "Primarily summer into early fall."
       },
       "commonness_score": 3,
-      "food_quality_score": 4
+      "food_quality_score": 4,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20pulmonarius.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20pulmonarius.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20pulmonarius.jpg",
+          "source": "commons-photo-patch",
+          "title": "Phoenix oyster / summer oyster field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_pulmonarius.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20pulmonarius.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20pulmonarius.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20pulmonarius.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact (Batch E — mixed exact-slug mushrooms); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact",
+      "photo_patch_group": "Batch E — mixed exact-slug mushrooms",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "red-chanterelles-cinnabars",
@@ -4480,7 +5690,33 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20cinnabarinus.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20cinnabarinus.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20cinnabarinus.jpg",
+          "source": "commons-photo-patch",
+          "title": "Red chanterelles / cinnabars field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Cantharellus_cinnabarinus.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20cinnabarinus.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20cinnabarinus.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20cinnabarinus.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact (Batch E — mixed exact-slug mushrooms); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact",
+      "photo_patch_group": "Batch E — mixed exact-slug mushrooms",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "red-belted-conk",
@@ -4520,7 +5756,55 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20pinicola%2021631.JPG?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20pinicola%2021631.JPG?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20pinicola%2021631.JPG",
+          "source": "commons-photo-patch",
+          "title": "Red-belted conk field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Fomitopsis_pinicola_21631.JPG"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20pinicola%203.JPG?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20pinicola%203.JPG?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20pinicola%203.JPG",
+          "source": "commons-photo-patch",
+          "title": "Red-belted conk supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Fomitopsis_pinicola_3.JPG"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20pinicola%2094768946.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20pinicola%2094768946.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20pinicola%2094768946.jpg",
+          "source": "commons-photo-patch",
+          "title": "Red-belted conk additional field view",
+          "part_or_stage": "additional field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Fomitopsis_pinicola_94768946.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20pinicola%2021631.JPG?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20pinicola%203.JPG?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20pinicola%2094768946.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20pinicola%2021631.JPG",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20pinicola%203.JPG",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20pinicola%2094768946.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20pinicola%2021631.JPG?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch E — conks, chanterelle allies, and caution gilled record); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+      "photo_patch_group": "Batch E — conks, chanterelle allies, and caution gilled record",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "reindeer-lichen",
@@ -4890,7 +6174,32 @@
       "foraging_value": "Good forage — very time-sensitive",
       "foraging_value_score": 4,
       "field_identification": "Tall shaggy white cap that becomes black ink as it matures; often in lawns, roadsides, and disturbed ground.",
-      "mushroom_card_note": "Good edible but extremely time-sensitive: use young white specimens before they ink."
+      "mushroom_card_note": "Good edible but extremely time-sensitive: use young white specimens before they ink.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinus%20comatus.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinus%20comatus.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinus%20comatus.jpg",
+          "source": "commons-photo-patch",
+          "title": "Shaggy mane inky cap",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Coprinus_comatus.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinus%20comatus.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinus%20comatus.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinus%20comatus.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch B — common edible forms)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch B — common edible forms",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "short-stemmed-russula",
@@ -5016,7 +6325,8 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%20(33383198385).jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%20169126.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%207851624.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%207851624.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Entoloma%20abortivum%20117422.jpg"
       ],
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
       "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
@@ -5034,7 +6344,33 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Entoloma%20abortivum%20117422.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Entoloma%20abortivum%20117422.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Entoloma%20abortivum%20117422.jpg",
+          "source": "commons-photo-patch",
+          "title": "Shrimp of the woods / aborted entoloma",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Entoloma_abortivum_117422.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Entoloma%20abortivum%20117422.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Entoloma%20abortivum%20117422.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Entoloma%20abortivum%20117422.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch C — milkcaps, russula-adjacent edibles, and parasitized forms)."
+      ],
+      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
+      "photo_patch_group": "Batch C — milkcaps, russula-adjacent edibles, and parasitized forms",
+      "photo_patch_alias_source_slug": "shrimp-of-the-woods",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "shrimp-russulas",
@@ -5189,7 +6525,55 @@
       "foraging_value": "Prime foraging",
       "foraging_value_score": 5,
       "field_identification": "Orange-yellow chanterelle with a smooth to shallowly wrinkled underside rather than true blade-like gills.",
-      "mushroom_card_note": "Prime chanterelle-type edible with a smooth or barely wrinkled underside."
+      "mushroom_card_note": "Prime chanterelle-type edible with a smooth or barely wrinkled underside.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2054894.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2054894.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2054894.jpg",
+          "source": "commons-photo-patch",
+          "title": "Smooth chanterelles field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Cantharellus_lateritius_54894.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2051632.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2051632.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2051632.jpg",
+          "source": "commons-photo-patch",
+          "title": "Smooth chanterelles supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Cantharellus_lateritius_51632.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2049073.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2049073.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2049073.jpg",
+          "source": "commons-photo-patch",
+          "title": "Smooth chanterelles additional field view",
+          "part_or_stage": "additional field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Cantharellus_lateritius_49073.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2054894.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2051632.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2049073.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2054894.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2051632.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2049073.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2054894.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch E — conks, chanterelle allies, and caution gilled record); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+      "photo_patch_group": "Batch E — conks, chanterelle allies, and caution gilled record",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "tinder-conk-hoof-fungus",
@@ -5203,7 +6587,10 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20177852044.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20170079378.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%201700886953.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%201700886953.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2833753874398%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2850198851931%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Echte%20tonderzwam%20-%20Fomes%20fomentarius.jpg"
       ],
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
       "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
@@ -5231,7 +6618,60 @@
         "notes": ""
       },
       "review_reasons": [],
-      "needs_review": false
+      "needs_review": false,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2833753874398%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2833753874398%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2833753874398%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Tinder conk / hoof fungus on wood",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Fomes_fomentarius_%2833753874398%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2850198851931%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2850198851931%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2850198851931%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Hoof fungus bracket view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Fomes_fomentarius_%2850198851931%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Echte%20tonderzwam%20-%20Fomes%20fomentarius.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Echte%20tonderzwam%20-%20Fomes%20fomentarius.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Echte%20tonderzwam%20-%20Fomes%20fomentarius.jpg",
+          "source": "commons-photo-patch",
+          "title": "Tinder conk side view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Echte_tonderzwam_-_Fomes_fomentarius.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2833753874398%29.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2850198851931%29.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Echte%20tonderzwam%20-%20Fomes%20fomentarius.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2833753874398%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2850198851931%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Echte%20tonderzwam%20-%20Fomes%20fomentarius.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2833753874398%29.jpg?width=480",
+      "image_review_status": "field_photo_patch",
+      "image_review_reasons": [
+        "Commons-backed field photo patch appended in v4.2.57-r2026-04-28-mushroom-photo-patch5."
+      ],
+      "photo_patch_batch": "v4.2.57-r2026-04-28-mushroom-photo-patch5",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "manual_review_reasons": [],
+      "photo_review_cleanup_build": "v4.2.65-r2026-04-28-mushroom-needs-review-cleanup1",
+      "photo_review_cleanup_note": "Removed from Needs Review because the only explicit review reasons were image/photo-related and a real Commons-backed image is now available.",
+      "photo_review_cleanup_removed_reasons": [
+        "placeholder image inserted"
+      ],
+      "photo_review_cleanup_status": "cleared_image_only_needs_review"
     },
     {
       "slug": "turkey-tail",
@@ -5246,7 +6686,8 @@
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Red%20Turkey%20Tail.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Turkey%20Tail%20(4063595386).jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Turkey%20Tail%20(4063595386).jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Trametes%20versicolor.jpg"
       ],
       "medicinal_uses": "Traditional and supplement interest, especially as tea/extract; this app does not treat it as a cure.",
       "culinary_uses": "Too tough for table eating; usually dried and simmered for tea/decoction.",
@@ -5281,7 +6722,32 @@
       "foraging_value": "Good tea / traditional use",
       "foraging_value_score": 3,
       "field_identification": "Thin leathery shelf with strongly zoned, fuzzy cap surface and a true tiny-pored white underside.",
-      "mushroom_card_note": "Tea/decoction mushroom, not table food; confirm true pores underneath."
+      "mushroom_card_note": "Tea/decoction mushroom, not table food; confirm true pores underneath.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Trametes%20versicolor.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Trametes%20versicolor.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Trametes%20versicolor.jpg",
+          "source": "commons-photo-patch",
+          "title": "Turkey tail bracket fungus",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Trametes_versicolor.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Trametes%20versicolor.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Trametes%20versicolor.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Trametes%20versicolor.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch A — common shelf/wood edibles)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch A — common shelf/wood edibles",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "velvet-foot",
@@ -5301,7 +6767,8 @@
       "links": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20(42284743332).jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20106827706.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20106827706.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg"
       ],
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
       "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
@@ -5373,7 +6840,32 @@
         "season_note": "Late fall through winter into early spring during thaw periods."
       },
       "commonness_score": 3,
-      "food_quality_score": 3
+      "food_quality_score": 3,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Velvet foot winter cluster",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Flammulina_velutipes._%2853589573202%29.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch C — gilled/ridged edibles and caution-adjacent species)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch C — gilled/ridged edibles and caution-adjacent species",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "yellow-chanterelles-conifer-associated-complex",
@@ -5501,7 +6993,8 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%20(2).jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20medium.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20small.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20small.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%20%282%29.jpg"
       ],
       "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
       "non_edible_severity": "Poisonous",
@@ -5573,7 +7066,55 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%20%282%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%20%282%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%20%282%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Yellow fly agaric / guessowii field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Amanita_muscaria_var._guessowii_%282%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20medium.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20medium.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20medium.jpg",
+          "source": "commons-photo-patch",
+          "title": "Yellow fly agaric / guessowii supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Amanita_muscaria_var._guessowii%2C_medium.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20small.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20small.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20small.jpg",
+          "source": "commons-photo-patch",
+          "title": "Yellow fly agaric / guessowii additional field view",
+          "part_or_stage": "additional field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Amanita_muscaria_var._guessowii%2C_small.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%20%282%29.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20medium.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20small.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%20%282%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20medium.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20small.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%20%282%29.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch E — conks, chanterelle allies, and caution gilled record); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+      "photo_patch_group": "Batch E — conks, chanterelle allies, and caution gilled record",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "yellow-morels",
@@ -5586,7 +7127,8 @@
       "links": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20esculenta%2036795275.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20esculenta%20(Twelve%20edible%20mushrooms%20of%20the%20United%20States).jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20esculenta%20(Twelve%20edible%20mushrooms%20of%20the%20United%20States).jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20americana%2070966.jpg"
       ],
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
       "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
@@ -5603,7 +7145,33 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20americana%2070966.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20americana%2070966.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20americana%2070966.jpg",
+          "source": "commons-photo-patch",
+          "title": "Yellow morel field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Morchella_americana_70966.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20americana%2070966.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20americana%2070966.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20americana%2070966.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch A — morels and early morel relatives)."
+      ],
+      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
+      "photo_patch_group": "Batch A — morels and early morel relatives",
+      "photo_patch_alias_source_slug": "yellow-morel",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "yellowfoot-chanterelle",
@@ -5618,7 +7186,9 @@
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20(37555429931).jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20(24592812038).jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20(24592812038).jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2837555429931%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2824592812038%29.jpg"
       ],
       "medicinal_uses": "Primarily culinary in this guide.",
       "culinary_uses": "Good edible small chanterelle. Excellent sautéed or dried; stems can be tougher than caps.",
@@ -5643,7 +7213,44 @@
       "foraging_value": "Good forage",
       "foraging_value_score": 4,
       "field_identification": "Small brownish funnel cap with well-developed false gills and a yellow to orange-yellow hollow stem, often in mossy conifer bogs.",
-      "mushroom_card_note": "Good late-season small chanterelle; brown cap, false gills, yellow hollow stem."
+      "mushroom_card_note": "Good late-season small chanterelle; brown cap, false gills, yellow hollow stem.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2837555429931%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2837555429931%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2837555429931%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Yellowfoot chanterelle field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Craterellus_tubaeformis_%2837555429931%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2824592812038%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2824592812038%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2824592812038%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Yellowfoot chanterelle supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Craterellus_tubaeformis_%2824592812038%29.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2837555429931%29.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2824592812038%29.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2837555429931%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2824592812038%29.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2837555429931%29.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch E — conks, chanterelle allies, and caution gilled record); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+      "photo_patch_group": "Batch E — conks, chanterelle allies, and caution gilled record",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     }
   ]
 }

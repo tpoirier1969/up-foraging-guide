@@ -9,7 +9,7 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 13,
-    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.84 updated 25 red/caution bolete records with conservative notes, sources, and explicit remaining review reasons. v4.2.86: optional photo patches are treated as fill-only for existing base-record image fields; direct image fallback hardened for Black Velvet Bolete and Suillus tomentosus where applicable. v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4: carried forward with patch-precedence-safe image handling. v4.2.88: 25-record mushroom credibility/review pass; porcini/Tylopilus/Xerocomus records rechecked and remaining red/caution records improved while preserving true image/local-taxonomy review flags. v4.2.96: large red-caution source split into 3 chunks of 13 records; record bodies preserved and original order retained. v4.2.97 reviewed first 25 remaining red-caution Needs Review records after the file split; stale image-only flags were cleared only where 2+ genuinely distinct real image URLs existed, one-photo/placeholder records stayed in review, taxonomy flags were preserved, and duplicate food/caution language was cleaned.",
+    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.84 updated 25 red/caution bolete records with conservative notes, sources, and explicit remaining review reasons. v4.2.86: optional photo patches are treated as fill-only for existing base-record image fields; direct image fallback hardened for Black Velvet Bolete and Suillus tomentosus where applicable. v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4: carried forward with patch-precedence-safe image handling. v4.2.88: 25-record mushroom credibility/review pass; porcini/Tylopilus/Xerocomus records rechecked and remaining red/caution records improved while preserving true image/local-taxonomy review flags. v4.2.96: large red-caution source split into 3 chunks of 13 records; record bodies preserved and original order retained. v4.2.97 reviewed first 25 remaining red-caution Needs Review records after the file split; stale image-only flags were cleared only where 2+ genuinely distinct real image URLs existed, one-photo/placeholder records stayed in review, taxonomy flags were preserved, and duplicate food/caution language was cleaned. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -53,7 +53,9 @@
         "neoboletus-subluridellus"
       ],
       "rule": "Clear stale image-only review only when at least two distinct real source-image URLs exist; keep one-photo and placeholder records in review."
-    }
+    },
+    "last_photo_patch_fold": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+    "photo_patch_folded_record_count": 4
   },
   "records": [
     {
@@ -197,7 +199,43 @@
         "ID / caution"
       ],
       "foraging_value": "Use with caution",
-      "foraging_value_score": 1
+      "foraging_value_score": 1,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20pseudosensibilis%20164253.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20pseudosensibilis%20164253.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20pseudosensibilis%20164253.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Boletus pseudosensibilis 164253.jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Boletus_pseudosensibilis_164253.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Lanmaoa%20pseudosensibilis%2023145612.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lanmaoa%20pseudosensibilis%2023145612.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Lanmaoa%20pseudosensibilis%2023145612.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Lanmaoa pseudosensibilis 23145612.jpg",
+          "part_or_stage": "Field photo 2",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Lanmaoa_pseudosensibilis_23145612.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Lanmaoa%20pseudosensibilis%2089299323.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lanmaoa%20pseudosensibilis%2089299323.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Lanmaoa%20pseudosensibilis%2089299323.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Lanmaoa pseudosensibilis 89299323.jpg",
+          "part_or_stage": "Field photo 3",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Lanmaoa_pseudosensibilis_89299323.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "lurid-bolete",
@@ -304,7 +342,55 @@
       "foraging_value": "Use with caution",
       "foraging_value_score": 1,
       "v4288_checked": true,
-      "curation_notes": []
+      "curation_notes": [],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-09-13%20Boletus%20luridus%20Schaeff%20104527.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-09-13%20Boletus%20luridus%20Schaeff%20104527.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-09-13%20Boletus%20luridus%20Schaeff%20104527.jpg",
+          "source": "commons-photo-patch",
+          "title": "Lurid Bolete field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:2010-09-13_Boletus_luridus_Schaeff_104527.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%201.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%201.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%201.jpg",
+          "source": "commons-photo-patch",
+          "title": "Lurid Bolete supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillellus_luridus_1.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%20%28Boletus%20luridus%29%20%2850198792546%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%20%28Boletus%20luridus%29%20%2850198792546%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%20%28Boletus%20luridus%29%20%2850198792546%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Lurid Bolete additional field view 1",
+          "part_or_stage": "additional field view 1",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillellus_luridus_%28Boletus_luridus%29_%2850198792546%29.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2010-09-13%20Boletus%20luridus%20Schaeff%20104527.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%201.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%20%28Boletus%20luridus%29%20%2850198792546%29.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2010-09-13%20Boletus%20luridus%20Schaeff%20104527.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%201.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%20%28Boletus%20luridus%29%20%2850198792546%29.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-09-13%20Boletus%20luridus%20Schaeff%20104527.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact (Batch D — additional bolete exact-slug support); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact",
+      "photo_patch_group": "Batch D — additional bolete exact-slug support",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "neoboletus-pseudosulphureus",
@@ -707,7 +793,33 @@
       ],
       "foraging_value": "Use with caution",
       "foraging_value_score": 1,
-      "v4288_checked": true
+      "v4288_checked": true,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2014-07-29%20Boletus%20firmus%20Frost%20439076.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2014-07-29%20Boletus%20firmus%20Frost%20439076.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2014-07-29%20Boletus%20firmus%20Frost%20439076.jpg",
+          "source": "commons-photo-patch",
+          "title": "Piedmont Bolete field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:2014-07-29_Boletus_firmus_Frost_439076.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2014-07-29%20Boletus%20firmus%20Frost%20439076.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2014-07-29%20Boletus%20firmus%20Frost%20439076.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2014-07-29%20Boletus%20firmus%20Frost%20439076.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact (Batch E — mixed exact-slug mushrooms); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact",
+      "photo_patch_group": "Batch E — mixed exact-slug mushrooms",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "pulchroboletus-pseudosclerotiorum",
@@ -988,7 +1100,8 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20260428.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20232879.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%2020438.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%2020438.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20164066.jpg"
       ],
       "scientific_name": "Boletus subvelutipes group",
       "mushroom_profile": {
@@ -1144,7 +1257,53 @@
         "preparation_notes": "",
         "warnings": "",
         "claims": []
-      }
+      },
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20260428.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20260428.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20260428.jpg",
+          "source": "commons-photo-patch",
+          "title": "Red-mouth bolete field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletus_subvelutipes_260428.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20164066.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20164066.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20164066.jpg",
+          "source": "commons-photo-patch",
+          "title": "Red-mouth bolete group",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletus_subvelutipes_164066.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%2020438.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%2020438.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%2020438.jpg",
+          "source": "commons-photo-patch",
+          "title": "Red-mouth bolete supporting field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletus_subvelutipes_20438.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20260428.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20164066.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%2020438.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20260428.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20164066.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%2020438.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subvelutipes%20260428.jpg?width=480",
+      "image_review_status": "field_photo_patch",
+      "image_review_reasons": [
+        "Commons-backed field photo patch appended in v4.2.56-r2026-04-28-mushroom-photo-patch4."
+      ],
+      "photo_patch_batch": "v4.2.56-r2026-04-28-mushroom-photo-patch4",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "scarletina-complex",

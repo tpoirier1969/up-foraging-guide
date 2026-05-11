@@ -11,10 +11,7 @@ export const SPECIES_PATHS = [
   "data/mushrooms/mushrooms-boletes-other2.json"
 ];
 
-export const PHOTO_PATCH_PATHS = [
-  "data/mushroom-photo-patch-v4.2.51.json",
-  "data/mushroom-photo-patch-v4.2.67-addendum.json"
-];
+export const PHOTO_PATCH_PATHS = [];
 
 export const OPTIONAL_PATHS = [
   "data/references-mainfix15.json",

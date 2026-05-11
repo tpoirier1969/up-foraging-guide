@@ -1,9 +1,8 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.98-r2026-05-11-home-mushroom-lane-cleanup1";
-const DISPLAY_VERSION = "V4.2.98-r26-05-11";
+const APP_VERSION = "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1";
+const DISPLAY_VERSION = "V4.2.99-r26-05-11";
 
-let mushroomLaneRelabelObserver = null;
 
 function esc(value) {
   return String(value ?? "")
@@ -33,32 +32,6 @@ function setupMobileMenu() {
   });
 }
 
-function relabelMushroomLaneCards(root = document) {
-  const laneLinks = root.querySelectorAll?.('a[href="#/boletes"] strong, a[href="#/boletes"] span, a[href="#/boletes"], a[href="#/boletes"]') || [];
-  laneLinks.forEach((node) => {
-    if (node.childElementCount) return;
-    const text = node.textContent || "";
-    if (text.trim() === "Boletes") node.textContent = "Spongelike";
-    if (text.includes("Pores or sponge-like underside.")) node.textContent = text.replace("Pores or sponge-like underside.", "Pores, tubes, or sponge-like underside.");
-  });
-
-  const headings = root.querySelectorAll?.("h2, h3") || [];
-  headings.forEach((heading) => {
-    const text = heading.textContent || "";
-    if (text === "Boletes") heading.textContent = "Spongelike";
-    if (/^Boletes \(\d+\)$/.test(text)) heading.textContent = text.replace(/^Boletes/, "Spongelike");
-    if (text === "Bolete filters") heading.textContent = "Spongelike mushroom filters";
-  });
-}
-
-function installMushroomLaneRelabeler() {
-  if (!pageRoot || mushroomLaneRelabelObserver) return;
-  relabelMushroomLaneCards(document);
-  mushroomLaneRelabelObserver = new MutationObserver(() => relabelMushroomLaneCards(pageRoot));
-  mushroomLaneRelabelObserver.observe(pageRoot, { childList: true, subtree: true });
-  window.addEventListener("hashchange", () => relabelMushroomLaneCards(document));
-}
-
 function renderFatal(message, detail = "") {
   if (!pageRoot) return;
   pageRoot.innerHTML = `
@@ -76,13 +49,11 @@ function showVersion() {
 
 async function start() {
   setupMobileMenu();
-  installMushroomLaneRelabeler();
   showVersion();
   try {
     const mod = await import(`./app-core.js?v=${encodeURIComponent(APP_VERSION)}`);
     if (typeof mod?.startApp !== "function") throw new Error("app-core.js loaded, but startApp was not exported.");
     await mod.startApp();
-    relabelMushroomLaneCards(document);
     showVersion();
   } catch (err) {
     renderFatal("The shell loaded, but the app core failed before the first route rendered.", err?.message || String(err));

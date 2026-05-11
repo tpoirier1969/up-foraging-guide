@@ -9,7 +9,7 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 50,
-    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. Updated in v4.2.82 with 25-record mushroom credibility pass including Black Velvet Bolete and Blue-staining Slippery Jack. v4.2.83: mushroom bolete photo/credibility batch; Commons images added for Neoporphyrellus alboater and Suillus tomentosus; 25-record Suillus/Leccinum/Neoporphyrellus pass. v4.2.85 refreshed Blue-staining Slippery Jack image URLs to direct upload.wikimedia.org files and carried forward v4.2.83 image coverage. v4.2.86: optional photo patches are treated as fill-only for existing base-record image fields; direct image fallback hardened for Black Velvet Bolete and Suillus tomentosus where applicable. v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4: 25-record Suillus/Leccinum credibility pass; source/species-note issues reduced while image/local/taxonomy reviews were retained.",
+    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. Updated in v4.2.82 with 25-record mushroom credibility pass including Black Velvet Bolete and Blue-staining Slippery Jack. v4.2.83: mushroom bolete photo/credibility batch; Commons images added for Neoporphyrellus alboater and Suillus tomentosus; 25-record Suillus/Leccinum/Neoporphyrellus pass. v4.2.85 refreshed Blue-staining Slippery Jack image URLs to direct upload.wikimedia.org files and carried forward v4.2.83 image coverage. v4.2.86: optional photo patches are treated as fill-only for existing base-record image fields; direct image fallback hardened for Black Velvet Bolete and Suillus tomentosus where applicable. v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4: 25-record Suillus/Leccinum credibility pass; source/species-note issues reduced while image/local/taxonomy reviews were retained. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -18,7 +18,9 @@
       "cleared_image_only_slugs_not_reopened": []
     },
     "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
-    "last_suillus_leccinum_batch": "v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4"
+    "last_suillus_leccinum_batch": "v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4",
+    "last_photo_patch_fold": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+    "photo_patch_folded_record_count": 19
   },
   "records": [
     {
@@ -46,7 +48,9 @@
         "https://www.first-nature.com/fungi/suillus-luteus.php"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%20%2830896753828%29.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%20%2830896753828%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%20041031w.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%202011%20G1.jpg"
       ],
       "scientific_name": "Suillus luteus",
       "mushroom_profile": {
@@ -112,10 +116,7 @@
           "Glandular dots"
         ]
       },
-      "manual_review_reasons": [
-        "needs source links",
-        "needs species-level notes review"
-      ],
+      "manual_review_reasons": [],
       "mushroom_family": "Suillus / slippery jacks",
       "boleteGroup": [
         "Suillus / slippery jacks"
@@ -147,10 +148,8 @@
       "food_quality_score": 3,
       "commonness": "Occasional",
       "commonness_score": 3,
-      "review_reasons": [
-        "Needs more distinct photo coverage"
-      ],
-      "review_status": "needs_review",
+      "review_reasons": [],
+      "review_status": "ok",
       "general_notes": "Often abundant under pines. Texture is the limiting factor for many foragers; better young and firm than old and soggy.",
       "needs_review": true,
       "review_note": "Only one real photo currently loaded. Do not duplicate it to pad coverage; add more distinct photos later.",
@@ -167,8 +166,10 @@
       "legacy_alias": true,
       "list_visibility": "hidden-duplicate",
       "duplicate_note": "Duplicate Slippery Jack record kept only as a legacy slug alias.",
-      "image_review_status": "ok",
-      "image_review_reasons": [],
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch B — Suillus and slippery-cap allies)."
+      ],
       "former_slugs": [
         "suillus-luteus"
       ],
@@ -260,8 +261,45 @@
           "source_page": "https://commons.wikimedia.org/wiki/File:Suillus_luteus_(30896753828).jpg",
           "credit": "Wikimedia Commons",
           "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%20041031w.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%20041031w.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%20041031w.jpg",
+          "source": "commons-photo-patch",
+          "title": "Slippery Jack field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_luteus_041031w.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%202011%20G1.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%202011%20G1.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%202011%20G1.jpg",
+          "source": "commons-photo-patch",
+          "title": "Suillus luteus supporting field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_luteus_2011_G1.jpg"
         }
-      ]
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%20041031w.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%202011%20G1.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%20041031w.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%202011%20G1.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20luteus%20041031w.jpg?width=480",
+      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
+      "photo_patch_group": "Batch B — Suillus and slippery-cap allies",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "photo_review_cleanup_build": "v4.2.65-r2026-04-28-mushroom-needs-review-cleanup1",
+      "photo_review_cleanup_note": "Removed from Needs Review because the only explicit review reasons were image/photo-related and a real Commons-backed image is now available.",
+      "photo_review_cleanup_removed_reasons": [
+        "placeholder image inserted"
+      ],
+      "photo_review_cleanup_status": "cleared_image_only_needs_review",
+      "photo_patch_alias_source_slug": "suillus-luteus"
     },
     {
       "slug": "hemileccinum-rubropunctum",
@@ -459,7 +497,44 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20rubropunctum%20%28Peck%29%20Singer%20550957.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20rubropunctum%20%28Peck%29%20Singer%20550957.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20rubropunctum%20%28Peck%29%20Singer%20550957.jpg",
+          "source": "commons-photo-patch",
+          "title": "Ashtray Bolete field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletus_rubropunctum_%28Peck%29_Singer_550957.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20rubropunctum%20%28Peck%29%20Singer%20875702.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20rubropunctum%20%28Peck%29%20Singer%20875702.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20rubropunctum%20%28Peck%29%20Singer%20875702.jpg",
+          "source": "commons-photo-patch",
+          "title": "Ashtray Bolete supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletus_rubropunctum_%28Peck%29_Singer_875702.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20rubropunctum%20%28Peck%29%20Singer%20550957.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20rubropunctum%20%28Peck%29%20Singer%20875702.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20rubropunctum%20%28Peck%29%20Singer%20550957.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20rubropunctum%20%28Peck%29%20Singer%20875702.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20rubropunctum%20%28Peck%29%20Singer%20550957.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch B — bolete records needing structured photo support); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+      "photo_patch_group": "Batch B — bolete records needing structured photo support",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "leccinum-scabrum",
@@ -487,7 +562,10 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum_scabrum.png",
         "https://commons.wikimedia.org/wiki/Special:FilePath/LeccinumScabrum.JPG",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20scabrum%20117467.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20scabrum%20117467.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20scabrum%20%2823691548239%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20scabrum%20%281%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20Scabrum%20%3B.jpg"
       ],
       "scientific_name": "Leccinum scabrum",
       "mushroom_profile": {
@@ -667,7 +745,41 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20scabrum%20%2823691548239%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20scabrum%20%2823691548239%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20scabrum%20%2823691548239%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Birch bolete field view",
+          "part_or_stage": "Birch bolete field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Leccinum_scabrum_%2823691548239%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20scabrum%20%281%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20scabrum%20%281%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20scabrum%20%281%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Birch bolete cap and stem",
+          "part_or_stage": "Birch bolete cap and stem",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Leccinum_scabrum_%281%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20Scabrum%20%3B.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20Scabrum%20%3B.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20Scabrum%20%3B.jpg",
+          "source": "commons-photo-patch",
+          "title": "Birch bolete upright specimen",
+          "part_or_stage": "Birch bolete upright specimen",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Leccinum_Scabrum_%3B.jpg"
+        }
+      ],
+      "image_review_status": "photo_patch_applied",
+      "image_review_reasons": [
+        "v4.2.50 added 3 Commons-backed image(s) for list/detail/lightbox use."
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "blue-staining-slippery-jack",
@@ -693,7 +805,11 @@
         "https://www.mushroomexpert.com/suillus.html",
         "https://www.mushroomexpert.com/suillus_tomentosus.html"
       ],
-      "images": [],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893261.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893411.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893811.jpg"
+      ],
       "scientific_name": "Suillus tomentosus",
       "mushroom_profile": {
         "scientific_name": "Suillus tomentosus",
@@ -840,14 +956,51 @@
           "credit": "Johannes Harnisch (Johann) / Mushroom Observer / Wikimedia Commons",
           "license": "CC BY-SA 3.0",
           "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893261.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893261.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893261.jpg",
+          "source": "commons-photo-patch",
+          "title": "Blue-staining Slippery Jack field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_tomentosus_33456893261.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893411.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893411.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893411.jpg",
+          "source": "commons-photo-patch",
+          "title": "Blue-staining Slippery Jack supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_tomentosus_33456893411.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893811.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893811.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893811.jpg",
+          "source": "commons-photo-patch",
+          "title": "Blue-staining Slippery Jack additional field view",
+          "part_or_stage": "additional field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_tomentosus_33456893811.jpg"
         }
       ],
       "list_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/66/2008-09-02_Suillus_tomentosus_41689.jpg/320px-2008-09-02_Suillus_tomentosus_41689.jpg",
-      "detail_images": [],
-      "enlarge_images": [],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893261.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893411.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893811.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893261.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893411.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20tomentosus%2033456893811.jpg"
+      ],
       "image_audit_status": "v4.2.86_direct_upload_fallback_and_patch_fill_only",
-      "image_review_status": "direct_commons_image_added",
-      "image_review_reasons": [],
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch C — Suillus and peppery/chalciporoid allies); source URLs came from uploaded mushrooms.json."
+      ],
       "photo_credits": [
         {
           "source": "Wikimedia Commons",
@@ -859,7 +1012,11 @@
       ],
       "v4283_checked": true,
       "v4285_checked": "direct upload.wikimedia image URL used to avoid Commons redirect-image loading issues",
-      "v4286_checked": "v4.2.86 converted legacy images[] fallback to direct upload.wikimedia.org URL and made photo patches fill-only so older redirect patch images cannot override structured base images."
+      "v4286_checked": "v4.2.86 converted legacy images[] fallback to direct upload.wikimedia.org URL and made photo patches fill-only so older redirect patch images cannot override structured base images.",
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+      "photo_patch_group": "Batch C — Suillus and peppery/chalciporoid allies",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "boreal-bolete",
@@ -1184,7 +1341,33 @@
       ],
       "foraging_value": "Occasional / niche use",
       "foraging_value_score": 2,
-      "v4283_checked": true
+      "v4283_checked": true,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20weaverae%20%2851607506386%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20weaverae%20%2851607506386%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20weaverae%20%2851607506386%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Butterball field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_weaverae_%2851607506386%29.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20weaverae%20%2851607506386%29.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20weaverae%20%2851607506386%29.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20weaverae%20%2851607506386%29.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch C — Suillus and peppery/chalciporoid allies); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+      "photo_patch_group": "Batch C — Suillus and peppery/chalciporoid allies",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "suillus-americanus",
@@ -1212,7 +1395,10 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/American%20Suillus%20%28Suillus%20americanus%29%20-%20Saratoga%20Springs%2C%20New%20York%202015-08-22.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Chicken%20Fat%20Suillus%20%282042884585%29.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20americanus%20-%20Flickr%20-%20gailhampshire.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20americanus%20-%20Flickr%20-%20gailhampshire.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20americanus%2061328.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20americanus%2060342.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20americanus%2053663.jpg"
       ],
       "scientific_name": "Suillus americanus",
       "mushroom_profile": {
@@ -1393,7 +1579,41 @@
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
-      "habitat": []
+      "habitat": [],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20americanus%2061328.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20americanus%2061328.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20americanus%2061328.jpg",
+          "source": "commons-photo-patch",
+          "title": "Chicken-fat mushroom cluster",
+          "part_or_stage": "Chicken-fat mushroom cluster",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_americanus_61328.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20americanus%2060342.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20americanus%2060342.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20americanus%2060342.jpg",
+          "source": "commons-photo-patch",
+          "title": "Young chicken-fat mushroom",
+          "part_or_stage": "Young chicken-fat mushroom",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_americanus_60342.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20americanus%2053663.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20americanus%2053663.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20americanus%2053663.jpg",
+          "source": "commons-photo-patch",
+          "title": "Chicken-fat mushroom pore surface",
+          "part_or_stage": "Chicken-fat mushroom pore surface",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_americanus_53663.jpg"
+        }
+      ],
+      "image_review_status": "photo_patch_applied",
+      "image_review_reasons": [
+        "v4.2.50 added 3 Commons-backed image(s) for list/detail/lightbox use."
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "corrugated-bolete",
@@ -1827,7 +2047,43 @@
       ],
       "foraging_value": "Use with caution",
       "foraging_value_score": 1,
-      "v4283_checked": true
+      "v4283_checked": true,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Ghost%20bolete%20mushrooms.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ghost%20bolete%20mushrooms.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Ghost%20bolete%20mushrooms.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Ghost bolete mushrooms.jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ghost_bolete_mushrooms.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20holopus%201.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20holopus%201.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20holopus%201.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Leccinum holopus 1.jpg",
+          "part_or_stage": "Field photo 2",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Leccinum_holopus_1.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-09-02%20Leccinum%20holopus%20crop.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-09-02%20Leccinum%20holopus%20crop.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-09-02%20Leccinum%20holopus%20crop.jpg",
+          "source": "Wikimedia Commons",
+          "title": "2010-09-02 Leccinum holopus crop.jpg",
+          "part_or_stage": "Field photo 3",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2010-09-02_Leccinum_holopus_crop.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "grayish-suillus",
@@ -2127,7 +2383,43 @@
       "use_roles": [
         "Food"
       ],
-      "v4283_checked": true
+      "v4283_checked": true,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Hemileccinum%20subglabripes%20%28Peck%29%20Halling%20543044.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hemileccinum%20subglabripes%20%28Peck%29%20Halling%20543044.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Hemileccinum%20subglabripes%20%28Peck%29%20Halling%20543044.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Hemileccinum subglabripes (Peck) Halling 543044.jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Hemileccinum_subglabripes_(Peck)_Halling_543044.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Hemileccinum%20subglabripes%20%28Peck%29%20Halling%20904383.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hemileccinum%20subglabripes%20%28Peck%29%20Halling%20904383.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Hemileccinum%20subglabripes%20%28Peck%29%20Halling%20904383.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Hemileccinum subglabripes (Peck) Halling 904383.jpg",
+          "part_or_stage": "Field photo 2",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Hemileccinum_subglabripes_(Peck)_Halling_904383.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Hemileccinum%20subglabripes%20%28Peck%29%20Halling%20905748.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hemileccinum%20subglabripes%20%28Peck%29%20Halling%20905748.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Hemileccinum%20subglabripes%20%28Peck%29%20Halling%20905748.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Hemileccinum subglabripes (Peck) Halling 905748.jpg",
+          "part_or_stage": "Field photo 3",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Hemileccinum_subglabripes_(Peck)_Halling_905748.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "hollow-stalked-larch-bolete",
@@ -2274,7 +2566,44 @@
       "use_roles": [
         "Food"
       ],
-      "v4283_checked": true
+      "v4283_checked": true,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20ampliporus%20%28Peck%29%20Kuntze%20176435.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20ampliporus%20%28Peck%29%20Kuntze%20176435.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20ampliporus%20%28Peck%29%20Kuntze%20176435.jpg",
+          "source": "commons-photo-patch",
+          "title": "Hollow-stalked Larch Bolete field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_ampliporus_%28Peck%29_Kuntze_176435.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20ampliporus%20%28Peck%29%20Kuntze%20678614.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20ampliporus%20%28Peck%29%20Kuntze%20678614.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20ampliporus%20%28Peck%29%20Kuntze%20678614.jpg",
+          "source": "commons-photo-patch",
+          "title": "Hollow-stalked Larch Bolete supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_ampliporus_%28Peck%29_Kuntze_678614.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20ampliporus%20%28Peck%29%20Kuntze%20176435.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20ampliporus%20%28Peck%29%20Kuntze%20678614.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20ampliporus%20%28Peck%29%20Kuntze%20176435.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20ampliporus%20%28Peck%29%20Kuntze%20678614.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20ampliporus%20%28Peck%29%20Kuntze%20176435.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch C — Suillus and peppery/chalciporoid allies); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+      "photo_patch_group": "Batch C — Suillus and peppery/chalciporoid allies",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "leccinum-albellum",
@@ -2402,7 +2731,43 @@
       "use_roles": [
         "Food"
       ],
-      "v4283_checked": true
+      "v4283_checked": true,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinellum%20albellum%20%28Peck%29%20Bresinsky%20%26%20Manfr.%20Binder%20154221%202011-06-27.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinellum%20albellum%20%28Peck%29%20Bresinsky%20%26%20Manfr.%20Binder%20154221%202011-06-27.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinellum%20albellum%20%28Peck%29%20Bresinsky%20%26%20Manfr.%20Binder%20154221%202011-06-27.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Leccinellum albellum (Peck) Bresinsky & Manfr. Binder 154221 2011-06-27.jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Leccinellum_albellum_(Peck)_Bresinsky_%26_Manfr._Binder_154221_2011-06-27.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinellum%20albellum%20%28Peck%29%20Bresinsky%20%26%20Manfr.%20Binder%20351730%202013-07-22.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinellum%20albellum%20%28Peck%29%20Bresinsky%20%26%20Manfr.%20Binder%20351730%202013-07-22.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinellum%20albellum%20%28Peck%29%20Bresinsky%20%26%20Manfr.%20Binder%20351730%202013-07-22.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Leccinellum albellum (Peck) Bresinsky & Manfr. Binder 351730 2013-07-22.jpg",
+          "part_or_stage": "Field photo 2",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Leccinellum_albellum_(Peck)_Bresinsky_%26_Manfr._Binder_351730_2013-07-22.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinellum%20albellum%20%28Peck%29%20Bresinsky%20%26%20Manfr.%20Binder%20540441%202015-07-18.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinellum%20albellum%20%28Peck%29%20Bresinsky%20%26%20Manfr.%20Binder%20540441%202015-07-18.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinellum%20albellum%20%28Peck%29%20Bresinsky%20%26%20Manfr.%20Binder%20540441%202015-07-18.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Leccinellum albellum (Peck) Bresinsky & Manfr. Binder 540441 2015-07-18.jpg",
+          "part_or_stage": "Field photo 3",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Leccinellum_albellum_(Peck)_Bresinsky_%26_Manfr._Binder_540441_2015-07-18.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "leccinum-areolatum",
@@ -2528,7 +2893,21 @@
       "use_roles": [
         "Food"
       ],
-      "v4283_checked": true
+      "v4283_checked": true,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20areolatum%2074559.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20areolatum%2074559.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20areolatum%2074559.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Leccinum areolatum 74559.jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Leccinum_areolatum_74559.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "leccinum-crocipodium",
@@ -2656,7 +3035,43 @@
       "use_roles": [
         "Food"
       ],
-      "v4283_checked": true
+      "v4283_checked": true,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20crocipodium.JPG",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20crocipodium.JPG",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20crocipodium.JPG",
+          "source": "Wikimedia Commons",
+          "title": "Leccinum crocipodium.JPG",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Leccinum_crocipodium.JPG",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinellum%20crocipodium%20%28Letell.%29%20Bresinsky%20%26%20Manfr.%20Binder%20533004.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinellum%20crocipodium%20%28Letell.%29%20Bresinsky%20%26%20Manfr.%20Binder%20533004.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinellum%20crocipodium%20%28Letell.%29%20Bresinsky%20%26%20Manfr.%20Binder%20533004.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Leccinellum crocipodium (Letell.) Bresinsky & Manfr. Binder 533004.jpg",
+          "part_or_stage": "Field photo 2",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Leccinellum_crocipodium_(Letell.)_Bresinsky_%26_Manfr._Binder_533004.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinellum%20crocipodium%2010.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinellum%20crocipodium%2010.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinellum%20crocipodium%2010.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Leccinellum crocipodium 10.jpg",
+          "part_or_stage": "Field photo 3",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Leccinellum_crocipodium_10.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "leccinum-discolor",
@@ -3187,7 +3602,21 @@
       "use_roles": [
         "Food"
       ],
-      "v4283_checked": true
+      "v4283_checked": true,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20insolens%20A.H.%20Sm.%2C%20Thiers%20%26%20Watling%20661219.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20insolens%20A.H.%20Sm.%2C%20Thiers%20%26%20Watling%20661219.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20insolens%20A.H.%20Sm.%2C%20Thiers%20%26%20Watling%20661219.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Leccinum insolens A.H. Sm., Thiers & Watling 661219.jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Leccinum_insolens_A.H._Sm.,_Thiers_%26_Watling_661219.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "leccinum-insolens-var-brunneo-maculatum",
@@ -4544,7 +4973,9 @@
         "https://www.mushroomexpert.com/leccinum.html"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2006-09-02%20Leccinum%20versipelle.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2006-09-02%20Leccinum%20versipelle.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20versipelle%20%2831614550417%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20versipelle%2001.JPG"
       ],
       "scientific_name": "Leccinum versipelle",
       "mushroom_profile": {
@@ -4711,7 +5142,41 @@
       "needs_review": false,
       "review_note": "",
       "review_notes": "",
-      "v4287_checked": true
+      "v4287_checked": true,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20versipelle%20%2831614550417%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20versipelle%20%2831614550417%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20versipelle%20%2831614550417%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Orange birch bolete field view",
+          "part_or_stage": "Orange birch bolete field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Leccinum_versipelle_%2831614550417%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2006-09-02%20Leccinum%20versipelle.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2006-09-02%20Leccinum%20versipelle.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2006-09-02%20Leccinum%20versipelle.jpg",
+          "source": "commons-photo-patch",
+          "title": "Orange birch bolete upright specimen",
+          "part_or_stage": "Orange birch bolete upright specimen",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:2006-09-02_Leccinum_versipelle.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20versipelle%2001.JPG?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20versipelle%2001.JPG?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20versipelle%2001.JPG",
+          "source": "commons-photo-patch",
+          "title": "Orange birch bolete group",
+          "part_or_stage": "Orange birch bolete group",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Leccinum_versipelle_01.JPG"
+        }
+      ],
+      "image_review_status": "photo_patch_applied",
+      "image_review_reasons": [
+        "v4.2.50 added 3 Commons-backed image(s) for list/detail/lightbox use."
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "suillus-spraguei",
@@ -4908,7 +5373,23 @@
       "needs_review": false,
       "review_note": "",
       "review_notes": "",
-      "v4287_checked": true
+      "v4287_checked": true,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20spraguei%2058269.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20spraguei%2058269.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20spraguei%2058269.jpg",
+          "source": "commons-photo-patch",
+          "title": "Painted suillus field specimen",
+          "part_or_stage": "Painted suillus field specimen",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_spraguei_58269.jpg"
+        }
+      ],
+      "image_review_status": "photo_patch_applied_partial",
+      "image_review_reasons": [
+        "v4.2.50 added 1 Commons-backed image(s) for list/detail/lightbox use."
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "suillus-paluster",
@@ -5035,7 +5516,9 @@
         "https://www.mushroomexpert.com/suillus_brevipes.html"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2098931.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2098931.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2054956.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2069047.jpg"
       ],
       "scientific_name": "Suillus brevipes",
       "mushroom_profile": {
@@ -5147,7 +5630,44 @@
         "Pine",
         "Hard pine"
       ],
-      "v4287_checked": true
+      "v4287_checked": true,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2054956.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2054956.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2054956.jpg",
+          "source": "commons-photo-patch",
+          "title": "Short-stalked bolete field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_brevipes_54956.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2069047.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2069047.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2069047.jpg",
+          "source": "commons-photo-patch",
+          "title": "Suillus brevipes supporting view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_brevipes_69047.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2054956.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2069047.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2054956.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2069047.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20brevipes%2054956.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch B — Suillus and slippery-cap allies)."
+      ],
+      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
+      "photo_patch_group": "Batch B — Suillus and slippery-cap allies",
+      "photo_patch_alias_source_slug": "short-stalked-bolete",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "slim-jack",
@@ -6279,7 +6799,33 @@
       "needs_review": false,
       "review_note": "",
       "review_notes": "",
-      "v4287_checked": true
+      "v4287_checked": true,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20punctipes%20275731.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20punctipes%20275731.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20punctipes%20275731.jpg",
+          "source": "commons-photo-patch",
+          "title": "Dotted-stalk Suillus field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_punctipes_275731.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20punctipes%20275731.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20punctipes%20275731.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20punctipes%20275731.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact (Batch E — mixed exact-slug mushrooms); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact",
+      "photo_patch_group": "Batch E — mixed exact-slug mushrooms",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "suillus-sinuspaulianus",
@@ -6756,7 +7302,8 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/2009-10-13%20Suillus%20placidus%20%28Bonord.%29%20Singer%20282595.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20placidus%2097717%20cropped.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20placidus%20%2823692452833%29.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20placidus%20%2823692452833%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20placidus%20157923.jpg"
       ],
       "scientific_name": "Suillus placidus",
       "mushroom_profile": {
@@ -6865,7 +7412,33 @@
         "Eastern white pine",
         "White pine"
       ],
-      "v4287_checked": true
+      "v4287_checked": true,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20placidus%20157923.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20placidus%20157923.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20placidus%20157923.jpg",
+          "source": "commons-photo-patch",
+          "title": "White Suillus field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_placidus_157923.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20placidus%20157923.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20placidus%20157923.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20placidus%20157923.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch B — Suillus and slippery-cap allies)."
+      ],
+      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
+      "photo_patch_group": "Batch B — Suillus and slippery-cap allies",
+      "photo_patch_alias_source_slug": "white-suillus",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
     },
     {
       "slug": "white-stemmed-bolete",

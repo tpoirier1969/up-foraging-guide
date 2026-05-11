@@ -26,7 +26,7 @@ function routeTitle(route) {
     plants: "Plants",
     mushrooms: "Mushrooms",
     "mushrooms-gilled": "Gilled mushrooms",
-    boletes: "Boletes",
+    boletes: "Spongelike",
     "mushrooms-other": "Other mushrooms",
     medicinal: "Medicinal",
     rare: "Rare",
@@ -80,7 +80,7 @@ function mushroomLaneLandingHtml() {
       <p>Start with the underside. That gets most people to the right part of the guide faster than taxonomy ever will.</p>
       <div class="lane-grid">
         <a class="lane-card" href="#/mushrooms-gilled"><strong>Gilled</strong><span>Thin blade-like gills under the cap.</span></a>
-        <a class="lane-card" href="#/boletes"><strong>Boletes</strong><span>Pores or sponge-like underside.</span></a>
+        <a class="lane-card" href="#/boletes"><strong>Spongelike</strong><span>Pores, tubes, or sponge-like underside.</span></a>
         <a class="lane-card" href="#/mushrooms-other"><strong>Other</strong><span>Teeth, ridges, shelves, coral, jelly, and oddballs.</span></a>
       </div>
     </section>
@@ -98,7 +98,7 @@ function mushroomLaneNavHtml(route = "") {
       <h3>Mushroom underside / form</h3>
       <div class="lane-grid">
         ${item("#/mushrooms-gilled", "mushrooms-gilled", "Gilled", "Thin blade-like gills under the cap.")}
-        ${item("#/boletes", "boletes", "Boletes", "Pores or sponge-like underside.")}
+        ${item("#/boletes", "boletes", "Spongelike", "Pores, tubes, or sponge-like underside.")}
         ${item("#/mushrooms-other", "mushrooms-other", "Other", "Teeth, ridges, shelves, coral, jelly, and oddballs.")}
       </div>
     </section>
@@ -176,7 +176,7 @@ function renderSortControls(route) {
 
 function renderTraitFilters(route, filterFields = [], activeTraitFilters = false) {
   if (!filterFields.length) return "";
-  const title = isPlantFilterRoute(route) ? "Plant filters" : (route === "boletes" ? "Bolete filters" : "Mushroom filters");
+  const title = isPlantFilterRoute(route) ? "Plant filters" : (route === "boletes" ? "Spongelike mushroom filters" : "Mushroom filters");
   return `
     <section class="panel">
       <div class="home-focus-heading">
