@@ -150,9 +150,9 @@ export function renderHome(species, errors = [], rareSpecies = []) {
     <section class="panel home-focus-panel">
       <section class="home-safety-card">
         <h3>Use this guide carefully</h3>
-        <p>This guide was put together by an amateur forager, not a scientist. I made it to be a reminder of things I've known, it is not intended to be a one-stop app for all things foraging.</p>
+        <p>This guide was put together by an amateur forager, not a scientist. I made it to be a reminder of things I've known, and it is not intended to be a one-stop app for all things foraging. It is also still very much being developed, with species records, images, filters, credits, and safety notes still being improved.</p>
         <p>Treat all plants, especially mushrooms, as potentially inedible and dangerous. Do not eat anything until you know the species and know how to prepare it. Foraging can be a fun and rewarding way to make some great meals, just do it wisely.</p>
-        <p>The guide includes sections on plants, mushrooms, medicinals, other uses, rare species, and cautionary look-alikes. There's a timeline that will show you the species you'll likely find in the woods each month, plus references and credits.</p>
+        <p>The guide includes sections on plants, mushrooms, medicinals, other uses, rare species, and cautionary look-alikes. There's a timeline that will show you the species you'll likely find in the woods each month, plus references and credits. I am very open to suggestions, corrections, better local observations, and anything I should fix or improve; email me at <a href="mailto:tpoirier@nmu.edu">tpoirier@nmu.edu</a>.</p>
       </section>
 
       <section class="panel">
