@@ -17,8 +17,29 @@ function currentMonthName() {
   return MONTHS[new Date().getMonth()] || MONTHS[0];
 }
 
+function monthNumberFromName(month) {
+  const index = MONTHS.indexOf(month);
+  return index >= 0 ? index + 1 : 0;
+}
+
+function normalizeMonthNumber(value) {
+  const number = Number(value);
+  return Number.isInteger(number) && number >= 1 && number <= 12 ? number : 0;
+}
+
 function isInSeason(record, month) {
-  return Array.isArray(record?.months_available) && record.months_available.includes(month);
+  const monthNumber = monthNumberFromName(month);
+  const namedMonths = Array.isArray(record?.months_available) ? record.months_available : [];
+  if (namedMonths.includes(month)) return true;
+
+  const numericMonths = [
+    ...(Array.isArray(record?.month_numbers) ? record.month_numbers : []),
+    ...(Array.isArray(record?.season_months) ? record.season_months : [])
+  ]
+    .map(normalizeMonthNumber)
+    .filter(Boolean);
+
+  return monthNumber > 0 && numericMonths.includes(monthNumber);
 }
 
 function asList(value) {
