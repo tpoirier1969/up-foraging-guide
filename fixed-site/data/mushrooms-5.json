@@ -1,0 +1,564 @@
+{
+  "metadata": {
+    "project": "Upper Michigan Foraging Guide",
+    "build": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1",
+    "primary_type": "mushroom",
+    "split_version": "size-chunk-split-v1",
+    "split_file": "data/mushrooms-5.json",
+    "split_role": "Core/restored baseline mushroom records kept at the original path.",
+    "source_mushrooms_build": "pre-split uploaded mushrooms baseline",
+    "source_record_count_before_split": 209,
+    "record_count": 6,
+    "notes": "Core/restored mushroom records retained at the original mushrooms.json path. Expanded mushroom records now load from smaller grouped files listed in split_manifest. v4.2.80 adds a core mushroom credibility pass: source links, use roles, foraging values, card notes, and cleaned placeholder use text for high-visibility mushrooms. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved.",
+    "split_manifest": [
+      {
+        "path": "data/mushrooms.json",
+        "record_count": 55,
+        "role": "Core/restored baseline mushroom records kept at the original path."
+      },
+      {
+        "path": "data/mushrooms/mushrooms-boletes-porcini-tylopilus.json",
+        "record_count": 41,
+        "role": "Expanded porcini, Tylopilus, dark-pored, and brown bolete records."
+      },
+      {
+        "path": "data/mushrooms/mushrooms-boletes-red-caution.json",
+        "record_count": 39,
+        "role": "Expanded red/yellow, blue-staining, red-pored, and caution-lane bolete records."
+      },
+      {
+        "path": "data/mushrooms/mushrooms-boletes-suillus-leccinum.json",
+        "record_count": 50,
+        "role": "Expanded Suillus and Leccinum/scaber-stalk bolete records."
+      },
+      {
+        "path": "data/mushrooms/mushrooms-boletes-other.json",
+        "record_count": 24,
+        "role": "Expanded long-stemmed, peppery, gilled-bolete, wood-inhabiting, and oddball bolete records."
+      }
+    ],
+    "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
+    "review_reason_audit": {
+      "audited_on": "2026-04-28",
+      "rule": "Normalize explicit review signals into review_reasons/review_note and prefix notes for Needs Review list visibility.",
+      "review_records_in_file": 8,
+      "cleared_image_only_slugs_not_reopened": [
+        "slippery-jack"
+      ]
+    },
+    "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
+    "last_photo_patch_fold": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+    "photo_patch_folded_record_count": 50,
+    "split_part": 5,
+    "split_parts_total": 5,
+    "split_series": "data/mushrooms-5*.json",
+    "split_note": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split this active data source by file size to keep working chunks under roughly 75–100 KB. Record bodies and source order were preserved.",
+    "source_group": "data/mushrooms-5",
+    "source_build_before_size_split": "v4.2.80-r2026-04-29-mushroom-core-credibility1"
+  },
+  "records": [
+    {
+      "slug": "velvet-foot",
+      "display_name": "Velvet foot",
+      "common_name": "Velvet foot",
+      "category": "Mushroom",
+      "notes": "Cold-weather gilled mushroom on wood.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "October",
+        "November",
+        "December",
+        "January",
+        "February",
+        "March"
+      ],
+      "links": [],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20(42284743332).jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20106827706.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg"
+      ],
+      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
+      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "non_edible_severity": "Edible with caution",
+      "edibility_detail": "Treat as caution / not for meals in this guide until species-level edibility is clarified.",
+      "general_notes": "The dark velvety stem base matters here. This is one of the few edible-type gilled mushrooms worth checking in cold weather.",
+      "record_type": "mushroom",
+      "lane": "gilled",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [
+        "Hardwood"
+      ],
+      "commonness": "Occasional",
+      "food_quality": "Fair",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "month_numbers": [
+        10,
+        11,
+        12,
+        1,
+        2,
+        3
+      ],
+      "food_role": "food",
+      "look_alikes": [
+        "jack-o-lantern"
+      ],
+      "confused_with": [
+        "jack-o-lantern"
+      ],
+      "mushroom_profile": {
+        "lane": "gilled",
+        "underside": [
+          "Gills"
+        ],
+        "substrate": [
+          "Dead hardwood wood"
+        ],
+        "host_filter_tokens": [
+          "Hardwood"
+        ],
+        "ring": [
+          "None"
+        ],
+        "texture": [
+          "Fleshy"
+        ],
+        "smell": [
+          "Mild"
+        ],
+        "staining": [
+          "None notable"
+        ],
+        "cap_surface": [
+          "Smooth",
+          "Viscid when moist"
+        ],
+        "stem_feature": [
+          "Dark velvety stem base"
+        ],
+        "spore_print": "White",
+        "gill_attachment": "Attached",
+        "volva": "None",
+        "season_note": "Late fall through winter into early spring during thaw periods."
+      },
+      "commonness_score": 3,
+      "food_quality_score": 3,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Velvet foot winter cluster",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Flammulina_velutipes._%2853589573202%29.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch C — gilled/ridged edibles and caution-adjacent species)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch C — gilled/ridged edibles and caution-adjacent species",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "yellow-chanterelles-conifer-associated-complex",
+      "display_name": "Yellow chanterelles (conifer-associated complex)",
+      "common_name": "Yellow chanterelles (conifer-associated complex)",
+      "category": "Mushroom",
+      "notes": "Needs review: needs real field photo / image coverage.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [],
+      "links": [
+        "https://www.mushroomexpert.com/cantharellus_cibarius.html",
+        "https://www.mushroomexpert.com/cantharellaceae.html"
+      ],
+      "images": [
+        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EYellow%20chanterelles%20%28conifer-associated%20complex%29%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+      ],
+      "medicinal_uses": "Primarily culinary in this guide.",
+      "culinary_uses": "Choice edible chanterelle-type mushrooms when positively identified. Cook; do not confuse with jack-o'-lanterns or true-gilled orange mushrooms.",
+      "general_notes": "",
+      "record_type": "mushroom",
+      "lane": "other",
+      "reviewReasons": [
+        "Needs real field photo / image coverage",
+        "Species-complex wording should be kept conservative"
+      ],
+      "review_status": "needs_review",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "Needs real field photo / image coverage",
+        "Species-complex wording should be kept conservative"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: Needs real field photo / image coverage; Species-complex wording should be kept conservative.",
+      "review_notes": "Needs review: Needs real field photo / image coverage; Species-complex wording should be kept conservative.",
+      "scientific_name": "Cantharellus spp. / conifer-associated yellow chanterelles",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Prime foraging — species complex",
+      "foraging_value_score": 5,
+      "field_identification": "Yellow-orange chanterelle complex with blunt forked false gills, solid flesh, and conifer association; species-level names are unsettled in North America.",
+      "mushroom_card_note": "Prime chanterelle group, but this entry still needs a real field photo and careful species-complex wording."
+    },
+    {
+      "slug": "yellow-chanterelles-hardwood-associated-complex",
+      "display_name": "Yellow chanterelles (hardwood-associated complex)",
+      "common_name": "Yellow chanterelles (hardwood-associated complex)",
+      "category": "Mushroom",
+      "notes": "Needs review: needs real field photo / image coverage.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [],
+      "links": [
+        "https://www.mushroomexpert.com/cantharellus_cibarius.html",
+        "https://www.mushroomexpert.com/cantharellaceae.html"
+      ],
+      "images": [
+        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EYellow%20chanterelles%20%28hardwood-associated%20complex%29%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+      ],
+      "medicinal_uses": "Primarily culinary in this guide.",
+      "culinary_uses": "Choice edible chanterelle-type mushrooms when positively identified. Cook; check false gills, growth from soil, and lack of jack-o'-lantern clustering on wood.",
+      "general_notes": "",
+      "record_type": "mushroom",
+      "lane": "other",
+      "reviewReasons": [
+        "Needs real field photo / image coverage",
+        "Species-complex wording should be kept conservative"
+      ],
+      "review_status": "needs_review",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "Needs real field photo / image coverage",
+        "Species-complex wording should be kept conservative"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: Needs real field photo / image coverage; Species-complex wording should be kept conservative.",
+      "review_notes": "Needs review: Needs real field photo / image coverage; Species-complex wording should be kept conservative.",
+      "scientific_name": "Cantharellus spp. / hardwood-associated yellow chanterelles",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Prime foraging — species complex",
+      "foraging_value_score": 5,
+      "field_identification": "Yellow-orange chanterelle complex with blunt forked false gills and hardwood association; North American species naming is still unsettled.",
+      "mushroom_card_note": "Prime chanterelle group, but this entry still needs a real field photo and careful species-complex wording."
+    },
+    {
+      "slug": "yellow-fly-agaric-guessowii",
+      "display_name": "Yellow fly agaric / guessowii",
+      "common_name": "Yellow fly agaric / guessowii",
+      "category": "Mushroom",
+      "notes": "Yellow fly agaric entry.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "August",
+        "September",
+        "October"
+      ],
+      "links": [],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%20(2).jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20medium.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20small.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%20%282%29.jpg"
+      ],
+      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "non_edible_severity": "Poisonous",
+      "edibility_detail": "Avoid for food in this guide; keep as an identification/caution record.",
+      "general_notes": "A conspicuous northern Amanita and worth keeping obvious in the caution side of the guide. The warts, white gills, ring, and bulbous base all matter.",
+      "record_type": "mushroom",
+      "lane": "gilled",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [
+        "Hardwood",
+        "Conifer / softwood"
+      ],
+      "commonness": "Common",
+      "food_quality": "Not recommended",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "month_numbers": [
+        8,
+        9,
+        10
+      ],
+      "food_role": "avoid",
+      "look_alikes": [],
+      "confused_with": [],
+      "mushroom_profile": {
+        "lane": "gilled",
+        "underside": [
+          "Gills"
+        ],
+        "substrate": [
+          "Forest soil"
+        ],
+        "host_filter_tokens": [
+          "Hardwood",
+          "Conifer / softwood"
+        ],
+        "ring": [
+          "Ring present"
+        ],
+        "texture": [
+          "Fleshy"
+        ],
+        "smell": [
+          "Mild"
+        ],
+        "staining": [
+          "None notable"
+        ],
+        "cap_surface": [
+          "Warty"
+        ],
+        "stem_feature": [
+          "Bulbous base"
+        ],
+        "spore_print": "White",
+        "gill_attachment": "Free",
+        "volva": "Present as universal veil remnants",
+        "season_note": "Late summer through fall in mixed woods."
+      },
+      "commonness_score": 4,
+      "food_quality_score": 1,
+      "edibility_status": "not_edible",
+      "edible_use": {
+        "has_ingestible_use": false,
+        "method": "",
+        "preparation_required": false,
+        "notes": ""
+      },
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%20%282%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%20%282%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%20%282%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Yellow fly agaric / guessowii field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Amanita_muscaria_var._guessowii_%282%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20medium.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20medium.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20medium.jpg",
+          "source": "commons-photo-patch",
+          "title": "Yellow fly agaric / guessowii supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Amanita_muscaria_var._guessowii%2C_medium.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20small.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20small.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20small.jpg",
+          "source": "commons-photo-patch",
+          "title": "Yellow fly agaric / guessowii additional field view",
+          "part_or_stage": "additional field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Amanita_muscaria_var._guessowii%2C_small.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%20%282%29.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20medium.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20small.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%20%282%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20medium.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%2C%20small.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20muscaria%20var.%20guessowii%20%282%29.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch E — conks, chanterelle allies, and caution gilled record); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+      "photo_patch_group": "Batch E — conks, chanterelle allies, and caution gilled record",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "yellow-morels",
+      "display_name": "Yellow morels",
+      "common_name": "Yellow morels",
+      "category": "Mushroom",
+      "notes": "",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [],
+      "links": [],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20esculenta%2036795275.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20esculenta%20(Twelve%20edible%20mushrooms%20of%20the%20United%20States).jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20americana%2070966.jpg"
+      ],
+      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
+      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "general_notes": "Representative Commons images currently use Morchella esculenta / yellow-morel-type material for this field-guide group record.",
+      "record_type": "mushroom",
+      "lane": "other",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20americana%2070966.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20americana%2070966.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20americana%2070966.jpg",
+          "source": "commons-photo-patch",
+          "title": "Yellow morel field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Morchella_americana_70966.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20americana%2070966.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20americana%2070966.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20americana%2070966.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch A — morels and early morel relatives)."
+      ],
+      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
+      "photo_patch_group": "Batch A — morels and early morel relatives",
+      "photo_patch_alias_source_slug": "yellow-morel",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "yellowfoot-chanterelle",
+      "display_name": "Yellowfoot chanterelle",
+      "common_name": "Yellowfoot chanterelle",
+      "category": "Mushroom",
+      "notes": "",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [],
+      "links": [
+        "https://www.mushroomexpert.com/craterellus_tubaeformis.html"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20(37555429931).jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20(24592812038).jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2837555429931%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2824592812038%29.jpg"
+      ],
+      "medicinal_uses": "Primarily culinary in this guide.",
+      "culinary_uses": "Good edible small chanterelle. Excellent sautéed or dried; stems can be tougher than caps.",
+      "general_notes": "",
+      "record_type": "mushroom",
+      "lane": "other",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "scientific_name": "Craterellus tubaeformis",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Good forage",
+      "foraging_value_score": 4,
+      "field_identification": "Small brownish funnel cap with well-developed false gills and a yellow to orange-yellow hollow stem, often in mossy conifer bogs.",
+      "mushroom_card_note": "Good late-season small chanterelle; brown cap, false gills, yellow hollow stem.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2837555429931%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2837555429931%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2837555429931%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Yellowfoot chanterelle field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Craterellus_tubaeformis_%2837555429931%29.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2824592812038%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2824592812038%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2824592812038%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Yellowfoot chanterelle supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Craterellus_tubaeformis_%2824592812038%29.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2837555429931%29.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2824592812038%29.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2837555429931%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2824592812038%29.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20tubaeformis%20%2837555429931%29.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch E — conks, chanterelle allies, and caution gilled record); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+      "photo_patch_group": "Batch E — conks, chanterelle allies, and caution gilled record",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    }
+  ]
+}

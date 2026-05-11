@@ -1,15 +1,15 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.2.94-r2026-04-30-food-caution-language1",
+    "build": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1",
     "primary_type": "mushroom",
-    "split_version": "mushroom-data-split-v1",
+    "split_version": "size-chunk-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-other2.json",
     "split_role": "Expanded gilled-bolete, wood-inhabiting, parasitic, and remaining oddball bolete records; second half of former mushrooms-boletes-other.json.",
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 11,
-    "notes": "Split from former mushrooms-boletes-other.json in v4.2.90 to reduce large-file handling/static. Record bodies and order were preserved; each canonical slug still appears in exactly one base mushroom split file. Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records. v4.2.91: other-bolete review pass updated review flags using the 2-3 distinct-image rule. v4.2.92: removed stale seed/review/build notes from user-facing nested profile fields while preserving active review reasons. v4.2.93 reviewed the 11 remaining other-bolete Needs Review records, resolving records with adequate source/photo support and retaining only true blocked review reasons. v4.2.94 separated food-use text from caution text and removed duplicate edible/caution echoes in detail-facing fields. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS.",
+    "notes": "Split from former mushrooms-boletes-other.json in v4.2.90 to reduce large-file handling/static. Record bodies and order were preserved; each canonical slug still appears in exactly one base mushroom split file. Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records. v4.2.91: other-bolete review pass updated review flags using the 2-3 distinct-image rule. v4.2.92: removed stale seed/review/build notes from user-facing nested profile fields while preserving active review reasons. v4.2.93 reviewed the 11 remaining other-bolete Needs Review records, resolving records with adequate source/photo support and retaining only true blocked review reasons. v4.2.94 separated food-use text from caution text and removed duplicate edible/caution echoes in detail-facing fields. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -20,7 +20,7 @@
     "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
     "source_split_file": "data/mushrooms/mushrooms-boletes-other.json",
     "source_split_record_count": 23,
-    "split_part": 2,
+    "split_part": 1,
     "split_part_count": 2,
     "last_credibility_batch": "v4.2.93-r2026-04-30-bolete-other-final-review1",
     "last_other_bolete_review": "v4.2.91-r2026-04-30-bolete-other-review1",
@@ -38,7 +38,10 @@
     },
     "last_food_caution_cleanup": "v4.2.94-r2026-04-30-food-caution-language1",
     "last_photo_patch_fold": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-    "photo_patch_folded_record_count": 5
+    "photo_patch_folded_record_count": 5,
+    "split_parts_total": 1,
+    "source_group": "data/mushrooms/mushrooms-boletes-other2",
+    "source_build_before_size_split": "v4.2.94-r2026-04-30-food-caution-language1"
   },
   "records": [
     {

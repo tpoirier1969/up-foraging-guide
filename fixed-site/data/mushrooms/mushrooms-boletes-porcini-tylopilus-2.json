@@ -1,0 +1,1711 @@
+{
+  "metadata": {
+    "project": "Upper Michigan Foraging Guide",
+    "build": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1",
+    "primary_type": "mushroom",
+    "split_version": "size-chunk-split-v1",
+    "split_file": "data/mushrooms/mushrooms-boletes-porcini-tylopilus-2.json",
+    "split_role": "Expanded porcini, Tylopilus, dark-pored, and brown bolete records.",
+    "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
+    "source_record_count_before_split": 209,
+    "record_count": 10,
+    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records. Updated in v4.2.82 with 25-record mushroom credibility pass including Black Velvet Bolete and Blue-staining Slippery Jack. v4.2.83: mushroom bolete photo/credibility batch; Commons images added for Neoporphyrellus alboater and Suillus tomentosus; 25-record Suillus/Leccinum/Neoporphyrellus pass. v4.2.85 refreshed Black Velvet Bolete image URLs to direct upload.wikimedia.org files and carried forward v4.2.83 image coverage. v4.2.86: optional photo patches are treated as fill-only for existing base-record image fields; direct image fallback hardened for Black Velvet Bolete and Suillus tomentosus where applicable. v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4: carried forward with patch-precedence-safe image handling. v4.2.88: 25-record mushroom credibility/review pass; porcini/Tylopilus/Xerocomus records rechecked and remaining red/caution records improved while preserving true image/local-taxonomy review flags. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved.",
+    "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
+    "review_reason_audit": {
+      "audited_on": "2026-04-28",
+      "rule": "Normalize explicit review signals into review_reasons/review_note and prefix notes for Needs Review list visibility.",
+      "review_records_in_file": 36,
+      "cleared_image_only_slugs_not_reopened": []
+    },
+    "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
+    "last_credibility_batch": "v4.2.88-r2026-04-30-mushroom-porcini-red-credibility5",
+    "last_photo_patch_fold": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+    "photo_patch_folded_record_count": 22,
+    "split_part": 2,
+    "split_parts_total": 4,
+    "split_series": "data/mushrooms/mushrooms-boletes-porcini-tylopilus-2*.json",
+    "split_note": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split this active data source by file size to keep working chunks under roughly 75–100 KB. Record bodies and source order were preserved.",
+    "source_group": "data/mushrooms/mushrooms-boletes-porcini-tylopilus-2",
+    "source_build_before_size_split": "v4.2.88-r2026-04-30-mushroom-porcini-red-credibility5"
+  },
+  "records": [
+    {
+      "slug": "gyroporus-borealis-smithii",
+      "display_name": "Chestnut Bolete",
+      "common_name": "Chestnut Bolete",
+      "category": "Mushroom",
+      "culinary_uses": "Some Gyroporus chestnut boletes are edible, but this guide treats the borealis/smithii record conservatively until the species split is better confirmed regionally.",
+      "medicinal_uses": "",
+      "notes": "Chestnut-type Gyroporus: brittle hollow stem, chestnut-brown cap, and yellowish spore-print group; treat species boundary as conservative.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/gyroporus.html"
+      ],
+      "images": [
+        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EChestnut%20Bolete%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EGyroporus%20borealis/smithii%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+      ],
+      "scientific_name": "Gyroporus borealis/smithii",
+      "mushroom_profile": {
+        "scientific_name": "Gyroporus borealis/smithii",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Chestnut-type Gyroporus: brittle hollow stem, chestnut-brown cap, and yellowish spore-print group; treat species boundary as conservative.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [
+          "Hardwoods",
+          "Mixed woods"
+        ],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Little to no blue staining"
+        ],
+        "taste": [
+          "Mild / not distinctive"
+        ],
+        "spore_print": "",
+        "season_note": "Summer and fall.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs image coverage.",
+          "Needs source links and fuller field notes.",
+          "Placeholder image inserted pending real public-usable photo.",
+          "Gyroporus records should be checked for brittle/hollow stem tissue, dry cap, lack of strong reticulation, and association with hardwoods or mixed woods.",
+          "Species-specific notes and source links updated in v4.2.82 mushroom batch.",
+          "v4.2.88: review reasons rechecked; remaining blocker kept as image/local-taxonomy issue rather than source/species-note cleanup."
+        ],
+        "cap_surface": [
+          "Chestnut to brown dry cap"
+        ],
+        "stem_feature": [
+          "Brittle hollow stem"
+        ],
+        "pore_color": [
+          "Whitish to yellowish pores"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "needs image coverage",
+        "needs source links",
+        "needs species-level notes review",
+        "placeholder image inserted"
+      ],
+      "mushroom_family": "Gyroporus / brittle hollow-stem boletes",
+      "boleteGroup": [
+        "Gyroporus / brittle hollow-stem boletes"
+      ],
+      "boleteSubgroup": [
+        "Gyroporus",
+        "Brittle / hollow-stem"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "commonness": "Rare",
+      "commonness_score": 1,
+      "food_quality": "Good",
+      "food_quality_score": 4,
+      "lane": "bolete",
+      "host_filter_tokens": [
+        "Hardwoods",
+        "Mixed woods"
+      ],
+      "look_alikes": [],
+      "confused_with": [],
+      "general_notes": "",
+      "edibility_detail": "Potentially edible group, but keep as cautious because the app record represents a borealis/smithii concept rather than a crisp single field-confirmed species.",
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "review_reasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Chestnut-type Gyroporus: brittle hollow stem, chestnut-brown cap, and yellowish spore-print group; treat species boundary as conservative.",
+      "field_identification": "Gyroporus records should be checked for brittle/hollow stem tissue, dry cap, lack of strong reticulation, and association with hardwoods or mixed woods.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Occasional / niche use",
+      "foraging_value_score": 2,
+      "search_aliases": [
+        "Chestnut bolete",
+        "Gyroporus borealis",
+        "Gyroporus smithii"
+      ],
+      "v4288_checked": true
+    },
+    {
+      "slug": "porphyrellus-porphyrosporus",
+      "display_name": "Dusky Bolete",
+      "common_name": "Dusky Bolete",
+      "category": "Mushroom",
+      "culinary_uses": "Not a prime food mushroom in this guide; keep as a cautious/ID record unless a local expert confirms the collection.",
+      "medicinal_uses": "",
+      "notes": "Dusky Bolete: dark brown to gray-brown bolete with brownish pore surface and darkening/staining tendencies; more ID interest than table prize.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://mushroomexpert.com/tylopilus.html"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Porphyrellus%20porphyrosporus.jpg"
+      ],
+      "scientific_name": "Porphyrellus porphyrosporus",
+      "mushroom_profile": {
+        "scientific_name": "Porphyrellus porphyrosporus",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Dusky Bolete: dark brown to gray-brown bolete with brownish pore surface and darkening/staining tendencies; more ID interest than table prize.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [
+          "Conifers",
+          "Mixed woods"
+        ],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Dark staining possible"
+        ],
+        "taste": [
+          "Mild / not distinctive"
+        ],
+        "spore_print": "",
+        "season_note": "Summer and fall.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs image coverage.",
+          "Needs source links and fuller field notes.",
+          "Check for a dusky cap, brownish pore surface, dark spore-print group, and flesh/stem staining tendencies. It is easy to confuse with other dark Tylopilus/Porphyrellus-like boletes.",
+          "Species-specific notes and source links updated in v4.2.82 mushroom batch.",
+          "v4.2.88: review reasons rechecked; remaining blocker kept as image/local-taxonomy issue rather than source/species-note cleanup."
+        ],
+        "cap_surface": [
+          "Dusky brown cap"
+        ],
+        "stem_feature": [
+          "Brown to dark stem"
+        ],
+        "pore_color": [
+          "Brownish pores"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "needs image coverage",
+        "needs source links",
+        "needs species-level notes review"
+      ],
+      "mushroom_family": "Dark-pored & obscure boletes",
+      "boleteGroup": [
+        "Dark-pored & obscure boletes"
+      ],
+      "boleteSubgroup": [
+        "Porphyrellus",
+        "Dark-spored / obscure"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "commonness": "Rare",
+      "commonness_score": 1,
+      "food_quality": "Not recommended",
+      "food_quality_score": 1,
+      "lane": "bolete",
+      "host_filter_tokens": [
+        "Conifers",
+        "Mixed woods"
+      ],
+      "look_alikes": [],
+      "confused_with": [],
+      "general_notes": "",
+      "edibility_detail": "Treat conservatively. Dark boletes in this group need careful separation before any food use.",
+      "food_role": "avoid",
+      "edibility_status": "not_edible",
+      "non_edible_severity": "Caution / not recommended as food",
+      "review_status": "needs_review",
+      "edible_use": {
+        "has_ingestible_use": false,
+        "method": "",
+        "preparation_required": false,
+        "notes": ""
+      },
+      "needs_review": true,
+      "review_reasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "reviewReasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Dusky Bolete: dark brown to gray-brown bolete with brownish pore surface and darkening/staining tendencies; more ID interest than table prize.",
+      "field_identification": "Check for a dusky cap, brownish pore surface, dark spore-print group, and flesh/stem staining tendencies. It is easy to confuse with other dark Tylopilus/Porphyrellus-like boletes.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "search_aliases": [
+        "Dusky Bolete",
+        "Porphyrellus porphyrosporus"
+      ],
+      "v4288_checked": true,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Porphyrellus%20porphyrosporus.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Porphyrellus%20porphyrosporus.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Porphyrellus%20porphyrosporus.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Porphyrellus porphyrosporus.jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Porphyrellus_porphyrosporus.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "false-king-bolete",
+      "display_name": "False King Bolete",
+      "common_name": "False King Bolete",
+      "category": "Mushroom",
+      "culinary_uses": "Do not collect as food. Its importance here is as a caution/look-alike for king boletes.",
+      "medicinal_uses": "",
+      "notes": "False King Bolete: a dangerous king-bolete look-alike concern in the Great Lakes region; do not treat as porcini.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/boletus_huronensis.html"
+      ],
+      "images": [
+        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EFalse%20King%20Bolete%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EBoletus%20huronensis%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+      ],
+      "scientific_name": "Boletus huronensis",
+      "mushroom_profile": {
+        "scientific_name": "Boletus huronensis",
+        "entry_scope": "species",
+        "edibility_status": "toxic_or_dangerous",
+        "caution_level": "high",
+        "summary": "False King Bolete: a dangerous king-bolete look-alike concern in the Great Lakes region; do not treat as porcini.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [
+          "Hemlock",
+          "Hardwoods",
+          "Mixed woods"
+        ],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "None",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Blue staining possible"
+        ],
+        "taste": [
+          "Not recommended"
+        ],
+        "spore_print": "",
+        "season_note": "Summer and fall, Great Lakes/eastern North America.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan / Upper Midwest bolete pass.",
+          "Needs image coverage.",
+          "Needs source links and fuller field notes.",
+          "Placeholder image inserted pending real public-usable photo.",
+          "Compare any “king bolete” carefully against Boletus huronensis: duller cap, yellowish pores at maturity, blue staining in some tissues, and Great Lakes reports matter.",
+          "Species-specific notes and source links updated in v4.2.82 mushroom batch.",
+          "v4.2.88: review reasons rechecked; remaining blocker kept as image/local-taxonomy issue rather than source/species-note cleanup."
+        ],
+        "cap_surface": [
+          "Brown cap"
+        ],
+        "stem_feature": [
+          "Bolete stem"
+        ],
+        "pore_color": [
+          "Yellowish pores at maturity"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links",
+        "placeholder image inserted"
+      ],
+      "mushroom_family": "Porcini & brown allies",
+      "boleteGroup": [
+        "Porcini & brown allies"
+      ],
+      "boleteSubgroup": [
+        "Porcini allies",
+        "Toxic look-alike risk"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": true,
+      "general_notes": "",
+      "record_type": "mushroom",
+      "lane": "bolete",
+      "reviewReasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "review_status": "needs_review",
+      "search_aliases": [
+        "Boletus huronensis",
+        "False king bolete"
+      ],
+      "host_filter_tokens": [
+        "Hemlock",
+        "Hardwoods",
+        "Mixed woods"
+      ],
+      "commonness": "Rare",
+      "food_quality": "Not recommended",
+      "non_edible_severity": "Caution / not recommended as food",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "commonness_score": 1,
+      "food_quality_score": 1,
+      "look_alikes": [
+        "bitter-bolete"
+      ],
+      "confused_with": [
+        "false-king-bolete",
+        "true-bitter-bolete"
+      ],
+      "edibility_detail": "Caution species; keep out of edible porcini decisions.",
+      "food_role": "avoid",
+      "edibility_status": "not_edible",
+      "edible_use": {
+        "has_ingestible_use": false,
+        "method": "",
+        "preparation_required": false,
+        "notes": ""
+      },
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "False King Bolete: a dangerous king-bolete look-alike concern in the Great Lakes region; do not treat as porcini.",
+      "field_identification": "Compare any “king bolete” carefully against Boletus huronensis: duller cap, yellowish pores at maturity, blue staining in some tissues, and Great Lakes reports matter.",
+      "use_roles": [
+        "Caution"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "v4288_checked": true
+    },
+    {
+      "slug": "retiboletus-griseus",
+      "display_name": "Gray Bolete",
+      "common_name": "Gray Bolete",
+      "category": "Mushroom",
+      "culinary_uses": "Not a prime edible in this guide; mostly a recognizable hardwood bolete for comparison.",
+      "medicinal_uses": "",
+      "notes": "Gray Bolete: drab gray oak/hardwood bolete with a coarsely reticulate stem that yellows from the base upward.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/retiboletus_griseus.html"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20griseus%20%28Frost%29%20Manfr.%20Binder%20%26%20Bresinsky%20765206.jpg"
+      ],
+      "scientific_name": "Retiboletus griseus",
+      "mushroom_profile": {
+        "scientific_name": "Retiboletus griseus",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Gray Bolete: drab gray oak/hardwood bolete with a coarsely reticulate stem that yellows from the base upward.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [
+          "Oak",
+          "Hardwoods"
+        ],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Little to no staining"
+        ],
+        "taste": [
+          "Mild / not distinctive"
+        ],
+        "spore_print": "",
+        "season_note": "Early summer through fall.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs image coverage.",
+          "Needs source links and fuller field notes.",
+          "Gray cap, whitish-to-gray pore surface, coarse stem reticulation, and yellowing lower stem are the useful checks.",
+          "Species-specific notes and source links updated in v4.2.82 mushroom batch.",
+          "v4.2.88: review reasons rechecked; remaining blocker kept as image/local-taxonomy issue rather than source/species-note cleanup."
+        ],
+        "cap_surface": [
+          "Dark gray to gray-brown cap"
+        ],
+        "stem_feature": [
+          "Coarsely reticulate stem",
+          "Yellows from base upward"
+        ],
+        "pore_color": [
+          "Whitish to brownish-gray pores"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "needs image coverage",
+        "needs source links",
+        "needs species-level notes review"
+      ],
+      "mushroom_family": "Porcini & brown allies",
+      "boleteGroup": [
+        "Porcini & brown allies"
+      ],
+      "boleteSubgroup": [
+        "Retiboletus",
+        "Brown cap allies"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "commonness": "Rare",
+      "commonness_score": 1,
+      "food_quality": "Fair",
+      "food_quality_score": 3,
+      "lane": "bolete",
+      "host_filter_tokens": [
+        "Oak",
+        "Hardwoods"
+      ],
+      "look_alikes": [
+        "false-king-bolete",
+        "bitter-bolete"
+      ],
+      "confused_with": [
+        "false-king-bolete",
+        "true-bitter-bolete"
+      ],
+      "general_notes": "",
+      "edibility_detail": "Edibility is not emphasized here. Treat as ID/comparison rather than a food target.",
+      "food_role": "food",
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "reviewReasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Gray Bolete: drab gray oak/hardwood bolete with a coarsely reticulate stem that yellows from the base upward.",
+      "field_identification": "Gray cap, whitish-to-gray pore surface, coarse stem reticulation, and yellowing lower stem are the useful checks.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Occasional / niche use",
+      "foraging_value_score": 2,
+      "search_aliases": [
+        "Retiboletus griseus",
+        "Gray Bolete"
+      ],
+      "v4288_checked": true,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20griseus%20%28Frost%29%20Manfr.%20Binder%20%26%20Bresinsky%20765206.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20griseus%20%28Frost%29%20Manfr.%20Binder%20%26%20Bresinsky%20765206.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20griseus%20%28Frost%29%20Manfr.%20Binder%20%26%20Bresinsky%20765206.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Retiboletus griseus (Frost) Manfr. Binder & Bresinsky 765206.jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Retiboletus_griseus_(Frost)_Manfr._Binder_%26_Bresinsky_765206.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "indecisus-bolete",
+      "display_name": "Indecisus Bolete",
+      "common_name": "Indecisus Bolete",
+      "category": "Mushroom",
+      "culinary_uses": "Mild Tylopilus species are sometimes eaten, but this one is not a beginner target and must be separated from bitter Tylopilus species.",
+      "medicinal_uses": "",
+      "notes": "Indecisus Bolete: mild Tylopilus with pinkish mature pores that bruise brown and a mostly whitish, non-olive stem.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/tylopilus_indecisus.html",
+        "https://mushroomexpert.com/tylopilus.html"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2008-12-09%20Tylopilus%20indecisus%20%28Peck%29%20Murrill%2031750.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2011-12-04%20Tylopilus%20indecisus%20%28Peck%29%20Murrill%20187504.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2014-07-17%20Tylopilus%20indecisus%20%28Peck%29%20Murrill%20434646.jpg"
+      ],
+      "scientific_name": "Tylopilus indecisus",
+      "mushroom_profile": {
+        "scientific_name": "Tylopilus indecisus",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Indecisus Bolete: mild Tylopilus with pinkish mature pores that bruise brown and a mostly whitish, non-olive stem.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [
+          "Oak",
+          "Hardwoods"
+        ],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "None",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Brown bruising on pores"
+        ],
+        "taste": [
+          "Mild / not bitter"
+        ],
+        "spore_print": "",
+        "season_note": "Summer and fall, eastern North America.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan / Upper Midwest bolete pass.",
+          "Needs image coverage.",
+          "Needs source links and fuller field notes.",
+          "Key checks: pinkish mature pore surface bruising brown, mild taste, soft flesh, fairly equal whitish stem, and hardwood/oak association.",
+          "Species-specific notes and source links updated in v4.2.82 mushroom batch."
+        ],
+        "cap_surface": [
+          "Brownish cap"
+        ],
+        "stem_feature": [
+          "Whitish fairly equal stem"
+        ],
+        "pore_color": [
+          "Pinkish mature pores",
+          "Bruises brown"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "needs source links"
+      ],
+      "mushroom_family": "Pink-pored Tylopilus & bitter allies",
+      "boleteGroup": [
+        "Pink-pored Tylopilus & bitter allies"
+      ],
+      "boleteSubgroup": [
+        "Pink-pored bitters"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "general_notes": "",
+      "record_type": "mushroom",
+      "lane": "bolete",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [
+        "Tylopilus indecisus"
+      ],
+      "host_filter_tokens": [
+        "Oak",
+        "Hardwoods"
+      ],
+      "commonness": "Uncommon",
+      "food_quality": "Poor",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "commonness_score": 2,
+      "food_quality_score": 2,
+      "look_alikes": [
+        "bay-bolete",
+        "king-bolete",
+        "bitter-bolete"
+      ],
+      "confused_with": [
+        "bay-bolete",
+        "king-bolete"
+      ],
+      "edibility_detail": "Edible reports exist for mild Tylopilus, but treat this as a cautious/advanced ID mushroom.",
+      "food_role": "food",
+      "needs_review": false,
+      "review_reasons": [],
+      "review_note": "",
+      "review_notes": "",
+      "mushroom_card_note": "Indecisus Bolete: mild Tylopilus with pinkish mature pores that bruise brown and a mostly whitish, non-olive stem.",
+      "field_identification": "Key checks: pinkish mature pore surface bruising brown, mild taste, soft flesh, fairly equal whitish stem, and hardwood/oak association.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Occasional / niche use",
+      "foraging_value_score": 2,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2008-12-09%20Tylopilus%20indecisus%20%28Peck%29%20Murrill%2031750.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2008-12-09%20Tylopilus%20indecisus%20%28Peck%29%20Murrill%2031750.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2008-12-09%20Tylopilus%20indecisus%20%28Peck%29%20Murrill%2031750.jpg",
+          "source": "Wikimedia Commons",
+          "title": "2008-12-09 Tylopilus indecisus (Peck) Murrill 31750.jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2008-12-09_Tylopilus_indecisus_(Peck)_Murrill_31750.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2011-12-04%20Tylopilus%20indecisus%20%28Peck%29%20Murrill%20187504.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2011-12-04%20Tylopilus%20indecisus%20%28Peck%29%20Murrill%20187504.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2011-12-04%20Tylopilus%20indecisus%20%28Peck%29%20Murrill%20187504.jpg",
+          "source": "Wikimedia Commons",
+          "title": "2011-12-04 Tylopilus indecisus (Peck) Murrill 187504.jpg",
+          "part_or_stage": "Field photo 2",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2011-12-04_Tylopilus_indecisus_(Peck)_Murrill_187504.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2014-07-17%20Tylopilus%20indecisus%20%28Peck%29%20Murrill%20434646.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2014-07-17%20Tylopilus%20indecisus%20%28Peck%29%20Murrill%20434646.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2014-07-17%20Tylopilus%20indecisus%20%28Peck%29%20Murrill%20434646.jpg",
+          "source": "Wikimedia Commons",
+          "title": "2014-07-17 Tylopilus indecisus (Peck) Murrill 434646.jpg",
+          "part_or_stage": "Field photo 3",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2014-07-17_Tylopilus_indecisus_(Peck)_Murrill_434646.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "boletus-alutaceus",
+      "display_name": "Leather Colored Bolete",
+      "common_name": "Leather Colored Bolete",
+      "category": "Mushroom",
+      "culinary_uses": "Not a prime food target in this guide; included for completeness and comparison.",
+      "medicinal_uses": "",
+      "notes": "Leather-colored Bolete: brown/yellow-pored hardwood bolete; keep as a regional comparison rather than a prime edible.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://boletes.wpamushroomclub.org/product/boletus-alutaceus/"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2020-09-16%20Boletus%20alutaceus%20Morgan%201246037.jpg"
+      ],
+      "scientific_name": "Boletus alutaceus",
+      "mushroom_profile": {
+        "scientific_name": "Boletus alutaceus",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Leather-colored Bolete: brown/yellow-pored hardwood bolete; keep as a regional comparison rather than a prime edible.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [
+          "Hardwoods",
+          "Oak"
+        ],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Not strongly blue-staining"
+        ],
+        "taste": [
+          "Mild / not distinctive"
+        ],
+        "spore_print": "",
+        "season_note": "Summer and fall.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs source links and fuller field notes.",
+          "Use brown leather-colored cap, yellowish pore surface, hardwood context, and lack of strong dangerous-color signals to compare against porcini-like boletes.",
+          "Species-specific notes and source links updated in v4.2.82 mushroom batch."
+        ],
+        "cap_surface": [
+          "Leather-brown cap"
+        ],
+        "stem_feature": [
+          "Bolete stem"
+        ],
+        "pore_color": [
+          "Yellowish pores"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "needs source links",
+        "needs species-level notes review"
+      ],
+      "mushroom_family": "Porcini & brown allies",
+      "boleteGroup": [
+        "Porcini & brown allies"
+      ],
+      "boleteSubgroup": [
+        "Boletus",
+        "Brown cap allies"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "commonness": "Rare",
+      "commonness_score": 1,
+      "food_quality": "Fair",
+      "food_quality_score": 3,
+      "lane": "bolete",
+      "host_filter_tokens": [
+        "Hardwoods",
+        "Oak"
+      ],
+      "look_alikes": [
+        "false-king-bolete",
+        "bitter-bolete"
+      ],
+      "confused_with": [
+        "false-king-bolete",
+        "true-bitter-bolete"
+      ],
+      "general_notes": "",
+      "edibility_detail": "Treat as occasional/niche until local ID confidence improves.",
+      "food_role": "food",
+      "needs_review": false,
+      "review_status": "ok",
+      "review_reasons": [],
+      "reviewReasons": [],
+      "review_note": "",
+      "review_notes": "",
+      "mushroom_card_note": "Leather-colored Bolete: brown/yellow-pored hardwood bolete; keep as a regional comparison rather than a prime edible.",
+      "field_identification": "Use brown leather-colored cap, yellowish pore surface, hardwood context, and lack of strong dangerous-color signals to compare against porcini-like boletes.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Occasional / niche use",
+      "foraging_value_score": 2,
+      "search_aliases": [
+        "Boletus alutaceus",
+        "Leather Colored Bolete"
+      ],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2020-09-16%20Boletus%20alutaceus%20Morgan%201246037.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2020-09-16%20Boletus%20alutaceus%20Morgan%201246037.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2020-09-16%20Boletus%20alutaceus%20Morgan%201246037.jpg",
+          "source": "Wikimedia Commons",
+          "title": "2020-09-16 Boletus alutaceus Morgan 1246037.jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2020-09-16_Boletus_alutaceus_Morgan_1246037.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "boletus-separans",
+      "display_name": "Boletus separans",
+      "common_name": "Boletus separans",
+      "category": "Mushroom",
+      "culinary_uses": "Porcini-group edible when confidently identified and in good condition; keep separate from bitter Tylopilus and other brown boletes.",
+      "medicinal_uses": "",
+      "notes": "",
+      "months_available": [
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/boletus_separans.html"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Xanthoconium%20separans%2054638.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Xanthoconium%20separans%20(Peck)%20Halling%20%26%20Both%20908614.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Xanthoconium%20separans%2087829.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Xanthoconium%20separans%20%28Peck%29%20Halling%20%26%20Both%20908614.jpg"
+      ],
+      "scientific_name": "Boletus separans",
+      "mushroom_profile": {
+        "scientific_name": "Boletus separans",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Minimal bolete seed entry for Lilac Bolete. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [
+          "Oak",
+          "Hardwoods"
+        ],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm",
+          "Firm / fleshy"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Unknown",
+          "Flesh not staining; pores may bruise deeper yellow or brownish"
+        ],
+        "taste": [
+          "Mild / pleasant"
+        ],
+        "spore_print": "",
+        "season_note": "Summer and fall under oaks and other hardwoods.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs source links and fuller field notes."
+        ],
+        "cap_surface": [
+          "Dry to slightly tacky",
+          "Sticky when fresh then dry",
+          "Lilac-brown to liver-red young cap"
+        ],
+        "stem_feature": [
+          "Smooth to netted stem",
+          "Reticulation possible",
+          "Liver-red flush on stem"
+        ],
+        "pore_color": [
+          "Whitish to yellow pores",
+          "White young; yellow to brownish yellow mature"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ],
+        "lane": "bolete",
+        "host_filter_tokens": [
+          "Hardwood",
+          "Oak"
+        ],
+        "smell": [
+          "Pleasant / mild"
+        ]
+      },
+      "manual_review_reasons": [],
+      "mushroom_family": "Porcini & brown allies",
+      "boleteGroup": [
+        "Porcini & brown allies"
+      ],
+      "boleteSubgroup": [
+        "Boletus",
+        "Brown cap allies",
+        "Edulis group",
+        "Oak associate",
+        "Liver-red flush"
+      ],
+      "weekPrecision": "species-level-reviewed",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "commonness": "Uncommon",
+      "commonness_score": 1,
+      "food_quality": "Choice",
+      "food_quality_score": 5,
+      "lane": "bolete",
+      "host_filter_tokens": [
+        "Hardwood",
+        "Oak"
+      ],
+      "look_alikes": [
+        "false-king-bolete",
+        "bitter-bolete"
+      ],
+      "confused_with": [
+        "false-king-bolete",
+        "true-bitter-bolete"
+      ],
+      "general_notes": "",
+      "edibility_detail": "Confirm yellow mature pores without olive shades, liver-red/lilac-brown tones, oak/hardwood setting, and non-staining white flesh.",
+      "food_role": "food",
+      "edibility_status": "edible_with_caution",
+      "field_identification": "Oak/hardwood bolete with young lilac-brown to liver-red tones, yellow mature pore surface lacking olive shades, stem often flushed with liver color, reticulation possible, and white flesh that does not stain.",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Boletus separans",
+          "url": "https://www.mushroomexpert.com/boletus_separans.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Oak/hardwood association, yellow pores, non-staining flesh, and liver-red stem flush."
+        }
+      ],
+      "record_type": "mushroom",
+      "review_status": "ok",
+      "reviewReasons": [],
+      "review_reasons": [],
+      "common_names": [
+        "Boletus separans"
+      ],
+      "kingdom_type": "mushroom",
+      "species_scope": "species",
+      "foraging_class": "mushroom",
+      "season_months": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "habitats": [],
+      "look_alike_risk": "",
+      "look_alike_notes": "",
+      "rare_profile": null,
+      "overview": "",
+      "other_uses": "",
+      "edibility_notes": "Porcini-group edible when confidently identified and in good condition; keep separate from bitter Tylopilus and other brown boletes.",
+      "curation_notes": [
+        "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
+        "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
+      ],
+      "search_aliases": [],
+      "non_edible_severity": "",
+      "edible_use": {
+        "has_ingestible_use": true,
+        "method": "Food",
+        "preparation_required": false,
+        "notes": "Porcini-group edible when confidently identified and in good condition; keep separate from bitter Tylopilus and other brown boletes."
+      },
+      "medicinal": {
+        "has_meaningful_content": false,
+        "summary": "",
+        "evidence_tier": "",
+        "actions": [],
+        "body_systems": [],
+        "medical_terms": [],
+        "parts_used": [],
+        "preparation_notes": "",
+        "warnings": "",
+        "claims": []
+      },
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Xanthoconium%20separans%2054638.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Xanthoconium%20separans%2054638.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Xanthoconium%20separans%2054638.jpg",
+          "source": "commons-photo-patch",
+          "title": "Lilac-brown bolete / Xanthoconium separans field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Xanthoconium_separans_54638.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Xanthoconium%20separans%20%28Peck%29%20Halling%20%26%20Both%20908614.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Xanthoconium%20separans%20%28Peck%29%20Halling%20%26%20Both%20908614.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Xanthoconium%20separans%20%28Peck%29%20Halling%20%26%20Both%20908614.jpg",
+          "source": "commons-photo-patch",
+          "title": "Xanthoconium separans supporting field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Xanthoconium_separans_%28Peck%29_Halling_%26_Both_908614.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Xanthoconium%20separans%2054638.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Xanthoconium%20separans%20%28Peck%29%20Halling%20%26%20Both%20908614.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Xanthoconium%20separans%2054638.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Xanthoconium%20separans%20%28Peck%29%20Halling%20%26%20Both%20908614.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Xanthoconium%20separans%2054638.jpg?width=480",
+      "image_review_status": "field_photo_patch",
+      "image_review_reasons": [
+        "Commons-backed field photo patch appended in v4.2.60-r2026-04-28-mushroom-photo-patch6."
+      ],
+      "photo_patch_batch": "v4.2.60-r2026-04-28-mushroom-photo-patch6",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "sutorius-eximius",
+      "display_name": "Lilac Brown Bolete",
+      "common_name": "Lilac Brown Bolete",
+      "category": "Mushroom",
+      "culinary_uses": "Not recommended as a food target here; useful as a distinctive dark bolete comparison.",
+      "medicinal_uses": "",
+      "notes": "Lilac-brown Bolete: dark purplish-brown bolete with scaber-like stem dots and brown young pores; not a casual edible.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://mushroomexpert.com/tylopilus.html"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Sutorius%20eximius%2095313.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Sutorius%20eximius%20435211.jpg"
+      ],
+      "scientific_name": "Sutorius eximius",
+      "mushroom_profile": {
+        "scientific_name": "Sutorius eximius",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Lilac-brown Bolete: dark purplish-brown bolete with scaber-like stem dots and brown young pores; not a casual edible.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [
+          "Hardwoods",
+          "Mixed woods"
+        ],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Dark bruising possible"
+        ],
+        "taste": [
+          "Bitter or not recommended"
+        ],
+        "spore_print": "",
+        "season_note": "Summer and fall.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs source links and fuller field notes.",
+          "Look for purplish-brown cap, brown young pore surface, and dark Leccinum-like scabers on the stem.",
+          "Species-specific notes and source links updated in v4.2.82 mushroom batch."
+        ],
+        "cap_surface": [
+          "Purplish brown cap"
+        ],
+        "stem_feature": [
+          "Dark scaber-like stem dots"
+        ],
+        "pore_color": [
+          "Brown young pores"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "needs source links",
+        "needs species-level notes review"
+      ],
+      "mushroom_family": "Dark-pored & obscure boletes",
+      "boleteGroup": [
+        "Dark-pored & obscure boletes"
+      ],
+      "boleteSubgroup": [
+        "Sutorius",
+        "Dark-spored / obscure"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "commonness": "Occasional",
+      "commonness_score": 3,
+      "food_quality": "Good",
+      "food_quality_score": 4,
+      "lane": "bolete",
+      "host_filter_tokens": [
+        "Hardwoods",
+        "Mixed woods"
+      ],
+      "look_alikes": [],
+      "confused_with": [],
+      "general_notes": "",
+      "edibility_detail": "Treat cautiously; not a prime edible record.",
+      "food_role": "food",
+      "needs_review": false,
+      "review_status": "ok",
+      "review_reasons": [],
+      "reviewReasons": [],
+      "review_note": "",
+      "review_notes": "",
+      "mushroom_card_note": "Lilac-brown Bolete: dark purplish-brown bolete with scaber-like stem dots and brown young pores; not a casual edible.",
+      "field_identification": "Look for purplish-brown cap, brown young pore surface, and dark Leccinum-like scabers on the stem.",
+      "use_roles": [
+        "Caution"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "search_aliases": [
+        "Sutorius eximius",
+        "Lilac Brown Bolete"
+      ],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Sutorius%20eximius%2095313.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Sutorius%20eximius%2095313.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Sutorius%20eximius%2095313.jpg",
+          "source": "commons-photo-patch",
+          "title": "Lilac Brown Bolete field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Sutorius_eximius_95313.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Sutorius%20eximius%20435211.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Sutorius%20eximius%20435211.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Sutorius%20eximius%20435211.jpg",
+          "source": "commons-photo-patch",
+          "title": "Lilac Brown Bolete supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Sutorius_eximius_435211.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Sutorius%20eximius%2095313.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Sutorius%20eximius%20435211.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Sutorius%20eximius%2095313.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Sutorius%20eximius%20435211.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Sutorius%20eximius%2095313.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact (Batch C — butyriboletes, caloboletes, and chalciporoid allies); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact",
+      "photo_patch_group": "Batch C — butyriboletes, caloboletes, and chalciporoid allies",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "noble-bolete",
+      "display_name": "Noble Bolete",
+      "common_name": "Noble Bolete",
+      "category": "Mushroom",
+      "culinary_uses": "Potentially good food when confidently identified, but this guide keeps it conservative because porcini-type boletes are taxonomically messy.",
+      "medicinal_uses": "",
+      "notes": "Noble Bolete: porcini-like hardwood bolete; useful, but keep regional taxonomy and look-alikes in view.",
+      "months_available": [],
+      "month_numbers": [],
+      "links": [
+        "https://boletes.wpamushroomclub.org/product/boletus-nobilis/"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20nobilis%2001.jpg"
+      ],
+      "scientific_name": "Boletus nobilis",
+      "mushroom_profile": {
+        "scientific_name": "Boletus nobilis",
+        "entry_scope": "species",
+        "edibility_status": "good",
+        "caution_level": "low",
+        "summary": "Noble Bolete: porcini-like hardwood bolete; useful, but keep regional taxonomy and look-alikes in view.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [
+          "Oak",
+          "Hardwoods"
+        ],
+        "host_certainty": "unknown",
+        "underside": "Pores",
+        "ring": "None",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "No strong blue staining"
+        ],
+        "taste": [
+          "Mild / pleasant"
+        ],
+        "spore_print": "",
+        "season_note": "Summer and fall.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan / Upper Midwest bolete pass.",
+          "Needs source links and fuller field notes.",
+          "Check for king-bolete style stature, pore color, stem reticulation, lack of strong blue bruising, and hardwood association.",
+          "Species-specific notes and source links updated in v4.2.82 mushroom batch."
+        ],
+        "cap_surface": [
+          "Brown cap"
+        ],
+        "pore_color": [
+          "Whitish to yellowish pores"
+        ],
+        "stem_feature": [
+          "Reticulate stem possible"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "needs species-level notes review",
+        "needs source links"
+      ],
+      "mushroom_family": "Porcini & brown allies",
+      "boleteGroup": [
+        "Porcini & brown allies"
+      ],
+      "boleteSubgroup": [
+        "Porcini allies"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "general_notes": "",
+      "record_type": "mushroom",
+      "lane": "other",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [
+        "Boletus nobilis",
+        "Noble Bolete"
+      ],
+      "host_filter_tokens": [
+        "Oak",
+        "Hardwoods"
+      ],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "needs_review": false,
+      "review_reasons": [],
+      "review_note": "",
+      "review_notes": "",
+      "mushroom_card_note": "Noble Bolete: porcini-like hardwood bolete; useful, but keep regional taxonomy and look-alikes in view.",
+      "field_identification": "Check for king-bolete style stature, pore color, stem reticulation, lack of strong blue bruising, and hardwood association.",
+      "edibility_detail": "Potentially useful edible with expert-level ID confidence.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Good forage",
+      "foraging_value_score": 3,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20nobilis%2001.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20nobilis%2001.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20nobilis%2001.jpg",
+          "source": "commons-photo-patch",
+          "title": "Noble Bolete field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletus_nobilis_01.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20nobilis%2001.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20nobilis%2001.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20nobilis%2001.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact (Batch D — additional bolete exact-slug support); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact",
+      "photo_patch_group": "Batch D — additional bolete exact-slug support",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "retiboletus-ornatipes",
+      "display_name": "Ornate Bolete",
+      "common_name": "Ornate Bolete",
+      "category": "Mushroom",
+      "culinary_uses": "Not a prime food target; taste may be mild or bitter, and the value is mostly identification interest.",
+      "medicinal_uses": "",
+      "notes": "Ornate Bolete: yellow to brown cap and bright yellow, strongly netted stem; pretty, distinctive, and sometimes bitter.",
+      "months_available": [],
+      "month_numbers": [],
+      "links": [
+        "https://www.mushroomexpert.com/retiboletus_ornatipes.html"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20ornatipes%2051577.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20ornatipes%2058221.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20ornatipes%2004-2.jpg"
+      ],
+      "scientific_name": "Retiboletus ornatipes",
+      "mushroom_profile": {
+        "scientific_name": "Retiboletus ornatipes",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Ornate Bolete: yellow to brown cap and bright yellow, strongly netted stem; pretty, distinctive, and sometimes bitter.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil",
+          "Mossy hardwood woods"
+        ],
+        "wood_type": [],
+        "host_trees": [
+          "Oak",
+          "Hardwoods"
+        ],
+        "host_certainty": "unknown",
+        "underside": "Pores",
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Little to no blue staining"
+        ],
+        "taste": [
+          "Mild or somewhat bitter"
+        ],
+        "spore_print": "",
+        "season_note": "Summer and fall.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs source links and fuller field notes.",
+          "Strong yellow reticulation over the stem, yellow pore surface, yellow flesh, and little to no blue bruising are the big field marks.",
+          "Species-specific notes and source links updated in v4.2.82 mushroom batch."
+        ],
+        "cap_surface": [
+          "Yellow to brown dry cap"
+        ],
+        "pore_color": [
+          "Bright yellow pores"
+        ],
+        "stem_feature": [
+          "Prominently yellow reticulate stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "needs source links",
+        "needs species-level notes review"
+      ],
+      "mushroom_family": "Porcini & brown allies",
+      "boleteGroup": [
+        "Porcini & brown allies"
+      ],
+      "boleteSubgroup": [
+        "Retiboletus",
+        "Brown cap allies"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "needs_review": false,
+      "review_status": "ok",
+      "review_reasons": [],
+      "reviewReasons": [],
+      "review_note": "",
+      "review_notes": "",
+      "mushroom_card_note": "Ornate Bolete: yellow to brown cap and bright yellow, strongly netted stem; pretty, distinctive, and sometimes bitter.",
+      "field_identification": "Strong yellow reticulation over the stem, yellow pore surface, yellow flesh, and little to no blue bruising are the big field marks.",
+      "edibility_detail": "Treat as occasional/niche, not a basket priority.",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Occasional / niche use",
+      "foraging_value_score": 2,
+      "search_aliases": [
+        "Retiboletus ornatipes",
+        "Ornate Bolete"
+      ],
+      "host_filter_tokens": [
+        "Oak",
+        "Hardwoods"
+      ],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20ornatipes%2051577.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20ornatipes%2051577.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20ornatipes%2051577.jpg",
+          "source": "commons-photo-patch",
+          "title": "Ornate Bolete field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Retiboletus_ornatipes_51577.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20ornatipes%2058221.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20ornatipes%2058221.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20ornatipes%2058221.jpg",
+          "source": "commons-photo-patch",
+          "title": "Ornate Bolete supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Retiboletus_ornatipes_58221.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20ornatipes%2004-2.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20ornatipes%2004-2.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20ornatipes%2004-2.jpg",
+          "source": "commons-photo-patch",
+          "title": "Ornate Bolete additional field view 1",
+          "part_or_stage": "additional field view 1",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Retiboletus_ornatipes_04-2.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20ornatipes%2051577.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20ornatipes%2058221.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20ornatipes%2004-2.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20ornatipes%2051577.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20ornatipes%2058221.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20ornatipes%2004-2.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Retiboletus%20ornatipes%2051577.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact (Batch D — additional bolete exact-slug support); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact",
+      "photo_patch_group": "Batch D — additional bolete exact-slug support",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    }
+  ]
+}

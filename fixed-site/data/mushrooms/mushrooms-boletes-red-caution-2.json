@@ -1,0 +1,605 @@
+{
+  "metadata": {
+    "project": "Upper Michigan Foraging Guide",
+    "build": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1",
+    "primary_type": "mushroom",
+    "split_version": "size-chunk-split-v1",
+    "split_file": "data/mushrooms/mushrooms-boletes-red-caution-2.json",
+    "split_role": "Expanded red/yellow, blue-staining, red-pored, and caution-lane bolete records.",
+    "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
+    "source_record_count_before_split": 209,
+    "record_count": 3,
+    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.84 updated 25 red/caution bolete records with conservative notes, sources, and explicit remaining review reasons. v4.2.86: optional photo patches are treated as fill-only for existing base-record image fields; direct image fallback hardened for Black Velvet Bolete and Suillus tomentosus where applicable. v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4: carried forward with patch-precedence-safe image handling. v4.2.88: 25-record mushroom credibility/review pass; porcini/Tylopilus/Xerocomus records rechecked and remaining red/caution records improved while preserving true image/local-taxonomy review flags. v4.2.96: large red-caution source split into 3 chunks of 13 records; record bodies preserved and original order retained. v4.2.97 reviewed first 25 remaining red-caution Needs Review records after the file split; stale image-only flags were cleared only where 2+ genuinely distinct real image URLs existed, one-photo/placeholder records stayed in review, taxonomy flags were preserved, and duplicate food/caution language was cleaned. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved.",
+    "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
+    "review_reason_audit": {
+      "audited_on": "2026-04-28",
+      "rule": "Normalize explicit review signals into review_reasons/review_note and prefix notes for Needs Review list visibility.",
+      "review_records_in_file": 36,
+      "cleared_image_only_slugs_not_reopened": []
+    },
+    "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
+    "last_credibility_batch": "v4.2.97-r2026-04-30-red-caution-review1",
+    "split_part": 2,
+    "split_parts_total": 2,
+    "split_series": "data/mushrooms/mushrooms-boletes-red-caution-2*.json",
+    "split_note": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split this active data source by file size to keep working chunks under roughly 75–100 KB. Record bodies and source order were preserved.",
+    "review_pass_notes": {
+      "last_pass": "v4.2.97-r2026-04-30-red-caution-review1",
+      "records_reviewed": [
+        "boletus-bicoloroides",
+        "boletus-miniato-olivaceus",
+        "boletus-rubissimus",
+        "boletus-rufocinnamomeus",
+        "boletus-speciosus",
+        "boletus-subdepauperatus",
+        "boletus-subfraternus",
+        "boletus-subgraveolens",
+        "boletus-vermiculosoides",
+        "boletus-vermiculosus",
+        "butyriboletus-brunneus",
+        "caloboletus-calopus",
+        "caloboletus-inedulis",
+        "caloboletus-peckii",
+        "exsudoporus-frostii",
+        "cyanoboletus-cyaneitinctus",
+        "dark-capped-scarletina-complex",
+        "suillellus-hypocarycinus",
+        "hortiboletus-campestris",
+        "hortiboletus-flavorubellus",
+        "butyriboletus-taughannockensis",
+        "lanmaoa-fallax",
+        "lurid-bolete",
+        "neoboletus-pseudosulphureus",
+        "neoboletus-subluridellus"
+      ],
+      "rule": "Clear stale image-only review only when at least two distinct real source-image URLs exist; keep one-photo and placeholder records in review."
+    },
+    "last_photo_patch_fold": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+    "photo_patch_folded_record_count": 10,
+    "source_group": "data/mushrooms/mushrooms-boletes-red-caution-2",
+    "source_build_before_size_split": "v4.2.97-r2026-04-30-red-caution-review1"
+  },
+  "records": [
+    {
+      "slug": "boletus-vermiculosus",
+      "display_name": "Brown-pored Bolete — B. vermiculosus",
+      "common_name": "Brown-pored Bolete — B. vermiculosus",
+      "category": "Mushroom",
+      "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
+      "medicinal_uses": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, needs species-specific notes review, and needs taxonomy / species-level ID check.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://en.wikipedia.org/wiki/Boletus_vermiculosus",
+        "https://www.mushroomexpert.com/boletus_05.html",
+        "https://www.mushroomexpert.com/boletus_vermiculosoides.html"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20vermiculosus%20348301.jpg"
+      ],
+      "scientific_name": "Boletus vermiculosus",
+      "mushroom_profile": {
+        "scientific_name": "Boletus vermiculosus",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "high",
+        "summary": "Brown-pored oak bolete close to vermiculosoides; keep the name conservative until confirmed.",
+        "ecology": "mycorrhizal bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [
+          "Hardwood"
+        ],
+        "host_trees": [
+          "Oak",
+          "Hardwoods"
+        ],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Blue-green bruising"
+        ],
+        "taste": [
+          "Mild / not distinctive"
+        ],
+        "spore_print": "",
+        "season_note": "Summer to fall; confirm locally.",
+        "processing_required": [],
+        "research_notes": [],
+        "cap_surface": [
+          "Brownish to yellow-brown cap"
+        ],
+        "stem_feature": [
+          "Equal to club-shaped stem"
+        ],
+        "pore_color": [
+          "Dark brown to maroon pores",
+          "Aging brownish yellow"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "Needs real field photo / image coverage",
+        "Needs taxonomy / species-level ID check"
+      ],
+      "mushroom_family": "Red-staining & red-pored caution boletes",
+      "boleteGroup": [
+        "Red-staining & red-pored caution boletes"
+      ],
+      "boleteSubgroup": [
+        "Boletus",
+        "Blue staining / caution"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "commonness": "Uncommon",
+      "commonness_score": 2,
+      "food_quality": "Not recommended",
+      "food_quality_score": 1,
+      "lane": "bolete",
+      "host_filter_tokens": [],
+      "look_alikes": [
+        "blue-staining-red-pored-boletes-caution-group",
+        "lurid-bolete",
+        "red-mouth-bolete"
+      ],
+      "confused_with": [
+        "blue-staining-red-pored-boletes-caution-group",
+        "red-mouth-bolete"
+      ],
+      "general_notes": "Part of a difficult Brown-pored Bolete group rather than a simple duplicate. Treat species-level ID as tentative without expert review; compare cap color, pore color, staining, stem surface, and associated trees. This record represents older Peck species concept in the brown-pored/red-staining bolete group.",
+      "edibility_detail": "Comparison/taxonomy record only.",
+      "food_role": "avoid",
+      "search_aliases": [
+        "Brown Pored Bolete"
+      ],
+      "common_names": [
+        "Brown Pored Bolete"
+      ],
+      "field_identification": "Brownish to yellow-brown cap, dark brown to maroon pores aging brownish yellow, blue-green bruising, and oak association. Similar to B. vermiculosoides but traditionally separated by spores/cap tones.",
+      "reviewReasons": [
+        "Needs real field photo / image coverage",
+        "Needs taxonomy / species-level ID check"
+      ],
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_reasons": [
+        "Needs real field photo / image coverage",
+        "Needs taxonomy / species-level ID check"
+      ],
+      "review_note": "Needs review: Needs real field photo / image coverage; Needs taxonomy / species-level ID check.",
+      "review_notes": "Needs review: Needs real field photo / image coverage; Needs taxonomy / species-level ID check.",
+      "mushroom_card_note": "Brown-pored oak bolete close to vermiculosoides; keep the name conservative until confirmed.",
+      "use_roles": [
+        "ID / caution"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "edibility_status": "review_required",
+      "non_edible_severity": "Caution / not a beginner food target",
+      "curation_notes": [],
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact (Batch B — niche boletes II); source URLs came from uploaded mushrooms.json."
+      ],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20vermiculosus%20348301.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20vermiculosus%20348301.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20vermiculosus%20348301.jpg",
+          "source": "commons-photo-patch",
+          "title": "Brown Pored Bolete field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletus_vermiculosus_348301.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20vermiculosus%20348301.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20vermiculosus%20348301.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20vermiculosus%20348301.jpg?width=480",
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact",
+      "photo_patch_group": "Batch B — niche boletes II",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "butyriboletus-brunneus",
+      "display_name": "Butyriboletus Brunneus",
+      "common_name": "Butyriboletus Brunneus",
+      "category": "Mushroom",
+      "culinary_uses": "Not a beginner food target; this is a complex group with similar species and possible multiple concepts under the name.",
+      "medicinal_uses": "",
+      "notes": "",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/butyriboletus_brunneus.html"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20speciosus%20var.%20brunneus%20169906.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus%20brunneus%20624822.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus%20brunneus%20756926.jpg"
+      ],
+      "scientific_name": "Butyriboletus brunneus",
+      "mushroom_profile": {
+        "scientific_name": "Butyriboletus brunneus",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Brown Butyriboletus with yellow pores and a reticulate yellow stem that develops red zones or stains.",
+        "ecology": "mycorrhizal bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [
+          "Hardwood"
+        ],
+        "host_trees": [
+          "Oak",
+          "Hardwoods",
+          "Hemlock possible"
+        ],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Slow rusty brown",
+          "Faint blue possible"
+        ],
+        "taste": [
+          "Not distinctive"
+        ],
+        "spore_print": "",
+        "season_note": "Summer to fall; confirm locally.",
+        "processing_required": [],
+        "research_notes": [],
+        "cap_surface": [
+          "Brown to yellow-brown cap"
+        ],
+        "stem_feature": [
+          "Thick reticulate yellow stem",
+          "Red stains or red zone"
+        ],
+        "pore_color": [
+          "Bright yellow young pores",
+          "Olive yellow with age",
+          "Slow rusty-brown bruising"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [],
+      "mushroom_family": "Red-staining & red-pored caution boletes",
+      "boleteGroup": [
+        "Red-staining & red-pored caution boletes"
+      ],
+      "boleteSubgroup": [
+        "Butyriboletus",
+        "Blue staining / caution"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "commonness": "Rare",
+      "commonness_score": 1,
+      "food_quality": "Use with caution",
+      "food_quality_score": 2,
+      "lane": "bolete",
+      "host_filter_tokens": [],
+      "look_alikes": [
+        "blue-staining-red-pored-boletes-caution-group",
+        "lurid-bolete",
+        "red-mouth-bolete"
+      ],
+      "confused_with": [
+        "blue-staining-red-pored-boletes-caution-group",
+        "red-mouth-bolete"
+      ],
+      "general_notes": "",
+      "edibility_detail": "Treat cautiously; confirm with good field features and local expertise.",
+      "food_role": "caution",
+      "needs_review": false,
+      "review_status": "ok",
+      "review_reasons": [],
+      "reviewReasons": [],
+      "review_note": "",
+      "review_notes": "",
+      "mushroom_card_note": "Brown Butyriboletus with yellow pores and a reticulate yellow stem that develops red zones or stains.",
+      "field_identification": "Brown to yellow-brown cap, yellow stuffed-looking young pores, thick finely reticulate yellow stem with red stains or a red zone, under oaks/hardwoods or possibly hemlock forms.",
+      "use_roles": [
+        "ID / caution"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 2,
+      "edibility_status": "review_required",
+      "non_edible_severity": "Caution / not a beginner food target",
+      "curation_notes": [],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20speciosus%20var.%20brunneus%20169906.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20speciosus%20var.%20brunneus%20169906.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20speciosus%20var.%20brunneus%20169906.jpg",
+          "source": "commons-photo-patch",
+          "title": "Butyriboletus Brunneus field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletus_speciosus_var._brunneus_169906.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus%20brunneus%20624822.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus%20brunneus%20624822.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus%20brunneus%20624822.jpg",
+          "source": "commons-photo-patch",
+          "title": "Butyriboletus Brunneus supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Butyriboletus_brunneus_624822.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus%20brunneus%20756926.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus%20brunneus%20756926.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus%20brunneus%20756926.jpg",
+          "source": "commons-photo-patch",
+          "title": "Butyriboletus Brunneus additional field view 1",
+          "part_or_stage": "additional field view 1",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Butyriboletus_brunneus_756926.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20speciosus%20var.%20brunneus%20169906.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus%20brunneus%20624822.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus%20brunneus%20756926.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20speciosus%20var.%20brunneus%20169906.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus%20brunneus%20624822.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus%20brunneus%20756926.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20speciosus%20var.%20brunneus%20169906.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact (Batch C — butyriboletes, caloboletes, and chalciporoid allies); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact",
+      "photo_patch_group": "Batch C — butyriboletes, caloboletes, and chalciporoid allies",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "caloboletus-calopus",
+      "display_name": "Caloboletus Calopus",
+      "common_name": "Caloboletus Calopus",
+      "category": "Mushroom",
+      "culinary_uses": "Avoid; bitter Caloboletus species are not for the food list.",
+      "medicinal_uses": "",
+      "notes": "",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/boletes.html",
+        "https://www.mushroomexpert.com/caloboletus_inedulis.html"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Caloboletus%20calopus.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Caloboletus%20calopus%20cut.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20calopus%20-%20Saint-Hubert.JPG"
+      ],
+      "scientific_name": "Caloboletus calopus",
+      "mushroom_profile": {
+        "scientific_name": "Caloboletus calopus",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "high",
+        "summary": "Bitter red-stemmed Caloboletus-style bolete; not a food target and often tied up with North American name confusion.",
+        "ecology": "mycorrhizal bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [
+          "Hardwood"
+        ],
+        "host_trees": [
+          "Hardwoods",
+          "Conifers possible"
+        ],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Blue staining"
+        ],
+        "taste": [
+          "Bitter"
+        ],
+        "spore_print": "",
+        "season_note": "Summer to fall; confirm locally.",
+        "processing_required": [],
+        "research_notes": [],
+        "cap_surface": [
+          "Pale to brown cap"
+        ],
+        "stem_feature": [
+          "Red/pinkish reticulate stem"
+        ],
+        "pore_color": [
+          "Yellow pores",
+          "Bruises blue"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [],
+      "mushroom_family": "Red-staining & red-pored caution boletes",
+      "boleteGroup": [
+        "Red-staining & red-pored caution boletes"
+      ],
+      "boleteSubgroup": [
+        "Caloboletus",
+        "Blue staining / caution"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "commonness": "Occasional",
+      "commonness_score": 3,
+      "food_quality": "Not recommended",
+      "food_quality_score": 1,
+      "lane": "bolete",
+      "host_filter_tokens": [],
+      "look_alikes": [
+        "blue-staining-red-pored-boletes-caution-group",
+        "lurid-bolete",
+        "red-mouth-bolete"
+      ],
+      "confused_with": [
+        "blue-staining-red-pored-boletes-caution-group",
+        "red-mouth-bolete"
+      ],
+      "general_notes": "",
+      "edibility_detail": "Not recommended; kept as a caution/comparison record.",
+      "food_role": "avoid",
+      "edibility_status": "review_required",
+      "non_edible_severity": "Caution / not recommended as food",
+      "review_status": "ok",
+      "edible_use": {
+        "has_ingestible_use": false,
+        "method": "",
+        "preparation_required": false,
+        "notes": ""
+      },
+      "needs_review": false,
+      "review_reasons": [],
+      "reviewReasons": [],
+      "review_note": "",
+      "review_notes": "",
+      "mushroom_card_note": "Bitter red-stemmed Caloboletus-style bolete; not a food target and often tied up with North American name confusion.",
+      "field_identification": "Pale to brown cap, yellow pores that blue, red/pinkish reticulate stem, and bitter taste. North American use of the European name is messy.",
+      "use_roles": [
+        "ID / caution"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "curation_notes": [],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Caloboletus%20calopus.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Caloboletus%20calopus.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Caloboletus%20calopus.jpg",
+          "source": "commons-photo-patch",
+          "title": "Caloboletus Calopus field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Caloboletus_calopus.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Caloboletus%20calopus%20cut.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Caloboletus%20calopus%20cut.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Caloboletus%20calopus%20cut.jpg",
+          "source": "commons-photo-patch",
+          "title": "Caloboletus Calopus supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Caloboletus_calopus_cut.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20calopus%20-%20Saint-Hubert.JPG?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20calopus%20-%20Saint-Hubert.JPG?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20calopus%20-%20Saint-Hubert.JPG",
+          "source": "commons-photo-patch",
+          "title": "Caloboletus Calopus additional field view",
+          "part_or_stage": "additional field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletus_calopus_-_Saint-Hubert.JPG"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Caloboletus%20calopus.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Caloboletus%20calopus%20cut.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20calopus%20-%20Saint-Hubert.JPG?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Caloboletus%20calopus.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Caloboletus%20calopus%20cut.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20calopus%20-%20Saint-Hubert.JPG"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Caloboletus%20calopus.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch D — red/yellow/caution boletes); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+      "photo_patch_group": "Batch D — red/yellow/caution boletes",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    }
+  ]
+}

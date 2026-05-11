@@ -1,0 +1,1674 @@
+{
+  "metadata": {
+    "project": "Upper Michigan Foraging Guide",
+    "build": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1",
+    "primary_type": "mushroom",
+    "split_version": "size-chunk-split-v1",
+    "split_file": "data/mushrooms-3.json",
+    "split_role": "Core/restored baseline mushroom records kept at the original path.",
+    "source_mushrooms_build": "pre-split uploaded mushrooms baseline",
+    "source_record_count_before_split": 209,
+    "record_count": 12,
+    "notes": "Core/restored mushroom records retained at the original mushrooms.json path. Expanded mushroom records now load from smaller grouped files listed in split_manifest. v4.2.80 adds a core mushroom credibility pass: source links, use roles, foraging values, card notes, and cleaned placeholder use text for high-visibility mushrooms. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved.",
+    "split_manifest": [
+      {
+        "path": "data/mushrooms.json",
+        "record_count": 55,
+        "role": "Core/restored baseline mushroom records kept at the original path."
+      },
+      {
+        "path": "data/mushrooms/mushrooms-boletes-porcini-tylopilus.json",
+        "record_count": 41,
+        "role": "Expanded porcini, Tylopilus, dark-pored, and brown bolete records."
+      },
+      {
+        "path": "data/mushrooms/mushrooms-boletes-red-caution.json",
+        "record_count": 39,
+        "role": "Expanded red/yellow, blue-staining, red-pored, and caution-lane bolete records."
+      },
+      {
+        "path": "data/mushrooms/mushrooms-boletes-suillus-leccinum.json",
+        "record_count": 50,
+        "role": "Expanded Suillus and Leccinum/scaber-stalk bolete records."
+      },
+      {
+        "path": "data/mushrooms/mushrooms-boletes-other.json",
+        "record_count": 24,
+        "role": "Expanded long-stemmed, peppery, gilled-bolete, wood-inhabiting, and oddball bolete records."
+      }
+    ],
+    "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
+    "review_reason_audit": {
+      "audited_on": "2026-04-28",
+      "rule": "Normalize explicit review signals into review_reasons/review_note and prefix notes for Needs Review list visibility.",
+      "review_records_in_file": 8,
+      "cleared_image_only_slugs_not_reopened": [
+        "slippery-jack"
+      ]
+    },
+    "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
+    "last_photo_patch_fold": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+    "photo_patch_folded_record_count": 50,
+    "split_part": 3,
+    "split_parts_total": 5,
+    "split_series": "data/mushrooms-3*.json",
+    "split_note": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split this active data source by file size to keep working chunks under roughly 75–100 KB. Record bodies and source order were preserved.",
+    "source_group": "data/mushrooms-3",
+    "source_build_before_size_split": "v4.2.80-r2026-04-29-mushroom-core-credibility1"
+  },
+  "records": [
+    {
+      "slug": "half-free-morels",
+      "display_name": "Half-free morels",
+      "common_name": "Half-free morels",
+      "category": "Mushroom",
+      "notes": "Cap hangs partly free from the stem rather than being attached all the way down.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "April",
+        "May"
+      ],
+      "links": [],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20202600.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2013-04-15%20Morchella%20punctipes%20Peck%20%281903%29%20322536.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20205457.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20121362.jpg"
+      ],
+      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
+      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "general_notes": "Still a true morel-type mushroom, but the partial cap attachment is the key field mark.",
+      "record_type": "mushroom",
+      "lane": "other",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [
+        "Hardwood"
+      ],
+      "commonness": "Occasional",
+      "food_quality": "Good",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "month_numbers": [
+        4,
+        5
+      ],
+      "food_role": "food",
+      "look_alikes": [
+        "black-morels",
+        "false-morel-gyromitra-group"
+      ],
+      "confused_with": [
+        "black-morels",
+        "false-morel-gyromitra-group"
+      ],
+      "edibility_detail": "Good edible.",
+      "mushroom_profile": {
+        "underside": [
+          "Pitted / ridged"
+        ],
+        "substrate": [
+          "Forest soil",
+          "Floodplain edges"
+        ],
+        "host_filter_tokens": [
+          "Hardwood"
+        ],
+        "ring": [],
+        "texture": [
+          "Fleshy / hollow"
+        ],
+        "smell": [
+          "Mild"
+        ],
+        "staining": [
+          "None"
+        ],
+        "cap_surface": [
+          "Ridged pits"
+        ],
+        "stem_feature": [
+          "Cap attached only near top / half-free"
+        ],
+        "spore_print": "Pale cream",
+        "growth_form": [
+          "Morel"
+        ],
+        "fertile_surface": [
+          "Outer ridges and pits"
+        ],
+        "branching_form": [
+          "Single fruitbody"
+        ],
+        "season_note": "Spring morel season, often slightly earlier or alongside other morels."
+      },
+      "commonness_score": 3,
+      "food_quality_score": 4,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20121362.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20121362.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20121362.jpg",
+          "source": "commons-photo-patch",
+          "title": "Half-free morel field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Morchella_punctipes_121362.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20121362.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20121362.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20punctipes%20121362.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch A — morels and early morel relatives)."
+      ],
+      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
+      "photo_patch_group": "Batch A — morels and early morel relatives",
+      "photo_patch_alias_source_slug": "half-free-morel",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "hedgehog-mushrooms",
+      "display_name": "Hedgehog mushrooms",
+      "common_name": "Hedgehog mushrooms",
+      "category": "Mushroom",
+      "notes": "Instead of gills or pores, these have short dangling teeth under the cap.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "August",
+        "September",
+        "October"
+      ],
+      "links": [],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hydnum%20repandum.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-29%20Hydnum%20repandum%20L%20256175.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hedgehog%20fungi.jpg"
+      ],
+      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
+      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "general_notes": "One of the friendlier edible groups because the tooth underside is distinctive.",
+      "record_type": "mushroom",
+      "lane": "other",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [
+        "Hardwood",
+        "Conifer / softwood"
+      ],
+      "commonness": "Occasional",
+      "food_quality": "Choice",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "month_numbers": [
+        8,
+        9,
+        10
+      ],
+      "food_role": "food",
+      "look_alikes": [
+        "smooth-chanterelles",
+        "yellowfoot-chanterelle"
+      ],
+      "confused_with": [
+        "smooth-chanterelles"
+      ],
+      "edibility_detail": "Choice edible.",
+      "mushroom_profile": {
+        "underside": [
+          "Teeth / spines"
+        ],
+        "substrate": [
+          "Forest soil"
+        ],
+        "host_filter_tokens": [
+          "Hardwood",
+          "Conifer / softwood"
+        ],
+        "ring": [],
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "smell": [
+          "Mild fruity"
+        ],
+        "staining": [
+          "None"
+        ],
+        "cap_surface": [
+          "Dry cap"
+        ],
+        "stem_feature": [
+          "Solid stem"
+        ],
+        "spore_print": "White",
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Hanging teeth"
+        ],
+        "branching_form": [
+          "Single fruitbody"
+        ],
+        "season_note": "Late summer through fall in mixed woods."
+      },
+      "commonness_score": 3,
+      "food_quality_score": 5,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Hydnum%20repandum.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hydnum%20repandum.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Hydnum%20repandum.jpg",
+          "source": "commons-photo-patch",
+          "title": "Hedgehog mushroom tooth underside",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Hydnum_repandum.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hydnum%20repandum.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hydnum%20repandum.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hydnum%20repandum.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch C — gilled/ridged edibles and caution-adjacent species)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch C — gilled/ridged edibles and caution-adjacent species",
+      "photo_patch_alias_source_slug": "hedgehog-mushroom",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "hemlock-varnish-shelf-reishi",
+      "display_name": "Hemlock varnish shelf / reishi",
+      "common_name": "Hemlock varnish shelf / reishi",
+      "category": "Mushroom",
+      "notes": "",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ],
+      "links": [],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20123102289.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20Vermont%2C%20USA.jpg"
+      ],
+      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
+      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "non_edible_severity": "Non-culinary / tea",
+      "edibility_detail": "Treat as caution / not for meals in this guide until species-level edibility is clarified.",
+      "general_notes": "",
+      "record_type": "mushroom",
+      "lane": "other",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [
+        "Conifer / softwood",
+        "Hemlock"
+      ],
+      "commonness": "Occasional",
+      "food_quality": "Not recommended",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "commonness_score": 3,
+      "food_quality_score": 1,
+      "month_numbers": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12
+      ],
+      "look_alikes": [
+        "artist-s-conk",
+        "red-belted-conk"
+      ],
+      "confused_with": [
+        "artist-s-conk",
+        "red-belted-conk"
+      ],
+      "food_role": "avoid",
+      "mushroom_profile": {
+        "growth_form": [
+          "Bracket / shelf"
+        ],
+        "fertile_surface": [
+          "Folds, pores, or irregular surface"
+        ],
+        "branching_form": [
+          "Unbranched"
+        ],
+        "host_filter_tokens": [
+          "Conifer / softwood",
+          "Hemlock"
+        ],
+        "substrate": [
+          "Dead wood"
+        ],
+        "season_note": "Usually encountered from January through December in the Upper Midwest / Great Lakes window."
+      },
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae.jpg",
+          "source": "commons-photo-patch",
+          "title": "Hemlock varnish shelf / reishi field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Ganoderma_tsugae.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20123102289.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20123102289.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20123102289.jpg",
+          "source": "commons-photo-patch",
+          "title": "Hemlock varnish shelf / reishi supporting field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Ganoderma_tsugae_123102289.jpg"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20Vermont%2C%20USA.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20Vermont%2C%20USA.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20Vermont%2C%20USA.jpg",
+          "source": "commons-photo-patch",
+          "title": "Hemlock varnish shelf / reishi additional field view",
+          "part_or_stage": "additional field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Ganoderma_tsugae_Vermont%2C_USA.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20123102289.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20Vermont%2C%20USA.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20123102289.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae%20Vermont%2C%20USA.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20tsugae.jpg?width=480",
+      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_reasons": [
+        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch E — conks, chanterelle allies, and caution gilled record); source URLs came from uploaded mushrooms.json."
+      ],
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
+      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
+      "photo_patch_group": "Batch E — conks, chanterelle allies, and caution gilled record",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "hen-of-the-woods",
+      "display_name": "Hen of the woods",
+      "common_name": "Hen of the woods",
+      "category": "Mushroom",
+      "notes": "Large clustered rosette of overlapping fronds at the base of oaks and other hardwoods.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "September",
+        "October"
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/grifola_frondosa"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Autumn%20mushrooms%201%20Hen%20of%20the%20woods%20%28Grifola%20frondosa%29%20%284035115888%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cultivated%20grifola%20frondosa.jpg"
+      ],
+      "medicinal_uses": "Maitake has supplement interest, but this guide treats wild hens mainly as a prime food mushroom.",
+      "culinary_uses": "Choice edible; trim away tough bases, clean well, and cook. Excellent sautéed, roasted, dried, or used in soups and gravies.",
+      "general_notes": "A good host-linked species and one of the better fall edible clusters.",
+      "record_type": "mushroom",
+      "lane": "other",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [
+        "Hardwood",
+        "Oak"
+      ],
+      "commonness": "Occasional",
+      "food_quality": "Choice",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "month_numbers": [
+        9,
+        10
+      ],
+      "food_role": "food",
+      "look_alikes": [
+        "black-staining-polypore",
+        "cauliflower-mushroom"
+      ],
+      "confused_with": [
+        "black-staining-polypore"
+      ],
+      "edibility_detail": "Choice edible.",
+      "mushroom_profile": {
+        "underside": [
+          "Pores"
+        ],
+        "substrate": [
+          "At base of hardwoods",
+          "Roots / buried wood"
+        ],
+        "host_filter_tokens": [
+          "Hardwood",
+          "Oak"
+        ],
+        "ring": [],
+        "texture": [
+          "Fleshy / layered"
+        ],
+        "smell": [
+          "Rich earthy"
+        ],
+        "staining": [
+          "Blackens when old or bruised slightly"
+        ],
+        "cap_surface": [
+          "Gray-brown fan caps"
+        ],
+        "stem_feature": [
+          "Clustered branching base"
+        ],
+        "spore_print": "White",
+        "growth_form": [
+          "Rosette cluster"
+        ],
+        "fertile_surface": [
+          "Pored underside"
+        ],
+        "branching_form": [
+          "Many overlapping fronds"
+        ],
+        "season_note": "Mostly fall, especially at oak bases."
+      },
+      "commonness_score": 3,
+      "food_quality_score": 5,
+      "scientific_name": "Grifola frondosa",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Prime foraging",
+      "foraging_value_score": 5,
+      "field_identification": "Large gray-brown rosette of many overlapping fronds at the base of oak or other hardwoods; pores underneath.",
+      "mushroom_card_note": "Prime fall mushroom; look for recurring rosettes at hardwood bases, especially oak.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg",
+          "source": "commons-photo-patch",
+          "title": "Hen of the woods rosette cluster",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Grifola_frondosa.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch A — common shelf/wood edibles)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch A — common shelf/wood edibles",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "honey-mushrooms",
+      "display_name": "Honey mushrooms",
+      "common_name": "Honey mushrooms",
+      "category": "Mushroom",
+      "notes": "Clustered gilled mushrooms on wood and roots.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "August",
+        "September",
+        "October"
+      ],
+      "links": [],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20mellea%207724.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2010-09-30%20Armillaria%20mellea%20s.str.%20cropped.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2015.10.10.-01-Viernheim--Honiggelber%20Hallimasch.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20mellea.JPG"
+      ],
+      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
+      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "non_edible_severity": "Edible with caution",
+      "edibility_detail": "Treat as caution / not for meals in this guide until species-level edibility is clarified.",
+      "general_notes": "A practical U.P. gilled entry because people do find them, but they belong in the 'edible with caution' bucket and need comparison against jack-o'-lantern.",
+      "record_type": "mushroom",
+      "lane": "gilled",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [
+        "Hardwood",
+        "Conifer / softwood"
+      ],
+      "commonness": "Common",
+      "food_quality": "Fair",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "month_numbers": [
+        8,
+        9,
+        10
+      ],
+      "food_role": "food",
+      "look_alikes": [
+        "jack-o-lantern"
+      ],
+      "confused_with": [
+        "jack-o-lantern"
+      ],
+      "mushroom_profile": {
+        "lane": "gilled",
+        "underside": [
+          "Gills"
+        ],
+        "substrate": [
+          "Wood",
+          "Buried roots"
+        ],
+        "host_filter_tokens": [
+          "Hardwood",
+          "Conifer / softwood"
+        ],
+        "ring": [
+          "Ring present"
+        ],
+        "texture": [
+          "Fibrous stem",
+          "Fleshy cap"
+        ],
+        "smell": [
+          "Mushroomy"
+        ],
+        "staining": [
+          "None notable"
+        ],
+        "cap_surface": [
+          "Dry",
+          "Often with small scales"
+        ],
+        "stem_feature": [
+          "Clustered ringed stems"
+        ],
+        "spore_print": "White",
+        "gill_attachment": "Attached",
+        "volva": "None",
+        "season_note": "Mostly late summer through fall in clusters on wood or roots."
+      },
+      "commonness_score": 4,
+      "food_quality_score": 3,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20mellea.JPG?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20mellea.JPG?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20mellea.JPG",
+          "source": "commons-photo-patch",
+          "title": "Honey mushroom cluster",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Armillaria_mellea.JPG"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20mellea.JPG?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20mellea.JPG"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Armillaria%20mellea.JPG?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch C — gilled/ridged edibles and caution-adjacent species)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch C — gilled/ridged edibles and caution-adjacent species",
+      "photo_patch_alias_source_slug": "honey-mushroom",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "jack-o-lantern",
+      "display_name": "Jack-o'-lantern",
+      "common_name": "Jack-o'-lantern",
+      "category": "Mushroom",
+      "notes": "Poisonous gilled wood-rotting mushroom.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "links": [],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/081224%20Jack%20O%27%20Lantern%20NC.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-12%20Omphalotus%20illudens%20%28Schwein.%29%20Bresinsky%20%26%20Besl%20248346.jpg"
+      ],
+      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "non_edible_severity": "Poisonous",
+      "edibility_detail": "Avoid for food in this guide; keep as an identification/caution record.",
+      "general_notes": "This should stay in the caution side of the app. It is a key chanterelle look-alike and belongs in the gilled lane, not 'other'.",
+      "record_type": "mushroom",
+      "lane": "gilled",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [
+        "Hardwood"
+      ],
+      "commonness": "Occasional",
+      "food_quality": "Not recommended",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "month_numbers": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "food_role": "avoid",
+      "look_alikes": [
+        "yellow-chanterelles-hardwood-associated-complex",
+        "yellow-chanterelles-conifer-associated-complex",
+        "yellowfoot-chanterelle"
+      ],
+      "confused_with": [
+        "yellow-chanterelles-hardwood-associated-complex",
+        "yellow-chanterelles-conifer-associated-complex",
+        "yellowfoot-chanterelle",
+        "honey-mushrooms"
+      ],
+      "mushroom_profile": {
+        "lane": "gilled",
+        "underside": [
+          "Gills"
+        ],
+        "substrate": [
+          "Wood",
+          "Buried hardwood roots"
+        ],
+        "host_filter_tokens": [
+          "Hardwood"
+        ],
+        "ring": [
+          "None"
+        ],
+        "texture": [
+          "Fleshy"
+        ],
+        "smell": [
+          "Mild"
+        ],
+        "staining": [
+          "None notable"
+        ],
+        "cap_surface": [
+          "Smooth"
+        ],
+        "stem_feature": [
+          "Clustered stems"
+        ],
+        "spore_print": "Cream to pale yellow",
+        "gill_attachment": "Decurrent",
+        "volva": "None",
+        "season_note": "Late summer through fall on hardwood stumps, logs, and roots."
+      },
+      "commonness_score": 3,
+      "food_quality_score": 1,
+      "edibility_status": "not_edible",
+      "edible_use": {
+        "has_ingestible_use": false,
+        "method": "",
+        "preparation_required": false,
+        "notes": ""
+      },
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg",
+          "source": "commons-photo-patch",
+          "title": "Jack-o'-lantern mushroom cluster",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Omphalotus_illudens_%2821630755718%29.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch D — poisonous/look-alike support records)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch D — poisonous/look-alike support records",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "king-bolete",
+      "display_name": "King Bolete",
+      "common_name": "King Bolete",
+      "category": "Mushroom",
+      "notes": "King Bolete / porcini is kept as a practical field-guide page, but North American Boletus edulis-like mushrooms are taxonomically messy. Treat this as an edulis-group/porcini-style entry unless a collection is confirmed to species level.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/boletus_edulis.html"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20edulis.jpg"
+      ],
+      "medicinal_uses": "Primarily culinary in this guide.",
+      "culinary_uses": "Choice edible when a true porcini-type bolete is confidently identified and cooked; avoid bitter, staining, old, buggy, or waterlogged specimens.",
+      "general_notes": "",
+      "record_type": "mushroom",
+      "lane": "bolete",
+      "reviewReasons": [
+        "Needs regional/taxonomy confirmation for North American Boletus edulis group",
+        "Regional/taxonomy confirmation for the North American Boletus edulis group"
+      ],
+      "review_status": "needs_review",
+      "search_aliases": [
+        "boletus-edulis",
+        "King Bolete",
+        "Boletus edulis",
+        "Porcini",
+        "Cep"
+      ],
+      "host_filter_tokens": [],
+      "commonness": "Occasional",
+      "food_quality": "Choice",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "commonness_score": 3,
+      "food_quality_score": 5,
+      "month_numbers": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "look_alikes": [
+        "false-king-bolete",
+        "bitter-bolete"
+      ],
+      "confused_with": [
+        "false-king-bolete",
+        "true-bitter-bolete"
+      ],
+      "edibility_detail": "Highly regarded.",
+      "food_role": "food",
+      "mushroom_profile": {
+        "cap_surface": [
+          "Dry to slightly tacky"
+        ],
+        "stem_feature": [
+          "Smooth to netted stem",
+          "Reticulate/netted stem"
+        ],
+        "pore_color": [
+          "Whitish to yellow pores"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ],
+        "season_note": "Usually encountered from July through October in the Upper Midwest / Great Lakes window.",
+        "scientific_name": "Boletus edulis / Boletus edulis group",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Minimal bolete seed entry for King Bolete. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Unknown",
+          "No notable bruising"
+        ],
+        "taste": [
+          "Mild / pleasant"
+        ],
+        "spore_print": "",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs image coverage.",
+          "Needs source links and fuller field notes."
+        ]
+      },
+      "common_names": [
+        "King Bolete",
+        "Porcini",
+        "Cep"
+      ],
+      "manual_review_reasons": [
+        "needs image coverage",
+        "needs source links",
+        "needs species-level notes review"
+      ],
+      "scientific_name": "Boletus edulis",
+      "needs_review": true,
+      "review_reasons": [
+        "Needs regional/taxonomy confirmation for North American Boletus edulis group",
+        "Regional/taxonomy confirmation for the North American Boletus edulis group"
+      ],
+      "review_note": "Needs review: regional/taxonomy confirmation for the North American Boletus edulis group.",
+      "review_notes": "Needs review: regional/taxonomy confirmation for the North American Boletus edulis group.",
+      "mushroom_family": "Porcini & brown allies",
+      "boleteGroup": [
+        "Porcini & brown allies"
+      ],
+      "boleteSubgroup": [
+        "Boletus",
+        "Brown cap allies"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "hidden": true,
+      "duplicate_of": "king-bolete",
+      "legacy_alias": true,
+      "list_visibility": "hidden-duplicate",
+      "duplicate_note": "Duplicate King Bolete record kept only as a legacy slug alias.",
+      "former_slugs": [
+        "boletus-edulis"
+      ],
+      "aliases": [
+        "boletus-edulis",
+        "porcini",
+        "cep"
+      ],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20edulis.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20edulis.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20edulis.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Boletus edulis.jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Boletus_edulis.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Boletus edulis",
+          "url": "https://www.mushroomexpert.com/boletus_edulis.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Edulis-group traits and caution that North American edulis-like mushrooms are taxonomically complex."
+        }
+      ],
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Prime foraging — species group needs care",
+      "foraging_value_score": 5,
+      "mushroom_card_note": "Prime bolete/porcini-type food mushroom, but North American Boletus edulis-group naming needs caution.",
+      "field_identification": "Porcini-type bolete with firm flesh, whitish-to-yellowish pore surface, and netted stem; avoid bitter or staining look-alikes.",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "king-oyster",
+      "display_name": "King oyster",
+      "common_name": "King oyster",
+      "category": "Mushroom",
+      "notes": "",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "September",
+        "October",
+        "November"
+      ],
+      "links": [],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20eryngii%2001.JPG",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2007-05-18%20Pleurotus%20eryngii%20%28DC.%29%20Gillet%20461699.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2016-11-13%20Pleurotus%20eryngii%20%28DC.%29%20Gillet%20691527.jpg"
+      ],
+      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
+      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "non_edible_severity": "Range review",
+      "edibility_detail": "Avoid for food in this guide; keep as an identification/caution record.",
+      "general_notes": "",
+      "record_type": "mushroom",
+      "lane": "gilled",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [
+        "Hardwood"
+      ],
+      "commonness": "Rare",
+      "food_quality": "Not recommended",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "commonness_score": 1,
+      "food_quality_score": 1,
+      "month_numbers": [
+        9,
+        10,
+        11
+      ],
+      "look_alikes": [
+        "pearl-oyster",
+        "phoenix-oyster-summer-oyster"
+      ],
+      "confused_with": [
+        "pearl-oyster",
+        "phoenix-oyster-summer-oyster"
+      ],
+      "food_role": "avoid",
+      "mushroom_profile": {
+        "gill_attachment": "Decurrent",
+        "gill_spacing": "Close to medium",
+        "gill_color": "Variable with age",
+        "cap_surface": [
+          "Smooth"
+        ],
+        "stem_feature": [
+          "Fibrous stem"
+        ],
+        "volva": "Absent",
+        "spore_print": "White",
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Gills"
+        ],
+        "fruitbody_shape": [
+          "Cap with stem"
+        ],
+        "host_filter_tokens": [
+          "Hardwood"
+        ],
+        "substrate": [
+          "Dead wood"
+        ],
+        "season_note": "Usually encountered from September through November in the Upper Midwest / Great Lakes window."
+      },
+      "edibility_status": "not_edible",
+      "edible_use": {
+        "has_ingestible_use": false,
+        "method": "",
+        "preparation_required": false,
+        "notes": ""
+      },
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20eryngii%2001.JPG",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20eryngii%2001.JPG",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20eryngii%2001.JPG",
+          "source": "Wikimedia Commons",
+          "title": "Pleurotus eryngii 01.JPG",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Pleurotus_eryngii_01.JPG",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2007-05-18%20Pleurotus%20eryngii%20%28DC.%29%20Gillet%20461699.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2007-05-18%20Pleurotus%20eryngii%20%28DC.%29%20Gillet%20461699.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2007-05-18%20Pleurotus%20eryngii%20%28DC.%29%20Gillet%20461699.jpg",
+          "source": "Wikimedia Commons",
+          "title": "2007-05-18 Pleurotus eryngii (DC.) Gillet 461699.jpg",
+          "part_or_stage": "Field photo 2",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2007-05-18_Pleurotus_eryngii_(DC.)_Gillet_461699.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2016-11-13%20Pleurotus%20eryngii%20%28DC.%29%20Gillet%20691527.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2016-11-13%20Pleurotus%20eryngii%20%28DC.%29%20Gillet%20691527.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2016-11-13%20Pleurotus%20eryngii%20%28DC.%29%20Gillet%20691527.jpg",
+          "source": "Wikimedia Commons",
+          "title": "2016-11-13 Pleurotus eryngii (DC.) Gillet 691527.jpg",
+          "part_or_stage": "Field photo 3",
+          "source_page": "https://commons.wikimedia.org/wiki/File:2016-11-13_Pleurotus_eryngii_(DC.)_Gillet_691527.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "larch-suillus",
+      "display_name": "Larch Suillus",
+      "common_name": "Larch Suillus",
+      "category": "Mushroom",
+      "notes": "Larch Suillus is treated here as Suillus clintonianus, the North American larch/tamarack-associated species often shown in older guides as Suillus grevillei. Check for larch/tamarack nearby.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/suillus_clintonianus.html"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20374653.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20374654.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20805098.jpg"
+      ],
+      "medicinal_uses": "Primarily culinary/ID interest in this guide.",
+      "culinary_uses": "Edible when young and carefully prepared, but sticky cap skin and soft texture make it less desirable than prime boletes. Best cooked; peel slimy cap skin if objectionable.",
+      "non_edible_severity": "Edible with caution",
+      "edibility_detail": "Treat as caution / not for meals in this guide until species-level edibility is clarified.",
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "scientific_name": "Suillus clintonianus",
+      "mushroom_profile": {
+        "scientific_name": "Suillus clintonianus",
+        "entry_scope": "species",
+        "edibility_status": "good",
+        "caution_level": "low",
+        "summary": "Minimal bolete seed entry for Larch Suillus. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [
+          "Tamarack / larch",
+          "Larch"
+        ],
+        "host_certainty": "low",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Ring present",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Not a strong blue-stainer"
+        ],
+        "taste": [
+          "Mild / not distinctive"
+        ],
+        "spore_print": "",
+        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan / Upper Midwest bolete pass.",
+          "Needs source links and fuller field notes."
+        ],
+        "cap_surface": [
+          "Brownish red cap",
+          "Sticky / slimy when fresh"
+        ],
+        "stem_feature": [
+          "Glandular dots or smooth stem"
+        ],
+        "pore_color": [
+          "Yellow pores"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ],
+        "host_filter_tokens": [
+          "Conifer / softwood",
+          "Tamarack / larch"
+        ]
+      },
+      "manual_review_reasons": [],
+      "mushroom_family": "Suillus / slippery jacks",
+      "boleteGroup": [
+        "Suillus / slippery jacks"
+      ],
+      "boleteSubgroup": [
+        "Larch / tamarack associates",
+        "Ring present"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "general_notes": "",
+      "record_type": "mushroom",
+      "lane": "bolete",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [
+        "Conifer / softwood",
+        "Tamarack / larch"
+      ],
+      "commonness": "Occasional",
+      "food_quality": "Fair",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "commonness_score": 3,
+      "food_quality_score": 3,
+      "look_alikes": [
+        "butterball",
+        "slippery-jack"
+      ],
+      "confused_with": [
+        "butterball",
+        "slippery-jack"
+      ],
+      "food_role": "food",
+      "needs_review": false,
+      "review_reasons": [],
+      "review_note": "",
+      "review_notes": "",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Suillus clintonianus",
+          "url": "https://www.mushroomexpert.com/suillus_clintonianus.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "North American larch/tamarack Suillus; separated from European Suillus grevillei."
+        }
+      ],
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Fair / sticky-cap Suillus",
+      "foraging_value_score": 2,
+      "field_identification": "Sticky orange-yellow to reddish Suillus associated with larch/tamarack; check for nearby larch and a slimy cap.",
+      "mushroom_card_note": "Fair Suillus tied to larch/tamarack; edible but not a prime bolete.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20374653.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20374653.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20374653.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Suillus clintonianus (Peck) Kuntze 374653.jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Suillus_clintonianus_(Peck)_Kuntze_374653.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20374654.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20374654.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20374654.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Suillus clintonianus (Peck) Kuntze 374654.jpg",
+          "part_or_stage": "Field photo 2",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Suillus_clintonianus_(Peck)_Kuntze_374654.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20805098.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20805098.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20clintonianus%20%28Peck%29%20Kuntze%20805098.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Suillus clintonianus (Peck) Kuntze 805098.jpg",
+          "part_or_stage": "Field photo 3",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Suillus_clintonianus_(Peck)_Kuntze_805098.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "lion-s-mane",
+      "display_name": "Lion's mane",
+      "common_name": "Lion's mane",
+      "category": "Mushroom",
+      "notes": "",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "August",
+        "September",
+        "October",
+        "November"
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/hericium_erinaceus.html",
+        "https://www.mushroomexpert.com/hericium.html"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2006-11-03%20Hericium%20erinaceus%20crop.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Bearded%20Hedgehog%20-%20Hericium%20erinaceus%2C%20Occoquan%20Bay%20National%20Wildlife%20Refuge%2C%20Woodbridge%2C%20Virginia.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-10-02%20Hericium%20erinaceus%20%28Bull.%29%20Pers%20268392.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium%20erinaceus.jpg"
+      ],
+      "medicinal_uses": "Traditional and modern supplement interest exists, especially around cognition/gut health, but human evidence is still limited; this app treats it as food first.",
+      "culinary_uses": "Choice edible when young and white. Slice or tear and brown well; texture works nicely for crab-cake style preparations, sautés, and soups.",
+      "general_notes": "",
+      "record_type": "mushroom",
+      "lane": "other",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [
+        "Hardwood"
+      ],
+      "commonness": "Uncommon",
+      "food_quality": "Choice",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "commonness_score": 2,
+      "food_quality_score": 5,
+      "month_numbers": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "look_alikes": [
+        "bear-s-head-tooth",
+        "coral-tooth-fungus"
+      ],
+      "confused_with": [
+        "bear-s-head-tooth",
+        "coral-tooth-fungus"
+      ],
+      "edibility_detail": "Highly regarded.",
+      "food_role": "food",
+      "mushroom_profile": {
+        "growth_form": [
+          "Irregular fleshy fruitbody"
+        ],
+        "fertile_surface": [
+          "Teeth / spines"
+        ],
+        "branching_form": [
+          "Unbranched"
+        ],
+        "host_filter_tokens": [
+          "Hardwood"
+        ],
+        "substrate": [
+          "Dead wood"
+        ],
+        "season_note": "Usually encountered from August through November in the Upper Midwest / Great Lakes window."
+      },
+      "scientific_name": "Hericium erinaceus",
+      "use_roles": [
+        "Food",
+        "Medicinal"
+      ],
+      "foraging_value": "Prime foraging",
+      "foraging_value_score": 5,
+      "field_identification": "Unbranched clump of long dangling white teeth, usually from wounds on living or recently cut hardwood.",
+      "mushroom_card_note": "Prime Hericium: unbranched white pom-pom of hanging teeth; food first, medicinal claims second.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium%20erinaceus.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium%20erinaceus.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium%20erinaceus.jpg",
+          "source": "commons-photo-patch",
+          "title": "Lion's mane tooth fungus",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Hericium_erinaceus.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium%20erinaceus.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium%20erinaceus.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium%20erinaceus.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch A — common shelf/wood edibles)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch A — common shelf/wood edibles",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "lobster-mushroom",
+      "display_name": "Lobster mushroom",
+      "common_name": "Lobster mushroom",
+      "category": "Mushroom",
+      "notes": "A parasitized mushroom turned bright orange-red and dense, usually from a russula or milkcap host.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "links": [],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/%27Lobster%20Mushroom%27%20%28mold%29%2C%20Hypomyces%20lactifluorum%20%289818972044%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2014-08-03%20Hypomyces%20lactifluorum%20%28Schwein.%29%20Tul.%20%26%20C.%20Tul%20440594.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%20%28Lobster%20mushroom%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%2043384.jpg"
+      ],
+      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
+      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "general_notes": "Best learned as a transformation fungus rather than a normal cap-and-gill mushroom.",
+      "record_type": "mushroom",
+      "lane": "other",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [
+        "Hardwood",
+        "Conifer / softwood"
+      ],
+      "commonness": "Occasional",
+      "food_quality": "Good",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "food_role": "food",
+      "look_alikes": [
+        "jack-o-lantern",
+        "red-chanterelles-cinnabars"
+      ],
+      "confused_with": [
+        "jack-o-lantern"
+      ],
+      "edibility_detail": "Good edible when fresh and not waterlogged or buggy.",
+      "mushroom_profile": {
+        "underside": [
+          "Deformed / obscured"
+        ],
+        "substrate": [
+          "Forest soil"
+        ],
+        "host_filter_tokens": [
+          "Hardwood",
+          "Conifer / softwood"
+        ],
+        "ring": [],
+        "texture": [
+          "Firm dense flesh"
+        ],
+        "smell": [
+          "Seafood-like"
+        ],
+        "staining": [
+          "Orange-red exterior"
+        ],
+        "cap_surface": [
+          "Orange-red crust"
+        ],
+        "stem_feature": [
+          "Distorted host mushroom form"
+        ],
+        "spore_print": "Usually not useful",
+        "growth_form": [
+          "Parasitized irregular cap"
+        ],
+        "fertile_surface": [
+          "Often obscured by parasite"
+        ],
+        "branching_form": [
+          "Single distorted fruitbody"
+        ],
+        "season_note": "Summer into early fall where Russula/Lactarius hosts fruit."
+      },
+      "commonness_score": 3,
+      "food_quality_score": 4,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%2043384.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%2043384.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%2043384.jpg",
+          "source": "commons-photo-patch",
+          "title": "Lobster mushroom field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Hypomyces_lactifluorum_43384.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%2043384.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%2043384.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%2043384.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch C — milkcaps, russula-adjacent edibles, and parasitized forms)."
+      ],
+      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
+      "photo_patch_group": "Batch C — milkcaps, russula-adjacent edibles, and parasitized forms",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "meadow-mushroom",
+      "display_name": "Meadow / Field Mushroom",
+      "common_name": "Meadow / Field Mushroom",
+      "category": "Mushroom",
+      "notes": "Grassy-ground agaric.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "June",
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "links": [],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris%20gills.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg"
+      ],
+      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
+      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "non_edible_severity": "Edible with caution",
+      "edibility_detail": "Treat as caution / not for meals in this guide until species-level edibility is clarified.",
+      "general_notes": "Useful as a separate gilled entry because people do encounter it in lawns and meadows, but it still belongs in the caution-aware edible category.",
+      "record_type": "mushroom",
+      "lane": "gilled",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [
+        "field-mushroom",
+        "Field mushroom",
+        "Meadow mushroom",
+        "Agaricus campestris"
+      ],
+      "host_filter_tokens": [],
+      "commonness": "Occasional",
+      "food_quality": "Good",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "month_numbers": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "food_role": "food",
+      "look_alikes": [
+        "destroying-angel",
+        "field-mushroom"
+      ],
+      "confused_with": [
+        "destroying-angel",
+        "field-mushroom",
+        "meadow-mushroom"
+      ],
+      "mushroom_profile": {
+        "lane": "gilled",
+        "underside": [
+          "Gills"
+        ],
+        "substrate": [
+          "Grass",
+          "Soil"
+        ],
+        "host_filter_tokens": [],
+        "ring": [
+          "Ring present"
+        ],
+        "texture": [
+          "Fleshy"
+        ],
+        "smell": [
+          "Mushroomy"
+        ],
+        "staining": [
+          "May bruise slightly"
+        ],
+        "cap_surface": [
+          "Smooth"
+        ],
+        "stem_feature": [
+          "Central ringed stem"
+        ],
+        "spore_print": "Dark brown",
+        "gill_attachment": "Free",
+        "volva": "None",
+        "season_note": "Summer through fall in open grass."
+      },
+      "commonness_score": 3,
+      "food_quality_score": 4,
+      "common_names": [
+        "field-mushroom",
+        "Field mushroom",
+        "Meadow mushroom",
+        "Agaricus campestris"
+      ],
+      "scientific_name": "Agaricus campestris group",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg",
+          "source": "commons-photo-patch",
+          "title": "Meadow mushroom field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Agaricus_campestris.jpg"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg?width=480",
+      "image_review_status": "field_photo_batchpack",
+      "image_review_reasons": [
+        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch C — gilled/ridged edibles and caution-adjacent species)."
+      ],
+      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
+      "photo_patch_group": "Batch C — gilled/ridged edibles and caution-adjacent species",
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    }
+  ]
+}

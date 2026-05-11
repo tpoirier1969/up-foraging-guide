@@ -1,0 +1,1979 @@
+{
+  "metadata": {
+    "project": "Upper Michigan Foraging Guide",
+    "build": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1",
+    "primary_type": "plant",
+    "record_count": 23,
+    "notes": "Master plant file with structured image roles. First batch had 13 image-ready species from existing hardwired entries; this batch adds sourced and curated image sets for 3 more species (American beech, ramps, basswood). Copyback content merged directly into plants.json from batch10 for 74 matching species on 2026-04-21. Plant data normalization pass on 2026-04-29 added explicit usable_parts, plant_lanes, plant_lane_note, plant_card_note, and plant_data_flags fields for all records. Plant lane correction pass on 2026-04-29 tightened Leaves/Greens and Flowers to actual useful parts, limited the tree/sap lane to trees/shrubs, merged Sassafras root bark into Sassafras, and improved Wild mustard greens. Plant quality/correctness pass on 2026-04-29 filled weak copyback records for dandelion, hawthorn, plantain, pawpaw, pin cherry, spruce, and jewelweed; tightened safety wording for sassafras; improved wild mustard greens source data; and merged duplicate pine and wood-sorrel part records. Follow-up in the same pass cleared remaining old copyback placeholders for ramps, oak, wild carrot, wild ginger, wild strawberries, and yellow pond lily where safe, while flagging caution-heavy entries for review. Also filled toothwort and yarrow season/habitat/use basics and flagged yarrow safety wording for review. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved.",
+    "split_version": "size-chunk-split-v1",
+    "split_file": "data/plants-2.json",
+    "split_part": 2,
+    "split_parts_total": 4,
+    "split_series": "data/plants-2*.json",
+    "split_note": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split this active data source by file size to keep working chunks under roughly 75–100 KB. Record bodies and source order were preserved.",
+    "source_group": "data/plants-2",
+    "source_build_before_size_split": "v4.2.77-r2026-04-29-plant-quality-correctness1"
+  },
+  "records": [
+    {
+      "slug": "cow-parsnip",
+      "display_name": "Cow parsnip",
+      "common_name": "Cow parsnip",
+      "scientific_name": "Heracleum maximum",
+      "category": "Green",
+      "notes": "Large coarse plant with huge compound leaves, thick hollow stems, and broad white umbrella-shaped flower clusters. Sap can irritate sun-exposed skin.",
+      "short_reason": "Added in plant expansion pass as a warning-heavy edible species.",
+      "months_available": [
+        "May",
+        "June"
+      ],
+      "links": [],
+      "images": [
+        {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Heracleum_maximum_1.jpg/480px-Heracleum_maximum_1.jpg",
+          "source": "commons-hardwired",
+          "title": "Cow parsnip whole plant",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Heracleum_maximum_1.jpg"
+        },
+        {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Cow_Parsnip.jpg/480px-Cow_Parsnip.jpg",
+          "source": "commons-hardwired",
+          "title": "Cow parsnip flower and leaf",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Cow_Parsnip.jpg"
+        },
+        {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Heracleum_maximum_3.jpg/480px-Heracleum_maximum_3.jpg",
+          "source": "commons-hardwired",
+          "title": "Cow parsnip umbel",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Heracleum_maximum_3.jpg"
+        }
+      ],
+      "culinary_uses": "Very young peeled shoots and leaf stalks have been cooked traditionally, but this plant demands careful identification and skin protection.",
+      "medicinal_uses": "Traditional uses exist, but food use should be cautious due to look-alikes and sap sensitivity.",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Shoreline / riverbank",
+        "Forest edge / openings",
+        "Wetland / marsh"
+      ],
+      "images_structured": [
+        {
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Heracleum_maximum_1.jpg/320px-Heracleum_maximum_1.jpg",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Heracleum_maximum_1.jpg/960px-Heracleum_maximum_1.jpg",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Heracleum_maximum_1.jpg",
+          "title": "Cow parsnip whole plant",
+          "part_or_stage": "whole_plant",
+          "source": "commons-hardwired",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Heracleum_maximum_1.jpg"
+        },
+        {
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Cow_Parsnip.jpg/320px-Cow_Parsnip.jpg",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Cow_Parsnip.jpg/960px-Cow_Parsnip.jpg",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Cow_Parsnip.jpg",
+          "title": "Cow parsnip flower and leaf",
+          "part_or_stage": "flower",
+          "source": "commons-hardwired",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Cow_Parsnip.jpg"
+        },
+        {
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Heracleum_maximum_3.jpg/320px-Heracleum_maximum_3.jpg",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Heracleum_maximum_3.jpg/960px-Heracleum_maximum_3.jpg",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/1/13/Heracleum_maximum_3.jpg",
+          "title": "Cow parsnip umbel",
+          "part_or_stage": "flower",
+          "source": "commons-hardwired",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Heracleum_maximum_3.jpg"
+        }
+      ],
+      "list_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Heracleum_maximum_1.jpg/320px-Heracleum_maximum_1.jpg",
+      "detail_images": [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Heracleum_maximum_1.jpg/960px-Heracleum_maximum_1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Cow_Parsnip.jpg/960px-Cow_Parsnip.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Heracleum_maximum_3.jpg/960px-Heracleum_maximum_3.jpg"
+      ],
+      "enlarge_images": [
+        "https://upload.wikimedia.org/wikipedia/commons/a/a9/Heracleum_maximum_1.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/1/1b/Cow_Parsnip.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/1/13/Heracleum_maximum_3.jpg"
+      ],
+      "image_audit_status": "batch1_complete",
+      "edibility_detail": "Use only very young peeled shoots with solid identification and caution around sap exposure.",
+      "month_numbers": [
+        5,
+        6
+      ],
+      "observedPart": [
+        "Stem / stalk",
+        "Leaf"
+      ],
+      "size": [
+        "Tall (3+ ft / 1+ m)"
+      ],
+      "taste": [
+        "Aromatic",
+        "Green / vegetal"
+      ],
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Stem / shoot / stalk",
+        "Leaf / green"
+      ],
+      "plant_lanes": [
+        "leaves-greens"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens.",
+      "plant_card_note": "Useful parts: stem / shoot / stalk, leaf / green. Use only very young peeled shoots with solid identification and caution around sap exposure.",
+      "plant_data_flags": [
+        "needs_source_links"
+      ]
+    },
+    {
+      "slug": "dandelion",
+      "display_name": "Dandelion",
+      "common_name": "Dandelion",
+      "category": "Green",
+      "notes": "Common lawn and disturbed-ground perennial with a basal rosette of toothed leaves, hollow leafless flower stalks, yellow composite flowers, and wind-borne puffball seed heads.",
+      "short_reason": "Consolidated to one plant entry with details covering the usable parts.",
+      "months_available": [
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "links": [
+        "https://hort.extension.wisc.edu/articles/dandelion-taraxacum-officinale/",
+        "https://extension.umass.edu/weed-herbarium/weeds/taraxacum-officinale/index.html"
+      ],
+      "images": [],
+      "medicinal_uses": "Traditional bitter/tonic and tea plant; this guide treats it mainly as a food and tea plant, not as medical advice.",
+      "culinary_uses": "Leaves are used as bitter greens, flowers for fritters/tea/wine-style preparations, and roasted roots for a coffee-like drink.",
+      "photo_subject": "Dandelion",
+      "plant_name": "Dandelion",
+      "photo_scientific_name": "Taraxacum officinale",
+      "scientific_name": "Taraxacum officinale",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Yard / garden / orchard",
+        "Roadside / disturbed",
+        "Field / meadow"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Root / tuber / bulb",
+        "Leaf / tea",
+        "Root / tea"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "roots-tubers",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Leaves, flowers, and roots are all useful; the most beginner-friendly uses are young greens and flowers.",
+      "plant_card_note": "Leaves are bitter greens, flowers can be used for fritters or tea, and roasted roots can make a coffee-like drink. Avoid sprayed lawns.",
+      "plant_data_flags": [
+        "needs_image_coverage"
+      ],
+      "month_numbers": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "edibility_detail": "Leaves, flowers, and roots are edible from clean, unsprayed sites. Older leaves and green flower parts can be bitter.",
+      "observedPart": [
+        "Leaf",
+        "Flower",
+        "Root"
+      ]
+    },
+    {
+      "slug": "daylily",
+      "display_name": "Daylily",
+      "common_name": "Daylily",
+      "category": "Flower",
+      "notes": "Orange-flowered ornamental escape with long strap-like leaves arising in fans.",
+      "short_reason": "Consolidated to one plant entry with details covering the usable parts.",
+      "months_available": [
+        "May",
+        "June",
+        "July"
+      ],
+      "links": [],
+      "images": [],
+      "medicinal_uses": "Mostly culinary ornamental escape.",
+      "culinary_uses": "Young shoots, flower buds, and some other parts are edible in established daylily traditions.",
+      "photo_subject": "Daylily",
+      "plant_name": "Daylily",
+      "photo_scientific_name": "Hemerocallis fulva",
+      "scientific_name": "Hemerocallis fulva",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Roadside / disturbed",
+        "Yard / garden / orchard"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "edibility_detail": "Edible with known culinary use, though some people do not tolerate it well.",
+      "look_alikes": [
+        "Irises"
+      ],
+      "month_numbers": [
+        5,
+        6,
+        7
+      ],
+      "observedPart": [
+        "Stem / stalk",
+        "Flower",
+        "Root"
+      ],
+      "size": [
+        "Medium (1 to 3 ft / 30 to 90 cm)"
+      ],
+      "taste": [
+        "Mild"
+      ],
+      "flowerColor": [
+        "Orange"
+      ],
+      "use_tags": [
+        "E",
+        "P"
+      ],
+      "usable_parts": [
+        "Stem / shoot / stalk",
+        "Flower",
+        "Root / tuber / bulb"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "roots-tubers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Roots / Tubers.",
+      "plant_card_note": "Useful parts: stem / shoot / stalk, flower, root / tuber / bulb. Edible with known culinary use, though some people do not tolerate it well.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
+    },
+    {
+      "slug": "dewberries-very-similar-to-blackberry",
+      "display_name": "Dewberries | VERY similar to blackberry",
+      "common_name": "Dewberries | VERY similar to blackberry",
+      "category": "Fruit",
+      "notes": "Trailing or low bramble, very similar to blackberry, with aggregate fruits and prickly canes.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "July",
+        "August"
+      ],
+      "links": [],
+      "images": [],
+      "medicinal_uses": "Primarily a food berry entry.",
+      "culinary_uses": "Ripe fruits are eaten fresh or used like blackberries in jam, syrup, and desserts.",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Forest edge / openings",
+        "Roadside / disturbed"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "scientific_name": "Rubus spp.",
+      "edibility_detail": "Edible ripe fruit. This is best treated as a practical berry bucket near blackberry.",
+      "look_alikes": [
+        "Wild blackberries"
+      ],
+      "month_numbers": [
+        7,
+        8
+      ],
+      "observedPart": [
+        "Fruit / berry"
+      ],
+      "size": [
+        "Low (3 to 12 in / 8 to 30 cm)",
+        "Tall (3+ ft / 1+ m)"
+      ],
+      "taste": [
+        "Sweet"
+      ],
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "berries-fruits"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits.",
+      "plant_card_note": "Useful parts: fruit / berry. Edible ripe fruit. This is best treated as a practical berry bucket near blackberry.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
+    },
+    {
+      "slug": "eastern-hemlock",
+      "display_name": "Eastern hemlock",
+      "common_name": "Eastern hemlock",
+      "category": "Tree Product",
+      "notes": "Graceful conifer with short flat needles and tiny petioled attachment, unlike spruce. This entry is about the tree first and the tips second.",
+      "short_reason": "Consolidated to one plant entry with details covering the usable parts.",
+      "months_available": [
+        "April",
+        "May",
+        "June"
+      ],
+      "links": [],
+      "images": [],
+      "medicinal_uses": "Traditional evergreen tea for seasonal and respiratory support.",
+      "culinary_uses": "Fresh spring tips make a bright evergreen tea or infusion and can be used in syrup or flavoring.",
+      "photo_subject": "Eastern hemlock",
+      "plant_name": "Eastern hemlock",
+      "photo_scientific_name": "Tsuga canadensis",
+      "scientific_name": "Tsuga canadensis",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Mixed woods",
+        "Evergreens / conifers",
+        "Shoreline / riverbank"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "edibility_detail": "Tips and tea are the practical use. Positive ID matters so you do not confuse conifers casually.",
+      "month_numbers": [
+        4,
+        5,
+        6
+      ],
+      "observedPart": [
+        "Leaf"
+      ],
+      "size": [
+        "Tree (10+ ft / 3+ m)"
+      ],
+      "taste": [
+        "Resinous / piney",
+        "Aromatic"
+      ],
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / tea"
+      ],
+      "plant_lanes": [
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Trees / Shrubs, Tea / Infusions.",
+      "plant_card_note": "Useful parts: leaf / tea. Tips and tea are the practical use. Positive ID matters so you do not confuse conifers casually.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
+    },
+    {
+      "slug": "elder",
+      "display_name": "Elder",
+      "common_name": "Elder",
+      "category": "Fruit",
+      "notes": "Shrub with opposite leaves, flat white flower clusters, and drooping clusters of dark berries. This combined entry covers both flowers and berries.",
+      "short_reason": "Consolidated to one plant entry with details covering the usable parts.",
+      "months_available": [
+        "June",
+        "July",
+        "August",
+        "September"
+      ],
+      "links": [],
+      "images": [],
+      "medicinal_uses": "Traditional cold-season and immune-support plant, especially through cooked berry preparations and flower infusions.",
+      "culinary_uses": "Flowers are used for fritters, cordial, and tea; ripe berries are cooked into syrup, jelly, wine, and preserves.",
+      "photo_subject": "Elder",
+      "plant_name": "Elder",
+      "photo_scientific_name": "Sambucus canadensis",
+      "scientific_name": "Sambucus canadensis",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Shoreline / riverbank",
+        "Forest edge / openings",
+        "Roadside / disturbed"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "edibility_detail": "Flowers are broadly used; berries should be fully ripe and usually cooked. Unripe fruit and non-fruit parts are not beginner food.",
+      "look_alikes": [
+        "Other Sambucus species"
+      ],
+      "month_numbers": [
+        6,
+        7,
+        8,
+        9
+      ],
+      "observedPart": [
+        "Flower",
+        "Fruit / berry"
+      ],
+      "size": [
+        "Tall (3+ ft / 1+ m)"
+      ],
+      "taste": [
+        "Floral",
+        "Rich / fruity"
+      ],
+      "flowerColor": [
+        "White"
+      ],
+      "leafArrangement": [
+        "Opposite"
+      ],
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Flower",
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "flowers",
+        "berries-fruits",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Flowers, Berries / Fruits, Trees / Shrubs, Tea / Infusions.",
+      "plant_card_note": "Useful parts: flower, fruit / berry. Flowers are broadly used; berries should be fully ripe and usually cooked. Unripe fruit and non-fruit parts are not beginner food.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
+    },
+    {
+      "slug": "evening-primrose",
+      "display_name": "Evening primrose",
+      "common_name": "Evening primrose",
+      "scientific_name": "Oenothera biennis",
+      "category": "Flower",
+      "notes": "Biennial with basal rosette first year and tall flowering spike with yellow flowers the second.",
+      "short_reason": "Added in plant expansion pass for Upper Michigan edible and medicinal species.",
+      "months_available": [
+        "May",
+        "June",
+        "July",
+        "August"
+      ],
+      "links": [],
+      "images": [
+        {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Oenothera_biennis%2C_Vic-la-Gardiole_01.jpg/480px-Oenothera_biennis%2C_Vic-la-Gardiole_01.jpg",
+          "source": "commons-hardwired",
+          "title": "Evening primrose flowering stem",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Oenothera_biennis%2C_Vic-la-Gardiole_01.jpg"
+        },
+        {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Oenothera_biennis_Rosette.JPG/480px-Oenothera_biennis_Rosette.JPG",
+          "source": "commons-hardwired",
+          "title": "Evening primrose rosette",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Oenothera_biennis_Rosette.JPG"
+        },
+        {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Oenothera_biennis002.jpg/480px-Oenothera_biennis002.jpg",
+          "source": "commons-hardwired",
+          "title": "Evening primrose whole plant",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Oenothera_biennis002.jpg"
+        }
+      ],
+      "culinary_uses": "Root has traditional edible use, and young leaves or shoots may also be used cautiously in small amounts.",
+      "medicinal_uses": "Well known from medicinal contexts, though here it is being tracked mainly for edible completeness.",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Roadside / disturbed",
+        "Field / meadow"
+      ],
+      "images_structured": [
+        {
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Oenothera_biennis%2C_Vic-la-Gardiole_01.jpg/320px-Oenothera_biennis%2C_Vic-la-Gardiole_01.jpg",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Oenothera_biennis%2C_Vic-la-Gardiole_01.jpg/960px-Oenothera_biennis%2C_Vic-la-Gardiole_01.jpg",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/4/40/Oenothera_biennis%2C_Vic-la-Gardiole_01.jpg",
+          "title": "Evening primrose flowering stem",
+          "part_or_stage": "flower",
+          "source": "commons-hardwired",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Oenothera_biennis%2C_Vic-la-Gardiole_01.jpg"
+        },
+        {
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Oenothera_biennis_Rosette.JPG/320px-Oenothera_biennis_Rosette.JPG",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Oenothera_biennis_Rosette.JPG/960px-Oenothera_biennis_Rosette.JPG",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/0/00/Oenothera_biennis_Rosette.JPG",
+          "title": "Evening primrose rosette",
+          "part_or_stage": "rosette",
+          "source": "commons-hardwired",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Oenothera_biennis_Rosette.JPG"
+        },
+        {
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Oenothera_biennis002.jpg/320px-Oenothera_biennis002.jpg",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Oenothera_biennis002.jpg/960px-Oenothera_biennis002.jpg",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/3/39/Oenothera_biennis002.jpg",
+          "title": "Evening primrose whole plant",
+          "part_or_stage": "whole_plant",
+          "source": "commons-hardwired",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Oenothera_biennis002.jpg"
+        }
+      ],
+      "list_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Oenothera_biennis%2C_Vic-la-Gardiole_01.jpg/320px-Oenothera_biennis%2C_Vic-la-Gardiole_01.jpg",
+      "detail_images": [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Oenothera_biennis%2C_Vic-la-Gardiole_01.jpg/960px-Oenothera_biennis%2C_Vic-la-Gardiole_01.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Oenothera_biennis_Rosette.JPG/960px-Oenothera_biennis_Rosette.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Oenothera_biennis002.jpg/960px-Oenothera_biennis002.jpg"
+      ],
+      "enlarge_images": [
+        "https://upload.wikimedia.org/wikipedia/commons/4/40/Oenothera_biennis%2C_Vic-la-Gardiole_01.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/0/00/Oenothera_biennis_Rosette.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/3/39/Oenothera_biennis002.jpg"
+      ],
+      "image_audit_status": "batch1_complete",
+      "edibility_detail": "Edible with preparation; more of a broad-use species than a top-tier foraging food.",
+      "look_alikes": [
+        "Other yellow-flowered evening primroses"
+      ],
+      "month_numbers": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "observedPart": [
+        "Root",
+        "Leaf",
+        "Flower"
+      ],
+      "size": [
+        "Low (3 to 12 in / 8 to 30 cm)",
+        "Tall (3+ ft / 1+ m)"
+      ],
+      "taste": [
+        "Mild",
+        "Green / vegetal"
+      ],
+      "flowerColor": [
+        "Yellow"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Root / tuber / bulb"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "roots-tubers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Roots / Tubers.",
+      "plant_card_note": "Useful parts: leaf / green, flower, root / tuber / bulb. Edible with preparation; more of a broad-use species than a top-tier foraging food.",
+      "plant_data_flags": [
+        "needs_source_links"
+      ]
+    },
+    {
+      "slug": "fiddlehead-ferns",
+      "display_name": "Fiddlehead ferns",
+      "common_name": "Fiddlehead ferns",
+      "category": "Green",
+      "notes": "Smooth green fiddleheads with a deep U-shaped groove on the inside of the stalk. Found in moist rich bottoms and river edges.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "May",
+        "June"
+      ],
+      "links": [],
+      "images": [],
+      "medicinal_uses": "Mostly a food plant rather than a medicinal one.",
+      "culinary_uses": "Classic spring fiddlehead, best thoroughly cooked. Flavor is often compared to green beans or asparagus.",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Shoreline / riverbank",
+        "Wetland / marsh",
+        "Forest edge / openings"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "scientific_name": "Matteuccia struthiopteris",
+      "edibility_detail": "Cook thoroughly before eating. Do not eat raw fiddleheads.",
+      "look_alikes": [
+        "Bracken fern",
+        "Lady fern"
+      ],
+      "month_numbers": [
+        5,
+        6
+      ],
+      "observedPart": [
+        "Stem / stalk"
+      ],
+      "size": [
+        "Low (3 to 12 in / 8 to 30 cm)",
+        "Medium (1 to 3 ft / 30 to 90 cm)"
+      ],
+      "taste": [
+        "Mild",
+        "Green / vegetal"
+      ],
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Stem / shoot / stalk"
+      ],
+      "plant_lanes": [
+        "leaves-greens"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens.",
+      "plant_card_note": "Useful parts: stem / shoot / stalk. Cook thoroughly before eating. Do not eat raw fiddleheads.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
+    },
+    {
+      "slug": "fireweed",
+      "display_name": "Fireweed",
+      "common_name": "Fireweed",
+      "scientific_name": "Chamerion angustifolium",
+      "category": "Green",
+      "notes": "Tall plant of burns, clearings, roadsides, and sunny edges. Leaves alternate, narrow, and pointed. Showy pink flowers in summer.",
+      "short_reason": "Added in plant expansion pass for Upper Michigan edible and medicinal species.",
+      "months_available": [
+        "May",
+        "June",
+        "July",
+        "August"
+      ],
+      "links": [],
+      "images": [
+        {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Maitohorsma_%28Epilobium_angustifolium%29.JPG/480px-Maitohorsma_%28Epilobium_angustifolium%29.JPG",
+          "source": "commons-hardwired",
+          "title": "Fireweed flowering stem",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Maitohorsma_%28Epilobium_angustifolium%29.JPG"
+        },
+        {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Chamerion_angustifolium_6373.JPG/480px-Chamerion_angustifolium_6373.JPG",
+          "source": "commons-hardwired",
+          "title": "Fireweed whole plant",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Chamerion_angustifolium_6373.JPG"
+        },
+        {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Chamerion_angustifolium_9510.JPG/480px-Chamerion_angustifolium_9510.JPG",
+          "source": "commons-hardwired",
+          "title": "Fireweed flowers close view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Chamerion_angustifolium_9510.JPG"
+        }
+      ],
+      "culinary_uses": "Young shoots are eaten like asparagus and leaves may be used in tea; young spring shoots can be peeled lightly and cooked while still tender.",
+      "medicinal_uses": "Traditional soothing tea herb used for mild digestive and inflammatory complaints.",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Roadside / disturbed",
+        "Forest edge / openings"
+      ],
+      "images_structured": [
+        {
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Maitohorsma_%28Epilobium_angustifolium%29.JPG/320px-Maitohorsma_%28Epilobium_angustifolium%29.JPG",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Maitohorsma_%28Epilobium_angustifolium%29.JPG/960px-Maitohorsma_%28Epilobium_angustifolium%29.JPG",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Maitohorsma_%28Epilobium_angustifolium%29.JPG",
+          "title": "Fireweed flowering stem",
+          "part_or_stage": "flower",
+          "source": "commons-hardwired",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Maitohorsma_%28Epilobium_angustifolium%29.JPG"
+        },
+        {
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Chamerion_angustifolium_6373.JPG/320px-Chamerion_angustifolium_6373.JPG",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Chamerion_angustifolium_6373.JPG/960px-Chamerion_angustifolium_6373.JPG",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/0/0f/Chamerion_angustifolium_6373.JPG",
+          "title": "Fireweed whole plant",
+          "part_or_stage": "whole_plant",
+          "source": "commons-hardwired",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Chamerion_angustifolium_6373.JPG"
+        },
+        {
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Chamerion_angustifolium_9510.JPG/320px-Chamerion_angustifolium_9510.JPG",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Chamerion_angustifolium_9510.JPG/960px-Chamerion_angustifolium_9510.JPG",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Chamerion_angustifolium_9510.JPG",
+          "title": "Fireweed flowers close view",
+          "part_or_stage": "flower",
+          "source": "commons-hardwired",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Chamerion_angustifolium_9510.JPG"
+        }
+      ],
+      "list_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Maitohorsma_%28Epilobium_angustifolium%29.JPG/320px-Maitohorsma_%28Epilobium_angustifolium%29.JPG",
+      "detail_images": [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Maitohorsma_%28Epilobium_angustifolium%29.JPG/960px-Maitohorsma_%28Epilobium_angustifolium%29.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Chamerion_angustifolium_6373.JPG/960px-Chamerion_angustifolium_6373.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Chamerion_angustifolium_9510.JPG/960px-Chamerion_angustifolium_9510.JPG"
+      ],
+      "enlarge_images": [
+        "https://upload.wikimedia.org/wikipedia/commons/0/0c/Maitohorsma_%28Epilobium_angustifolium%29.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/0/0f/Chamerion_angustifolium_6373.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/0/0a/Chamerion_angustifolium_9510.JPG"
+      ],
+      "image_audit_status": "batch1_complete",
+      "edibility_detail": "Best when young. Older stems get tough quickly.",
+      "look_alikes": [
+        "Other willowherbs"
+      ],
+      "month_numbers": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "observedPart": [
+        "Stem / stalk",
+        "Leaf",
+        "Flower"
+      ],
+      "size": [
+        "Medium (1 to 3 ft / 30 to 90 cm)",
+        "Tall (3+ ft / 1+ m)"
+      ],
+      "taste": [
+        "Mild",
+        "Green / vegetal"
+      ],
+      "flowerColor": [
+        "Pink",
+        "Purple / lavender"
+      ],
+      "leafArrangement": [
+        "Alternate"
+      ],
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Stem / shoot / stalk",
+        "Leaf / tea",
+        "Flower"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Tea / Infusions.",
+      "plant_card_note": "Useful parts: stem / shoot / stalk, leaf / tea, flower. Best when young. Older stems get tough quickly.",
+      "plant_data_flags": [
+        "needs_source_links"
+      ]
+    },
+    {
+      "slug": "fox-grapes",
+      "display_name": "Fox grapes",
+      "common_name": "Fox grapes",
+      "category": "Fruit",
+      "notes": "Robust grapevine with larger leaves and strongly flavored fruits.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "September",
+        "October"
+      ],
+      "links": [],
+      "images": [],
+      "medicinal_uses": "Mostly a fruit vine entry.",
+      "culinary_uses": "Strong-flavored grapes are good for juice, jelly, wine, and cooked fruit uses.",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Forest edge / openings",
+        "Shoreline / riverbank"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "scientific_name": "Vitis labrusca",
+      "edibility_detail": "Edible ripe grapes; many people prefer them processed.",
+      "look_alikes": [
+        "Other wild grapes"
+      ],
+      "month_numbers": [
+        9,
+        10
+      ],
+      "observedPart": [
+        "Fruit / berry"
+      ],
+      "size": [
+        "Vining / climbing"
+      ],
+      "taste": [
+        "Rich / fruity",
+        "Tart"
+      ],
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "berries-fruits"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits.",
+      "plant_card_note": "Useful parts: fruit / berry. Edible ripe grapes; many people prefer them processed.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
+    },
+    {
+      "slug": "garlic-mustard",
+      "display_name": "Garlic mustard",
+      "common_name": "Garlic mustard",
+      "category": "Green",
+      "notes": "Biennial invasive with garlic scent when crushed, scalloped leaves, and white four-petaled flowers.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "May",
+        "June",
+        "July"
+      ],
+      "links": [],
+      "images": [],
+      "medicinal_uses": "Mostly culinary here.",
+      "culinary_uses": "Leaves, flowers, and seeds are used as garlicky mustard-flavored greens and seasonings.",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Upland / dry forest",
+        "Forest edge / openings",
+        "Roadside / disturbed"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "scientific_name": "Alliaria petiolata",
+      "edibility_detail": "Edible and often worth using because it is invasive.",
+      "look_alikes": [
+        "Other mustards"
+      ],
+      "month_numbers": [
+        5,
+        6,
+        7
+      ],
+      "observedPart": [
+        "Leaf",
+        "Flower",
+        "Seed / cone / nut"
+      ],
+      "size": [
+        "Low (3 to 12 in / 8 to 30 cm)",
+        "Medium (1 to 3 ft / 30 to 90 cm)"
+      ],
+      "taste": [
+        "Oniony / garlicky",
+        "Peppery"
+      ],
+      "flowerColor": [
+        "White"
+      ],
+      "use_tags": [
+        "E",
+        "T"
+      ],
+      "usable_parts": [
+        "Leaf / green",
+        "Flower",
+        "Seed / nut / cone"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers",
+        "nuts-seeds"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Nuts / Seeds.",
+      "plant_card_note": "Useful parts: leaf / green, flower, seed / nut / cone. Edible and often worth using because it is invasive.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
+    },
+    {
+      "slug": "goldenrod",
+      "display_name": "Goldenrod",
+      "common_name": "Goldenrod",
+      "category": "Flower",
+      "notes": "Tall yellow composite of meadows, roadsides, and openings. The app keeps this as a broad goldenrod entry focused on tea and medicinal use.",
+      "short_reason": "Consolidated to one plant entry with details covering the usable parts.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "links": [],
+      "images": [],
+      "medicinal_uses": "Traditional urinary-support and seasonal tea herb.",
+      "culinary_uses": "Flowers and leaves are used mainly for tea rather than as a bulk food; the flavor is aromatic and slightly bitter.",
+      "photo_subject": "Goldenrod",
+      "plant_name": "Goldenrod",
+      "photo_scientific_name": "Solidago spp.",
+      "scientific_name": "Solidago spp.",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Field / meadow",
+        "Roadside / disturbed",
+        "Forest edge / openings"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "edibility_detail": "Mostly a tea and herb plant, not a calorie food. Correct ID matters because it is a broad genus entry.",
+      "look_alikes": [
+        "Other yellow composites"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "observedPart": [
+        "Flower",
+        "Leaf"
+      ],
+      "size": [
+        "Medium (1 to 3 ft / 30 to 90 cm)",
+        "Tall (3+ ft / 1+ m)"
+      ],
+      "taste": [
+        "Aromatic",
+        "Bitter"
+      ],
+      "flowerColor": [
+        "Yellow"
+      ],
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Flower / tea",
+        "Leaf / tea"
+      ],
+      "plant_lanes": [
+        "flowers",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Flowers, Tea / Infusions.",
+      "plant_card_note": "Useful parts: flower / tea, leaf / tea. Mostly a tea and herb plant, not a calorie food. Correct ID matters because it is a broad genus entry.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
+    },
+    {
+      "slug": "gooseberries",
+      "display_name": "Gooseberries",
+      "common_name": "Gooseberries",
+      "category": "Fruit",
+      "notes": "Spiny or prickly Ribes shrubs with translucent to colored berries and lobed leaves.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "July",
+        "August"
+      ],
+      "links": [],
+      "images": [],
+      "medicinal_uses": "Mostly a fruit entry.",
+      "culinary_uses": "Tart berries are excellent in jam, pie, sauce, and preserves; some can be eaten fresh when fully ripe.",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Forest edge / openings",
+        "Roadside / disturbed"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "scientific_name": "Ribes uva-crispa / Ribes spp.",
+      "edibility_detail": "Edible berries, usually best ripe and often best processed.",
+      "look_alikes": [
+        "Other Ribes species"
+      ],
+      "month_numbers": [
+        7,
+        8
+      ],
+      "observedPart": [
+        "Fruit / berry"
+      ],
+      "size": [
+        "Medium (1 to 3 ft / 30 to 90 cm)",
+        "Tall (3+ ft / 1+ m)"
+      ],
+      "taste": [
+        "Tart",
+        "Sweet"
+      ],
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
+      "plant_card_note": "Useful parts: fruit / berry. Edible berries, usually best ripe and often best processed.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
+    },
+    {
+      "slug": "goosefoot-close-cousin-of-lamb-s-quarters",
+      "display_name": "Goosefoot | close cousin of lamb's quarters",
+      "common_name": "Goosefoot | close cousin of lamb's quarters",
+      "category": "Green",
+      "notes": "Broad goosefoot-group compatibility entry kept because the old app treated some of these as close practical relatives rather than hard species lines.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "June",
+        "July",
+        "August"
+      ],
+      "links": [],
+      "images": [],
+      "medicinal_uses": "Mostly a food weed bucket.",
+      "culinary_uses": "Used much like lamb’s quarters as a cooked green when young and tender.",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Roadside / disturbed",
+        "Yard / garden / orchard",
+        "Field / meadow"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "scientific_name": "Chenopodium spp.",
+      "edibility_detail": "Treat like the lamb’s quarters lane: young greens are the main use.",
+      "month_numbers": [
+        6,
+        7,
+        8
+      ],
+      "observedPart": [
+        "Leaf"
+      ],
+      "size": [
+        "Medium (1 to 3 ft / 30 to 90 cm)"
+      ],
+      "taste": [
+        "Mild",
+        "Green / vegetal"
+      ],
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Leaf / green"
+      ],
+      "plant_lanes": [
+        "leaves-greens"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens.",
+      "plant_card_note": "Useful parts: leaf / green. Treat like the lamb’s quarters lane: young greens are the main use.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
+    },
+    {
+      "slug": "ground-cherries",
+      "display_name": "Ground cherries",
+      "common_name": "Ground cherries",
+      "category": "Fruit",
+      "notes": "Lantern-husk fruits on a nightshade-family plant. Only ripe fruit in papery husks is the practical food use.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "August",
+        "September"
+      ],
+      "links": [],
+      "images": [],
+      "medicinal_uses": "Mostly a fruit entry.",
+      "culinary_uses": "Ripe husked fruits are sweet-tart and used fresh, in jam, pies, salsa, and drying.",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Roadside / disturbed",
+        "Yard / garden / orchard"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "scientific_name": "Physalis spp.",
+      "edibility_detail": "Eat only fully ripe fruit; green fruit and many other plant parts are not the same story.",
+      "look_alikes": [
+        "Other Physalis species"
+      ],
+      "month_numbers": [
+        8,
+        9
+      ],
+      "observedPart": [
+        "Fruit / berry"
+      ],
+      "size": [
+        "Low (3 to 12 in / 8 to 30 cm)",
+        "Medium (1 to 3 ft / 30 to 90 cm)"
+      ],
+      "taste": [
+        "Sweet",
+        "Tart"
+      ],
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "berries-fruits"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits.",
+      "plant_card_note": "Useful parts: fruit / berry. Eat only fully ripe fruit; green fruit and many other plant parts are not the same story.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
+    },
+    {
+      "slug": "groundnut",
+      "display_name": "Groundnut",
+      "common_name": "Groundnut",
+      "category": "Root",
+      "notes": "Twining legume vine with pinnate leaves, maroon-brown pea flowers, and edible tubers along the roots.",
+      "short_reason": "Consolidated to one plant entry with details covering the usable parts.",
+      "months_available": [
+        "September",
+        "October"
+      ],
+      "links": [],
+      "images": [],
+      "medicinal_uses": "Mainly a food vine here.",
+      "culinary_uses": "Protein-rich tubers are cooked like beans or potatoes and have major traditional food value.",
+      "photo_subject": "Groundnut",
+      "plant_name": "Groundnut",
+      "photo_scientific_name": "Apios americana",
+      "scientific_name": "Apios americana",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Shoreline / riverbank",
+        "Wetland / marsh",
+        "Forest edge / openings"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "edibility_detail": "Edible tubers with real food value, though harvest takes patience.",
+      "look_alikes": [
+        "Other vines"
+      ],
+      "month_numbers": [
+        9,
+        10
+      ],
+      "observedPart": [
+        "Root",
+        "Flower"
+      ],
+      "size": [
+        "Vining / climbing"
+      ],
+      "taste": [
+        "Nutty",
+        "Bean-like"
+      ],
+      "flowerColor": [
+        "Brown",
+        "Purple / lavender"
+      ],
+      "use_tags": [
+        "E"
+      ],
+      "usable_parts": [
+        "Root / tuber / bulb"
+      ],
+      "plant_lanes": [
+        "roots-tubers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Roots / Tubers.",
+      "plant_card_note": "Useful parts: root / tuber / bulb. Edible tubers with real food value, though harvest takes patience.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
+    },
+    {
+      "slug": "hawthorn",
+      "display_name": "Hawthorn",
+      "common_name": "Hawthorn",
+      "category": "Fruit",
+      "notes": "Thorny shrub or small tree with white spring flowers and red apple-like fruits (haws) later in the season. This is a broad Crataegus entry.",
+      "short_reason": "Consolidated to one plant entry with details covering the usable parts.",
+      "months_available": [
+        "May",
+        "June",
+        "September",
+        "October"
+      ],
+      "links": [
+        "https://www.bhg.com/gardening/plant-dictionary/tree/hawthorn/"
+      ],
+      "images": [],
+      "medicinal_uses": "Hawthorn has strong traditional herbal associations, but this app keeps the food-side focus on fruit and tea context only.",
+      "culinary_uses": "Ripe haws can be cooked into jelly, syrup, fruit leather, or preserves; flowers and leaves are sometimes used in tea traditions.",
+      "photo_subject": "Hawthorn",
+      "plant_name": "Hawthorn",
+      "photo_scientific_name": "Crataegus spp.",
+      "scientific_name": "Crataegus spp.",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Forest edge / openings",
+        "Field / meadow",
+        "Roadside / disturbed",
+        "Yard / garden / orchard"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "usable_parts": [
+        "Fruit / berry",
+        "Flower / tea",
+        "Leaf / tea"
+      ],
+      "plant_lanes": [
+        "berries-fruits",
+        "flowers",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Fruit is the main food-side part; flowers/leaves are included mainly for tea/traditional-use context.",
+      "plant_card_note": "Ripe haws are mainly a cooked fruit for jelly, syrup, or preserves; flowers and leaves have tea/herbal tradition. Broad genus ID needs care.",
+      "plant_data_flags": [
+        "needs_image_coverage"
+      ],
+      "month_numbers": [
+        5,
+        6,
+        9,
+        10
+      ],
+      "edibility_detail": "Use ripe fruit; avoid seeds/pits as a food. Because hawthorns are a difficult genus, keep this as a broad comparison record.",
+      "observedPart": [
+        "Fruit / berry",
+        "Flower",
+        "Leaf"
+      ]
+    },
+    {
+      "slug": "hazel",
+      "display_name": "Hazel",
+      "common_name": "Hazel",
+      "category": "Tree Product",
+      "notes": "This copyback combines the old app material for American hazelnut and beaked hazelnut: rounded leaves and edible nuts, with beaked or leafy husks depending on species.",
+      "short_reason": "Consolidated to one plant entry with details covering the usable parts.",
+      "months_available": [
+        "August",
+        "September"
+      ],
+      "links": [],
+      "images": [],
+      "medicinal_uses": "Primarily a food nut shrub.",
+      "culinary_uses": "Nuts are edible raw or roasted and can be ground into meal.",
+      "photo_subject": "Hazel",
+      "plant_name": "Hazel",
+      "photo_scientific_name": "Corylus americana",
+      "scientific_name": "Corylus americana / Corylus cornuta",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Forest edge / openings",
+        "Field / meadow",
+        "Upland / dry forest"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "edibility_detail": "Edible ripe nuts. Usually gathered before squirrels clean you out.",
+      "look_alikes": [
+        "American hazelnut",
+        "Beaked hazelnut"
+      ],
+      "month_numbers": [
+        8,
+        9
+      ],
+      "observedPart": [
+        "Seed / cone / nut"
+      ],
+      "size": [
+        "Tall (3+ ft / 1+ m)"
+      ],
+      "taste": [
+        "Nutty"
+      ],
+      "leafArrangement": [
+        "Alternate"
+      ],
+      "use_tags": [
+        "E"
+      ],
+      "usable_parts": [
+        "Seed / nut / cone"
+      ],
+      "plant_lanes": [
+        "nuts-seeds",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Nuts / Seeds, Trees / Shrubs.",
+      "plant_card_note": "Useful parts: seed / nut / cone. Edible ripe nuts. Usually gathered before squirrels clean you out.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
+    },
+    {
+      "slug": "highbush-cranberries-viburnum",
+      "display_name": "Highbush cranberries | Viburnum",
+      "common_name": "Highbush cranberries | Viburnum",
+      "category": "Fruit",
+      "notes": "Opposite leaves and red hanging berry clusters on a wetland-edge shrub with white flower heads.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "September",
+        "October",
+        "November"
+      ],
+      "links": [],
+      "images": [],
+      "medicinal_uses": "Traditional shrub with food and medicinal associations.",
+      "culinary_uses": "Bright red fruits are usually cooked into jelly, sauce, syrup, or blended preserves.",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Wetland / marsh",
+        "Shoreline / riverbank",
+        "Forest edge / openings"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "scientific_name": "Viburnum opulus var. americanum",
+      "edibility_detail": "Edible, but often best after frost or cooking. Raw flavor varies a lot.",
+      "look_alikes": [
+        "Other Viburnum species"
+      ],
+      "month_numbers": [
+        9,
+        10,
+        11
+      ],
+      "observedPart": [
+        "Fruit / berry",
+        "Flower"
+      ],
+      "size": [
+        "Tall (3+ ft / 1+ m)"
+      ],
+      "taste": [
+        "Tart",
+        "Bitter"
+      ],
+      "flowerColor": [
+        "White"
+      ],
+      "leafArrangement": [
+        "Opposite"
+      ],
+      "use_tags": [
+        "E",
+        "P",
+        "T"
+      ],
+      "usable_parts": [
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
+      "plant_card_note": "Useful parts: fruit / berry. Edible, but often best after frost or cooking. Raw flavor varies a lot.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
+    },
+    {
+      "slug": "honeysuckle",
+      "display_name": "Honeysuckle",
+      "common_name": "Honeysuckle",
+      "category": "Flower",
+      "notes": "Kept as a broad honeysuckle bucket focused on flowers, not berries. Many honeysuckle fruits are not casual food.",
+      "short_reason": "Consolidated to one plant entry with details covering the usable parts.",
+      "months_available": [
+        "May",
+        "June",
+        "July"
+      ],
+      "links": [],
+      "images": [],
+      "medicinal_uses": "Traditional flower use exists in some systems.",
+      "culinary_uses": "Flowers are sometimes sucked for nectar or used lightly in tea, but this is not a broad fruit-eating entry.",
+      "photo_subject": "Honeysuckle",
+      "plant_name": "Honeysuckle",
+      "photo_scientific_name": "Lonicera spp.",
+      "scientific_name": "Lonicera spp.",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Forest edge / openings",
+        "Roadside / disturbed"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "edibility_detail": "Think flowers/nectar, not berries. This is a cautionary broad-genus entry.",
+      "month_numbers": [
+        5,
+        6,
+        7
+      ],
+      "observedPart": [
+        "Flower"
+      ],
+      "size": [
+        "Tall (3+ ft / 1+ m)",
+        "Vining / climbing"
+      ],
+      "taste": [
+        "Floral",
+        "Sweet"
+      ],
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Flower"
+      ],
+      "plant_lanes": [
+        "flowers",
+        "trees-shrubs-sap",
+        "tea-infusions"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Flowers, Trees / Shrubs, Tea / Infusions.",
+      "plant_card_note": "Useful parts: flower. Think flowers/nectar, not berries. This is a cautionary broad-genus entry.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
+    },
+    {
+      "slug": "hop",
+      "display_name": "Hop",
+      "common_name": "Hop",
+      "category": "Flower",
+      "notes": "Rough climbing bine with opposite to paired leaves and cone-like female flowers.",
+      "short_reason": "Consolidated to one plant entry with details covering the usable parts.",
+      "months_available": [
+        "May",
+        "June",
+        "July",
+        "August",
+        "September"
+      ],
+      "links": [],
+      "images": [],
+      "medicinal_uses": "Traditional sedative and calming herb, especially via cones.",
+      "culinary_uses": "Young shoots can be eaten as a spring vegetable and cones are used for bitter aromatic flavoring.",
+      "photo_subject": "Hop",
+      "plant_name": "Hop",
+      "photo_scientific_name": "Humulus lupulus",
+      "scientific_name": "Humulus lupulus",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Shoreline / riverbank",
+        "Forest edge / openings",
+        "Roadside / disturbed"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "edibility_detail": "Shoots are the approachable edible use; cone use is more aromatic/herbal than snack food.",
+      "month_numbers": [
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "observedPart": [
+        "Stem / stalk",
+        "Flower"
+      ],
+      "size": [
+        "Vining / climbing"
+      ],
+      "taste": [
+        "Bitter",
+        "Aromatic"
+      ],
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Stem / shoot / stalk",
+        "Flower"
+      ],
+      "plant_lanes": [
+        "leaves-greens",
+        "flowers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers.",
+      "plant_card_note": "Useful parts: stem / shoot / stalk, flower. Shoots are the approachable edible use; cone use is more aromatic/herbal than snack food.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
+    },
+    {
+      "slug": "huckleberries",
+      "display_name": "Huckleberries",
+      "common_name": "Huckleberries",
+      "category": "Fruit",
+      "notes": "Northern berry bucket for huckleberry-type fruits; often close in use to blueberries but not identical in seed feel and plant habit.",
+      "short_reason": "Original app species restored into the standalone modular build.",
+      "months_available": [
+        "July",
+        "August"
+      ],
+      "links": [],
+      "images": [],
+      "medicinal_uses": "Mostly a food berry entry.",
+      "culinary_uses": "Sweet dark berries are eaten fresh or used like blueberries in desserts and preserves.",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Upland / dry forest",
+        "Barrens / openings"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "scientific_name": "Gaylussacia baccata / Vaccinium allies",
+      "edibility_detail": "Edible ripe fruit.",
+      "month_numbers": [
+        7,
+        8
+      ],
+      "observedPart": [
+        "Fruit / berry"
+      ],
+      "size": [
+        "Low (3 to 12 in / 8 to 30 cm)",
+        "Medium (1 to 3 ft / 30 to 90 cm)"
+      ],
+      "taste": [
+        "Sweet"
+      ],
+      "weekPrecision": "month-window-reviewed",
+      "usable_parts": [
+        "Fruit / berry"
+      ],
+      "plant_lanes": [
+        "berries-fruits",
+        "trees-shrubs-sap"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
+      "plant_card_note": "Useful parts: fruit / berry. Edible ripe fruit.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
+    },
+    {
+      "slug": "jerusalem-artichoke",
+      "display_name": "Jerusalem artichoke",
+      "common_name": "Jerusalem artichoke",
+      "category": "Root",
+      "notes": "Tall sunflower relative with rough leaves, yellow flowers, and edible underground tubers.",
+      "short_reason": "Consolidated to one plant entry with details covering the usable parts.",
+      "months_available": [
+        "September",
+        "October",
+        "November"
+      ],
+      "links": [],
+      "images": [],
+      "medicinal_uses": "Primarily a food tuber.",
+      "culinary_uses": "Tubers are eaten raw or cooked and have a crisp, sweet, nutty quality.",
+      "photo_subject": "Jerusalem artichoke",
+      "plant_name": "Jerusalem artichoke",
+      "photo_scientific_name": "Helianthus tuberosus",
+      "scientific_name": "Helianthus tuberosus",
+      "general_notes": "",
+      "record_type": "plant",
+      "lane": "",
+      "reviewReasons": [],
+      "review_status": "ok",
+      "search_aliases": [],
+      "host_filter_tokens": [],
+      "commonness": "",
+      "food_quality": "",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [
+        "Field / meadow",
+        "Shoreline / riverbank",
+        "Roadside / disturbed"
+      ],
+      "images_structured": [],
+      "list_thumbnail": "",
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_audit_status": "pending",
+      "edibility_detail": "Edible tubers, often best harvested after frost or in cool seasons.",
+      "look_alikes": [
+        "Other wild sunflowers"
+      ],
+      "month_numbers": [
+        9,
+        10,
+        11
+      ],
+      "observedPart": [
+        "Root",
+        "Flower"
+      ],
+      "size": [
+        "Tall (3+ ft / 1+ m)"
+      ],
+      "taste": [
+        "Sweet",
+        "Nutty"
+      ],
+      "flowerColor": [
+        "Yellow"
+      ],
+      "use_tags": [
+        "E"
+      ],
+      "usable_parts": [
+        "Root / tuber / bulb",
+        "Flower"
+      ],
+      "plant_lanes": [
+        "roots-tubers",
+        "flowers"
+      ],
+      "plant_lane_note": "Explicit plant-lane placement: Roots / Tubers, Flowers.",
+      "plant_card_note": "Useful parts: root / tuber / bulb, flower. Edible tubers, often best harvested after frost or in cool seasons.",
+      "plant_data_flags": [
+        "needs_source_links",
+        "needs_image_coverage"
+      ]
+    }
+  ]
+}

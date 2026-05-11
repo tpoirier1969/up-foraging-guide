@@ -1,0 +1,1639 @@
+{
+  "metadata": {
+    "project": "Upper Michigan Foraging Guide",
+    "build": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1",
+    "primary_type": "mushroom",
+    "split_version": "size-chunk-split-v1",
+    "split_file": "data/mushrooms/mushrooms-boletes-suillus-leccinum-3.json",
+    "split_role": "Expanded Suillus and Leccinum/scaber-stalk bolete records.",
+    "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
+    "source_record_count_before_split": 209,
+    "record_count": 11,
+    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. Updated in v4.2.82 with 25-record mushroom credibility pass including Black Velvet Bolete and Blue-staining Slippery Jack. v4.2.83: mushroom bolete photo/credibility batch; Commons images added for Neoporphyrellus alboater and Suillus tomentosus; 25-record Suillus/Leccinum/Neoporphyrellus pass. v4.2.85 refreshed Blue-staining Slippery Jack image URLs to direct upload.wikimedia.org files and carried forward v4.2.83 image coverage. v4.2.86: optional photo patches are treated as fill-only for existing base-record image fields; direct image fallback hardened for Black Velvet Bolete and Suillus tomentosus where applicable. v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4: 25-record Suillus/Leccinum credibility pass; source/species-note issues reduced while image/local/taxonomy reviews were retained. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved.",
+    "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
+    "review_reason_audit": {
+      "audited_on": "2026-04-28",
+      "rule": "Normalize explicit review signals into review_reasons/review_note and prefix notes for Needs Review list visibility.",
+      "review_records_in_file": 44,
+      "cleared_image_only_slugs_not_reopened": []
+    },
+    "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
+    "last_suillus_leccinum_batch": "v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4",
+    "last_photo_patch_fold": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+    "photo_patch_folded_record_count": 19,
+    "split_part": 3,
+    "split_parts_total": 5,
+    "split_series": "data/mushrooms/mushrooms-boletes-suillus-leccinum-3*.json",
+    "split_note": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split this active data source by file size to keep working chunks under roughly 75–100 KB. Record bodies and source order were preserved.",
+    "source_group": "data/mushrooms/mushrooms-boletes-suillus-leccinum-3",
+    "source_build_before_size_split": "v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4"
+  },
+  "records": [
+    {
+      "slug": "leccinum-griseonigrum",
+      "display_name": "Leccinum Griseonigrum",
+      "common_name": "Leccinum Griseonigrum",
+      "category": "Mushroom",
+      "culinary_uses": "Leccinum records are handled conservatively here; do not treat as casual edibles without expert-level ID and proper cooking.",
+      "medicinal_uses": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/leccinum.html"
+      ],
+      "images": [
+        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ELeccinum%20Griseonigrum%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ELeccinum%20griseonigrum%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+      ],
+      "scientific_name": "Leccinum griseonigrum",
+      "mushroom_profile": {
+        "scientific_name": "Leccinum griseonigrum",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Leccinum Griseonigrum: check host tree needs field confirmation; Dry to slightly tacky; Whitish to grayish pores; and Scabers.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": "Unknown",
+        "taste": [],
+        "spore_print": "",
+        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs image coverage.",
+          "Needs source links and fuller field notes.",
+          "Placeholder image inserted pending real public-usable photo.",
+          "Checked in v4.2.83 mushroom batch; source/field-note pass applied. Remaining Needs Review reasons were retained when image coverage or local/species certainty is still weak."
+        ],
+        "cap_surface": [
+          "Dry to slightly tacky"
+        ],
+        "stem_feature": [
+          "Scabers"
+        ],
+        "pore_color": [
+          "Whitish to grayish pores"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "placeholder image inserted"
+      ],
+      "mushroom_family": "Leccinum / scaber stalks",
+      "boleteGroup": [
+        "Leccinum / scaber stalks"
+      ],
+      "boleteSubgroup": [
+        "Leccinum",
+        "Scaber stalks"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "commonness": "Rare",
+      "commonness_score": 1,
+      "food_quality": "Poor",
+      "food_quality_score": 2,
+      "lane": "bolete",
+      "host_filter_tokens": [],
+      "look_alikes": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "confused_with": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "general_notes": "",
+      "edibility_detail": "Use caution. Leccinum-style boletes can be hard to separate, and local ID matters.",
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review"
+      ],
+      "review_reasons": [
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review"
+      ],
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: Needs real field photo / image coverage; Needs species-specific notes review.",
+      "review_notes": "Needs review: Needs real field photo / image coverage; Needs species-specific notes review.",
+      "mushroom_card_note": "Leccinum Griseonigrum: check host tree needs field confirmation; Dry to slightly tacky; Whitish to grayish pores; and Scabers.",
+      "field_identification": "Check host association (host tree needs field confirmation), cap surface (Dry to slightly tacky), pore surface (Whitish to grayish pores), stem traits (Scabers), and staining reaction (Unknown). Treat this as a comparison/ID record until image and local confirmation improve.",
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "use_roles": [
+        "Food"
+      ],
+      "v4283_checked": true
+    },
+    {
+      "slug": "leccinum-insolens",
+      "display_name": "Leccinum Insolens",
+      "common_name": "Leccinum Insolens",
+      "category": "Mushroom",
+      "culinary_uses": "Leccinum records are handled conservatively here; do not treat as casual edibles without expert-level ID and proper cooking.",
+      "medicinal_uses": "",
+      "notes": "Needs review: needs source links and needs species-specific notes review.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/leccinum.html"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20insolens%20A.H.%20Sm.%2C%20Thiers%20%26%20Watling%20661219.jpg"
+      ],
+      "scientific_name": "Leccinum insolens",
+      "mushroom_profile": {
+        "scientific_name": "Leccinum insolens",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Leccinum Insolens: check host tree needs field confirmation; Dry to slightly tacky; Whitish to grayish pores; and Scabers.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": "Unknown",
+        "taste": [],
+        "spore_print": "",
+        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs source links and fuller field notes.",
+          "Checked in v4.2.83 mushroom batch; source/field-note pass applied. Remaining Needs Review reasons were retained when image coverage or local/species certainty is still weak."
+        ],
+        "cap_surface": [
+          "Dry to slightly tacky"
+        ],
+        "stem_feature": [
+          "Scabers"
+        ],
+        "pore_color": [
+          "Whitish to grayish pores"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "needs species-level notes review"
+      ],
+      "mushroom_family": "Leccinum / scaber stalks",
+      "boleteGroup": [
+        "Leccinum / scaber stalks"
+      ],
+      "boleteSubgroup": [
+        "Leccinum",
+        "Scaber stalks"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "commonness": "Rare",
+      "commonness_score": 1,
+      "food_quality": "Poor",
+      "food_quality_score": 2,
+      "lane": "bolete",
+      "host_filter_tokens": [],
+      "look_alikes": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "confused_with": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "general_notes": "",
+      "edibility_detail": "Use caution. Leccinum-style boletes can be hard to separate, and local ID matters.",
+      "food_role": "food",
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs species-specific notes review",
+        "Needs real field photo / image coverage"
+      ],
+      "reviewReasons": [
+        "Needs species-specific notes review",
+        "Needs real field photo / image coverage"
+      ],
+      "review_note": "Needs review: Needs species-specific notes review; Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs species-specific notes review; Needs real field photo / image coverage.",
+      "mushroom_card_note": "Leccinum Insolens: check host tree needs field confirmation; Dry to slightly tacky; Whitish to grayish pores; and Scabers.",
+      "field_identification": "Check host association (host tree needs field confirmation), cap surface (Dry to slightly tacky), pore surface (Whitish to grayish pores), stem traits (Scabers), and staining reaction (Unknown). Treat this as a comparison/ID record until image and local confirmation improve.",
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "use_roles": [
+        "Food"
+      ],
+      "v4283_checked": true,
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20insolens%20A.H.%20Sm.%2C%20Thiers%20%26%20Watling%20661219.jpg",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20insolens%20A.H.%20Sm.%2C%20Thiers%20%26%20Watling%20661219.jpg",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20insolens%20A.H.%20Sm.%2C%20Thiers%20%26%20Watling%20661219.jpg",
+          "source": "Wikimedia Commons",
+          "title": "Leccinum insolens A.H. Sm., Thiers & Watling 661219.jpg",
+          "part_or_stage": "Field photo",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Leccinum_insolens_A.H._Sm.,_Thiers_%26_Watling_661219.jpg",
+          "credit": "Wikimedia Commons",
+          "license": "See Wikimedia Commons file page"
+        }
+      ],
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+    },
+    {
+      "slug": "leccinum-insolens-var-brunneo-maculatum",
+      "display_name": "Leccinum Insolens Brunneo-Maculatum",
+      "common_name": "Leccinum Insolens Brunneo-Maculatum",
+      "category": "Mushroom",
+      "culinary_uses": "Leccinum records are handled conservatively here; do not treat as casual edibles without expert-level ID and proper cooking.",
+      "medicinal_uses": "",
+      "notes": "Needs review: needs source links and needs species-specific notes review.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/leccinum.html"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20insolens%20var.%20brunneomaculatum%20A.H.%20Sm.%2C%20Thiers%20%26%20Watling%2074558.jpg"
+      ],
+      "scientific_name": "Leccinum insolens var. brunneo-maculatum",
+      "mushroom_profile": {
+        "scientific_name": "Leccinum insolens var. brunneo-maculatum",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Leccinum Insolens Brunneo-Maculatum: check host tree needs field confirmation; Dry to slightly tacky; Whitish to grayish pores; and Scabers.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": "Unknown",
+        "taste": [],
+        "spore_print": "",
+        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs source links and fuller field notes.",
+          "Checked in v4.2.83 mushroom batch; source/field-note pass applied. Remaining Needs Review reasons were retained when image coverage or local/species certainty is still weak."
+        ],
+        "cap_surface": [
+          "Dry to slightly tacky"
+        ],
+        "stem_feature": [
+          "Scabers"
+        ],
+        "pore_color": [
+          "Whitish to grayish pores"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "needs species-level notes review"
+      ],
+      "mushroom_family": "Leccinum / scaber stalks",
+      "boleteGroup": [
+        "Leccinum / scaber stalks"
+      ],
+      "boleteSubgroup": [
+        "Leccinum",
+        "Scaber stalks"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "commonness": "Rare",
+      "commonness_score": 1,
+      "food_quality": "Poor",
+      "food_quality_score": 2,
+      "lane": "bolete",
+      "host_filter_tokens": [],
+      "look_alikes": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "confused_with": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "general_notes": "",
+      "edibility_detail": "Use caution. Leccinum-style boletes can be hard to separate, and local ID matters.",
+      "food_role": "food",
+      "needs_review": true,
+      "review_status": "needs_review",
+      "review_reasons": [
+        "Needs species-specific notes review",
+        "Needs real field photo / image coverage"
+      ],
+      "reviewReasons": [
+        "Needs species-specific notes review",
+        "Needs real field photo / image coverage"
+      ],
+      "review_note": "Needs review: Needs species-specific notes review; Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs species-specific notes review; Needs real field photo / image coverage.",
+      "mushroom_card_note": "Leccinum Insolens Brunneo-Maculatum: check host tree needs field confirmation; Dry to slightly tacky; Whitish to grayish pores; and Scabers.",
+      "field_identification": "Check host association (host tree needs field confirmation), cap surface (Dry to slightly tacky), pore surface (Whitish to grayish pores), stem traits (Scabers), and staining reaction (Unknown). Treat this as a comparison/ID record until image and local confirmation improve.",
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "use_roles": [
+        "Food"
+      ],
+      "v4283_checked": true
+    },
+    {
+      "slug": "leccinum-longicurvipes",
+      "display_name": "Leccinum Longicurvipes",
+      "common_name": "Leccinum Longicurvipes",
+      "category": "Mushroom",
+      "culinary_uses": "Leccinum records are handled conservatively here; do not treat as casual edibles without expert-level ID and proper cooking.",
+      "medicinal_uses": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/leccinum_longicurvipes.html"
+      ],
+      "images": [
+        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ELeccinum%20Longicurvipes%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ELeccinum%20longicurvipes%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+      ],
+      "scientific_name": "Leccinum longicurvipes",
+      "mushroom_profile": {
+        "scientific_name": "Leccinum longicurvipes",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Leccinum Longicurvipes: check host tree needs field confirmation; Dry to slightly tacky; Whitish to grayish pores; and Scabers.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": "Unknown",
+        "taste": [],
+        "spore_print": "",
+        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs image coverage.",
+          "Needs source links and fuller field notes.",
+          "Placeholder image inserted pending real public-usable photo.",
+          "Checked in v4.2.83 mushroom batch; source/field-note pass applied. Remaining Needs Review reasons were retained when image coverage or local/species certainty is still weak."
+        ],
+        "cap_surface": [
+          "Dry to slightly tacky"
+        ],
+        "stem_feature": [
+          "Scabers"
+        ],
+        "pore_color": [
+          "Whitish to grayish pores"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "placeholder image inserted"
+      ],
+      "mushroom_family": "Leccinum / scaber stalks",
+      "boleteGroup": [
+        "Leccinum / scaber stalks"
+      ],
+      "boleteSubgroup": [
+        "Leccinum",
+        "Scaber stalks"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "commonness": "Rare",
+      "commonness_score": 1,
+      "food_quality": "Fair",
+      "food_quality_score": 3,
+      "lane": "bolete",
+      "host_filter_tokens": [],
+      "look_alikes": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "confused_with": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "general_notes": "",
+      "edibility_detail": "Use caution. Leccinum-style boletes can be hard to separate, and local ID matters.",
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review"
+      ],
+      "review_reasons": [
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review"
+      ],
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: Needs real field photo / image coverage; Needs species-specific notes review.",
+      "review_notes": "Needs review: Needs real field photo / image coverage; Needs species-specific notes review.",
+      "mushroom_card_note": "Leccinum Longicurvipes: check host tree needs field confirmation; Dry to slightly tacky; Whitish to grayish pores; and Scabers.",
+      "field_identification": "Check host association (host tree needs field confirmation), cap surface (Dry to slightly tacky), pore surface (Whitish to grayish pores), stem traits (Scabers), and staining reaction (Unknown). Treat this as a comparison/ID record until image and local confirmation improve.",
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "use_roles": [
+        "Food"
+      ],
+      "v4283_checked": true
+    },
+    {
+      "slug": "leccinum-luteum",
+      "display_name": "Leccinum Luteum",
+      "common_name": "Leccinum Luteum",
+      "category": "Mushroom",
+      "culinary_uses": "Leccinum records are handled conservatively here; do not treat as casual edibles without expert-level ID and proper cooking.",
+      "medicinal_uses": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/leccinum.html"
+      ],
+      "images": [
+        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ELeccinum%20Luteum%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ELeccinum%20luteum%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+      ],
+      "scientific_name": "Leccinum luteum",
+      "mushroom_profile": {
+        "scientific_name": "Leccinum luteum",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Leccinum Luteum: check host tree needs field confirmation; Dry to slightly tacky; Whitish to grayish pores; and Scabers.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": "Unknown",
+        "taste": [],
+        "spore_print": "",
+        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs image coverage.",
+          "Needs source links and fuller field notes.",
+          "Placeholder image inserted pending real public-usable photo.",
+          "Checked in v4.2.83 mushroom batch; source/field-note pass applied. Remaining Needs Review reasons were retained when image coverage or local/species certainty is still weak."
+        ],
+        "cap_surface": [
+          "Dry to slightly tacky"
+        ],
+        "stem_feature": [
+          "Scabers"
+        ],
+        "pore_color": [
+          "Whitish to grayish pores"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "placeholder image inserted"
+      ],
+      "mushroom_family": "Leccinum / scaber stalks",
+      "boleteGroup": [
+        "Leccinum / scaber stalks"
+      ],
+      "boleteSubgroup": [
+        "Leccinum",
+        "Scaber stalks"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "commonness": "Rare",
+      "commonness_score": 1,
+      "food_quality": "Fair",
+      "food_quality_score": 3,
+      "lane": "bolete",
+      "host_filter_tokens": [],
+      "look_alikes": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "confused_with": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "general_notes": "",
+      "edibility_detail": "Use caution. Leccinum-style boletes can be hard to separate, and local ID matters.",
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review"
+      ],
+      "review_reasons": [
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review"
+      ],
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: Needs real field photo / image coverage; Needs species-specific notes review.",
+      "review_notes": "Needs review: Needs real field photo / image coverage; Needs species-specific notes review.",
+      "mushroom_card_note": "Leccinum Luteum: check host tree needs field confirmation; Dry to slightly tacky; Whitish to grayish pores; and Scabers.",
+      "field_identification": "Check host association (host tree needs field confirmation), cap surface (Dry to slightly tacky), pore surface (Whitish to grayish pores), stem traits (Scabers), and staining reaction (Unknown). Treat this as a comparison/ID record until image and local confirmation improve.",
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "use_roles": [
+        "Food"
+      ],
+      "v4283_checked": true
+    },
+    {
+      "slug": "leccinum-potteri",
+      "display_name": "Leccinum Potteri",
+      "common_name": "Leccinum Potteri",
+      "category": "Mushroom",
+      "culinary_uses": "Leccinum records are handled conservatively here; do not treat as casual edibles without expert-level ID and proper cooking.",
+      "medicinal_uses": "",
+      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/leccinum.html"
+      ],
+      "images": [
+        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ELeccinum%20Potteri%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ELeccinum%20potteri%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+      ],
+      "scientific_name": "Leccinum potteri",
+      "mushroom_profile": {
+        "scientific_name": "Leccinum potteri",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Leccinum Potteri: check host tree needs field confirmation; Dry to slightly tacky; Whitish to grayish pores; and Scabers.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": "Unknown",
+        "taste": [],
+        "spore_print": "",
+        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs image coverage.",
+          "Needs source links and fuller field notes.",
+          "Placeholder image inserted pending real public-usable photo.",
+          "Checked in v4.2.83 mushroom batch; source/field-note pass applied. Remaining Needs Review reasons were retained when image coverage or local/species certainty is still weak."
+        ],
+        "cap_surface": [
+          "Dry to slightly tacky"
+        ],
+        "stem_feature": [
+          "Scabers"
+        ],
+        "pore_color": [
+          "Whitish to grayish pores"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "needs image coverage",
+        "needs species-level notes review",
+        "placeholder image inserted"
+      ],
+      "mushroom_family": "Leccinum / scaber stalks",
+      "boleteGroup": [
+        "Leccinum / scaber stalks"
+      ],
+      "boleteSubgroup": [
+        "Leccinum",
+        "Scaber stalks"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "commonness": "Rare",
+      "commonness_score": 1,
+      "food_quality": "Fair",
+      "food_quality_score": 3,
+      "lane": "bolete",
+      "host_filter_tokens": [],
+      "look_alikes": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "confused_with": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "general_notes": "",
+      "edibility_detail": "Use caution. Leccinum-style boletes can be hard to separate, and local ID matters.",
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review"
+      ],
+      "review_reasons": [
+        "Needs real field photo / image coverage",
+        "Needs species-specific notes review"
+      ],
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: Needs real field photo / image coverage; Needs species-specific notes review.",
+      "review_notes": "Needs review: Needs real field photo / image coverage; Needs species-specific notes review.",
+      "mushroom_card_note": "Leccinum Potteri: check host tree needs field confirmation; Dry to slightly tacky; Whitish to grayish pores; and Scabers.",
+      "field_identification": "Check host association (host tree needs field confirmation), cap surface (Dry to slightly tacky), pore surface (Whitish to grayish pores), stem traits (Scabers), and staining reaction (Unknown). Treat this as a comparison/ID record until image and local confirmation improve.",
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "use_roles": [
+        "Food"
+      ],
+      "v4283_checked": true
+    },
+    {
+      "slug": "leccinum-pseudoinsigne",
+      "display_name": "Leccinum Pseudoinsigne",
+      "common_name": "Leccinum Pseudoinsigne",
+      "category": "Mushroom",
+      "culinary_uses": "Leccinum records are handled conservatively here; do not treat as casual edibles without expert-level ID and proper cooking.",
+      "medicinal_uses": "",
+      "notes": "Needs review: needs real field photo / image coverage.",
+      "months_available": [
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/leccinum.html"
+      ],
+      "images": [
+        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ELeccinum%20Pseudoinsigne%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ELeccinum%20pseudoinsigne%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+      ],
+      "scientific_name": "Leccinum pseudoinsigne",
+      "mushroom_profile": {
+        "scientific_name": "Leccinum pseudoinsigne",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Leccinum Pseudoinsigne: check Birch, Aspen / poplar; Dry to slightly tacky, Dry cap; color varies by species; Whitish to grayish pores, Whitish to grayish or yellowish pores depending on species; and Scabers, Scabers on stem.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [
+          "Birch",
+          "Aspen / poplar"
+        ],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm",
+          "Soft-fleshed bolete"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Unknown",
+          "Staining varies by species; slice and observe over 30 minutes"
+        ],
+        "taste": [
+          "Mild / not distinctive"
+        ],
+        "spore_print": "",
+        "season_note": "Summer and fall; record host tree and staining carefully.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs image coverage.",
+          "Needs source links and fuller field notes.",
+          "Placeholder image inserted pending real public-usable photo.",
+          "Checked in v4.2.83 mushroom batch; source/field-note pass applied. Remaining Needs Review reasons were retained when image coverage or local/species certainty is still weak."
+        ],
+        "cap_surface": [
+          "Dry to slightly tacky",
+          "Dry cap; color varies by species"
+        ],
+        "stem_feature": [
+          "Scabers",
+          "Scabers on stem"
+        ],
+        "pore_color": [
+          "Whitish to grayish pores",
+          "Whitish to grayish or yellowish pores depending on species"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ],
+        "lane": "bolete",
+        "host_filter_tokens": [
+          "Hardwood",
+          "Birch",
+          "Aspen / poplar"
+        ],
+        "smell": [
+          "Mild / not distinctive"
+        ]
+      },
+      "manual_review_reasons": [],
+      "mushroom_family": "Leccinum / scaber stalks",
+      "boleteGroup": [
+        "Leccinum / scaber stalks",
+        "Leccinum / scaber-stalk boletes"
+      ],
+      "boleteSubgroup": [
+        "Leccinum",
+        "Scaber stalks",
+        "Scabered stems",
+        "Host-specific boletes"
+      ],
+      "weekPrecision": "species-level-reviewed",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "commonness": "Occasional",
+      "commonness_score": 2,
+      "food_quality": "Edible with caution",
+      "food_quality_score": 4,
+      "lane": "bolete",
+      "host_filter_tokens": [
+        "Hardwood",
+        "Birch",
+        "Aspen / poplar"
+      ],
+      "look_alikes": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "confused_with": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "general_notes": "",
+      "edibility_detail": "Use caution. Leccinum-style boletes can be hard to separate, and local ID matters.",
+      "food_role": "food",
+      "edibility_status": "edible_with_preparation",
+      "field_identification": "Check host association (Birch, Aspen / poplar), cap surface (Dry to slightly tacky, Dry cap; color varies by species), pore surface (Whitish to grayish pores, Whitish to grayish or yellowish pores depending on species), stem traits (Scabers, Scabers on stem), and staining reaction (Unknown, Staining varies by species; slice and observe over 30 minutes). Treat this as a comparison/ID record until image and local confirmation improve.",
+      "use_links": [
+        {
+          "label": "MushroomExpert: The Genus Leccinum",
+          "url": "https://www.mushroomexpert.com/leccinum.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Scabers, host specificity, pore/staining notes, and North American ID caution."
+        }
+      ],
+      "record_type": "mushroom",
+      "review_status": "needs_review",
+      "reviewReasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "review_reasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "common_names": [
+        "Leccinum Pseudoinsigne"
+      ],
+      "kingdom_type": "mushroom",
+      "species_scope": "species",
+      "foraging_class": "mushroom",
+      "season_months": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "habitats": [],
+      "look_alike_risk": "",
+      "look_alike_notes": "",
+      "rare_profile": null,
+      "overview": "",
+      "other_uses": "",
+      "edibility_notes": "Some Leccinum are eaten, but this group needs thorough cooking and careful host/tree notes.",
+      "curation_notes": [
+        "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
+        "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
+      ],
+      "search_aliases": [],
+      "non_edible_severity": "",
+      "edible_use": {
+        "has_ingestible_use": true,
+        "method": "Food",
+        "preparation_required": false,
+        "notes": "Some Leccinum are eaten, but this group needs thorough cooking and careful host/tree notes."
+      },
+      "medicinal": {
+        "has_meaningful_content": false,
+        "summary": "",
+        "evidence_tier": "",
+        "actions": [],
+        "body_systems": [],
+        "medical_terms": [],
+        "parts_used": [],
+        "preparation_notes": "",
+        "warnings": "",
+        "claims": []
+      },
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Leccinum Pseudoinsigne: check Birch, Aspen / poplar; Dry to slightly tacky, Dry cap; color varies by species; Whitish to grayish pores, Whitish to grayish or yellowish pores depending on species; and Scabers, Scabers on stem.",
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "use_roles": [
+        "Food"
+      ],
+      "v4283_checked": true
+    },
+    {
+      "slug": "leccinum-quercophilum",
+      "display_name": "Leccinum Quercophilum",
+      "common_name": "Leccinum Quercophilum",
+      "category": "Mushroom",
+      "culinary_uses": "Leccinum records are handled conservatively here; do not treat as casual edibles without expert-level ID and proper cooking.",
+      "medicinal_uses": "",
+      "notes": "Needs review: Needs real field photo / image coverage.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/leccinum_quercophilum.html"
+      ],
+      "images": [
+        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ELeccinum%20Quercophilum%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ELeccinum%20quercophilum%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+      ],
+      "scientific_name": "Leccinum quercophilum",
+      "mushroom_profile": {
+        "scientific_name": "Leccinum quercophilum",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Oak-associated leccinoid bolete with a dull, pitted/cracked brown cap, fine brown scabers, and bluish-green staining near cap margin or stem base.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [
+          "Oak",
+          "Hardwoods"
+        ],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Unknown",
+          "Blue-green staining possible"
+        ],
+        "taste": [],
+        "spore_print": "",
+        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs image coverage.",
+          "Needs source links and fuller field notes.",
+          "Placeholder image inserted pending real public-usable photo.",
+          "Checked in v4.2.83 mushroom batch; source/field-note pass applied. Remaining Needs Review reasons were retained when image coverage or local/species certainty is still weak.",
+          "Look for an oak association, cracked or pitted brown cap, whitish-gray pore surface aging yellowish brown, fine longitudinal rows of brown scabers, and bluish/greenish staining near the margin or stem base.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Dry to slightly tacky",
+          "Dull brown cracked/pitted cap"
+        ],
+        "stem_feature": [
+          "Scabers",
+          "Fine brown scabers in longitudinal rows"
+        ],
+        "pore_color": [
+          "Whitish to grayish pores",
+          "Whitish-gray to yellowish-brown pores"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "mushroom_family": "Leccinum / scaber stalks",
+      "boleteGroup": [
+        "Leccinum / scaber stalks"
+      ],
+      "boleteSubgroup": [
+        "Leccinum",
+        "Scaber stalks"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "commonness": "Rare",
+      "commonness_score": 1,
+      "food_quality": "Fair",
+      "food_quality_score": 3,
+      "lane": "bolete",
+      "host_filter_tokens": [
+        "Oak",
+        "Hardwoods"
+      ],
+      "look_alikes": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "confused_with": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "general_notes": "",
+      "edibility_detail": "Treat as a comparison/species-level Leccinum until confirmed. Leccinum identification is not beginner-simple; avoid relying on cap color alone.",
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "review_reasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Oak-associated leccinoid bolete with a dull, pitted/cracked brown cap, fine brown scabers, and bluish-green staining near cap margin or stem base.",
+      "field_identification": "Look for an oak association, cracked or pitted brown cap, whitish-gray pore surface aging yellowish brown, fine longitudinal rows of brown scabers, and bluish/greenish staining near the margin or stem base.",
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "v4283_checked": true,
+      "v4287_checked": true
+    },
+    {
+      "slug": "leccinum-subgranulosum",
+      "display_name": "Leccinum Subgranulosum",
+      "common_name": "Leccinum Subgranulosum",
+      "category": "Mushroom",
+      "culinary_uses": "Leccinum records are handled conservatively here; do not treat as casual edibles without expert-level ID and proper cooking.",
+      "medicinal_uses": "",
+      "notes": "Needs review: Needs real field photo / image coverage.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/leccinum.html"
+      ],
+      "images": [
+        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ELeccinum%20Subgranulosum%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ELeccinum%20subgranulosum%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+      ],
+      "scientific_name": "Leccinum subgranulosum",
+      "mushroom_profile": {
+        "scientific_name": "Leccinum subgranulosum",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Leccinum-group species kept for comparison; needs field-photo confirmation and should not be treated as a casual edible target.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [
+          "Hardwoods"
+        ],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Unknown",
+          "Staining behavior needs confirmation"
+        ],
+        "taste": [],
+        "spore_print": "",
+        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs image coverage.",
+          "Needs source links and fuller field notes.",
+          "Placeholder image inserted pending real public-usable photo.",
+          "Checked in v4.2.83 mushroom batch; source/field-note pass applied. Remaining Needs Review reasons were retained when image coverage or local/species certainty is still weak.",
+          "Use as a Leccinum comparison record: pore-bearing bolete with scabers on the stem. Confirm host tree, cap color, staining, and scaber color before naming.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Dry to slightly tacky",
+          "Brown/orange cap possible"
+        ],
+        "stem_feature": [
+          "Scabers",
+          "Scabered stem"
+        ],
+        "pore_color": [
+          "Whitish to grayish pores",
+          "Pores"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "mushroom_family": "Leccinum / scaber stalks",
+      "boleteGroup": [
+        "Leccinum / scaber stalks"
+      ],
+      "boleteSubgroup": [
+        "Leccinum",
+        "Scaber stalks"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "commonness": "Rare",
+      "commonness_score": 1,
+      "food_quality": "Fair",
+      "food_quality_score": 3,
+      "lane": "bolete",
+      "host_filter_tokens": [
+        "Hardwoods"
+      ],
+      "look_alikes": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "confused_with": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "general_notes": "",
+      "edibility_detail": "Leccinum species can be difficult and sometimes cause stomach upset even when considered edible; keep this one in review until better local documentation exists.",
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "review_reasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Leccinum-group species kept for comparison; needs field-photo confirmation and should not be treated as a casual edible target.",
+      "field_identification": "Use as a Leccinum comparison record: pore-bearing bolete with scabers on the stem. Confirm host tree, cap color, staining, and scaber color before naming.",
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "v4283_checked": true,
+      "v4287_checked": true
+    },
+    {
+      "slug": "leccinum-subleucophaeum",
+      "display_name": "Leccinum Subleucophaeum",
+      "common_name": "Leccinum Subleucophaeum",
+      "category": "Mushroom",
+      "culinary_uses": "Leccinum records are handled conservatively here; do not treat as casual edibles without expert-level ID and proper cooking.",
+      "medicinal_uses": "",
+      "notes": "Needs review: Needs real field photo / image coverage.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/leccinum.html"
+      ],
+      "images": [
+        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ELeccinum%20Subleucophaeum%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ELeccinum%20subleucophaeum%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+      ],
+      "scientific_name": "Leccinum subleucophaeum",
+      "mushroom_profile": {
+        "scientific_name": "Leccinum subleucophaeum",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Pale Leccinum-type bolete kept as an ID/comparison record; host and staining details still need local confirmation.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [
+          "Hardwoods"
+        ],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "Unknown",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Unknown",
+          "Staining behavior needs confirmation"
+        ],
+        "taste": [],
+        "spore_print": "",
+        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan bolete audit.",
+          "Needs image coverage.",
+          "Needs source links and fuller field notes.",
+          "Placeholder image inserted pending real public-usable photo.",
+          "Checked in v4.2.83 mushroom batch; source/field-note pass applied. Remaining Needs Review reasons were retained when image coverage or local/species certainty is still weak.",
+          "Look for a Leccinum-style bolete with a scabered stem; verify host, cap tone, pore color, and any flesh staining before applying the name.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Dry to slightly tacky",
+          "Pale to brownish cap possible"
+        ],
+        "stem_feature": [
+          "Scabers",
+          "Scabered stem"
+        ],
+        "pore_color": [
+          "Whitish to grayish pores",
+          "Pores"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "mushroom_family": "Leccinum / scaber stalks",
+      "boleteGroup": [
+        "Leccinum / scaber stalks"
+      ],
+      "boleteSubgroup": [
+        "Leccinum",
+        "Scaber stalks"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "commonness": "Rare",
+      "commonness_score": 1,
+      "food_quality": "Fair",
+      "food_quality_score": 3,
+      "lane": "bolete",
+      "host_filter_tokens": [
+        "Hardwoods"
+      ],
+      "look_alikes": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "confused_with": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "general_notes": "",
+      "edibility_detail": "Not a prime food target in this guide. Keep as a comparison species unless locally documented and confidently identified.",
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "reviewReasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "review_reasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "review_status": "needs_review",
+      "needs_review": true,
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Pale Leccinum-type bolete kept as an ID/comparison record; host and staining details still need local confirmation.",
+      "field_identification": "Look for a Leccinum-style bolete with a scabered stem; verify host, cap tone, pore color, and any flesh staining before applying the name.",
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "v4283_checked": true,
+      "v4287_checked": true
+    },
+    {
+      "slug": "leccinum-subtestaceum",
+      "display_name": "Leccinum subtestaceum",
+      "common_name": "Leccinum subtestaceum",
+      "category": "Mushroom",
+      "culinary_uses": "Culinary specifics still need review.",
+      "medicinal_uses": "",
+      "notes": "Needs review: Needs real field photo / image coverage.",
+      "months_available": [
+        "July",
+        "August",
+        "September"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/leccinum.html"
+      ],
+      "images": [
+        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ELeccinum%20subtestaceum%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+      ],
+      "scientific_name": "Leccinum subtestaceum",
+      "mushroom_profile": {
+        "scientific_name": "Leccinum subtestaceum",
+        "entry_scope": "species",
+        "edibility_status": "review_required",
+        "caution_level": "medium",
+        "summary": "Orange/brown Leccinum-type record that still needs stronger regional confirmation and field photos.",
+        "ecology": "bolete",
+        "substrate": [
+          "Forest soil"
+        ],
+        "wood_type": [],
+        "host_trees": [
+          "Hardwoods"
+        ],
+        "host_certainty": "unknown",
+        "underside": [
+          "Pores"
+        ],
+        "ring": "None",
+        "texture": [
+          "Fleshy / firm"
+        ],
+        "odor": "Unknown",
+        "staining": [
+          "Unknown",
+          "Staining behavior needs confirmation"
+        ],
+        "taste": [],
+        "spore_print": "",
+        "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
+        "processing_required": [],
+        "research_notes": [
+          "Species seed added from the Michigan / Upper Midwest bolete pass.",
+          "Needs image coverage.",
+          "Needs source links and fuller field notes.",
+          "Placeholder image inserted pending real public-usable photo.",
+          "Treat as a Leccinum comparison: cap-and-stem bolete with pores and scabers. Confirm host tree, stem scaber color, flesh staining, and range before naming.",
+          "Source/species-note pass applied in v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4."
+        ],
+        "cap_surface": [
+          "Dry to slightly tacky",
+          "Orange to brown cap possible"
+        ],
+        "stem_feature": [
+          "Scabers",
+          "Scabered stem"
+        ],
+        "pore_color": [
+          "Whitish to grayish pores",
+          "Pores"
+        ],
+        "growth_form": [
+          "Cap and stem"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "fruitbody_shape": [
+          "Convex cap with central stem"
+        ]
+      },
+      "manual_review_reasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "mushroom_family": "Leccinum / scaber stalks",
+      "boleteGroup": [
+        "Leccinum / scaber stalks"
+      ],
+      "boleteSubgroup": [
+        "Orange-capped scabers"
+      ],
+      "weekPrecision": "needs-review",
+      "primary_type": "mushroom",
+      "is_medicinal": false,
+      "is_non_edible": false,
+      "general_notes": "",
+      "record_type": "mushroom",
+      "lane": "bolete",
+      "reviewReasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "review_status": "needs_review",
+      "search_aliases": [],
+      "host_filter_tokens": [
+        "Hardwoods"
+      ],
+      "commonness": "Uncommon",
+      "food_quality": "Good",
+      "non_edible_severity": "",
+      "medicinalAction": [],
+      "medicinalSystem": [],
+      "medicinalTerms": [],
+      "habitat": [],
+      "commonness_score": 2,
+      "food_quality_score": 4,
+      "look_alikes": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "confused_with": [
+        "scaber-stalk-boletes-birch-aspen-boletes"
+      ],
+      "edibility_detail": "Not recommended as a casual edible until the record is better documented for this region.",
+      "food_role": "food",
+      "image_review_status": "needs_field_photo",
+      "image_review_reasons": [
+        "No usable field-view photo is currently available in the app.",
+        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+      ],
+      "review_reasons": [
+        "Needs real field photo / image coverage"
+      ],
+      "needs_review": true,
+      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "review_notes": "Needs review: Needs real field photo / image coverage.",
+      "mushroom_card_note": "Orange/brown Leccinum-type record that still needs stronger regional confirmation and field photos.",
+      "field_identification": "Treat as a Leccinum comparison: cap-and-stem bolete with pores and scabers. Confirm host tree, stem scaber color, flesh staining, and range before naming.",
+      "use_roles": [
+        "ID / comparison"
+      ],
+      "foraging_value": "Use with caution",
+      "foraging_value_score": 1,
+      "v4287_checked": true
+    }
+  ]
+}
