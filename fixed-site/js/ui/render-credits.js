@@ -10,6 +10,136 @@ function compact(value) {
   return String(value ?? "").replace(/\s+/g, " ").trim();
 }
 
+
+function normalizeCommonsFileName(value = "") {
+  const raw = compact(value);
+  if (!raw) return "";
+  let text = raw.split("?")[0].split("#")[0];
+  try { text = decodeURIComponent(text); } catch {}
+  const markers = ["/wiki/File:", "Special:FilePath/", "File:"];
+  for (const marker of markers) {
+    const index = text.indexOf(marker);
+    if (index >= 0) {
+      text = text.slice(index + marker.length);
+      break;
+    }
+  }
+  return text.replace(/ /g, "_").trim();
+}
+
+const ENRICHED_CREDIT_OVERRIDES = new Map([
+  ["Fagus_grandifolia.jpg", {
+    author: "Raul654",
+    license: "GNU Free Documentation License 1.2 or later",
+    licenseUrl: "https://www.gnu.org/licenses/old-licenses/fdl-1.2.html",
+    source: "Wikimedia Commons",
+    creditSource: "credits-enrichment-v1"
+  }],
+  ["American_Beech_Fagus_grandifolia_Bark.JPG", {
+    author: "Derek Ramsey (Ram-Man)",
+    credit: "© Derek Ramsey / derekramsey.com",
+    license: "CC BY-SA 4.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+    source: "Wikimedia Commons",
+    creditSource: "credits-enrichment-v1"
+  }],
+  ["Fagus_grandifolia_leaf.jpg", {
+    author: "Rob Duval",
+    license: "CC BY-SA 3.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+    source: "Wikimedia Commons",
+    creditSource: "credits-enrichment-v1"
+  }],
+  ["American_Linden_or_Basswood_(34058253263).jpg", {
+    author: "Dan Keck from Ohio",
+    license: "CC0 1.0 Universal Public Domain Dedication",
+    licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/",
+    source: "Wikimedia Commons / Flickr",
+    creditSource: "credits-enrichment-v1"
+  }],
+  ["Tilia_americana_bark.jpg", {
+    author: "Rob Duval",
+    license: "CC BY-SA 3.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+    source: "Wikimedia Commons",
+    creditSource: "credits-enrichment-v1"
+  }],
+  ["Flower_2932.jpg", {
+    author: "Chris Light",
+    license: "CC BY-SA 4.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+    source: "Wikimedia Commons",
+    creditSource: "credits-enrichment-v1"
+  }],
+  ["Heracleum_maximum_1.jpg", {
+    author: "Danielle Langlois / Dlanglois",
+    license: "CC BY-SA 3.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+    source: "Wikimedia Commons",
+    creditSource: "credits-enrichment-v1"
+  }],
+  ["Cow_Parsnip.jpg", {
+    author: "Stephen Lea",
+    license: "CC BY-SA 3.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+    source: "Wikimedia Commons",
+    creditSource: "credits-enrichment-v1"
+  }],
+  ["Heracleum_maximum_3.jpg", {
+    author: "Danielle Langlois / Dlanglois",
+    license: "CC BY-SA 3.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+    source: "Wikimedia Commons",
+    creditSource: "credits-enrichment-v1"
+  }]
+]);
+
+function isGenericCreditValue(value = "") {
+  const text = compact(value).toLowerCase();
+  if (!text) return true;
+  return text === "wikimedia commons"
+    || text === "commons-photo-patch"
+    || text === "commons-hardwired"
+    || text === "see wikimedia commons file page"
+    || text.includes("commons uploader")
+    || text.includes("local hardwired manifest");
+}
+
+function findCreditOverride(entry = {}) {
+  const candidates = [
+    entry.sourcePage,
+    entry.source_page,
+    entry.sourceImage,
+    entry.full,
+    entry.detail,
+    entry.thumb,
+    entry.src,
+    entry.url
+  ].map(normalizeCommonsFileName).filter(Boolean);
+  for (const fileName of candidates) {
+    const exact = ENRICHED_CREDIT_OVERRIDES.get(fileName);
+    if (exact) return exact;
+    const decoded = fileName.replace(/_/g, " ");
+    const loose = ENRICHED_CREDIT_OVERRIDES.get(decoded.replace(/ /g, "_"));
+    if (loose) return loose;
+  }
+  return null;
+}
+
+function applyCreditOverride(entry = {}) {
+  const override = findCreditOverride(entry);
+  if (!override) return entry;
+  return {
+    ...entry,
+    source: override.source || entry.source,
+    author: isGenericCreditValue(entry.author) ? (override.author || entry.author) : entry.author,
+    credit: isGenericCreditValue(entry.credit) ? (override.credit || override.author || entry.credit) : entry.credit,
+    license: isGenericCreditValue(entry.license) ? (override.license || entry.license) : entry.license,
+    licenseUrl: entry.licenseUrl || override.licenseUrl || "",
+    creditSource: override.creditSource || entry.creditSource || ""
+  };
+}
+
 function pick(...values) {
   for (const value of values) {
     const text = compact(value);
@@ -60,7 +190,7 @@ function normalizeCreditEntry(entry = {}, record = {}) {
   const licenseUrl = pick(entry.licenseUrl, entry.license_url, entry.license_link);
   const author = pick(entry.author, entry.creator, entry.photographer, entry.credit);
   const title = pick(entry.title, entry.file_title, entry.name, "Image");
-  return {
+  return applyCreditOverride({
     slug: pick(entry.slug, record.slug),
     species: pick(entry.species, record.display_name, record.common_name, record.slug),
     scientific_name: pick(entry.scientific_name, record.scientific_name),
@@ -72,7 +202,7 @@ function normalizeCreditEntry(entry = {}, record = {}) {
     licenseUrl,
     sourcePage,
     sourceImage: pick(entry.full, entry.detail, entry.thumb, entry.src, entry.url)
-  };
+  });
 }
 
 function imageEntriesFromRecord(record = {}) {
@@ -209,12 +339,14 @@ export function renderCreditsPage(records, imageCredits, search = "") {
   const withCreator = recordEntries.filter((entry) => !!entry.author).length;
   const withLicense = recordEntries.filter((entry) => !!entry.license && !!entry.licenseUrl).length;
   const needsEnrichment = recordEntries.filter((entry) => !entry.author || !entry.license || !entry.licenseUrl).length;
+  const enrichedCreditCount = recordEntries.filter((entry) => entry.creditSource === "credits-enrichment-v1").length;
 
   return `
     <section class="panel">
       <h2>Credits</h2>
       <p>This page now reads image-credit fields directly from the loaded species records, not only from images that happened to render during this browser session.</p>
       <p class="muted small">Target credit format is TASL-style: title, author / creator / photographer, source page, license, and license link. Records that still say only "Wikimedia Commons" are flagged here by missing creator or license details.</p>
+      <p class="muted small">This build includes the first small built-in enrichment batch for American beech, Basswood, and Cow parsnip image records. These overrides are intentionally narrow so they can be audited before being folded into the canonical JSON chunks later.</p>
     </section>
 
     <section class="panel">
@@ -224,6 +356,7 @@ export function renderCreditsPage(records, imageCredits, search = "") {
         <div class="stat-card"><div class="num">${withCreator}</div><div>With creator / photographer</div></div>
         <div class="stat-card"><div class="num">${withLicense}</div><div>With license + link</div></div>
         <div class="stat-card"><div class="num">${needsEnrichment}</div><div>Need credit enrichment</div></div>
+        <div class="stat-card"><div class="num">${enrichedCreditCount}</div><div>Enriched in built-in credit pass</div></div>
         <div class="stat-card"><div class="num">0</div><div>Runtime Commons API calls</div></div>
       </div>
     </section>
