@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1";
-const DISPLAY_VERSION = "V4.2.99-r26-05-11";
+const APP_VERSION = "v4.3.0-r2026-05-11-data-chunk-size-cleanup1";
+const DISPLAY_VERSION = "V4.3.0-r26-05-11";
 
 
 function esc(value) {
