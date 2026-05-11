@@ -21,20 +21,67 @@ function isInSeason(record, month) {
   return Array.isArray(record?.months_available) && record.months_available.includes(month);
 }
 
-function hasAnyImageCandidate(record) {
-  const structured = Array.isArray(record?.images_structured) ? record.images_structured : [];
-  if (structured.length) return true;
-  if (record?.list_thumbnail) return true;
-  const detailImages = Array.isArray(record?.detail_images) ? record.detail_images : [];
-  if (detailImages.length) return true;
-  const enlargeImages = Array.isArray(record?.enlarge_images) ? record.enlarge_images : [];
-  if (enlargeImages.length) return true;
-  const images = Array.isArray(record?.images) ? record.images : [];
-  if (!images.length) return false;
-  const first = images[0];
-  if (typeof first === "string") return !!first;
-  if (first && typeof first === "object") return !!(first.thumb || first.src || first.detail || first.full);
-  return false;
+function asList(value) {
+  if (Array.isArray(value)) return value;
+  if (value === undefined || value === null) return [];
+  return [value];
+}
+
+function imageUrlFromCandidate(value) {
+  if (!value) return "";
+  if (typeof value === "string") return value.trim();
+  if (typeof value !== "object") return "";
+  return String(value.thumb || value.detail || value.full || value.src || value.url || "").trim();
+}
+
+function isPlaceholderImageUrl(value) {
+  const text = String(value || "").trim().toLowerCase();
+  if (!text) return true;
+  return text.startsWith("data:image/svg")
+    || text.includes("image%20needed")
+    || text.includes("image needed")
+    || text.includes("needs%20photo")
+    || text.includes("needs photo")
+    || text.includes("placeholder image")
+    || text.includes("public%20usable%20photo%20not%20yet%20found")
+    || text.includes("public usable photo not yet found");
+}
+
+function collectImageCandidates(record = {}) {
+  const candidates = [];
+  const push = (value) => {
+    const url = imageUrlFromCandidate(value);
+    if (url) candidates.push(url);
+  };
+
+  asList(record.images_structured).forEach((item) => {
+    if (item && typeof item === "object") {
+      push(item.thumb);
+      push(item.detail);
+      push(item.full);
+    } else {
+      push(item);
+    }
+  });
+  push(record.list_thumbnail);
+  asList(record.detail_images).forEach(push);
+  asList(record.enlarge_images).forEach(push);
+  asList(record.images).forEach(push);
+  return candidates;
+}
+
+function hasUsableImageCandidate(record) {
+  return collectImageCandidates(record).some((url) => !isPlaceholderImageUrl(url));
+}
+
+function hasPreferredImageCandidate(record) {
+  const structured = asList(record?.images_structured)
+    .flatMap((item) => item && typeof item === "object" ? [item.thumb, item.detail, item.full] : [item])
+    .filter(Boolean);
+  if (structured.some((url) => !isPlaceholderImageUrl(url))) return true;
+
+  const convenience = [record?.list_thumbnail, ...asList(record?.detail_images), ...asList(record?.enlarge_images)].filter(Boolean);
+  return convenience.some((url) => !isPlaceholderImageUrl(url));
 }
 
 function shuffle(values) {
@@ -51,12 +98,15 @@ function isHighlightCandidate(record, month) {
   const info = classifyRecord(record);
   if (!info.edible) return false;
   if (!isInSeason(record, month)) return false;
-  if (!hasAnyImageCandidate(record)) return false;
+  if (!hasUsableImageCandidate(record)) return false;
   return info.isPlant || info.isMushroom;
 }
 
 function pickHighlights(species, month) {
-  return shuffle((species || []).filter((record) => isHighlightCandidate(record, month))).slice(0, 6);
+  const candidates = (species || []).filter((record) => isHighlightCandidate(record, month));
+  const preferred = candidates.filter(hasPreferredImageCandidate);
+  const fallback = candidates.filter((record) => !hasPreferredImageCandidate(record));
+  return [...shuffle(preferred), ...shuffle(fallback)].slice(0, 6);
 }
 
 function renderHomeImage(record) {
