@@ -1,62 +1,52 @@
-const pageRoot = document.getElementById("pageRoot");
-const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.2.78-r2026-04-29-list-meta-roles1";
-const DISPLAY_VERSION = "V4.2.78-r26-04-29";
+import { classifyRecord } from "../lib/merge.js";
 
 function esc(value) {
   return String(value ?? "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;");
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;");
 }
 
-function setupMobileMenu() {
-  const toggle = document.getElementById("mobileMenuToggle");
-  const nav = document.getElementById("primaryNav");
-  if (!toggle || !nav) return;
-  const closeMenu = () => {
-    document.body.classList.remove("nav-open");
-    toggle.setAttribute("aria-expanded", "false");
-  };
-  toggle.addEventListener("click", () => {
-    const open = !document.body.classList.contains("nav-open");
-    document.body.classList.toggle("nav-open", open);
-    toggle.setAttribute("aria-expanded", open ? "true" : "false");
+function makeMeta(record) {
+  const bits = [];
+  if (record.category) bits.push(`<span class="tag">${esc(record.category)}</span>`);
+  if (record.commonness) bits.push(`<span class="tag">${esc(record.commonness)}</span>`);
+  if (record.food_quality) bits.push(`<span class="tag good">${esc(record.food_quality)}</span>`);
+  if (record.non_edible_severity) bits.push(`<span class="tag danger">${esc(record.non_edible_severity)}</span>`);
+  if (record.status) bits.push(`<span class="tag warn">${esc(record.status)}</span>`);
+  return bits.join("");
+}
+
+export function filterRecords(records, route, search = "") {
+  const q = String(search || "").trim().toLowerCase();
+  return (records || []).filter(record => {
+    const { isPlant, isMushroom, medicinal, lookalike } = classifyRecord(record);
+    if (route === "plants" && !isPlant) return false;
+    if (route === "mushrooms" && !isMushroom) return false;
+    if (route === "medicinal" && !medicinal) return false;
+    if (route === "lookalikes" && !lookalike) return false;
+    if (!q) return true;
+    const hay = [
+      record.display_name, record.common_name, record.scientific_name, record.slug,
+      record.category, record.culinary_uses, record.medicinal_uses,
+      record.notes, record.edibility_detail, record.commonness, record.habitat_detail
+    ].join(" ").toLowerCase();
+    return hay.includes(q);
   });
-  nav.addEventListener("click", (event) => {
-    if (event.target?.closest?.("a") && window.matchMedia("(max-width: 700px)").matches) closeMenu();
-  });
-  window.addEventListener("resize", () => {
-    if (window.matchMedia("(min-width: 701px)").matches) closeMenu();
-  });
 }
 
-function renderFatal(message, detail = "") {
-  if (!pageRoot) return;
-  pageRoot.innerHTML = `
-    <section class="error-box">
-      <h2>Startup failed</h2>
-      <p>${esc(message)}</p>
-      ${detail ? `<p class="codeish">${esc(detail)}</p>` : ""}
-    </section>
-  `;
+export function renderRecordCards(records) {
+  if (!records.length) return `<section class="panel empty-state"><h3>No matches</h3></section>`;
+  return `<section class="record-list">${records.map(record => `
+    <article class="record-card">
+      <h3>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</h3>
+      <p class="muted small">${esc(record.scientific_name || "")}</p>
+      <div class="record-meta">${makeMeta(record)}</div>
+      <p>${esc(record.short_reason || record.classification_note || record.notes || record.habitat_detail || "").slice(0, 240)}</p>
+      <div class="control-row">
+        <button class="primary" type="button" data-detail="${esc(record.slug)}">Open details</button>
+      </div>
+    </article>
+  `).join("")}</section>`;
 }
-
-function showVersion() {
-  versionBadge?.replaceChildren(document.createTextNode(DISPLAY_VERSION));
-}
-
-async function start() {
-  setupMobileMenu();
-  showVersion();
-  try {
-    const mod = await import(`./app-core.js?v=${encodeURIComponent(APP_VERSION)}`);
-    if (typeof mod?.startApp !== "function") throw new Error("app-core.js loaded, but startApp was not exported.");
-    await mod.startApp();
-    showVersion();
-  } catch (err) {
-    renderFatal("The shell loaded, but the app core failed before the first route rendered.", err?.message || String(err));
-  }
-}
-
-start();

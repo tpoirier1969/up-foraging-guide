@@ -1,0 +1,78 @@
+Build: v4.3.0-r2026-05-11-data-chunk-size-cleanup1
+Purpose: split active species data files by size so working chunks stay under roughly 75–100 KB.
+
+Source path changes:
+- data/plants.json (282608 bytes)
+    -> data/plants.json (73779 bytes, 21 records)
+    -> data/plants-2.json (69581 bytes, 23 records)
+    -> data/plants-3.json (76476 bytes, 24 records)
+    -> data/plants-4.json (69880 bytes, 22 records)
+- data/plants-image-overrides.json (95774 bytes)
+    -> data/plants-image-overrides.json (73990 bytes, 18 records)
+    -> data/plants-image-overrides-2.json (23544 bytes, 5 records)
+- data/mushrooms.json (311439 bytes)
+    -> data/mushrooms.json (77838 bytes, 9 records)
+    -> data/mushrooms-2.json (75080 bytes, 12 records)
+    -> data/mushrooms-3.json (66007 bytes, 12 records)
+    -> data/mushrooms-4.json (75087 bytes, 15 records)
+    -> data/mushrooms-5.json (30688 bytes, 6 records)
+- data/mushrooms/mushrooms-boletes-porcini-tylopilus.json (272940 bytes)
+    -> data/mushrooms/mushrooms-boletes-porcini-tylopilus.json (74834 bytes, 8 records)
+    -> data/mushrooms/mushrooms-boletes-porcini-tylopilus-2.json (71251 bytes, 10 records)
+    -> data/mushrooms/mushrooms-boletes-porcini-tylopilus-3.json (77882 bytes, 11 records)
+    -> data/mushrooms/mushrooms-boletes-porcini-tylopilus-4.json (59083 bytes, 9 records)
+- data/mushrooms/mushrooms-boletes-red-caution.json (97892 bytes)
+    -> data/mushrooms/mushrooms-boletes-red-caution.json (75706 bytes, 10 records)
+    -> data/mushrooms/mushrooms-boletes-red-caution-2.json (26770 bytes, 3 records)
+- data/mushrooms/mushrooms-boletes-red-caution2.json (94059 bytes)
+    -> data/mushrooms/mushrooms-boletes-red-caution2.json (75987 bytes, 10 records)
+    -> data/mushrooms/mushrooms-boletes-red-caution2-2.json (22660 bytes, 3 records)
+- data/mushrooms/mushrooms-boletes-red-caution3.json (77607 bytes)
+    -> data/mushrooms/mushrooms-boletes-red-caution3.json (77879 bytes, 13 records)
+- data/mushrooms/mushrooms-boletes-suillus-leccinum.json (357037 bytes)
+    -> data/mushrooms/mushrooms-boletes-suillus-leccinum.json (76165 bytes, 8 records)
+    -> data/mushrooms/mushrooms-boletes-suillus-leccinum-2.json (74662 bytes, 10 records)
+    -> data/mushrooms/mushrooms-boletes-suillus-leccinum-3.json (77741 bytes, 11 records)
+    -> data/mushrooms/mushrooms-boletes-suillus-leccinum-4.json (75185 bytes, 11 records)
+    -> data/mushrooms/mushrooms-boletes-suillus-leccinum-5.json (65660 bytes, 10 records)
+- data/mushrooms/mushrooms-boletes-other1.json (101651 bytes)
+    -> data/mushrooms/mushrooms-boletes-other1.json (72573 bytes, 8 records)
+    -> data/mushrooms/mushrooms-boletes-other1-2.json (33797 bytes, 4 records)
+- data/mushrooms/mushrooms-boletes-other2.json (76740 bytes)
+    -> data/mushrooms/mushrooms-boletes-other2.json (77034 bytes, 11 records)
+
+Validation:
+- Combined slug order across active species files preserved exactly.
+- All active species JSON files parse successfully.
+- All active species JSON chunks are under 100,000 bytes.
+- PHOTO_PATCH_PATHS remains empty; folded patch files stay retired.
+
+Active species path list:
+  data/plants.json
+  data/plants-2.json
+  data/plants-3.json
+  data/plants-4.json
+  data/plants-image-overrides.json
+  data/plants-image-overrides-2.json
+  data/mushrooms.json
+  data/mushrooms-2.json
+  data/mushrooms-3.json
+  data/mushrooms-4.json
+  data/mushrooms-5.json
+  data/mushrooms/mushrooms-boletes-porcini-tylopilus.json
+  data/mushrooms/mushrooms-boletes-porcini-tylopilus-2.json
+  data/mushrooms/mushrooms-boletes-porcini-tylopilus-3.json
+  data/mushrooms/mushrooms-boletes-porcini-tylopilus-4.json
+  data/mushrooms/mushrooms-boletes-red-caution.json
+  data/mushrooms/mushrooms-boletes-red-caution-2.json
+  data/mushrooms/mushrooms-boletes-red-caution2.json
+  data/mushrooms/mushrooms-boletes-red-caution2-2.json
+  data/mushrooms/mushrooms-boletes-red-caution3.json
+  data/mushrooms/mushrooms-boletes-suillus-leccinum.json
+  data/mushrooms/mushrooms-boletes-suillus-leccinum-2.json
+  data/mushrooms/mushrooms-boletes-suillus-leccinum-3.json
+  data/mushrooms/mushrooms-boletes-suillus-leccinum-4.json
+  data/mushrooms/mushrooms-boletes-suillus-leccinum-5.json
+  data/mushrooms/mushrooms-boletes-other1.json
+  data/mushrooms/mushrooms-boletes-other1-2.json
+  data/mushrooms/mushrooms-boletes-other2.json

@@ -1,0 +1,28 @@
+.rare-card-list{display:grid;gap:12px}
+.rare-result-card{align-items:start}
+.rare-thumb{background:#efe8da;color:#5e5a52;font-weight:800;display:grid;place-items:center;text-align:center}
+.rare-hero-panel{background:linear-gradient(145deg, rgba(255,253,249,.98), rgba(245,240,229,.92))}
+.rare-sighting-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.rare-species-list{display:grid;gap:10px}
+.rare-sighting-item,.rare-mini-sighting{border:1px solid rgba(47,93,70,.18);border-radius:16px;padding:12px 14px;background:#fff}
+.rare-mini-sighting{display:grid;gap:4px}
+.rare-inline-sightings{display:grid;gap:10px}
+.rare-map{width:100%;min-height:360px;border-radius:16px;overflow:hidden;border:1px solid rgba(47,93,70,.18);margin-top:8px}
+.rare-detail-picker-map{min-height:300px}
+.rare-detail-shell h2{margin:.2rem 0 .25rem}
+.rare-detail-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;flex-wrap:wrap}
+.rare-detail-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.rare-detail-sighting-box{margin-top:12px;padding-top:12px;border-top:1px solid rgba(0,0,0,.08)}
+.rare-modal-form-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.rare-hidden{display:none!important}
+#rareDetailNotes{width:100%;box-sizing:border-box;font:inherit}
+@media (max-width:900px){.rare-sighting-grid,.rare-detail-grid,.rare-modal-form-grid{grid-template-columns:minmax(0,1fr)}.rare-map{min-height:280px}}
+
+.rare-thumb{background-size:cover;background-position:center}
+.rare-detail-top{display:grid;grid-template-columns:minmax(260px,360px) minmax(0,1fr);gap:14px;align-items:start;margin-top:14px}
+.rare-detail-gallery{display:grid;gap:8px}
+.rare-detail-main-image{width:100%;border-radius:16px;display:block;object-fit:cover;min-height:240px;max-height:360px;border:1px solid rgba(47,93,70,.18);background:#f3efe6}
+.rare-detail-gallery-strip{display:flex;flex-wrap:wrap;gap:8px}
+.rare-detail-gallery-thumb{width:84px;height:84px;border-radius:12px;object-fit:cover;border:1px solid rgba(47,93,70,.18);background:#f3efe6}
+.rare-detail-summary-card{height:100%}
+@media (max-width:800px){.rare-detail-top{grid-template-columns:minmax(0,1fr)}.rare-detail-main-image{max-height:none}}

@@ -1,0 +1,32 @@
+Upper Michigan Foraging Guide - v2.12-rare-detailfix
+
+Included in this package:
+- index-masterlist-v20.html
+- js/constants-mainfix.js
+- js/app-mainfix4-masterlist-v21.js
+- js/pages-mainfix4-commonness-v3.js
+- js/ui-mainfix-v2.js
+- js/rare-watch.js
+- styles-mainfix4.css
+- styles-rare-v1.css
+- data/rare-species-v1.json
+
+What was changed:
+1. Sorting path now uses commonness-sort-v3 so food-quality sorts work again.
+2. The Use Tags legend is rendered inside the same Use Tags panel instead of in a separate home-page block.
+3. Rare / Endangered now renders species cards with detail modals.
+4. Rare detail modals now include:
+   - reason / habitat
+   - how to tell it apart
+   - confusion / look-alike note
+   - care / privacy note
+   - recent sightings for that species
+   - Add sighting button inside the detail window
+   - clickable Leaflet location picker inside the detail window
+5. Rare overview section still shows saved sightings and a public map.
+6. Cache-busting query strings were bumped on the changed entry files.
+
+What is NOT included yet:
+- This is a replacement-files package, not a full repo export.
+- I did not rebuild unrelated pages or image assets.
+- The rare-section field marks are concise notes, not a complete monograph-level treatment.
