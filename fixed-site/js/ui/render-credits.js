@@ -91,7 +91,72 @@ const ENRICHED_CREDIT_OVERRIDES = new Map([
     licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
     source: "Wikimedia Commons",
     creditSource: "credits-enrichment-v1"
+  }],
+  ["Ganoderma_applanatum_1259894.jpg", {
+    author: "Richard Daniel (RichardDaniel)",
+    license: "CC BY-SA 3.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+    source: "Wikimedia Commons / Mushroom Observer",
+    creditSource: "credits-enrichment-v2"
+  }],
+  ["Ganoderma_applanatum_(Ganodermataceae).jpg", {
+    author: "Filo gèn'",
+    license: "CC BY-SA 4.0 / 3.0 / 2.5 / 2.0 / 1.0; GFDL also offered",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+    source: "Wikimedia Commons",
+    creditSource: "credits-enrichment-v2"
+  }],
+  ["Artists_conk-Ganoderma_applanatum_(7402107040).jpg", {
+    author: "Scott Darbey from Canada",
+    license: "CC BY 2.0",
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0/",
+    source: "Wikimedia Commons / Flickr",
+    creditSource: "credits-enrichment-v2"
+  }],
+  ["Pleurotus_populinus_13996.jpg", {
+    author: "Jim Tunney (Jim Tunney)",
+    license: "CC BY-SA 3.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+    source: "Wikimedia Commons / Mushroom Observer",
+    creditSource: "credits-enrichment-v2"
+  }],
+  ["Pleurotus_populinus_O._Hilber_&_O.K._Mill_742181.jpg", {
+    author: "Phil Yeager (gunchky)",
+    license: "CC BY-SA 3.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+    source: "Wikimedia Commons / Mushroom Observer",
+    creditSource: "credits-enrichment-v2"
+  }],
+  ["Pleurotus_populinus_O._Hilber_&_O.K._Mill_89533.jpg", {
+    author: "Robert Sasata (Sasata)",
+    license: "CC BY-SA 3.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+    source: "Wikimedia Commons / Mushroom Observer",
+    creditSource: "credits-enrichment-v2"
+  }],
+  ["Inonotus_obliquus.jpg", {
+    author: "Tocekas / Tomas Čekanavičius",
+    credit: "Tomas Čekanavičius",
+    license: "CC BY-SA 3.0; GFDL also offered",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+    source: "Wikimedia Commons",
+    creditSource: "credits-enrichment-v2"
+  }],
+  ["Chaga_(8237818667).jpg", {
+    author: "natureluvr01",
+    license: "CC BY 2.0",
+    licenseUrl: "https://creativecommons.org/licenses/by/2.0/",
+    source: "Wikimedia Commons / Flickr",
+    creditSource: "credits-enrichment-v2"
+  }],
+  ["Chaga_Mushroom_-_Inonotus_obliquus_(30222675437).jpg", {
+    author: "Björn S...",
+    license: "CC BY-SA 2.0",
+    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0/",
+    source: "Wikimedia Commons / Flickr",
+    creditSource: "credits-enrichment-v2"
   }]
+
 ]);
 
 function isGenericCreditValue(value = "") {
@@ -339,14 +404,14 @@ export function renderCreditsPage(records, imageCredits, search = "") {
   const withCreator = recordEntries.filter((entry) => !!entry.author).length;
   const withLicense = recordEntries.filter((entry) => !!entry.license && !!entry.licenseUrl).length;
   const needsEnrichment = recordEntries.filter((entry) => !entry.author || !entry.license || !entry.licenseUrl).length;
-  const enrichedCreditCount = recordEntries.filter((entry) => entry.creditSource === "credits-enrichment-v1").length;
+  const enrichedCreditCount = recordEntries.filter((entry) => compact(entry.creditSource).startsWith("credits-enrichment-v")).length;
 
   return `
     <section class="panel">
       <h2>Credits</h2>
       <p>This page now reads image-credit fields directly from the loaded species records, not only from images that happened to render during this browser session.</p>
       <p class="muted small">Target credit format is TASL-style: title, author / creator / photographer, source page, license, and license link. Records that still say only "Wikimedia Commons" are flagged here by missing creator or license details.</p>
-      <p class="muted small">This build includes the first small built-in enrichment batch for American beech, Basswood, and Cow parsnip image records. These overrides are intentionally narrow so they can be audited before being folded into the canonical JSON chunks later.</p>
+      <p class="muted small">This build includes small built-in enrichment batches for American beech, Basswood, Cow parsnip, Artist's conk, Aspen oyster, and Chaga image records. These overrides are intentionally narrow so they can be audited before being folded into the canonical JSON chunks later.</p>
     </section>
 
     <section class="panel">
