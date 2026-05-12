@@ -1962,6 +1962,456 @@ const RAW_CREDIT_OVERRIDES = [
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
     "source": "Wikimedia Commons",
     "creditSource": "credits-enrichment-v42"
+  },
+  {
+    "file": "Vaccinium_angustifolium_112508547.jpg",
+    "author": "David Handley",
+    "credit": "David Handley",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "Wikimedia Commons / iNaturalist",
+    "creditSource": "credits-enrichment-v43"
+  },
+  {
+    "file": "Vaccinium_angustifolium_berries.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v43"
+  },
+  {
+    "file": "Amelanchier_laevis_flowers.jpg",
+    "author": "Plant Image Library",
+    "credit": "Plant Image Library",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v43"
+  },
+  {
+    "file": "Amelanchier_laevis_fruit.jpg",
+    "author": "Plant Image Library",
+    "credit": "Plant Image Library",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v43"
+  },
+  {
+    "file": "Sambucus_canadensis_berries.jpg",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v43"
+  },
+  {
+    "file": "Sambucus_canadensis_flowers.jpg",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v44"
+  },
+  {
+    "file": "Sambucus_canadensis_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v44"
+  },
+  {
+    "file": "Rhus_typhina_berries.jpg",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v44"
+  },
+  {
+    "file": "Rhus_typhina_HabitusFruit_BotGardBln0906.JPG",
+    "author": "Daderot",
+    "credit": "Daderot",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v44"
+  },
+  {
+    "file": "Rubus_parviflorus_fruit.jpg",
+    "author": "Walter Siegmund",
+    "credit": "Walter Siegmund",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v44"
+  },
+  {
+    "file": "Allium_tricoccum_BW-1979-0521-0532.jpg",
+    "author": "James L. Reveal",
+    "credit": "James L. Reveal",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v45"
+  },
+  {
+    "file": "Allium_tricoccum_002.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v45"
+  },
+  {
+    "file": "Wild_leeks.jpg",
+    "author": "Rachael Brugger",
+    "credit": "Rachael Brugger",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "Wikimedia Commons / Flickr",
+    "creditSource": "credits-enrichment-v45"
+  },
+  {
+    "file": "Alliaria_petiolata_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v45"
+  },
+  {
+    "file": "Alliaria_petiolata_flowers.jpg",
+    "author": "Sannse",
+    "credit": "Sannse",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v45"
+  },
+  {
+    "file": "Vitis_riparia_(fruit).jpg",
+    "author": "Matt Lavin",
+    "credit": "Matt Lavin",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "Wikimedia Commons / Flickr",
+    "creditSource": "credits-enrichment-v46"
+  },
+  {
+    "file": "Vitis_riparia_leaves.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v46"
+  },
+  {
+    "file": "Crataegus_punctata_fruit.jpg",
+    "author": "Keith Kanoti",
+    "credit": "Keith Kanoti",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v46"
+  },
+  {
+    "file": "Crataegus_crus-galli_fruit.jpg",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v46"
+  },
+  {
+    "file": "Quercus_rubra_acorns.jpg",
+    "author": "Dcrjsr",
+    "credit": "Dcrjsr",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v46"
+  },
+  {
+    "file": "Quercus_alba_acorns.jpg",
+    "author": "Bruce Marlin",
+    "credit": "Bruce Marlin",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v47"
+  },
+  {
+    "file": "Acer_saccharum_leaves.jpg",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v47"
+  },
+  {
+    "file": "Acer_saccharum_sap_bucket.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v47"
+  },
+  {
+    "file": "Picea_glauca_cones.jpg",
+    "author": "USDA / Wikimedia Commons",
+    "credit": "USDA / Wikimedia Commons",
+    "license": "Public domain — United States",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags/Country-specific_tags#United_States",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v47"
+  },
+  {
+    "file": "Picea_mariana_cones.jpg",
+    "author": "USDA / Wikimedia Commons",
+    "credit": "USDA / Wikimedia Commons",
+    "license": "Public domain — United States",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags/Country-specific_tags#United_States",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v47"
+  },
+  {
+    "file": "Tsuga_canadensis_branch.jpg",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v48"
+  },
+  {
+    "file": "Tsuga_canadensis_cones.jpg",
+    "author": "Dcrjsr",
+    "credit": "Dcrjsr",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v48"
+  },
+  {
+    "file": "Tsuga_canadensis_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v48"
+  },
+  {
+    "file": "Juniperus_communis_berries.jpg",
+    "author": "MPF",
+    "credit": "MPF",
+    "license": "CC BY-SA 3.0 / GFDL",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v48"
+  },
+  {
+    "file": "Juniperus_communis_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v48"
+  },
+  {
+    "file": "Plantago_major_Sturm39.jpg",
+    "author": "Johann Georg Sturm",
+    "credit": "Johann Georg Sturm",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v49"
+  },
+  {
+    "file": "Plantago_major_2005.06.19_11.31.24.jpg",
+    "author": "Rasbak",
+    "credit": "Rasbak",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v49"
+  },
+  {
+    "file": "Chenopodium_album_Sturm39.jpg",
+    "author": "Johann Georg Sturm",
+    "credit": "Johann Georg Sturm",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v49"
+  },
+  {
+    "file": "Chenopodium_album_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v49"
+  },
+  {
+    "file": "Portulaca_oleracea_Sturm39.jpg",
+    "author": "Johann Georg Sturm",
+    "credit": "Johann Georg Sturm",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v49"
+  },
+  {
+    "file": "Portulaca_oleracea_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v50"
+  },
+  {
+    "file": "Daucus_carota_May_2008-1.jpg",
+    "author": "Rasbak",
+    "credit": "Rasbak",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v50"
+  },
+  {
+    "file": "Daucus_carota_Sturm40.jpg",
+    "author": "Johann Georg Sturm",
+    "credit": "Johann Georg Sturm",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v50"
+  },
+  {
+    "file": "Osmorhiza_claytonii_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v50"
+  },
+  {
+    "file": "Osmorhiza_claytonii_flowers.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v50"
+  },
+  {
+    "file": "Cardamine_diphylla_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v51"
+  },
+  {
+    "file": "Cardamine_diphylla_flowers.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v51"
+  },
+  {
+    "file": "Asarum_canadense_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v51"
+  },
+  {
+    "file": "Asarum_canadense_flower.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v51"
+  },
+  {
+    "file": "Nuphar_variegata.jpg",
+    "author": "Superior National Forest / USDA",
+    "credit": "Superior National Forest / USDA",
+    "license": "Public domain — United States",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags/Country-specific_tags#United_States",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v51"
+  },
+  {
+    "file": "Fragaria_virginiana_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v52"
+  },
+  {
+    "file": "Fragaria_virginiana_fruit.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v52"
+  },
+  {
+    "file": "Rubus_occidentalis_fruit.jpg",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v52"
+  },
+  {
+    "file": "Rubus_idaeus_fruit.jpg",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v52"
+  },
+  {
+    "file": "Rubus_allegheniensis_fruit.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v52"
   }
 ];
 
@@ -2323,7 +2773,7 @@ export function renderCreditsPage(records, imageCredits, search = "") {
       <section class="panel">
         <h2>Credits</h2>
         <p>This page reads image-credit fields directly from the loaded species records and from the controlled built-in enrichment table.</p>
-        <p class="muted small">Desktop layout uses a two-column credit grid with compact inline metadata. The page also limits how many credit/audit cards render at once so the browser does not have to build a giant DOM every time the Credits tab opens. This build adds a plant-focused credit batch for exact image override filenames already used by the app.</p>
+        <p class="muted small">Desktop layout uses a two-column credit grid with compact inline metadata. The page also limits how many credit/audit cards render at once so the browser does not have to build a giant DOM every time the Credits tab opens. This build adds another plant-focused credit batch for exact and support filenames used by active plant records and image override sets.</p>
       </section>
 
       <section class="panel">
