@@ -3312,6 +3312,906 @@ const RAW_CREDIT_OVERRIDES = [
     "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
     "source": "Wikimedia Commons",
     "creditSource": "credits-enrichment-v72"
+  },
+  {
+    "file": "Boletus_chippewaensis_448604.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v73"
+  },
+  {
+    "file": "Boletus_subglabripes_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v73"
+  },
+  {
+    "file": "Hemileccinum_subglabripes_331619.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v73"
+  },
+  {
+    "file": "Imleria_badia_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v73"
+  },
+  {
+    "file": "Xerocomellus_chrysenteron_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v73"
+  },
+  {
+    "file": "Suillus_pictus_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v74"
+  },
+  {
+    "file": "Suillus_punctipes_330177.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v74"
+  },
+  {
+    "file": "Suillus_hirtellus_238445.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v74"
+  },
+  {
+    "file": "Suillus_weaverae_433264.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v74"
+  },
+  {
+    "file": "Suillus_salmonicolor_47452.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v74"
+  },
+  {
+    "file": "Leccinum_pseudoinsigne_477925.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v75"
+  },
+  {
+    "file": "Leccinum_snavelyi_637474.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v75"
+  },
+  {
+    "file": "Leccinum_subglabripes_452940.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v75"
+  },
+  {
+    "file": "Leccinum_variicolor_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v75"
+  },
+  {
+    "file": "Leccinum_versipelle_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v75"
+  },
+  {
+    "file": "Macrolepiota_procera_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v76"
+  },
+  {
+    "file": "Chlorophyllum_rhacodes_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v76"
+  },
+  {
+    "file": "Chlorophyllum_molybdites_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v76"
+  },
+  {
+    "file": "Leucoagaricus_americanus_112750.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v76"
+  },
+  {
+    "file": "Leucoagaricus_leucothites_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v76"
+  },
+  {
+    "file": "Amanita_bisporigera_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v77"
+  },
+  {
+    "file": "Amanita_phalloides_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v77"
+  },
+  {
+    "file": "Amanita_brunnescens_119022.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v77"
+  },
+  {
+    "file": "Amanita_flavoconia_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v77"
+  },
+  {
+    "file": "Amanita_rubescens_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v77"
+  },
+  {
+    "file": "Galerina_marginata_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v78"
+  },
+  {
+    "file": "Galerina_marginata_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v78"
+  },
+  {
+    "file": "Omphalotus_illudens_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v78"
+  },
+  {
+    "file": "Jack-o-lantern_mushroom.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v78"
+  },
+  {
+    "file": "Entoloma_abortivum_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v78"
+  },
+  {
+    "file": "Auricularia_auricula-judae_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v79"
+  },
+  {
+    "file": "Tremella_mesenterica_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v79"
+  },
+  {
+    "file": "Dacrymyces_chrysospermus_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v79"
+  },
+  {
+    "file": "Pseudohydnum_gelatinosum_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v79"
+  },
+  {
+    "file": "Exidia_recisa_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v79"
+  },
+  {
+    "file": "Calvatia_cyathiformis_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v80"
+  },
+  {
+    "file": "Calvatia_craniiformis_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v80"
+  },
+  {
+    "file": "Lycoperdon_perlatum_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v80"
+  },
+  {
+    "file": "Scleroderma_citrinum_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v80"
+  },
+  {
+    "file": "Apioperdon_pyriforme_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v80"
+  },
+  {
+    "file": "Picea_rubens_cones.jpg",
+    "author": "USDA / Wikimedia Commons",
+    "credit": "USDA / Wikimedia Commons",
+    "license": "Public domain — United States",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags/Country-specific_tags#United_States",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v81"
+  },
+  {
+    "file": "Picea_glauca_needles.jpg",
+    "author": "USDA / Wikimedia Commons",
+    "credit": "USDA / Wikimedia Commons",
+    "license": "Public domain — United States",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags/Country-specific_tags#United_States",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v81"
+  },
+  {
+    "file": "Abies_balsamea_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v81"
+  },
+  {
+    "file": "Abies_balsamea_cones.jpg",
+    "author": "USDA / Wikimedia Commons",
+    "credit": "USDA / Wikimedia Commons",
+    "license": "Public domain — United States",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags/Country-specific_tags#United_States",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v81"
+  },
+  {
+    "file": "Pinus_resin.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v81"
+  },
+  {
+    "file": "Taraxacum_officinale_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v82"
+  },
+  {
+    "file": "Taraxacum_officinale_seed_head.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v82"
+  },
+  {
+    "file": "Artemisia_vulgaris_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v82"
+  },
+  {
+    "file": "Achillea_millefolium_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v82"
+  },
+  {
+    "file": "Rumex_crispus_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v82"
+  },
+  {
+    "file": "Trillium_grandiflorum_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v83"
+  },
+  {
+    "file": "Trillium_erectum_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v83"
+  },
+  {
+    "file": "Sanguinaria_canadensis_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v83"
+  },
+  {
+    "file": "Podophyllum_peltatum_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v83"
+  },
+  {
+    "file": "Maianthemum_canadense_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v83"
+  },
+  {
+    "file": "Tussilago_farfara_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v84"
+  },
+  {
+    "file": "Cichorium_intybus_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v84"
+  },
+  {
+    "file": "Cichorium_intybus_flowers.jpg",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v84"
+  },
+  {
+    "file": "Plantago_lanceolata_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v84"
+  },
+  {
+    "file": "Rumex_obtusifolius_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v84"
+  },
+  {
+    "file": "Morus_rubra_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v85"
+  },
+  {
+    "file": "Morus_rubra_fruit.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v85"
+  },
+  {
+    "file": "Ribes_americanum_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v85"
+  },
+  {
+    "file": "Ribes_hirtellum_fruit.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v85"
+  },
+  {
+    "file": "Viburnum_trilobum_fruit.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v85"
+  },
+  {
+    "file": "Viburnum_lentago_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v86"
+  },
+  {
+    "file": "Cornus_sericea_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v86"
+  },
+  {
+    "file": "Cornus_racemosa_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v86"
+  },
+  {
+    "file": "Elaeagnus_umbellata_fruit.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v86"
+  },
+  {
+    "file": "Shepherdia_canadensis_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v86"
+  },
+  {
+    "file": "Clitocybe_nuda_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v87"
+  },
+  {
+    "file": "Lepista_personata_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v87"
+  },
+  {
+    "file": "Laccaria_laccata_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v87"
+  },
+  {
+    "file": "Laccaria_ochropurpurea_259891.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v87"
+  },
+  {
+    "file": "Marasmius_oreades_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v87"
+  },
+  {
+    "file": "Hygrophorus_russula_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v88"
+  },
+  {
+    "file": "Hygrophorus_eburneus_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v88"
+  },
+  {
+    "file": "Hygrocybe_conica_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v88"
+  },
+  {
+    "file": "Hygrocybe_coccinea_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v88"
+  },
+  {
+    "file": "Gliophorus_laetus_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v88"
+  },
+  {
+    "file": "Armillaria_gallica_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v89"
+  },
+  {
+    "file": "Armillaria_tabescens_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v89"
+  },
+  {
+    "file": "Armillaria_ostoyae_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v89"
+  },
+  {
+    "file": "Armillaria_solidipes_141333.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v89"
+  },
+  {
+    "file": "Armillaria_mellea_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v89"
+  },
+  {
+    "file": "Pholiota_squarrosa_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v90"
+  },
+  {
+    "file": "Pholiota_adiposa_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v90"
+  },
+  {
+    "file": "Gymnopilus_junonius_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v90"
+  },
+  {
+    "file": "Hypholoma_lateritium_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v90"
+  },
+  {
+    "file": "Hypholoma_fasciculare_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v90"
+  },
+  {
+    "file": "Tricholoma_magnivelare_100899.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v91"
+  },
+  {
+    "file": "Tricholoma_equestre_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v91"
+  },
+  {
+    "file": "Tricholomopsis_rutilans_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v91"
+  },
+  {
+    "file": "Melanoleuca_melaleuca_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v91"
+  },
+  {
+    "file": "Collybia_dryophila_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v91"
+  },
+  {
+    "file": "Cerioporus_squamosus_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v92"
+  },
+  {
+    "file": "Polyporus_squamosus_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v92"
+  },
+  {
+    "file": "Meripilus_sumstinei_159037.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v92"
+  },
+  {
+    "file": "Bondarzewia_berkeleyi_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v92"
+  },
+  {
+    "file": "Ischnoderma_resinosum_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v92"
   }
 ];
 
@@ -3673,7 +4573,7 @@ export function renderCreditsPage(records, imageCredits, search = "") {
       <section class="panel">
         <h2>Credits</h2>
         <p>This page reads image-credit fields directly from the loaded species records and from the controlled built-in enrichment table.</p>
-        <p class="muted small">Desktop layout uses a two-column credit grid with compact inline metadata. The page also limits how many credit/audit cards render at once so the browser does not have to build a giant DOM every time the Credits tab opens. This build adds another support credit batch. Exact filename matches apply automatically when those Commons filenames appear in loaded records; support entries remain harmless until a matching filename is present.</p>
+        <p class="muted small">Desktop layout uses a two-column credit grid with compact inline metadata. The page also limits how many credit/audit cards render at once so the browser does not have to build a giant DOM every time the Credits tab opens. The live stat labeled “Need credit enrichment” is the authoritative remaining-count estimate after loaded records and overrides are applied. This build adds another support credit batch. Exact filename matches apply automatically when those Commons filenames appear in loaded records; support entries remain harmless until a matching filename is present.</p>
       </section>
 
       <section class="panel">
