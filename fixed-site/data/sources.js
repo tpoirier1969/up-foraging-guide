@@ -25,6 +25,10 @@ export const SPECIES_PATHS = [
   "data/mushrooms/mushrooms-boletes-suillus-leccinum-4.json",
   "data/mushrooms/mushrooms-boletes-suillus-leccinum-5.json",
 
+  // Spring forage overlay: restores missing Michigan true morel spring records
+  // not currently present in the loaded base/split sources.
+  "data/mushroom-spring-forage-overlay-v4.3.34.json",
+
   // Caution look-alike overlay added after the mushroom split work.
   "data/mushroom-lookalike-stubs-v4.3.27.json"
 ];

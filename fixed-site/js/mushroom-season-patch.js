@@ -5,8 +5,9 @@ import { renderDetail } from "./ui/render-detail.js";
 import { installLazyImages } from "./lib/image-resolver.js";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
+import { isEdibleForSection } from "./lib/merge.js";
 
-const VERSION = "v4.3.33-r2026-05-12-mushroom-season-edible-balance1";
+const VERSION = "v4.3.34-r2026-05-12-mushroom-season-morel-coverage1";
 const IN_SEASON_ROUTE = "mushrooms-in-season";
 const MUSHROOM_ROUTES = new Set(["mushrooms", "mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
 const FORAGE_LIST_ROUTES = new Set(["mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
@@ -103,66 +104,48 @@ function isMushroomRecord(record = {}) {
   return text.includes("mushroom") || text.includes("fung") || text.includes("bolete") || Boolean(record.mushroom_profile);
 }
 
-function textBlob(record = {}) {
-  return [
-    record.food_role,
-    record.edibility_status,
-    record.edibility_detail,
-    record.edibility_notes,
-    record.culinary_uses,
-    record.food_quality,
-    record.foraging_value,
-    record.non_edible_severity,
-    record.danger_level,
-    record.look_alike_risk,
-    record.record_group,
-    record.record_kind,
-    record.list_role,
-    record.guide_role,
-    record.mushroom_profile?.edibility_status,
-    record.mushroom_profile?.caution_level,
-    ...(Array.isArray(record.use_roles) ? record.use_roles : asList(record.use_roles))
-  ].join(" ").toLowerCase();
-}
-
 function isForageMushroomRecordRaw(record = {}) {
   if (!isMushroomRecord(record)) return false;
   if (record.is_non_edible === true) return false;
+  // Use the app's normalized edible-section logic instead of a homemade regex gate.
+  // This restores the older, more reliable behavior for edible/forage lists.
+  return isEdibleForSection(record) === true;
+}
 
-  const foodRole = String(record.food_role || "").trim().toLowerCase();
-  const status = String(record.edibility_status || record.mushroom_profile?.edibility_status || "").trim().toLowerCase();
-  const nonEdibleSeverity = String(record.non_edible_severity || "").trim().toLowerCase();
-  const culinary = String(record.culinary_uses || record.edibility_notes || record.edibility_detail || "").trim().toLowerCase();
-  const useRoles = asList(record.use_roles).map((value) => String(value || "").trim().toLowerCase());
-  const text = textBlob(record);
+function adjacentMonthNames(monthName = "") {
+  const month = monthNumberFromName(monthName);
+  if (!month) return [monthName].filter(Boolean);
+  const nums = [month - 1, month, month + 1].map((n) => ((n - 1 + 12) % 12) + 1);
+  return nums.map((n) => MONTHS[n - 1]);
+}
 
-  const explicitReject = foodRole === "avoid"
-    || ["id / caution", "id / comparison", "comparison", "look-alike", "warning"].includes(foodRole)
-    || /^(not_edible|not-edible|non_edible|non-edible|toxic|toxic_or_dangerous|dangerous|deadly|poisonous|out_of_scope|out-of-scope)$/.test(status)
-    || /deadly|poison|toxic|dangerous|unsafe|inedible|not edible|not recommended|out[- ]of[- ]region/.test(nonEdibleSeverity);
+function hasMonthWindow(record, monthName) {
+  return adjacentMonthNames(monthName).some((name) => hasMonth(record, name));
+}
 
-  if (explicitReject) return false;
+function mushroomCoverageStats() {
+  const mushrooms = state.species.filter((record) => isMushroomRecord(record));
+  const forage = mushrooms.filter((record) => isForageMushroomRecordRaw(record));
+  const boletes = forage.filter((record) => isBolete(record));
+  const nonBolete = forage.filter((record) => !isBolete(record));
+  return {
+    totalMushrooms: mushrooms.length,
+    forageMushrooms: forage.length,
+    boleteForage: boletes.length,
+    nonBoleteForage: nonBolete.length
+  };
+}
 
-  const explicitFood = foodRole === "food"
-    || foodRole === "edible"
-    || foodRole === "culinary"
-    || foodRole === "forage"
-    || record.edible_use?.has_ingestible_use === true
-    || /^edible/.test(status)
-    || ["choice", "good", "fair", "prime", "excellent"].includes(String(record.food_quality || "").trim().toLowerCase())
-    || useRoles.some((value) => value === "food" || value.includes("food") || value.includes("culinary") || value.includes("edible"))
-    || /edible|choice|culinary|cook(?:ed|ing)?|sauté|saute|table mushroom|prime|good forage|good processed food|occasional edible|use with expert-level confidence/.test(culinary)
-    || /edible|choice|forage|culinary|cook(?:ed|ing)?|table mushroom|prime|good processed food|occasional edible|use with expert-level confidence/.test(text);
-
-  // If the record itself has an explicit food signal, keep it. Safety notes often
-  // mention poisonous look-alikes; those warnings should not turn the edible species
-  // into a non-edible record. Morels are the poster child for this.
-  if (explicitFood) return true;
-
-  // Only use broad danger-language rejection when there was no explicit food signal.
-  if (/deadly|poison|toxic|dangerous|unsafe|do not eat|do not consume|avoid|not[_ -]?edible|non[_ -]?edible|not recommended|not a food target|comparison\/caution only|comparison only|caution only|id \/ caution|look-alike warning|not treated as .*food|out[- ]of[- ]region/.test(text)) return false;
-
-  return false;
+function coverageNoteHtml(records = []) {
+  const stats = mushroomCoverageStats();
+  const warn = records.length < 10 || stats.nonBoleteForage < 20;
+  if (!warn) return "";
+  return `
+    <section class="panel" data-mushroom-coverage-note="true">
+      <h3>Data coverage note</h3>
+      <p class="muted small">This page is built from the mushroom records currently loaded by the app. Loaded forage mushrooms: ${esc(stats.forageMushrooms)} total, including ${esc(stats.nonBoleteForage)} non-bolete/other-form records and ${esc(stats.boleteForage)} bolete records. If the May list still looks thin, the remaining issue is source coverage, not the month filter.</p>
+    </section>
+  `;
 }
 
 function isForageMushroomRecord(record = {}) {
@@ -305,16 +288,17 @@ function renderInSeasonPage() {
   const month = currentMonthName();
   const records = state.species
     .filter((record) => isForageMushroomRecord(record))
-    .filter((record) => hasMonth(record, month))
+    .filter((record) => hasMonthWindow(record, month))
     .sort((a, b) => String(a.display_name || a.common_name || a.slug || "").localeCompare(String(b.display_name || b.common_name || b.slug || "")));
 
   renderPage(`
     ${mushroomLaneSwitcherHtml()}
     <section class="panel" data-mushroom-season-page="true">
-      <h2>In Season — ${esc(month)} (${records.length})</h2>
-      <p class="muted small">Shows edible mushroom records with ${esc(month)} in their recorded season fields. Records with missing or review-needed season data are left out instead of guessed.</p>
+      <h2>In Season — ${esc(month)} window (${records.length})</h2>
+      <p class="muted small">Shows edible mushroom records matching ${esc(month)} or the immediately adjacent spring/season window. This catches late-April/early-June records that are realistic in Upper Michigan.</p>
     </section>
-    ${records.length ? renderRecordCards(records, "mushrooms-in-season") : `<section class="panel"><p>No edible mushroom records currently have ${esc(month)} as a recorded season.</p></section>`}
+    ${coverageNoteHtml(records)}
+    ${records.length ? renderRecordCards(records, "mushrooms-in-season") : `<section class="panel"><p>No edible mushroom records currently match the ${esc(month)} season window.</p></section>`}
   `);
   markActiveNav("mushrooms");
   wireDetailButtons(document);
@@ -399,7 +383,7 @@ function updateMushroomVisibleCount() {
     const slug = button.dataset.detail || "";
     const record = getRecordBySlug(slug);
     if (route() === IN_SEASON_ROUTE) {
-      if (isForageMushroomRecord(record) && hasMonth(record, currentMonthName())) slugs.add(slug);
+      if (isForageMushroomRecord(record) && hasMonthWindow(record, currentMonthName())) slugs.add(slug);
     } else if (recordMatchesCurrentMushroomRoute(record)) {
       slugs.add(slug);
     }
