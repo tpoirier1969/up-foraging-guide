@@ -4662,6 +4662,456 @@ const RAW_CREDIT_OVERRIDES = [
     "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
     "source": "Wikimedia Commons",
     "creditSource": "credits-enrichment-v102"
+  },
+  {
+    "file": "Galium_aparine_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v103"
+  },
+  {
+    "file": "Galium_triflorum_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v103"
+  },
+  {
+    "file": "Geum_canadense_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v103"
+  },
+  {
+    "file": "Geum_macrophyllum_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v103"
+  },
+  {
+    "file": "Agrimonia_gryposepala_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v103"
+  },
+  {
+    "file": "Hypericum_perforatum_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v104"
+  },
+  {
+    "file": "Hypericum_punctatum_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v104"
+  },
+  {
+    "file": "Lobelia_inflata_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v104"
+  },
+  {
+    "file": "Prunella_vulgaris_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v104"
+  },
+  {
+    "file": "Scutellaria_lateriflora_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v104"
+  },
+  {
+    "file": "Smilax_herbacea_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v105"
+  },
+  {
+    "file": "Smilax_rotundifolia_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v105"
+  },
+  {
+    "file": "Dioscorea_villosa_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v105"
+  },
+  {
+    "file": "Arisaema_triphyllum_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v105"
+  },
+  {
+    "file": "Symplocarpus_foetidus_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v105"
+  },
+  {
+    "file": "Vaccinium_myrtilloides_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v106"
+  },
+  {
+    "file": "Vaccinium_corymbosum_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v106"
+  },
+  {
+    "file": "Vaccinium_oxycoccos_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v106"
+  },
+  {
+    "file": "Gaylussacia_baccata_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v106"
+  },
+  {
+    "file": "Gaultheria_hispidula_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v106"
+  },
+  {
+    "file": "Mycena_haematopus_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v107"
+  },
+  {
+    "file": "Mycena_galericulata_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v107"
+  },
+  {
+    "file": "Mycena_leaiana_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v107"
+  },
+  {
+    "file": "Pluteus_cervinus_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v107"
+  },
+  {
+    "file": "Volvariella_bombycina_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v107"
+  },
+  {
+    "file": "Clitopilus_prunulus_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v108"
+  },
+  {
+    "file": "Entoloma_rhodopolium_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v108"
+  },
+  {
+    "file": "Entoloma_sinuatum_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v108"
+  },
+  {
+    "file": "Entoloma_lividum_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v108"
+  },
+  {
+    "file": "Entoloma_incarnatofuscescens_384934.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v108"
+  },
+  {
+    "file": "Phaeolus_schweinitzii_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v109"
+  },
+  {
+    "file": "Laetiporus_gilbertsonii_194998.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v109"
+  },
+  {
+    "file": "Laetiporus_conifericola_304860.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v109"
+  },
+  {
+    "file": "Piptoporus_betulinus_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v109"
+  },
+  {
+    "file": "Fomitopsis_pinicola_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v109"
+  },
+  {
+    "file": "Lysurus_cruciatus_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v110"
+  },
+  {
+    "file": "Clathrus_ruber_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v110"
+  },
+  {
+    "file": "Dictyophora_ravenelii_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v110"
+  },
+  {
+    "file": "Geastrum_saccatum_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v110"
+  },
+  {
+    "file": "Astraeus_hygrometricus_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v110"
+  },
+  {
+    "file": "Reynoutria_japonica_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v111"
+  },
+  {
+    "file": "Fallopia_japonica_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v111"
+  },
+  {
+    "file": "Hesperis_matronalis_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v111"
+  },
+  {
+    "file": "Bunias_orientalis_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v111"
+  },
+  {
+    "file": "Barbarea_vulgaris_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v111"
+  },
+  {
+    "file": "Sorbus_americana_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v112"
+  },
+  {
+    "file": "Sorbus_decora_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v112"
+  },
+  {
+    "file": "Amelanchier_arborea_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v112"
+  },
+  {
+    "file": "Amelanchier_canadensis_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v112"
+  },
+  {
+    "file": "Celtis_occidentalis_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v112"
   }
 ];
 
