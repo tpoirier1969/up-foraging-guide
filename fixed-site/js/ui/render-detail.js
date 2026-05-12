@@ -1,11 +1,11 @@
 import { esc } from "../lib/escape.js";
 import { state } from "../state.js";
-import { getMedicinalData, isBuildNoteText, cleanUserFacingText, classifyRecord } from "../lib/merge.js?v=v4.2.47-r2026-04-27-mushroom-photo-fix1";
+import { getMedicinalData, isBuildNoteText, cleanUserFacingText, classifyRecord } from "../lib/merge.js?v=v4.3.23-r2026-05-12-mushroom-detail-cleanup1";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
-  "January","February","March","April","May","June",
-  "July","August","September","October","November","December"
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
 ];
 
 function asArray(value) {
@@ -67,14 +67,11 @@ function splitSentences(value = "") {
 function uniqueLines(values = []) {
   const seen = new Set();
   const out = [];
-  for (const value of values) {
+  for (const value of values.flatMap(asArray)) {
     for (const sentence of splitSentences(clean(value))) {
       const key = normalizeForDuplicateCheck(sentence);
       if (!key || seen.has(key)) continue;
-      // Drop shorter sentence fragments if a longer already contains them.
-      if ([...seen].some(existing => existing.includes(key) || key.includes(existing))) {
-        continue;
-      }
+      if ([...seen].some(existing => existing.includes(key) || key.includes(existing))) continue;
       seen.add(key);
       out.push(sentence);
     }
@@ -90,6 +87,12 @@ function listBlock(title, values) {
   const cleaned = asArray(values).map(clean).filter(Boolean);
   if (!cleaned.length) return "";
   return `<section class="detail-block"><h4>${esc(title)}</h4><ul class="list-tight">${cleaned.map(v => `<li>${esc(v)}</li>`).join("")}</ul></section>`;
+}
+
+function sectionWithParagraphs(title, values) {
+  const cleaned = asArray(values).flatMap(value => splitSentences(clean(value))).filter(Boolean);
+  if (!cleaned.length) return "";
+  return `<section class="detail-block"><h4>${esc(title)}</h4>${cleaned.map(value => `<p>${esc(value)}</p>`).join("")}</section>`;
 }
 
 function seasonText(record) {
@@ -109,6 +112,20 @@ function profileListValue(profile = {}, key) {
 function fieldOrProfile(record = {}, key, profileKey = key) {
   const profile = record.mushroom_profile || {};
   return profileListValue(profile, profileKey) || profileListValue(record, key);
+}
+
+function isMushroomRecord(record = {}) {
+  const hay = [
+    record.category,
+    record.group,
+    record.type,
+    record.foraging_class,
+    record.section,
+    record.lane,
+    record.kingdom
+  ].map(value => String(value || "").toLowerCase()).join(" ");
+  return Boolean(record.mushroom_profile)
+    || /mushroom|fungi|fungus|bolete|chanterelle|morel|polypore|puffball|agaric/.test(hay);
 }
 
 function findLookAlikeRecord(rawName = "") {
@@ -202,7 +219,7 @@ function lookAlikeBlock(record) {
   }).join("");
   return `
     <section class="detail-block">
-      <h4>Look-alikes / easily confused</h4>
+      <h4>Looks-alikes / Easily Confused</h4>
       ${notes ? `<p>${esc(notes)}</p>` : ""}
       ${items ? `<ul class="list-tight lookalike-cues">${items}</ul>` : ""}
     </section>
@@ -220,7 +237,7 @@ function isUsefulFoodText(value = "") {
   return /\b(choice|excellent|good|fair|edible|food|culinary|meal|seasoning|tea|broth|soup|fried|sauté|saute|cook|cooked|dry|dried|powder|occasional|niche|target|table)\b/.test(text);
 }
 
-function foodUseBlock(record) {
+function foodUseBlock(record, title = "Food use") {
   const edibleUse = record.edible_use || null;
   const profile = record.mushroom_profile || {};
   const culinaryUses = clean(record.culinary_uses);
@@ -260,7 +277,7 @@ function foodUseBlock(record) {
   if (!lines.trim()) return "";
   return `
     <section class="detail-block food-use-block">
-      <h4>Food use</h4>
+      <h4>${esc(title)}</h4>
       <dl class="kv">
         ${lines}
       </dl>
@@ -268,10 +285,10 @@ function foodUseBlock(record) {
   `;
 }
 
-function boleteDetailBlock(record) {
+function boleteDetailLines(record) {
   if (String(record?.lane || "").toLowerCase() !== "bolete") return "";
   const profile = record.mushroom_profile || {};
-  const lines = [
+  return [
     lineIf("Pore color", profileListValue(profile, "pore_color") || profileListValue(record, "poreColor")),
     lineIf("Bruising / staining", profileListValue(profile, "staining") || profileListValue(record, "staining")),
     lineIf("Stem features", profileListValue(profile, "stem_feature") || profileListValue(record, "stemFeature")),
@@ -279,14 +296,17 @@ function boleteDetailBlock(record) {
     lineIf("Growing from / with", profileListValue(profile, "substrate") || profileListValue(record, "substrate")),
     lineIf("Associated trees", profileListValue(profile, "host_trees") || profileListValue(record, "hostTree")),
     lineIf("Tree association", profileListValue(profile, "host_filter_tokens") || profileListValue(record, "host_filter_tokens")),
-    lineIf("Taste / warning clue", profileListValue(profile, "taste") || profileListValue(record, "taste")),
-    lineIf("Season note", profile.season_note)
+    lineIf("Taste / warning clue", profileListValue(profile, "taste") || profileListValue(record, "taste"))
   ].join("");
+}
+
+function boleteDetailBlock(record) {
+  const lines = boleteDetailLines(record);
   if (!lines.trim()) return "";
   return `
     <section class="detail-block bolete-id-block">
       <h4>Pored mushroom field marks</h4>
-      <dl class="kv">${lines}</dl>
+      <dl class="kv">${lines}${lineIf("Season note", record.mushroom_profile?.season_note)}</dl>
     </section>
   `;
 }
@@ -369,6 +389,140 @@ function linkBlock(record) {
   return `<section class="detail-block"><h4>Links</h4><ul class="list-tight">${items.join("")}</ul></section>`;
 }
 
+function mushroomSummaryBlock(record, typeLabel, habitats, overview) {
+  const lines = [
+    lineIf("Common names", Array.isArray(record.common_names) ? record.common_names.join(", ") : record.common_name),
+    lineIf("Scientific name", record.scientific_name),
+    lineIf("Species scope", record.species_scope || record.entry_scope),
+    lineIf("Type", typeLabel),
+    lineIf("Habitat", habitats),
+    lineIf("Commonness", record.commonness),
+    lineIf("Overview", overview)
+  ].join("");
+  if (!lines.trim()) return "";
+  return `<section class="detail-block"><h4>Mushroom</h4><dl class="kv">${lines}</dl></section>`;
+}
+
+function mushroomMedicinalBlock(medicinal) {
+  const summary = clean(medicinal.summary || "");
+  const warnings = clean(medicinal.warnings || "");
+  const actions = joinClean(asArray(medicinal.actions));
+  const systems = joinClean(asArray(medicinal.body_systems));
+  const terms = joinClean(asArray(medicinal.medical_terms));
+
+  const lines = [
+    lineIf("Use notes", summary),
+    lineIf("Cautions", warnings),
+    lineIf("Actions", actions),
+    lineIf("Body systems", systems),
+    lineIf("Medical terms", terms)
+  ].join("");
+  if (!lines.trim()) return "";
+  return `<section class="detail-block"><h4>Medicinal Uses</h4><dl class="kv">${lines}</dl></section>`;
+}
+
+function mushroomIdentificationBlock(record, fieldIdentification) {
+  const profile = record.mushroom_profile || {};
+  const clueText = uniqueLines([
+    fieldIdentification,
+    record.identification_tips,
+    record.field_marks,
+    record.clues,
+    record.field_clues,
+    record.identification_clues,
+    profile.identification_tips,
+    profile.field_marks,
+    profile.clues
+  ]).join(" ");
+
+  const lines = [
+    lineIf("Identification tips", clueText),
+    lineIf("Cap", profileListValue(profile, "cap") || profileListValue(record, "cap")),
+    lineIf("Underside / fertile surface", profileListValue(profile, "underside") || profileListValue(record, "underside")),
+    lineIf("Gills / pores", profileListValue(profile, "gills") || profileListValue(record, "gills")),
+    lineIf("Spore print", profileListValue(profile, "spore_print") || profileListValue(record, "spore_print")),
+    lineIf("Substrate", profileListValue(profile, "substrate") || profileListValue(record, "substrate")),
+    lineIf("Host tree", profileListValue(profile, "host_trees") || profileListValue(record, "hostTree")),
+    boleteDetailLines(record)
+  ].join("");
+
+  if (!lines.trim()) return "";
+  return `<section class="detail-block bolete-id-block"><h4>Identification Tips</h4><dl class="kv">${lines}</dl></section>`;
+}
+
+function mushroomNotesBlock(record, notes, generalNotes, otherUses) {
+  const values = uniqueLines([
+    notes,
+    generalNotes,
+    otherUses ? `Other uses: ${otherUses}` : ""
+  ]);
+  if (!values.length) return "";
+  return sectionWithParagraphs("Notes", values);
+}
+
+function mushroomSeasonalityBlock(record) {
+  const profile = record.mushroom_profile || {};
+  const lines = [
+    lineIf("Season", seasonText(record)),
+    lineIf("Season note", profile.season_note || record.season_note),
+    lineIf("Harvest timing", record.harvest_timing || record.harvest_stage)
+  ].join("");
+  if (!lines.trim()) return "";
+  return `<section class="detail-block"><h4>Seasonality</h4><dl class="kv">${lines}</dl></section>`;
+}
+
+function heroBlock(record, typeLabel, edibleUse) {
+  return `
+    <section class="detail-block detail-hero">
+      ${renderImageSlot(record, "detail")}
+      <div>
+        <h3>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</h3>
+        <p class="muted">${esc(record.scientific_name || "")}</p>
+        <div class="record-meta">
+          ${record.lane ? `<span class="tag">Type: ${esc(record.lane === "bolete" ? "Pores / spongy underside" : record.lane)}</span>` : (typeLabel ? `<span class="tag">Type: ${esc(typeLabel)}</span>` : "")}
+          ${record.commonness ? `<span class="tag">Commonality: ${esc(record.commonness)}</span>` : ""}
+          ${seasonText(record) ? `<span class="tag">Season: ${esc(seasonText(record))}</span>` : ""}
+          ${record.food_quality ? `<span class="tag ${/not recommended|avoid|poor|inedible/i.test(String(record.food_quality)) ? "danger" : "good"}">Food quality: ${esc(record.food_quality)}</span>` : ""}
+          ${record.non_edible_severity && !edibleUse?.has_ingestible_use ? `<span class="tag danger">${esc(record.non_edible_severity)}</span>` : ""}
+          ${record.image_review_status ? `<span class="tag review">Photo: ${esc(String(record.image_review_status).replaceAll("_", " "))}</span>` : ""}
+          ${record.review_status === "needs_review" ? `<span class="tag review">Needs review</span>` : ""}
+        </div>
+      </div>
+    </section>
+  `;
+}
+
+function renderMushroomDetail(record, context) {
+  const {
+    typeLabel,
+    medicinal,
+    habitats,
+    overview,
+    fieldIdentification,
+    edibleUse,
+    otherUses,
+    notes,
+    generalNotes
+  } = context;
+
+  return `
+    <article class="detail-grid">
+      ${heroBlock(record, typeLabel, edibleUse)}
+      ${mushroomSummaryBlock(record, typeLabel, habitats, overview)}
+      ${foodUseBlock(record, "Culinary Uses")}
+      ${mushroomMedicinalBlock(medicinal)}
+      ${mushroomIdentificationBlock(record, fieldIdentification)}
+      ${mushroomNotesBlock(record, notes, generalNotes, otherUses)}
+      ${mushroomSeasonalityBlock(record)}
+      ${lookAlikeBlock(record)}
+      ${dangerBlock(record)}
+      ${rareBlock(record)}
+      ${imageReviewBlock(record)}
+      ${linkBlock(record)}
+    </article>
+  `;
+}
+
 export function renderDetail(record) {
   const typeLabel = record.foraging_class ? String(record.foraging_class).replaceAll("_", " ") : (record.category || record.group || "");
   const medicinal = getMedicinalData(record);
@@ -383,25 +537,23 @@ export function renderDetail(record) {
   const overview = clean(record.overview);
   const fieldIdentification = clean(record.field_identification);
   const edibleUse = record.edible_use || null;
+  const context = {
+    typeLabel,
+    medicinal,
+    habitats,
+    overview,
+    fieldIdentification,
+    edibleUse,
+    otherUses,
+    notes,
+    generalNotes
+  };
+
+  if (isMushroomRecord(record)) return renderMushroomDetail(record, context);
 
   return `
     <article class="detail-grid">
-      <section class="detail-block detail-hero">
-        ${renderImageSlot(record, "detail")}
-        <div>
-          <h3>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</h3>
-          <p class="muted">${esc(record.scientific_name || "")}</p>
-          <div class="record-meta">
-            ${record.lane ? `<span class="tag">Type: ${esc(record.lane === "bolete" ? "Pores / spongy underside" : record.lane)}</span>` : (typeLabel ? `<span class="tag">Type: ${esc(typeLabel)}</span>` : "")}
-            ${record.commonness ? `<span class="tag">Commonality: ${esc(record.commonness)}</span>` : ""}
-            ${seasonText(record) ? `<span class="tag">Season: ${esc(seasonText(record))}</span>` : ""}
-            ${record.food_quality ? `<span class="tag ${/not recommended|avoid|poor|inedible/i.test(String(record.food_quality)) ? "danger" : "good"}">Food quality: ${esc(record.food_quality)}</span>` : ""}
-            ${record.non_edible_severity && !edibleUse?.has_ingestible_use ? `<span class="tag danger">${esc(record.non_edible_severity)}</span>` : ""}
-            ${record.image_review_status ? `<span class="tag review">Photo: ${esc(String(record.image_review_status).replaceAll("_", " "))}</span>` : ""}
-            ${record.review_status === "needs_review" ? `<span class="tag review">Needs review</span>` : ""}
-          </div>
-        </div>
-      </section>
+      ${heroBlock(record, typeLabel, edibleUse)}
 
       <section class="detail-block">
         <h4>Overview</h4>
