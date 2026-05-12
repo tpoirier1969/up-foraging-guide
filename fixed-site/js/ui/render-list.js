@@ -36,6 +36,7 @@ const GILLED_MUSHROOM_FILTER_DEFS = [
 ];
 
 const BOLETE_FILTER_DEFS = [
+  { key: "mushroomMonth", label: "Season", blankLabel: "Any season", valueKey: "month" },
   { key: "mushroomReviewFlag", label: "Data review", blankLabel: "Any review state", valueKey: "mushroomReviewFlag" },
   { key: "mushroomBoleteGroup", label: "Quick ID group", blankLabel: "Any quick group", valueKey: "boleteQuickGroup" },
   { key: "mushroomHabitat", label: "Habitat / setting", blankLabel: "Any habitat/setting", valueKey: "mushroomHabitat" },

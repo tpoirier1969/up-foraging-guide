@@ -7,7 +7,7 @@ import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 import { isEdibleForSection } from "./lib/merge.js";
 
-const VERSION = "v4.3.35-r2026-05-12-mushroom-detail-core-sanity1";
+const VERSION = "v4.3.36-r2026-05-12-mushroom-list-core-filter1";
 const IN_SEASON_ROUTE = "mushrooms-in-season";
 const MUSHROOM_ROUTES = new Set(["mushrooms", "mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
 const FORAGE_LIST_ROUTES = new Set(["mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
@@ -378,17 +378,6 @@ function removeNonForageMushroomCards() {
   });
 }
 
-function removeMushroomCardsOutsideSelectedSeason() {
-  if (!FILTER_ROUTES.has(route()) || !selectedMushroomMonth()) return;
-  document.querySelectorAll("[data-detail]").forEach((button) => {
-    const slug = button.dataset.detail || "";
-    const record = getRecordBySlug(slug);
-    if (!record || !isMushroomRecord(record)) return;
-    if (matchesSelectedMushroomMonth(record)) return;
-    const card = cardElementForButton(button);
-    if (card) card.remove();
-  });
-}
 
 function routeLabel() {
   return {
@@ -453,7 +442,6 @@ function runPatchPass() {
   injectInSeasonCards();
   injectSeasonSelectIfMissing();
   removeNonForageMushroomCards();
-  removeMushroomCardsOutsideSelectedSeason();
   updateMushroomVisibleCount();
 
   if (route() === IN_SEASON_ROUTE && !document.querySelector('[data-mushroom-season-page="true"]')) {
