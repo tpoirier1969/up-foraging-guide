@@ -6,7 +6,7 @@ import { installLazyImages } from "./lib/image-resolver.js";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 
-const VERSION = "v4.3.32-r2026-05-12-mushroom-core-forage-filter1";
+const VERSION = "v4.3.33-r2026-05-12-mushroom-season-edible-balance1";
 const IN_SEASON_ROUTE = "mushrooms-in-season";
 const MUSHROOM_ROUTES = new Set(["mushrooms", "mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
 const FORAGE_LIST_ROUTES = new Set(["mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
@@ -45,9 +45,50 @@ function monthValues(record = {}) {
   return Array.from(new Set(out.map((value) => String(value || "").trim()).filter(Boolean)));
 }
 
+function monthNumberFromName(monthName = "") {
+  return MONTHS.findIndex((month) => month.toLowerCase() === String(monthName || "").toLowerCase()) + 1;
+}
+
+function seasonText(record = {}) {
+  return [
+    record.season,
+    record.seasonality,
+    record.fruiting_period,
+    record.fruitingPeriod,
+    record.availability,
+    record.mushroom_profile?.season_note,
+    record.mushroom_profile?.fruiting_period,
+    record.mushroom_profile?.seasonality
+  ].flatMap(asList).join(" ").toLowerCase();
+}
+
+function seasonTextMatchesMonth(record = {}, monthName = "") {
+  const month = monthNumberFromName(monthName);
+  if (!month) return false;
+  const text = seasonText(record);
+  if (!text) return false;
+  if (text.includes(String(monthName || "").toLowerCase())) return true;
+  if (/year[- ]round|all year|perennial|visible year/.test(text)) return true;
+  if (/early spring/.test(text)) return [3, 4].includes(month);
+  if (/mid spring/.test(text)) return [4, 5].includes(month);
+  if (/late spring/.test(text)) return [5, 6].includes(month);
+  if (/spring/.test(text)) return [3, 4, 5].includes(month);
+  if (/early summer/.test(text)) return [6, 7].includes(month);
+  if (/mid summer/.test(text)) return [7, 8].includes(month);
+  if (/late summer/.test(text)) return [8, 9].includes(month);
+  if (/summer/.test(text)) return [6, 7, 8].includes(month);
+  if (/early fall|early autumn/.test(text)) return [9, 10].includes(month);
+  if (/mid fall|mid autumn/.test(text)) return [10].includes(month);
+  if (/late fall|late autumn/.test(text)) return [10, 11].includes(month);
+  if (/fall|autumn/.test(text)) return [9, 10, 11].includes(month);
+  if (/winter/.test(text)) return [12, 1, 2].includes(month);
+  return false;
+}
+
 function hasMonth(record, monthName) {
   const wanted = String(monthName || "").toLowerCase();
-  return monthValues(record).some((value) => String(value || "").toLowerCase() === wanted);
+  return monthValues(record).some((value) => String(value || "").toLowerCase() === wanted)
+    || seasonTextMatchesMonth(record, monthName);
 }
 
 function isMushroomRecord(record = {}) {
@@ -90,16 +131,37 @@ function isForageMushroomRecordRaw(record = {}) {
 
   const foodRole = String(record.food_role || "").trim().toLowerCase();
   const status = String(record.edibility_status || record.mushroom_profile?.edibility_status || "").trim().toLowerCase();
+  const nonEdibleSeverity = String(record.non_edible_severity || "").trim().toLowerCase();
+  const culinary = String(record.culinary_uses || record.edibility_notes || record.edibility_detail || "").trim().toLowerCase();
   const useRoles = asList(record.use_roles).map((value) => String(value || "").trim().toLowerCase());
   const text = textBlob(record);
 
-  if (["avoid", "caution", "id / caution", "id / comparison", "comparison", "look-alike", "warning"].includes(foodRole)) return false;
-  if (/^(not_edible|not-edible|non_edible|non-edible|toxic|toxic_or_dangerous|dangerous|out_of_scope|out-of-scope)$/.test(status)) return false;
+  const explicitReject = foodRole === "avoid"
+    || ["id / caution", "id / comparison", "comparison", "look-alike", "warning"].includes(foodRole)
+    || /^(not_edible|not-edible|non_edible|non-edible|toxic|toxic_or_dangerous|dangerous|deadly|poisonous|out_of_scope|out-of-scope)$/.test(status)
+    || /deadly|poison|toxic|dangerous|unsafe|inedible|not edible|not recommended|out[- ]of[- ]region/.test(nonEdibleSeverity);
+
+  if (explicitReject) return false;
+
+  const explicitFood = foodRole === "food"
+    || foodRole === "edible"
+    || foodRole === "culinary"
+    || foodRole === "forage"
+    || record.edible_use?.has_ingestible_use === true
+    || /^edible/.test(status)
+    || ["choice", "good", "fair", "prime", "excellent"].includes(String(record.food_quality || "").trim().toLowerCase())
+    || useRoles.some((value) => value === "food" || value.includes("food") || value.includes("culinary") || value.includes("edible"))
+    || /edible|choice|culinary|cook(?:ed|ing)?|sauté|saute|table mushroom|prime|good forage|good processed food|occasional edible|use with expert-level confidence/.test(culinary)
+    || /edible|choice|forage|culinary|cook(?:ed|ing)?|table mushroom|prime|good processed food|occasional edible|use with expert-level confidence/.test(text);
+
+  // If the record itself has an explicit food signal, keep it. Safety notes often
+  // mention poisonous look-alikes; those warnings should not turn the edible species
+  // into a non-edible record. Morels are the poster child for this.
+  if (explicitFood) return true;
+
+  // Only use broad danger-language rejection when there was no explicit food signal.
   if (/deadly|poison|toxic|dangerous|unsafe|do not eat|do not consume|avoid|not[_ -]?edible|non[_ -]?edible|not recommended|not a food target|comparison\/caution only|comparison only|caution only|id \/ caution|look-alike warning|not treated as .*food|out[- ]of[- ]region/.test(text)) return false;
 
-  if (foodRole === "food") return true;
-  if (useRoles.some((value) => value === "food" || value.includes("food") || value.includes("culinary") || value.includes("edible"))) return true;
-  if (/edible|choice|forage|culinary|cook|table mushroom|prime|good processed food|occasional edible|use with expert-level confidence/.test(text)) return true;
   return false;
 }
 
