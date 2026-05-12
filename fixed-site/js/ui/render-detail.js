@@ -162,32 +162,73 @@ function findLookAlikeRecord(rawName = "") {
   return records.find((record) => record.slug === direct.duplicate_of) || direct;
 }
 
-function lookAlikeStatus(record = null) {
-  if (!record) return { label: "Status: needs review", className: "review" };
-  const info = classifyRecord(record);
-  const hay = [
+function lookAlikeTextBlob(record = {}) {
+  return [
+    record.slug,
+    record.display_name,
+    record.common_name,
+    record.scientific_name,
     record.edibility_status,
     record.non_edible_severity,
     record.danger_level,
     record.poisoning_effects,
     record.toxicity_notes,
     record.food_role,
-    record.food_quality
+    record.food_quality,
+    record.culinary_uses,
+    record.edibility_detail,
+    record.edibility_notes,
+    record.foraging_value,
+    ...(asArray(record.common_names)),
+    ...(asArray(record.search_aliases)),
+    ...(asArray(record.mushroom_profile?.taste)),
+    record.mushroom_profile?.edibility_status,
+    record.mushroom_profile?.caution_level
   ].join(" ").toLowerCase();
+}
 
-  if (/deadly|fatal|death/.test(hay)) return { label: "Deadly", className: "danger" };
-  if (/poison|toxic/.test(hay)) return { label: "Poisonous", className: "danger" };
-  if (/avoid|not recommended|inedible|unsafe|questionable|caution/.test(hay) || (info.caution && !info.edible)) {
-    return { label: record.non_edible_severity ? clean(record.non_edible_severity) : "Caution / not recommended", className: "danger" };
+function isBitterBoleteComparison(record = null, rawName = "") {
+  const hay = `${rawName} ${record ? lookAlikeTextBlob(record) : ""}`.toLowerCase();
+  return /\b(true[- ]?)?bitter[- ]bolete\b|\btylopilus felleus\b|\bbitter tylopilus\b|\bpink[- ]pored tylopilus\b/.test(hay)
+    || (/\btylopilus\b/.test(hay) && /\bbitter\b/.test(hay) && !/\b(deadly|fatal|lethal|poisonous|toxic)\b/.test(hay));
+}
+
+function hasExplicitPoisonSignal(hay = "") {
+  const text = String(hay || "").toLowerCase();
+  if (/\b(not poisonous|non-poisonous|nonpoisonous|not treated .* poison|not a poison)\b/.test(text)) return false;
+  return /\b(poisonous|poisoning|toxic|toxicity|toxin)\b/.test(text);
+}
+
+function lookAlikeStatus(record = null, rawName = "") {
+  if (!record) return { label: "Status: needs review", className: "review", kind: "review" };
+  const info = classifyRecord(record);
+  const hay = lookAlikeTextBlob(record);
+  const quality = clean(record.food_quality);
+  const severity = clean(record.non_edible_severity);
+  const bitter = isBitterBoleteComparison(record, rawName);
+
+  if (/\b(deadly|fatal|death|lethal)\b/.test(hay)) {
+    return { label: "Deadly", className: "danger", kind: "deadly" };
+  }
+  if (!bitter && hasExplicitPoisonSignal(hay)) {
+    return { label: "Poisonous", className: "danger", kind: "poisonous" };
+  }
+  if (bitter) {
+    return { label: "Bitter / inedible", className: "caution", kind: "bitter" };
+  }
+  if (/\b(unsafe|avoid|questionable)\b/.test(hay)) {
+    return { label: "Unsafe / avoid", className: "caution", kind: "unsafe" };
+  }
+  if (/\b(inedible|not edible|not recommended|caution)\b/.test(hay) || (info.caution && !info.edible)) {
+    return { label: severity || "Not recommended for food", className: "caution", kind: "inedible" };
   }
 
-  const quality = clean(record.food_quality);
-  if (/choice|excellent/.test(quality.toLowerCase())) return { label: "Choice edible", className: "good" };
-  if (/good/.test(quality.toLowerCase())) return { label: "Good edible", className: "good" };
-  if (/fair/.test(quality.toLowerCase())) return { label: "Fair edible", className: "" };
-  if (/poor/.test(quality.toLowerCase())) return { label: "Poor edible", className: "danger" };
-  if (info.edible) return { label: "Edible", className: "good" };
-  return { label: "Status: needs review", className: "review" };
+  if (/choice|excellent/.test(quality.toLowerCase())) return { label: "Choice edible", className: "good", kind: "edible" };
+  if (/good/.test(quality.toLowerCase())) return { label: "Good edible", className: "good", kind: "edible" };
+  if (/fair/.test(quality.toLowerCase())) return { label: "Fair edible", className: "", kind: "edible" };
+  if (/poor/.test(quality.toLowerCase())) return { label: "Poor edible", className: "caution", kind: "poor" };
+  if (info.edible) return { label: "Edible", className: "good", kind: "edible" };
+  return { label: "Status: needs review", className: "review", kind: "review" };
 }
 
 function statusTagHtml(status) {
@@ -230,21 +271,27 @@ function lookAlikeSeparationNote(record = {}, rawName = "") {
 }
 
 function lookAlikeRiskClass(status = {}) {
-  const label = String(status.label || "").toLowerCase();
-  if (/deadly|fatal|death/.test(label)) return "lookalike-deadly";
-  if (status.className === "danger" || /poison|toxic|avoid|unsafe|inedible|caution|not recommended/.test(label)) return "lookalike-danger";
+  if (status.kind === "deadly") return "lookalike-deadly";
+  if (status.kind === "poisonous") return "lookalike-danger";
+  if (["unsafe", "inedible", "poor"].includes(status.kind)) return "lookalike-caution";
+  if (status.kind === "bitter") return "lookalike-bitter";
   if (status.className === "review") return "lookalike-review";
   if (status.className === "good") return "lookalike-good";
   return "";
 }
 
 function lookAlikeWarningText(status = {}) {
-  const label = String(status.label || "").toLowerCase();
-  if (/deadly|fatal|death/.test(label)) {
+  if (status.kind === "deadly") {
     return "Deadly look-alike: treat this comparison as a stop sign, not a casual note.";
   }
-  if (status.className === "danger" || /poison|toxic|avoid|unsafe|inedible|not recommended/.test(label)) {
-    return "Poisonous/unsafe look-alike: confirm the separating features before considering this species for food.";
+  if (status.kind === "poisonous") {
+    return "Poisonous look-alike: confirm the separating features before considering this species for food.";
+  }
+  if (status.kind === "bitter") {
+    return "Bitter / inedible look-alike: confirm the separating features before this goes anywhere near the pan.";
+  }
+  if (["unsafe", "inedible", "poor"].includes(status.kind)) {
+    return "Unsafe or not-recommended look-alike: confirm the separating features before treating this as food.";
   }
   if (status.className === "review") {
     return "Look-alike status needs review: do not use this comparison as a final ID.";
@@ -252,27 +299,54 @@ function lookAlikeWarningText(status = {}) {
   return "";
 }
 
-function lookAlikeBlock(record) {
-  const names = asArray(record.look_alikes).map(clean).filter(Boolean);
-  const notes = clean(record.look_alike_notes);
-  if (!names.length && !notes) return "";
+function canonicalLookAlikeKey(rawName = "", linkedRecord = null) {
+  const hay = `${rawName} ${linkedRecord ? lookAlikeTextBlob(linkedRecord) : ""}`.toLowerCase();
+  if (/\b(true[- ]?)?bitter[- ]bolete\b|\btylopilus felleus\b|\bbitter tylopilus\b|\bpink[- ]pored tylopilus\b/.test(hay)) return "bitter-bolete";
+  if (/\bfalse[- ]king[- ]bolete\b|\bboletus huronensis\b/.test(hay)) return "false-king-bolete";
+  return linkedRecord?.duplicate_of || linkedRecord?.slug || slugifyLookup(rawName);
+}
 
-  let hasDanger = false;
+function collectLookAlikeEntries(record = {}) {
+  const rawNames = [
+    ...asArray(record.look_alikes),
+    ...asArray(record.lookalikes),
+    ...asArray(record.confused_with)
+  ].map(clean).filter(Boolean);
+  const seen = new Set();
+  const entries = [];
+
+  for (const name of rawNames) {
+    const linkedRecord = findLookAlikeRecord(name);
+    const key = canonicalLookAlikeKey(name, linkedRecord);
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    entries.push({ name, linkedRecord, key });
+  }
+  return entries;
+}
+
+function lookAlikeBlock(record) {
+  const entries = collectLookAlikeEntries(record);
+  const notes = clean(record.look_alike_notes);
+  if (!entries.length && !notes) return "";
+
   let hasDeadly = false;
+  let hasPoison = false;
+  let hasCaution = false;
   let hasReview = false;
 
-  const items = names.map((name) => {
-    const linkedRecord = findLookAlikeRecord(name);
-    const slug = linkedRecord?.slug || slugifyLookup(name);
+  const items = entries.map(({ name, linkedRecord, key }) => {
+    const slug = linkedRecord?.slug || key || slugifyLookup(name);
     const label = linkedRecord ? (linkedRecord.display_name || linkedRecord.common_name || titleFromSlugOrName(name)) : titleFromSlugOrName(name);
-    const status = lookAlikeStatus(linkedRecord);
+    const status = lookAlikeStatus(linkedRecord, name);
     const riskClass = lookAlikeRiskClass(status);
     const warning = lookAlikeWarningText(status);
     const note = lookAlikeSeparationNote(record, name);
 
-    if (riskClass === "lookalike-deadly") hasDeadly = true;
-    if (riskClass === "lookalike-danger" || riskClass === "lookalike-deadly") hasDanger = true;
-    if (riskClass === "lookalike-review") hasReview = true;
+    if (status.kind === "deadly") hasDeadly = true;
+    if (status.kind === "poisonous") hasPoison = true;
+    if (["unsafe", "inedible", "bitter", "poor"].includes(status.kind)) hasCaution = true;
+    if (status.kind === "review") hasReview = true;
 
     return `<li class="lookalike-cue-item ${esc(riskClass)}">
       <div class="lookalike-title-row">
@@ -286,12 +360,14 @@ function lookAlikeBlock(record) {
 
   const summary = hasDeadly
     ? "One or more listed look-alikes is flagged as deadly. Slow down and verify the full mushroom, including underside, stem/base, spore color, substrate, and season."
-    : (hasDanger
-      ? "One or more listed look-alikes is poisonous, unsafe, or not recommended. Treat those warnings as primary ID information, not trivia."
-      : (hasReview ? "One or more look-alikes still needs review, so this comparison should not be used as a final ID by itself." : ""));
+    : (hasPoison
+      ? "One or more listed look-alikes is poisonous. Treat that as primary ID information, not trivia."
+      : (hasCaution
+        ? "One or more listed look-alikes is unsafe, bitter, inedible, or not recommended for food. That is different from poisonous, but it still matters."
+        : (hasReview ? "One or more look-alikes still needs review, so this comparison should not be used as a final ID by itself." : "")));
 
   return `
-    <section class="detail-block lookalike-detail-block ${hasDeadly ? "has-deadly-lookalike" : (hasDanger ? "has-danger-lookalike" : "")}">
+    <section class="detail-block lookalike-detail-block ${hasDeadly ? "has-deadly-lookalike" : (hasPoison ? "has-danger-lookalike" : (hasCaution ? "has-caution-lookalike" : ""))}">
       <h4>Look-alikes / Easily Confused</h4>
       ${summary ? `<p class="lookalike-summary">${esc(summary)}</p>` : ""}
       ${notes ? `<p>${esc(notes)}</p>` : ""}

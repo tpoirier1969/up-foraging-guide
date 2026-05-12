@@ -7,7 +7,7 @@ import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 import { isEdibleForSection } from "./lib/merge.js";
 
-const VERSION = "v4.3.34-r2026-05-12-mushroom-season-morel-coverage1";
+const VERSION = "v4.3.35-r2026-05-12-mushroom-detail-core-sanity1";
 const IN_SEASON_ROUTE = "mushrooms-in-season";
 const MUSHROOM_ROUTES = new Set(["mushrooms", "mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
 const FORAGE_LIST_ROUTES = new Set(["mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
@@ -123,6 +123,16 @@ function hasMonthWindow(record, monthName) {
   return adjacentMonthNames(monthName).some((name) => hasMonth(record, name));
 }
 
+function selectedMushroomMonth() {
+  return String(state.filters?.mushroomMonth || "").trim();
+}
+
+function matchesSelectedMushroomMonth(record = {}) {
+  const selected = selectedMushroomMonth();
+  if (!selected) return true;
+  return hasMonth(record, selected);
+}
+
 function mushroomCoverageStats() {
   const mushrooms = state.species.filter((record) => isMushroomRecord(record));
   const forage = mushrooms.filter((record) => isForageMushroomRecordRaw(record));
@@ -184,6 +194,7 @@ function isBolete(record = {}) {
 function recordMatchesCurrentMushroomRoute(record = {}) {
   const r = route();
   if (!isForageMushroomRecord(record)) return false;
+  if (FILTER_ROUTES.has(r) && !matchesSelectedMushroomMonth(record)) return false;
   if (r === "mushrooms-gilled") return isGilled(record);
   if (r === "boletes") return isBolete(record);
   if (r === "mushrooms-other") return !isGilled(record) && !isBolete(record);
@@ -367,6 +378,18 @@ function removeNonForageMushroomCards() {
   });
 }
 
+function removeMushroomCardsOutsideSelectedSeason() {
+  if (!FILTER_ROUTES.has(route()) || !selectedMushroomMonth()) return;
+  document.querySelectorAll("[data-detail]").forEach((button) => {
+    const slug = button.dataset.detail || "";
+    const record = getRecordBySlug(slug);
+    if (!record || !isMushroomRecord(record)) return;
+    if (matchesSelectedMushroomMonth(record)) return;
+    const card = cardElementForButton(button);
+    if (card) card.remove();
+  });
+}
+
 function routeLabel() {
   return {
     "mushrooms-gilled": "Gilled mushrooms",
@@ -430,6 +453,7 @@ function runPatchPass() {
   injectInSeasonCards();
   injectSeasonSelectIfMissing();
   removeNonForageMushroomCards();
+  removeMushroomCardsOutsideSelectedSeason();
   updateMushroomVisibleCount();
 
   if (route() === IN_SEASON_ROUTE && !document.querySelector('[data-mushroom-season-page="true"]')) {
