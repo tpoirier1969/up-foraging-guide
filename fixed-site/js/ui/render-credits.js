@@ -1512,8 +1512,463 @@ const RAW_CREDIT_OVERRIDES = [
     "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
     "source": "Wikimedia Commons",
     "creditSource": "credits-enrichment-v32"
+  },
+  {
+    "file": "Old_Pinus_strobus.jpg",
+    "author": "Chris M",
+    "credit": "Chris M",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "Wikimedia Commons / Flickr",
+    "creditSource": "credits-enrichment-v33"
+  },
+  {
+    "file": "Pinus_strobus.jpg",
+    "author": "MPF / Wikimedia Commons uploader",
+    "credit": "MPF / Wikimedia Commons uploader",
+    "license": "CC BY-SA 3.0 / GFDL",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v33"
+  },
+  {
+    "file": "NAS-145_Pinus_strobus.png",
+    "author": "North American Sylva / public-domain botanical plate",
+    "credit": "North American Sylva / public-domain botanical plate",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v33"
+  },
+  {
+    "file": "Betula_papyrifera.jpg",
+    "author": "WindBorneListener",
+    "credit": "WindBorneListener",
+    "license": "CC0 1.0 Universal Public Domain Dedication",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v33"
+  },
+  {
+    "file": "NAS-069_Betula_papyrifera.png",
+    "author": "North American Sylva / public-domain botanical plate",
+    "credit": "North American Sylva / public-domain botanical plate",
+    "license": "Public domain",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v33"
+  },
+  {
+    "file": "Cornus_canadensis,_Pancake_Bay_PP.jpg",
+    "author": "P199 / Wikimedia Commons",
+    "credit": "P199 / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v34"
+  },
+  {
+    "file": "Cornus_canadensis_Rainy_River.jpg",
+    "author": "P199 / Wikimedia Commons",
+    "credit": "P199 / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v34"
+  },
+  {
+    "file": "Cornus_canadensis,_Sault_Ste_Marie.JPG",
+    "author": "P199 / Wikimedia Commons",
+    "credit": "P199 / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v34"
+  },
+  {
+    "file": "Arctium_lappa_8.JPG",
+    "author": "Dalgial",
+    "credit": "Dalgial",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v34"
+  },
+  {
+    "file": "Arctium_lappa_(3704272472).jpg",
+    "author": "Matt Lavin",
+    "credit": "Matt Lavin",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "Wikimedia Commons / Flickr",
+    "creditSource": "credits-enrichment-v34"
+  },
+  {
+    "file": "Arctium_lappa_(3704271620).jpg",
+    "author": "Matt Lavin",
+    "credit": "Matt Lavin",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "Wikimedia Commons / Flickr",
+    "creditSource": "credits-enrichment-v35"
+  },
+  {
+    "file": "Typha_latifolia_Finland.jpg",
+    "author": "Kristian Peters -- Fabelfroh",
+    "credit": "Kristian Peters -- Fabelfroh",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v35"
+  },
+  {
+    "file": "Typha_latifolia_norway.jpg",
+    "author": "Bjørn Christian Tørrissen",
+    "credit": "Bjørn Christian Tørrissen",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v35"
+  },
+  {
+    "file": "Dunhammer.jpg",
+    "author": "Erik Christensen",
+    "credit": "Erik Christensen",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v35"
+  },
+  {
+    "file": "Stellaria_media_(2560842443).jpg",
+    "author": "Matt Lavin",
+    "credit": "Matt Lavin",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "Wikimedia Commons / Flickr",
+    "creditSource": "credits-enrichment-v35"
+  },
+  {
+    "file": "Stellaria_media_-_flowers.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v36"
+  },
+  {
+    "file": "Stellaria_media.jpg",
+    "author": "Rasbak",
+    "credit": "Rasbak",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v36"
+  },
+  {
+    "file": "Calamus_(Acorus_calamus).jpg",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v36"
+  },
+  {
+    "file": "Acorus_calamus.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v36"
+  },
+  {
+    "file": "Acorus_calamus_rhizomes.jpg",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v36"
+  },
+  {
+    "file": "Comptonia_peregrina_BotGardBln1105HabitusFall.JPG",
+    "author": "Daderot",
+    "credit": "Daderot",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v37"
+  },
+  {
+    "file": "Comptonia_peregrina_HabitusLeavesFall_BotGardBln0906.JPG",
+    "author": "Daderot",
+    "credit": "Daderot",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v37"
+  },
+  {
+    "file": "Comptonia_peregrina.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v37"
+  },
+  {
+    "file": "Salix_discolor_kz1.jpg",
+    "author": "Krzysztof Ziarnek, Kenraiz",
+    "credit": "Krzysztof Ziarnek, Kenraiz",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v37"
+  },
+  {
+    "file": "Salix_discolor(01).jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v37"
+  },
+  {
+    "file": "S_discolor_female_flowers_01.JPG",
+    "author": "USDA / Wikimedia Commons",
+    "credit": "USDA / Wikimedia Commons",
+    "license": "Public domain — United States",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags/Country-specific_tags#United_States",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v38"
+  },
+  {
+    "file": "Gaultheria-procumbens-habit.JPG",
+    "author": "Dcrjsr",
+    "credit": "Dcrjsr",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v38"
+  },
+  {
+    "file": "Gaultheria_procumbens.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v38"
+  },
+  {
+    "file": "FountainSpringsWintergreen.png",
+    "author": "USGS / Wikimedia Commons",
+    "credit": "USGS / Wikimedia Commons",
+    "license": "Public domain — United States",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags/Country-specific_tags#United_States",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v38"
+  },
+  {
+    "file": "Achillea_millefolium_habito.jpg",
+    "author": "Bff",
+    "credit": "Bff",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v38"
+  },
+  {
+    "file": "Achillea_millefolium_vallee-de-grace-amiens_80_22062007_1.jpg",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v39"
+  },
+  {
+    "file": "Achillea_millefolium_4.jpg",
+    "author": "Isidre blanc",
+    "credit": "Isidre blanc",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v39"
+  },
+  {
+    "file": "Oenothera_biennis,_Vic-la-Gardiole_01.jpg",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v39"
+  },
+  {
+    "file": "Oenothera_biennis_Rosette.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v39"
+  },
+  {
+    "file": "Oenothera_biennis002.jpg",
+    "author": "Rasbak",
+    "credit": "Rasbak",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v39"
+  },
+  {
+    "file": "2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg",
+    "author": "Famartin",
+    "credit": "Famartin",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v40"
+  },
+  {
+    "file": "Orange_jewelweed_(Whitefish_Island)_2.JPG",
+    "author": "P199 / Wikimedia Commons",
+    "credit": "P199 / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v40"
+  },
+  {
+    "file": "Orange_Balsam_or_Jewelweed_(Impatiens_capensis)_-_geograph.org.uk_-_950225.jpg",
+    "author": "Robert Flogaus-Faust",
+    "credit": "Robert Flogaus-Faust",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "Wikimedia Commons / Geograph",
+    "creditSource": "credits-enrichment-v40"
+  },
+  {
+    "file": "Ledum_groenlandicum_2-eheep_(5097487541).jpg",
+    "author": "eheep",
+    "credit": "eheep",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "Wikimedia Commons / Flickr",
+    "creditSource": "credits-enrichment-v40"
+  },
+  {
+    "file": "Bog_Labrador-tea_(Orphan_Lk).JPG",
+    "author": "P199 / Wikimedia Commons",
+    "credit": "P199 / Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v40"
+  },
+  {
+    "file": "Bog_Labrador_Tea_(3816426668).jpg",
+    "author": "Joshua Mayer",
+    "credit": "Joshua Mayer",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "Wikimedia Commons / Flickr",
+    "creditSource": "credits-enrichment-v41"
+  },
+  {
+    "file": "Betula_papyrifera-bark.jpg",
+    "author": "Nicholas A. Tonelli",
+    "credit": "Nicholas A. Tonelli",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "source": "Wikimedia Commons / Flickr",
+    "creditSource": "credits-enrichment-v41"
+  },
+  {
+    "file": "Arctium_lappa_burdock.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v41"
+  },
+  {
+    "file": "Arctium_lappa_003.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v41"
+  },
+  {
+    "file": "Typha_latifolia_01_by_Line1.jpg",
+    "author": "Line1",
+    "credit": "Line1",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v41"
+  },
+  {
+    "file": "Stellaria_media_flowers.jpg",
+    "author": "AnRo0002",
+    "credit": "AnRo0002",
+    "license": "CC0 1.0 Universal Public Domain Dedication",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v42"
+  },
+  {
+    "file": "Acorus_calamus_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v42"
+  },
+  {
+    "file": "Comptonia_peregrina_Kalmia_latifolia_BotGardBln0906Leaves.JPG",
+    "author": "Daderot",
+    "credit": "Daderot",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v42"
+  },
+  {
+    "file": "Salix_discolor_catkins.jpg",
+    "author": "Cephas",
+    "credit": "Cephas",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v42"
+  },
+  {
+    "file": "Gaultheria_procumbens_fruits.JPG",
+    "author": "Dcrjsr",
+    "credit": "Dcrjsr",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v42"
   }
 ];
+
+const DEFAULT_CREDIT_CARD_LIMIT = 260;
+const SEARCH_CREDIT_CARD_LIMIT = 600;
+const DEFAULT_AUDIT_CARD_LIMIT = 80;
+const SEARCH_AUDIT_CARD_LIMIT = 300;
 
 function asList(value) {
   if (Array.isArray(value)) return value;
@@ -1726,21 +2181,37 @@ function missingText(value, label) {
   return value ? esc(value) : `<span class="muted">${esc(label)} not recorded yet</span>`;
 }
 
+function inlinePair(label, value, missingLabel = "") {
+  return `<span><strong>${esc(label)}:</strong> ${value ? esc(value) : `<em class="muted">${esc(missingLabel || label)} missing</em>`}</span>`;
+}
+
+function linkButton(entry, href, label) {
+  return href ? `<a class="buttonish credit-link" href="${esc(href)}" target="_blank" rel="noreferrer">${esc(label)}</a>` : "";
+}
+
 function creditRow(entry) {
+  const creditText = entry.credit && entry.credit !== entry.author
+    ? `<div class="credit-note"><strong>Credit:</strong> ${esc(entry.credit)}</div>`
+    : "";
+
   return `
-    <article class="credit-card">
+    <article class="credit-card compact-credit-card">
       <h3>${esc(entry.species || entry.slug || "Untitled")}</h3>
-      ${entry.scientific_name ? `<p class="muted small"><em>${esc(entry.scientific_name)}</em></p>` : ""}
-      <p><strong>Title:</strong> ${missingText(entry.title, "Title")}</p>
-      <p><strong>Author / creator / photographer:</strong> ${missingText(entry.author, "Creator")}</p>
-      ${entry.credit && entry.credit !== entry.author ? `<p><strong>Credit text:</strong> ${esc(entry.credit)}</p>` : ""}
-      <p><strong>Source:</strong> ${esc(entry.source || "Image source")}</p>
-      <p><strong>License:</strong> ${missingText(entry.license, "License")}</p>
-      ${entry.creditSource ? `<p class="muted small"><strong>Credit pass:</strong> ${esc(entry.creditSource)}</p>` : ""}
-      <div class="control-row compact">
-        ${entry.sourcePage ? `<a class="buttonish" href="${esc(entry.sourcePage)}" target="_blank" rel="noreferrer">Source page</a>` : ""}
-        ${entry.licenseUrl ? `<a class="buttonish" href="${esc(entry.licenseUrl)}" target="_blank" rel="noreferrer">License link</a>` : ""}
-        ${entry.sourceImage ? `<a class="buttonish" href="${esc(entry.sourceImage)}" target="_blank" rel="noreferrer">Image file</a>` : ""}
+      ${entry.scientific_name ? `<p class="muted small credit-sci"><em>${esc(entry.scientific_name)}</em></p>` : ""}
+      <div class="credit-meta-line">
+        ${inlinePair("Title", entry.title, "title")}
+        ${inlinePair("Creator", entry.author, "creator")}
+      </div>
+      <div class="credit-meta-line">
+        ${inlinePair("License", entry.license, "license")}
+        ${inlinePair("Source", entry.source || "Image source")}
+      </div>
+      ${entry.creditSource ? `<div class="credit-meta-line credit-pass-line">${inlinePair("Pass", entry.creditSource)}</div>` : ""}
+      ${creditText}
+      <div class="credit-actions">
+        ${linkButton(entry, entry.sourcePage, "Source page")}
+        ${linkButton(entry, entry.licenseUrl, "License")}
+        ${linkButton(entry, entry.sourceImage, "Image file")}
       </div>
     </article>
   `;
@@ -1757,18 +2228,66 @@ function catalogRow(record) {
     : (missingCreator || missingLicense ? "Needs credit enrichment" : "TASL-style credit fields present");
 
   return `
-    <article class="credit-card compact-card">
+    <article class="credit-card compact-card compact-credit-card">
       <h3>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</h3>
-      ${record.scientific_name ? `<p class="muted small"><em>${esc(record.scientific_name)}</em></p>` : ""}
-      <p><strong>Credit status:</strong> ${esc(status)}</p>
-      <p><strong>Usable image records:</strong> ${imageCount}</p>
-      ${imageCount ? `<p><strong>Missing creator:</strong> ${missingCreator} · <strong>Missing license/license link:</strong> ${missingLicense} · <strong>Enriched here:</strong> ${enriched}</p>` : ""}
+      ${record.scientific_name ? `<p class="muted small credit-sci"><em>${esc(record.scientific_name)}</em></p>` : ""}
+      <div class="credit-meta-line">
+        ${inlinePair("Status", status)}
+        ${inlinePair("Images", String(imageCount))}
+      </div>
+      ${imageCount ? `<div class="credit-meta-line">${inlinePair("Missing creator", String(missingCreator))} ${inlinePair("Missing license", String(missingLicense))} ${inlinePair("Enriched", String(enriched))}</div>` : ""}
     </article>
+  `;
+}
+
+function limitedList(list, hasSearch, defaultLimit, searchLimit) {
+  const limit = hasSearch ? searchLimit : defaultLimit;
+  return {
+    visible: list.slice(0, limit),
+    hiddenCount: Math.max(0, list.length - limit),
+    limit
+  };
+}
+
+function limitNotice(kind, hiddenCount, limit, hasSearch) {
+  if (!hiddenCount) return "";
+  return `
+    <p class="muted small credit-limit-note">
+      Showing first ${limit} ${esc(kind)} to keep this page responsive. ${hiddenCount} more match the current view.
+      ${hasSearch ? "Narrow the search further to reduce the list." : "Use the Credits search/filter to narrow the list if you need a specific species or file."}
+    </p>
+  `;
+}
+
+function creditsPageStyle() {
+  return `
+    <style>
+      .credits-page .credit-list{display:grid;gap:10px;}
+      @media (min-width: 980px){
+        .credits-page .credit-list.credit-list-compact{grid-template-columns:repeat(2,minmax(0,1fr));align-items:start;}
+      }
+      .credits-page .compact-credit-card{padding:10px 12px;}
+      .credits-page .compact-credit-card h3{font-size:1rem;line-height:1.18;margin:0 0 2px;}
+      .credits-page .credit-sci{margin:.05rem 0 .35rem;}
+      .credits-page .credit-meta-line{display:flex;flex-wrap:wrap;gap:4px 12px;align-items:baseline;margin:3px 0;font-size:.86rem;line-height:1.25;}
+      .credits-page .credit-meta-line span{min-width:0;max-width:100%;overflow-wrap:anywhere;}
+      .credits-page .credit-pass-line{font-size:.78rem;}
+      .credits-page .credit-note{font-size:.82rem;line-height:1.25;margin:4px 0;color:#536257;overflow-wrap:anywhere;}
+      .credits-page .credit-actions{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px;}
+      .credits-page .credit-link{font-size:.78rem;padding:5px 8px;}
+      .credits-page .credit-limit-note{margin-top:10px;}
+      @media (max-width: 700px){
+        .credits-page .credit-meta-line{font-size:.84rem;gap:3px 9px;}
+        .credits-page .credit-actions{display:grid;grid-template-columns:minmax(0,1fr);}
+        .credits-page .credit-link{width:100%;text-align:center;}
+      }
+    </style>
   `;
 }
 
 export function renderCreditsPage(records, imageCredits, search = "") {
   const q = String(search || "").trim().toLowerCase();
+  const hasSearch = !!q;
   const recordEntries = (records || []).flatMap(imageEntriesFromRecord);
   const sessionEntries = entriesFromSessionCredits(imageCredits);
   const credits = dedupeEntries([...recordEntries, ...sessionEntries])
@@ -1788,6 +2307,9 @@ export function renderCreditsPage(records, imageCredits, search = "") {
     })
     .sort((a, b) => String(a.display_name || a.common_name || a.slug).localeCompare(String(b.display_name || b.common_name || b.slug)));
 
+  const creditWindow = limitedList(credits, hasSearch, DEFAULT_CREDIT_CARD_LIMIT, SEARCH_CREDIT_CARD_LIMIT);
+  const catalogWindow = limitedList(catalog, hasSearch, DEFAULT_AUDIT_CARD_LIMIT, SEARCH_AUDIT_CARD_LIMIT);
+
   const totalImageRecords = recordEntries.length;
   const withCreator = recordEntries.filter((entry) => !!entry.author).length;
   const withLicense = recordEntries.filter((entry) => !!entry.license && !!entry.licenseUrl).length;
@@ -1796,34 +2318,38 @@ export function renderCreditsPage(records, imageCredits, search = "") {
   const overrideCount = ENRICHED_CREDIT_OVERRIDES.size;
 
   return `
-    <section class="panel">
-      <h2>Credits</h2>
-      <p>This page reads image-credit fields directly from the loaded species records and from the controlled built-in enrichment table.</p>
-      <p class="muted small">Target credit format is TASL-style: title, author / creator / photographer, source page, license, and license link. Records that still say only "Wikimedia Commons" are flagged by missing creator or license details.</p>
-      <p class="muted small">This build adds another ten mini-batches of five credit enrichments each (50 total new overrides), bringing the built-in override table to 168 entries.</p>
-    </section>
+    ${creditsPageStyle()}
+    <section class="credits-page">
+      <section class="panel">
+        <h2>Credits</h2>
+        <p>This page reads image-credit fields directly from the loaded species records and from the controlled built-in enrichment table.</p>
+        <p class="muted small">Desktop layout uses a two-column credit grid with compact inline metadata. The page also limits how many credit/audit cards render at once so the browser does not have to build a giant DOM every time the Credits tab opens. This build adds a plant-focused credit batch for exact image override filenames already used by the app.</p>
+      </section>
 
-    <section class="panel">
-      <div class="grid-3">
-        <div class="stat-card"><div class="num">${records.length}</div><div>Species in catalog</div></div>
-        <div class="stat-card"><div class="num">${totalImageRecords}</div><div>Usable image records found</div></div>
-        <div class="stat-card"><div class="num">${withCreator}</div><div>With creator / photographer</div></div>
-        <div class="stat-card"><div class="num">${withLicense}</div><div>With license + link</div></div>
-        <div class="stat-card"><div class="num">${needsEnrichment}</div><div>Need credit enrichment</div></div>
-        <div class="stat-card"><div class="num">${enrichedCreditCount}</div><div>Enriched in built-in credit passes</div></div>
-        <div class="stat-card"><div class="num">${overrideCount}</div><div>Total built-in credit overrides</div></div>
-        <div class="stat-card"><div class="num">0</div><div>Runtime Commons API calls</div></div>
-      </div>
-    </section>
+      <section class="panel">
+        <div class="grid-3">
+          <div class="stat-card"><div class="num">${records.length}</div><div>Species in catalog</div></div>
+          <div class="stat-card"><div class="num">${totalImageRecords}</div><div>Usable image records found</div></div>
+          <div class="stat-card"><div class="num">${withCreator}</div><div>With creator / photographer</div></div>
+          <div class="stat-card"><div class="num">${withLicense}</div><div>With license + link</div></div>
+          <div class="stat-card"><div class="num">${needsEnrichment}</div><div>Need credit enrichment</div></div>
+          <div class="stat-card"><div class="num">${enrichedCreditCount}</div><div>Enriched in built-in credit passes</div></div>
+          <div class="stat-card"><div class="num">${overrideCount}</div><div>Total built-in credit overrides</div></div>
+          <div class="stat-card"><div class="num">0</div><div>Runtime Commons API calls</div></div>
+        </div>
+      </section>
 
-    <section class="panel">
-      <h3>Image credits</h3>
-      ${credits.length ? `<section class="credit-list">${credits.map(creditRow).join("")}</section>` : `<p class="muted">No matching image credit records found.</p>`}
-    </section>
+      <section class="panel">
+        <h3>Image credits</h3>
+        ${limitNotice("image credits", creditWindow.hiddenCount, creditWindow.limit, hasSearch)}
+        ${creditWindow.visible.length ? `<section class="credit-list credit-list-compact">${creditWindow.visible.map(creditRow).join("")}</section>` : `<p class="muted">No matching image credit records found.</p>`}
+      </section>
 
-    <section class="panel">
-      <h3>Species image-credit audit</h3>
-      <section class="credit-list">${catalog.map(catalogRow).join("")}</section>
+      <section class="panel">
+        <h3>Species image-credit audit</h3>
+        ${limitNotice("species audit cards", catalogWindow.hiddenCount, catalogWindow.limit, hasSearch)}
+        <section class="credit-list credit-list-compact">${catalogWindow.visible.map(catalogRow).join("")}</section>
+      </section>
     </section>
   `;
 }
