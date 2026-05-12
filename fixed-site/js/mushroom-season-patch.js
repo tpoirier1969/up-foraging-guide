@@ -6,17 +6,21 @@ import { installLazyImages } from "./lib/image-resolver.js";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 
-const VERSION = "v4.3.31-r2026-05-12-mushroom-landing-forage-filter1";
+const VERSION = "v4.3.32-r2026-05-12-mushroom-core-forage-filter1";
 const IN_SEASON_ROUTE = "mushrooms-in-season";
 const MUSHROOM_ROUTES = new Set(["mushrooms", "mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
+const FORAGE_LIST_ROUTES = new Set(["mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
 const FILTER_ROUTES = new Set(["mushrooms-gilled", "boletes", "mushrooms-other"]);
 const MONTHS = [
   "January", "February", "March", "April", "May", "June",
   "July", "August", "September", "October", "November", "December"
 ];
+const ORIG_HIDDEN_KEY = "__foragePatchOrigHidden";
 
 let renderQueued = false;
 let observerQueued = false;
+let rerenderQueued = false;
+let lastHash = location.hash || "#/home";
 
 function route() {
   return String(location.hash || "#/home").replace(/^#\/?/, "") || "home";
@@ -70,14 +74,18 @@ function textBlob(record = {}) {
     record.non_edible_severity,
     record.danger_level,
     record.look_alike_risk,
+    record.record_group,
+    record.record_kind,
+    record.list_role,
+    record.guide_role,
     record.mushroom_profile?.edibility_status,
     record.mushroom_profile?.caution_level,
     ...(Array.isArray(record.use_roles) ? record.use_roles : asList(record.use_roles))
   ].join(" ").toLowerCase();
 }
 
-function isForageMushroomRecord(record = {}) {
-  if (!isMushroomRecord(record) || record.hidden) return false;
+function isForageMushroomRecordRaw(record = {}) {
+  if (!isMushroomRecord(record)) return false;
   if (record.is_non_edible === true) return false;
 
   const foodRole = String(record.food_role || "").trim().toLowerCase();
@@ -85,14 +93,18 @@ function isForageMushroomRecord(record = {}) {
   const useRoles = asList(record.use_roles).map((value) => String(value || "").trim().toLowerCase());
   const text = textBlob(record);
 
-  if (["avoid", "caution", "id / caution", "id / comparison", "comparison", "look-alike"].includes(foodRole)) return false;
+  if (["avoid", "caution", "id / caution", "id / comparison", "comparison", "look-alike", "warning"].includes(foodRole)) return false;
   if (/^(not_edible|not-edible|non_edible|non-edible|toxic|toxic_or_dangerous|dangerous|out_of_scope|out-of-scope)$/.test(status)) return false;
-  if (/deadly|poison|toxic|dangerous|unsafe|\bavoid\b|not[_ -]?edible|non[_ -]?edible|not recommended|not a food target|comparison\/caution only|comparison only|caution only|id \/ caution|look-alike warning|not treated as .*food|out[- ]of[- ]region/.test(text)) return false;
+  if (/deadly|poison|toxic|dangerous|unsafe|do not eat|do not consume|avoid|not[_ -]?edible|non[_ -]?edible|not recommended|not a food target|comparison\/caution only|comparison only|caution only|id \/ caution|look-alike warning|not treated as .*food|out[- ]of[- ]region/.test(text)) return false;
 
   if (foodRole === "food") return true;
-  if (useRoles.some((value) => value === "food" || value.includes("food"))) return true;
-  if (/edible|choice|forage|culinary|cook|table mushroom|prime|good processed food|occasional edible|use with expert-level confidence/.test(text)) return true;
+  if (useRoles.some((value) => value === "food" || value.includes("food") || value.includes("culinary") || value.includes("edible"))) return true;
+  if (/edible|choice|forage|culinary|cook|table mushroom|prime|good processed food|occasional edible|use with expert-level confidence/.test(text)) return true;
   return false;
+}
+
+function isForageMushroomRecord(record = {}) {
+  return isForageMushroomRecordRaw(record) && !record.hidden;
 }
 
 function isGilled(record = {}) {
@@ -146,7 +158,7 @@ function mushroomLaneSwitcherHtml() {
         ${activeLaneCard("#/mushrooms-gilled", "mushrooms-gilled", "Gilled", "Thin blade-like gills under the cap.")}
         ${activeLaneCard("#/boletes", "boletes", "Spongelike", "Pores, tubes, or sponge-like underside.")}
         ${activeLaneCard("#/mushrooms-other", "mushrooms-other", "Other", "Teeth, ridges, shelves, coral, jelly, and oddballs.")}
-        ${activeLaneCard("#/mushrooms-in-season", IN_SEASON_ROUTE, "In Season", "All mushrooms with a recorded season for this month.")}
+        ${activeLaneCard("#/mushrooms-in-season", IN_SEASON_ROUTE, "In Season", "All edible mushrooms recorded for this month.")}
       </div>
     </section>
   `;
@@ -155,7 +167,7 @@ function mushroomLaneSwitcherHtml() {
 function labelFromSlug(slug = "") {
   return String(slug || "")
     .replace(/[-_]+/g, " ")
-    .replace(/\b\w/g, (letter) => letter.toUpperCase());
+    .replace(/\w/g, (letter) => letter.toUpperCase());
 }
 
 function getRecordBySlug(slug) {
@@ -179,6 +191,53 @@ function wireDetailButtons(root = document) {
   });
 }
 
+function rememberOriginalHidden(record) {
+  if (!Object.prototype.hasOwnProperty.call(record, ORIG_HIDDEN_KEY)) {
+    record[ORIG_HIDDEN_KEY] = record.hidden;
+  }
+}
+
+function restoreOriginalHidden(record) {
+  if (!Object.prototype.hasOwnProperty.call(record, ORIG_HIDDEN_KEY)) return false;
+  const original = record[ORIG_HIDDEN_KEY];
+  const before = record.hidden;
+  if (original === undefined) delete record.hidden;
+  else record.hidden = original;
+  delete record[ORIG_HIDDEN_KEY];
+  return before !== record.hidden;
+}
+
+function syncForageVisibilityForRoute() {
+  if (!Array.isArray(state.species) || !state.species.length) return false;
+  const forageMode = FORAGE_LIST_ROUTES.has(route());
+  let changed = false;
+
+  state.species.forEach((record) => {
+    if (!isMushroomRecord(record)) return;
+    if (forageMode) {
+      rememberOriginalHidden(record);
+      const shouldHide = !isForageMushroomRecordRaw(record);
+      if ((record.hidden === true) !== shouldHide) {
+        record.hidden = shouldHide;
+        changed = true;
+      }
+    } else {
+      if (restoreOriginalHidden(record)) changed = true;
+    }
+  });
+
+  return changed;
+}
+
+function requestRerender() {
+  if (rerenderQueued) return;
+  rerenderQueued = true;
+  setTimeout(() => {
+    rerenderQueued = false;
+    window.dispatchEvent(new HashChangeEvent("hashchange"));
+  }, 0);
+}
+
 function renderInSeasonPage() {
   if (route() !== IN_SEASON_ROUTE || !Array.isArray(state.species) || !state.species.length) return;
   const month = currentMonthName();
@@ -191,9 +250,9 @@ function renderInSeasonPage() {
     ${mushroomLaneSwitcherHtml()}
     <section class="panel" data-mushroom-season-page="true">
       <h2>In Season — ${esc(month)} (${records.length})</h2>
-      <p class="muted small">Shows mushroom records with ${esc(month)} in their recorded season fields. Records with missing or review-needed season data are left out instead of guessed.</p>
+      <p class="muted small">Shows edible mushroom records with ${esc(month)} in their recorded season fields. Records with missing or review-needed season data are left out instead of guessed.</p>
     </section>
-    ${records.length ? renderRecordCards(records, "mushrooms-in-season") : `<section class="panel"><p>No mushroom records currently have ${esc(month)} as a recorded season.</p></section>`}
+    ${records.length ? renderRecordCards(records, "mushrooms-in-season") : `<section class="panel"><p>No edible mushroom records currently have ${esc(month)} as a recorded season.</p></section>`}
   `);
   markActiveNav("mushrooms");
   wireDetailButtons(document);
@@ -224,14 +283,13 @@ function injectSeasonSelectIfMissing() {
   traitRow.prepend(cell);
   cell.querySelector("select")?.addEventListener("change", (event) => {
     state.filters.mushroomMonth = event.currentTarget.value || "";
-    window.dispatchEvent(new HashChangeEvent("hashchange"));
+    requestRerender();
   });
 }
 
 function injectInSeasonCards() {
   const r = route();
-  if (!MUSHROOM_ROUTES.has(r)) return;
-  if (r === IN_SEASON_ROUTE) return;
+  if (!MUSHROOM_ROUTES.has(r) || r === IN_SEASON_ROUTE) return;
 
   document.querySelectorAll(".mushroom-lane-switcher .lane-grid, .panel .lane-grid").forEach((grid) => {
     const sectionText = grid.closest("section")?.textContent || "";
@@ -267,20 +325,25 @@ function routeLabel() {
   return {
     "mushrooms-gilled": "Gilled mushrooms",
     boletes: "Spongelike",
-    "mushrooms-other": "Other mushrooms"
+    "mushrooms-other": "Other mushrooms",
+    [IN_SEASON_ROUTE]: `In Season — ${currentMonthName()}`
   }[route()] || "Mushrooms";
 }
 
 function updateMushroomVisibleCount() {
-  if (!FILTER_ROUTES.has(route())) return;
+  if (!FILTER_ROUTES.has(route()) && route() !== IN_SEASON_ROUTE) return;
   const slugs = new Set();
   document.querySelectorAll("[data-detail]").forEach((button) => {
     const slug = button.dataset.detail || "";
     const record = getRecordBySlug(slug);
-    if (recordMatchesCurrentMushroomRoute(record)) slugs.add(slug);
+    if (route() === IN_SEASON_ROUTE) {
+      if (isForageMushroomRecord(record) && hasMonth(record, currentMonthName())) slugs.add(slug);
+    } else if (recordMatchesCurrentMushroomRoute(record)) {
+      slugs.add(slug);
+    }
   });
   const heading = Array.from(document.querySelectorAll("section.panel h2"))
-    .find((h2) => /gilled|spongelike|other mushrooms|mushrooms/i.test(h2.textContent || ""));
+    .find((h2) => /gilled|spongelike|other mushrooms|in season|mushrooms/i.test(h2.textContent || ""));
   if (heading) heading.textContent = `${routeLabel()} (${slugs.size})`;
 }
 
@@ -313,13 +376,23 @@ function installMushroomCompactStyle() {
 }
 
 function runPatchPass() {
+  const hashChanged = lastHash !== (location.hash || "#/home");
+  lastHash = location.hash || "#/home";
+  const visibilityChanged = syncForageVisibilityForRoute();
+
   installMushroomCompactStyle();
   injectInSeasonCards();
   injectSeasonSelectIfMissing();
   removeNonForageMushroomCards();
   updateMushroomVisibleCount();
+
   if (route() === IN_SEASON_ROUTE && !document.querySelector('[data-mushroom-season-page="true"]')) {
     renderInSeasonPage();
+    return;
+  }
+
+  if ((visibilityChanged || hashChanged) && FORAGE_LIST_ROUTES.has(route())) {
+    requestRerender();
   }
 }
 
@@ -345,8 +418,11 @@ new MutationObserver(() => {
 }).observe(document.body, { childList: true, subtree: true });
 
 setInterval(() => {
-  if (route() === IN_SEASON_ROUTE && !document.querySelector('[data-mushroom-season-page="true"]')) renderInSeasonPage();
-  else runPatchPass();
+  if (route() === IN_SEASON_ROUTE && !document.querySelector('[data-mushroom-season-page="true"]')) {
+    renderInSeasonPage();
+  } else {
+    runPatchPass();
+  }
 }, 750);
 
 schedulePatchPass();
