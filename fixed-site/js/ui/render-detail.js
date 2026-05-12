@@ -1,6 +1,6 @@
 import { esc } from "../lib/escape.js";
 import { state } from "../state.js";
-import { getMedicinalData, isBuildNoteText, cleanUserFacingText, classifyRecord } from "../lib/merge.js?v=v4.3.24-r2026-05-12-poison-lookalike-emphasis1";
+import { getMedicinalData, isBuildNoteText, cleanUserFacingText, classifyRecord } from "../lib/merge.js?v=v4.3.25-r2026-05-12-safety-language-cleanup1";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
@@ -14,8 +14,18 @@ function asArray(value) {
   return [value];
 }
 
+function clarifyVagueSafetyText(value = "") {
+  return String(value || "")
+    .replace(/\bedible\s+with\s+caution\b/gi, "Edible only with a confident species-level ID; check look-alikes, preparation limits, and individual tolerance before eating")
+    .replace(/\buse\s+with\s+caution\b/gi, "Use only after checking species-specific risk notes, look-alikes, and preparation limits")
+    .replace(/\bwith\s+caution\b/gi, "after checking species-specific risk notes")
+    .replace(/\bnot\s+recommended\s+for\s+beginners\b/gi, "Not recommended for beginners because the ID or preparation risk is easy to misjudge")
+    .replace(/\bnot\s+recommended\b(?!\s+for\s+(?:beginners|eating)\b)/gi, "Not recommended for eating unless a trusted source gives a species-specific reason to use it")
+    .replace(/\bexercise\s+caution\b/gi, "Check the specific look-alike, preparation, and poisoning-risk notes before use");
+}
+
 function clean(value) {
-  return cleanUserFacingText(value)
+  return cleanUserFacingText(clarifyVagueSafetyText(value))
     .replace(/\bwhen correctly identified and(?: collected)? in good condition\b/gi, "")
     .replace(/\bwhen correctly identified\b/gi, "")
     .replace(/\s+([,.;:])/g, "$1")
@@ -268,7 +278,7 @@ function lookAlikeBlock(record) {
 
   return `
     <section class="detail-block lookalike-detail-block ${hasDeadly ? "has-deadly-lookalike" : (hasDanger ? "has-danger-lookalike" : "")}">
-      <h4>Looks-alikes / Easily Confused</h4>
+      <h4>Look-alikes / Easily Confused</h4>
       ${summary ? `<p class="lookalike-summary">${esc(summary)}</p>` : ""}
       ${notes ? `<p>${esc(notes)}</p>` : ""}
       ${items ? `<ul class="list-tight lookalike-cues">${items}</ul>` : ""}
