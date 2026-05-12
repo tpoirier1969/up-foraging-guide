@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.7-r2026-05-11-credits-enrichment-batchrun1";
-const DISPLAY_VERSION = "V4.3.7-r26-05-11";
+const APP_VERSION = "v4.3.8-r2026-05-11-credits-enrichment-batchrun2";
+const DISPLAY_VERSION = "V4.3.8-r26-05-11";
 
 function esc(value) {
   return String(value ?? "")

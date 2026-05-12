@@ -98,6 +98,42 @@ const ENRICHED_CREDIT_OVERRIDES = new Map([
   ["Morchella_punctipes_128111168.jpg", credit("Chase G. Mayers / cgmayers", "CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/", "Wikimedia Commons / iNaturalist", "credits-enrichment-v7")],
   ["Lactarius_deliciosus_(edible_mushrooms_of_the_United_States).jpg", credit("Thomas Taylor / USDA", "Public domain — United States", "https://commons.wikimedia.org/wiki/Commons:Copyright_tags/Country-specific_tags#United_States", "Wikimedia Commons / USDA", "credits-enrichment-v7")],
   ["Cantharellus_cibarius_(Twelve_edible_mushrooms_of_the_United_States).jpg", credit("Thomas Taylor / USDA", "Public domain — United States", "https://commons.wikimedia.org/wiki/Commons:Copyright_tags/Country-specific_tags#United_States", "Wikimedia Commons / USDA", "credits-enrichment-v7")]
+
+  // v8 batch F — 5 changes: boletes / Suillus / ashtray-style records.
+  ["Boletus_subcaerulescens_35861.jpg", credit("Dave in NE PA", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons / Mushroom Observer", "credits-enrichment-v8")],
+  ["Tylopilus_alboater_(Schwein.)_Murrill_650766.jpg", credit("walt sturgeon (Mycowalt)", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons / Mushroom Observer", "credits-enrichment-v8")],
+  ["Suillus_luteus_(30896753828).jpg", credit("Lukas from London, England", "CC BY-SA 2.0", "https://creativecommons.org/licenses/by-sa/2.0/", "Wikimedia Commons / Flickr", "credits-enrichment-v8")],
+  ["Boletus_rubropunctum_(Peck)_Singer_550957.jpg", credit("Robert(the 3 foragers) (the3foragers)", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons / Mushroom Observer", "credits-enrichment-v8")],
+  ["Boletus_miniato-olivaceus_158624.jpg", credit("Dave W (Dave W)", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons / Mushroom Observer", "credits-enrichment-v8")],
+
+  // v9 batch G — 5 changes: birch bolete / Leccinum scabrum active and nearby records.
+  ["Leccinum_scabrum_117467.jpg", credit("Ron Pastorino (Ronpast)", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons / Mushroom Observer", "credits-enrichment-v9")],
+  ["Leccinum_scabrum_(23691548239).jpg", credit("Dick Culbert from Gibsons, B.C., Canada", "CC BY 2.0", "https://creativecommons.org/licenses/by/2.0/", "Wikimedia Commons / Flickr", "credits-enrichment-v9")],
+  ["LeccinumScabrum.JPG", credit("Julo", "Public domain — author released", "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain", "Wikimedia Commons", "credits-enrichment-v9")],
+  ["Leccinum_scabrum_(1).jpg", credit("alexntor / Alexntor", "Public domain — author released", "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain", "Wikimedia Commons / Russian Wikipedia", "credits-enrichment-v9")],
+  ["Leccinum_scabrum_(3559705977).jpg", credit("Jason Hollinger", "CC BY 2.0", "https://creativecommons.org/licenses/by/2.0/", "Wikimedia Commons / Flickr", "credits-enrichment-v9")],
+
+  // v10 batch H — 5 changes: two-colored bolete and nearby verified boletes.
+  ["Boletus_bicolor_89542.jpg", credit("Dan Molter (shroomydan)", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons / Mushroom Observer", "credits-enrichment-v10")],
+  ["Boletus_bicolor_1.jpg", credit("Dmitry Brant", "CC BY-SA 4.0", "https://creativecommons.org/licenses/by-sa/4.0/", "Wikimedia Commons", "credits-enrichment-v10")],
+  ["BoletusBicolor.jpg", credit("Dmitry Brant", "CC BY-SA 3.0 / GFDL", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v10")],
+  ["Boletus_auripes_90459.jpg", credit("Patrick Harvey (pg_harvey)", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons / Mushroom Observer", "credits-enrichment-v10")],
+  ["Boletus_auripes_245660.jpg", credit("I. G. Safonov (IGSafonov)", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons / Mushroom Observer", "credits-enrichment-v10")],
+
+  // v11 batch I — 5 changes: additional verified Leccinum / bolete support records.
+  ["Boletus_auripes_143801.jpg", credit("Martin Livezey (MLivezey)", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons / Mushroom Observer", "credits-enrichment-v11")],
+  ["Leccinum_scabrum_JPG1.jpg", credit("Jean-Pol GRANDMONT", "CC BY 3.0 / GFDL", "https://creativecommons.org/licenses/by/3.0/", "Wikimedia Commons", "credits-enrichment-v11")],
+  ["Leccinum_scabrum_LC0108.jpg", credit("Jörg Hempel", "CC BY-SA 2.0 Germany", "https://creativecommons.org/licenses/by-sa/2.0/de/deed.en", "Wikimedia Commons", "credits-enrichment-v11")],
+  ["Leccinum_scabrum_JPG7.jpg", credit("Jean-Pol GRANDMONT", "CC BY-SA 3.0 / GFDL", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v11")],
+  ["Tylopilus_felleus.jpg", credit("Walter J. Pilsak, Waldsassen", "CC BY-SA 3.0 / GFDL", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v11")],
+
+  // v12 batch J — 5 changes: Leccinum / scaber-stalk support records.
+  ["Red-capped_Scaberstalk_(5039938978).jpg", credit("Katja Schulz", "CC BY 2.0", "https://creativecommons.org/licenses/by/2.0/", "Wikimedia Commons / Flickr", "credits-enrichment-v12")],
+  ["Leccinum_scabrum_102024512.jpg", credit("Oleg Kosterin", "CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/", "Wikimedia Commons / iNaturalist", "credits-enrichment-v12")],
+  ["Leccinum_scabrum_94748259.jpg", credit("Tatiana / naturalist10224", "CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/", "Wikimedia Commons / iNaturalist", "credits-enrichment-v12")],
+  ["Leccinum_scabrum_(Brown_Birch_Bolete)_(50383440922).jpg", credit("Lukas Large from Stourbridge, United Kingdom", "CC BY-SA 2.0", "https://creativecommons.org/licenses/by-sa/2.0/", "Wikimedia Commons / Flickr", "credits-enrichment-v12")],
+  ["Leccinum_scabrum_(37143449203).jpg", credit("Björn S...", "CC BY-SA 2.0", "https://creativecommons.org/licenses/by-sa/2.0/", "Wikimedia Commons / Flickr", "credits-enrichment-v12")]
+
 ]);
 
 function isGenericCreditValue(value = "") {
@@ -336,7 +372,7 @@ export function renderCreditsPage(records, imageCredits, search = "") {
       <h2>Credits</h2>
       <p>This page reads image-credit fields directly from the loaded species records and from the controlled built-in enrichment table.</p>
       <p class="muted small">Target credit format is TASL-style: title, author / creator / photographer, source page, license, and license link. Records that still say only "Wikimedia Commons" are flagged by missing creator or license details.</p>
-      <p class="muted small">This build includes five new mini-batches of five credit enrichments each, plus the earlier American beech, Basswood, Cow parsnip, Artist's conk, Aspen oyster, and Chaga batches. It also audits legacy image arrays instead of only structured image slots.</p>
+      <p class="muted small">This build includes another five mini-batches of five credit enrichments each, focused mainly on boletes, Suillus, and scaber-stalk / Leccinum records. It keeps all earlier enrichment batches and continues auditing legacy image arrays instead of only structured image slots.</p>
     </section>
 
     <section class="panel">
