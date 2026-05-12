@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Upper Michigan Foraging Guide</title>
   <meta name="theme-color" content="#2f5d46">
-  <link rel="manifest" href="site.webmanifest?v=v4.2.86-r2026-04-30-photo-patch-fill-only1">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/up-foraging-guide-icon-32.png?v=v4.2.86-r2026-04-30-photo-patch-fill-only1">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/up-foraging-guide-icon-180.png?v=v4.2.86-r2026-04-30-photo-patch-fill-only1">
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/up-foraging-guide-icon-192.png?v=v4.2.86-r2026-04-30-photo-patch-fill-only1">
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/up-foraging-guide-icon-512.png?v=v4.2.86-r2026-04-30-photo-patch-fill-only1">
-  <link rel="stylesheet" href="styles/base.css?v=v4.2.86-r2026-04-30-photo-patch-fill-only1">
+  <link rel="manifest" href="site.webmanifest?v=v4.3.11-r2026-05-12-credits-layout-memory1">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/up-foraging-guide-icon-32.png?v=v4.3.11-r2026-05-12-credits-layout-memory1">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/up-foraging-guide-icon-180.png?v=v4.3.11-r2026-05-12-credits-layout-memory1">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/up-foraging-guide-icon-192.png?v=v4.3.11-r2026-05-12-credits-layout-memory1">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/up-foraging-guide-icon-512.png?v=v4.3.11-r2026-05-12-credits-layout-memory1">
+  <link rel="stylesheet" href="styles/base.css?v=v4.3.11-r2026-05-12-credits-layout-memory1">
   <style>
     .image-lightbox[hidden]{display:none !important;}
     .image-lightbox{position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;padding:20px;}
@@ -23,20 +23,25 @@
     .image-lightbox-title{font-weight:700;}
     body.lightbox-open{overflow:hidden;}
     .lookalike-title-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px;}
-
     .mobile-menu-toggle{display:none;align-items:center;justify-content:center;gap:.45rem;padding:10px 14px;border:1px solid var(--accent);border-radius:14px;background:#fff;color:var(--accent);font-weight:800;cursor:pointer;}
     .mobile-menu-toggle::before{content:"☰";font-size:1.1rem;line-height:1;}
     body.nav-open .mobile-menu-toggle::before{content:"×";font-size:1.25rem;}
+    html, body{max-width:100%;overflow-x:hidden;}
+    .app-shell,.page-root,.panel,.site-header,.record-card,.detail-block,.modal-card{min-width:0;max-width:100%;}
+    .control-row,.medicinal-filter-row,.section-jump-row,.chip-row,.lane-grid,.record-meta,.quick-actions,.image-meta-line{min-width:0;max-width:100%;}
+    .control-row > *, .medicinal-filter-row > *, .lane-grid > *, .section-jump-row > *, .chip-row > *{min-width:0;max-width:100%;}
+    input[type="search"], select, textarea{max-width:100%;min-width:0;}
+    button,.buttonish,.section-jump-button,.chip-button,.lane-card,.main-nav a{max-width:100%;min-width:0;white-space:normal;overflow-wrap:anywhere;}
+    .lane-card{align-content:start;}
+    .plant-lane-switcher .lane-card{display:grid;text-align:left;border:1px solid var(--line,#d7dfd6);background:#fff;border-radius:16px;padding:12px 13px;cursor:pointer;text-decoration:none;color:inherit;}
+    .plant-lane-switcher .lane-card strong{color:var(--accent,#2f5d46);}
+    .plant-lane-switcher .lane-card span{font-size:.8rem;color:#536257;line-height:1.25;}
+    .plant-lane-switcher .lane-card.active{border-color:var(--accent,#2f5d46);box-shadow:0 0 0 2px rgba(47,93,70,.14);background:#f6fbf5;}
+    .plant-lane-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
+    .plant-lane-card-tags .tag{font-size:.72rem;}
     @media (max-width: 700px){
       .site-header{padding:14px 14px 12px;gap:10px;}
-      .brand-row{
-        display:grid;
-        grid-template-columns:minmax(0,1fr) auto;
-        grid-template-areas:"title title" "subhead version";
-        align-items:center;
-        column-gap:8px;
-        row-gap:4px;
-      }
+      .brand-row{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"title title" "subhead version";align-items:center;column-gap:8px;row-gap:4px;}
       .brand-row > div:first-child{display:contents;}
       .brand-row h1{grid-area:title;font-size:1.45rem;line-height:1.12;}
       .subhead{grid-area:subhead;font-size:.9rem;margin:.1rem 0 0;}
@@ -45,21 +50,6 @@
       .main-nav{display:none;flex-direction:column;flex-wrap:nowrap;gap:7px;border-top:1px solid var(--line);padding-top:10px;}
       body.nav-open .main-nav{display:flex;}
       .main-nav a{width:100%;justify-content:flex-start;border-radius:14px;padding:10px 12px;font-size:.95rem;}
-    }
-    @media (min-width: 701px){
-      .main-nav{display:flex !important;}
-      .mobile-menu-toggle{display:none !important;}
-    }
-
-    /* Responsive control/menu cleanup for all app pages: filters, lane cards, chips, sort/search rows. */
-    html, body{max-width:100%;overflow-x:hidden;}
-    .app-shell,.page-root,.panel,.site-header,.record-card,.detail-block,.modal-card{min-width:0;max-width:100%;}
-    .control-row,.medicinal-filter-row,.section-jump-row,.chip-row,.lane-grid,.record-meta,.quick-actions,.image-meta-line{min-width:0;max-width:100%;}
-    .control-row > *, .medicinal-filter-row > *, .lane-grid > *, .section-jump-row > *, .chip-row > *{min-width:0;max-width:100%;}
-    input[type="search"], select, textarea{max-width:100%;min-width:0;}
-    button,.buttonish,.section-jump-button,.chip-button,.lane-card,.main-nav a{max-width:100%;min-width:0;white-space:normal;overflow-wrap:anywhere;}
-    .lane-card{align-content:start;}
-    @media (max-width: 700px){
       .app-shell{width:100%;padding:10px;overflow-x:hidden;}
       .page-root{width:100%;overflow-x:hidden;}
       .panel{width:100%;padding:14px;overflow-x:hidden;}
@@ -77,14 +67,7 @@
       .kv{grid-template-columns:minmax(0,1fr) !important;}
       .modal-card{width:calc(100vw - 20px);max-width:calc(100vw - 20px);}
     }
-
-    .plant-lane-switcher .lane-card{display:grid;text-align:left;border:1px solid var(--line,#d7dfd6);background:#fff;border-radius:16px;padding:12px 13px;cursor:pointer;text-decoration:none;color:inherit;}
-    .plant-lane-switcher .lane-card strong{color:var(--accent,#2f5d46);}
-    .plant-lane-switcher .lane-card span{font-size:.8rem;color:#536257;line-height:1.25;}
-    .plant-lane-switcher .lane-card.active{border-color:var(--accent,#2f5d46);box-shadow:0 0 0 2px rgba(47,93,70,.14);background:#f6fbf5;}
-    .plant-lane-card-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
-    .plant-lane-card-tags .tag{font-size:.72rem;}
-
+    @media (min-width: 701px){.main-nav{display:flex !important;}.mobile-menu-toggle{display:none !important;}}
   </style>
 </head>
 <body>
@@ -95,9 +78,8 @@
           <h1>Upper Michigan Foraging Guide</h1>
           <p class="subhead">Merged master build</p>
         </div>
-        <div class="version-pill" id="versionBadge">V4.2.86-r26-04-30</div>
+        <div class="version-pill" id="versionBadge">V4.3.11-r26-05-12</div>
       </div>
-
       <button id="mobileMenuToggle" class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="primaryNav">Menu</button>
       <nav id="primaryNav" class="main-nav" aria-label="Primary">
         <a href="#/home" data-nav="home">Home</a>
@@ -113,7 +95,6 @@
         <a href="#/search" data-nav="search">Search</a>
       </nav>
     </header>
-
     <main class="page-root" id="pageRoot" aria-live="polite">
       <section class="panel">
         <h2>Loading…</h2>
@@ -121,14 +102,12 @@
       </section>
     </main>
   </div>
-
   <dialog id="detailModal" class="detail-modal">
     <article class="modal-card">
       <button id="closeModalBtn" class="close-btn" type="button" aria-label="Close">×</button>
       <div id="modalContent"></div>
     </article>
   </dialog>
-
-  <script type="module" src="js/boot.js?v=v4.2.86-r2026-04-30-photo-patch-fill-only1"></script>
+  <script type="module" src="js/boot.js?v=v4.3.11-r2026-05-12-credits-layout-memory1"></script>
 </body>
 </html>
