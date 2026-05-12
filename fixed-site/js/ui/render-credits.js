@@ -1062,6 +1062,456 @@ const RAW_CREDIT_OVERRIDES = [
     "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
     "source": "Wikimedia Commons",
     "creditSource": "credits-enrichment-v22"
+  },
+  {
+    "file": "Tylopilus-felleus-010.jpg",
+    "author": "Danny S.",
+    "credit": "Danny S.",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v23"
+  },
+  {
+    "file": "Tylopilus_felleus_14.jpg",
+    "author": "Morten Pettersen",
+    "credit": "Morten Pettersen",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "Wikimedia Commons / GBIF",
+    "creditSource": "credits-enrichment-v23"
+  },
+  {
+    "file": "Tylopilus_felleus_(36999913742).jpg",
+    "author": "Björn S...",
+    "credit": "Björn S...",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "Wikimedia Commons / Flickr",
+    "creditSource": "credits-enrichment-v23"
+  },
+  {
+    "file": "Tylopilus_felleus_(37154732850).jpg",
+    "author": "Björn S...",
+    "credit": "Björn S...",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "source": "Wikimedia Commons / Flickr",
+    "creditSource": "credits-enrichment-v23"
+  },
+  {
+    "file": "Tylopilus_felleus_6.jpg",
+    "author": "peter_gabler",
+    "credit": "peter_gabler",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "Wikimedia Commons / iNaturalist",
+    "creditSource": "credits-enrichment-v23"
+  },
+  {
+    "file": "Tylopilus_alboater_54698.jpg",
+    "author": "Dan Molter (shroomydan)",
+    "credit": "Dan Molter (shroomydan)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v24"
+  },
+  {
+    "file": "Tylopilus_alboater_(Schwein.)_Murrill_532904.jpg",
+    "author": "walt sturgeon (Mycowalt)",
+    "credit": "walt sturgeon (Mycowalt)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v24"
+  },
+  {
+    "file": "Tylopilus_alboater_(Schwein.)_Murrill_532905.jpg",
+    "author": "walt sturgeon (Mycowalt)",
+    "credit": "walt sturgeon (Mycowalt)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v24"
+  },
+  {
+    "file": "Tylopilus_alboater_(Schwein.)_Murrill_650767.jpg",
+    "author": "walt sturgeon (Mycowalt)",
+    "credit": "walt sturgeon (Mycowalt)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v24"
+  },
+  {
+    "file": "Tylopilus_alboater_(Schwein.)_Murrill_650768.jpg",
+    "author": "walt sturgeon (Mycowalt)",
+    "credit": "walt sturgeon (Mycowalt)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v24"
+  },
+  {
+    "file": "Tylopilus_alboater_(Schwein.)_Murrill_650769.jpg",
+    "author": "walt sturgeon (Mycowalt)",
+    "credit": "walt sturgeon (Mycowalt)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v25"
+  },
+  {
+    "file": "Tylopilus_alboater_(Schwein.)_Murrill_260436.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v25"
+  },
+  {
+    "file": "Tylopilus_alboater_(Schwein.)_Murrill_260439.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v25"
+  },
+  {
+    "file": "Tylopilus_alboater_(Schwein.)_Murrill_74316.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v25"
+  },
+  {
+    "file": "Tylopilus_alboater_159340.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v25"
+  },
+  {
+    "file": "Exsudoporus_frostii.jpg",
+    "author": "Dmitry Brant",
+    "credit": "Dmitry Brant",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v26"
+  },
+  {
+    "file": "Exsudoporus_frostii_15406.jpg",
+    "author": "Kamenko Pajic",
+    "credit": "Kamenko Pajic",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v26"
+  },
+  {
+    "file": "Exsudoporus_frostii_100632.jpg",
+    "author": "Dan Molter",
+    "credit": "Dan Molter",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v26"
+  },
+  {
+    "file": "Exsudoporus_frostii_95289.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v26"
+  },
+  {
+    "file": "Frost's_Bolete_(Exsudoporus_frostii)_(23e804aa-5edc-4ca7-b1b0-c141804d9c3f).jpg",
+    "author": "iNaturalist contributor",
+    "credit": "iNaturalist contributor",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "Wikimedia Commons / iNaturalist",
+    "creditSource": "credits-enrichment-v26"
+  },
+  {
+    "file": "Boletus_rubellus.jpg",
+    "author": "Petru Damsa",
+    "credit": "Petru Damsa",
+    "license": "CC BY-SA 3.0 / GFDL",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v27"
+  },
+  {
+    "file": "Ruby_Bolete_(Boletus_rubellus).jpg",
+    "author": "Trachemys",
+    "credit": "Trachemys",
+    "license": "CC BY-SA 3.0 / 2.5 / 2.0 / 1.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v27"
+  },
+  {
+    "file": "Hortiboletus_rubellus_550076.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v27"
+  },
+  {
+    "file": "Hortiboletus_rubellus_655893.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v27"
+  },
+  {
+    "file": "Hortiboletus_rubellus_2015_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v27"
+  },
+  {
+    "file": "2010-07-11_Leucoagaricus_rubrotinctus_(Peck)_Singer_96981.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v28"
+  },
+  {
+    "file": "2010-07-11_Leucoagaricus_rubrotinctus_(Peck)_Singer_96983.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v28"
+  },
+  {
+    "file": "2011-09-03_Leucoagaricus_rubrotinctus_(Peck)_Singer_166243.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v28"
+  },
+  {
+    "file": "2012-09-08_Leucoagaricus_rubrotinctus_(Peck)_Singer_260218.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v28"
+  },
+  {
+    "file": "2012-09-08_Leucoagaricus_rubrotinctus_(Peck)_Singer_260219.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v28"
+  },
+  {
+    "file": "Lactarius_intermedius_341980611.jpg",
+    "author": "Matej Frančeškin",
+    "credit": "Matej Frančeškin",
+    "license": "CC BY 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+    "source": "Wikimedia Commons / iNaturalist",
+    "creditSource": "credits-enrichment-v29"
+  },
+  {
+    "file": "Lactarius_deliciosus_20070819wa.JPG",
+    "author": "Walter J. Pilsak",
+    "credit": "Walter J. Pilsak",
+    "license": "CC BY-SA 3.0 / GFDL",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v29"
+  },
+  {
+    "file": "Lactarius_deliciosus_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v29"
+  },
+  {
+    "file": "Lactarius_deliciosus_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v29"
+  },
+  {
+    "file": "Lactarius_indigo_48568.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v29"
+  },
+  {
+    "file": "Chroogomphus_rutilus_(1).jpg",
+    "author": "B.gliwa",
+    "credit": "B.gliwa",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v30"
+  },
+  {
+    "file": "Chroogomphus_rutilus_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v30"
+  },
+  {
+    "file": "Chroogomphus_rutilus_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v30"
+  },
+  {
+    "file": "Gomphidius_glutinosus_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v30"
+  },
+  {
+    "file": "Gomphidius_glutinosus_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v30"
+  },
+  {
+    "file": "Agaricus_campestris_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v31"
+  },
+  {
+    "file": "Agaricus_campestris_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v31"
+  },
+  {
+    "file": "Agaricus_campestris_091024.jpg",
+    "author": "H. Krisp",
+    "credit": "H. Krisp",
+    "license": "CC BY 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v31"
+  },
+  {
+    "file": "Agaricus_campestris_2012-10-14.JPG",
+    "author": "AnRo0002",
+    "credit": "AnRo0002",
+    "license": "CC0 1.0 Universal Public Domain Dedication",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v31"
+  },
+  {
+    "file": "Agaricus_silvicola_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v31"
+  },
+  {
+    "file": "Lycoperdon_perlatum_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v32"
+  },
+  {
+    "file": "Lycoperdon_perlatum_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v32"
+  },
+  {
+    "file": "Lycoperdon_pyriforme_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v32"
+  },
+  {
+    "file": "Calvatia_gigantea_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v32"
+  },
+  {
+    "file": "Calvatia_gigantea_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v32"
   }
 ];
 
@@ -1350,7 +1800,7 @@ export function renderCreditsPage(records, imageCredits, search = "") {
       <h2>Credits</h2>
       <p>This page reads image-credit fields directly from the loaded species records and from the controlled built-in enrichment table.</p>
       <p class="muted small">Target credit format is TASL-style: title, author / creator / photographer, source page, license, and license link. Records that still say only "Wikimedia Commons" are flagged by missing creator or license details.</p>
-      <p class="muted small">This build adds ten mini-batches of five credit enrichments each (50 total new overrides) and rebuilds the override table in a generated, comma-safe structure.</p>
+      <p class="muted small">This build adds another ten mini-batches of five credit enrichments each (50 total new overrides), bringing the built-in override table to 168 entries.</p>
     </section>
 
     <section class="panel">
