@@ -10,13 +10,20 @@ function compact(value) {
   return String(value ?? "").replace(/\s+/g, " ").trim();
 }
 
+function pick(...values) {
+  for (const value of values) {
+    const text = compact(value);
+    if (text) return text;
+  }
+  return "";
+}
 
 function normalizeCommonsFileName(value = "") {
   const raw = compact(value);
   if (!raw) return "";
   let text = raw.split("?")[0].split("#")[0];
   try { text = decodeURIComponent(text); } catch {}
-  const markers = ["/wiki/File:", "Special:FilePath/", "File:"];
+  const markers = ["/wiki/File:", "Special:FilePath/", "/commons/", "File:"];
   for (const marker of markers) {
     const index = text.indexOf(marker);
     if (index >= 0) {
@@ -24,139 +31,73 @@ function normalizeCommonsFileName(value = "") {
       break;
     }
   }
+  text = text.replace(/^thumb\/[0-9a-f]\/[0-9a-f]{2}\//i, "");
+  text = text.replace(/^([0-9a-f])\/([0-9a-f]{2})\//i, "");
+  text = text.replace(/\/\d+px-[^/]+$/i, "");
   return text.replace(/ /g, "_").trim();
 }
 
-const ENRICHED_CREDIT_OVERRIDES = new Map([
-  ["Fagus_grandifolia.jpg", {
-    author: "Raul654",
-    license: "GNU Free Documentation License 1.2 or later",
-    licenseUrl: "https://www.gnu.org/licenses/old-licenses/fdl-1.2.html",
-    source: "Wikimedia Commons",
-    creditSource: "credits-enrichment-v1"
-  }],
-  ["American_Beech_Fagus_grandifolia_Bark.JPG", {
-    author: "Derek Ramsey (Ram-Man)",
-    credit: "© Derek Ramsey / derekramsey.com",
-    license: "CC BY-SA 4.0",
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
-    source: "Wikimedia Commons",
-    creditSource: "credits-enrichment-v1"
-  }],
-  ["Fagus_grandifolia_leaf.jpg", {
-    author: "Rob Duval",
-    license: "CC BY-SA 3.0",
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
-    source: "Wikimedia Commons",
-    creditSource: "credits-enrichment-v1"
-  }],
-  ["American_Linden_or_Basswood_(34058253263).jpg", {
-    author: "Dan Keck from Ohio",
-    license: "CC0 1.0 Universal Public Domain Dedication",
-    licenseUrl: "https://creativecommons.org/publicdomain/zero/1.0/",
-    source: "Wikimedia Commons / Flickr",
-    creditSource: "credits-enrichment-v1"
-  }],
-  ["Tilia_americana_bark.jpg", {
-    author: "Rob Duval",
-    license: "CC BY-SA 3.0",
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
-    source: "Wikimedia Commons",
-    creditSource: "credits-enrichment-v1"
-  }],
-  ["Flower_2932.jpg", {
-    author: "Chris Light",
-    license: "CC BY-SA 4.0",
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
-    source: "Wikimedia Commons",
-    creditSource: "credits-enrichment-v1"
-  }],
-  ["Heracleum_maximum_1.jpg", {
-    author: "Danielle Langlois / Dlanglois",
-    license: "CC BY-SA 3.0",
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
-    source: "Wikimedia Commons",
-    creditSource: "credits-enrichment-v1"
-  }],
-  ["Cow_Parsnip.jpg", {
-    author: "Stephen Lea",
-    license: "CC BY-SA 3.0",
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
-    source: "Wikimedia Commons",
-    creditSource: "credits-enrichment-v1"
-  }],
-  ["Heracleum_maximum_3.jpg", {
-    author: "Danielle Langlois / Dlanglois",
-    license: "CC BY-SA 3.0",
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
-    source: "Wikimedia Commons",
-    creditSource: "credits-enrichment-v1"
-  }],
-  ["Ganoderma_applanatum_1259894.jpg", {
-    author: "Richard Daniel (RichardDaniel)",
-    license: "CC BY-SA 3.0",
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
-    source: "Wikimedia Commons / Mushroom Observer",
-    creditSource: "credits-enrichment-v2"
-  }],
-  ["Ganoderma_applanatum_(Ganodermataceae).jpg", {
-    author: "Filo gèn'",
-    license: "CC BY-SA 4.0 / 3.0 / 2.5 / 2.0 / 1.0; GFDL also offered",
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
-    source: "Wikimedia Commons",
-    creditSource: "credits-enrichment-v2"
-  }],
-  ["Artists_conk-Ganoderma_applanatum_(7402107040).jpg", {
-    author: "Scott Darbey from Canada",
-    license: "CC BY 2.0",
-    licenseUrl: "https://creativecommons.org/licenses/by/2.0/",
-    source: "Wikimedia Commons / Flickr",
-    creditSource: "credits-enrichment-v2"
-  }],
-  ["Pleurotus_populinus_13996.jpg", {
-    author: "Jim Tunney (Jim Tunney)",
-    license: "CC BY-SA 3.0",
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
-    source: "Wikimedia Commons / Mushroom Observer",
-    creditSource: "credits-enrichment-v2"
-  }],
-  ["Pleurotus_populinus_O._Hilber_&_O.K._Mill_742181.jpg", {
-    author: "Phil Yeager (gunchky)",
-    license: "CC BY-SA 3.0",
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
-    source: "Wikimedia Commons / Mushroom Observer",
-    creditSource: "credits-enrichment-v2"
-  }],
-  ["Pleurotus_populinus_O._Hilber_&_O.K._Mill_89533.jpg", {
-    author: "Robert Sasata (Sasata)",
-    license: "CC BY-SA 3.0",
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
-    source: "Wikimedia Commons / Mushroom Observer",
-    creditSource: "credits-enrichment-v2"
-  }],
-  ["Inonotus_obliquus.jpg", {
-    author: "Tocekas / Tomas Čekanavičius",
-    credit: "Tomas Čekanavičius",
-    license: "CC BY-SA 3.0; GFDL also offered",
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
-    source: "Wikimedia Commons",
-    creditSource: "credits-enrichment-v2"
-  }],
-  ["Chaga_(8237818667).jpg", {
-    author: "natureluvr01",
-    license: "CC BY 2.0",
-    licenseUrl: "https://creativecommons.org/licenses/by/2.0/",
-    source: "Wikimedia Commons / Flickr",
-    creditSource: "credits-enrichment-v2"
-  }],
-  ["Chaga_Mushroom_-_Inonotus_obliquus_(30222675437).jpg", {
-    author: "Björn S...",
-    license: "CC BY-SA 2.0",
-    licenseUrl: "https://creativecommons.org/licenses/by-sa/2.0/",
-    source: "Wikimedia Commons / Flickr",
-    creditSource: "credits-enrichment-v2"
-  }]
+function credit(author, license, licenseUrl, source = "Wikimedia Commons", batch = "credits-enrichment-v3", extra = {}) {
+  return { author, credit: extra.credit || author, license, licenseUrl, source, creditSource: batch };
+}
 
+const ENRICHED_CREDIT_OVERRIDES = new Map([
+  // v1 — plants: American beech, Basswood, Cow parsnip.
+  ["Fagus_grandifolia.jpg", credit("Raul654", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v1")],
+  ["American_Beech_Fagus_grandifolia_Bark.JPG", credit("Derek Ramsey (Ram-Man)", "CC BY-SA 4.0", "https://creativecommons.org/licenses/by-sa/4.0/", "Wikimedia Commons", "credits-enrichment-v1", { credit: "© Derek Ramsey / derekramsey.com" })],
+  ["Fagus_grandifolia_leaf.jpg", credit("Rob Duval", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v1")],
+  ["American_Linden_or_Basswood_(34058253263).jpg", credit("Dan Keck from Ohio", "CC0 1.0 Universal Public Domain Dedication", "https://creativecommons.org/publicdomain/zero/1.0/", "Wikimedia Commons / Flickr", "credits-enrichment-v1")],
+  ["Tilia_americana_bark.jpg", credit("Rob Duval", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v1")],
+  ["Flower_2932.jpg", credit("Chris Light", "CC BY-SA 4.0", "https://creativecommons.org/licenses/by-sa/4.0/", "Wikimedia Commons", "credits-enrichment-v1")],
+  ["Heracleum_maximum_1.jpg", credit("Danielle Langlois / Dlanglois", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v1")],
+  ["Cow_Parsnip.jpg", credit("Stephen Lea", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v1")],
+  ["Heracleum_maximum_3.jpg", credit("Danielle Langlois / Dlanglois", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v1")],
+
+  // v2 — mushrooms: Artist's conk, Aspen oyster, Chaga.
+  ["Ganoderma_applanatum_1259894.jpg", credit("Richard Daniel", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v2")],
+  ["Ganoderma_applanatum_(Ganodermataceae).jpg", credit("Filo gèn’", "CC BY-SA 3.0 / GFDL", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v2")],
+  ["Artists_conk-Ganoderma_applanatum_(7402107040).jpg", credit("Scott Darbey", "CC BY 2.0", "https://creativecommons.org/licenses/by/2.0/", "Wikimedia Commons / Flickr", "credits-enrichment-v2")],
+  ["Pleurotus_populinus_13996.jpg", credit("Jim Tunney", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v2")],
+  ["Pleurotus_populinus_O._Hilber_&_O.K._Mill_742181.jpg", credit("Phil Yeager", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v2")],
+  ["Pleurotus_populinus_O._Hilber_&_O.K._Mill_89533.jpg", credit("Robert Sasata", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v2")],
+  ["Inonotus_obliquus.jpg", credit("Tocekas / Tomas Čekanavičius", "CC BY-SA 3.0 / GFDL", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v2")],
+  ["Chaga_(8237818667).jpg", credit("natureluvr01", "CC BY 2.0", "https://creativecommons.org/licenses/by/2.0/", "Wikimedia Commons / Flickr", "credits-enrichment-v2")],
+  ["Chaga_Mushroom_-_Inonotus_obliquus_(30222675437).jpg", credit("Björn S...", "CC BY-SA 2.0", "https://creativecommons.org/licenses/by-sa/2.0/", "Wikimedia Commons / Flickr", "credits-enrichment-v2")],
+
+  // v3 batch A — 5 changes: Blewit / cauliflower / hedgehog.
+  ["Lepista_nuda.jpg", credit("Archenzo, Italy", "CC BY-SA 3.0 / GFDL", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v3")],
+  ["Lepista_nuda_(2).jpg", credit("Thomas Pruß", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v3")],
+  ["Lepista_nuda_01.jpg", credit("Σ64", "CC BY 3.0 / GFDL", "https://creativecommons.org/licenses/by/3.0/", "Wikimedia Commons", "credits-enrichment-v3")],
+  ["Sparassis_crispa_3.jpg", credit("Puchatech K.", "CC BY-SA 3.0 / GFDL", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v3")],
+  ["Hydnum_repandum.jpg", credit("Pau Cabot", "CC BY-SA 3.0 / GFDL", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v3")],
+
+  // v4 batch B — 5 changes: hemlock varnish shelf, hen, honey.
+  ["Ganoderma_tsugae.jpg", credit("RattBoy", "CC BY-SA 3.0 / GFDL", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v4")],
+  ["Ganoderma_tsugae_123102289.jpg", credit("Will Kuhn", "CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/", "Wikimedia Commons / iNaturalist", "credits-enrichment-v4")],
+  ["Ganoderma_tsugae_Vermont,_USA.jpg", credit("Daniel Josefchak", "CC BY-SA 4.0", "https://creativecommons.org/licenses/by-sa/4.0/", "Wikimedia Commons", "credits-enrichment-v4")],
+  ["Grifola_frondosa.jpg", credit("Sinisa Radic", "CC BY-SA 4.0", "https://creativecommons.org/licenses/by-sa/4.0/", "Wikimedia Commons", "credits-enrichment-v4")],
+  ["Armillaria_mellea.JPG", credit("Quarma~commonswiki", "CC BY-SA 3.0 / GFDL", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v4")],
+
+  // v5 batch C — 5 changes: oyster and yellow fly agaric.
+  ["Pleurotus_ostreatus.jpg", credit("Franck Hidvégi", "CC BY-SA 4.0", "https://creativecommons.org/licenses/by-sa/4.0/", "Wikimedia Commons", "credits-enrichment-v5")],
+  ["Pleurotus_pulmonarius.jpg", credit("EpochFail / Aaron Halfaker", "CC BY 3.0", "https://creativecommons.org/licenses/by/3.0/", "Wikimedia Commons", "credits-enrichment-v5")],
+  ["Amanita_muscaria_var._guessowii_(2).jpg", credit("Samuel Vaughn D. Duncan", "CC BY-SA 4.0", "https://creativecommons.org/licenses/by-sa/4.0/", "Wikimedia Commons", "credits-enrichment-v5")],
+  ["Amanita_muscaria_var._guessowii,_medium.jpg", credit("Ragesoss", "CC BY-SA 3.0 / GFDL", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v5")],
+  ["Amanita_muscaria_var._guessowii,_small.jpg", credit("Ragesoss", "CC BY-SA 3.0 / GFDL", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v5")],
+
+  // v6 batch D — 5 changes: morels, red chanterelle, velvet foot.
+  ["Morchella_esculenta_36795275.jpg", credit("Tom Zucker-Scharff", "CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/", "Wikimedia Commons / iNaturalist", "credits-enrichment-v6")],
+  ["Morchella_esculenta_(Twelve_edible_mushrooms_of_the_United_States).jpg", credit("Thomas Taylor / USDA", "Public domain — United States", "https://commons.wikimedia.org/wiki/Commons:Copyright_tags/Country-specific_tags#United_States", "Wikimedia Commons / USDA", "credits-enrichment-v6")],
+  ["Cantharellus_cinnabarinus.jpg", credit("S0urLuc1d", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons", "credits-enrichment-v6")],
+  ["Flammulina_velutipes._(53589573202).jpg", credit("Bernard Spragg. NZ", "Public Domain Mark 1.0", "https://creativecommons.org/publicdomain/mark/1.0/", "Wikimedia Commons / Flickr", "credits-enrichment-v6")],
+  ["2013-04-15_Morchella_punctipes_Peck_(1903)_322536.jpg", credit("Mike Hopping (AvlMike)", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons / Mushroom Observer", "credits-enrichment-v6")],
+
+  // v7 batch E — 5 changes: morel support and public-domain mushroom illustrations.
+  ["Morchella_punctipes_205457.jpg", credit("Jason Hollinger", "CC BY-SA 3.0", "https://creativecommons.org/licenses/by-sa/3.0/", "Wikimedia Commons / Mushroom Observer", "credits-enrichment-v7")],
+  ["Morchella_punctipes_128110858.jpg", credit("Chase G. Mayers / cgmayers", "CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/", "Wikimedia Commons / iNaturalist", "credits-enrichment-v7")],
+  ["Morchella_punctipes_128111168.jpg", credit("Chase G. Mayers / cgmayers", "CC BY 4.0", "https://creativecommons.org/licenses/by/4.0/", "Wikimedia Commons / iNaturalist", "credits-enrichment-v7")],
+  ["Lactarius_deliciosus_(edible_mushrooms_of_the_United_States).jpg", credit("Thomas Taylor / USDA", "Public domain — United States", "https://commons.wikimedia.org/wiki/Commons:Copyright_tags/Country-specific_tags#United_States", "Wikimedia Commons / USDA", "credits-enrichment-v7")],
+  ["Cantharellus_cibarius_(Twelve_edible_mushrooms_of_the_United_States).jpg", credit("Thomas Taylor / USDA", "Public domain — United States", "https://commons.wikimedia.org/wiki/Commons:Copyright_tags/Country-specific_tags#United_States", "Wikimedia Commons / USDA", "credits-enrichment-v7")]
 ]);
 
 function isGenericCreditValue(value = "") {
@@ -184,9 +125,6 @@ function findCreditOverride(entry = {}) {
   for (const fileName of candidates) {
     const exact = ENRICHED_CREDIT_OVERRIDES.get(fileName);
     if (exact) return exact;
-    const decoded = fileName.replace(/_/g, " ");
-    const loose = ENRICHED_CREDIT_OVERRIDES.get(decoded.replace(/ /g, "_"));
-    if (loose) return loose;
   }
   return null;
 }
@@ -203,14 +141,6 @@ function applyCreditOverride(entry = {}) {
     licenseUrl: entry.licenseUrl || override.licenseUrl || "",
     creditSource: override.creditSource || entry.creditSource || ""
   };
-}
-
-function pick(...values) {
-  for (const value of values) {
-    const text = compact(value);
-    if (text) return text;
-  }
-  return "";
 }
 
 function isPlaceholderImage(value = "") {
@@ -237,6 +167,10 @@ function sourcePageFromUrl(url = "") {
   const text = compact(url);
   if (!text) return "";
   if (text.includes("commons.wikimedia.org/wiki/File:")) return text.split("?")[0];
+  if (text.includes("commons.wikimedia.org/wiki/Special:FilePath/")) {
+    const fileName = normalizeCommonsFileName(text);
+    return fileName ? `https://commons.wikimedia.org/wiki/File:${encodeURIComponent(fileName).replaceAll("%2F", "/")}` : text;
+  }
   return text;
 }
 
@@ -251,10 +185,11 @@ function sourceLabelFor(entry = {}) {
 }
 
 function normalizeCreditEntry(entry = {}, record = {}) {
-  const sourcePage = pick(entry.sourcePage, entry.source_page, entry.source_page_url, sourcePageFromUrl(entry.full), sourcePageFromUrl(entry.detail), sourcePageFromUrl(entry.thumb), sourcePageFromUrl(entry.src), sourcePageFromUrl(entry.url));
+  const sourceImage = pick(entry.sourceImage, entry.full, entry.detail, entry.thumb, entry.src, entry.url);
+  const sourcePage = pick(entry.sourcePage, entry.source_page, entry.source_page_url, sourcePageFromUrl(sourceImage));
   const licenseUrl = pick(entry.licenseUrl, entry.license_url, entry.license_link);
   const author = pick(entry.author, entry.creator, entry.photographer, entry.credit);
-  const title = pick(entry.title, entry.file_title, entry.name, "Image");
+  const title = pick(entry.title, entry.file_title, entry.name, normalizeCommonsFileName(sourcePage || sourceImage), "Image");
   return applyCreditOverride({
     slug: pick(entry.slug, record.slug),
     species: pick(entry.species, record.display_name, record.common_name, record.slug),
@@ -266,56 +201,43 @@ function normalizeCreditEntry(entry = {}, record = {}) {
     license: pick(entry.license),
     licenseUrl,
     sourcePage,
-    sourceImage: pick(entry.full, entry.detail, entry.thumb, entry.src, entry.url)
+    sourceImage
   });
+}
+
+function pushEntry(entries, item, record, index, titlePrefix = "Image") {
+  const url = urlFromImageItem(item);
+  if (isPlaceholderImage(url)) return;
+  if (item && typeof item === "object") {
+    entries.push(normalizeCreditEntry({
+      ...item,
+      title: pick(item.title, `${titlePrefix} ${index + 1}`),
+      sourceImage: url,
+      slug: record.slug,
+      species: record.display_name || record.common_name || record.slug,
+      scientific_name: record.scientific_name || ""
+    }, record));
+    return;
+  }
+  entries.push(normalizeCreditEntry({
+    title: `${titlePrefix} ${index + 1}`,
+    source: url.includes("commons.wikimedia.org") || url.includes("upload.wikimedia.org") ? "Wikimedia Commons" : "record image",
+    sourcePage: sourcePageFromUrl(url),
+    sourceImage: url,
+    slug: record.slug,
+    species: record.display_name || record.common_name || record.slug,
+    scientific_name: record.scientific_name || ""
+  }, record));
 }
 
 function imageEntriesFromRecord(record = {}) {
   const entries = [];
-  const structured = asList(record.images_structured);
-
-  structured.forEach((item, index) => {
-    if (!item || typeof item !== "object") return;
-    const url = urlFromImageItem(item);
-    if (isPlaceholderImage(url)) return;
-    entries.push(normalizeCreditEntry({
-      ...item,
-      title: pick(item.title, `Image ${index + 1}`),
-      sourceImage: url,
-      slug: record.slug,
-      species: record.display_name || record.common_name || record.slug,
-      scientific_name: record.scientific_name || ""
-    }, record));
-  });
-
-  if (entries.length) return entries;
-
-  asList(record.images).forEach((item, index) => {
-    const url = urlFromImageItem(item);
-    if (isPlaceholderImage(url)) return;
-    if (typeof item === "object") {
-      entries.push(normalizeCreditEntry({
-        ...item,
-        title: pick(item.title, `Image ${index + 1}`),
-        sourceImage: url,
-        slug: record.slug,
-        species: record.display_name || record.common_name || record.slug,
-        scientific_name: record.scientific_name || ""
-      }, record));
-      return;
-    }
-    entries.push(normalizeCreditEntry({
-      title: `Image ${index + 1}`,
-      source: url.includes("commons.wikimedia.org") ? "Wikimedia Commons" : "record image",
-      sourcePage: sourcePageFromUrl(url),
-      sourceImage: url,
-      slug: record.slug,
-      species: record.display_name || record.common_name || record.slug,
-      scientific_name: record.scientific_name || ""
-    }, record));
-  });
-
-  return entries;
+  asList(record.images_structured).forEach((item, index) => pushEntry(entries, item, record, index, "Structured image"));
+  asList(record.images).forEach((item, index) => pushEntry(entries, item, record, index, "Legacy image"));
+  asList(record.detail_images).forEach((item, index) => pushEntry(entries, item, record, index, "Detail image"));
+  asList(record.enlarge_images).forEach((item, index) => pushEntry(entries, item, record, index, "Full-size image"));
+  if (record.list_thumbnail) pushEntry(entries, record.list_thumbnail, record, 0, "List thumbnail");
+  return dedupeEntries(entries);
 }
 
 function entriesFromSessionCredits(imageCredits) {
@@ -328,7 +250,8 @@ function dedupeEntries(entries = []) {
   const seen = new Set();
   const out = [];
   for (const entry of entries) {
-    const key = [entry.slug, entry.title, entry.sourcePage, entry.sourceImage].map((value) => compact(value).toLowerCase()).join("::");
+    const key = [entry.slug, normalizeCommonsFileName(entry.sourcePage || entry.sourceImage), entry.title]
+      .map((value) => compact(value).toLowerCase()).join("::");
     if (!key.replace(/:/g, "") || seen.has(key)) continue;
     seen.add(key);
     out.push(entry);
@@ -350,6 +273,7 @@ function creditRow(entry) {
       ${entry.credit && entry.credit !== entry.author ? `<p><strong>Credit text:</strong> ${esc(entry.credit)}</p>` : ""}
       <p><strong>Source:</strong> ${esc(entry.source || "Image source")}</p>
       <p><strong>License:</strong> ${missingText(entry.license, "License")}</p>
+      ${entry.creditSource ? `<p class="muted small"><strong>Credit pass:</strong> ${esc(entry.creditSource)}</p>` : ""}
       <div class="control-row compact">
         ${entry.sourcePage ? `<a class="buttonish" href="${esc(entry.sourcePage)}" target="_blank" rel="noreferrer">Source page</a>` : ""}
         ${entry.licenseUrl ? `<a class="buttonish" href="${esc(entry.licenseUrl)}" target="_blank" rel="noreferrer">License link</a>` : ""}
@@ -364,6 +288,7 @@ function catalogRow(record) {
   const imageCount = entries.length;
   const missingCreator = entries.filter((entry) => !entry.author).length;
   const missingLicense = entries.filter((entry) => !entry.license || !entry.licenseUrl).length;
+  const enriched = entries.filter((entry) => entry.creditSource).length;
   const status = imageCount === 0
     ? "No usable image metadata found"
     : (missingCreator || missingLicense ? "Needs credit enrichment" : "TASL-style credit fields present");
@@ -374,7 +299,7 @@ function catalogRow(record) {
       ${record.scientific_name ? `<p class="muted small"><em>${esc(record.scientific_name)}</em></p>` : ""}
       <p><strong>Credit status:</strong> ${esc(status)}</p>
       <p><strong>Usable image records:</strong> ${imageCount}</p>
-      ${imageCount ? `<p><strong>Missing creator:</strong> ${missingCreator} · <strong>Missing license/license link:</strong> ${missingLicense}</p>` : ""}
+      ${imageCount ? `<p><strong>Missing creator:</strong> ${missingCreator} · <strong>Missing license/license link:</strong> ${missingLicense} · <strong>Enriched here:</strong> ${enriched}</p>` : ""}
     </article>
   `;
 }
@@ -386,7 +311,7 @@ export function renderCreditsPage(records, imageCredits, search = "") {
   const credits = dedupeEntries([...recordEntries, ...sessionEntries])
     .filter((entry) => {
       if (!q) return true;
-      return [entry.species, entry.scientific_name, entry.title, entry.author, entry.credit, entry.license, entry.source, entry.slug]
+      return [entry.species, entry.scientific_name, entry.title, entry.author, entry.credit, entry.license, entry.source, entry.slug, entry.creditSource]
         .join(" ")
         .toLowerCase()
         .includes(q);
@@ -404,14 +329,14 @@ export function renderCreditsPage(records, imageCredits, search = "") {
   const withCreator = recordEntries.filter((entry) => !!entry.author).length;
   const withLicense = recordEntries.filter((entry) => !!entry.license && !!entry.licenseUrl).length;
   const needsEnrichment = recordEntries.filter((entry) => !entry.author || !entry.license || !entry.licenseUrl).length;
-  const enrichedCreditCount = recordEntries.filter((entry) => compact(entry.creditSource).startsWith("credits-enrichment-v")).length;
+  const enrichedCreditCount = recordEntries.filter((entry) => /^credits-enrichment-v\d+/.test(entry.creditSource || "")).length;
 
   return `
     <section class="panel">
       <h2>Credits</h2>
-      <p>This page now reads image-credit fields directly from the loaded species records, not only from images that happened to render during this browser session.</p>
-      <p class="muted small">Target credit format is TASL-style: title, author / creator / photographer, source page, license, and license link. Records that still say only "Wikimedia Commons" are flagged here by missing creator or license details.</p>
-      <p class="muted small">This build includes small built-in enrichment batches for American beech, Basswood, Cow parsnip, Artist's conk, Aspen oyster, and Chaga image records. These overrides are intentionally narrow so they can be audited before being folded into the canonical JSON chunks later.</p>
+      <p>This page reads image-credit fields directly from the loaded species records and from the controlled built-in enrichment table.</p>
+      <p class="muted small">Target credit format is TASL-style: title, author / creator / photographer, source page, license, and license link. Records that still say only "Wikimedia Commons" are flagged by missing creator or license details.</p>
+      <p class="muted small">This build includes five new mini-batches of five credit enrichments each, plus the earlier American beech, Basswood, Cow parsnip, Artist's conk, Aspen oyster, and Chaga batches. It also audits legacy image arrays instead of only structured image slots.</p>
     </section>
 
     <section class="panel">
@@ -421,7 +346,7 @@ export function renderCreditsPage(records, imageCredits, search = "") {
         <div class="stat-card"><div class="num">${withCreator}</div><div>With creator / photographer</div></div>
         <div class="stat-card"><div class="num">${withLicense}</div><div>With license + link</div></div>
         <div class="stat-card"><div class="num">${needsEnrichment}</div><div>Need credit enrichment</div></div>
-        <div class="stat-card"><div class="num">${enrichedCreditCount}</div><div>Enriched in built-in credit pass</div></div>
+        <div class="stat-card"><div class="num">${enrichedCreditCount}</div><div>Enriched in built-in credit passes</div></div>
         <div class="stat-card"><div class="num">0</div><div>Runtime Commons API calls</div></div>
       </div>
     </section>
