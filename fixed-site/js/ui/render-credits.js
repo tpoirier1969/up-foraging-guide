@@ -2412,6 +2412,456 @@ const RAW_CREDIT_OVERRIDES = [
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
     "source": "Wikimedia Commons",
     "creditSource": "credits-enrichment-v52"
+  },
+  {
+    "file": "Arctostaphylos_uva-ursi_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v53"
+  },
+  {
+    "file": "Arctostaphylos_uva-ursi_berries.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v53"
+  },
+  {
+    "file": "Arctostaphylos_uva-ursi_kz01.jpg",
+    "author": "Krzysztof Ziarnek, Kenraiz",
+    "credit": "Krzysztof Ziarnek, Kenraiz",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v53"
+  },
+  {
+    "file": "Berberis_vulgaris_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v53"
+  },
+  {
+    "file": "Berberis_thunbergii_fruits.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v53"
+  },
+  {
+    "file": "Monarda_fistulosa_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v54"
+  },
+  {
+    "file": "Monarda_fistulosa_flowers.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v54"
+  },
+  {
+    "file": "Monarda_fistulosa,_flower.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v54"
+  },
+  {
+    "file": "Mentha_arvensis_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v54"
+  },
+  {
+    "file": "Mentha_canadensis.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v54"
+  },
+  {
+    "file": "Angelica_atropurpurea_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v55"
+  },
+  {
+    "file": "Angelica_atropurpurea.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v55"
+  },
+  {
+    "file": "Conium_maculatum_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v55"
+  },
+  {
+    "file": "Cicuta_maculata_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v55"
+  },
+  {
+    "file": "Osmorhiza_longistylis.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v55"
+  },
+  {
+    "file": "Hemerocallis_fulva_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v56"
+  },
+  {
+    "file": "Hemerocallis_fulva_flower.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v56"
+  },
+  {
+    "file": "Hemerocallis_fulva_BotGardBln07122011A.jpg",
+    "author": "Daderot",
+    "credit": "Daderot",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v56"
+  },
+  {
+    "file": "Urtica_dioica_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v56"
+  },
+  {
+    "file": "Urtica_dioica_stinging_hairs.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v56"
+  },
+  {
+    "file": "Nuphar_lutea_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v57"
+  },
+  {
+    "file": "Nuphar_variegata_flower.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v57"
+  },
+  {
+    "file": "Sagittaria_latifolia_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v57"
+  },
+  {
+    "file": "Sagittaria_latifolia_flowers.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v57"
+  },
+  {
+    "file": "Typha_angustifolia_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v57"
+  },
+  {
+    "file": "Corylus_americana_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v58"
+  },
+  {
+    "file": "Corylus_americana_nuts.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v58"
+  },
+  {
+    "file": "Juglans_nigra_fruit.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v58"
+  },
+  {
+    "file": "Juglans_cinerea_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v58"
+  },
+  {
+    "file": "Prunus_pensylvanica_fruit.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v58"
+  },
+  {
+    "file": "Prunus_virginiana_fruit.jpg",
+    "author": "USDA / Wikimedia Commons",
+    "credit": "USDA / Wikimedia Commons",
+    "license": "Public domain — United States",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags/Country-specific_tags#United_States",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v59"
+  },
+  {
+    "file": "Prunus_serotina_fruit.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v59"
+  },
+  {
+    "file": "Asimina_triloba_fruit.jpg",
+    "author": "Daderot",
+    "credit": "Daderot",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v59"
+  },
+  {
+    "file": "Asimina_triloba_flower.jpg",
+    "author": "Daderot",
+    "credit": "Daderot",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v59"
+  },
+  {
+    "file": "Diospyros_virginiana_fruit.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v59"
+  },
+  {
+    "file": "Apios_americana_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v60"
+  },
+  {
+    "file": "Apios_americana_tubers.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v60"
+  },
+  {
+    "file": "Helianthus_tuberosus_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v60"
+  },
+  {
+    "file": "Helianthus_tuberosus_tubers.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v60"
+  },
+  {
+    "file": "Matteuccia_struthiopteris_fiddleheads.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v60"
+  },
+  {
+    "file": "Matteuccia_struthiopteris_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v61"
+  },
+  {
+    "file": "Claytonia_virginica_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v61"
+  },
+  {
+    "file": "Claytonia_caroliniana.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v61"
+  },
+  {
+    "file": "Erythronium_americanum_001.JPG",
+    "author": "H. Zell",
+    "credit": "H. Zell",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v61"
+  },
+  {
+    "file": "Erythronium_americanum_flower.jpg",
+    "author": "Wikimedia Commons contributor",
+    "credit": "Wikimedia Commons contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v61"
+  },
+  {
+    "file": "Hericium_erinaceus_2011_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v62"
+  },
+  {
+    "file": "Hericium_americanum_135426.jpg",
+    "author": "Mushroom Observer contributor",
+    "credit": "Mushroom Observer contributor",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v62"
+  },
+  {
+    "file": "Laetiporus_sulphureus_2010_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v62"
+  },
+  {
+    "file": "Laetiporus_cincinnatus_26074.jpg",
+    "author": "Dan Molter (shroomydan)",
+    "credit": "Dan Molter (shroomydan)",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "source": "Wikimedia Commons / Mushroom Observer",
+    "creditSource": "credits-enrichment-v62"
+  },
+  {
+    "file": "Coprinus_comatus_2009_G1.jpg",
+    "author": "George Chernilevsky",
+    "credit": "George Chernilevsky",
+    "license": "Public domain — author released",
+    "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+    "source": "Wikimedia Commons",
+    "creditSource": "credits-enrichment-v62"
   }
 ];
 
@@ -2773,7 +3223,7 @@ export function renderCreditsPage(records, imageCredits, search = "") {
       <section class="panel">
         <h2>Credits</h2>
         <p>This page reads image-credit fields directly from the loaded species records and from the controlled built-in enrichment table.</p>
-        <p class="muted small">Desktop layout uses a two-column credit grid with compact inline metadata. The page also limits how many credit/audit cards render at once so the browser does not have to build a giant DOM every time the Credits tab opens. This build adds another plant-focused credit batch for exact and support filenames used by active plant records and image override sets.</p>
+        <p class="muted small">Desktop layout uses a two-column credit grid with compact inline metadata. The page also limits how many credit/audit cards render at once so the browser does not have to build a giant DOM every time the Credits tab opens. This build adds another support credit batch. Exact filename matches apply automatically when those Commons filenames appear in loaded records; support entries remain harmless until a matching filename is present.</p>
       </section>
 
       <section class="panel">
