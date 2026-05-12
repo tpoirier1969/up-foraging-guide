@@ -138,12 +138,26 @@ function isMushroomRecord(record = {}) {
     || /mushroom|fungi|fungus|bolete|chanterelle|morel|polypore|puffball|agaric/.test(hay);
 }
 
+function recordLookupSlugs(record = {}) {
+  return [
+    record.slug,
+    record.display_name,
+    record.common_name,
+    record.scientific_name,
+    ...asArray(record.common_names),
+    ...asArray(record.search_aliases),
+    ...asArray(record.aliases),
+    ...asArray(record.look_alike_aliases)
+  ]
+    .map(slugifyLookup)
+    .filter(Boolean);
+}
+
 function findLookAlikeRecord(rawName = "") {
   const slug = slugifyLookup(rawName);
+  if (!slug) return null;
   const records = [...(state.species || []), ...(state.rareSpecies || [])];
-  const direct = records.find((record) => record.slug === slug)
-    || records.find((record) => slugifyLookup(record.display_name || record.common_name || "") === slug)
-    || records.find((record) => slugifyLookup(record.scientific_name || "") === slug);
+  const direct = records.find((record) => recordLookupSlugs(record).includes(slug));
   if (!direct?.duplicate_of) return direct || null;
   return records.find((record) => record.slug === direct.duplicate_of) || direct;
 }

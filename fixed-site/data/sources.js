@@ -1,7 +1,8 @@
 export const SPECIES_PATHS = [
   "data/plants.json",
   "data/plants-image-overrides.json",
-  "data/mushrooms.json"
+  "data/mushrooms.json",
+  "data/mushroom-lookalike-stubs-v4.3.26.json"
 ];
 
 export const OPTIONAL_PATHS = [
