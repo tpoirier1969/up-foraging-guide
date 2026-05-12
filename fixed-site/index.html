@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Upper Michigan Foraging Guide</title>
   <meta name="theme-color" content="#2f5d46">
-  <link rel="manifest" href="site.webmanifest?v=v4.3.23-r2026-05-12-mushroom-detail-cleanup1">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/up-foraging-guide-icon-32.png?v=v4.3.23-r2026-05-12-mushroom-detail-cleanup1">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/up-foraging-guide-icon-180.png?v=v4.3.23-r2026-05-12-mushroom-detail-cleanup1">
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/up-foraging-guide-icon-192.png?v=v4.3.23-r2026-05-12-mushroom-detail-cleanup1">
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/up-foraging-guide-icon-512.png?v=v4.3.23-r2026-05-12-mushroom-detail-cleanup1">
-  <link rel="stylesheet" href="styles/base.css?v=v4.3.23-r2026-05-12-mushroom-detail-cleanup1">
+  <link rel="manifest" href="site.webmanifest?v=v4.3.24-r2026-05-12-poison-lookalike-emphasis1">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/up-foraging-guide-icon-32.png?v=v4.3.24-r2026-05-12-poison-lookalike-emphasis1">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/up-foraging-guide-icon-180.png?v=v4.3.24-r2026-05-12-poison-lookalike-emphasis1">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/up-foraging-guide-icon-192.png?v=v4.3.24-r2026-05-12-poison-lookalike-emphasis1">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/up-foraging-guide-icon-512.png?v=v4.3.24-r2026-05-12-poison-lookalike-emphasis1">
+  <link rel="stylesheet" href="styles/base.css?v=v4.3.24-r2026-05-12-poison-lookalike-emphasis1">
   <style>
     .image-lightbox[hidden]{display:none !important;}
     .image-lightbox{position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;padding:20px;}
@@ -23,6 +23,14 @@
     .image-lightbox-title{font-weight:700;}
     body.lightbox-open{overflow:hidden;}
     .lookalike-title-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px;}
+    .lookalike-detail-block.has-danger-lookalike,.lookalike-detail-block.has-deadly-lookalike{border-left:6px solid #9b1c1c;}
+    .lookalike-summary{margin:.35rem 0 .75rem;padding:.65rem .8rem;border-radius:12px;background:#fff4e5;border:1px solid #e0a64f;font-weight:700;color:#4c2b00;}
+    .lookalike-cues{display:grid;gap:8px;}
+    .lookalike-cue-item{border:1px solid var(--line,#d7dfd6);border-radius:12px;padding:9px 10px;background:#fff;}
+    .lookalike-cue-item.lookalike-danger,.lookalike-cue-item.lookalike-deadly{border-color:#c53b35;background:#fff7f6;box-shadow:inset 4px 0 0 #c53b35;}
+    .lookalike-cue-item.lookalike-deadly{background:#fff0ef;box-shadow:inset 5px 0 0 #8f1515;}
+    .lookalike-warning{font-weight:800;color:#8f1515;margin:2px 0 4px;}
+    .lookalike-cue-item.lookalike-review{border-style:dashed;background:#fffaf0;}
     .mobile-menu-toggle{display:none;align-items:center;justify-content:center;gap:.45rem;padding:10px 14px;border:1px solid var(--accent);border-radius:14px;background:#fff;color:var(--accent);font-weight:800;cursor:pointer;}
     .mobile-menu-toggle::before{content:"☰";font-size:1.1rem;line-height:1;}
     body.nav-open .mobile-menu-toggle::before{content:"×";font-size:1.25rem;}
@@ -78,7 +86,7 @@
           <h1>Upper Michigan Foraging Guide</h1>
           <p class="subhead">Merged master build</p>
         </div>
-        <div class="version-pill" id="versionBadge">V4.3.23-r26-05-12</div>
+        <div class="version-pill" id="versionBadge">V4.3.24-r26-05-12</div>
       </div>
       <button id="mobileMenuToggle" class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="primaryNav">Menu</button>
       <nav id="primaryNav" class="main-nav" aria-label="Primary">
@@ -108,6 +116,6 @@
       <div id="modalContent"></div>
     </article>
   </dialog>
-  <script type="module" src="js/boot.js?v=v4.3.23-r2026-05-12-mushroom-detail-cleanup1"></script>
+  <script type="module" src="js/boot.js?v=v4.3.24-r2026-05-12-poison-lookalike-emphasis1"></script>
 </body>
 </html>

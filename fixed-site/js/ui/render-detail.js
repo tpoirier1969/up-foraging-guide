@@ -1,6 +1,6 @@
 import { esc } from "../lib/escape.js";
 import { state } from "../state.js";
-import { getMedicinalData, isBuildNoteText, cleanUserFacingText, classifyRecord } from "../lib/merge.js?v=v4.3.23-r2026-05-12-mushroom-detail-cleanup1";
+import { getMedicinalData, isBuildNoteText, cleanUserFacingText, classifyRecord } from "../lib/merge.js?v=v4.3.24-r2026-05-12-poison-lookalike-emphasis1";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
@@ -205,21 +205,71 @@ function lookAlikeSeparationNote(record = {}, rawName = "") {
   return "Compare the linked page against this one using underside, pore/gill color, bruising, stem clues, host tree/substrate, season, and any taste warning.";
 }
 
+function lookAlikeRiskClass(status = {}) {
+  const label = String(status.label || "").toLowerCase();
+  if (/deadly|fatal|death/.test(label)) return "lookalike-deadly";
+  if (status.className === "danger" || /poison|toxic|avoid|unsafe|inedible|caution|not recommended/.test(label)) return "lookalike-danger";
+  if (status.className === "review") return "lookalike-review";
+  if (status.className === "good") return "lookalike-good";
+  return "";
+}
+
+function lookAlikeWarningText(status = {}) {
+  const label = String(status.label || "").toLowerCase();
+  if (/deadly|fatal|death/.test(label)) {
+    return "Deadly look-alike: treat this comparison as a stop sign, not a casual note.";
+  }
+  if (status.className === "danger" || /poison|toxic|avoid|unsafe|inedible|not recommended/.test(label)) {
+    return "Poisonous/unsafe look-alike: confirm the separating features before considering this species for food.";
+  }
+  if (status.className === "review") {
+    return "Look-alike status needs review: do not use this comparison as a final ID.";
+  }
+  return "";
+}
+
 function lookAlikeBlock(record) {
   const names = asArray(record.look_alikes).map(clean).filter(Boolean);
   const notes = clean(record.look_alike_notes);
   if (!names.length && !notes) return "";
+
+  let hasDanger = false;
+  let hasDeadly = false;
+  let hasReview = false;
+
   const items = names.map((name) => {
     const linkedRecord = findLookAlikeRecord(name);
     const slug = linkedRecord?.slug || slugifyLookup(name);
     const label = linkedRecord ? (linkedRecord.display_name || linkedRecord.common_name || titleFromSlugOrName(name)) : titleFromSlugOrName(name);
     const status = lookAlikeStatus(linkedRecord);
+    const riskClass = lookAlikeRiskClass(status);
+    const warning = lookAlikeWarningText(status);
     const note = lookAlikeSeparationNote(record, name);
-    return `<li><div class="lookalike-title-row"><button class="subtle" type="button" data-detail="${esc(slug)}">${esc(label)}</button>${statusTagHtml(status)}</div>${note ? `<div class="muted small">How to tell apart: ${esc(note)}</div>` : ""}</li>`;
+
+    if (riskClass === "lookalike-deadly") hasDeadly = true;
+    if (riskClass === "lookalike-danger" || riskClass === "lookalike-deadly") hasDanger = true;
+    if (riskClass === "lookalike-review") hasReview = true;
+
+    return `<li class="lookalike-cue-item ${esc(riskClass)}">
+      <div class="lookalike-title-row">
+        <button class="subtle" type="button" data-detail="${esc(slug)}">${esc(label)}</button>
+        ${statusTagHtml(status)}
+      </div>
+      ${warning ? `<div class="lookalike-warning">${esc(warning)}</div>` : ""}
+      ${note ? `<div class="muted small">How to tell apart: ${esc(note)}</div>` : ""}
+    </li>`;
   }).join("");
+
+  const summary = hasDeadly
+    ? "One or more listed look-alikes is flagged as deadly. Slow down and verify the full mushroom, including underside, stem/base, spore color, substrate, and season."
+    : (hasDanger
+      ? "One or more listed look-alikes is poisonous, unsafe, or not recommended. Treat those warnings as primary ID information, not trivia."
+      : (hasReview ? "One or more look-alikes still needs review, so this comparison should not be used as a final ID by itself." : ""));
+
   return `
-    <section class="detail-block">
+    <section class="detail-block lookalike-detail-block ${hasDeadly ? "has-deadly-lookalike" : (hasDanger ? "has-danger-lookalike" : "")}">
       <h4>Looks-alikes / Easily Confused</h4>
+      ${summary ? `<p class="lookalike-summary">${esc(summary)}</p>` : ""}
       ${notes ? `<p>${esc(notes)}</p>` : ""}
       ${items ? `<ul class="list-tight lookalike-cues">${items}</ul>` : ""}
     </section>
