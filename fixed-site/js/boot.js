@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.30-r2026-05-12-mushroom-season-controls1";
-const DISPLAY_VERSION = "V4.3.30-r26-05-12";
+const APP_VERSION = "v4.3.31-r2026-05-12-mushroom-landing-forage-filter1";
+const DISPLAY_VERSION = "V4.3.31-r26-05-12";
 
 function esc(value) {
   return String(value ?? "")

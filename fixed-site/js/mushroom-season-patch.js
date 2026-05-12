@@ -6,7 +6,7 @@ import { installLazyImages } from "./lib/image-resolver.js";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 
-const VERSION = "v4.3.30-r2026-05-12-mushroom-season-controls1";
+const VERSION = "v4.3.31-r2026-05-12-mushroom-landing-forage-filter1";
 const IN_SEASON_ROUTE = "mushrooms-in-season";
 const MUSHROOM_ROUTES = new Set(["mushrooms", "mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
 const FILTER_ROUTES = new Set(["mushrooms-gilled", "boletes", "mushrooms-other"]);
@@ -58,6 +58,43 @@ function isMushroomRecord(record = {}) {
   return text.includes("mushroom") || text.includes("fung") || text.includes("bolete") || Boolean(record.mushroom_profile);
 }
 
+function textBlob(record = {}) {
+  return [
+    record.food_role,
+    record.edibility_status,
+    record.edibility_detail,
+    record.edibility_notes,
+    record.culinary_uses,
+    record.food_quality,
+    record.foraging_value,
+    record.non_edible_severity,
+    record.danger_level,
+    record.look_alike_risk,
+    record.mushroom_profile?.edibility_status,
+    record.mushroom_profile?.caution_level,
+    ...(Array.isArray(record.use_roles) ? record.use_roles : asList(record.use_roles))
+  ].join(" ").toLowerCase();
+}
+
+function isForageMushroomRecord(record = {}) {
+  if (!isMushroomRecord(record) || record.hidden) return false;
+  if (record.is_non_edible === true) return false;
+
+  const foodRole = String(record.food_role || "").trim().toLowerCase();
+  const status = String(record.edibility_status || record.mushroom_profile?.edibility_status || "").trim().toLowerCase();
+  const useRoles = asList(record.use_roles).map((value) => String(value || "").trim().toLowerCase());
+  const text = textBlob(record);
+
+  if (["avoid", "caution", "id / caution", "id / comparison", "comparison", "look-alike"].includes(foodRole)) return false;
+  if (/^(not_edible|not-edible|non_edible|non-edible|toxic|toxic_or_dangerous|dangerous|out_of_scope|out-of-scope)$/.test(status)) return false;
+  if (/deadly|poison|toxic|dangerous|unsafe|\bavoid\b|not[_ -]?edible|non[_ -]?edible|not recommended|not a food target|comparison\/caution only|comparison only|caution only|id \/ caution|look-alike warning|not treated as .*food|out[- ]of[- ]region/.test(text)) return false;
+
+  if (foodRole === "food") return true;
+  if (useRoles.some((value) => value === "food" || value.includes("food"))) return true;
+  if (/edible|choice|forage|culinary|cook|table mushroom|prime|good processed food|occasional edible|use with expert-level confidence/.test(text)) return true;
+  return false;
+}
+
 function isGilled(record = {}) {
   const text = [
     record.lane,
@@ -89,7 +126,7 @@ function isBolete(record = {}) {
 
 function recordMatchesCurrentMushroomRoute(record = {}) {
   const r = route();
-  if (!isMushroomRecord(record) || record.hidden) return false;
+  if (!isForageMushroomRecord(record)) return false;
   if (r === "mushrooms-gilled") return isGilled(record);
   if (r === "boletes") return isBolete(record);
   if (r === "mushrooms-other") return !isGilled(record) && !isBolete(record);
@@ -105,7 +142,7 @@ function mushroomLaneSwitcherHtml() {
   return `
     <section class="panel mushroom-lane-switcher" data-season-patch-nav="true">
       <h3>Mushroom underside / form</h3>
-      <div class="lane-grid">
+      <div class="lane-grid" data-season-patch-grid="mushroom-lane">
         ${activeLaneCard("#/mushrooms-gilled", "mushrooms-gilled", "Gilled", "Thin blade-like gills under the cap.")}
         ${activeLaneCard("#/boletes", "boletes", "Spongelike", "Pores, tubes, or sponge-like underside.")}
         ${activeLaneCard("#/mushrooms-other", "mushrooms-other", "Other", "Teeth, ridges, shelves, coral, jelly, and oddballs.")}
@@ -146,7 +183,7 @@ function renderInSeasonPage() {
   if (route() !== IN_SEASON_ROUTE || !Array.isArray(state.species) || !state.species.length) return;
   const month = currentMonthName();
   const records = state.species
-    .filter((record) => isMushroomRecord(record) && !record.hidden)
+    .filter((record) => isForageMushroomRecord(record))
     .filter((record) => hasMonth(record, month))
     .sort((a, b) => String(a.display_name || a.common_name || a.slug || "").localeCompare(String(b.display_name || b.common_name || b.slug || "")));
 
@@ -199,18 +236,88 @@ function injectInSeasonCards() {
   document.querySelectorAll(".mushroom-lane-switcher .lane-grid, .panel .lane-grid").forEach((grid) => {
     const sectionText = grid.closest("section")?.textContent || "";
     const hasMushroomContext = /mushroom|gilled|spongelike|underside|taxonomy/i.test(sectionText);
-    if (!hasMushroomContext || grid.querySelector('a[href="#/mushrooms-in-season"]')) return;
+    if (!hasMushroomContext) return;
+    grid.dataset.seasonPatchGrid = "mushroom-lane";
+    if (grid.querySelector('a[href="#/mushrooms-in-season"]')) return;
     const card = document.createElement("a");
     card.className = "lane-card";
     card.href = "#/mushrooms-in-season";
-    card.innerHTML = `<strong>In Season</strong><span>All mushrooms with a recorded season for this month.</span>`;
+    card.innerHTML = `<strong>In Season</strong><span>All edible mushrooms recorded for this month.</span>`;
     grid.appendChild(card);
   });
 }
 
+function cardElementForButton(button) {
+  return button.closest("article, .record-card, .species-card, .result-card, [data-record-card], li") || button.parentElement;
+}
+
+function removeNonForageMushroomCards() {
+  const r = route();
+  if (!FILTER_ROUTES.has(r) && r !== IN_SEASON_ROUTE) return;
+  document.querySelectorAll("[data-detail]").forEach((button) => {
+    const slug = button.dataset.detail || "";
+    const record = getRecordBySlug(slug);
+    if (!record || !isMushroomRecord(record) || isForageMushroomRecord(record)) return;
+    const card = cardElementForButton(button);
+    if (card) card.remove();
+  });
+}
+
+function routeLabel() {
+  return {
+    "mushrooms-gilled": "Gilled mushrooms",
+    boletes: "Spongelike",
+    "mushrooms-other": "Other mushrooms"
+  }[route()] || "Mushrooms";
+}
+
+function updateMushroomVisibleCount() {
+  if (!FILTER_ROUTES.has(route())) return;
+  const slugs = new Set();
+  document.querySelectorAll("[data-detail]").forEach((button) => {
+    const slug = button.dataset.detail || "";
+    const record = getRecordBySlug(slug);
+    if (recordMatchesCurrentMushroomRoute(record)) slugs.add(slug);
+  });
+  const heading = Array.from(document.querySelectorAll("section.panel h2"))
+    .find((h2) => /gilled|spongelike|other mushrooms|mushrooms/i.test(h2.textContent || ""));
+  if (heading) heading.textContent = `${routeLabel()} (${slugs.size})`;
+}
+
+function installMushroomCompactStyle() {
+  if (document.getElementById("mushroomSeasonCompactStyle")) return;
+  const style = document.createElement("style");
+  style.id = "mushroomSeasonCompactStyle";
+  style.textContent = `
+    @media (min-width: 760px) {
+      .lane-grid[data-season-patch-grid="mushroom-lane"] {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 8px;
+      }
+      .lane-grid[data-season-patch-grid="mushroom-lane"] .lane-card {
+        min-height: 0;
+        padding: 10px 12px;
+        gap: 4px;
+      }
+      .lane-grid[data-season-patch-grid="mushroom-lane"] .lane-card strong {
+        font-size: 0.98rem;
+        line-height: 1.15;
+      }
+      .lane-grid[data-season-patch-grid="mushroom-lane"] .lane-card span {
+        font-size: 0.78rem;
+        line-height: 1.25;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+}
+
 function runPatchPass() {
+  installMushroomCompactStyle();
   injectInSeasonCards();
   injectSeasonSelectIfMissing();
+  removeNonForageMushroomCards();
+  updateMushroomVisibleCount();
   if (route() === IN_SEASON_ROUTE && !document.querySelector('[data-mushroom-season-page="true"]')) {
     renderInSeasonPage();
   }
@@ -239,7 +346,7 @@ new MutationObserver(() => {
 
 setInterval(() => {
   if (route() === IN_SEASON_ROUTE && !document.querySelector('[data-mushroom-season-page="true"]')) renderInSeasonPage();
-  else injectInSeasonCards();
+  else runPatchPass();
 }, 750);
 
 schedulePatchPass();
