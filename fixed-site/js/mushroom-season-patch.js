@@ -7,7 +7,7 @@ import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 import { isEdibleForSection } from "./lib/merge.js";
 
-const VERSION = "v4.3.39-r2026-05-13-source-loader-overlay-cleanup1";
+const VERSION = "v4.3.40-r2026-05-13-remove-public-devnotes1";
 const IN_SEASON_ROUTE = "mushrooms-in-season";
 const MUSHROOM_ROUTES = new Set(["mushrooms", "mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
 const FORAGE_LIST_ROUTES = new Set(["mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
@@ -187,31 +187,6 @@ function hasMonthWindow(record, window = activeSeasonWindow()) {
   });
 }
 
-function mushroomCoverageStats() {
-  const mushrooms = state.species.filter((record) => isMushroomRecord(record));
-  const forage = mushrooms.filter((record) => isForageMushroomRecordRaw(record));
-  const boletes = forage.filter((record) => isBolete(record));
-  const nonBolete = forage.filter((record) => !isBolete(record));
-  return {
-    totalMushrooms: mushrooms.length,
-    forageMushrooms: forage.length,
-    boleteForage: boletes.length,
-    nonBoleteForage: nonBolete.length
-  };
-}
-
-function coverageNoteHtml(records = []) {
-  const stats = mushroomCoverageStats();
-  const warn = records.length < 10 || stats.nonBoleteForage < 20;
-  if (!warn) return "";
-  return `
-    <section class="panel" data-mushroom-coverage-note="true">
-      <h3>Data coverage note</h3>
-      <p class="muted small">This page is built from the mushroom records currently loaded by the app. Loaded forage mushrooms: ${esc(stats.forageMushrooms)} total, including ${esc(stats.nonBoleteForage)} non-bolete/other-form records and ${esc(stats.boleteForage)} bolete records. If the May list still looks thin, the remaining issue is source coverage, not the month filter.</p>
-    </section>
-  `;
-}
-
 function isForageMushroomRecord(record = {}) {
   return isForageMushroomRecordRaw(record) && !record.hidden;
 }
@@ -352,9 +327,7 @@ function renderInSeasonPage() {
     ${mushroomLaneSwitcherHtml()}
     <section class="panel" data-mushroom-season-page="true">
       <h2>In Season — ${esc(label)} (${records.length})</h2>
-      <p class="muted small">Shows edible mushroom records matching ${esc(current)}. During the first or last ${esc(SEASON_EDGE_DAYS)} days of a month, it also allows explicit edge-month records so early/late seasonal overlap can appear without pulling in the whole adjacent month.</p>
     </section>
-    ${coverageNoteHtml(records)}
     ${records.length ? renderRecordCards(records, "mushrooms-in-season") : `<section class="panel"><p>No edible mushroom records currently match the ${esc(label)} season window.</p></section>`}
   `);
   markActiveNav("mushrooms");
@@ -473,4 +446,3 @@ setInterval(() => {
 }, 750);
 
 schedulePatchPass();
-console.debug(`[foraging] mushroom season patch loaded: ${VERSION}`);
