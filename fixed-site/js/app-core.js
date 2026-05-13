@@ -481,6 +481,15 @@ function monthNumberFromName(monthName = "") {
   return MONTHS.findIndex((month) => month.toLowerCase() === String(monthName || "").toLowerCase()) + 1;
 }
 
+function escapeRegex(value = "") {
+  return String(value || "").replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function textMentionsMonth(text = "", monthName = "") {
+  const month = String(monthName || "").trim();
+  if (!month) return false;
+  return new RegExp(`\\b${escapeRegex(month.toLowerCase())}\\b`, "i").test(String(text || ""));
+}
 function seasonText(record = {}) {
   return [
     record.season,
@@ -499,7 +508,7 @@ function seasonTextMatchesMonth(record = {}, monthName = "") {
   if (!month) return false;
   const text = seasonText(record);
   if (!text) return false;
-  if (text.includes(String(monthName || "").toLowerCase())) return true;
+  if (textMentionsMonth(text, monthName)) return true;
   if (/year[- ]round|all year|perennial|visible year/.test(text)) return true;
   if (/early spring/.test(text)) return [3, 4].includes(month);
   if (/mid spring/.test(text)) return [4, 5].includes(month);
@@ -560,8 +569,11 @@ function monthNameByOffset(monthName = "", offset = 0) {
 function explicitMonthMatch(record = {}, monthName = "") {
   const wanted = String(monthName || "").toLowerCase();
   if (!wanted) return false;
-  if (monthValues(record).some((value) => String(value || "").toLowerCase() === wanted)) return true;
-  return seasonText(record).includes(wanted);
+  const explicitMonths = monthValues(record);
+  if (explicitMonths.length) {
+    return explicitMonths.some((value) => String(value || "").toLowerCase() === wanted);
+  }
+  return textMentionsMonth(seasonText(record), monthName);
 }
 
 function edgeSeasonTextMatch(record = {}, monthName = "", direction = "next") {
