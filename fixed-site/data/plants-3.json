@@ -3,7 +3,7 @@
     "project": "Upper Michigan Foraging Guide",
     "build": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1",
     "primary_type": "plant",
-    "record_count": 24,
+    "record_count": 26,
     "notes": "Master plant file with structured image roles. First batch had 13 image-ready species from existing hardwired entries; this batch adds sourced and curated image sets for 3 more species (American beech, ramps, basswood). Copyback content merged directly into plants.json from batch10 for 74 matching species on 2026-04-21. Plant data normalization pass on 2026-04-29 added explicit usable_parts, plant_lanes, plant_lane_note, plant_card_note, and plant_data_flags fields for all records. Plant lane correction pass on 2026-04-29 tightened Leaves/Greens and Flowers to actual useful parts, limited the tree/sap lane to trees/shrubs, merged Sassafras root bark into Sassafras, and improved Wild mustard greens. Plant quality/correctness pass on 2026-04-29 filled weak copyback records for dandelion, hawthorn, plantain, pawpaw, pin cherry, spruce, and jewelweed; tightened safety wording for sassafras; improved wild mustard greens source data; and merged duplicate pine and wood-sorrel part records. Follow-up in the same pass cleared remaining old copyback placeholders for ramps, oak, wild carrot, wild ginger, wild strawberries, and yellow pond lily where safe, while flagging caution-heavy entries for review. Also filled toothwort and yarrow season/habitat/use basics and flagged yarrow safety wording for review. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved.",
     "split_version": "size-chunk-split-v1",
     "split_file": "data/plants-3.json",
@@ -34,16 +34,16 @@
       ],
       "images": [
         {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg/480px-2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg",
-          "source": "commons-hardwired",
-          "title": "Jewelweed habitat view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg"
-        },
-        {
           "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Orange_jewelweed_%28Whitefish_Island%29_2.JPG/480px-Orange_jewelweed_%28Whitefish_Island%29_2.JPG",
           "source": "commons-hardwired",
           "title": "Jewelweed flowering plant",
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Orange_jewelweed_%28Whitefish_Island%29_2.JPG"
+        },
+        {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg/480px-2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg",
+          "source": "commons-hardwired",
+          "title": "Jewelweed habitat view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg"
         },
         {
           "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg/480px-Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg",
@@ -77,45 +77,47 @@
       ],
       "images_structured": [
         {
-          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg/320px-2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg",
-          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg/960px-2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg",
-          "full": "https://upload.wikimedia.org/wikipedia/commons/4/43/2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg",
-          "title": "Jewelweed habitat view",
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Orange_jewelweed_%28Whitefish_Island%29_2.JPG/480px-Orange_jewelweed_%28Whitefish_Island%29_2.JPG",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Orange_jewelweed_%28Whitefish_Island%29_2.JPG/480px-Orange_jewelweed_%28Whitefish_Island%29_2.JPG",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Orange_jewelweed_%28Whitefish_Island%29_2.JPG/480px-Orange_jewelweed_%28Whitefish_Island%29_2.JPG",
+          "title": "Jewelweed flowering plant",
           "part_or_stage": "whole_plant",
           "source": "commons-hardwired",
-          "source_page": "https://commons.wikimedia.org/wiki/File:2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg"
+          "source_page": "https://commons.wikimedia.org/wiki/File:Orange_jewelweed_%28Whitefish_Island%29_2.JPG",
+          "credit": ""
         },
         {
-          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Orange_jewelweed_%28Whitefish_Island%29_2.JPG/320px-Orange_jewelweed_%28Whitefish_Island%29_2.JPG",
-          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Orange_jewelweed_%28Whitefish_Island%29_2.JPG/960px-Orange_jewelweed_%28Whitefish_Island%29_2.JPG",
-          "full": "https://upload.wikimedia.org/wikipedia/commons/8/83/Orange_jewelweed_%28Whitefish_Island%29_2.JPG",
-          "title": "Jewelweed flowering plant",
-          "part_or_stage": "flower",
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg/480px-2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg/480px-2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg/480px-2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg",
+          "title": "Jewelweed habitat view",
+          "part_or_stage": "general",
           "source": "commons-hardwired",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Orange_jewelweed_%28Whitefish_Island%29_2.JPG"
+          "source_page": "https://commons.wikimedia.org/wiki/File:2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg",
+          "credit": ""
         },
         {
-          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg/320px-Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg",
-          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg/960px-Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg",
-          "full": "https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg",
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg/480px-Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg/480px-Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg/480px-Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg",
           "title": "Jewelweed close flowering view",
-          "part_or_stage": "flower",
+          "part_or_stage": "general",
           "source": "commons-hardwired",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg"
+          "source_page": "https://commons.wikimedia.org/wiki/File:Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg",
+          "credit": ""
         }
       ],
-      "list_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg/320px-2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg",
+      "list_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Orange_jewelweed_%28Whitefish_Island%29_2.JPG/480px-Orange_jewelweed_%28Whitefish_Island%29_2.JPG",
       "detail_images": [
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg/960px-2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Orange_jewelweed_%28Whitefish_Island%29_2.JPG/960px-Orange_jewelweed_%28Whitefish_Island%29_2.JPG",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg/960px-Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Orange_jewelweed_%28Whitefish_Island%29_2.JPG/480px-Orange_jewelweed_%28Whitefish_Island%29_2.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg/480px-2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg/480px-Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg"
       ],
       "enlarge_images": [
-        "https://upload.wikimedia.org/wikipedia/commons/4/43/2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/8/83/Orange_jewelweed_%28Whitefish_Island%29_2.JPG",
-        "https://upload.wikimedia.org/wikipedia/commons/c/c4/Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/83/Orange_jewelweed_%28Whitefish_Island%29_2.JPG/480px-Orange_jewelweed_%28Whitefish_Island%29_2.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg/480px-2013-08-26_11_30_57_Jewelweed_in_the_shade_along_the_shore_of_the_pond_below_the_Mercer_Lake_Dam_in_Mercer_County_Park.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg/480px-Orange_Balsam_or_Jewelweed_%28Impatiens_capensis%29_-_geograph.org.uk_-_950225.jpg"
       ],
-      "image_audit_status": "batch1_complete",
       "usable_parts": [
         "Topical-use plant",
         "Flower"
@@ -240,7 +242,26 @@
         "December"
       ],
       "links": [],
-      "images": [],
+      "images": [
+        {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Juniperus_communis_001.JPG/480px-Juniperus_communis_001.JPG",
+          "source": "commons-hardwired",
+          "title": "Common juniper habitus",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Juniperus_communis_001.JPG"
+        },
+        {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Juniperus_communis_002.JPG/480px-Juniperus_communis_002.JPG",
+          "source": "commons-hardwired",
+          "title": "Common juniper berrycones",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Juniperus_communis_002.JPG"
+        },
+        {
+          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Juniperus_communis_cones.jpg/480px-Juniperus_communis_cones.jpg",
+          "source": "commons-hardwired",
+          "title": "Common juniper cones",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Juniperus_communis_cones.jpg"
+        }
+      ],
       "culinary_uses": "Berry-like cones are used sparingly as seasoning, tea, or flavoring rather than bulk food.",
       "medicinal_uses": "Traditional aromatic and urinary herb used in teas and preparations.",
       "general_notes": "",
@@ -260,10 +281,49 @@
         "Upland / dry forest",
         "Forest edge / openings"
       ],
-      "images_structured": [],
-      "list_thumbnail": "",
-      "detail_images": [],
-      "enlarge_images": [],
+      "images_structured": [
+        {
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Juniperus_communis_001.JPG/480px-Juniperus_communis_001.JPG",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Juniperus_communis_001.JPG/480px-Juniperus_communis_001.JPG",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Juniperus_communis_001.JPG/480px-Juniperus_communis_001.JPG",
+          "title": "Common juniper habitus",
+          "part_or_stage": "whole_plant",
+          "source": "commons-hardwired",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Juniperus_communis_001.JPG",
+          "credit": ""
+        },
+        {
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Juniperus_communis_002.JPG/480px-Juniperus_communis_002.JPG",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Juniperus_communis_002.JPG/480px-Juniperus_communis_002.JPG",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Juniperus_communis_002.JPG/480px-Juniperus_communis_002.JPG",
+          "title": "Common juniper berrycones",
+          "part_or_stage": "general",
+          "source": "commons-hardwired",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Juniperus_communis_002.JPG",
+          "credit": ""
+        },
+        {
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Juniperus_communis_cones.jpg/480px-Juniperus_communis_cones.jpg",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Juniperus_communis_cones.jpg/480px-Juniperus_communis_cones.jpg",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Juniperus_communis_cones.jpg/480px-Juniperus_communis_cones.jpg",
+          "title": "Common juniper cones",
+          "part_or_stage": "general",
+          "source": "commons-hardwired",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Juniperus_communis_cones.jpg",
+          "credit": ""
+        }
+      ],
+      "list_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Juniperus_communis_001.JPG/480px-Juniperus_communis_001.JPG",
+      "detail_images": [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Juniperus_communis_001.JPG/480px-Juniperus_communis_001.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Juniperus_communis_002.JPG/480px-Juniperus_communis_002.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Juniperus_communis_cones.jpg/480px-Juniperus_communis_cones.jpg"
+      ],
+      "enlarge_images": [
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Juniperus_communis_001.JPG/480px-Juniperus_communis_001.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Juniperus_communis_002.JPG/480px-Juniperus_communis_002.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Juniperus_communis_cones.jpg/480px-Juniperus_communis_cones.jpg"
+      ],
       "image_audit_status": "pending",
       "edibility_detail": "Used in small amounts as flavoring or tea. Not a bulk fruit.",
       "look_alikes": [
@@ -364,45 +424,47 @@
       ],
       "images_structured": [
         {
-          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Ledum_groenlandicum_2-eheep_%285097487541%29.jpg/320px-Ledum_groenlandicum_2-eheep_%285097487541%29.jpg",
-          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Ledum_groenlandicum_2-eheep_%285097487541%29.jpg/960px-Ledum_groenlandicum_2-eheep_%285097487541%29.jpg",
-          "full": "https://upload.wikimedia.org/wikipedia/commons/0/0c/Ledum_groenlandicum_2-eheep_%285097487541%29.jpg",
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Ledum_groenlandicum_2-eheep_%285097487541%29.jpg/480px-Ledum_groenlandicum_2-eheep_%285097487541%29.jpg",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Ledum_groenlandicum_2-eheep_%285097487541%29.jpg/480px-Ledum_groenlandicum_2-eheep_%285097487541%29.jpg",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Ledum_groenlandicum_2-eheep_%285097487541%29.jpg/480px-Ledum_groenlandicum_2-eheep_%285097487541%29.jpg",
           "title": "Labrador tea plant",
           "part_or_stage": "whole_plant",
           "source": "commons-hardwired",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Ledum_groenlandicum_2-eheep_%285097487541%29.jpg"
+          "source_page": "https://commons.wikimedia.org/wiki/File:Ledum_groenlandicum_2-eheep_%285097487541%29.jpg",
+          "credit": ""
         },
         {
-          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Bog_Labrador-tea_%28Orphan_Lk%29.JPG/320px-Bog_Labrador-tea_%28Orphan_Lk%29.JPG",
-          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Bog_Labrador-tea_%28Orphan_Lk%29.JPG/960px-Bog_Labrador-tea_%28Orphan_Lk%29.JPG",
-          "full": "https://upload.wikimedia.org/wikipedia/commons/d/df/Bog_Labrador-tea_%28Orphan_Lk%29.JPG",
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Bog_Labrador-tea_%28Orphan_Lk%29.JPG/480px-Bog_Labrador-tea_%28Orphan_Lk%29.JPG",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Bog_Labrador-tea_%28Orphan_Lk%29.JPG/480px-Bog_Labrador-tea_%28Orphan_Lk%29.JPG",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Bog_Labrador-tea_%28Orphan_Lk%29.JPG/480px-Bog_Labrador-tea_%28Orphan_Lk%29.JPG",
           "title": "Labrador tea leaves",
           "part_or_stage": "general",
           "source": "commons-hardwired",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Bog_Labrador-tea_%28Orphan_Lk%29.JPG"
+          "source_page": "https://commons.wikimedia.org/wiki/File:Bog_Labrador-tea_%28Orphan_Lk%29.JPG",
+          "credit": ""
         },
         {
-          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Bog_Labrador_Tea_%283816426668%29.jpg/320px-Bog_Labrador_Tea_%283816426668%29.jpg",
-          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Bog_Labrador_Tea_%283816426668%29.jpg/960px-Bog_Labrador_Tea_%283816426668%29.jpg",
-          "full": "https://upload.wikimedia.org/wikipedia/commons/c/c8/Bog_Labrador_Tea_%283816426668%29.jpg",
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Bog_Labrador_Tea_%283816426668%29.jpg/480px-Bog_Labrador_Tea_%283816426668%29.jpg",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Bog_Labrador_Tea_%283816426668%29.jpg/480px-Bog_Labrador_Tea_%283816426668%29.jpg",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Bog_Labrador_Tea_%283816426668%29.jpg/480px-Bog_Labrador_Tea_%283816426668%29.jpg",
           "title": "Labrador tea flowers",
-          "part_or_stage": "flower",
+          "part_or_stage": "general",
           "source": "commons-hardwired",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Bog_Labrador_Tea_%283816426668%29.jpg"
+          "source_page": "https://commons.wikimedia.org/wiki/File:Bog_Labrador_Tea_%283816426668%29.jpg",
+          "credit": ""
         }
       ],
-      "list_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Ledum_groenlandicum_2-eheep_%285097487541%29.jpg/320px-Ledum_groenlandicum_2-eheep_%285097487541%29.jpg",
+      "list_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Ledum_groenlandicum_2-eheep_%285097487541%29.jpg/480px-Ledum_groenlandicum_2-eheep_%285097487541%29.jpg",
       "detail_images": [
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Ledum_groenlandicum_2-eheep_%285097487541%29.jpg/960px-Ledum_groenlandicum_2-eheep_%285097487541%29.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Bog_Labrador-tea_%28Orphan_Lk%29.JPG/960px-Bog_Labrador-tea_%28Orphan_Lk%29.JPG",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Bog_Labrador_Tea_%283816426668%29.jpg/960px-Bog_Labrador_Tea_%283816426668%29.jpg"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Ledum_groenlandicum_2-eheep_%285097487541%29.jpg/480px-Ledum_groenlandicum_2-eheep_%285097487541%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Bog_Labrador-tea_%28Orphan_Lk%29.JPG/480px-Bog_Labrador-tea_%28Orphan_Lk%29.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Bog_Labrador_Tea_%283816426668%29.jpg/480px-Bog_Labrador_Tea_%283816426668%29.jpg"
       ],
       "enlarge_images": [
-        "https://upload.wikimedia.org/wikipedia/commons/0/0c/Ledum_groenlandicum_2-eheep_%285097487541%29.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/d/df/Bog_Labrador-tea_%28Orphan_Lk%29.JPG",
-        "https://upload.wikimedia.org/wikipedia/commons/c/c8/Bog_Labrador_Tea_%283816426668%29.jpg"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Ledum_groenlandicum_2-eheep_%285097487541%29.jpg/480px-Ledum_groenlandicum_2-eheep_%285097487541%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Bog_Labrador-tea_%28Orphan_Lk%29.JPG/480px-Bog_Labrador-tea_%28Orphan_Lk%29.JPG",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Bog_Labrador_Tea_%283816426668%29.jpg/480px-Bog_Labrador_Tea_%283816426668%29.jpg"
       ],
-      "image_audit_status": "batch1_complete",
       "edibility_detail": "Tea use is traditional, but this is a use-with-knowledge plant rather than a carefree daily beverage.",
       "look_alikes": [
         "Bog rosemary and other bog shrubs"
@@ -722,45 +784,47 @@
       ],
       "images_structured": [
         {
-          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Comfort_Maple_00.jpg/320px-Comfort_Maple_00.jpg",
-          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Comfort_Maple_00.jpg/960px-Comfort_Maple_00.jpg",
-          "full": "https://upload.wikimedia.org/wikipedia/commons/2/2d/Comfort_Maple_00.jpg",
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Comfort_Maple_00.jpg/480px-Comfort_Maple_00.jpg",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Comfort_Maple_00.jpg/480px-Comfort_Maple_00.jpg",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Comfort_Maple_00.jpg/480px-Comfort_Maple_00.jpg",
           "title": "Sugar maple tree",
-          "part_or_stage": "general",
+          "part_or_stage": "whole_plant",
           "source": "commons-hardwired",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Comfort_Maple_00.jpg"
+          "source_page": "https://commons.wikimedia.org/wiki/File:Comfort_Maple_00.jpg",
+          "credit": ""
         },
         {
-          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Acer_saccharum_%284998897050%29.jpg/320px-Acer_saccharum_%284998897050%29.jpg",
-          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Acer_saccharum_%284998897050%29.jpg/960px-Acer_saccharum_%284998897050%29.jpg",
-          "full": "https://upload.wikimedia.org/wikipedia/commons/d/df/Acer_saccharum_%284998897050%29.jpg",
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Acer_saccharum_%284998897050%29.jpg/480px-Acer_saccharum_%284998897050%29.jpg",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Acer_saccharum_%284998897050%29.jpg/480px-Acer_saccharum_%284998897050%29.jpg",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Acer_saccharum_%284998897050%29.jpg/480px-Acer_saccharum_%284998897050%29.jpg",
           "title": "Sugar maple in forest",
           "part_or_stage": "general",
           "source": "commons-hardwired",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Acer_saccharum_%284998897050%29.jpg"
+          "source_page": "https://commons.wikimedia.org/wiki/File:Acer_saccharum_%284998897050%29.jpg",
+          "credit": ""
         },
         {
-          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg/320px-Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg",
-          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg/960px-Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg",
-          "full": "https://upload.wikimedia.org/wikipedia/commons/1/15/Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg",
+          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg/480px-Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg",
+          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg/480px-Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg",
+          "full": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg/480px-Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg",
           "title": "Sugar maple bark and trunk",
-          "part_or_stage": "bark_or_stem",
+          "part_or_stage": "general",
           "source": "commons-hardwired",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg"
+          "source_page": "https://commons.wikimedia.org/wiki/File:Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg",
+          "credit": ""
         }
       ],
-      "list_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Comfort_Maple_00.jpg/320px-Comfort_Maple_00.jpg",
+      "list_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Comfort_Maple_00.jpg/480px-Comfort_Maple_00.jpg",
       "detail_images": [
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Comfort_Maple_00.jpg/960px-Comfort_Maple_00.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Acer_saccharum_%284998897050%29.jpg/960px-Acer_saccharum_%284998897050%29.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg/960px-Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Comfort_Maple_00.jpg/480px-Comfort_Maple_00.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Acer_saccharum_%284998897050%29.jpg/480px-Acer_saccharum_%284998897050%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg/480px-Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg"
       ],
       "enlarge_images": [
-        "https://upload.wikimedia.org/wikipedia/commons/2/2d/Comfort_Maple_00.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/d/df/Acer_saccharum_%284998897050%29.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/1/15/Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg"
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/Comfort_Maple_00.jpg/480px-Comfort_Maple_00.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Acer_saccharum_%284998897050%29.jpg/480px-Acer_saccharum_%284998897050%29.jpg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg/480px-Sugar_Maple_Acer_saccharum_Trunk_base_3264px.jpg"
       ],
-      "image_audit_status": "batch1_complete",
       "edibility_detail": "Sap is the practical use. Tree identification matters before tapping, and yield varies by species and weather.",
       "month_numbers": [
         2,
@@ -1393,8 +1457,24 @@
         "https://edibleplantdb.org/plants/7653/pinus-strobus"
       ],
       "images": [
-        "assets/images/plants-2/pine-needles-and-cones-v18.jpg",
-        "assets/images/plants-2/pine-tree-identification-v18.jpg"
+        {
+          "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Old%20Pinus%20strobus.jpg?width=480",
+          "source": "commons-hardwired",
+          "title": "Eastern white pine whole tree",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Old_Pinus_strobus.jpg"
+        },
+        {
+          "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Pinus%20strobus.jpg?width=480",
+          "source": "commons-hardwired",
+          "title": "Eastern white pine foliage",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Pinus_strobus.jpg"
+        },
+        {
+          "src": "https://commons.wikimedia.org/wiki/Special:FilePath/NAS-145%20Pinus%20strobus.png?width=480",
+          "source": "commons-hardwired",
+          "title": "Eastern white pine illustration",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:NAS-145_Pinus_strobus.png"
+        }
       ],
       "medicinal_uses": "Needle tea and resin/gum have traditional respiratory, aromatic, and topical-use associations; this guide treats those as traditional-use context.",
       "culinary_uses": "Needles/tips are used for tea and flavoring; some species provide edible nuts; resin/gum has traditional chew/pitch use but is not a bulk food.",
@@ -1411,7 +1491,9 @@
         "pine needles tea",
         "pine resin gum",
         "pine gum",
-        "pine resin"
+        "pine resin",
+        "pine needles (tea)",
+        "pine resin (gum)"
       ],
       "host_filter_tokens": [],
       "commonness": "",
@@ -1425,10 +1507,49 @@
         "Sandy / dry upland",
         "Mixed woods"
       ],
-      "images_structured": [],
-      "list_thumbnail": "",
-      "detail_images": [],
-      "enlarge_images": [],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Old%20Pinus%20strobus.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Old%20Pinus%20strobus.jpg?width=480",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Old%20Pinus%20strobus.jpg?width=480",
+          "title": "Eastern white pine whole tree",
+          "part_or_stage": "whole_plant",
+          "source": "commons-hardwired",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Old_Pinus_strobus.jpg",
+          "credit": ""
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pinus%20strobus.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pinus%20strobus.jpg?width=480",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pinus%20strobus.jpg?width=480",
+          "title": "Eastern white pine foliage",
+          "part_or_stage": "general",
+          "source": "commons-hardwired",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Pinus_strobus.jpg",
+          "credit": ""
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/NAS-145%20Pinus%20strobus.png?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/NAS-145%20Pinus%20strobus.png?width=480",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/NAS-145%20Pinus%20strobus.png?width=480",
+          "title": "Eastern white pine illustration",
+          "part_or_stage": "general",
+          "source": "commons-hardwired",
+          "source_page": "https://commons.wikimedia.org/wiki/File:NAS-145_Pinus_strobus.png",
+          "credit": ""
+        }
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Old%20Pinus%20strobus.jpg?width=480",
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Old%20Pinus%20strobus.jpg?width=480",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pinus%20strobus.jpg?width=480",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/NAS-145%20Pinus%20strobus.png?width=480"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Old%20Pinus%20strobus.jpg?width=480",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pinus%20strobus.jpg?width=480",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/NAS-145%20Pinus%20strobus.png?width=480"
+      ],
       "image_audit_status": "pending",
       "edibility_detail": "Needle tea is the most approachable use. Pine nuts depend heavily on species, and resin/gum use is more traditional than routine food.",
       "month_numbers": [
@@ -1476,6 +1597,32 @@
       "former_slugs": [
         "pine-needles-tea",
         "pine-resin-gum"
+      ]
+    },
+    {
+      "slug": "pine-needles-tea",
+      "display_name": "Pine Needles Tea",
+      "common_name": "Pine Needles Tea",
+      "hidden": true,
+      "record_type": "hidden",
+      "duplicate_of": "pine",
+      "primary_type": "plant",
+      "category": "",
+      "search_aliases": [
+        "pine needles tea"
+      ]
+    },
+    {
+      "slug": "pine-resin-gum",
+      "display_name": "Pine Resin Gum",
+      "common_name": "Pine Resin Gum",
+      "hidden": true,
+      "record_type": "hidden",
+      "duplicate_of": "pine",
+      "primary_type": "plant",
+      "category": "",
+      "search_aliases": [
+        "pine resin gum"
       ]
     },
     {

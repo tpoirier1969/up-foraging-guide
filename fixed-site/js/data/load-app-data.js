@@ -1,7 +1,7 @@
 import { fetchJsonFromRepo } from "../lib/fetch-json.js";
-import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.3.42-r2026-05-13-caution-lookalikes-canonical1";
+import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.3.43-r2026-05-13-plant-overrides-canonical1";
 
-const APP_VERSION = new URL(import.meta.url).searchParams.get("v") || "v4.3.42-r2026-05-13-caution-lookalikes-canonical1";
+const APP_VERSION = new URL(import.meta.url).searchParams.get("v") || "v4.3.43-r2026-05-13-plant-overrides-canonical1";
 let sourcesPromise = null;
 let rareCachePromise = null;
 let referencesCachePromise = null;
