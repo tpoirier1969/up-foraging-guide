@@ -5,6 +5,7 @@ export const SPECIES_PATHS = [
   "data/plants-4.json",
   "data/plants-caution-lookalikes.json",
 
+  "data/mushrooms/mushrooms-image-coverage-batch2.json",
   "data/mushrooms.json",
   "data/mushrooms-2.json",
   "data/mushrooms-3.json",
