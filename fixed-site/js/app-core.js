@@ -4,12 +4,20 @@ import { MEDICINAL_VOCAB } from "./data/medicinal-vocabulary.js";
 import { renderPage, openModal, closeModal, els } from "./ui/dom.js";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
+import { isEdibleForSection } from "./lib/merge.js";
 
 const APP_VERSION = new URL(import.meta.url).searchParams.get("v") || CONFIG_APP_VERSION || "dev";
 const REVIEW_STORAGE_KEY = "foraging_review_overlay_v1";
 const moduleCache = new Map();
 let loadAppDataPromise = null;
 let renderToken = 0;
+
+const IN_SEASON_ROUTE = "mushrooms-in-season";
+const MONTHS = [
+  "January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+];
+const SEASON_EDGE_DAYS = 7;
 
 function versionedPath(path) {
   return path.includes("?") ? path : `${path}?v=${encodeURIComponent(APP_VERSION)}`;
@@ -28,6 +36,7 @@ function routeTitle(route) {
     "mushrooms-gilled": "Gilled mushrooms",
     boletes: "Spongelike",
     "mushrooms-other": "Other mushrooms",
+    "mushrooms-in-season": "In Season",
     medicinal: "Medicinal",
     rare: "Rare",
     lookalikes: "Caution",
@@ -75,20 +84,21 @@ function routeErrorHtml(route, message) {
 
 function mushroomLaneLandingHtml() {
   return `
-    <section class="panel">
+    <section class="panel mushroom-lane-switcher">
       <h2>Mushrooms</h2>
       <p>Start with the underside. That gets most people to the right part of the guide faster than taxonomy ever will.</p>
       <div class="lane-grid">
         <a class="lane-card" href="#/mushrooms-gilled"><strong>Gilled</strong><span>Thin blade-like gills under the cap.</span></a>
         <a class="lane-card" href="#/boletes"><strong>Spongelike</strong><span>Pores, tubes, or sponge-like underside.</span></a>
         <a class="lane-card" href="#/mushrooms-other"><strong>Other</strong><span>Teeth, ridges, shelves, coral, jelly, and oddballs.</span></a>
+        <a class="lane-card" href="#/mushrooms-in-season"><strong>In Season</strong><span>Edible mushrooms matching the current season window.</span></a>
       </div>
     </section>
   `;
 }
 
 function mushroomLaneNavHtml(route = "") {
-  if (!["mushrooms-gilled", "boletes", "mushrooms-other"].includes(route)) return "";
+  if (!["mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE].includes(route)) return "";
   const item = (href, key, label, note) => {
     const active = route === key ? " active" : "";
     return `<a class="lane-card${active}" href="${href}"><strong>${esc(label)}</strong><span>${esc(note)}</span></a>`;
@@ -100,6 +110,7 @@ function mushroomLaneNavHtml(route = "") {
         ${item("#/mushrooms-gilled", "mushrooms-gilled", "Gilled", "Thin blade-like gills under the cap.")}
         ${item("#/boletes", "boletes", "Spongelike", "Pores, tubes, or sponge-like underside.")}
         ${item("#/mushrooms-other", "mushrooms-other", "Other", "Teeth, ridges, shelves, coral, jelly, and oddballs.")}
+        ${item("#/mushrooms-in-season", IN_SEASON_ROUTE, "In Season", "Edible mushrooms matching the current season window.")}
       </div>
     </section>
   `;
@@ -450,6 +461,192 @@ async function ensureReferencesData() {
   return state.referencesPromise;
 }
 
+
+function asList(value) {
+  if (Array.isArray(value)) return value;
+  if (value === undefined || value === null) return [];
+  if (typeof value === "string") return value.trim() ? [value.trim()] : [];
+  return [value];
+}
+
+function monthValues(record = {}) {
+  const out = [];
+  out.push(...asList(record.months_available));
+  out.push(...asList(record.season_months).map((value) => MONTHS[Number(value) - 1] || ""));
+  out.push(...asList(record.month_numbers).map((value) => MONTHS[Number(value) - 1] || ""));
+  return Array.from(new Set(out.map((value) => String(value || "").trim()).filter(Boolean)));
+}
+
+function monthNumberFromName(monthName = "") {
+  return MONTHS.findIndex((month) => month.toLowerCase() === String(monthName || "").toLowerCase()) + 1;
+}
+
+function seasonText(record = {}) {
+  return [
+    record.season,
+    record.seasonality,
+    record.fruiting_period,
+    record.fruitingPeriod,
+    record.availability,
+    record.mushroom_profile?.season_note,
+    record.mushroom_profile?.fruiting_period,
+    record.mushroom_profile?.seasonality
+  ].flatMap(asList).join(" ").toLowerCase();
+}
+
+function seasonTextMatchesMonth(record = {}, monthName = "") {
+  const month = monthNumberFromName(monthName);
+  if (!month) return false;
+  const text = seasonText(record);
+  if (!text) return false;
+  if (text.includes(String(monthName || "").toLowerCase())) return true;
+  if (/year[- ]round|all year|perennial|visible year/.test(text)) return true;
+  if (/early spring/.test(text)) return [3, 4].includes(month);
+  if (/mid spring/.test(text)) return [4, 5].includes(month);
+  if (/late spring/.test(text)) return [5, 6].includes(month);
+  if (/spring/.test(text)) return [3, 4, 5].includes(month);
+  if (/early summer/.test(text)) return [6, 7].includes(month);
+  if (/mid summer/.test(text)) return [7, 8].includes(month);
+  if (/late summer/.test(text)) return [8, 9].includes(month);
+  if (/summer/.test(text)) return [6, 7, 8].includes(month);
+  if (/early fall|early autumn/.test(text)) return [9, 10].includes(month);
+  if (/mid fall|mid autumn/.test(text)) return [10].includes(month);
+  if (/late fall|late autumn/.test(text)) return [10, 11].includes(month);
+  if (/fall|autumn/.test(text)) return [9, 10, 11].includes(month);
+  if (/winter/.test(text)) return [12, 1, 2].includes(month);
+  return false;
+}
+
+function hasExplicitMonthData(record = {}) {
+  return monthValues(record).length > 0;
+}
+
+function hasMonth(record, monthName) {
+  const wanted = String(monthName || "").toLowerCase();
+  const explicitMonths = monthValues(record);
+  if (explicitMonths.length) {
+    return explicitMonths.some((value) => String(value || "").toLowerCase() === wanted);
+  }
+  return seasonTextMatchesMonth(record, monthName);
+}
+
+function isMushroomRecord(record = {}) {
+  const text = [
+    record.primary_type,
+    record.record_type,
+    record.kingdom_type,
+    record.foraging_class,
+    record.category
+  ].join(" ").toLowerCase();
+  if (text.includes("plant")) return false;
+  return text.includes("mushroom") || text.includes("fung") || text.includes("bolete") || Boolean(record.mushroom_profile);
+}
+
+function isForageMushroomRecord(record = {}) {
+  if (!isMushroomRecord(record) || record.hidden || record.is_non_edible === true) return false;
+  return isEdibleForSection(record) === true;
+}
+
+function daysInCurrentMonth(date = new Date()) {
+  return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
+}
+
+function monthNameByOffset(monthName = "", offset = 0) {
+  const monthIndex = MONTHS.findIndex((month) => month.toLowerCase() === String(monthName || "").toLowerCase());
+  if (monthIndex < 0) return "";
+  return MONTHS[(monthIndex + offset + 12) % 12] || "";
+}
+
+function explicitMonthMatch(record = {}, monthName = "") {
+  const wanted = String(monthName || "").toLowerCase();
+  if (!wanted) return false;
+  if (monthValues(record).some((value) => String(value || "").toLowerCase() === wanted)) return true;
+  return seasonText(record).includes(wanted);
+}
+
+function edgeSeasonTextMatch(record = {}, monthName = "", direction = "next") {
+  const text = seasonText(record);
+  if (!text) return false;
+  const month = monthNumberFromName(monthName);
+  if (!month) return false;
+
+  // When a record has explicit month fields, do not let generic text like
+  // "summer" or "fall" expand the In Season window beyond those fields.
+  if (hasExplicitMonthData(record)) return false;
+
+  if (direction === "next") {
+    if (text.includes(String(monthName || "").toLowerCase()) && !new RegExp(`\\blate\\s+${String(monthName || "").toLowerCase()}\\b`).test(text)) return true;
+    if (/early summer/.test(text)) return month === 6;
+    if (/early fall|early autumn/.test(text)) return month === 9;
+    if (/early winter/.test(text)) return month === 12;
+    if (/early spring/.test(text)) return month === 3;
+  }
+
+  if (direction === "previous") {
+    if (text.includes(String(monthName || "").toLowerCase()) && !new RegExp(`\\bearly\\s+${String(monthName || "").toLowerCase()}\\b`).test(text)) return true;
+    if (/late winter/.test(text)) return month === 2;
+    if (/late spring/.test(text)) return month === 5;
+    if (/late summer/.test(text)) return month === 8;
+    if (/late fall|late autumn/.test(text)) return month === 11;
+  }
+
+  return false;
+}
+
+function activeSeasonWindow(date = new Date()) {
+  const current = MONTHS[date.getMonth()] || "";
+  const day = date.getDate();
+  const days = daysInCurrentMonth(date);
+  const window = [{ month: current, mode: "current" }];
+
+  if (day <= SEASON_EDGE_DAYS) {
+    const previous = monthNameByOffset(current, -1);
+    if (previous) window.unshift({ month: previous, mode: "previous" });
+  }
+  if (day > days - SEASON_EDGE_DAYS) {
+    const next = monthNameByOffset(current, 1);
+    if (next) window.push({ month: next, mode: "next" });
+  }
+  return window;
+}
+
+function seasonWindowLabel(window = []) {
+  const months = window.map((item) => item.month).filter(Boolean);
+  if (months.length <= 1) return months[0] || "current month";
+  return months.join(" / ");
+}
+
+function hasMonthWindow(record, window = activeSeasonWindow()) {
+  return window.some((item) => {
+    if (item.mode === "current") return hasMonth(record, item.month);
+    return explicitMonthMatch(record, item.month) || edgeSeasonTextMatch(record, item.month, item.mode);
+  });
+}
+
+function compareDisplayName(a, b) {
+  return String(a.display_name || a.common_name || a.slug || "").localeCompare(String(b.display_name || b.common_name || b.slug || ""));
+}
+
+async function renderInSeasonRoute(token) {
+  const { renderRecordCards } = await importModule("./ui/render-list.js");
+  if (token !== renderToken) return;
+  const window = activeSeasonWindow();
+  const label = seasonWindowLabel(window);
+  const records = (state.species || [])
+    .filter((record) => isForageMushroomRecord(record))
+    .filter((record) => hasMonthWindow(record, window))
+    .sort(compareDisplayName);
+
+  renderPage(`
+    ${mushroomLaneNavHtml(IN_SEASON_ROUTE)}
+    <section class="panel" data-mushroom-season-page="true">
+      <h2>In Season — ${esc(label)} (${records.length})</h2>
+    </section>
+    ${records.length ? renderRecordCards(records, IN_SEASON_ROUTE) : `<section class="panel"><p>No edible mushroom records currently match the ${esc(label)} season window.</p></section>`}
+  `);
+  wireCommonEvents(IN_SEASON_ROUTE);
+}
+
 async function renderHomeRoute(token) {
   const { renderHome } = await importModule("./ui/render-home.js");
   if (token !== renderToken) return;
@@ -540,6 +737,7 @@ export async function renderCurrentRoute() {
 
   try {
     if (route === "home") return await renderHomeRoute(token);
+    if (route === IN_SEASON_ROUTE) return await renderInSeasonRoute(token);
     if (route === "mushrooms") {
       renderPage(mushroomLaneLandingHtml());
       wireCommonEvents("mushrooms");
