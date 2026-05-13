@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.43-r2026-05-13-plant-overrides-canonical1";
-const DISPLAY_VERSION = "V4.3.43-r26-05-13";
+const APP_VERSION = "v4.3.44-r2026-05-13-plant-lookalikes-canonical1";
+const DISPLAY_VERSION = "V4.3.44-r26-05-13";
 
 function esc(value) {
   return String(value ?? "")
