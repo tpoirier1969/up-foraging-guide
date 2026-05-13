@@ -7,7 +7,7 @@ import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 import { isEdibleForSection } from "./lib/merge.js";
 
-const VERSION = "v4.3.40-r2026-05-13-remove-public-devnotes1";
+const VERSION = "v4.3.41-r2026-05-13-spring-morels-canonical1";
 const IN_SEASON_ROUTE = "mushrooms-in-season";
 const MUSHROOM_ROUTES = new Set(["mushrooms", "mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
 const FORAGE_LIST_ROUTES = new Set(["mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
@@ -139,7 +139,7 @@ function edgeSeasonTextMatch(record = {}, monthName = "", direction = "next") {
   // Edge-month matching should not pull in every generic "summer" or "fall" record.
   // It only admits explicit edge language that plausibly spills across the month boundary.
   if (direction === "next") {
-    if (text.includes(String(monthName || "").toLowerCase()) && !new RegExp(`\blate\s+${String(monthName || "").toLowerCase()}\b`).test(text)) return true;
+    if (text.includes(String(monthName || "").toLowerCase()) && !new RegExp(`\\blate\\s+${String(monthName || "").toLowerCase()}\\b`).test(text)) return true;
     if (/early summer/.test(text)) return month === 6;
     if (/early fall|early autumn/.test(text)) return month === 9;
     if (/early winter/.test(text)) return month === 12;
@@ -147,7 +147,7 @@ function edgeSeasonTextMatch(record = {}, monthName = "", direction = "next") {
   }
 
   if (direction === "previous") {
-    if (text.includes(String(monthName || "").toLowerCase()) && !new RegExp(`\bearly\s+${String(monthName || "").toLowerCase()}\b`).test(text)) return true;
+    if (text.includes(String(monthName || "").toLowerCase()) && !new RegExp(`\\bearly\\s+${String(monthName || "").toLowerCase()}\\b`).test(text)) return true;
     if (/late winter/.test(text)) return month === 2;
     if (/late spring/.test(text)) return month === 5;
     if (/late summer/.test(text)) return month === 8;

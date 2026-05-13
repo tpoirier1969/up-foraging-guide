@@ -1,7 +1,7 @@
 import { fetchJsonFromRepo } from "../lib/fetch-json.js";
-import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.3.40-r2026-05-13-remove-public-devnotes1";
+import { mergeRecordLayers, normalizeRecord } from "../lib/merge.js?v=v4.3.41-r2026-05-13-spring-morels-canonical1";
 
-const APP_VERSION = new URL(import.meta.url).searchParams.get("v") || "v4.3.40-r2026-05-13-remove-public-devnotes1";
+const APP_VERSION = new URL(import.meta.url).searchParams.get("v") || "v4.3.41-r2026-05-13-spring-morels-canonical1";
 let sourcesPromise = null;
 let rareCachePromise = null;
 let referencesCachePromise = null;

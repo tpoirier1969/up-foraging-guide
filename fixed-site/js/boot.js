@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.40-r2026-05-13-remove-public-devnotes1";
-const DISPLAY_VERSION = "V4.3.40-r26-05-13";
+const APP_VERSION = "v4.3.41-r2026-05-13-spring-morels-canonical1";
+const DISPLAY_VERSION = "V4.3.41-r26-05-13";
 
 function esc(value) {
   return String(value ?? "")

@@ -28,11 +28,7 @@ export const SPECIES_PATHS = [
   "data/mushrooms/mushrooms-boletes-other1.json",
   "data/mushrooms/mushrooms-boletes-other1-2.json",
   "data/mushrooms/mushrooms-boletes-other2.json",
-
-  // Transitional canonical-load overlays. These are intentionally loaded by
-  // the active app source list until their records are folded into the main
-  // mushroom chunks in a later data-normalization pass.
-  "data/mushroom-spring-forage-overlay-v4.3.34.json",
+  "data/mushrooms/mushrooms-spring-morels.json",
   "data/mushroom-lookalike-stubs-v4.3.27.json"
 ];
 
