@@ -7,7 +7,7 @@ import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 import { isEdibleForSection } from "./lib/merge.js";
 
-const VERSION = "v4.3.36-r2026-05-12-mushroom-list-core-filter1";
+const VERSION = "v4.3.37-r2026-05-13-mushroom-patch-retire-season1";
 const IN_SEASON_ROUTE = "mushrooms-in-season";
 const MUSHROOM_ROUTES = new Set(["mushrooms", "mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
 const FORAGE_LIST_ROUTES = new Set(["mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
@@ -107,8 +107,7 @@ function isMushroomRecord(record = {}) {
 function isForageMushroomRecordRaw(record = {}) {
   if (!isMushroomRecord(record)) return false;
   if (record.is_non_edible === true) return false;
-  // Use the app's normalized edible-section logic instead of a homemade regex gate.
-  // This restores the older, more reliable behavior for edible/forage lists.
+  // Keep this one shared edible gate until the lane routes move fully into app-core/render-list.
   return isEdibleForSection(record) === true;
 }
 
@@ -121,16 +120,6 @@ function adjacentMonthNames(monthName = "") {
 
 function hasMonthWindow(record, monthName) {
   return adjacentMonthNames(monthName).some((name) => hasMonth(record, name));
-}
-
-function selectedMushroomMonth() {
-  return String(state.filters?.mushroomMonth || "").trim();
-}
-
-function matchesSelectedMushroomMonth(record = {}) {
-  const selected = selectedMushroomMonth();
-  if (!selected) return true;
-  return hasMonth(record, selected);
 }
 
 function mushroomCoverageStats() {
@@ -191,16 +180,6 @@ function isBolete(record = {}) {
   return text.includes("bolete") || text.includes("pore") || text.includes("suillus") || text.includes("leccinum") || text.includes("tylopilus");
 }
 
-function recordMatchesCurrentMushroomRoute(record = {}) {
-  const r = route();
-  if (!isForageMushroomRecord(record)) return false;
-  if (FILTER_ROUTES.has(r) && !matchesSelectedMushroomMonth(record)) return false;
-  if (r === "mushrooms-gilled") return isGilled(record);
-  if (r === "boletes") return isBolete(record);
-  if (r === "mushrooms-other") return !isGilled(record) && !isBolete(record);
-  return true;
-}
-
 function activeLaneCard(href, key, label, note) {
   const active = route() === key ? " active" : "";
   return `<a class="lane-card${active}" href="${href}"><strong>${esc(label)}</strong><span>${esc(note)}</span></a>`;
@@ -223,7 +202,7 @@ function mushroomLaneSwitcherHtml() {
 function labelFromSlug(slug = "") {
   return String(slug || "")
     .replace(/[-_]+/g, " ")
-    .replace(/\w/g, (letter) => letter.toUpperCase());
+    .replace(/\b\w/g, (letter) => letter.toUpperCase());
 }
 
 function getRecordBySlug(slug) {
@@ -277,8 +256,8 @@ function syncForageVisibilityForRoute() {
         record.hidden = shouldHide;
         changed = true;
       }
-    } else {
-      if (restoreOriginalHidden(record)) changed = true;
+    } else if (restoreOriginalHidden(record)) {
+      changed = true;
     }
   });
 
@@ -316,34 +295,6 @@ function renderInSeasonPage() {
   installLazyImages(els.pageRoot, getRecordBySlug);
 }
 
-function seasonOptionsHtml(current = "") {
-  const selected = String(current || "");
-  return [`<option value="">Any season</option>`].concat(MONTHS.map((month) => {
-    return `<option value="${esc(month)}" ${selected === month ? "selected" : ""}>${esc(month)}</option>`;
-  })).join("");
-}
-
-function injectSeasonSelectIfMissing() {
-  if (!FILTER_ROUTES.has(route())) return;
-  if (document.getElementById("traitFilter_mushroomMonth")) return;
-  const rows = Array.from(document.querySelectorAll(".medicinal-filter-row"));
-  const traitRow = rows.find((row) => row.closest("section")?.querySelector("h3")?.textContent?.toLowerCase().includes("filter"));
-  if (!traitRow) return;
-  const cell = document.createElement("div");
-  cell.className = "medicinal-filter-cell season-patch-cell";
-  cell.innerHTML = `
-    <label for="traitFilter_mushroomMonth" class="muted small">Season</label>
-    <select id="traitFilter_mushroomMonth" data-trait-filter="mushroomMonth" style="width:100%">
-      ${seasonOptionsHtml(state.filters.mushroomMonth || "")}
-    </select>
-  `;
-  traitRow.prepend(cell);
-  cell.querySelector("select")?.addEventListener("change", (event) => {
-    state.filters.mushroomMonth = event.currentTarget.value || "";
-    requestRerender();
-  });
-}
-
 function injectInSeasonCards() {
   const r = route();
   if (!MUSHROOM_ROUTES.has(r) || r === IN_SEASON_ROUTE) return;
@@ -376,33 +327,6 @@ function removeNonForageMushroomCards() {
     const card = cardElementForButton(button);
     if (card) card.remove();
   });
-}
-
-
-function routeLabel() {
-  return {
-    "mushrooms-gilled": "Gilled mushrooms",
-    boletes: "Spongelike",
-    "mushrooms-other": "Other mushrooms",
-    [IN_SEASON_ROUTE]: `In Season — ${currentMonthName()}`
-  }[route()] || "Mushrooms";
-}
-
-function updateMushroomVisibleCount() {
-  if (!FILTER_ROUTES.has(route()) && route() !== IN_SEASON_ROUTE) return;
-  const slugs = new Set();
-  document.querySelectorAll("[data-detail]").forEach((button) => {
-    const slug = button.dataset.detail || "";
-    const record = getRecordBySlug(slug);
-    if (route() === IN_SEASON_ROUTE) {
-      if (isForageMushroomRecord(record) && hasMonthWindow(record, currentMonthName())) slugs.add(slug);
-    } else if (recordMatchesCurrentMushroomRoute(record)) {
-      slugs.add(slug);
-    }
-  });
-  const heading = Array.from(document.querySelectorAll("section.panel h2"))
-    .find((h2) => /gilled|spongelike|other mushrooms|in season|mushrooms/i.test(h2.textContent || ""));
-  if (heading) heading.textContent = `${routeLabel()} (${slugs.size})`;
 }
 
 function installMushroomCompactStyle() {
@@ -440,9 +364,7 @@ function runPatchPass() {
 
   installMushroomCompactStyle();
   injectInSeasonCards();
-  injectSeasonSelectIfMissing();
   removeNonForageMushroomCards();
-  updateMushroomVisibleCount();
 
   if (route() === IN_SEASON_ROUTE && !document.querySelector('[data-mushroom-season-page="true"]')) {
     renderInSeasonPage();
