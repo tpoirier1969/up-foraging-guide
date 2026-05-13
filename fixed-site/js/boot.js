@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.49-r2026-05-13-mushroom-lane-button-rowfix1";
-const DISPLAY_VERSION = "V4.3.49-r26-05-13";
+const APP_VERSION = "v4.3.50-r2026-05-13-caution-duplicate-dedupe1";
+const DISPLAY_VERSION = "V4.3.50-r26-05-13";
 
 function esc(value) {
   return String(value ?? "")
