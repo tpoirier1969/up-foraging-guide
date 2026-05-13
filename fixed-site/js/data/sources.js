@@ -29,7 +29,7 @@ export const SPECIES_PATHS = [
   "data/mushrooms/mushrooms-boletes-other1-2.json",
   "data/mushrooms/mushrooms-boletes-other2.json",
   "data/mushrooms/mushrooms-spring-morels.json",
-  "data/mushroom-lookalike-stubs-v4.3.27.json"
+  "data/mushrooms/mushrooms-caution-lookalikes.json"
 ];
 
 // Retired. Kept as an empty export so older loader/audit code does not break.

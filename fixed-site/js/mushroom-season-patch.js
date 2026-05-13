@@ -7,7 +7,7 @@ import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 import { isEdibleForSection } from "./lib/merge.js";
 
-const VERSION = "v4.3.41-r2026-05-13-spring-morels-canonical1";
+const VERSION = "v4.3.42-r2026-05-13-caution-lookalikes-canonical1";
 const IN_SEASON_ROUTE = "mushrooms-in-season";
 const MUSHROOM_ROUTES = new Set(["mushrooms", "mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
 const FORAGE_LIST_ROUTES = new Set(["mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
