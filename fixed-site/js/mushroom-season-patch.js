@@ -7,7 +7,7 @@ import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 import { isEdibleForSection } from "./lib/merge.js";
 
-const VERSION = "v4.3.37-r2026-05-13-mushroom-patch-retire-season1";
+const VERSION = "v4.3.38-r2026-05-13-in-season-edge-window1";
 const IN_SEASON_ROUTE = "mushrooms-in-season";
 const MUSHROOM_ROUTES = new Set(["mushrooms", "mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
 const FORAGE_LIST_ROUTES = new Set(["mushrooms-gilled", "boletes", "mushrooms-other", IN_SEASON_ROUTE]);
@@ -111,15 +111,80 @@ function isForageMushroomRecordRaw(record = {}) {
   return isEdibleForSection(record) === true;
 }
 
-function adjacentMonthNames(monthName = "") {
-  const month = monthNumberFromName(monthName);
-  if (!month) return [monthName].filter(Boolean);
-  const nums = [month - 1, month, month + 1].map((n) => ((n - 1 + 12) % 12) + 1);
-  return nums.map((n) => MONTHS[n - 1]);
+const SEASON_EDGE_DAYS = 7;
+
+function daysInCurrentMonth(date = new Date()) {
+  return new Date(date.getFullYear(), date.getMonth() + 1, 0).getDate();
 }
 
-function hasMonthWindow(record, monthName) {
-  return adjacentMonthNames(monthName).some((name) => hasMonth(record, name));
+function monthNameByOffset(monthName = "", offset = 0) {
+  const monthIndex = MONTHS.findIndex((month) => month.toLowerCase() === String(monthName || "").toLowerCase());
+  if (monthIndex < 0) return "";
+  return MONTHS[(monthIndex + offset + 12) % 12] || "";
+}
+
+function explicitMonthMatch(record = {}, monthName = "") {
+  const wanted = String(monthName || "").toLowerCase();
+  if (!wanted) return false;
+  if (monthValues(record).some((value) => String(value || "").toLowerCase() === wanted)) return true;
+  return seasonText(record).includes(wanted);
+}
+
+function edgeSeasonTextMatch(record = {}, monthName = "", direction = "next") {
+  const text = seasonText(record);
+  if (!text) return false;
+  const month = monthNumberFromName(monthName);
+  if (!month) return false;
+
+  // Edge-month matching should not pull in every generic "summer" or "fall" record.
+  // It only admits explicit edge language that plausibly spills across the month boundary.
+  if (direction === "next") {
+    if (text.includes(String(monthName || "").toLowerCase()) && !new RegExp(`\blate\s+${String(monthName || "").toLowerCase()}\b`).test(text)) return true;
+    if (/early summer/.test(text)) return month === 6;
+    if (/early fall|early autumn/.test(text)) return month === 9;
+    if (/early winter/.test(text)) return month === 12;
+    if (/early spring/.test(text)) return month === 3;
+  }
+
+  if (direction === "previous") {
+    if (text.includes(String(monthName || "").toLowerCase()) && !new RegExp(`\bearly\s+${String(monthName || "").toLowerCase()}\b`).test(text)) return true;
+    if (/late winter/.test(text)) return month === 2;
+    if (/late spring/.test(text)) return month === 5;
+    if (/late summer/.test(text)) return month === 8;
+    if (/late fall|late autumn/.test(text)) return month === 11;
+  }
+
+  return false;
+}
+
+function activeSeasonWindow(date = new Date()) {
+  const current = MONTHS[date.getMonth()] || "";
+  const day = date.getDate();
+  const days = daysInCurrentMonth(date);
+  const window = [{ month: current, mode: "current" }];
+
+  if (day <= SEASON_EDGE_DAYS) {
+    const previous = monthNameByOffset(current, -1);
+    if (previous) window.unshift({ month: previous, mode: "previous" });
+  }
+  if (day > days - SEASON_EDGE_DAYS) {
+    const next = monthNameByOffset(current, 1);
+    if (next) window.push({ month: next, mode: "next" });
+  }
+  return window;
+}
+
+function seasonWindowLabel(window = []) {
+  const months = window.map((item) => item.month).filter(Boolean);
+  if (months.length <= 1) return months[0] || "current month";
+  return months.join(" / ");
+}
+
+function hasMonthWindow(record, window = activeSeasonWindow()) {
+  return window.some((item) => {
+    if (item.mode === "current") return hasMonth(record, item.month);
+    return explicitMonthMatch(record, item.month) || edgeSeasonTextMatch(record, item.month, item.mode);
+  });
 }
 
 function mushroomCoverageStats() {
@@ -275,20 +340,22 @@ function requestRerender() {
 
 function renderInSeasonPage() {
   if (route() !== IN_SEASON_ROUTE || !Array.isArray(state.species) || !state.species.length) return;
-  const month = currentMonthName();
+  const window = activeSeasonWindow();
+  const label = seasonWindowLabel(window);
+  const current = currentMonthName();
   const records = state.species
     .filter((record) => isForageMushroomRecord(record))
-    .filter((record) => hasMonthWindow(record, month))
+    .filter((record) => hasMonthWindow(record, window))
     .sort((a, b) => String(a.display_name || a.common_name || a.slug || "").localeCompare(String(b.display_name || b.common_name || b.slug || "")));
 
   renderPage(`
     ${mushroomLaneSwitcherHtml()}
     <section class="panel" data-mushroom-season-page="true">
-      <h2>In Season — ${esc(month)} window (${records.length})</h2>
-      <p class="muted small">Shows edible mushroom records matching ${esc(month)} or the immediately adjacent spring/season window. This catches late-April/early-June records that are realistic in Upper Michigan.</p>
+      <h2>In Season — ${esc(label)} (${records.length})</h2>
+      <p class="muted small">Shows edible mushroom records matching ${esc(current)}. During the first or last ${esc(SEASON_EDGE_DAYS)} days of a month, it also allows explicit edge-month records so early/late seasonal overlap can appear without pulling in the whole adjacent month.</p>
     </section>
     ${coverageNoteHtml(records)}
-    ${records.length ? renderRecordCards(records, "mushrooms-in-season") : `<section class="panel"><p>No edible mushroom records currently match the ${esc(month)} season window.</p></section>`}
+    ${records.length ? renderRecordCards(records, "mushrooms-in-season") : `<section class="panel"><p>No edible mushroom records currently match the ${esc(label)} season window.</p></section>`}
   `);
   markActiveNav("mushrooms");
   wireDetailButtons(document);
