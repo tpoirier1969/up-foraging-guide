@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Foraging Guide Data Audit</title>
+  <style>
+    :root{font-family:system-ui,-apple-system,Segoe UI,sans-serif;color:#1f2a1f;background:#f6f4ee;}
+    body{margin:0;padding:20px;}
+    main{max-width:1100px;margin:0 auto;display:grid;gap:16px;}
+    section{background:#fff;border:1px solid #d7dfd6;border-radius:16px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,.05);}
+    h1,h2{margin:.1rem 0 .6rem;color:#2f5d46;}
+    table{width:100%;border-collapse:collapse;background:#fff;font-size:.92rem;}
+    th,td{padding:8px 10px;border-bottom:1px solid #e4e9e2;text-align:left;vertical-align:top;}
+    th{background:#eef3ef;position:sticky;top:0;}
+    .ok{color:#216d35;font-weight:700;}.bad{color:#a0271d;font-weight:700;}.muted{color:#536257;}.code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;}.pill{display:inline-block;border:1px solid #d7dfd6;border-radius:999px;padding:3px 8px;margin:2px;background:#f8fbf8;}
+  </style>
+</head>
+<body>
+<main>
+  <section>
+    <h1>Upper Michigan Foraging Guide — Data Audit</h1>
+    <p class="muted">Build: <span class="code">v4.3.39-r2026-05-13-source-loader-overlay-cleanup1</span></p>
+    <p>This page checks the active source list used by the app, not the older inactive source-list file.</p>
+  </section>
+  <section id="summary"><h2>Loading…</h2></section>
+  <section id="keyRecords"><h2>Key records</h2></section>
+  <section><h2>Source paths</h2><div id="sources"></div></section>
+</main>
+<script type="module">
+const APP_VERSION = "v4.3.39-r2026-05-13-source-loader-overlay-cleanup1";
+const esc = (value) => String(value ?? "").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;");
+const asRecords = (payload) => Array.isArray(payload?.records) ? payload.records : (Array.isArray(payload) ? payload : []);
+const sourceUrl = (path) => path.includes("?") ? path : `${path}?v=${encodeURIComponent(APP_VERSION)}`;
+async function fetchJson(path){
+  const res = await fetch(path, { cache: "no-store" });
+  if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+  return res.json();
+}
+function isMushroom(record){
+  const text = [record.primary_type, record.record_type, record.kingdom_type, record.foraging_class, record.category, record.lane].join(" ").toLowerCase();
+  return Boolean(record.mushroom_profile) || /mushroom|fung|bolete|morel/.test(text);
+}
+function isForage(record){
+  const text = [record.food_role, record.food_quality, record.edibility_status, record.culinary_uses, record.edible_use?.has_ingestible_use].join(" ").toLowerCase();
+  if (/deadly|poison|avoid|not_edible|not edible/.test(text)) return false;
+  return /food|edible|prime|good|fair|true/.test(text);
+}
+function hasMay(record){
+  const names = Array.isArray(record.months_available) ? record.months_available.map(String) : [];
+  const nums = [...(Array.isArray(record.month_numbers)?record.month_numbers:[]), ...(Array.isArray(record.season_months)?record.season_months:[])].map(Number);
+  const seasonText = [record.season, record.seasonality, record.fruiting_period, record.availability, record.mushroom_profile?.season_note].join(" ").toLowerCase();
+  return names.some(v => v.toLowerCase() === "may") || nums.includes(5) || /\bmay\b|spring|late spring|early summer/.test(seasonText);
+}
+try {
+  const { SPECIES_PATHS = [], OPTIONAL_PATHS = [], PHOTO_PATCH_PATHS = [] } = await import(sourceUrl("./js/data/sources.js"));
+  const rows = [];
+  const records = [];
+  for (const path of SPECIES_PATHS) {
+    try {
+      const payload = await fetchJson(path);
+      const recs = asRecords(payload);
+      records.push(...recs.map(record => ({...record, __sourcePath:path})));
+      rows.push({path, ok:true, count:recs.length, project:payload?.metadata?.project || "", build:payload?.metadata?.build || "", purpose:payload?.metadata?.purpose || payload?.metadata?.note || ""});
+    } catch (err) {
+      rows.push({path, ok:false, count:0, error:err.message});
+    }
+  }
+  const bySlug = new Map();
+  for (const record of records) if (record.slug) bySlug.set(record.slug, record);
+  const mushrooms = records.filter(isMushroom);
+  const forageMushrooms = mushrooms.filter(isForage);
+  const mayForageMushrooms = forageMushrooms.filter(hasMay);
+  document.getElementById("summary").innerHTML = `<h2>Summary</h2>
+    <p><span class="pill">Species source paths: ${SPECIES_PATHS.length}</span><span class="pill">Optional paths: ${OPTIONAL_PATHS.length}</span><span class="pill">Photo patch paths: ${PHOTO_PATCH_PATHS.length}</span></p>
+    <p><span class="pill">Raw loaded records before merge: ${records.length}</span><span class="pill">Raw mushroom-ish records: ${mushrooms.length}</span><span class="pill">Raw forage mushroom-ish records: ${forageMushrooms.length}</span><span class="pill">Raw May forage mushroom-ish records: ${mayForageMushrooms.length}</span></p>`;
+  const keys = ["black-morel","half-free-morel","white-yellow-morels","burn-site-morel","false-morel","galerina","jack-o-lantern","destroying-angel","bracken-fern","cinnamon-fern","interrupted-fern"];
+  document.getElementById("keyRecords").innerHTML = `<h2>Key records</h2><table><thead><tr><th>Slug</th><th>Status</th><th>Source</th><th>Months</th></tr></thead><tbody>${keys.map(slug => {
+    const record = bySlug.get(slug);
+    return `<tr><td class="code">${esc(slug)}</td><td>${record ? '<span class="ok">present</span>' : '<span class="bad">missing</span>'}</td><td class="code">${esc(record?.__sourcePath || "")}</td><td>${esc([...(record?.months_available || []), ...(record?.month_numbers || []), ...(record?.season_months || [])].join(", "))}</td></tr>`;
+  }).join("")}</tbody></table>`;
+  document.getElementById("sources").innerHTML = `<table><thead><tr><th>Status</th><th>Records</th><th>Path</th><th>Build / note</th></tr></thead><tbody>${rows.map(row => `<tr><td>${row.ok ? '<span class="ok">loaded</span>' : '<span class="bad">failed</span>'}</td><td>${row.count}</td><td class="code">${esc(row.path)}</td><td>${esc(row.ok ? (row.build || row.purpose || "") : row.error)}</td></tr>`).join("")}</tbody></table>`;
+} catch (err) {
+  document.getElementById("summary").innerHTML = `<h2 class="bad">Audit failed</h2><p class="code">${esc(err.message || err)}</p>`;
+}
+</script>
+</body>
+</html>
