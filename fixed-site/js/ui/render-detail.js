@@ -124,6 +124,71 @@ function fieldOrProfile(record = {}, key, profileKey = key) {
   return profileListValue(profile, profileKey) || profileListValue(record, key);
 }
 
+function measurementLineText(label, value) {
+  const text = clean(value);
+  if (!text) return "";
+  return `${label}: ${text}`;
+}
+
+function measurementPair(cmValue, inchValue) {
+  const cm = clean(cmValue);
+  const inches = clean(inchValue);
+  if (cm && inches) return `${cm} / ${inches}`;
+  return cm || inches || "";
+}
+
+function measurementBlockText(record = {}) {
+  const profile = record.mushroom_profile || {};
+  const m = record.field_measurements || record.measurements || profile.field_measurements || {};
+  const values = [
+    measurementLineText("Overall", m.overall || m.overall_size || measurementPair(record.size_cm || profile.size_cm || profile.overall_size_cm, record.size_inches || record.size_in || profile.size_inches || profile.overall_size_inches)),
+    measurementLineText("Cap", m.cap || m.cap_size || measurementPair(record.cap_size_cm || profile.cap_size_cm || profile.cap_height_cm, record.cap_size_inches || record.cap_size_in || profile.cap_size_inches || profile.cap_height_inches)),
+    measurementLineText("Cap width", m.cap_width || measurementPair(record.cap_width_cm || profile.cap_width_cm, record.cap_width_inches || record.cap_width_in || profile.cap_width_inches)),
+    measurementLineText("Stem", m.stem || m.stem_size || measurementPair(record.stem_size_cm || profile.stem_size_cm || profile.stem_height_cm, record.stem_size_inches || record.stem_size_in || profile.stem_size_inches || profile.stem_height_inches)),
+    measurementLineText("Flesh / body thickness", m.thickness || measurementPair(record.thickness_cm || profile.thickness_cm, record.thickness_inches || record.thickness_in || profile.thickness_inches)),
+    measurementLineText("Notes", m.notes)
+  ].filter(Boolean);
+  return values.join("; ");
+}
+
+function ecologyContextText(record = {}) {
+  const profile = record.mushroom_profile || {};
+  const habitats = joinClean([
+    ...asArray(record.habitats),
+    ...asArray(record.habitat),
+    record.habitat_detail
+  ]);
+  const substrate = joinClean([
+    ...asArray(profile.substrate),
+    ...asArray(record.substrate)
+  ]);
+  const woodType = joinClean([
+    ...asArray(profile.wood_type),
+    ...asArray(record.wood_type),
+    ...asArray(record.woodType)
+  ]);
+  const host = joinClean([
+    ...asArray(profile.host_trees),
+    ...asArray(record.host_trees),
+    ...asArray(record.hostTree),
+    ...asArray(record.host_filter_tokens)
+  ]);
+  const growth = joinClean([
+    ...asArray(profile.growth_form),
+    ...asArray(record.growth_form),
+    ...asArray(record.growth_pattern)
+  ]);
+  return {
+    habitats,
+    substrate,
+    woodType,
+    host,
+    growth,
+    when: seasonText(record),
+    seasonNote: clean(profile.season_note || record.season_note)
+  };
+}
+
 function isMushroomRecord(record = {}) {
   const hay = [
     record.category,
@@ -618,6 +683,8 @@ function mushroomMedicinalBlock(medicinal) {
 
 function mushroomIdentificationBlock(record, fieldIdentification) {
   const profile = record.mushroom_profile || {};
+  const fieldContext = ecologyContextText(record);
+  const sizeText = measurementBlockText(record);
   const clueText = uniqueLines([
     fieldIdentification,
     record.identification_tips,
@@ -632,12 +699,18 @@ function mushroomIdentificationBlock(record, fieldIdentification) {
 
   const lines = [
     lineIf("Identification tips", clueText),
+    lineIf("Size", sizeText),
+    lineIf("When to find", fieldContext.when),
+    lineIf("Season clue", fieldContext.seasonNote),
+    lineIf("Where to look", fieldContext.habitats),
+    lineIf("Substrate / growing from", fieldContext.substrate),
+    lineIf("Wood type", fieldContext.woodType),
+    lineIf("Host / associated trees", fieldContext.host),
+    lineIf("Growth form", fieldContext.growth),
     lineIf("Cap", profileListValue(profile, "cap") || profileListValue(record, "cap")),
     lineIf("Underside / fertile surface", profileListValue(profile, "underside") || profileListValue(record, "underside")),
     lineIf("Gills / pores", profileListValue(profile, "gills") || profileListValue(record, "gills")),
     lineIf("Spore print", profileListValue(profile, "spore_print") || profileListValue(record, "spore_print")),
-    lineIf("Substrate", profileListValue(profile, "substrate") || profileListValue(record, "substrate")),
-    lineIf("Host tree", profileListValue(profile, "host_trees") || profileListValue(record, "hostTree")),
     boleteDetailLines(record)
   ].join("");
 

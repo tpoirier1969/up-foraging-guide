@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.66-r2026-05-14-source-cleanup-dryad-images1";
-const DISPLAY_VERSION = "V4.3.66-r26-05-14";
+const APP_VERSION = "v4.3.67-r2026-05-14-field-id-measurement-schema1";
+const DISPLAY_VERSION = "V4.3.67-r26-05-14";
 
 function esc(value) {
   return String(value ?? "")
