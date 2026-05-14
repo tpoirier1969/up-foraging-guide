@@ -1,6 +1,6 @@
 import { esc } from "../lib/escape.js";
 import { state } from "../state.js";
-import { getMedicinalData, isBuildNoteText, cleanUserFacingText, classifyRecord } from "../lib/merge.js?v=v4.3.25-r2026-05-12-safety-language-cleanup1";
+import { getMedicinalData, isBuildNoteText, cleanUserFacingText } from "../lib/merge.js?v=v4.3.25-r2026-05-12-safety-language-cleanup1";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
@@ -162,29 +162,52 @@ function findLookAlikeRecord(rawName = "") {
   return records.find((record) => record.slug === direct.duplicate_of) || direct;
 }
 
-function lookAlikeTextBlob(record = {}) {
+function lookAlikeIdentityText(record = {}) {
   return [
     record.slug,
     record.display_name,
     record.common_name,
     record.scientific_name,
+    ...(asArray(record.common_names)),
+    ...(asArray(record.search_aliases))
+  ].join(" ").toLowerCase();
+}
+
+function lookAlikePrimarySafetyText(record = {}) {
+  return [
     record.edibility_status,
     record.non_edible_severity,
     record.danger_level,
     record.poisoning_effects,
     record.toxicity_notes,
     record.food_role,
-    record.food_quality,
-    record.culinary_uses,
-    record.edibility_detail,
-    record.edibility_notes,
-    record.foraging_value,
-    ...(asArray(record.common_names)),
-    ...(asArray(record.search_aliases)),
-    ...(asArray(record.mushroom_profile?.taste)),
     record.mushroom_profile?.edibility_status,
     record.mushroom_profile?.caution_level
   ].join(" ").toLowerCase();
+}
+
+function lookAlikeFoodQualityText(record = {}) {
+  return [
+    record.food_quality,
+    record.foraging_value,
+    record.edible_use?.method,
+    record.edible_use?.has_ingestible_use === true ? "has_ingestible_use" : ""
+  ].join(" ").toLowerCase();
+}
+
+function lookAlikeStrongFallbackSafetyText(record = {}) {
+  return [
+    record.edibility_detail,
+    record.edibility_notes,
+    record.culinary_uses
+  ].join(" ").toLowerCase();
+}
+
+function lookAlikeTextBlob(record = {}) {
+  // Identity-only blob used for synonym/special-case detection.
+  // Do not include culinary prose here: wording like "avoid old specimens" must not
+  // turn an edible linked species into an "unsafe" look-alike.
+  return lookAlikeIdentityText(record);
 }
 
 function isBitterBoleteComparison(record = null, rawName = "") {
@@ -201,33 +224,55 @@ function hasExplicitPoisonSignal(hay = "") {
 
 function lookAlikeStatus(record = null, rawName = "") {
   if (!record) return { label: "Status: needs review", className: "review", kind: "review" };
-  const info = classifyRecord(record);
-  const hay = lookAlikeTextBlob(record);
+
+  // Single-source rule: look-alike status must come from the linked species record's
+  // structured safety/food fields. Do not infer the target species status from embedded
+  // prose in the current record or from generic caution sentences like "avoid old specimens."
+  const identityHay = `${rawName} ${lookAlikeIdentityText(record)}`.toLowerCase();
+  const safetyHay = lookAlikePrimarySafetyText(record);
+  const fallbackHay = lookAlikeStrongFallbackSafetyText(record);
+  const foodHay = lookAlikeFoodQualityText(record);
   const quality = clean(record.food_quality);
   const severity = clean(record.non_edible_severity);
+  const edibility = String(record.edibility_status || record.mushroom_profile?.edibility_status || "").trim().toLowerCase();
+  const foodRole = String(record.food_role || "").trim().toLowerCase();
   const bitter = isBitterBoleteComparison(record, rawName);
 
-  if (/\b(deadly|fatal|death|lethal)\b/.test(hay)) {
+  if (/\b(deadly|fatal|death|lethal)\b/.test(safetyHay) || edibility === "deadly") {
     return { label: "Deadly", className: "danger", kind: "deadly" };
   }
-  if (!bitter && hasExplicitPoisonSignal(hay)) {
+  if (!bitter && (hasExplicitPoisonSignal(safetyHay) || edibility === "poisonous")) {
     return { label: "Poisonous", className: "danger", kind: "poisonous" };
   }
   if (bitter) {
     return { label: "Bitter / inedible", className: "caution", kind: "bitter" };
   }
-  if (/\b(unsafe|avoid|questionable)\b/.test(hay)) {
+
+  if (foodRole === "avoid" || /\b(unsafe|avoid|questionable)\b/.test(safetyHay)) {
     return { label: "Unsafe / avoid", className: "caution", kind: "unsafe" };
   }
-  if (/\b(inedible|not edible|not recommended|caution)\b/.test(hay) || (info.caution && !info.edible)) {
+  if (["not_edible", "inedible", "inedible_bitter"].includes(edibility) || /\b(inedible|not edible|not recommended)\b/.test(safetyHay)) {
     return { label: severity || "Not recommended for food", className: "caution", kind: "inedible" };
   }
-
-  if (/choice|excellent/.test(quality.toLowerCase())) return { label: "Choice edible", className: "good", kind: "edible" };
-  if (/good/.test(quality.toLowerCase())) return { label: "Good edible", className: "good", kind: "edible" };
+  if (/\bedible[_-]with[_-]caution\b/.test(edibility) || foodRole === "caution") {
+    return { label: "Edible with caution", className: "caution", kind: "edible_caution" };
+  }
+  if (/\bedible[_-]with[_-]confident[_-]id\b/.test(edibility)) {
+    return { label: "Edible with confident ID", className: "good", kind: "edible" };
+  }
+  if (/prime|choice|excellent/.test(quality.toLowerCase()) || /prime|choice|excellent/.test(foodHay)) return { label: "Choice edible", className: "good", kind: "edible" };
+  if (/good/.test(quality.toLowerCase()) || /good edible/.test(foodHay)) return { label: "Good edible", className: "good", kind: "edible" };
   if (/fair/.test(quality.toLowerCase())) return { label: "Fair edible", className: "", kind: "edible" };
   if (/poor/.test(quality.toLowerCase())) return { label: "Poor edible", className: "caution", kind: "poor" };
-  if (info.edible) return { label: "Edible", className: "good", kind: "edible" };
+  if (record.edible_use?.has_ingestible_use === true || foodRole === "food" || /\bedible\b/.test(edibility)) {
+    return { label: "Edible", className: "good", kind: "edible" };
+  }
+  if (/\b(agaricus|pleurotus|cantharellus|boletus edulis|hericium|morchella)\b/.test(identityHay) && /\bedible\b/.test(fallbackHay)) {
+    return { label: "Edible", className: "good", kind: "edible" };
+  }
+    if (/\b(do not eat|don't eat|never eat|inedible|not edible|poisonous|toxic|deadly|fatal|lethal)\b/.test(fallbackHay) && !/\blook[- ]?alike\b/.test(fallbackHay)) {
+    return { label: severity || "Not recommended for food", className: "caution", kind: "inedible" };
+  }
   return { label: "Status: needs review", className: "review", kind: "review" };
 }
 
@@ -246,10 +291,10 @@ function lookAlikeSeparationNote(record = {}, rawName = "") {
   if (/red-mouth|lurid|red-pored|blue-staining-red-pored|subvelutipes|sensibilis|frostii|bicolor|baorangia|exsudoporus|caloboletus/.test(hay)) {
     return "Focus on orange/red pore color and speed/strength of blue bruising. Red/orange-pored blue-staining boletes are a caution zone unless the ID is nailed down.";
   }
-  if (/king|porcini|boletus-edulis|false-king/.test(hay) || /king|porcini/.test(recordHay)) {
+  if (/\b(?:king[- ]bolete|porcini|boletus[- ]edulis|false[- ]king[- ]bolete)\b/.test(hay) || /\b(?:king[- ]bolete|porcini|boletus edulis)\b/.test(recordHay)) {
     return "Compare pore color, stem netting, taste, and staining. Porcini-type edibles usually have white-to-yellow pores, firm flesh, mild taste, and no red/orange pore surface.";
   }
-  if (/leccinum|scaber|birch-bolete|orange-bolete|aspen/.test(hay)) {
+  if (/leccinum|scaber|birch[- ]bolete|orange[- ]bolete|aspen[- ]bolete|orange[- ]cap/.test(hay) && !/oyster/.test(hay)) {
     return "Look for dark scabers on the stalk and match the nearby tree association, especially birch or aspen. Treat Leccinum-type mushrooms cautiously and do not use vague look-alike matches as food IDs.";
   }
   if (/suillus|slippery|butterball|larch|chicken-fat|painted/.test(hay)) {
