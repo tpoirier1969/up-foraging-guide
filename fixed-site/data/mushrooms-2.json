@@ -55,7 +55,10 @@
     "split_note": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split this active data source by file size to keep working chunks under roughly 75–100 KB. Record bodies and source order were preserved.",
     "source_group": "data/mushrooms-2",
     "source_build_before_size_split": "v4.2.80-r2026-04-29-mushroom-core-credibility1",
-    "last_completion_wave": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species"
+    "last_completion_wave": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species",
+    "last_completion_wave_date": "2026-05-14",
+    "last_photo_rights_correction": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+    "last_photo_rights_correction_date": "2026-05-14"
   },
   "records": [
     {
@@ -74,9 +77,9 @@
         "https://www.mushroomexpert.com/clitocybe_nuda"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%20%282%29.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%2001.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista_nuda.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista_nuda_(2).jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Clitocybe_nuda_2011_G1.jpg"
       ],
       "medicinal_uses": "Primarily culinary in this guide.",
       "culinary_uses": "Good edible when properly identified and cooked; flavor is earthy/aromatic. Avoid old soggy specimens and confirm spore print/ID against purple Cortinarius look-alikes.",
@@ -84,7 +87,7 @@
       "record_type": "mushroom",
       "lane": "gilled",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
@@ -103,8 +106,13 @@
         11
       ],
       "food_role": "food",
-      "look_alikes": [],
-      "confused_with": [],
+      "look_alikes": [
+        "purple-cortinarius-group",
+        "wood-blewit-lookalikes"
+      ],
+      "confused_with": [
+        "purple-cortinarius-group"
+      ],
       "mushroom_profile": {
         "lane": "gilled",
         "underside": [
@@ -141,7 +149,8 @@
         "spore_print": "Pale pinkish buff",
         "gill_attachment": "Sinuate to attached",
         "volva": "None",
-        "season_note": "Mostly fall after cool weather begins."
+        "season_note": "Mostly fall after cool weather begins.",
+        "caution_level": "medium"
       },
       "commonness_score": 3,
       "food_quality_score": 4,
@@ -155,52 +164,116 @@
       "mushroom_card_note": "Good cooked edible, but confirm it is a blewit and not a purple Cortinarius.",
       "images_structured": [
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda.jpg",
-          "source": "commons-photo-patch",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista_nuda.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista_nuda.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista_nuda.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
           "title": "Blewit mushroom field view",
           "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Lepista_nuda.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Lepista_nuda.jpg",
+          "author": "Archenzo, Italy",
+          "credit": "Archenzo, Italy",
+          "license": "CC BY-SA 3.0 / GFDL",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v3) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         },
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%20%282%29.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%20%282%29.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%20%282%29.jpg",
-          "source": "commons-photo-patch",
-          "title": "Blewit mushroom supporting field view",
-          "part_or_stage": "supporting field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Lepista_nuda_%282%29.jpg"
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista_nuda_(2).jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista_nuda_(2).jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista_nuda_(2).jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Blewit cap and gills",
+          "part_or_stage": "gill/field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Lepista_nuda_(2).jpg",
+          "author": "Thomas Pruß",
+          "credit": "Thomas Pruß",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v3) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         },
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%2001.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%2001.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%2001.jpg",
-          "source": "commons-photo-patch",
-          "title": "Blewit mushroom additional field view",
-          "part_or_stage": "additional field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Lepista_nuda_01.jpg"
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Clitocybe_nuda_2011_G1.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Clitocybe_nuda_2011_G1.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Clitocybe_nuda_2011_G1.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Blewit supporting field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Clitocybe_nuda_2011_G1.jpg",
+          "author": "George Chernilevsky",
+          "credit": "George Chernilevsky",
+          "license": "Public domain — author released",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+          "rights_status": "verified_public_domain_or_cc0",
+          "commercial_use": true,
+          "attribution_required": false,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v87) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%20%282%29.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%2001.jpg?width=900"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista_nuda.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista_nuda_(2).jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Clitocybe_nuda_2011_G1.jpg?width=900"
       ],
       "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%20%282%29.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda%2001.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista_nuda.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista_nuda_(2).jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Clitocybe_nuda_2011_G1.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista%20nuda.jpg?width=480",
-      "image_review_status": "field_photo_exact_slug_batchpack",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista_nuda.jpg?width=480",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch A — gilled/toothed edible-style records); source URLs came from uploaded mushrooms.json."
+        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
       ],
       "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
       "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
       "photo_patch_group": "Batch A — gilled/toothed edible-style records",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "completion_date": "2026-05-14",
+      "edibility_status": "edible_with_caution",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Clitocybe nuda",
+          "url": "https://www.mushroomexpert.com/clitocybe_nuda",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Blewit color, spore print, odor, habitat, and Cortinarius comparison."
+        }
+      ],
+      "look_alike_notes": "Purple Cortinarius species can look similar but have rusty-brown spore prints and often cobwebby cortina remnants; blewits have a pale pinkish-buff print and no cortina.",
+      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "photo_rights_checked_date": "2026-05-14",
+      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available."
     },
     {
       "slug": "blue-staining-red-pored-boletes-caution-group",
@@ -468,11 +541,9 @@
         "https://pmc.ncbi.nlm.nih.gov/articles/PMC11132974/"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%288237818667%29.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20Mushroom%20-%20Inonotus%20obliquus%20%2830222675437%29.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%28Inonotus%20obliquus%29%20de%204%2C2%20kg.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus_obliquus.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga_(8237818667).jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga_Mushroom_-_Inonotus_obliquus_(30222675437).jpg"
       ],
       "medicinal_uses": "Traditional medicinal and modern research interest, mostly as extracts/tea; evidence and safety vary, and it should not be treated as a cure.",
       "culinary_uses": "Used as a tea/decoction rather than a table mushroom. Harvest sparingly from living birch and avoid taking all material from one tree.",
@@ -482,7 +553,7 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [
         "clinker polypore",
         "cinder conk",
@@ -496,7 +567,7 @@
         "Birch"
       ],
       "commonness": "Occasional",
-      "food_quality": "Tea / infusion",
+      "food_quality": "Tea / extract only",
       "medicinalAction": [
         "Antioxidant",
         "Anti-inflammatory",
@@ -530,7 +601,7 @@
         11,
         12
       ],
-      "food_role": "ingestible_prepared",
+      "food_role": "tea",
       "look_alikes": [
         "birch-polypore",
         "tinder-conk-hoof-fungus",
@@ -586,7 +657,8 @@
         ],
         "season_note": "Visible year-round on living birch trunks.",
         "lane": "other",
-        "scientific_name": "Inonotus obliquus"
+        "scientific_name": "Inonotus obliquus",
+        "caution_level": "low"
       },
       "commonness_score": 3,
       "food_quality_score": 1,
@@ -637,28 +709,20 @@
       ],
       "use_links": [
         {
-          "label": "Memorial Sloan Kettering: Chaga Mushroom",
-          "url": "https://www.mskcc.org/cancer-care/integrative-medicine/herbs/chaga-mushroom",
-          "link_type": "medicinal_reference",
-          "applies_to_part": "conk / tea",
-          "source_quality": "medical center",
-          "notes": "Traditional use, preclinical evidence, and safety interactions."
+          "label": "MushroomExpert: Inonotus obliquus",
+          "url": "https://www.mushroomexpert.com/inonotus_obliquus.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Black sterile conk on birch and sterile/fertile body distinction."
         },
         {
-          "label": "PMC review: Therapeutic properties of Inonotus obliquus",
+          "label": "Review article: Inonotus obliquus research background",
           "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11132974/",
-          "link_type": "research_review",
-          "applies_to_part": "extracts / compounds",
-          "source_quality": "peer-reviewed review",
-          "notes": "Review of antioxidant, anti-inflammatory, immunomodulating, and other studied properties."
-        },
-        {
-          "label": "Wildwood Survival: True Tinder Fungus / Chaga",
-          "url": "https://wildwoodsurvival.com/survival/fire/tinder/tinderfungus/true.html",
-          "link_type": "other_use",
-          "applies_to_part": "inner conk",
-          "source_quality": "practical firecraft",
-          "notes": "Spark-catching and coal-carrying use."
+          "link_type": "research",
+          "applies_to_part": "sterile conk",
+          "source_quality": "review article",
+          "notes": "Research/background link only; not a treatment recommendation."
         }
       ],
       "kingdom_type": "mushroom",
@@ -681,7 +745,7 @@
       ],
       "habitats": [],
       "look_alike_risk": "",
-      "look_alike_notes": "",
+      "look_alike_notes": "Birch polypore and hoof fungus form recognizable brackets; chaga is a black, cracked sterile mass with orange-brown interior, usually on living birch.",
       "rare_profile": null,
       "overview": "",
       "edibility_notes": "Tea / infusion. Woody conk is not eaten like a normal mushroom, but it is commonly simmered or steeped as a bitter tea / coffee-like beverage. Used for tea/extract traditions rather than as food.",
@@ -704,50 +768,101 @@
       "mushroom_card_note": "Birch conk used for tea/decoction; harvest conservatively and avoid cure-all thinking.",
       "images_structured": [
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg",
-          "source": "commons-photo-patch",
-          "title": "Chaga on birch field view",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Inonotus_obliquus_%2835578063011%29.jpg"
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus_obliquus.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus_obliquus.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus_obliquus.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Chaga sterile conk on birch",
+          "part_or_stage": "sterile conk",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Inonotus_obliquus.jpg",
+          "author": "Tocekas / Tomas Čekanavičius",
+          "credit": "Tocekas / Tomas Čekanavičius",
+          "license": "CC BY-SA 3.0 / GFDL",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v2) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         },
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus.jpg",
-          "source": "commons-photo-patch",
-          "title": "Chaga sterile conk",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Inonotus_obliquus.jpg"
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga_(8237818667).jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga_(8237818667).jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga_(8237818667).jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons / Flickr",
+          "title": "Chaga on birch",
+          "part_or_stage": "sterile conk",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Chaga_(8237818667).jpg",
+          "author": "natureluvr01",
+          "credit": "natureluvr01",
+          "license": "CC BY 2.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v2) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         },
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%28Inonotus%20obliquus%29%20de%204%2C2%20kg.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%28Inonotus%20obliquus%29%20de%204%2C2%20kg.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%28Inonotus%20obliquus%29%20de%204%2C2%20kg.jpg",
-          "source": "commons-photo-patch",
-          "title": "Chaga specimen on yellow birch",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Chaga_%28Inonotus_obliquus%29_de_4%2C2_kg.jpg"
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga_Mushroom_-_Inonotus_obliquus_(30222675437).jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga_Mushroom_-_Inonotus_obliquus_(30222675437).jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga_Mushroom_-_Inonotus_obliquus_(30222675437).jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons / Flickr",
+          "title": "Chaga close field view",
+          "part_or_stage": "sterile conk",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Chaga_Mushroom_-_Inonotus_obliquus_(30222675437).jpg",
+          "author": "Björn S...",
+          "credit": "Björn S...",
+          "license": "CC BY-SA 2.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v2) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%28Inonotus%20obliquus%29%20de%204%2C2%20kg.jpg?width=900"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus_obliquus.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga_(8237818667).jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga_Mushroom_-_Inonotus_obliquus_(30222675437).jpg?width=900"
       ],
       "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga%20%28Inonotus%20obliquus%29%20de%204%2C2%20kg.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus_obliquus.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga_(8237818667).jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga_Mushroom_-_Inonotus_obliquus_(30222675437).jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus%20obliquus%20%2835578063011%29.jpg?width=480",
-      "image_review_status": "field_photo_patch",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus_obliquus.jpg?width=480",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "Commons-backed field photo patch appended in v4.2.56-r2026-04-28-mushroom-photo-patch4."
+        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
       ],
       "photo_patch_batch": "v4.2.56-r2026-04-28-mushroom-photo-patch4",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "manual_review_reasons": [],
+      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "completion_date": "2026-05-14",
+      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "photo_rights_checked_date": "2026-05-14",
+      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available."
     },
     {
       "slug": "charcoal-burners-mild-flexible-gill-russulas",
@@ -1086,8 +1201,8 @@
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium-coralloides.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2009-09-25%20Hericium%20coralloides%20%28Scop.%29%20Pers%2058068.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2015-10-11%20Hericium%20coralloides%20%28Scop.%29%20Pers%20564137.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_coralloides_2009_G1.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_coralloides_2011_G1.jpg"
       ],
       "medicinal_uses": "Hericium species have medicinal/supplement interest, but this entry is treated primarily as food.",
       "culinary_uses": "Choice edible when young and white. Cook gently; older yellowing specimens lose quality.",
@@ -1095,7 +1210,7 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood"
@@ -1158,7 +1273,8 @@
         "branching_form": [
           "Branched clusters"
         ],
-        "season_note": "Late summer through fall on hardwood logs."
+        "season_note": "Late summer through fall on hardwood logs.",
+        "caution_level": "low"
       },
       "commonness_score": 2,
       "food_quality_score": 5,
@@ -1175,49 +1291,121 @@
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium-coralloides.jpg?width=480",
           "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium-coralloides.jpg?width=900",
           "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium-coralloides.jpg",
-          "source": "commons-photo-patch",
-          "title": "Coral tooth fungus field view",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Coral tooth fungus branching form",
           "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Hericium-coralloides.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Hericium-coralloides.jpg",
+          "author": "Gerhard Elsner",
+          "credit": "Gerhard Elsner",
+          "license": "CC BY 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (wave2-rights-known-table) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         },
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2009-09-25%20Hericium%20coralloides%20%28Scop.%29%20Pers%2058068.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2009-09-25%20Hericium%20coralloides%20%28Scop.%29%20Pers%2058068.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2009-09-25%20Hericium%20coralloides%20%28Scop.%29%20Pers%2058068.jpg",
-          "source": "commons-photo-patch",
-          "title": "Coral tooth fungus supporting field view",
-          "part_or_stage": "supporting field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:2009-09-25_Hericium_coralloides_%28Scop.%29_Pers_58068.jpg"
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_coralloides_2009_G1.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_coralloides_2009_G1.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_coralloides_2009_G1.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Coral tooth fungus on wood",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Hericium_coralloides_2009_G1.jpg",
+          "author": "George Chernilevsky",
+          "credit": "George Chernilevsky",
+          "license": "Public domain — author released",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+          "rights_status": "verified_public_domain_or_cc0",
+          "commercial_use": true,
+          "attribution_required": false,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v68) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         },
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2015-10-11%20Hericium%20coralloides%20%28Scop.%29%20Pers%20564137.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2015-10-11%20Hericium%20coralloides%20%28Scop.%29%20Pers%20564137.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2015-10-11%20Hericium%20coralloides%20%28Scop.%29%20Pers%20564137.jpg",
-          "source": "commons-photo-patch",
-          "title": "Coral tooth fungus additional field view",
-          "part_or_stage": "additional field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:2015-10-11_Hericium_coralloides_%28Scop.%29_Pers_564137.jpg"
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_coralloides_2011_G1.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_coralloides_2011_G1.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_coralloides_2011_G1.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Coral tooth supporting view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Hericium_coralloides_2011_G1.jpg",
+          "author": "George Chernilevsky",
+          "credit": "George Chernilevsky",
+          "license": "Public domain — author released",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+          "rights_status": "verified_public_domain_or_cc0",
+          "commercial_use": true,
+          "attribution_required": false,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v68) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium-coralloides.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2009-09-25%20Hericium%20coralloides%20%28Scop.%29%20Pers%2058068.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2015-10-11%20Hericium%20coralloides%20%28Scop.%29%20Pers%20564137.jpg?width=900"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_coralloides_2009_G1.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_coralloides_2011_G1.jpg?width=900"
       ],
       "enlarge_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium-coralloides.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2009-09-25%20Hericium%20coralloides%20%28Scop.%29%20Pers%2058068.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2015-10-11%20Hericium%20coralloides%20%28Scop.%29%20Pers%20564137.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_coralloides_2009_G1.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_coralloides_2011_G1.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium-coralloides.jpg?width=480",
-      "image_review_status": "field_photo_exact_slug_batchpack",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch A — gilled/toothed edible-style records); source URLs came from uploaded mushrooms.json."
+        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
       ],
       "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
       "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
       "photo_patch_group": "Batch A — gilled/toothed edible-style records",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "completion_date": "2026-05-14",
+      "edibility_status": "edible",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Hericium coralloides",
+          "url": "https://www.mushroomexpert.com/hericium_coralloides",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Coral tooth branching form, tooth placement, and wood substrate."
+        },
+        {
+          "label": "MushroomExpert: Hericium overview",
+          "url": "https://www.mushroomexpert.com/hericium.html",
+          "link_type": "comparison",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Comparison among edible Hericium species."
+        }
+      ],
+      "look_alike_notes": "Coral tooth has many branches with teeth along the branches; bear's head tooth has longer teeth clustered near branch tips, while lion's mane is a denser unbranched clump.",
+      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "photo_rights_checked_date": "2026-05-14",
+      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available."
     },
     {
       "slug": "destroying-angel",
@@ -1455,9 +1643,8 @@
         "https://www.nps.gov/articles/000/dryads-saddle.htm"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/0%20Polyporus%20squamosus.JPG",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2014-05-01%20Polyporus%20squamosus%20%28Huds.%29%20Fr%20418219.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus_squamosus_2010_G1.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Polyporus_squamosus_2009_G1.jpg"
       ],
       "medicinal_uses": "Primarily culinary in this guide.",
       "culinary_uses": "Edible when very young and tender; older caps become leathery. Good sliced thin, sautéed, or dried for stock when still fragrant.",
@@ -1467,13 +1654,13 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood"
       ],
       "commonness": "Common",
-      "food_quality": "Fair",
+      "food_quality": "Fair to good when young",
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
@@ -1529,7 +1716,8 @@
         "branching_form": [
           "Single or a few shelves"
         ],
-        "season_note": "Most useful as a young spring mushroom before it toughens."
+        "season_note": "Most useful as a young spring mushroom before it toughens.",
+        "caution_level": "medium"
       },
       "commonness_score": 4,
       "food_quality_score": 3,
@@ -1543,30 +1731,98 @@
       "mushroom_card_note": "Fair edible only when young and tender; older pheasant backs are stock material at best.",
       "images_structured": [
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg",
-          "source": "commons-photo-patch",
-          "title": "Dryad's saddle / pheasant back shelf",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus_squamosus_2010_G1.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus_squamosus_2010_G1.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus_squamosus_2010_G1.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Dryad's saddle field view",
           "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Cerioporus_squamosus.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Cerioporus_squamosus_2010_G1.jpg",
+          "author": "George Chernilevsky",
+          "credit": "George Chernilevsky",
+          "license": "Public domain — author released",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+          "rights_status": "verified_public_domain_or_cc0",
+          "commercial_use": true,
+          "attribution_required": false,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v92) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Polyporus_squamosus_2009_G1.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Polyporus_squamosus_2009_G1.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Polyporus_squamosus_2009_G1.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Dryad's saddle older-name supporting view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Polyporus_squamosus_2009_G1.jpg",
+          "author": "George Chernilevsky",
+          "credit": "George Chernilevsky",
+          "license": "Public domain — author released",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+          "rights_status": "verified_public_domain_or_cc0",
+          "commercial_use": true,
+          "attribution_required": false,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v92) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg?width=900"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus_squamosus_2010_G1.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Polyporus_squamosus_2009_G1.jpg?width=900"
       ],
       "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus_squamosus_2010_G1.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Polyporus_squamosus_2009_G1.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus%20squamosus.jpg?width=480",
-      "image_review_status": "field_photo_batchpack",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cerioporus_squamosus_2010_G1.jpg?width=480",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch B — common edible forms)."
+        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
       ],
       "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
       "photo_patch_group": "Batch B — common edible forms",
       "photo_patch_alias_source_slug": "dryad-s-saddle",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "completion_date": "2026-05-14",
+      "edibility_status": "edible_young_with_caution",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Cerioporus squamosus",
+          "url": "https://mushroomexpert.com/fungionwood/poroid%20fungi/species%20pages/Cerioporus%20squamosus.htm",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Scaly cap, large angular pores, cucumber/watermelon odor, and hardwood habitat."
+        },
+        {
+          "label": "NPS: Dryad's saddle overview",
+          "url": "https://www.nps.gov/articles/000/dryads-saddle.htm",
+          "link_type": "background",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "public agency background",
+          "notes": "Accessible overview for common name, ecology, and field recognition."
+        }
+      ],
+      "look_alike_notes": "Older dryad's saddle becomes leathery; birch polypore and artist's conk are tougher shelf fungi without the big scaly cap and cucumber/watermelon odor.",
+      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "photo_rights_checked_date": "2026-05-14",
+      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available."
     },
     {
       "slug": "false-morel-gyromitra-group",
@@ -1698,11 +1954,13 @@
         "September",
         "October"
       ],
-      "links": [],
+      "links": [
+        "https://www.mushroomexpert.com/agaricus_campestris.html"
+      ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris%20gills.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_2011_G1.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_2010_G1.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_091024.jpg"
       ],
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
       "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
@@ -1712,11 +1970,11 @@
       "record_type": "mushroom",
       "lane": "gilled",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [],
       "commonness": "Occasional",
-      "food_quality": "Good",
+      "food_quality": "Good when certain",
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
@@ -1729,11 +1987,12 @@
       "food_role": "food",
       "look_alikes": [
         "destroying-angel",
+        "yellow-staining-agaricus",
         "meadow-mushroom"
       ],
       "confused_with": [
         "destroying-angel",
-        "meadow-mushroom"
+        "yellow-staining-agaricus"
       ],
       "mushroom_profile": {
         "lane": "gilled",
@@ -1766,7 +2025,8 @@
         "spore_print": "Dark brown",
         "gill_attachment": "Free",
         "volva": "None",
-        "season_note": "Late summer through fall in open grassy ground."
+        "season_note": "Late summer through fall in open grassy ground.",
+        "caution_level": "medium"
       },
       "commonness_score": 3,
       "food_quality_score": 4,
@@ -1777,52 +2037,118 @@
       "duplicate_note": "Duplicate Field/Meadow Mushroom record kept only as a legacy slug alias.",
       "images_structured": [
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg",
-          "source": "commons-photo-patch",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_2011_G1.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_2011_G1.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_2011_G1.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
           "title": "Field mushroom field view",
           "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Agaricus_campestris.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Agaricus_campestris_2011_G1.jpg",
+          "author": "George Chernilevsky",
+          "credit": "George Chernilevsky",
+          "license": "Public domain — author released",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+          "rights_status": "verified_public_domain_or_cc0",
+          "commercial_use": true,
+          "attribution_required": false,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v31) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         },
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris.jpg",
-          "source": "commons-photo-patch",
-          "title": "Field mushroom supporting field view",
-          "part_or_stage": "supporting field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:2010-08-07_Agaricus_campestris.jpg"
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_2010_G1.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_2010_G1.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_2010_G1.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Field mushroom cap and stem",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Agaricus_campestris_2010_G1.jpg",
+          "author": "George Chernilevsky",
+          "credit": "George Chernilevsky",
+          "license": "Public domain — author released",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+          "rights_status": "verified_public_domain_or_cc0",
+          "commercial_use": true,
+          "attribution_required": false,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v31) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         },
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris%20gills.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris%20gills.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris%20gills.jpg",
-          "source": "commons-photo-patch",
-          "title": "Field mushroom additional field view",
-          "part_or_stage": "additional field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:2010-08-07_Agaricus_campestris_gills.jpg"
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_091024.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_091024.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_091024.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Field mushroom gill/cap view",
+          "part_or_stage": "gill/field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Agaricus_campestris_091024.jpg",
+          "author": "H. Krisp",
+          "credit": "H. Krisp",
+          "license": "CC BY 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v31) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris%20gills.jpg?width=900"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_2011_G1.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_2010_G1.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_091024.jpg?width=900"
       ],
       "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2010-08-07%20Agaricus%20campestris%20gills.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_2011_G1.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_2010_G1.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_091024.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus%20campestris.jpg?width=480",
-      "image_review_status": "field_photo_exact_slug_batchpack",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_2011_G1.jpg?width=480",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch A — gilled/toothed edible-style records); source URLs came from uploaded mushrooms.json."
+        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
       ],
       "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
       "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
       "photo_patch_group": "Batch A — gilled/toothed edible-style records",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "completion_date": "2026-05-14",
+      "scientific_name": "Agaricus campestris",
+      "field_identification": "White to pale cap in grass, free gills that shift from pink to chocolate brown, dark brown spore print, ring present, no volva, and no strong yellow staining or chemical/phenolic odor.",
+      "edibility_status": "edible_with_high_caution",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Agaricus campestris",
+          "url": "https://www.mushroomexpert.com/agaricus_campestris.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Field mushroom traits, Agaricus caution, and poisonous look-alikes."
+        }
+      ],
+      "look_alike_notes": "Do not use vague white lawn mushrooms. Deadly Amanitas have white gills/spores and a volva; yellow-staining Agaricus types stain bright yellow and often smell chemical/phenolic.",
+      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "photo_rights_checked_date": "2026-05-14",
+      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available."
     },
     {
       "slug": "giant-puffball",
@@ -1840,9 +2166,9 @@
         "https://www.mushroomexpert.com/calvatia_gigantea"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia%20gigantea.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/20120629Calvatia%20gigantea1.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/20190524Calvatia%20gigantea1.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2009_G1.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2011_G1.jpg"
       ],
       "medicinal_uses": "Primarily culinary in this guide.",
       "culinary_uses": "Good edible only while the interior is pure white and uniform. Slice open every specimen; discard any yellowing, browning, developing gills, or odd structure.",
@@ -1850,7 +2176,7 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [],
       "commonness": "Occasional",
@@ -1911,7 +2237,8 @@
         "branching_form": [
           "Single ball"
         ],
-        "season_note": "Late summer into fall in open ground and edges."
+        "season_note": "Late summer into fall in open ground and edges.",
+        "caution_level": "medium"
       },
       "commonness_score": 3,
       "food_quality_score": 4,
@@ -1925,29 +2252,115 @@
       "mushroom_card_note": "Good edible only when cut-open flesh is pure white all the way through.",
       "images_structured": [
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia%20gigantea.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia%20gigantea.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia%20gigantea.jpg",
-          "source": "commons-photo-patch",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
           "title": "Giant puffball field view",
           "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Calvatia_gigantea.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Calvatia_gigantea.jpg",
+          "author": "Hans Hillewaert",
+          "credit": "© Hans Hillewaert",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (wave2-rights-known-table) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2009_G1.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2009_G1.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2009_G1.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Giant puffball supporting field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Calvatia_gigantea_2009_G1.jpg",
+          "author": "George Chernilevsky",
+          "credit": "George Chernilevsky",
+          "license": "Public domain — author released",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+          "rights_status": "verified_public_domain_or_cc0",
+          "commercial_use": true,
+          "attribution_required": false,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v32) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2011_G1.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2011_G1.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2011_G1.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Giant puffball fresh specimen",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Calvatia_gigantea_2011_G1.jpg",
+          "author": "George Chernilevsky",
+          "credit": "George Chernilevsky",
+          "license": "Public domain — author released",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+          "rights_status": "verified_public_domain_or_cc0",
+          "commercial_use": true,
+          "attribution_required": false,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v32) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia%20gigantea.jpg?width=900"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2009_G1.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2011_G1.jpg?width=900"
       ],
       "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia%20gigantea.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2009_G1.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2011_G1.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia%20gigantea.jpg?width=480",
-      "image_review_status": "field_photo_batchpack",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea.jpg?width=480",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch B — common edible forms)."
+        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
       ],
       "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
       "photo_patch_group": "Batch B — common edible forms",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "completion_date": "2026-05-14",
+      "edibility_status": "edible_with_caution",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Calvatia gigantea",
+          "url": "https://www.mushroomexpert.com/calvatia_gigantea",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Giant puffball traits and warnings about immature gilled mushrooms/earthballs."
+        }
+      ],
+      "look_alike_notes": "Slice every puffball vertically. Giant puffballs must be solid white and uniform inside; any developing cap/gills/stem structure points toward an immature gilled mushroom, including deadly Amanita risk.",
+      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "photo_rights_checked_date": "2026-05-14",
+      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available."
     }
   ]
 }

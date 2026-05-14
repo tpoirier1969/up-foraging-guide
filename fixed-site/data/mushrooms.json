@@ -54,7 +54,11 @@
     "split_series": "data/mushrooms*.json",
     "split_note": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split this active data source by file size to keep working chunks under roughly 75–100 KB. Record bodies and source order were preserved.",
     "source_group": "data/mushrooms",
-    "source_build_before_size_split": "v4.2.80-r2026-04-29-mushroom-core-credibility1"
+    "source_build_before_size_split": "v4.2.80-r2026-04-29-mushroom-core-credibility1",
+    "last_completion_wave": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species",
+    "last_completion_wave_date": "2026-05-14",
+    "last_photo_rights_correction": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+    "last_photo_rights_correction_date": "2026-05-14"
   },
   "records": [
     {
@@ -82,9 +86,9 @@
         "https://www.mushroomexpert.com/fungionwood/poroid%20fungi/species%20pages/Ganoderma%20applanatum.htm"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%201259894.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%20%28Ganodermataceae%29.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Artists%20conk-Ganoderma%20applanatum%20%287402107040%29.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma_applanatum_1259894.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma_applanatum_(Ganodermataceae).jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Artists_conk-Ganoderma_applanatum_(7402107040).jpg"
       ],
       "medicinal_uses": "Traditional/reishi-adjacent interest exists in some sources, but this app treats it mainly as a non-food identification and practical-use species.",
       "culinary_uses": "Not a food mushroom; woody, perennial bracket.",
@@ -94,7 +98,7 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood"
@@ -166,7 +170,8 @@
         "branching_form": [
           "Single shelves or overlapping brackets"
         ],
-        "season_note": "Perennial bracket visible year-round."
+        "season_note": "Perennial bracket visible year-round.",
+        "caution_level": "low"
       },
       "commonness_score": 4,
       "food_quality_score": 1,
@@ -188,50 +193,113 @@
       "mushroom_card_note": "Useful as an artist's conk, not as food: scratch the white pore surface to make brown drawings.",
       "images_structured": [
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%201259894.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%201259894.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%201259894.jpg",
-          "source": "commons-photo-patch",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma_applanatum_1259894.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma_applanatum_1259894.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma_applanatum_1259894.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
           "title": "Artist's conk bracket field view",
           "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Ganoderma_applanatum_1259894.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Ganoderma_applanatum_1259894.jpg",
+          "author": "Richard Daniel",
+          "credit": "Richard Daniel",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v2) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         },
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%20%28Ganodermataceae%29.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%20%28Ganodermataceae%29.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%20%28Ganodermataceae%29.jpg",
-          "source": "commons-photo-patch",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma_applanatum_(Ganodermataceae).jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma_applanatum_(Ganodermataceae).jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma_applanatum_(Ganodermataceae).jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
           "title": "Artist's conk shelf fungus",
           "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Ganoderma_applanatum_%28Ganodermataceae%29.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Ganoderma_applanatum_(Ganodermataceae).jpg",
+          "author": "Filo gèn’",
+          "credit": "Filo gèn’",
+          "license": "CC BY-SA 3.0 / GFDL",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v2) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         },
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Artists%20conk-Ganoderma%20applanatum%20%287402107040%29.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Artists%20conk-Ganoderma%20applanatum%20%287402107040%29.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Artists%20conk-Ganoderma%20applanatum%20%287402107040%29.jpg",
-          "source": "commons-photo-patch",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Artists_conk-Ganoderma_applanatum_(7402107040).jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Artists_conk-Ganoderma_applanatum_(7402107040).jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Artists_conk-Ganoderma_applanatum_(7402107040).jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons / Flickr",
           "title": "Artist's conk pore surface / drawing surface",
           "part_or_stage": "pore surface",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Artists_conk-Ganoderma_applanatum_%287402107040%29.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Artists_conk-Ganoderma_applanatum_(7402107040).jpg",
+          "author": "Scott Darbey",
+          "credit": "Scott Darbey",
+          "license": "CC BY 2.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v2) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%201259894.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%20%28Ganodermataceae%29.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Artists%20conk-Ganoderma%20applanatum%20%287402107040%29.jpg?width=900"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma_applanatum_1259894.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma_applanatum_(Ganodermataceae).jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Artists_conk-Ganoderma_applanatum_(7402107040).jpg?width=900"
       ],
       "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%201259894.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%20%28Ganodermataceae%29.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Artists%20conk-Ganoderma%20applanatum%20%287402107040%29.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma_applanatum_1259894.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma_applanatum_(Ganodermataceae).jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Artists_conk-Ganoderma_applanatum_(7402107040).jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma%20applanatum%201259894.jpg?width=480",
-      "image_review_status": "field_photo_patch",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma_applanatum_1259894.jpg?width=480",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "Commons-backed field photo patch appended in v4.2.60-r2026-04-28-mushroom-photo-patch6."
+        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
       ],
       "photo_patch_batch": "v4.2.60-r2026-04-28-mushroom-photo-patch6",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "completion_date": "2026-05-14",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Ganoderma applanatum",
+          "url": "https://www.mushroomexpert.com/fungionwood/poroid%20fungi/species%20pages/Ganoderma%20applanatum.htm",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Poroid shelf traits, pore-surface bruising, and hardwood substrate."
+        }
+      ],
+      "look_alike_notes": "Compare with birch polypore and hoof/tinder conk; artist's conk has a white pore surface that bruises/scratches brown.",
+      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "photo_rights_checked_date": "2026-05-14",
+      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available."
     },
     {
       "slug": "ash-tree-bolete",
@@ -252,8 +320,8 @@
         "https://mdc.mo.gov/discover-nature/field-guide/ash-tree-bolete"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus%20merulioides%2095348.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10_Boletinellus_merulioides_(Schwein.)_Murrill_247593.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus_merulioides_95348.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg"
       ],
       "medicinal_uses": "",
@@ -271,9 +339,9 @@
       "mushroom_profile": {
         "scientific_name": "Boletinellus merulioides",
         "entry_scope": "species",
-        "edibility_status": "review_required",
+        "edibility_status": "edible_with_caution",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Ash-tree Bolete. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Yellow-brown to reddish-brown bolete growing from soil near ash; cap often wavy or irregular, stem often off-center, and the large shallow angular pores are radially arranged and bruise olive-brown to bluish.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil",
@@ -304,9 +372,7 @@
         "season_note": "July, August, September, June, October.",
         "processing_required": [],
         "research_notes": [
-          "Species seed added from the Michigan / Upper Midwest bolete pass.",
-          "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Species seed added from the Michigan / Upper Midwest bolete pass."
         ],
         "cap_surface": [
           "Dry to slightly tacky",
@@ -357,7 +423,7 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
@@ -381,7 +447,7 @@
       ],
       "food_role": "food",
       "edibility_status": "edible_with_caution",
-      "field_identification": "Grows on the ground near ash trees. Cap is yellowish-brown to reddish-brown and often wavy or irregular; stem is often off-center; pores are large, shallow, angular, radially arranged, and can bruise olive to brownish or sometimes bluish.",
+      "field_identification": "Yellow-brown to reddish-brown bolete growing from soil near ash; cap often wavy or irregular, stem often off-center, and the large shallow angular pores are radially arranged and bruise olive-brown to bluish.",
       "use_links": [
         {
           "label": "MushroomExpert: Boletinellus merulioides",
@@ -408,15 +474,13 @@
       ],
       "habitats": [],
       "look_alike_risk": "",
-      "look_alike_notes": "",
+      "look_alike_notes": "The ash association and wide, radially stretched pores separate it from many ordinary boletes; old man of the woods is darker and shaggier, while parasitic bolete grows on earthballs.",
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
       "edibility_notes": "Edible but not usually ranked with choice boletes; use only young, firm specimens after confident ID near ash.",
       "curation_notes": [
-        "Original app species restored into the standalone modular build.",
-        "Minimal species seed. Added during the bolete expansion pass for the clean app; details, seasonality, and images still need a later review. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
-        "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
+        "Original app species restored into the standalone modular build."
       ],
       "edible_use": {
         "has_ingestible_use": true,
@@ -438,50 +502,100 @@
       },
       "images_structured": [
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg",
-          "source": "commons-photo-patch",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10_Boletinellus_merulioides_(Schwein.)_Murrill_247593.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10_Boletinellus_merulioides_(Schwein.)_Murrill_247593.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10_Boletinellus_merulioides_(Schwein.)_Murrill_247593.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons / Mushroom Observer",
           "title": "Ash-tree bolete field view",
           "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:2012-08-10_Boletinellus_merulioides_%28Schwein.%29_Murrill_247593.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:2012-08-10_Boletinellus_merulioides_(Schwein.)_Murrill_247593.jpg",
+          "author": "Christian Schwarz (Amanita virosa)",
+          "credit": "Christian Schwarz (Amanita virosa)",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v14) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         },
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus%20merulioides%2095348.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus%20merulioides%2095348.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus%20merulioides%2095348.jpg",
-          "source": "commons-photo-patch",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus_merulioides_95348.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus_merulioides_95348.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus_merulioides_95348.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons / Mushroom Observer",
           "title": "Ash-tree bolete cap and pore surface",
           "part_or_stage": "pore surface",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletinellus_merulioides_95348.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletinellus_merulioides_95348.jpg",
+          "author": "Dan Molter (shroomydan)",
+          "credit": "Dan Molter (shroomydan)",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v14) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         },
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg?width=480",
           "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg?width=900",
           "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg",
-          "source": "commons-photo-patch",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons / Flickr",
           "title": "Ash-tree bolete supporting field view",
           "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletinellus.merulioides.vermont1.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Boletinellus.merulioides.vermont1.jpg",
+          "author": "Jason Hollinger",
+          "credit": "Jason Hollinger",
+          "license": "CC BY 2.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v14) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus%20merulioides%2095348.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10_Boletinellus_merulioides_(Schwein.)_Murrill_247593.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus_merulioides_95348.jpg?width=900",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg?width=900"
       ],
       "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus%20merulioides%2095348.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10_Boletinellus_merulioides_(Schwein.)_Murrill_247593.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus_merulioides_95348.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10%20Boletinellus%20merulioides%20%28Schwein.%29%20Murrill%20247593.jpg?width=480",
-      "image_review_status": "field_photo_patch",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10_Boletinellus_merulioides_(Schwein.)_Murrill_247593.jpg?width=480",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "Commons-backed field photo patch appended in v4.2.57-r2026-04-28-mushroom-photo-patch5."
+        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
       ],
       "photo_patch_batch": "v4.2.57-r2026-04-28-mushroom-photo-patch5",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "completion_date": "2026-05-14",
+      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "photo_rights_checked_date": "2026-05-14",
+      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available."
     },
     {
       "slug": "aspen-oyster",
@@ -499,9 +613,9 @@
         "https://www.mushroomexpert.com/pleurotus_populinus.html"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%2013996.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%20742181.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%2089533.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_13996.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_O._Hilber_%26_O.K._Mill_742181.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_O._Hilber_%26_O.K._Mill_89533.jpg"
       ],
       "medicinal_uses": "Primarily culinary in this guide.",
       "culinary_uses": "Cooked like other oyster mushrooms: sauté, add to soups, or use in mixed mushroom dishes. Best when young and fresh before the margins dry out.",
@@ -509,7 +623,7 @@
       "record_type": "mushroom",
       "lane": "gilled",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
@@ -569,7 +683,8 @@
         "spore_print": "White to pale lilac",
         "gill_attachment": "Decurrent",
         "volva": "None",
-        "season_note": "Late summer into fall on dead aspen and related hardwoods."
+        "season_note": "Late summer into fall on dead aspen and related hardwoods.",
+        "caution_level": "low"
       },
       "commonness_score": 3,
       "food_quality_score": 4,
@@ -583,52 +698,116 @@
       "mushroom_card_note": "A good edible oyster on aspen/poplar wood; best young and cooked.",
       "images_structured": [
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%2013996.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%2013996.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%2013996.jpg",
-          "source": "commons-photo-patch",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_13996.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_13996.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_13996.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
           "title": "Aspen oyster field view",
           "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_populinus_13996.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_populinus_13996.jpg",
+          "author": "Jim Tunney",
+          "credit": "Jim Tunney",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v2) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         },
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%20742181.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%20742181.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%20742181.jpg",
-          "source": "commons-photo-patch",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_O._Hilber_%26_O.K._Mill_742181.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_O._Hilber_%26_O.K._Mill_742181.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_O._Hilber_%26_O.K._Mill_742181.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
           "title": "Aspen oyster supporting field view",
           "part_or_stage": "supporting field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_populinus_O._Hilber_%26_O.K._Mill_742181.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_populinus_O._Hilber_%26_O.K._Mill_742181.jpg",
+          "author": "Phil Yeager",
+          "credit": "Phil Yeager",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v2) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         },
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%2089533.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%2089533.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%2089533.jpg",
-          "source": "commons-photo-patch",
-          "title": "Aspen oyster additional field view",
-          "part_or_stage": "additional field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_populinus_O._Hilber_%26_O.K._Mill_89533.jpg"
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_O._Hilber_%26_O.K._Mill_89533.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_O._Hilber_%26_O.K._Mill_89533.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_O._Hilber_%26_O.K._Mill_89533.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Aspen oyster gills and shelf form",
+          "part_or_stage": "gill/field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_populinus_O._Hilber_%26_O.K._Mill_89533.jpg",
+          "author": "Robert Sasata",
+          "credit": "Robert Sasata",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v2) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%2013996.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%20742181.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%2089533.jpg?width=900"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_13996.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_O._Hilber_%26_O.K._Mill_742181.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_O._Hilber_%26_O.K._Mill_89533.jpg?width=900"
       ],
       "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%2013996.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%20742181.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%20O.%20Hilber%20%26%20O.K.%20Mill%2089533.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_13996.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_O._Hilber_%26_O.K._Mill_742181.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_O._Hilber_%26_O.K._Mill_89533.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20populinus%2013996.jpg?width=480",
-      "image_review_status": "field_photo_exact_slug_batchpack",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_13996.jpg?width=480",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch A — gilled/toothed edible-style records); source URLs came from uploaded mushrooms.json."
+        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
       ],
       "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
       "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
       "photo_patch_group": "Batch A — gilled/toothed edible-style records",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "completion_date": "2026-05-14",
+      "edibility_status": "edible",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Pleurotus populinus",
+          "url": "https://www.mushroomexpert.com/pleurotus_populinus.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Aspen/poplar oyster traits, decurrent gills, and seasonal/habitat notes."
+        }
+      ],
+      "look_alike_notes": "Compare with pearl and summer oysters; host wood and season help. Avoid orange jack-o-lanterns, which grow from buried wood/roots and have true orange gills.",
+      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "photo_rights_checked_date": "2026-05-14",
+      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available."
     },
     {
       "slug": "bay-bolete",
@@ -647,12 +826,8 @@
         "https://www.mushroomexpert.com/imleria_badia.html"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Bay%20Bolete%2C%20Boletus%20badius%20%2821195318373%29.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20badius%205052175998%20df099ccc79%20b.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20badius%20G1.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia%208.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia%2015.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria_badia.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria_badia_2011_G1.jpg"
       ],
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
       "culinary_uses": "Generally regarded as edible when confidently identified and cooked; avoid old, buggy, or waterlogged specimens.",
@@ -660,7 +835,7 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [
         "bay-bolete",
         "Bay Bolete",
@@ -757,9 +932,9 @@
         ],
         "scientific_name": "Imleria badia",
         "entry_scope": "species",
-        "edibility_status": "review_required",
+        "edibility_status": "edible_with_caution",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Bay Bolete. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Bay-brown to reddish-brown cap, pale yellow pores that bruise grayish blue, wrinkled non-reticulate stem, and frequent fruiting near conifers or very decayed mossy wood.",
         "ecology": "bolete",
         "wood_type": [],
         "host_certainty": "unknown",
@@ -768,9 +943,7 @@
         "spore_print": "",
         "processing_required": [],
         "research_notes": [
-          "Species seed added from the Michigan bolete audit.",
-          "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Species seed added from the Michigan bolete audit."
         ]
       },
       "scientific_name": "Imleria badia",
@@ -784,7 +957,7 @@
           "link_type": "identification",
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
-          "notes": "Conifer/decayed wood association, blue-gray bruising pores, and stem traits."
+          "notes": "Bay-brown cap, yellow pores that bruise blue, stem texture, and ecology."
         }
       ],
       "boleteGroup": [
@@ -812,15 +985,14 @@
       ],
       "habitats": [],
       "look_alike_risk": "",
-      "look_alike_notes": "",
+      "look_alike_notes": "Bitter bolete has pinkish pores and a very bitter taste; king bolete is usually more robust with a different reticulate stem pattern and does not show the same bay-bolete blue bruising pattern.",
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
       "edibility_notes": "Cooked food. Generally regarded as edible when confidently identified and cooked; avoid old, buggy, or waterlogged specimens.",
       "curation_notes": [
         "Original app species restored into the standalone modular build.",
-        "Recreated locally from the original app baseline checklist for the modular standalone build. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
-        "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
+        "Recreated locally from the original app baseline checklist for the modular standalone build. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes."
       ],
       "edible_use": {
         "has_ingestible_use": true,
@@ -857,75 +1029,77 @@
       ],
       "images_structured": [
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Bay%20Bolete%2C%20Boletus%20badius%20%2821195318373%29.jpg",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Bay%20Bolete%2C%20Boletus%20badius%20%2821195318373%29.jpg",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Bay%20Bolete%2C%20Boletus%20badius%20%2821195318373%29.jpg",
-          "source": "Wikimedia Commons",
-          "title": "Bay Bolete, Boletus badius (21195318373).jpg",
-          "part_or_stage": "Field photo",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Bay_Bolete,_Boletus_badius_(21195318373).jpg",
-          "credit": "Wikimedia Commons",
-          "license": "See Wikimedia Commons file page"
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria_badia.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria_badia.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria_badia.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Bay bolete cap and pores",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Imleria_badia.jpg",
+          "author": "Tintling",
+          "credit": "Tintling",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (wave2-rights-known-table) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         },
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20badius%205052175998%20df099ccc79%20b.jpg",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20badius%205052175998%20df099ccc79%20b.jpg",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20badius%205052175998%20df099ccc79%20b.jpg",
-          "source": "Wikimedia Commons",
-          "title": "Boletus badius 5052175998 df099ccc79 b.jpg",
-          "part_or_stage": "Field photo 2",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Boletus_badius_5052175998_df099ccc79_b.jpg",
-          "credit": "Wikimedia Commons",
-          "license": "See Wikimedia Commons file page"
-        },
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20badius%20G1.jpg",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20badius%20G1.jpg",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20badius%20G1.jpg",
-          "source": "Wikimedia Commons",
-          "title": "Boletus badius G1.jpg",
-          "part_or_stage": "Field photo 3",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Boletus_badius_G1.jpg",
-          "credit": "Wikimedia Commons",
-          "license": "See Wikimedia Commons file page"
-        },
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia.jpg",
-          "source": "commons-photo-patch",
-          "title": "Bay bolete field specimen",
-          "part_or_stage": "Bay bolete field specimen",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Imleria_badia.jpg"
-        },
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia%208.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia%208.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia%208.jpg",
-          "source": "commons-photo-patch",
-          "title": "Bay bolete cap and pore view",
-          "part_or_stage": "Bay bolete cap and pore view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Imleria_badia_8.jpg"
-        },
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia%2015.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia%2015.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria%20badia%2015.jpg",
-          "source": "commons-photo-patch",
-          "title": "Bay bolete group view",
-          "part_or_stage": "Bay bolete group view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Imleria_badia_15.jpg"
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria_badia_2011_G1.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria_badia_2011_G1.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria_badia_2011_G1.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Bay bolete supporting field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Imleria_badia_2011_G1.jpg",
+          "author": "George Chernilevsky",
+          "credit": "George Chernilevsky",
+          "license": "Public domain — author released",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+          "rights_status": "verified_public_domain_or_cc0",
+          "commercial_use": true,
+          "attribution_required": false,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v73) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         }
       ],
       "needs_review": false,
       "review_note": "",
       "review_notes": "",
-      "image_review_status": "photo_patch_applied",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "v4.2.52-r2026-04-27-mushroom-photo-patch3-append1 appended 3 Commons-backed image(s) for list/detail/lightbox use."
+        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
       ],
       "photo_patch_alias_source_slug": "imleria-badia",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "completion_date": "2026-05-14",
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria_badia.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria_badia_2011_G1.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria_badia.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria_badia_2011_G1.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria_badia.jpg?width=480",
+      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "photo_rights_checked_date": "2026-05-14",
+      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available."
     },
     {
       "slug": "bear-s-head-tooth",
@@ -944,9 +1118,7 @@
         "https://www.mushroomexpert.com/hericium.html"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2001.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2002.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2003.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_americanum_135426.jpg"
       ],
       "medicinal_uses": "Hericium species have modern supplement interest, but this entry is treated primarily as a food mushroom.",
       "culinary_uses": "Choice edible when young and white. Cook like lion's mane or other Hericium: sauté, brown in butter, or use in rich mushroom dishes.",
@@ -954,7 +1126,7 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood"
@@ -1018,7 +1190,8 @@
         "branching_form": [
           "Branched clusters"
         ],
-        "season_note": "Late summer through fall on hardwood logs and trunks."
+        "season_note": "Late summer through fall on hardwood logs and trunks.",
+        "caution_level": "low"
       },
       "commonness_score": 2,
       "food_quality_score": 5,
@@ -1032,52 +1205,72 @@
       "mushroom_card_note": "Choice Hericium: branched white clusters with hanging teeth, usually on hardwood.",
       "images_structured": [
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2001.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2001.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2001.jpg",
-          "source": "commons-photo-patch",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_americanum_135426.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_americanum_135426.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_americanum_135426.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons / Mushroom Observer",
           "title": "Bear's head tooth field view",
           "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Bear%27s_Head_Tooth_%28Hericium_americanum%29_-_Mississauga%2C_Ontario_01.jpg"
-        },
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2002.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2002.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2002.jpg",
-          "source": "commons-photo-patch",
-          "title": "Bear's head tooth supporting field view",
-          "part_or_stage": "supporting field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Bear%27s_Head_Tooth_%28Hericium_americanum%29_-_Mississauga%2C_Ontario_02.jpg"
-        },
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2003.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2003.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2003.jpg",
-          "source": "commons-photo-patch",
-          "title": "Bear's head tooth additional field view",
-          "part_or_stage": "additional field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Bear%27s_Head_Tooth_%28Hericium_americanum%29_-_Mississauga%2C_Ontario_03.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Hericium_americanum_135426.jpg",
+          "author": "Mushroom Observer contributor",
+          "credit": "Mushroom Observer contributor",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v62) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2001.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2002.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2003.jpg?width=900"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_americanum_135426.jpg?width=900"
       ],
       "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2001.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2002.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2003.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_americanum_135426.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Bear%27s%20Head%20Tooth%20%28Hericium%20americanum%29%20-%20Mississauga%2C%20Ontario%2001.jpg?width=480",
-      "image_review_status": "field_photo_exact_slug_batchpack",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_americanum_135426.jpg?width=480",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch A — gilled/toothed edible-style records); source URLs came from uploaded mushrooms.json."
+        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
       ],
       "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
       "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
       "photo_patch_group": "Batch A — gilled/toothed edible-style records",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "completion_date": "2026-05-14",
+      "edibility_status": "edible",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Hericium americanum",
+          "url": "https://mushroomexpert.com/fungionwood/teeth%20and%20spine/species%20pages/Hericium%20americanum.htm",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Branching Hericium traits and hardwood habitat."
+        },
+        {
+          "label": "MushroomExpert: Hericium overview",
+          "url": "https://www.mushroomexpert.com/hericium.html",
+          "link_type": "comparison",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Separates lion's mane, bear's head tooth, and coral tooth forms."
+        }
+      ],
+      "look_alike_notes": "Compared with lion's mane and coral tooth, bear's head tooth is branched but has longer, shaggy clusters of teeth hanging from branch tips.",
+      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "photo_rights_checked_date": "2026-05-14",
+      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available."
     },
     {
       "slug": "birch-polypore",
@@ -1105,12 +1298,8 @@
         "https://link.springer.com/article/10.1007/s11274-017-2247-0"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Piptoporus%20Betulinus.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Polyporus%20Betulinus.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20100134091.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20188725569.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20170006960.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis_betulina_2011_G1.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Piptoporus_betulinus_2009_G1.jpg"
       ],
       "medicinal_uses": "Traditional tea/decoction and historical medicinal-use interest; use conservatively and do not treat as a cure.",
       "culinary_uses": "Not a table mushroom; corky, bitter, and tough.",
@@ -1121,7 +1310,7 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
@@ -1147,7 +1336,7 @@
         11,
         12
       ],
-      "food_role": "medicinal_only",
+      "food_role": "other_use",
       "look_alikes": [
         "artist-s-conk",
         "tinder-conk-hoof-fungus"
@@ -1195,14 +1384,15 @@
         "branching_form": [
           "Single shelves"
         ],
-        "season_note": "Fruiting bodies persist and can be found year-round on birch."
+        "season_note": "Fruiting bodies persist and can be found year-round on birch.",
+        "caution_level": "low"
       },
       "commonness_score": 4,
       "food_quality_score": 1,
       "scientific_name": "Fomitopsis betulina",
       "use_roles": [
-        "Medicinal",
-        "Other use"
+        "Other use",
+        "Tea / traditional use"
       ],
       "foraging_value": "Niche / traditional use",
       "foraging_value_score": 2,
@@ -1211,50 +1401,96 @@
       "mushroom_card_note": "A birch-only polypore with traditional tea/tinder/utility interest, not a frying-pan mushroom.",
       "images_structured": [
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg",
-          "source": "commons-photo-patch",
-          "title": "Birch polypore on birch field view",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis_betulina_2011_G1.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis_betulina_2011_G1.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis_betulina_2011_G1.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Birch polypore field view",
           "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Fomitopsis_betulina_104965425.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Fomitopsis_betulina_2011_G1.jpg",
+          "author": "George Chernilevsky",
+          "credit": "George Chernilevsky",
+          "license": "Public domain — author released",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+          "rights_status": "verified_public_domain_or_cc0",
+          "commercial_use": true,
+          "attribution_required": false,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v67) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         },
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20188725569.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20188725569.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20188725569.jpg",
-          "source": "commons-photo-patch",
-          "title": "Birch polypore shelf view",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Piptoporus_betulinus_2009_G1.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Piptoporus_betulinus_2009_G1.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Piptoporus_betulinus_2009_G1.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Birch polypore older-name supporting view",
           "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Fomitopsis_betulina_188725569.jpg"
-        },
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20170006960.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20170006960.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20170006960.jpg",
-          "source": "commons-photo-patch",
-          "title": "Birch polypore supporting view",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Fomitopsis_betulina_170006960.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Piptoporus_betulinus_2009_G1.jpg",
+          "author": "George Chernilevsky",
+          "credit": "George Chernilevsky",
+          "license": "Public domain — author released",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+          "rights_status": "verified_public_domain_or_cc0",
+          "commercial_use": true,
+          "attribution_required": false,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v109) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20188725569.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20170006960.jpg?width=900"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis_betulina_2011_G1.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Piptoporus_betulinus_2009_G1.jpg?width=900"
       ],
       "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20188725569.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20170006960.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis_betulina_2011_G1.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Piptoporus_betulinus_2009_G1.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis%20betulina%20104965425.jpg?width=480",
-      "image_review_status": "field_photo_patch",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis_betulina_2011_G1.jpg?width=480",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "Commons-backed field photo patch appended in v4.2.57-r2026-04-28-mushroom-photo-patch5."
+        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
       ],
       "photo_patch_batch": "v4.2.57-r2026-04-28-mushroom-photo-patch5",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "completion_date": "2026-05-14",
+      "edibility_status": "non_culinary_tea_use",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Fomitopsis betulina",
+          "url": "https://www.mushroomexpert.com/fomitopsis_betulina.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Birch host, annual bracket form, and pore surface traits."
+        },
+        {
+          "label": "Research review: Fomitopsis betulina bioactive compounds",
+          "url": "https://link.springer.com/article/10.1007/s11274-017-2247-0",
+          "link_type": "research",
+          "applies_to_part": "fruiting body",
+          "source_quality": "research article",
+          "notes": "Included as research/background, not as medical advice."
+        }
+      ],
+      "look_alike_notes": "Birch host is the big clue. Artist's conk has a brown-bruising white pore surface and hoof fungus is harder/hoof-shaped and perennial.",
+      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "photo_rights_checked_date": "2026-05-14",
+      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available."
     },
     {
       "slug": "bitter-bolete",
@@ -1273,10 +1509,9 @@
         "https://www.mushroomexpert.com/tylopilus_felleus.html"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%281%29.JPG",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2823431150244%29.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2836929909940%29.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus_felleus.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus-felleus-010.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus_felleus_14.jpg"
       ],
       "culinary_uses": "Niche edible with an intensely bitter flavor. Most foragers skip it because even a small amount can make a dish unpleasant, but it is retained in the edible mushroom list as an acquired-taste bittering mushroom rather than a poison/caution species.",
       "non_edible_severity": "",
@@ -1285,7 +1520,7 @@
       "record_type": "mushroom",
       "lane": "bolete",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [
         "bitter-bolete",
         "Bitter Bolete",
@@ -1293,7 +1528,7 @@
       ],
       "host_filter_tokens": [],
       "commonness": "Common",
-      "food_quality": "Niche / acquired taste",
+      "food_quality": "Poor / bitter",
       "medicinalAction": [],
       "medicinalSystem": [],
       "medicinalTerms": [],
@@ -1366,9 +1601,7 @@
         "spore_print": "",
         "processing_required": [],
         "research_notes": [
-          "Species seed added from the Michigan / Upper Midwest bolete pass.",
-          "Needs image coverage.",
-          "Needs source links and fuller field notes."
+          "Species seed added from the Michigan / Upper Midwest bolete pass."
         ]
       },
       "common_names": [
@@ -1384,7 +1617,7 @@
       "kingdom_type": "mushroom",
       "species_scope": "species",
       "foraging_class": "mushroom",
-      "field_identification": "",
+      "field_identification": "Tan to brown bolete with a strong dark net pattern on the stem, whitish pores that mature pinkish, and an unmistakably bitter taste. Often under conifers or mixed woods.",
       "season_months": [
         7,
         8,
@@ -1392,15 +1625,14 @@
         10
       ],
       "habitats": [],
-      "look_alike_notes": "",
+      "look_alike_notes": "Important king-bolete confusion risk: bitter bolete has pinkish mature pores and a bitter taste; do not mix it into a pan of good boletes unless you truly want bitterness.",
       "rare_profile": null,
       "overview": "",
       "other_uses": "",
       "edibility_notes": "Inedible because of intense bitterness rather than dangerous poisoning. Keep it out of the Caution page unless a future record adds a real toxicity concern.",
       "curation_notes": [
         "Original app species restored into the standalone modular build.",
-        "Recreated locally from the original app baseline checklist for the modular standalone build. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes.",
-        "This record still needs species-level images and source links, but the core field-guide traits are now scaffolded for sorting and filtering."
+        "Recreated locally from the original app baseline checklist for the modular standalone build. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes."
       ],
       "review_reasons": [],
       "edible_use": {
@@ -1436,11 +1668,7 @@
       "legacy_alias": true,
       "list_visibility": "hidden-duplicate",
       "duplicate_note": "Duplicate Bitter Bolete record kept only as a legacy slug alias.",
-      "manual_review_reasons": [
-        "needs image coverage",
-        "needs species-level notes review",
-        "needs source links"
-      ],
+      "manual_review_reasons": [],
       "is_non_edible": false,
       "toxicity_notes": "Not treated as a poison species in this guide; retained as a niche/acquired-taste edible with a strong bitter flavor.",
       "medicinal_uses": "",
@@ -1466,72 +1694,100 @@
       ],
       "images_structured": [
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus.jpg",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus.jpg",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus.jpg",
-          "source": "Wikimedia Commons",
-          "title": "Tylopilus felleus.jpg",
-          "part_or_stage": "Field photo",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Tylopilus_felleus.jpg",
-          "credit": "Wikimedia Commons",
-          "license": "See Wikimedia Commons file page"
-        },
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%281%29.JPG",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%281%29.JPG",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%281%29.JPG",
-          "source": "Wikimedia Commons",
-          "title": "Tylopilus felleus (1).JPG",
-          "part_or_stage": "Field photo 2",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Tylopilus_felleus_(1).JPG",
-          "credit": "Wikimedia Commons",
-          "license": "See Wikimedia Commons file page"
-        },
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2823431150244%29.jpg",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2823431150244%29.jpg",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2823431150244%29.jpg",
-          "source": "Wikimedia Commons",
-          "title": "Tylopilus felleus (23431150244).jpg",
-          "part_or_stage": "Field photo 3",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Tylopilus_felleus_(23431150244).jpg",
-          "credit": "Wikimedia Commons",
-          "license": "See Wikimedia Commons file page"
-        },
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus.jpg",
-          "source": "commons-photo-patch",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus_felleus.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus_felleus.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus_felleus.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
           "title": "Bitter bolete field view",
-          "part_or_stage": "Bitter bolete field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Tylopilus_felleus.jpg"
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Tylopilus_felleus.jpg",
+          "author": "Walter J. Pilsak, Waldsassen",
+          "credit": "Walter J. Pilsak, Waldsassen",
+          "license": "CC BY-SA 3.0 / GFDL",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v11) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         },
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2836929909940%29.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2836929909940%29.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2836929909940%29.jpg",
-          "source": "commons-photo-patch",
-          "title": "Bitter bolete cap and stalk",
-          "part_or_stage": "Bitter bolete cap and stalk",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Tylopilus_felleus_%2836929909940%29.jpg"
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus-felleus-010.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus-felleus-010.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus-felleus-010.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Bitter bolete cap/stem view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Tylopilus-felleus-010.jpg",
+          "author": "Danny S.",
+          "credit": "Danny S.",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v23) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         },
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2823431150244%29.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2823431150244%29.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20felleus%20%2823431150244%29.jpg",
-          "source": "commons-photo-patch",
-          "title": "Bitter bolete pinkish pores",
-          "part_or_stage": "Bitter bolete pinkish pores",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Tylopilus_felleus_%2823431150244%29.jpg"
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus_felleus_14.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus_felleus_14.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus_felleus_14.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons / GBIF",
+          "title": "Bitter bolete pore/stem view",
+          "part_or_stage": "pore/stem view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Tylopilus_felleus_14.jpg",
+          "author": "Morten Pettersen",
+          "credit": "Morten Pettersen",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v23) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         }
       ],
-      "image_review_status": "photo_patch_applied",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "v4.2.52-r2026-04-27-mushroom-photo-patch3-append1 appended 3 Commons-backed image(s) for list/detail/lightbox use."
+        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
       ],
       "photo_patch_alias_source_slug": "true-bitter-bolete",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "completion_date": "2026-05-14",
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus_felleus.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus-felleus-010.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus_felleus_14.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus_felleus.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus-felleus-010.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus_felleus_14.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus_felleus.jpg?width=480",
+      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "photo_rights_checked_date": "2026-05-14",
+      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available."
     },
     {
       "slug": "black-morels",
@@ -1549,10 +1805,9 @@
         "https://www.mushroomexpert.com/morchella_angusticeps.html"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2083497.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2083536.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%20group%2038336.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2063116.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_angusticeps_2009_G1.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_elata_2010_G1.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_septentrionalis_344833.jpg"
       ],
       "medicinal_uses": "Primarily culinary in this guide.",
       "culinary_uses": "Choice spring edible; always cook thoroughly. Slice lengthwise to confirm a hollow interior and to clean out grit or insects.",
@@ -1560,7 +1815,7 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
@@ -1628,7 +1883,8 @@
         "branching_form": [
           "Single fruitbody"
         ],
-        "season_note": "Primarily a spring mushroom, often during leaf-out and warming soil."
+        "season_note": "Primarily a spring mushroom, often during leaf-out and warming soil.",
+        "caution_level": "medium"
       },
       "commonness_score": 3,
       "food_quality_score": 5,
@@ -1642,30 +1898,116 @@
       "mushroom_card_note": "Prime spring mushroom; confirm hollow true-morel structure and cook thoroughly.",
       "images_structured": [
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2063116.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2063116.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2063116.jpg",
-          "source": "commons-photo-patch",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_angusticeps_2009_G1.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_angusticeps_2009_G1.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_angusticeps_2009_G1.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
           "title": "Black morel field view",
           "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Morchella_elata_63116.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Morchella_angusticeps_2009_G1.jpg",
+          "author": "George Chernilevsky",
+          "credit": "George Chernilevsky",
+          "license": "Public domain — author released",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+          "rights_status": "verified_public_domain_or_cc0",
+          "commercial_use": true,
+          "attribution_required": false,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v69) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_elata_2010_G1.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_elata_2010_G1.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_elata_2010_G1.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Black morel complex supporting view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Morchella_elata_2010_G1.jpg",
+          "author": "George Chernilevsky",
+          "credit": "George Chernilevsky",
+          "license": "Public domain — author released",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+          "rights_status": "verified_public_domain_or_cc0",
+          "commercial_use": true,
+          "attribution_required": false,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v130) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_septentrionalis_344833.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_septentrionalis_344833.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_septentrionalis_344833.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons / Mushroom Observer",
+          "title": "Northern black morel supporting view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Morchella_septentrionalis_344833.jpg",
+          "author": "Mushroom Observer contributor",
+          "credit": "Mushroom Observer contributor",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (credits-enrichment-v69) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2063116.jpg?width=900"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_angusticeps_2009_G1.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_elata_2010_G1.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_septentrionalis_344833.jpg?width=900"
       ],
       "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2063116.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_angusticeps_2009_G1.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_elata_2010_G1.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_septentrionalis_344833.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20elata%2063116.jpg?width=480",
-      "image_review_status": "field_photo_batchpack",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_angusticeps_2009_G1.jpg?width=480",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch A — morels and early morel relatives)."
+        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
       ],
       "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
       "photo_patch_group": "Batch A — morels and early morel relatives",
       "photo_patch_alias_source_slug": "black-morel",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "completion_date": "2026-05-14",
+      "edibility_status": "edible_with_caution",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Morchella angusticeps",
+          "url": "https://www.mushroomexpert.com/morchella_angusticeps.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Black morel traits, hollow interior, attachment, and comparison notes."
+        }
+      ],
+      "look_alike_notes": "False morels are the danger: true morels are hollow from cap through stem and have a pitted attached cap; Gyromitra types are chambered/cottony/wrinkled rather than cleanly hollow.",
+      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "photo_rights_checked_date": "2026-05-14",
+      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available."
     },
     {
       "slug": "black-trumpet",
@@ -1684,10 +2026,8 @@
         "https://www.mushroomexpert.com/craterellus_fallax"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20fallax%20822088.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides%20362779.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides%20362782.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus_fallax_95068953.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus_fallax_97831898.jpg"
       ],
       "medicinal_uses": "Primarily culinary in this guide.",
       "culinary_uses": "Choice edible with deep, aromatic flavor. Excellent fresh or dried; use in sauces, soups, eggs, rice, or anywhere a concentrated mushroom flavor helps.",
@@ -1695,7 +2035,7 @@
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood"
@@ -1760,7 +2100,8 @@
         "branching_form": [
           "Single fruitbody"
         ],
-        "season_note": "Most often late summer into fall in moist hardwood woods."
+        "season_note": "Most often late summer into fall in moist hardwood woods.",
+        "caution_level": "low"
       },
       "commonness_score": 3,
       "food_quality_score": 5,
@@ -1774,29 +2115,89 @@
       "mushroom_card_note": "Prime edible trumpet; easy to miss on the forest floor but excellent fresh or dried.",
       "images_structured": [
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides.jpg",
-          "source": "commons-photo-patch",
-          "title": "Black trumpet mushrooms",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus_fallax_95068953.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus_fallax_95068953.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus_fallax_95068953.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons / iNaturalist",
+          "title": "Black trumpet field view",
           "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Craterellus_cornucopioides.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Craterellus_fallax_95068953.jpg",
+          "author": "R. DN.",
+          "credit": "R. DN. / iNaturalist",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (wave2-rights-known-table) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus_fallax_97831898.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus_fallax_97831898.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus_fallax_97831898.jpg",
+          "source": "commons-completion-wave-rights-corrected",
+          "sourceLabel": "Wikimedia Commons / iNaturalist",
+          "title": "Black trumpet cluster",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Craterellus_fallax_97831898.jpg",
+          "author": "R. DN.",
+          "credit": "R. DN. / iNaturalist",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Exact author/license metadata copied from repo render-credits credit map (wave2-rights-known-table) or prior verified wave source; no placeholder rights text retained.",
+          "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+          "checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides.jpg?width=900"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus_fallax_95068953.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus_fallax_97831898.jpg?width=900"
       ],
       "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus_fallax_95068953.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus_fallax_97831898.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus%20cornucopioides.jpg?width=480",
-      "image_review_status": "field_photo_batchpack",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus_fallax_95068953.jpg?width=480",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch B — common edible forms)."
+        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
       ],
       "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
       "photo_patch_group": "Batch B — common edible forms",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "completion_date": "2026-05-14",
+      "edibility_status": "edible",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Craterellus fallax",
+          "url": "https://www.mushroomexpert.com/craterellus_fallax",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Eastern black trumpet traits, smooth/wrinkled fertile surface, and hardwood habitat."
+        }
+      ],
+      "look_alike_notes": "Yellowfoot and smooth chanterelles are relatives rather than dangerous look-alikes; black trumpet is darker, hollow, and lacks true gills.",
+      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
+      "photo_rights_checked_date": "2026-05-14",
+      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available."
     }
   ]
 }
