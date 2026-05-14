@@ -9,7 +9,7 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 11,
-    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. Updated in v4.2.82 with 25-record mushroom credibility pass including Black Velvet Bolete and Blue-staining Slippery Jack. v4.2.83: mushroom bolete photo/credibility batch; Commons images added for Neoporphyrellus alboater and Suillus tomentosus; 25-record Suillus/Leccinum/Neoporphyrellus pass. v4.2.85 refreshed Blue-staining Slippery Jack image URLs to direct upload.wikimedia.org files and carried forward v4.2.83 image coverage. v4.2.86: optional photo patches are treated as fill-only for existing base-record image fields; direct image fallback hardened for Black Velvet Bolete and Suillus tomentosus where applicable. v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4: 25-record Suillus/Leccinum credibility pass; source/species-note issues reduced while image/local/taxonomy reviews were retained. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved.",
+    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. Updated in v4.2.82 with 25-record mushroom credibility pass including Black Velvet Bolete and Blue-staining Slippery Jack. v4.2.83: mushroom bolete photo/credibility batch; Commons images added for Neoporphyrellus alboater and Suillus tomentosus; 25-record Suillus/Leccinum/Neoporphyrellus pass. v4.2.85 refreshed Blue-staining Slippery Jack image URLs to direct upload.wikimedia.org files and carried forward v4.2.83 image coverage. v4.2.86: optional photo patches are treated as fill-only for existing base-record image fields; direct image fallback hardened for Black Velvet Bolete and Suillus tomentosus where applicable. v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4: 25-record Suillus/Leccinum credibility pass; source/species-note issues reduced while image/local/taxonomy reviews were retained. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved. v4.3.60-r2026-05-14-suillus-photo-polish1: canonical photo/credit pass; added 3 verified Commons images for Suillus granulatus and completed credit/license metadata for existing Suillus spraguei image.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -26,7 +26,10 @@
     "split_series": "data/mushrooms/mushrooms-boletes-suillus-leccinum-4*.json",
     "split_note": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split this active data source by file size to keep working chunks under roughly 75–100 KB. Record bodies and source order were preserved.",
     "source_group": "data/mushrooms/mushrooms-boletes-suillus-leccinum-4",
-    "source_build_before_size_split": "v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4"
+    "source_build_before_size_split": "v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4",
+    "last_canonical_foldin": "v4.3.59-r2026-05-14-canonical-foldin1",
+    "canonical_foldin_note": "Folded formerly supplemental mushroom species/image avalanche data into this canonical source file; no runtime species overlay file required.",
+    "last_photo_credit_pass": "v4.3.60-r2026-05-14-suillus-photo-polish1"
   },
   "records": [
     {
@@ -34,7 +37,7 @@
       "display_name": "Orange Birch Bolete",
       "common_name": "Orange Birch Bolete",
       "category": "Mushroom",
-      "culinary_uses": "Some Leccinum are eaten, but this group needs thorough cooking and careful host/tree notes. Do not treat scaber-stalk boletes as beginner mushrooms.",
+      "culinary_uses": "Often listed as edible after thorough cooking, but Leccinum reactions vary; keep it cautious.",
       "medicinal_uses": "",
       "notes": "",
       "months_available": [
@@ -71,7 +74,9 @@
         "wood_type": [],
         "host_trees": [
           "Birch",
-          "Aspen / poplar"
+          "Aspen / poplar",
+          "Aspen",
+          "Poplar"
         ],
         "host_certainty": "unknown",
         "underside": [
@@ -86,7 +91,8 @@
         "staining": [
           "Unknown",
           "Staining varies by species; slice and observe over 30 minutes",
-          "Flesh may darken or discolor"
+          "Flesh may darken or discolor",
+          "Slice and observe staining over time"
         ],
         "taste": [
           "Mild / not distinctive"
@@ -105,11 +111,14 @@
         "host_filter_tokens": [
           "Hardwood",
           "Birch",
-          "Aspen / poplar"
+          "Aspen / poplar",
+          "Aspen",
+          "Poplar"
         ],
         "pore_color": [
           "Whitish to grayish or yellowish pores depending on species",
-          "Pale pores"
+          "Pale pores",
+          "Check young and mature pore color"
         ],
         "cap_surface": [
           "Dry cap; color varies by species",
@@ -117,10 +126,14 @@
         ],
         "stem_feature": [
           "Scabers on stem",
-          "Scabered stem darkening with age"
+          "Scabered stem darkening with age",
+          "Check scabers / reticulation / glandular dots as appropriate"
         ],
         "smell": [
           "Mild / not distinctive"
+        ],
+        "growth_form": [
+          "Cap and stem"
         ]
       },
       "manual_review_reasons": [],
@@ -144,7 +157,7 @@
       "food_role": "food",
       "edibility_status": "edible_with_preparation",
       "edibility_detail": "Often listed as edible after thorough cooking, but Leccinum reactions vary and this guide treats it cautiously.",
-      "field_identification": "Look for birch association, orange cap, pale pores, and a scabered stem that darkens with age. Compare carefully with other orange-capped Leccinum.",
+      "field_identification": "Check birch or aspen/poplar association, orange cap, pale pores, and a scabered stem. Compare carefully with other orange-capped Leccinum.",
       "use_links": [
         {
           "label": "MushroomExpert: The Genus Leccinum",
@@ -152,7 +165,7 @@
           "link_type": "identification",
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
-          "notes": "Scabers, host specificity, pore/staining notes, and North American ID caution."
+          "notes": "Field traits and comparison notes."
         }
       ],
       "host_filter_tokens": [
@@ -178,17 +191,20 @@
         10
       ],
       "habitats": [],
-      "look_alikes": [],
+      "look_alikes": [
+        "leccinum-scabrum",
+        "ghost-bolete"
+      ],
       "look_alike_risk": "",
       "look_alike_notes": "",
       "rare_profile": null,
-      "overview": "",
+      "overview": "Orange-capped birch/aspen-associated Leccinum with pale pores and a scabered stem that darkens with age.",
       "other_uses": "",
-      "edibility_notes": "Some Leccinum are eaten, but this group needs thorough cooking and careful host/tree notes.",
+      "edibility_notes": "Often listed as edible after thorough cooking, but Leccinum reactions vary; keep it cautious.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review."
       ],
-      "general_notes": "",
+      "general_notes": "Bolete records are kept conservative because host tree, pore color, staining, stem texture, and taste cues can change the ID quickly.",
       "search_aliases": [],
       "non_edible_severity": "",
       "edible_use": {
@@ -213,7 +229,7 @@
       "medicinalSystem": [],
       "medicinalTerms": [],
       "habitat": [],
-      "mushroom_card_note": "Orange birch-associated Leccinum with a bright orange cap and darkening scabers; a useful comparison species but still needs cautious ID.",
+      "mushroom_card_note": "Orange-capped birch/aspen-associated Leccinum with pale pores and a scabered stem that darkens with age.",
       "use_roles": [
         "ID / comparison"
       ],
@@ -256,14 +272,18 @@
       "image_review_reasons": [
         "v4.2.50 added 3 Commons-backed image(s) for list/detail/lightbox use."
       ],
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "confused_with": [
+        "leccinum-scabrum",
+        "ghost-bolete"
+      ]
     },
     {
       "slug": "suillus-spraguei",
       "display_name": "Painted Suillus",
       "common_name": "Painted Suillus",
       "category": "Mushroom",
-      "culinary_uses": "Edible by some when young and cooked, but Suillus texture and age matter. Remove old, slimy, or buggy material.",
+      "culinary_uses": "Edible by some when young and cooked, but not a prime beginner mushroom. Avoid old or buggy specimens.",
       "medicinal_uses": "",
       "notes": "",
       "months_available": [
@@ -299,7 +319,8 @@
         "host_trees": [
           "Eastern white pine",
           "5-needle pines",
-          "White pine"
+          "White pine",
+          "Pine"
         ],
         "host_certainty": "unknown",
         "underside": [
@@ -314,7 +335,8 @@
         "staining": [
           "Unknown",
           "May bruise reddish or brownish; flesh can stain pinkish to reddish/brownish",
-          "Not a key blue-staining species"
+          "Not a key blue-staining species",
+          "Slice and observe staining over time"
         ],
         "taste": [
           "Mild / not distinctive"
@@ -337,7 +359,8 @@
         ],
         "pore_color": [
           "Yellow becoming brownish yellow",
-          "Pale yellow pores"
+          "Pale yellow pores",
+          "Check young and mature pore color"
         ],
         "cap_surface": [
           "Dry",
@@ -348,10 +371,14 @@
           "Ring",
           "Shaggy below ring",
           "No glandular dots",
-          "Colorful reddish/yellow stem"
+          "Colorful reddish/yellow stem",
+          "Check scabers / reticulation / glandular dots as appropriate"
         ],
         "smell": [
           "Mild / not distinctive"
+        ],
+        "growth_form": [
+          "Cap and stem"
         ]
       },
       "manual_review_reasons": [],
@@ -375,7 +402,7 @@
       "food_role": "food",
       "edibility_status": "edible_with_caution",
       "edibility_detail": "Edible reputation exists, but texture and personal tolerance vary; peel/clean well and cook thoroughly.",
-      "field_identification": "Look for eastern white pine, dry shaggy red/brick cap scales, pale yellow pore surface, and a stem with reddish colors. Not the usual slimy Suillus look.",
+      "field_identification": "Look for eastern white pine, dry shaggy red to brick cap scales, yellow pore surface, and reddish/yellow stem colors. It does not look like the usual slimy Suillus.",
       "use_links": [
         {
           "label": "MushroomExpert: Suillus spraguei",
@@ -383,7 +410,7 @@
           "link_type": "identification",
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
-          "notes": "Eastern white pine association, ring, shaggy cap, and staining notes."
+          "notes": "Field traits and comparison notes."
         }
       ],
       "host_filter_tokens": [
@@ -409,17 +436,20 @@
         10
       ],
       "habitats": [],
-      "look_alikes": [],
+      "look_alikes": [
+        "suillus-americanus",
+        "suillus-punctipes"
+      ],
       "look_alike_risk": "",
       "look_alike_notes": "",
       "rare_profile": null,
-      "overview": "",
+      "overview": "Colorful white-pine Suillus with shaggy reddish cap scales, yellow pores, and a ringed or veiled stem.",
       "other_uses": "",
-      "edibility_notes": "Cooked food. Edible by some when young and cooked, but Suillus texture and age matter.",
+      "edibility_notes": "Edible by some when young and cooked, but not a prime beginner mushroom. Avoid old or buggy specimens.",
       "curation_notes": [
         "Minimal species seed. Added from the Michigan bolete audit for the clean app so the bolete section is more complete; details, seasonality, and images still need a later review."
       ],
-      "general_notes": "",
+      "general_notes": "Bolete records are kept conservative because host tree, pore color, staining, stem texture, and taste cues can change the ID quickly.",
       "search_aliases": [],
       "non_edible_severity": "",
       "edible_use": {
@@ -444,14 +474,14 @@
       "medicinalSystem": [],
       "medicinalTerms": [],
       "habitat": [],
-      "mushroom_card_note": "Painted Suillus: colorful, shaggy/scaly red to brick cap with yellow pores and eastern white pine association.",
+      "mushroom_card_note": "Colorful white-pine Suillus with shaggy reddish cap scales, yellow pores, and a ringed or veiled stem.",
       "use_roles": [
         "Food"
       ],
       "foraging_value": "Good forage",
       "foraging_value_score": 3,
-      "needs_review": false,
-      "review_note": "",
+      "needs_review": true,
+      "review_note": "Photo coverage is usable but thin: one verified distinct image with complete credit/license metadata.",
       "review_notes": "",
       "v4287_checked": true,
       "images_structured": [
@@ -459,17 +489,37 @@
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20spraguei%2058269.jpg?width=480",
           "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20spraguei%2058269.jpg?width=900",
           "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20spraguei%2058269.jpg",
-          "source": "commons-photo-patch",
-          "title": "Painted suillus field specimen",
-          "part_or_stage": "Painted suillus field specimen",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_spraguei_58269.jpg"
+          "source": "commons-verified-canonical-v4.3.60",
+          "title": "Painted Suillus field specimen",
+          "part_or_stage": "field view / whole fruitbody",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_spraguei_58269.jpg",
+          "author": "William Tanneberger",
+          "credit": "William Tanneberger / Mushroom Observer / Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "sourceLabel": "Wikimedia Commons / Mushroom Observer"
         }
       ],
-      "image_review_status": "photo_patch_applied_partial",
+      "image_review_status": "verified_single_existing_photo_credited",
       "image_review_reasons": [
-        "v4.2.50 added 1 Commons-backed image(s) for list/detail/lightbox use."
+        "Existing Commons-backed Suillus spraguei image retained and upgraded with verified author, source page, and CC BY-SA 3.0 license metadata.",
+        "Only one distinct verified image is currently present; add more later only if source/license/species match can be verified."
       ],
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "confused_with": [
+        "suillus-americanus",
+        "suillus-punctipes"
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20spraguei%2058269.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20spraguei%2058269.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20spraguei%2058269.jpg?width=480",
+      "photo_credit_pass": "v4.3.60-r2026-05-14-suillus-photo-polish1",
+      "photo_patch_group": "canonical-suillus-photo-polish1",
+      "image_distinct_count": 1
     },
     {
       "slug": "suillus-paluster",
@@ -1432,7 +1482,9 @@
         "https://www.mushroomexpert.com/suillus_granulatus.html"
       ],
       "images": [
-        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3ESuillus%20granulatus%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20granulatus%20104210829.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20granulatus%20MS7%20%283%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus-granulatus.jpg"
       ],
       "scientific_name": "Suillus granulatus",
       "mushroom_profile": {
@@ -1482,7 +1534,8 @@
         ],
         "pore_color": [
           "Yellow pores; milky droplets when young"
-        ]
+        ],
+        "image_coverage_note": "v4.3.60 added three verified Commons images with author/license metadata."
       },
       "manual_review_reasons": [
         "Needs real field photo / image coverage"
@@ -1499,7 +1552,7 @@
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
-      "general_notes": "",
+      "general_notes": "Granulated Suillus / weeping bolete photo coverage was upgraded with three verified Commons images in v4.3.60. Use host, ring absence, yellow pores, and glandular/stem granules together; do not rely on cap color alone.",
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [
@@ -1518,16 +1571,16 @@
       "medicinalSystem": [],
       "medicinalTerms": [],
       "habitat": [],
-      "image_review_status": "needs_field_photo",
+      "image_review_status": "verified_distinct_images_added",
       "image_review_reasons": [
-        "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+        "Replaced IMAGE NEEDED placeholder with 3 distinct Wikimedia Commons images verified by source page, species label/category, author, and reusable license.",
+        "Image set includes an iNaturalist CC BY 4.0 field view, a CC BY-SA 4.0 whole-fruitbody view, and a Commons quality image under CC BY 3.0."
       ],
       "review_reasons": [
         "Needs real field photo / image coverage"
       ],
-      "needs_review": true,
-      "review_note": "Needs review: Needs real field photo / image coverage.",
+      "needs_review": false,
+      "review_note": "",
       "review_notes": "Needs review: Needs real field photo / image coverage.",
       "mushroom_card_note": "Granulated Suillus: sticky orangish-brown cap, yellow non-bruising pores with milky droplets when young, no ring, and glandular dots.",
       "field_identification": "For true S. granulatus, expect 2-needle pine association, sticky orangish-brown cap, small yellow pores often beading milky liquid, no ring, and glandular dots on the stem. North American records need host caution.",
@@ -1543,7 +1596,65 @@
         8,
         9,
         10
-      ]
+      ],
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20granulatus%20104210829.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20granulatus%20104210829.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20granulatus%20104210829.jpg",
+          "source": "commons-verified-canonical-v4.3.60",
+          "title": "Dotted-stalked Suillus / Suillus granulatus field view",
+          "part_or_stage": "field view / cap and stem",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_granulatus_104210829.jpg",
+          "author": "Joe Dillon",
+          "credit": "Joe Dillon / iNaturalist / Wikimedia Commons",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+          "sourceLabel": "Wikimedia Commons / iNaturalist"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20granulatus%20MS7%20%283%29.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20granulatus%20MS7%20%283%29.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20granulatus%20MS7%20%283%29.jpg",
+          "source": "commons-verified-canonical-v4.3.60",
+          "title": "Suillus granulatus whole fruitbody group",
+          "part_or_stage": "field view / whole fruitbodies",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus_granulatus_MS7_(3).jpg",
+          "author": "Jerzy Opioła",
+          "credit": "Jerzy Opioła / Wikimedia Commons",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "sourceLabel": "Wikimedia Commons"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus-granulatus.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus-granulatus.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus-granulatus.jpg",
+          "source": "commons-verified-canonical-v4.3.60",
+          "title": "Weeping bolete / granulated bolete quality image",
+          "part_or_stage": "field view / cap and pore context",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Suillus-granulatus.jpg",
+          "author": "Holger Krisp",
+          "credit": "Holger Krisp / Wikimedia Commons",
+          "license": "CC BY 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/3.0",
+          "sourceLabel": "Wikimedia Commons"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20granulatus%20104210829.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20granulatus%20MS7%20%283%29.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus-granulatus.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20granulatus%20104210829.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20granulatus%20MS7%20%283%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus-granulatus.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20granulatus%20104210829.jpg?width=480",
+      "photo_credit_pass": "v4.3.60-r2026-05-14-suillus-photo-polish1",
+      "photo_patch_group": "canonical-suillus-photo-polish1",
+      "image_distinct_count": 3
     },
     {
       "slug": "suillus-hirtellus",
