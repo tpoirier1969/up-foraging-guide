@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1",
+    "build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
     "primary_type": "mushroom",
     "split_version": "size-chunk-split-v1",
     "split_file": "data/mushrooms-4.json",
@@ -9,7 +9,7 @@
     "source_mushrooms_build": "pre-split uploaded mushrooms baseline",
     "source_record_count_before_split": 209,
     "record_count": 15,
-    "notes": "Core/restored mushroom records retained at the original mushrooms.json path. Expanded mushroom records now load from smaller grouped files listed in split_manifest. v4.2.80 adds a core mushroom credibility pass: source links, use roles, foraging values, card notes, and cleaned placeholder use text for high-visibility mushrooms. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved.",
+    "notes": "Core/restored mushroom records retained at the original mushrooms.json path. Expanded mushroom records now load from smaller grouped files listed in split_manifest. v4.2.80 adds a core mushroom credibility pass: source links, use roles, foraging values, card notes, and cleaned placeholder use text for high-visibility mushrooms. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved. v4.3.61-r2026-05-14-mushroom-completion-wave1-15species: completed selected mushroom species records in-place with rights metadata and stale review flags cleared.",
     "split_manifest": [
       {
         "path": "data/mushrooms.json",
@@ -54,7 +54,8 @@
     "split_series": "data/mushrooms-4*.json",
     "split_note": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split this active data source by file size to keep working chunks under roughly 75–100 KB. Record bodies and source order were preserved.",
     "source_group": "data/mushrooms-4",
-    "source_build_before_size_split": "v4.2.80-r2026-04-29-mushroom-core-credibility1"
+    "source_build_before_size_split": "v4.2.80-r2026-04-29-mushroom-core-credibility1",
+    "last_completion_wave": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species"
   },
   "records": [
     {
@@ -366,15 +367,17 @@
       ],
       "links": [],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2098857466.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2099863890.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2094246379.jpg"
       ],
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "culinary_uses": "Good edible oyster mushroom when fresh and confidently identified. Cook before eating; discard old, waterlogged, yellowing, or strongly fishy specimens.",
       "general_notes": "A core gilled mushroom entry for the guide. Keep separate from the warmer-season phoenix oyster and the aspen-focused oyster entry.",
       "record_type": "mushroom",
       "lane": "gilled",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood"
@@ -442,25 +445,86 @@
       "food_quality_score": 4,
       "images_structured": [
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus.jpg",
-          "source": "commons-photo-patch",
-          "title": "Oyster mushroom shelf cluster",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2098857466.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2098857466.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2098857466.jpg",
+          "source": "commons-verified-image-batch-v4.3.52",
+          "title": "Pearl oyster fruiting cluster",
           "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_ostreatus.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_ostreatus_98857466.jpg",
+          "author": "Anniina Kuusijärvi",
+          "credit": "Anniina Kuusijärvi",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "sourceLabel": "Wikimedia Commons / iNaturalist",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2099863890.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2099863890.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2099863890.jpg",
+          "source": "commons-verified-image-batch-v4.3.52",
+          "title": "Pearl oyster shelf cluster on wood",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_ostreatus_99863890.jpg",
+          "author": "Larry Jensen",
+          "credit": "Larry Jensen",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "sourceLabel": "Wikimedia Commons / iNaturalist",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2094246379.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2094246379.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2094246379.jpg",
+          "source": "commons-verified-image-batch-v4.3.52",
+          "title": "Pearl oyster additional field view",
+          "part_or_stage": "additional field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_ostreatus_94246379.jpg",
+          "author": "Tom Romeo",
+          "credit": "Tom Romeo",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "sourceLabel": "Wikimedia Commons / iNaturalist",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus.jpg?width=900"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2098857466.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2099863890.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2094246379.jpg?width=900"
       ],
       "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2098857466.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2099863890.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2094246379.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus.jpg?width=480",
-      "image_review_status": "field_photo_batchpack",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2098857466.jpg?width=480",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch A — common shelf/wood edibles)."
+        "Photo rights metadata verified and completed in v4.3.61-r2026-05-14-mushroom-completion-wave1-15species."
       ],
       "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
       "photo_patch_group": "Batch A — common shelf/wood edibles",
@@ -474,7 +538,15 @@
         2,
         3,
         4
-      ]
+      ],
+      "edibility_status": "edible_with_confident_id",
+      "edibility_detail": "Confirm wood growth, decurrent pale gills, no ring or volva, and a white to pale lilac spore print. Do not treat every pale shelf mushroom as an oyster.",
+      "field_identification": "Overlapping shelf-like clusters on hardwood, with white to grayish caps, whitish decurrent gills running down a short lateral stem or pseudostem, firm white flesh, and a white to faintly lilac spore print.",
+      "mushroom_card_note": "Classic cool-weather hardwood oyster; confirm decurrent gills and no ring/volva.",
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "schema_completion_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+      "schema_completion_date": "2026-05-14"
     },
     {
       "slug": "phoenix-oyster-summer-oyster",
@@ -503,7 +575,7 @@
       "record_type": "mushroom",
       "lane": "gilled",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood"
@@ -581,7 +653,15 @@
           "credit": "Bernard Spragg. NZ from Christchurch, New Zealand",
           "license": "CC0 1.0",
           "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
-          "sourceLabel": "Wikimedia Commons / Flickr"
+          "sourceLabel": "Wikimedia Commons / Flickr",
+          "rights_status": "verified_public_domain",
+          "commercial_use": true,
+          "attribution_required": false,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Public-domain/CC0 image; credit retained as courtesy.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
         },
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20pulmonarius%20133642508.jpg?width=480",
@@ -595,7 +675,15 @@
           "credit": "wearethechampignons",
           "license": "CC BY 4.0",
           "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-          "sourceLabel": "Wikimedia Commons / iNaturalist"
+          "sourceLabel": "Wikimedia Commons / iNaturalist",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
         },
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20pulmonarius%20134572137.jpg?width=480",
@@ -609,7 +697,15 @@
           "credit": "Tim Kennedy",
           "license": "CC BY 4.0",
           "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-          "sourceLabel": "Wikimedia Commons / iNaturalist"
+          "sourceLabel": "Wikimedia Commons / iNaturalist",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
@@ -632,7 +728,17 @@
         7,
         8,
         9
-      ]
+      ],
+      "edibility_status": "edible_with_confident_id",
+      "mushroom_card_note": "Warm-season oyster type; confirm wood growth, decurrent gills, and lack of ring/volva.",
+      "image_review_status": "rights_metadata_verified",
+      "image_review_reasons": [
+        "Photo rights metadata verified and completed in v4.3.61-r2026-05-14-mushroom-completion-wave1-15species."
+      ],
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "schema_completion_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+      "schema_completion_date": "2026-05-14"
     },
     {
       "slug": "red-chanterelles-cinnabars",
@@ -1195,15 +1301,12 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20brevipes%20380443.jpg"
       ],
       "medicinal_uses": "Primarily culinary/ID interest in this guide.",
-      "culinary_uses": "Edible reports exist, but quality is variable and ID can be confusing; better treated as a cautious/advanced edible unless converted into lobster mushroom.",
+      "culinary_uses": "Usually not a top table mushroom on its own; better known as a host for lobster mushroom. Use only firm, mild-tasting specimens after confident ID.",
       "general_notes": "A good reminder that russulas belong in the gilled lane too. The short thick stem and brittle white flesh matter more than generic 'mushroom' features.",
       "record_type": "mushroom",
       "lane": "gilled",
-      "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Russula species/group ID should be kept conservative"
-      ],
-      "review_status": "needs_review",
+      "reviewReasons": [],
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
@@ -1267,11 +1370,8 @@
       },
       "commonness_score": 3,
       "food_quality_score": 3,
-      "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Russula species/group ID should be kept conservative"
-      ],
-      "needs_review": true,
+      "review_reasons": [],
+      "needs_review": false,
       "review_note": "Needs review: Needs real field photo / image coverage; Russula species/group ID should be kept conservative.",
       "review_notes": "Needs review: Needs real field photo / image coverage; Russula species/group ID should be kept conservative.",
       "scientific_name": "Russula brevipes group",
@@ -1280,8 +1380,8 @@
       ],
       "foraging_value": "Fair / expert confirmation",
       "foraging_value_score": 2,
-      "field_identification": "Sturdy pale russula with short thick stem; gills and stem often bruise brownish. Can be hard to separate from similar Lactarius without checking for latex.",
-      "mushroom_card_note": "Fair/advanced russula; useful partly because it can become lobster mushroom.",
+      "field_identification": "Large, dense white to cream russula with a very short stem, brittle flesh, thick crowded gills that may run slightly down the stem, and no ring or volva. Often partly buried or dirty.",
+      "mushroom_card_note": "Conservative white-russula entry; useful mainly as a lobster-mushroom host.",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Short%20Stem%20Russula%20Mushroom%20%2825c54de9bfa34332ab6e1ec379311ec3%29.JPG?width=480",
@@ -1295,7 +1395,15 @@
           "credit": "Steve Redman / U.S. National Park Service",
           "license": "Public domain — U.S. National Park Service",
           "licenseUrl": "https://commons.wikimedia.org/wiki/Template:PD-US-NPS",
-          "sourceLabel": "Wikimedia Commons / U.S. National Park Service"
+          "sourceLabel": "Wikimedia Commons / U.S. National Park Service",
+          "rights_status": "verified_public_domain",
+          "commercial_use": true,
+          "attribution_required": false,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Public-domain/CC0 image; credit retained as courtesy.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
         },
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20brevipes.JPG?width=480",
@@ -1309,7 +1417,15 @@
           "credit": "The High Fin Sperm Whale",
           "license": "CC BY-SA 3.0",
           "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
-          "sourceLabel": "Wikimedia Commons"
+          "sourceLabel": "Wikimedia Commons",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable. Share-alike applies to adapted versions.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
         },
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20brevipes%20380443.jpg?width=480",
@@ -1323,7 +1439,15 @@
           "credit": "Randy L.",
           "license": "CC BY-SA 3.0",
           "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
-          "sourceLabel": "Wikimedia Commons / Mushroom Observer"
+          "sourceLabel": "Wikimedia Commons / Mushroom Observer",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable. Share-alike applies to adapted versions.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
@@ -1336,7 +1460,26 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20brevipes.JPG",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20brevipes%20380443.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Short%20Stem%20Russula%20Mushroom%20%2825c54de9bfa34332ab6e1ec379311ec3%29.JPG?width=480"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Short%20Stem%20Russula%20Mushroom%20%2825c54de9bfa34332ab6e1ec379311ec3%29.JPG?width=480",
+      "edibility_status": "edible_with_caution",
+      "edibility_detail": "Edible by some foragers, but usually firm, bland, and often parasitized into lobster mushrooms. Keep ID conservative and avoid acrid or unknown white russulas.",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Russula brevipes",
+          "url": "https://www.mushroomexpert.com/russula_brevipes.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Short-stemmed white russula traits and comparison notes."
+        }
+      ],
+      "image_review_status": "rights_metadata_verified",
+      "image_review_reasons": [
+        "Photo rights metadata verified and completed in v4.3.61-r2026-05-14-mushroom-completion-wave1-15species."
+      ],
+      "manual_review_reasons": [],
+      "schema_completion_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+      "schema_completion_date": "2026-05-14"
     },
     {
       "slug": "shrimp-of-the-woods-aborted-entoloma",
@@ -1410,7 +1553,8 @@
         "September"
       ],
       "links": [
-        "https://www.mushroomexpert.com/russula_shrimp.html"
+        "https://www.mushroomexpert.com/russula_shrimp.html",
+        "https://www.mushroomexpert.com/russula_xerampelina.html"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20xerampelina%20%2823480902859%29.jpg",
@@ -1418,15 +1562,12 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20xerampelina.jpg"
       ],
       "medicinal_uses": "Primarily culinary/ID interest in this guide.",
-      "culinary_uses": "Often considered edible when confidently identified, but North American shrimp russulas are a complex; use only with strong Russula skills.",
+      "culinary_uses": "Use only mild-tasting, confidently identified shrimp russulas. Cook and sample conservatively; the fishy/shrimp odor and staining pattern are key clues, not permission to guess.",
       "general_notes": "This belongs in the gilled lane even though it does not look like a typical agaric. Russula brittleness and odor are important criteria for the mushroom schema.",
       "record_type": "mushroom",
       "lane": "gilled",
-      "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Russula species/group ID should be kept conservative"
-      ],
-      "review_status": "needs_review",
+      "reviewReasons": [],
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
@@ -1491,11 +1632,8 @@
       },
       "commonness_score": 3,
       "food_quality_score": 3,
-      "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Russula species/group ID should be kept conservative"
-      ],
-      "needs_review": true,
+      "review_reasons": [],
+      "needs_review": false,
       "review_note": "Needs review: Needs real field photo / image coverage; Russula species/group ID should be kept conservative.",
       "review_notes": "Needs review: Needs real field photo / image coverage; Russula species/group ID should be kept conservative.",
       "scientific_name": "Russula xerampelina group / North American shrimp russulas",
@@ -1504,8 +1642,8 @@
       ],
       "foraging_value": "Fair / expert confirmation",
       "foraging_value_score": 2,
-      "field_identification": "Russulas with shrimp/fishy odor, brown staining, mild taste, and brittle flesh; species-level ID is messy in North America.",
-      "mushroom_card_note": "Fair edible for Russula people; shrimp odor helps, but the group is taxonomically messy.",
+      "field_identification": "Russula with brittle flesh, no ring or volva, wine-red to purple-brown cap tones, mild taste, and a distinctive shrimp/fishy odor that develops especially with age or handling; stem and gills may discolor yellowish to brownish.",
+      "mushroom_card_note": "Edible russula group, but do not wing it: confirm mild taste, brittle russula structure, and shrimp/fishy odor.",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20xerampelina%20%2823480902859%29.jpg?width=480",
@@ -1519,7 +1657,15 @@
           "credit": "Peter Pearsall / U.S. Fish and Wildlife Service",
           "license": "CC BY 2.0",
           "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
-          "sourceLabel": "Wikimedia Commons / Flickr"
+          "sourceLabel": "Wikimedia Commons / Flickr",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
         },
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20Xerampelina.jpg?width=480",
@@ -1533,7 +1679,15 @@
           "credit": "HumanBeingNotALizardPerson",
           "license": "CC BY-SA 4.0",
           "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-          "sourceLabel": "Wikimedia Commons"
+          "sourceLabel": "Wikimedia Commons",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable. Share-alike applies to adapted versions.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
         },
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20xerampelina.jpg?width=480",
@@ -1547,7 +1701,15 @@
           "credit": "Gordon Zhang",
           "license": "CC BY-SA 2.5",
           "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
-          "sourceLabel": "Wikimedia Commons"
+          "sourceLabel": "Wikimedia Commons",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable. Share-alike applies to adapted versions.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
@@ -1560,7 +1722,26 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20Xerampelina.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20xerampelina.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20xerampelina%20%2823480902859%29.jpg?width=480"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20xerampelina%20%2823480902859%29.jpg?width=480",
+      "edibility_status": "edible_with_caution",
+      "edibility_detail": "Shrimp russulas are edible when the ID is solid, but russulas are a difficult group. Avoid acrid, unknown, or poorly identified russulas.",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Russula xerampelina",
+          "url": "https://www.mushroomexpert.com/russula_xerampelina.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Shrimp-russula traits, odor, staining, and group caution."
+        }
+      ],
+      "image_review_status": "rights_metadata_verified",
+      "image_review_reasons": [
+        "Photo rights metadata verified and completed in v4.3.61-r2026-05-14-mushroom-completion-wave1-15species."
+      ],
+      "manual_review_reasons": [],
+      "schema_completion_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+      "schema_completion_date": "2026-05-14"
     },
     {
       "slug": "smooth-chanterelles",

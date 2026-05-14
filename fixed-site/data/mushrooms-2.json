@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1",
+    "build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
     "primary_type": "mushroom",
     "split_version": "size-chunk-split-v1",
     "split_file": "data/mushrooms-2.json",
@@ -9,7 +9,7 @@
     "source_mushrooms_build": "pre-split uploaded mushrooms baseline",
     "source_record_count_before_split": 209,
     "record_count": 12,
-    "notes": "Core/restored mushroom records retained at the original mushrooms.json path. Expanded mushroom records now load from smaller grouped files listed in split_manifest. v4.2.80 adds a core mushroom credibility pass: source links, use roles, foraging values, card notes, and cleaned placeholder use text for high-visibility mushrooms. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved.",
+    "notes": "Core/restored mushroom records retained at the original mushrooms.json path. Expanded mushroom records now load from smaller grouped files listed in split_manifest. v4.2.80 adds a core mushroom credibility pass: source links, use roles, foraging values, card notes, and cleaned placeholder use text for high-visibility mushrooms. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved. v4.3.61-r2026-05-14-mushroom-completion-wave1-15species: completed selected mushroom species records in-place with rights metadata and stale review flags cleared.",
     "split_manifest": [
       {
         "path": "data/mushrooms.json",
@@ -54,7 +54,8 @@
     "split_series": "data/mushrooms-2*.json",
     "split_note": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split this active data source by file size to keep working chunks under roughly 75–100 KB. Record bodies and source order were preserved.",
     "source_group": "data/mushrooms-2",
-    "source_build_before_size_split": "v4.2.80-r2026-04-29-mushroom-core-credibility1"
+    "source_build_before_size_split": "v4.2.80-r2026-04-29-mushroom-core-credibility1",
+    "last_completion_wave": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species"
   },
   "records": [
     {
@@ -881,18 +882,16 @@
         "https://www.mushroomexpert.com/laetiporus.html"
       ],
       "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Laetiporus%20Sulphureus.JPG",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Chicken%20of%20the%20Woods%20-%20Laetiporus%20sulphureus%2C%20Point%20of%20View%2C%20Mason%20Neck%2C%20Virginia%20%2844536583375%29.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Chicken%20of%20the%20Woods%20Laetiporus%20sulphureus.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Laetiporus%20sulphureus.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Laetiporus%20sulphureus.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2007-06-27%20Laetiporus%20sulphureus%20crop.jpg"
       ],
       "medicinal_uses": "Primarily culinary in this guide.",
-      "culinary_uses": "Good edible when young and tender. Cook thoroughly; some people get stomach upset, and old, tough, or bug-ridden shelves are not worth it.",
+      "culinary_uses": "Young, tender shelves are a good edible mushroom after thorough cooking. Trim away tough bases and avoid old shelves; some people get stomach upset even from correctly identified chicken of the woods.",
       "general_notes": "Some people react to it, especially older specimens or those from some conifers.",
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
@@ -916,12 +915,13 @@
       ],
       "food_role": "food",
       "look_alikes": [
-        "jack-o-lantern"
+        "jack-o-lantern",
+        "black-staining-polypore"
       ],
       "confused_with": [
         "jack-o-lantern"
       ],
-      "edibility_detail": "Good edible when young and tender, but not universally tolerated.",
+      "edibility_detail": "Good edible when young and tender, but not universally tolerated; avoid old, tough, bug-ridden, or conifer-grown material unless you know the local Laetiporus species well.",
       "mushroom_profile": {
         "underside": [
           "Pores"
@@ -971,8 +971,8 @@
       ],
       "foraging_value": "Good forage",
       "foraging_value_score": 4,
-      "field_identification": "Bright orange/yellow overlapping shelves with a pore surface, growing from wood; host tree and pore color help separate Laetiporus species.",
-      "mushroom_card_note": "Good edible shelf mushroom when young; host tree and tenderness matter.",
+      "field_identification": "Bright orange to yellow overlapping shelves growing from wood, with a pore surface underneath rather than gills. The texture is soft and fleshy when young, becoming tough with age; host tree and pore color help separate Laetiporus species.",
+      "mushroom_card_note": "Good edible when young and cooked, but tolerance varies; confirm pores, wood growth, and host tree.",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Laetiporus%20sulphureus.jpg?width=480",
@@ -981,19 +981,56 @@
           "source": "commons-photo-patch",
           "title": "Chicken of the woods shelf cluster",
           "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Laetiporus_sulphureus.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Laetiporus_sulphureus.jpg",
+          "author": "Algirdas",
+          "credit": "Algirdas",
+          "license": "Public domain",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags/Public_domain",
+          "sourceLabel": "Wikimedia Commons",
+          "rights_status": "verified_public_domain",
+          "commercial_use": true,
+          "attribution_required": false,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Public-domain/CC0 image; credit retained as courtesy.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2007-06-27%20Laetiporus%20sulphureus%20crop.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2007-06-27%20Laetiporus%20sulphureus%20crop.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2007-06-27%20Laetiporus%20sulphureus%20crop.jpg",
+          "source": "commons-completion-wave",
+          "title": "Chicken of the woods shelf close-up",
+          "part_or_stage": "field view / shelf cluster",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:2007-06-27_Laetiporus_sulphureus_crop.jpg",
+          "author": "Doug Bowman / derivative by Ak ccm",
+          "credit": "Doug Bowman / derivative by Ak ccm",
+          "license": "CC BY 2.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+          "sourceLabel": "Wikimedia Commons",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Laetiporus%20sulphureus.jpg?width=900"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Laetiporus%20sulphureus.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2007-06-27%20Laetiporus%20sulphureus%20crop.jpg?width=900"
       ],
       "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Laetiporus%20sulphureus.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Laetiporus%20sulphureus.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2007-06-27%20Laetiporus%20sulphureus%20crop.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Laetiporus%20sulphureus.jpg?width=480",
-      "image_review_status": "field_photo_batchpack",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch A — common shelf/wood edibles)."
+        "Photo rights metadata verified and completed in v4.3.61-r2026-05-14-mushroom-completion-wave1-15species."
       ],
       "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
       "photo_patch_group": "Batch A — common shelf/wood edibles",
@@ -1006,7 +1043,30 @@
         9,
         10,
         11
-      ]
+      ],
+      "edibility_status": "edible_with_caution",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Laetiporus sulphureus",
+          "url": "https://www.mushroomexpert.com/laetiporus_sulphureus.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Sulphur shelf field traits, pore surface, host/substrate notes, and edibility caution."
+        },
+        {
+          "label": "MushroomExpert: Laetiporus overview",
+          "url": "https://www.mushroomexpert.com/laetiporus.html",
+          "link_type": "comparison",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Separates common Laetiporus species and host patterns."
+        }
+      ],
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "schema_completion_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+      "schema_completion_date": "2026-05-14"
     },
     {
       "slug": "coral-tooth-fungus",
@@ -1264,7 +1324,7 @@
       "foraging_value_score": 0,
       "medicinal_uses": "No medicinal use in this guide.",
       "field_identification": "White gilled Amanita with free white gills, white spore print, ring on the stalk, and a sack-like cup/volva around the base. The base may be underground, so the entire mushroom must be carefully dug up for ID.",
-      "mushroom_card_note": "Deadly white Amanita. Never eat; confirm the base/volva when identifying.",
+      "mushroom_card_note": "Deadly white Amanita: free white gills, ring, white spore print, and sack-like volva/cup at the base.",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%20destroying%20angel%20skirt.jpg?width=480",
@@ -1278,7 +1338,15 @@
           "credit": "Eli T. (mythical_mold)",
           "license": "CC BY 4.0",
           "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-          "sourceLabel": "Wikimedia Commons / iNaturalist"
+          "sourceLabel": "Wikimedia Commons / iNaturalist",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
         },
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%20-%20Eastern%20North%20American%20Destroying%20Angel.jpg?width=480",
@@ -1292,7 +1360,15 @@
           "credit": "Jason Hollinger",
           "license": "CC BY 2.0",
           "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
-          "sourceLabel": "Wikimedia Commons / Flickr"
+          "sourceLabel": "Wikimedia Commons / Flickr",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
@@ -1350,7 +1426,17 @@
           "source_quality": "encyclopedia",
           "notes": "Deadly Amanita group overview."
         }
-      ]
+      ],
+      "review_status": "complete",
+      "image_review_status": "rights_metadata_verified",
+      "image_review_reasons": [
+        "Photo rights metadata verified and completed in v4.3.61-r2026-05-14-mushroom-completion-wave1-15species."
+      ],
+      "reviewReasons": [],
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "schema_completion_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+      "schema_completion_date": "2026-05-14"
     },
     {
       "slug": "dryad-s-saddle-pheasant-back",

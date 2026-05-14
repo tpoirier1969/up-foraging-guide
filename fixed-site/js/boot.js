@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.60-r2026-05-14-suillus-photo-polish1";
-const DISPLAY_VERSION = "V4.3.60-r26-05-14";
+const APP_VERSION = "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species";
+const DISPLAY_VERSION = "V4.3.61-r26-05-14";
 
 function esc(value) {
   return String(value ?? "")

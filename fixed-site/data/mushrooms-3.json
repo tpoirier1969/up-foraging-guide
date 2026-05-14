@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1",
+    "build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
     "primary_type": "mushroom",
     "split_version": "size-chunk-split-v1",
     "split_file": "data/mushrooms-3.json",
@@ -9,7 +9,7 @@
     "source_mushrooms_build": "pre-split uploaded mushrooms baseline",
     "source_record_count_before_split": 209,
     "record_count": 12,
-    "notes": "Core/restored mushroom records retained at the original mushrooms.json path. Expanded mushroom records now load from smaller grouped files listed in split_manifest. v4.2.80 adds a core mushroom credibility pass: source links, use roles, foraging values, card notes, and cleaned placeholder use text for high-visibility mushrooms. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved.",
+    "notes": "Core/restored mushroom records retained at the original mushrooms.json path. Expanded mushroom records now load from smaller grouped files listed in split_manifest. v4.2.80 adds a core mushroom credibility pass: source links, use roles, foraging values, card notes, and cleaned placeholder use text for high-visibility mushrooms. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved. v4.3.61-r2026-05-14-mushroom-completion-wave1-15species: completed selected mushroom species records in-place with rights metadata and stale review flags cleared.",
     "split_manifest": [
       {
         "path": "data/mushrooms.json",
@@ -54,7 +54,8 @@
     "split_series": "data/mushrooms-3*.json",
     "split_note": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split this active data source by file size to keep working chunks under roughly 75–100 KB. Record bodies and source order were preserved.",
     "source_group": "data/mushrooms-3",
-    "source_build_before_size_split": "v4.2.80-r2026-04-29-mushroom-core-credibility1"
+    "source_build_before_size_split": "v4.2.80-r2026-04-29-mushroom-core-credibility1",
+    "last_completion_wave": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species"
   },
   "records": [
     {
@@ -446,20 +447,20 @@
         "October"
       ],
       "links": [
-        "https://www.mushroomexpert.com/grifola_frondosa"
+        "https://www.mushroomexpert.com/grifola_frondosa",
+        "https://www.mushroomexpert.com/grifola_frondosa.html"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Autumn%20mushrooms%201%20Hen%20of%20the%20woods%20%28Grifola%20frondosa%29%20%284035115888%29.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Cultivated%20grifola%20frondosa.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Autumn%20mushrooms%201%20Hen%20of%20the%20woods%20(Grifola%20frondosa)%20(4035115888).jpg"
       ],
       "medicinal_uses": "Maitake has supplement interest, but this guide treats wild hens mainly as a prime food mushroom.",
-      "culinary_uses": "Choice edible; trim away tough bases, clean well, and cook. Excellent sautéed, roasted, dried, or used in soups and gravies.",
+      "culinary_uses": "Choice edible. Trim away tough bases, clean the layered fronds well, and cook; useful sautéed, roasted, dried, or in soups and gravies.",
       "general_notes": "A good host-linked species and one of the better fall edible clusters.",
       "record_type": "mushroom",
       "lane": "other",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
@@ -484,7 +485,7 @@
       "confused_with": [
         "black-staining-polypore"
       ],
-      "edibility_detail": "Choice edible.",
+      "edibility_detail": "Choice edible when fresh, young, and confidently identified; older rosettes get tough or bug-ridden.",
       "mushroom_profile": {
         "underside": [
           "Pores"
@@ -533,8 +534,8 @@
       ],
       "foraging_value": "Prime foraging",
       "foraging_value_score": 5,
-      "field_identification": "Large gray-brown rosette of many overlapping fronds at the base of oak or other hardwoods; pores underneath.",
-      "mushroom_card_note": "Prime fall mushroom; look for recurring rosettes at hardwood bases, especially oak.",
+      "field_identification": "Large gray-brown rosette of many overlapping spoon- or fan-shaped fronds, usually at the base of oak or other hardwoods. The underside has pores, not gills, and the fruitbody arises from a branching base.",
+      "mushroom_card_note": "Choice fall edible at oak bases; look for a big layered rosette with pored undersides.",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg?width=480",
@@ -543,23 +544,75 @@
           "source": "commons-photo-patch",
           "title": "Hen of the woods rosette cluster",
           "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Grifola_frondosa.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Grifola_frondosa.jpg",
+          "author": "Sinisa Radic",
+          "credit": "Sinisa Radic",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "sourceLabel": "Wikimedia Commons",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable. Share-alike applies to adapted versions.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Autumn%20mushrooms%201%20Hen%20of%20the%20woods%20(Grifola%20frondosa)%20(4035115888).jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Autumn%20mushrooms%201%20Hen%20of%20the%20woods%20(Grifola%20frondosa)%20(4035115888).jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Autumn%20mushrooms%201%20Hen%20of%20the%20woods%20(Grifola%20frondosa)%20(4035115888).jpg",
+          "source": "commons-completion-wave",
+          "title": "Hen of the woods cluster on stump",
+          "part_or_stage": "field view / rosette cluster",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Autumn_mushrooms_1_Hen_of_the_woods_(Grifola_frondosa)_(4035115888).jpg",
+          "author": "AnemoneProjectors",
+          "credit": "AnemoneProjectors",
+          "license": "CC BY-SA 2.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "sourceLabel": "Wikimedia Commons",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable. Share-alike applies to adapted versions.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg?width=900"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Autumn%20mushrooms%201%20Hen%20of%20the%20woods%20(Grifola%20frondosa)%20(4035115888).jpg?width=900"
       ],
       "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Autumn%20mushrooms%201%20Hen%20of%20the%20woods%20(Grifola%20frondosa)%20(4035115888).jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Grifola%20frondosa.jpg?width=480",
-      "image_review_status": "field_photo_batchpack",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch A — common shelf/wood edibles)."
+        "Photo rights metadata verified and completed in v4.3.61-r2026-05-14-mushroom-completion-wave1-15species."
       ],
       "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
       "photo_patch_group": "Batch A — common shelf/wood edibles",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "edibility_status": "edible_with_confident_id",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Grifola frondosa",
+          "url": "https://www.mushroomexpert.com/grifola_frondosa.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Hen-of-the-woods rosette form, pored underside, hardwood-base habitat, and comparison notes."
+        }
+      ],
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "schema_completion_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+      "schema_completion_date": "2026-05-14"
     },
     {
       "slug": "honey-mushrooms",
@@ -789,7 +842,15 @@
           "credit": "Alex Abair",
           "license": "CC BY 4.0",
           "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
-          "sourceLabel": "Wikimedia Commons / iNaturalist"
+          "sourceLabel": "Wikimedia Commons / iNaturalist",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
         },
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg?width=480",
@@ -803,7 +864,15 @@
           "credit": "vastateparksstaff",
           "license": "CC BY 2.0",
           "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
-          "sourceLabel": "Wikimedia Commons / Flickr"
+          "sourceLabel": "Wikimedia Commons / Flickr",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
@@ -851,7 +920,18 @@
           "source_quality": "mycology reference",
           "notes": "Clustered wood growth, orange color, true gills, and chanterelle comparison."
         }
-      ]
+      ],
+      "review_status": "complete",
+      "mushroom_card_note": "Poisonous chanterelle look-alike: orange clustered wood-grower with true gills.",
+      "image_review_status": "rights_metadata_verified",
+      "image_review_reasons": [
+        "Photo rights metadata verified and completed in v4.3.61-r2026-05-14-mushroom-completion-wave1-15species."
+      ],
+      "reviewReasons": [],
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "schema_completion_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+      "schema_completion_date": "2026-05-14"
     },
     {
       "slug": "king-bolete",

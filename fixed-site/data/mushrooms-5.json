@@ -1,7 +1,7 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1",
+    "build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
     "primary_type": "mushroom",
     "split_version": "size-chunk-split-v1",
     "split_file": "data/mushrooms-5.json",
@@ -9,7 +9,7 @@
     "source_mushrooms_build": "pre-split uploaded mushrooms baseline",
     "source_record_count_before_split": 209,
     "record_count": 6,
-    "notes": "Core/restored mushroom records retained at the original mushrooms.json path. Expanded mushroom records now load from smaller grouped files listed in split_manifest. v4.2.80 adds a core mushroom credibility pass: source links, use roles, foraging values, card notes, and cleaned placeholder use text for high-visibility mushrooms. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved.",
+    "notes": "Core/restored mushroom records retained at the original mushrooms.json path. Expanded mushroom records now load from smaller grouped files listed in split_manifest. v4.2.80 adds a core mushroom credibility pass: source links, use roles, foraging values, card notes, and cleaned placeholder use text for high-visibility mushrooms. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved. v4.3.61-r2026-05-14-mushroom-completion-wave1-15species: completed selected mushroom species records in-place with rights metadata and stale review flags cleared.",
     "split_manifest": [
       {
         "path": "data/mushrooms.json",
@@ -54,7 +54,8 @@
     "split_series": "data/mushrooms-5*.json",
     "split_note": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split this active data source by file size to keep working chunks under roughly 75–100 KB. Record bodies and source order were preserved.",
     "source_group": "data/mushrooms-5",
-    "source_build_before_size_split": "v4.2.80-r2026-04-29-mushroom-core-credibility1"
+    "source_build_before_size_split": "v4.2.80-r2026-04-29-mushroom-core-credibility1",
+    "last_completion_wave": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species"
   },
   "records": [
     {
@@ -76,17 +77,17 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20(42284743332).jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20106827706.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20(48371122612).jpg"
       ],
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "culinary_uses": "Wild velvet foot is edible when confidently identified and cooked, but it is a winter gilled mushroom with deadly look-alikes. Keep wild brown-stemmed forms separate from cultivated enoki in your head.",
       "non_edible_severity": "Edible with caution",
-      "edibility_detail": "Treat as caution / not for meals in this guide until species-level edibility is clarified.",
+      "edibility_detail": "Confirm clustered growth on wood, orange-brown sticky caps, white spore print, no ring, and a dark velvety stem base. Do not eat any Galerina-like brown gilled mushroom.",
       "general_notes": "The dark velvety stem base matters here. This is one of the few edible-type gilled mushrooms worth checking in cold weather.",
       "record_type": "mushroom",
       "lane": "gilled",
       "reviewReasons": [],
-      "review_status": "ok",
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood"
@@ -107,10 +108,14 @@
       ],
       "food_role": "food",
       "look_alikes": [
-        "jack-o-lantern"
+        "galerina",
+        "funeral-bell-galerina",
+        "sulphur-tuft",
+        "honey-mushroom"
       ],
       "confused_with": [
-        "jack-o-lantern"
+        "galerina",
+        "funeral-bell-galerina"
       ],
       "mushroom_profile": {
         "lane": "gilled",
@@ -151,29 +156,97 @@
       "food_quality_score": 3,
       "images_structured": [
         {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg",
-          "source": "commons-photo-patch",
-          "title": "Velvet foot winter cluster",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20(42284743332).jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20(42284743332).jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20(42284743332).jpg",
+          "source": "commons-verified-image-batch-v4.3.52",
+          "title": "Velvet foot cluster with darkening stems",
           "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Flammulina_velutipes._%2853589573202%29.jpg"
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Flammulina_velutipes_(42284743332).jpg",
+          "author": "Bernard Spragg. NZ from Christchurch, New Zealand",
+          "credit": "Bernard Spragg. NZ from Christchurch, New Zealand",
+          "license": "Public Domain Mark 1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+          "sourceLabel": "Wikimedia Commons / Flickr",
+          "rights_status": "verified_public_domain",
+          "commercial_use": true,
+          "attribution_required": false,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Public-domain/CC0 image; credit retained as courtesy.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20106827706.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20106827706.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20106827706.jpg",
+          "source": "commons-verified-image-batch-v4.3.52",
+          "title": "Velvet foot cap and stem field view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Flammulina_velutipes_106827706.jpg",
+          "author": "Stephen James McWilliam",
+          "credit": "Stephen James McWilliam",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/",
+          "sourceLabel": "Wikimedia Commons / iNaturalist",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20(48371122612).jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20(48371122612).jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20(48371122612).jpg",
+          "source": "commons-verified-image-batch-v4.3.52",
+          "title": "Velvet foot additional cluster view",
+          "part_or_stage": "additional field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Flammulina_velutipes._(48371122612).jpg",
+          "author": "Bernard Spragg. NZ from Christchurch, New Zealand",
+          "credit": "Bernard Spragg. NZ from Christchurch, New Zealand",
+          "license": "CC0 1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "sourceLabel": "Wikimedia Commons / Flickr",
+          "rights_status": "verified_public_domain",
+          "commercial_use": true,
+          "attribution_required": false,
+          "modification_allowed": true,
+          "share_alike_required": false,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Public-domain/CC0 image; credit retained as courtesy.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
         }
       ],
       "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg?width=900"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20(42284743332).jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20106827706.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20(48371122612).jpg?width=900"
       ],
       "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20(42284743332).jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20106827706.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20(48371122612).jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes.%20%2853589573202%29.jpg?width=480",
-      "image_review_status": "field_photo_batchpack",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Flammulina%20velutipes%20(42284743332).jpg?width=480",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch C — gilled/ridged edibles and caution-adjacent species)."
+        "Photo rights metadata verified and completed in v4.3.61-r2026-05-14-mushroom-completion-wave1-15species."
       ],
       "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
       "photo_patch_group": "Batch C — gilled/ridged edibles and caution-adjacent species",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
+      "edibility_status": "edible_with_confident_id",
+      "field_identification": "Small to medium orange-brown caps in clusters on dead hardwood, often in cold weather. Gills are pale, spore print white, there is no ring, and the lower stem becomes dark and velvety.",
+      "mushroom_card_note": "Winter edible only with careful ID; deadly Galerina is the ugly little goblin in this room.",
+      "review_reasons": [],
+      "manual_review_reasons": [],
+      "schema_completion_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+      "schema_completion_date": "2026-05-14"
     },
     {
       "slug": "yellow-chanterelles-conifer-associated-complex",
@@ -192,18 +265,17 @@
         "https://www.mushroomexpert.com/cantharellaceae.html"
       ],
       "images": [
-        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EYellow%20chanterelles%20%28conifer-associated%20complex%29%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20enelensis%20Voitk%2C%20Thorn%2C%20Lebeuf%2C%20J.I.%20Kim%20345300.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20enelensis%20Voitk%2C%20Thorn%2C%20Lebeuf%2C%20J.I.%20Kim%20904626%20crop.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20enelensis%20Voitk%2C%20Thorn%2C%20Lebeuf%2C%20J.I.%20Kim%20153724.jpg"
       ],
       "medicinal_uses": "Primarily culinary in this guide.",
       "culinary_uses": "Choice edible chanterelle-type mushrooms when positively identified. Cook; do not confuse with jack-o'-lanterns or true-gilled orange mushrooms.",
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Species-complex wording should be kept conservative"
-      ],
-      "review_status": "needs_review",
+      "reviewReasons": [],
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [],
       "commonness": "",
@@ -213,16 +285,12 @@
       "medicinalSystem": [],
       "medicinalTerms": [],
       "habitat": [],
-      "image_review_status": "needs_field_photo",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+        "Photo rights metadata verified and completed in v4.3.61-r2026-05-14-mushroom-completion-wave1-15species."
       ],
-      "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Species-complex wording should be kept conservative"
-      ],
-      "needs_review": true,
+      "review_reasons": [],
+      "needs_review": false,
       "review_note": "Needs review: Needs real field photo / image coverage; Species-complex wording should be kept conservative.",
       "review_notes": "Needs review: Needs real field photo / image coverage; Species-complex wording should be kept conservative.",
       "scientific_name": "Cantharellus spp. / conifer-associated yellow chanterelles",
@@ -231,8 +299,8 @@
       ],
       "foraging_value": "Prime foraging — species complex",
       "foraging_value_score": 5,
-      "field_identification": "Yellow-orange chanterelle complex with blunt forked false gills, solid flesh, and conifer association; species-level names are unsettled in North America.",
-      "mushroom_card_note": "Prime chanterelle group, but this entry still needs a real field photo and careful species-complex wording.",
+      "field_identification": "Yellow chanterelle complex associated with conifer or mixed conifer woods. Look for blunt forked ridges/false gills running down the stem, firm solid flesh, a fruity apricot-like odor, and a white to pale yellow spore print.",
+      "mushroom_card_note": "Conifer-associated yellow chanterelle complex; confirm blunt false gills, not true blade-like gills.",
       "month_numbers": [
         7,
         8,
@@ -245,7 +313,92 @@
       ],
       "mushroom_profile": {
         "season_note": "July through September in the Upper Michigan season window; conifer-associated yellow chanterelles should be verified to local species where possible."
-      }
+      },
+      "edibility_status": "edible_with_confident_id",
+      "food_role": "food",
+      "edibility_detail": "Edible chanterelle complex; use only when false gills, solid flesh, fruity odor, and habitat fit. Keep this as a species-complex record rather than pretending every yellow chanterelle is one species.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20enelensis%20Voitk%2C%20Thorn%2C%20Lebeuf%2C%20J.I.%20Kim%20345300.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20enelensis%20Voitk%2C%20Thorn%2C%20Lebeuf%2C%20J.I.%20Kim%20345300.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20enelensis%20Voitk%2C%20Thorn%2C%20Lebeuf%2C%20J.I.%20Kim%20345300.jpg",
+          "source": "commons-verified-image-batch-v4.3.53",
+          "title": "Conifer-associated yellow chanterelle complex — Cantharellus enelensis cluster",
+          "part_or_stage": "field view / conifer-mixed woods context",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Cantharellus_enelensis_Voitk,_Thorn,_Lebeuf,_J.I._Kim_345300.jpg",
+          "author": "Terri Clements/Donna Fulton (pinonbistro)",
+          "credit": "Terri Clements/Donna Fulton (pinonbistro)",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "sourceLabel": "Wikimedia Commons / Mushroom Observer",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable. Share-alike applies to adapted versions.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20enelensis%20Voitk%2C%20Thorn%2C%20Lebeuf%2C%20J.I.%20Kim%20904626%20crop.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20enelensis%20Voitk%2C%20Thorn%2C%20Lebeuf%2C%20J.I.%20Kim%20904626%20crop.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20enelensis%20Voitk%2C%20Thorn%2C%20Lebeuf%2C%20J.I.%20Kim%20904626%20crop.jpg",
+          "source": "commons-verified-image-batch-v4.3.53",
+          "title": "Conifer-associated yellow chanterelle complex — Cantharellus enelensis field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Cantharellus_enelensis_Voitk,_Thorn,_Lebeuf,_J.I._Kim_904626_crop.jpg",
+          "author": "Johnathan R Nuttall (joulesofsoul)",
+          "credit": "Johnathan R Nuttall (joulesofsoul)",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "sourceLabel": "Wikimedia Commons / Mushroom Observer",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable. Share-alike applies to adapted versions.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20enelensis%20Voitk%2C%20Thorn%2C%20Lebeuf%2C%20J.I.%20Kim%20153724.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20enelensis%20Voitk%2C%20Thorn%2C%20Lebeuf%2C%20J.I.%20Kim%20153724.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20enelensis%20Voitk%2C%20Thorn%2C%20Lebeuf%2C%20J.I.%20Kim%20153724.jpg",
+          "source": "commons-verified-image-batch-v4.3.53",
+          "title": "Conifer-associated yellow chanterelle complex — Cantharellus enelensis supporting view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Cantharellus_enelensis_Voitk,_Thorn,_Lebeuf,_J.I._Kim_153724.jpg",
+          "author": "Erlon (Herbert Baker)",
+          "credit": "Erlon (Herbert Baker)",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "sourceLabel": "Wikimedia Commons / Mushroom Observer",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable. Share-alike applies to adapted versions.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20enelensis%20Voitk%2C%20Thorn%2C%20Lebeuf%2C%20J.I.%20Kim%20345300.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20enelensis%20Voitk%2C%20Thorn%2C%20Lebeuf%2C%20J.I.%20Kim%20904626%20crop.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20enelensis%20Voitk%2C%20Thorn%2C%20Lebeuf%2C%20J.I.%20Kim%20153724.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20enelensis%20Voitk%2C%20Thorn%2C%20Lebeuf%2C%20J.I.%20Kim%20345300.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20enelensis%20Voitk%2C%20Thorn%2C%20Lebeuf%2C%20J.I.%20Kim%20904626%20crop.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20enelensis%20Voitk%2C%20Thorn%2C%20Lebeuf%2C%20J.I.%20Kim%20153724.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20enelensis%20Voitk%2C%20Thorn%2C%20Lebeuf%2C%20J.I.%20Kim%20345300.jpg?width=480",
+      "manual_review_reasons": [],
+      "schema_completion_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+      "schema_completion_date": "2026-05-14"
     },
     {
       "slug": "yellow-chanterelles-hardwood-associated-complex",
@@ -264,18 +417,17 @@
         "https://www.mushroomexpert.com/cantharellaceae.html"
       ],
       "images": [
-        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EYellow%20chanterelles%20%28hardwood-associated%20complex%29%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3EPublic%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2054894.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2051632.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2049073.jpg"
       ],
       "medicinal_uses": "Primarily culinary in this guide.",
       "culinary_uses": "Choice edible chanterelle-type mushrooms when positively identified. Cook; check false gills, growth from soil, and lack of jack-o'-lantern clustering on wood.",
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [
-        "Needs real field photo / image coverage",
-        "Species-complex wording should be kept conservative"
-      ],
-      "review_status": "needs_review",
+      "reviewReasons": [],
+      "review_status": "complete",
       "search_aliases": [],
       "host_filter_tokens": [],
       "commonness": "",
@@ -285,16 +437,12 @@
       "medicinalSystem": [],
       "medicinalTerms": [],
       "habitat": [],
-      "image_review_status": "needs_field_photo",
+      "image_review_status": "rights_metadata_verified",
       "image_review_reasons": [
-        "No usable field-view photo is currently available in the app.",
-        "Replace placeholder with a clear field photo showing cap/stem/underside or growth context."
+        "Photo rights metadata verified and completed in v4.3.61-r2026-05-14-mushroom-completion-wave1-15species."
       ],
-      "review_reasons": [
-        "Needs real field photo / image coverage",
-        "Species-complex wording should be kept conservative"
-      ],
-      "needs_review": true,
+      "review_reasons": [],
+      "needs_review": false,
       "review_note": "Needs review: Needs real field photo / image coverage; Species-complex wording should be kept conservative.",
       "review_notes": "Needs review: Needs real field photo / image coverage; Species-complex wording should be kept conservative.",
       "scientific_name": "Cantharellus spp. / hardwood-associated yellow chanterelles",
@@ -303,8 +451,8 @@
       ],
       "foraging_value": "Prime foraging — species complex",
       "foraging_value_score": 5,
-      "field_identification": "Yellow-orange chanterelle complex with blunt forked false gills and hardwood association; North American species naming is still unsettled.",
-      "mushroom_card_note": "Prime chanterelle group, but this entry still needs a real field photo and careful species-complex wording.",
+      "field_identification": "Yellow chanterelle complex associated with hardwoods. Look for egg-yellow to orange-yellow caps, blunt forked ridges/false gills running down the stem, solid flesh, fruity apricot-like odor, and growth from soil rather than wood.",
+      "mushroom_card_note": "Hardwood yellow chanterelle complex; false gills/ridges are the key separator from jack-o'-lantern.",
       "month_numbers": [
         7,
         8,
@@ -317,7 +465,92 @@
       ],
       "mushroom_profile": {
         "season_note": "July through September in the Upper Michigan season window; hardwood-associated yellow chanterelles should be verified to local species where possible."
-      }
+      },
+      "edibility_status": "edible_with_confident_id",
+      "food_role": "food",
+      "edibility_detail": "Edible chanterelle complex; use only when the blunt false gills/ridges, solid flesh, fruity odor, and hardwood habitat fit. This stays intentionally conservative at complex level.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2054894.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2054894.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2054894.jpg",
+          "source": "commons-verified-image-batch-v4.3.53",
+          "title": "Hardwood-associated yellow chanterelle complex — Cantharellus lateritius field view",
+          "part_or_stage": "field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Cantharellus_lateritius_54894.jpg",
+          "author": "Dan Molter",
+          "credit": "Dan Molter",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "sourceLabel": "Wikimedia Commons / Mushroom Observer",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable. Share-alike applies to adapted versions.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2051632.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2051632.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2051632.jpg",
+          "source": "commons-verified-image-batch-v4.3.53",
+          "title": "Hardwood-associated yellow chanterelle complex — Cantharellus lateritius cap view",
+          "part_or_stage": "field view / cap view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Cantharellus_lateritius_51632.jpg",
+          "author": "Dan Molter",
+          "credit": "Dan Molter",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "sourceLabel": "Wikimedia Commons / Mushroom Observer",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable. Share-alike applies to adapted versions.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2049073.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2049073.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2049073.jpg",
+          "source": "commons-verified-image-batch-v4.3.53",
+          "title": "Hardwood-associated yellow chanterelle complex — Cantharellus lateritius supporting view",
+          "part_or_stage": "supporting field view",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Cantharellus_lateritius_49073.jpg",
+          "author": "Dan Molter",
+          "credit": "Dan Molter",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "sourceLabel": "Wikimedia Commons / Mushroom Observer",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable. Share-alike applies to adapted versions.",
+          "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "rights_checked_date": "2026-05-14"
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2054894.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2051632.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2049073.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2054894.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2051632.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2049073.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus%20lateritius%2054894.jpg?width=480",
+      "manual_review_reasons": [],
+      "schema_completion_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+      "schema_completion_date": "2026-05-14"
     },
     {
       "slug": "yellow-fly-agaric-guessowii",
