@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.65-r2026-05-14-lookalike-single-source-safety1";
-const DISPLAY_VERSION = "V4.3.65-r26-05-14";
+const APP_VERSION = "v4.3.66-r2026-05-14-source-cleanup-dryad-images1";
+const DISPLAY_VERSION = "V4.3.66-r26-05-14";
 
 function esc(value) {
   return String(value ?? "")
