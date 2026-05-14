@@ -7,7 +7,9 @@
     "record_count": 2,
     "purpose": "Canonical spring morel records for the active mushroom data source list.",
     "notes": "Folded from the former spring forage layer so White / yellow morels and Burn-site morel load as ordinary mushroom records. v4.3.61-r2026-05-14-mushroom-completion-wave1-15species: completed selected mushroom species records in-place with rights metadata and stale review flags cleared.",
-    "last_completion_wave": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species"
+    "last_completion_wave": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+    "last_reaudit_build": "v4.3.64-r2026-05-14-mushroom-waves1-3-reaudit1",
+    "last_reaudit_note": "Re-audited v4.3.61-v4.3.63 touched mushroom species against hard completion checklist; incomplete items explicitly declared instead of silently marked complete."
   },
   "records": [
     {
@@ -170,7 +172,9 @@
           "share_alike_required": false,
           "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable.",
           "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
-          "rights_checked_date": "2026-05-14"
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "checked_date": "2026-05-14"
         },
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20americana%20363517480.jpg?width=480",
@@ -192,7 +196,9 @@
           "share_alike_required": false,
           "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable.",
           "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
-          "rights_checked_date": "2026-05-14"
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "checked_date": "2026-05-14"
         },
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20esculentoides.jpg?width=480",
@@ -214,7 +220,9 @@
           "share_alike_required": true,
           "rights_notes": "Verified from Wikimedia Commons source page/license metadata. Reuse requires attribution, license link, and change indication where applicable. Share-alike applies to adapted versions.",
           "rights_checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
-          "rights_checked_date": "2026-05-14"
+          "rights_checked_date": "2026-05-14",
+          "checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
+          "checked_date": "2026-05-14"
         }
       ],
       "images": [
@@ -240,7 +248,28 @@
       "reviewReasons": [],
       "manual_review_reasons": [],
       "schema_completion_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
-      "schema_completion_date": "2026-05-14"
+      "schema_completion_date": "2026-05-14",
+      "completion_audit": {
+        "checklist_id": "mushroom-species-hard-completion-checklist-v1",
+        "audited_build": "v4.3.64-r2026-05-14-mushroom-waves1-3-reaudit1",
+        "audited_date": "2026-05-14",
+        "checklist": {
+          "identity_scope_and_scientific_name": true,
+          "practical_field_identification": true,
+          "edibility_or_toxicity_status_and_detail": true,
+          "culinary_or_do_not_eat_guidance": true,
+          "lookalikes_or_confusion_risk": true,
+          "habitat_substrate_host_or_growth_context": true,
+          "seasonality": true,
+          "source_or_use_links": true,
+          "photo_rights_exact_for_all_used_images": true,
+          "photo_coverage_two_or_more_genuinely_distinct_images": true,
+          "review_flags_resolved_or_unresolved_declared": true
+        },
+        "unresolved_items": [],
+        "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
+      },
+      "completion_status": "complete"
     },
     {
       "slug": "burn-site-morel",
