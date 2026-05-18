@@ -6,7 +6,7 @@
     "split_file": "data/mushrooms-5.json",
     "split_role": "Core/restored baseline mushroom records kept at the original path.",
     "source_record_count_before_split": 209,
-    "record_count": 12,
+    "record_count": 15,
     "split_manifest": [
       {
         "path": "data/mushrooms.json",
@@ -40,7 +40,9 @@
     "split_series": "data/mushrooms-5*.json",
     "source_group": "data/mushrooms-5",
     "last_completion_wave": "v4.3.63-r2026-05-14-mushroom-completion-wave3-16species-rights-strict1",
-    "last_completion_wave_date": "2026-05-14"
+    "last_completion_wave_date": "2026-05-14",
+    "last_data_pass": "v4.3.80-r2026-05-18-gilled-safety-audit1",
+    "last_data_pass_date": "2026-05-18"
   },
   "records": [
     {
@@ -1114,14 +1116,14 @@
       "food_role": "food",
       "food_quality": "Useful edible",
       "edibility_status": "edible",
-      "edibility_detail": "Generally edible/useful, but this app keeps it as a species-complex record because North American names are more complicated than older guides suggest.",
-      "culinary_uses": "Edible when confidently identified and cooked; texture is the main culinary value. Avoid polluted wood and old degraded specimens.",
+      "edibility_detail": "Edible when confidently identified and cooked, but this entry is a group-level field record because North American wood-ear names have shifted. Host wood and overall jelly-ear form matter more here than old European names in field guides.",
+      "culinary_uses": "Edible when confidently identified and cooked; valued more for chewy texture than flavor. Use fresh, clean specimens from sound wood, or dry and rehydrate them for soups, stir-fries, and brothy dishes. Avoid old, blackened, polluted, or slimy-decomposing specimens.",
       "medicinal_uses": "No reliable medicinal use is recorded for this app entry unless noted in Other uses or source links.",
       "other_uses": "No practical non-food use is recorded for this app entry yet.",
-      "overview": "Useful jelly fungus group missing from the app. Best treated as a genus/species-complex entry until exact species can be separated by host and source review.",
-      "notes": "Useful jelly fungus group missing from the app. Best treated as a genus/species-complex entry until exact species can be separated by host and source review.",
-      "general_notes": "Useful jelly fungus group missing from the app. Best treated as a genus/species-complex entry until exact species can be separated by host and source review.",
-      "field_identification": "Brown to reddish-brown gelatinous ear-shaped or irregular floppy fruiting bodies on wood, especially after rain. North American wood ears include species on hardwoods and conifers; old field-guide names may be outdated.",
+      "overview": "Wood ears are brown, rubbery-gelatinous fungi that form ear-shaped, cup-shaped, or irregular floppy fruiting bodies on dead wood after wet weather. In North America, older field guides often used European wood-ear names, but current sources separate similar-looking hardwood and conifer species. For field use in Upper Michigan, this entry treats them as a wood-ear group and leans on substrate: hardwood logs and branches suggest an Auricularia angiospermarum-type wood ear, while conifer wood suggests an Auricularia americana-type wood ear.",
+      "notes": "Brown ear-shaped to cup-shaped jelly fungi on dead wood; substrate matters because North American wood-ear taxonomy separates hardwood and conifer associates more than older field guides did.",
+      "general_notes": "A field-useful wood-ear group entry. Record the host wood when possible: hardwood and conifer collections may represent different North American Auricularia species even when they look nearly identical.",
+      "field_identification": "Look for thin brown to reddish-brown gelatinous ears, cups, or floppy lobes attached directly to dead wood. The outer surface may look finely hairy or frosted when fresh; the fertile surface is smoother and often wrinkled or veined. They dry dark and tough, then revive after rain. Note the host wood carefully, because substrate is one of the best field clues for separating North American wood-ear species.",
       "months_available": [
         "April",
         "May",
@@ -1162,20 +1164,23 @@
       ],
       "mushroom_profile": {
         "underside": [
-          "Smooth / jelly surface"
+          "Smooth to wrinkled fertile surface"
         ],
         "underside_type": [
-          "Jelly fungus"
+          "Jelly / smooth fertile surface"
         ],
         "cap_color": [
           "Brown",
           "Reddish brown",
-          "Dark brown"
+          "Grayish brown when hairy/frosted"
         ],
         "cap_surface": [
           "Gelatinous",
+          "Rubbery",
           "Ear-shaped",
-          "Ribbed or veined"
+          "Cup-shaped",
+          "Wrinkled or veined",
+          "Finely hairy outer surface"
         ],
         "underside_color": [
           "Brown",
@@ -1185,7 +1190,8 @@
           "No stem"
         ],
         "stem_feature": [
-          "Sessile / no stem"
+          "Sessile / no stem",
+          "Lateral attachment"
         ],
         "ring": [
           "Absent"
@@ -1200,8 +1206,8 @@
         ],
         "substrate": [
           "Dead hardwood",
-          "Dead conifer",
-          "Logs / branches"
+          "Dead conifer wood",
+          "Logs / branches / sticks"
         ],
         "habitat": [
           "Forest",
@@ -1214,20 +1220,24 @@
           "Dead wood"
         ],
         "growth_form": [
-          "Ear-shaped",
-          "Clusters",
-          "Jelly fungus"
+          "Ear-shaped lobes",
+          "Cup-shaped jelly fungus",
+          "Scattered or clustered"
         ],
         "smell": [
-          "Mild"
+          "Not distinctive"
         ],
         "taste": [
-          "Mild"
+          "Mild / not distinctive"
         ],
         "texture": [
-          "Gelatinous"
+          "Gelatinous",
+          "Rubbery",
+          "Thin"
         ],
-        "caution_level": "medium"
+        "caution_level": "medium",
+        "lane": "other",
+        "season_note": "Spring through fall after wet weather; dried fruiting bodies can persist and revive after rain."
       },
       "use_links": [
         {
@@ -1236,15 +1246,15 @@
           "link_type": "identification",
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
-          "notes": "Wood-ear/jelly-ear form on hardwoods or conifers in wet conditions."
+          "notes": "North American jelly-ear taxonomy, shape, substrate, and similar jelly fungi."
         },
         {
-          "label": "MushroomExpert: Auricularia angiospermarum",
+          "label": "MushroomExpert wood-fungus page: Auricularia angiospermarum",
           "url": "https://www.mushroomexpert.com/fungionwood/cup%20and%20saucer/species%20pages/Auricularia%20angiospermarum.htm",
           "link_type": "identification",
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
-          "notes": "Notes North American species and outdated European name issue."
+          "notes": "Hardwood wood-ear page and comparison with conifer-associated A. americana."
         }
       ],
       "links": [
@@ -1252,7 +1262,7 @@
         "https://www.mushroomexpert.com/fungionwood/cup%20and%20saucer/species%20pages/Auricularia%20angiospermarum.htm"
       ],
       "image_coverage_status": "missing_verified_images",
-      "review_status": "incomplete",
+      "review_status": "needs_review",
       "completion_status": "incomplete",
       "common_names": [
         "Wood ear",
@@ -1266,6 +1276,15 @@
         "wood ear fungus",
         "jelly ear fungus",
         "tree ear fungus"
+      ],
+      "look_alike_notes": "Brown jelly fungi such as Exidia species can look similar, but they usually form more blob-like, brain-like, or cushiony masses rather than thin ear-shaped cups. Leafy Tremella-like jelly fungi can form clustered folds, but they are usually more frilly or fused into masses instead of distinct ear-like lobes. Substrate and shape matter more here than color alone.",
+      "look_alikes": [
+        "exidia-jelly-fungi",
+        "tremella-leafy-jelly-fungi"
+      ],
+      "confused_with": [
+        "exidia-jelly-fungi",
+        "tremella-leafy-jelly-fungi"
       ]
     },
     {
@@ -1623,10 +1642,10 @@
       "culinary_uses": "Edible only when confidently identified and cooked; honey mushrooms cause GI upset for some people. Avoid raw, old, or poorly confirmed specimens.",
       "medicinal_uses": "No reliable medicinal use is recorded for this app entry unless noted in Other uses or source links.",
       "other_uses": "No practical non-food use is recorded for this app entry yet.",
-      "overview": "Species-level split for the honey mushroom complex so the app does not treat all honeys as one vague bucket.",
+      "overview": "Bulbous honey mushroom is an Armillaria species usually found on the ground or near hardwood bases, often attached to buried roots. It tends to be smaller and looser than classic honey mushroom clusters, with a swollen/bulbous stem base and a cobwebby or short-lived ring zone.",
       "notes": "Species-level split for the honey mushroom complex so the app does not treat all honeys as one vague bucket.",
       "general_notes": "Species-level split for the honey mushroom complex so the app does not treat all honeys as one vague bucket.",
-      "field_identification": "Honey mushroom relative, often on the ground or near hardwood bases; usually smaller than classic A. mellea, with a cobwebby or ephemeral ring/ring zone and sometimes a bulbous base; grows alone or in loose groups more than dense fused clusters.",
+      "field_identification": "Look for tan to pinkish-brown caps with tiny yellowish-brown scales, whitish gills that run slightly down the stem, white spore print, swollen stem base, yellowish ring zone or flimsy ring, and possible black rhizomorphs near buried wood or roots.",
       "months_available": [
         "August",
         "September",
@@ -1659,7 +1678,11 @@
       "look_alikes": [
         "jack-o-lantern",
         "deadly-galerina",
-        "honey-mushroom"
+        "honey-mushroom",
+        "galerina",
+        "sulfur-tuft",
+        "brick-cap",
+        "shaggy-scalycap"
       ],
       "mushroom_profile": {
         "underside": [
@@ -1738,24 +1761,25 @@
           "link_type": "identification",
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
-          "notes": "Eastern North American honey mushroom near hardwood bases; ring tends cobwebby/ephemeral."
-        },
-        {
-          "label": "MushroomExpert: Armillaria genus",
-          "url": "https://www.mushroomexpert.com/armillaria.html",
-          "link_type": "identification",
-          "applies_to_part": "whole mushroom",
-          "source_quality": "mycology reference",
-          "notes": "Armillaria overview: white spore prints, attached/decurrent gills, wood-rotting habit, variable partial veil."
+          "notes": "Bulbous base, loose growth, late season, white spores, ring zone, and hardwood/root association."
         }
       ],
       "links": [
-        "https://www.mushroomexpert.com/armillaria_gallica.html",
-        "https://www.mushroomexpert.com/armillaria.html"
+        "https://www.mushroomexpert.com/armillaria_gallica.html"
       ],
       "image_coverage_status": "missing_verified_images",
-      "review_status": "incomplete",
-      "completion_status": "incomplete"
+      "review_status": "needs_review",
+      "completion_status": "incomplete",
+      "confused_with": [
+        "jack-o-lantern",
+        "deadly-galerina",
+        "honey-mushroom",
+        "galerina",
+        "sulfur-tuft",
+        "brick-cap",
+        "shaggy-scalycap"
+      ],
+      "look_alike_notes": "Honey mushrooms have white spores and Armillaria-style growth on wood, roots, or buried wood. Deadly galerina has rusty-brown spores and small brown caps; sulfur tuft has yellow-green gills and purple-brown spores; brick cap has gray to purple-gray gills and brick-red caps; shaggy scalycap has heavy scales and cinnamon-brown spores; jack-o-lanterns are orange, clustered on wood, and poisonous."
     },
     {
       "slug": "ringless-honey-mushroom-group",
@@ -1775,10 +1799,10 @@
       "culinary_uses": "Edible only when confidently identified and cooked; not a beginner mushroom. Must be separated from jack-o’-lanterns and other clustered gilled mushrooms.",
       "medicinal_uses": "No reliable medicinal use is recorded for this app entry unless noted in Other uses or source links.",
       "other_uses": "No practical non-food use is recorded for this app entry yet.",
-      "overview": "Ringless honey group added to separate no-ring honey mushrooms from classic ringed Armillaria and to improve gilled mushroom coverage.",
+      "overview": "Ringless honey mushrooms are honey-like clustered wood/root mushrooms without a true ring. In this app they remain a group-level caution entry because North American ringless honey taxonomy has shifted and because clustered ringless gilled mushrooms are easy to over-trust.",
       "notes": "Ringless honey group added to separate no-ring honey mushrooms from classic ringed Armillaria and to improve gilled mushroom coverage.",
       "general_notes": "Ringless honey group added to separate no-ring honey mushrooms from classic ringed Armillaria and to improve gilled mushroom coverage.",
-      "field_identification": "Honey-colored clustered gilled mushrooms on hardwood roots, stumps, or buried wood; lacks a ring on the stalk; white spore print; clustered stems often fused near the base. More likely south of the Great Lakes but worth representing as a look-alike/coverage group.",
+      "field_identification": "Look for dense clusters from wood, stumps, tree bases, or buried roots; tan to honey-brown caps; pale attached to slightly decurrent gills; white spore print; and no true ring on the stem. The missing ring does not make the mushroom automatically safe.",
       "months_available": [
         "September",
         "October",
@@ -1810,7 +1834,11 @@
       "look_alikes": [
         "jack-o-lantern",
         "honey-mushroom",
-        "deadly-galerina"
+        "deadly-galerina",
+        "galerina",
+        "sulfur-tuft",
+        "brick-cap",
+        "shaggy-scalycap"
       ],
       "mushroom_profile": {
         "underside": [
@@ -1905,7 +1933,7 @@
         "https://mdc.mo.gov/discover-nature/field-guide/ringless-honey-mushroom"
       ],
       "image_coverage_status": "missing_verified_images",
-      "review_status": "incomplete",
+      "review_status": "needs_review",
       "completion_status": "incomplete",
       "common_names": [
         "Ringless honey mushroom",
@@ -1917,7 +1945,591 @@
         "Armillaria tabescens",
         "ringless honey mushroom",
         "ringless honey fungus"
-      ]
+      ],
+      "confused_with": [
+        "jack-o-lantern",
+        "honey-mushroom",
+        "deadly-galerina",
+        "galerina",
+        "sulfur-tuft",
+        "brick-cap",
+        "shaggy-scalycap"
+      ],
+      "look_alike_notes": "Honey mushrooms have white spores and Armillaria-style growth on wood, roots, or buried wood. Deadly galerina has rusty-brown spores and small brown caps; sulfur tuft has yellow-green gills and purple-brown spores; brick cap has gray to purple-gray gills and brick-red caps; shaggy scalycap has heavy scales and cinnamon-brown spores; jack-o-lanterns are orange, clustered on wood, and poisonous."
+    },
+    {
+      "slug": "brick-cap",
+      "display_name": "Brick cap",
+      "common_name": "Brick cap",
+      "common_names": [
+        "Brick cap",
+        "Brick top",
+        "Hypholoma lateritium",
+        "Hypholoma sublateritium"
+      ],
+      "search_aliases": [
+        "Brick cap",
+        "Brick top",
+        "Hypholoma lateritium",
+        "Hypholoma sublateritium",
+        "Hypholoma lateritium / Hypholoma sublateritium"
+      ],
+      "scientific_name": "Hypholoma lateritium / Hypholoma sublateritium",
+      "category": "Mushroom",
+      "record_type": "mushroom",
+      "primary_type": "mushroom",
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "lane": "gilled",
+      "food_role": "food",
+      "food_quality": "Fair / caution",
+      "food_quality_score": 2,
+      "edibility_status": "edible_with_caution",
+      "non_edible_severity": "Caution",
+      "danger_level": "Caution",
+      "overview": "Fall wood-clustering Hypholoma with a brick-red cap center, paler margin, gray to purple-gray gills, and purple-brown spore print. Included as an advanced edible-with-caution species and as a comparison point for sulfur tuft and honey mushrooms.",
+      "notes": "Fall wood-clustering Hypholoma with a brick-red cap center, paler margin, gray to purple-gray gills, and purple-brown spore print. Included as an advanced edible-with-caution species and as a comparison point for sulfur tuft and honey mushrooms.",
+      "general_notes": "Fall wood-clustering Hypholoma with a brick-red cap center, paler margin, gray to purple-gray gills, and purple-brown spore print. Included as an advanced edible-with-caution species and as a comparison point for sulfur tuft and honey mushrooms.",
+      "field_identification": "Look for tight clusters on decaying hardwood logs and stumps; brick-red cap center with paler pinkish-buff margin; attached gray to purple-gray gills; yellowish-white stem that may bruise or stain yellow; purple-brown spore print.",
+      "culinary_uses": "Some experienced foragers eat young brick caps, but this guide treats them as advanced/caution because they overlap with other wood-clustering Hypholoma and honey-mushroom look-alikes. Do not eat without expert-level confirmation.",
+      "edibility_detail": "Advanced edible-with-caution record, not a beginner mushroom. Separate carefully from sulfur tuft and other clustered wood mushrooms.",
+      "edible_use": {
+        "has_ingestible_use": true,
+        "method": "Food",
+        "preparation_required": true,
+        "notes": "Advanced edible-with-caution record, not a beginner mushroom. Separate carefully from sulfur tuft and other clustered wood mushrooms."
+      },
+      "medicinal_uses": "",
+      "medicinal": {
+        "has_meaningful_content": false,
+        "summary": "",
+        "evidence_tier": "",
+        "preparation_notes": "",
+        "warnings": ""
+      },
+      "other_uses": "",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Advanced edible-with-caution",
+      "foraging_value_score": 2,
+      "commonness": "Occasional",
+      "commonness_score": 3,
+      "look_alikes": [
+        "sulfur-tuft",
+        "honey-mushrooms",
+        "armillaria-gallica-bulbous-honey",
+        "ringless-honey-mushroom-group"
+      ],
+      "confused_with": [
+        "sulfur-tuft",
+        "honey-mushrooms",
+        "armillaria-gallica-bulbous-honey",
+        "ringless-honey-mushroom-group"
+      ],
+      "look_alike_notes": "Sulfur tuft is usually more yellow-green, bitter, and often on conifer deadwood; brick cap has a brick-red center, paler margin, gray to purple-gray gills, and favors hardwood stumps/logs. Honey mushrooms have white spores and Armillaria-style rings/rhizomorphs rather than purple-brown spores.",
+      "mushroom_profile": {
+        "underside": [
+          "Gills"
+        ],
+        "underside_type": [
+          "Gills"
+        ],
+        "cap_color": [
+          "Brick red",
+          "Reddish brown",
+          "Buff margin"
+        ],
+        "cap_surface": [
+          "Dry or moist",
+          "Bald",
+          "Veil fragments on margin possible"
+        ],
+        "gill_color": [
+          "Whitish when very young",
+          "Gray",
+          "Purple gray",
+          "Dark purple brown"
+        ],
+        "underside_color": [
+          "Gray",
+          "Purple gray",
+          "Purple brown"
+        ],
+        "stem_color": [
+          "Yellowish white",
+          "Brownish red below"
+        ],
+        "stem_feature": [
+          "Ring zone possible",
+          "Clustered stems"
+        ],
+        "ring": [
+          "Ring zone possible",
+          "Partial veil when young"
+        ],
+        "spore_print": "Purple brown",
+        "spore_print_color": [
+          "Purple brown"
+        ],
+        "substrate": [
+          "Dead hardwood",
+          "Hardwood logs / stumps"
+        ],
+        "habitat": [
+          "Hardwood forest",
+          "Stumps and logs"
+        ],
+        "host_filter_tokens": [
+          "Wood",
+          "Hardwood"
+        ],
+        "growth_form": [
+          "Dense clusters"
+        ],
+        "smell": [
+          "Not distinctive"
+        ],
+        "taste": [
+          "Mild",
+          "Slightly bitter",
+          "Do not taste unless expert-confirmed"
+        ],
+        "flesh_color": [
+          "Whitish",
+          "Yellowish"
+        ],
+        "staining": [
+          "Stem may bruise or stain yellow"
+        ],
+        "caution_level": "medium",
+        "season_note": "Fall on hardwood stumps and logs."
+      },
+      "links": [
+        "https://www.mushroomexpert.com/hypholoma_sublateritium.html"
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Hypholoma sublateritium",
+          "url": "https://www.mushroomexpert.com/hypholoma_sublateritium.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Brick-red cap, hardwood stump/log clusters, purple-gray gills, and purple-brown spore print."
+        }
+      ],
+      "images": [],
+      "images_structured": [],
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_coverage_status": "missing_verified_images",
+      "months_available": [
+        "August",
+        "September",
+        "October",
+        "November"
+      ],
+      "month_numbers": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "season_months": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "review_status": "needs_review",
+      "completion_status": "incomplete",
+      "mushroom_card_note": "Brick-red clustered hardwood mushroom; advanced ID only because sulfur tuft and honey mushrooms can confuse the picture."
+    },
+    {
+      "slug": "deer-mushroom",
+      "display_name": "Deer mushroom",
+      "common_name": "Deer mushroom",
+      "common_names": [
+        "Deer mushroom",
+        "Fawn mushroom",
+        "Pluteus cervinus",
+        "Pluteus cervinus group"
+      ],
+      "search_aliases": [
+        "Deer mushroom",
+        "Fawn mushroom",
+        "Pluteus cervinus",
+        "Pluteus cervinus group",
+        "Pluteus cervinus group"
+      ],
+      "scientific_name": "Pluteus cervinus group",
+      "category": "Mushroom",
+      "record_type": "mushroom",
+      "primary_type": "mushroom",
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "lane": "gilled",
+      "food_role": "food",
+      "food_quality": "Fair / caution",
+      "food_quality_score": 2,
+      "edibility_status": "edible_with_caution",
+      "non_edible_severity": "Caution",
+      "danger_level": "Caution",
+      "overview": "Brown-capped wood mushroom with free gills that start pale and become pink as spores mature. Included as a common gilled wood mushroom and pink-spored teaching entry.",
+      "notes": "Brown-capped wood mushroom with free gills that start pale and become pink as spores mature. Included as a common gilled wood mushroom and pink-spored teaching entry.",
+      "general_notes": "Brown-capped wood mushroom with free gills that start pale and become pink as spores mature. Included as a common gilled wood mushroom and pink-spored teaching entry.",
+      "field_identification": "Look for a brown to gray-brown cap on dead wood or buried wood, free gills that do not attach to the stem, gills turning pink with age, brownish-pink spore print, no ring, no volva, and a whitish stem often marked with brownish fibrils.",
+      "culinary_uses": "Edible in some field guides but not a beginner food here; quality is variable and the Pluteus cervinus concept includes cryptic relatives. Use as an ID-learning species unless expert-confirmed.",
+      "edibility_detail": "Edible-with-caution / not a beginner mushroom. The pink spore print and free gills are useful ID clues, but species limits can be messy.",
+      "edible_use": {
+        "has_ingestible_use": true,
+        "method": "Food",
+        "preparation_required": true,
+        "notes": "Edible-with-caution / not a beginner mushroom. The pink spore print and free gills are useful ID clues, but species limits can be messy."
+      },
+      "medicinal_uses": "",
+      "medicinal": {
+        "has_meaningful_content": false,
+        "summary": "",
+        "evidence_tier": "",
+        "preparation_notes": "",
+        "warnings": ""
+      },
+      "other_uses": "",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "ID-learning / caution food",
+      "foraging_value_score": 2,
+      "commonness": "Common",
+      "commonness_score": 3,
+      "look_alikes": [
+        "meadow-mushroom",
+        "destroying-angel",
+        "death-cap"
+      ],
+      "confused_with": [
+        "meadow-mushroom",
+        "destroying-angel",
+        "death-cap"
+      ],
+      "look_alike_notes": "The free gills that turn pink and the brownish-pink spore print separate deer mushroom from white-spored Amanitas. Always check for a volva and ring on any pale-gilled mushroom; deadly Amanitas have white spores and a volva/ring pattern, not pink Pluteus spores.",
+      "mushroom_profile": {
+        "underside": [
+          "Gills"
+        ],
+        "underside_type": [
+          "Gills"
+        ],
+        "cap_color": [
+          "Brown",
+          "Gray brown",
+          "Pale brown"
+        ],
+        "cap_surface": [
+          "Bald",
+          "Radially streaked",
+          "Slightly tacky when fresh"
+        ],
+        "gill_color": [
+          "White when young",
+          "Pink with age",
+          "Flesh-colored"
+        ],
+        "underside_color": [
+          "White",
+          "Pink"
+        ],
+        "stem_color": [
+          "White",
+          "Brownish fibrils"
+        ],
+        "stem_feature": [
+          "No ring",
+          "No volva",
+          "Central stem"
+        ],
+        "ring": [
+          "Absent"
+        ],
+        "volva": "Absent",
+        "spore_print": "Brownish pink",
+        "spore_print_color": [
+          "Pink",
+          "Brownish pink"
+        ],
+        "substrate": [
+          "Dead hardwood",
+          "Buried wood",
+          "Logs / stumps",
+          "Occasionally conifer wood"
+        ],
+        "habitat": [
+          "Woodland",
+          "Dead wood"
+        ],
+        "host_filter_tokens": [
+          "Wood",
+          "Hardwood",
+          "Conifer"
+        ],
+        "growth_form": [
+          "Solitary",
+          "Scattered",
+          "Gregarious"
+        ],
+        "smell": [
+          "Not distinctive",
+          "Radish-like possible"
+        ],
+        "taste": [
+          "Radish-like possible",
+          "Do not taste unless expert-confirmed"
+        ],
+        "flesh_color": [
+          "White"
+        ],
+        "staining": [
+          "No distinctive staining recorded"
+        ],
+        "caution_level": "medium",
+        "season_note": "Spring through fall."
+      },
+      "links": [
+        "https://www.mushroomexpert.com/pluteus_cervinus.html"
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Pluteus cervinus",
+          "url": "https://www.mushroomexpert.com/pluteus_cervinus.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Free gills becoming pink, brown cap, wood substrate, and Pluteus cervinus group caveats."
+        }
+      ],
+      "images": [],
+      "images_structured": [],
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_coverage_status": "missing_verified_images",
+      "months_available": [
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "month_numbers": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "season_months": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "review_status": "needs_review",
+      "completion_status": "incomplete",
+      "mushroom_card_note": "Brown wood mushroom with free gills that turn pink; useful for learning pink-spored gilled mushrooms."
+    },
+    {
+      "slug": "fairy-ring-mushroom",
+      "display_name": "Fairy ring mushroom",
+      "common_name": "Fairy ring mushroom",
+      "common_names": [
+        "Fairy ring mushroom",
+        "Fairy ring champignon",
+        "Scotch bonnet",
+        "Marasmius oreades"
+      ],
+      "search_aliases": [
+        "Fairy ring mushroom",
+        "Fairy ring champignon",
+        "Scotch bonnet",
+        "Marasmius oreades",
+        "Marasmius oreades"
+      ],
+      "scientific_name": "Marasmius oreades",
+      "category": "Mushroom",
+      "record_type": "mushroom",
+      "primary_type": "mushroom",
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "lane": "gilled",
+      "food_role": "food",
+      "food_quality": "Good but advanced",
+      "food_quality_score": 3,
+      "edibility_status": "edible_with_caution",
+      "non_edible_severity": "Caution",
+      "danger_level": "Caution",
+      "overview": "Small tan grassland mushroom famous for arcs or rings, but many unrelated mushrooms also form fairy rings. Included as an advanced edible-with-caution and cautionary lawn-mushroom entry.",
+      "notes": "Small tan grassland mushroom famous for arcs or rings, but many unrelated mushrooms also form fairy rings. Included as an advanced edible-with-caution and cautionary lawn-mushroom entry.",
+      "general_notes": "Small tan grassland mushroom famous for arcs or rings, but many unrelated mushrooms also form fairy rings. Included as an advanced edible-with-caution and cautionary lawn-mushroom entry.",
+      "field_identification": "Look for small pale tan to buff caps in grass, well-spaced white to buff gills that attach to the stem but do not run down it, a white spore print, and a tough pliant stem that bends rather than snapping easily. Fairy-ring growth alone is not enough for identification.",
+      "culinary_uses": "Edible in many guides, but this app treats it as advanced because lawn mushrooms include dangerous look-alikes. Do not eat fairy-ring mushrooms without confirming every trait, especially white spore print, well-spaced gills, tough stem, and grassy habitat.",
+      "edibility_detail": "Advanced edible-with-caution. The common name causes confusion because many mushrooms grow in rings.",
+      "edible_use": {
+        "has_ingestible_use": true,
+        "method": "Food",
+        "preparation_required": true,
+        "notes": "Advanced edible-with-caution. The common name causes confusion because many mushrooms grow in rings."
+      },
+      "medicinal_uses": "",
+      "medicinal": {
+        "has_meaningful_content": false,
+        "summary": "",
+        "evidence_tier": "",
+        "preparation_notes": "",
+        "warnings": ""
+      },
+      "other_uses": "",
+      "use_roles": [
+        "Food"
+      ],
+      "foraging_value": "Advanced edible-with-caution",
+      "foraging_value_score": 2,
+      "commonness": "Common",
+      "commonness_score": 3,
+      "look_alikes": [
+        "green-spored-parasol",
+        "fools-funnel-clitocybe-rivulosa",
+        "meadow-mushroom"
+      ],
+      "confused_with": [
+        "green-spored-parasol",
+        "fools-funnel-clitocybe-rivulosa",
+        "meadow-mushroom"
+      ],
+      "look_alike_notes": "Do not use the ring pattern alone: green-spored parasol, meadow mushrooms, and poisonous pale funnels can also appear in grass or rings. Fairy ring mushroom is smaller, tan, white-spored, has well-spaced gills, and a tough pliant stem; fool’s funnel has more crowded decurrent gills and muscarine risk.",
+      "mushroom_profile": {
+        "underside": [
+          "Gills"
+        ],
+        "underside_type": [
+          "Gills"
+        ],
+        "cap_color": [
+          "Pale tan",
+          "Buff",
+          "Reddish tan",
+          "Whitish"
+        ],
+        "cap_surface": [
+          "Dry",
+          "Bald",
+          "Hygrophanous / changes as it dries",
+          "Central bump possible"
+        ],
+        "gill_color": [
+          "White",
+          "Pale tan",
+          "Buff"
+        ],
+        "underside_color": [
+          "White",
+          "Buff"
+        ],
+        "stem_color": [
+          "Whitish",
+          "Tan like cap"
+        ],
+        "stem_feature": [
+          "No ring",
+          "Tough pliant stem",
+          "Central stem"
+        ],
+        "ring": [
+          "Absent"
+        ],
+        "spore_print": "White",
+        "spore_print_color": [
+          "White"
+        ],
+        "substrate": [
+          "Grass",
+          "Lawns / meadows"
+        ],
+        "habitat": [
+          "Lawns / yards",
+          "Meadows",
+          "Grassy openings"
+        ],
+        "host_filter_tokens": [
+          "Ground",
+          "Grass"
+        ],
+        "growth_form": [
+          "Troops",
+          "Arcs",
+          "Fairy rings"
+        ],
+        "smell": [
+          "Not distinctive"
+        ],
+        "taste": [
+          "Not distinctive",
+          "Do not taste unless expert-confirmed"
+        ],
+        "flesh_color": [
+          "Whitish"
+        ],
+        "staining": [
+          "No distinctive staining recorded"
+        ],
+        "caution_level": "medium",
+        "season_note": "Summer and fall in grass."
+      },
+      "links": [
+        "https://www.mushroomexpert.com/marasmius_oreades.html"
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Marasmius oreades",
+          "url": "https://www.mushroomexpert.com/marasmius_oreades.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Grass habitat, well-spaced pale gills, white spore print, pale tan cap, and tough pliant stem."
+        }
+      ],
+      "images": [],
+      "images_structured": [],
+      "detail_images": [],
+      "enlarge_images": [],
+      "image_coverage_status": "missing_verified_images",
+      "months_available": [
+        "June",
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "month_numbers": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "season_months": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "review_status": "needs_review",
+      "completion_status": "incomplete",
+      "mushroom_card_note": "Small tan grass mushroom; fairy rings alone do not identify it."
     }
   ]
 }
