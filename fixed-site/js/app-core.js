@@ -133,10 +133,12 @@ const PLANT_TRAIT_FILTER_KEYS = [
 ];
 
 const MUSHROOM_TRAIT_FILTER_KEYS = [
-  "mushroomMonth", "mushroomHabitat", "mushroomSubstrate", "mushroomTreeType", "mushroomHost", "mushroomUnderside",
-  "mushroomRing", "mushroomTexture", "mushroomSmell", "mushroomStaining", "mushroomCapSurface",
-  "mushroomStemFeature", "mushroomBoleteGroup", "mushroomBoleteSubgroup", "mushroomPoreColor",
-  "mushroomReviewFlag", "mushroomTreeAssociation", "mushroomTaste"
+  "mushroomMonth", "mushroomReviewFlag", "mushroomCapColor", "mushroomUnderside",
+  "mushroomUndersideColor", "mushroomStemColor", "mushroomStaining", "mushroomFleshColor",
+  "mushroomSporePrintColor", "mushroomCapSurface", "mushroomStemFeature", "mushroomSmell",
+  "mushroomTaste", "mushroomSubstrate", "mushroomHabitat", "mushroomTreeType", "mushroomHost",
+  "mushroomRing", "mushroomTexture", "mushroomBoleteGroup", "mushroomBoleteSubgroup",
+  "mushroomPoreColor", "mushroomTreeAssociation"
 ];
 
 const SORT_OPTIONS = [

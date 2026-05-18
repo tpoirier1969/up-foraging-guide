@@ -20,48 +20,39 @@ const PLANT_FILTER_DEFS = [
   { key: "plantStem", label: "Stem / surface", blankLabel: "Any stem clue", valueKey: "plantStem" }
 ];
 
-const GILLED_MUSHROOM_FILTER_DEFS = [
-  { key: "mushroomMonth", label: "Season", blankLabel: "Any season", valueKey: "month" },
-  { key: "mushroomHabitat", label: "Habitat / setting", blankLabel: "Any habitat/setting", valueKey: "mushroomHabitat" },
-  { key: "mushroomSubstrate", label: "Growing on / from", blankLabel: "Any growing context", valueKey: "mushroomSubstrate" },
-  { key: "mushroomTreeType", label: "Tree type", blankLabel: "Any tree type", valueKey: "mushroomTreeType" },
-  { key: "mushroomHost", label: "Host tree", blankLabel: "Any host tree", valueKey: "mushroomHost" },
-  { key: "mushroomUnderside", label: "Gills / underside", blankLabel: "Any gill/underside clue", valueKey: "mushroomUnderside" },
-  { key: "mushroomRing", label: "Ring", blankLabel: "Any ring", valueKey: "mushroomRing" },
-  { key: "mushroomTexture", label: "Texture", blankLabel: "Any texture", valueKey: "mushroomTexture" },
-  { key: "mushroomSmell", label: "Smell", blankLabel: "Any smell", valueKey: "mushroomSmell" },
-  { key: "mushroomStaining", label: "Staining", blankLabel: "Any staining", valueKey: "mushroomStaining" },
-  { key: "mushroomCapSurface", label: "Cap surface", blankLabel: "Any cap surface", valueKey: "mushroomCapSurface" },
-  { key: "mushroomStemFeature", label: "Stem feature", blankLabel: "Any stem feature", valueKey: "mushroomStemFeature" }
-];
-
-const BOLETE_FILTER_DEFS = [
+const MUSHROOM_CORE_FILTER_DEFS = [
   { key: "mushroomMonth", label: "Season", blankLabel: "Any season", valueKey: "month" },
   { key: "mushroomReviewFlag", label: "Data review", blankLabel: "Any review state", valueKey: "mushroomReviewFlag" },
-  { key: "mushroomBoleteGroup", label: "Quick ID group", blankLabel: "Any quick group", valueKey: "boleteQuickGroup" },
-  { key: "mushroomHabitat", label: "Habitat / setting", blankLabel: "Any habitat/setting", valueKey: "mushroomHabitat" },
-  { key: "mushroomTreeAssociation", label: "Tree association", blankLabel: "Any tree association", valueKey: "boleteTreeAssociation" },
-  { key: "mushroomSubstrate", label: "Growing from", blankLabel: "Any growing context", valueKey: "mushroomSubstrate" },
-  { key: "mushroomPoreColor", label: "Pore color", blankLabel: "Any pore color", valueKey: "boletePoreColor" },
-  { key: "mushroomStaining", label: "Bruising / staining", blankLabel: "Any bruising/staining", valueKey: "boleteStaining" },
-  { key: "mushroomTaste", label: "Taste clue (spit out)", blankLabel: "Any taste clue", valueKey: "boleteTaste" },
-  { key: "mushroomCapSurface", label: "Cap feel / surface", blankLabel: "Any cap clue", valueKey: "boleteCapSurface" },
-  { key: "mushroomStemFeature", label: "Stem clues", blankLabel: "Any stem clue", valueKey: "boleteStemFeature" }
-];
-
-const OTHER_MUSHROOM_FILTER_DEFS = [
-  { key: "mushroomMonth", label: "Season", blankLabel: "Any season", valueKey: "month" },
-  { key: "mushroomHabitat", label: "Habitat / setting", blankLabel: "Any habitat/setting", valueKey: "mushroomHabitat" },
-  { key: "mushroomUnderside", label: "Form / underside", blankLabel: "Any form/underside", valueKey: "mushroomUnderside" },
-  { key: "mushroomSubstrate", label: "Growing on / from", blankLabel: "Any growing context", valueKey: "mushroomSubstrate" },
-  { key: "mushroomTreeType", label: "Tree type", blankLabel: "Any tree type", valueKey: "mushroomTreeType" },
-  { key: "mushroomHost", label: "Host tree", blankLabel: "Any host tree", valueKey: "mushroomHost" },
-  { key: "mushroomTexture", label: "Texture", blankLabel: "Any texture", valueKey: "mushroomTexture" },
+  { key: "mushroomCapColor", label: "Cap color", blankLabel: "Any cap color", valueKey: "mushroomCapColor" },
+  { key: "mushroomUnderside", label: "Underside type", blankLabel: "Any underside type", valueKey: "mushroomUnderside" },
+  { key: "mushroomUndersideColor", label: "Underside color", blankLabel: "Any underside color", valueKey: "mushroomUndersideColor" },
+  { key: "mushroomStemColor", label: "Stem color", blankLabel: "Any stem color", valueKey: "mushroomStemColor" },
+  { key: "mushroomStaining", label: "Bruising / staining", blankLabel: "Any bruising/staining", valueKey: "mushroomStaining" },
+  { key: "mushroomFleshColor", label: "Flesh color", blankLabel: "Any flesh color", valueKey: "mushroomFleshColor" },
+  { key: "mushroomSporePrintColor", label: "Spore print", blankLabel: "Any spore print color", valueKey: "mushroomSporePrintColor" },
+  { key: "mushroomCapSurface", label: "Cap surface", blankLabel: "Any cap surface", valueKey: "mushroomCapSurface" },
+  { key: "mushroomStemFeature", label: "Stem feature", blankLabel: "Any stem feature", valueKey: "mushroomStemFeature" },
   { key: "mushroomSmell", label: "Smell", blankLabel: "Any smell", valueKey: "mushroomSmell" },
-  { key: "mushroomStaining", label: "Staining", blankLabel: "Any staining", valueKey: "mushroomStaining" },
-  { key: "mushroomCapSurface", label: "Surface", blankLabel: "Any surface", valueKey: "mushroomCapSurface" }
+  { key: "mushroomTaste", label: "Taste clue (spit out)", blankLabel: "Any taste clue", valueKey: "mushroomTaste" },
+  { key: "mushroomSubstrate", label: "Substrate / growing from", blankLabel: "Any substrate", valueKey: "mushroomSubstrate" },
+  { key: "mushroomHabitat", label: "Habitat / setting", blankLabel: "Any habitat/setting", valueKey: "mushroomHabitat" },
+  { key: "mushroomTreeType", label: "Tree type", blankLabel: "Any tree type", valueKey: "mushroomTreeType" },
+  { key: "mushroomHost", label: "Host / associated tree", blankLabel: "Any host/associated tree", valueKey: "mushroomHost" },
+  { key: "mushroomRing", label: "Ring", blankLabel: "Any ring", valueKey: "mushroomRing" },
+  { key: "mushroomTexture", label: "Texture", blankLabel: "Any texture", valueKey: "mushroomTexture" }
 ];
 
+const BOLETE_EXTRA_FILTER_DEFS = [
+  { key: "mushroomBoleteGroup", label: "Quick ID group", blankLabel: "Any quick group", valueKey: "boleteQuickGroup" },
+  { key: "mushroomTreeAssociation", label: "Tree association", blankLabel: "Any tree association", valueKey: "boleteTreeAssociation" }
+];
+
+const GILLED_MUSHROOM_FILTER_DEFS = MUSHROOM_CORE_FILTER_DEFS;
+const BOLETE_FILTER_DEFS = [
+  ...MUSHROOM_CORE_FILTER_DEFS,
+  ...BOLETE_EXTRA_FILTER_DEFS
+];
+const OTHER_MUSHROOM_FILTER_DEFS = MUSHROOM_CORE_FILTER_DEFS;
 
 
 const PLANT_LANES = [
@@ -216,7 +207,13 @@ const MISSING_REVIEW_LABELS_BY_VALUE_KEY = new Map([
   ["mushroomSubstrate", "Needs substrate review"],
   ["mushroomTreeType", "Tree association not recorded / needs review"],
   ["mushroomHost", "Associated tree not recorded / needs review"],
+  ["mushroomCapColor", "Cap color not recorded / needs review"],
+  ["mushroomUnderside", "Underside type not recorded / needs review"],
+  ["mushroomUndersideColor", "Underside color not recorded / needs review"],
+  ["mushroomStemColor", "Stem color not recorded / needs review"],
   ["mushroomStaining", "Bruising/staining not recorded / needs review"],
+  ["mushroomFleshColor", "Flesh color not recorded / needs review"],
+  ["mushroomSporePrintColor", "Spore print color not recorded / needs review"],
   ["mushroomPoreColor", "Pore color not recorded / needs review"],
   ["month", "Season not recorded / needs review"]
 ]);
@@ -360,6 +357,147 @@ function withoutGenericBoleteDefaults(values = []) {
       && text !== "whitish to yellow pores"
       && text !== "pores or odd pore surface";
   });
+}
+
+function mushroomProfileValues(record = {}, keys = []) {
+  const profile = record.mushroom_profile || {};
+  const paths = [];
+  for (const key of keys) {
+    paths.push([key]);
+    paths.push([key.replaceAll("_", "")]);
+    paths.push(["mushroom_profile", key]);
+    paths.push(["mushroom_profile", key.replaceAll("_", "")]);
+  }
+  return collectValues(record, paths);
+}
+
+function broadColorValues(values = []) {
+  const hay = cleanOptionValues(values).join(" | ").toLowerCase();
+  const out = [];
+  const rules = [
+    [/\bwhite|whitish|ivory|pale\b|cream|buff/, "White / cream / buff"],
+    [/\byellow|gold|golden|lemon|sulphur|sulfur/, "Yellow / golden"],
+    [/\borange|apricot|salmon/, "Orange / salmon"],
+    [/\bred\b|reddish|scarlet|brick|carmine|rose|pink|pinkish/, "Red / pink"],
+    [/\bpurple|violet|lilac|lavender|amethyst/, "Purple / violet"],
+    [/\bblue|bluish/, "Blue"],
+    [/\bgreen|greenish|olive/, "Green / olive"],
+    [/\bbrown|tan|chestnut|cinnamon|rust|rusty|umber|ochre|ocher|beige/, "Brown / tan"],
+    [/\bgray|grey|silver|ashy/, "Gray"],
+    [/\bblack|blackish|sooty|dark/, "Black / dark"],
+    [/\bclear|hyaline/, "Clear / translucent"]
+  ];
+  for (const [pattern, label] of rules) {
+    if (pattern.test(hay)) out.push(label);
+  }
+  return [...new Set(out)];
+}
+
+function mushroomFieldText(record = {}) {
+  const profile = record.mushroom_profile || {};
+  return [
+    record.field_identification,
+    record.identification,
+    record.overview,
+    profile.summary,
+    profile.ecology,
+    ...asList(profile.research_notes)
+  ].join(" | ");
+}
+
+function contextSnippets(text = "", terms = []) {
+  const source = String(text || "");
+  const snippets = [];
+  for (const term of terms) {
+    const pattern = new RegExp(`[^.;|,]{0,80}\\b${term}\\b[^.;|,]{0,100}`, "gi");
+    snippets.push(...(source.match(pattern) || []).map((value) => String(value || "")
+      .replace(/\b(?:blue|green|brown|gray|grey|red|pink|yellow|black|dark)\s+(?:bruising|staining|stain|bruise)[^.;|,]*/gi, "")
+      .replace(/(?:bruising|staining|stains?|bruises?)\s+(?:blue|green|brown|gray|grey|red|pink|yellow|black|dark)[^.;|,]*/gi, "")
+    ));
+  }
+  return snippets;
+}
+
+function mushroomCapColorValues(record = {}) {
+  return broadColorValues([
+    ...mushroomProfileValues(record, [
+      "cap_color", "cap_colours", "cap_colors", "pileus_color", "cap_description"
+    ]),
+    ...contextSnippets(mushroomFieldText(record), ["cap", "pileus"]),
+    record.common_name,
+    record.display_name
+  ]);
+}
+
+function mushroomUndersideTypeValues(record = {}) {
+  const explicit = cleanOptionValues(collectValues(record, [
+    ["underside"], ["underside_type"], ["fertile_surface"],
+    ["mushroom_profile", "underside"], ["mushroom_profile", "underside_type"], ["mushroom_profile", "fertile_surface"]
+  ]));
+  const hay = [record.lane, ...explicit].join(" | ").toLowerCase();
+  const out = [];
+  if (/gill|lamella/.test(hay)) out.push("Gills");
+  if (/pore|tube|sponge|bolete/.test(hay)) out.push("Pores / tubes");
+  if (/tooth|teeth|spine/.test(hay)) out.push("Teeth / spines");
+  if (/ridge|false gill|chanterelle/.test(hay)) out.push("Ridges / false gills");
+  if (/smooth|crust|cup|jelly|coral|club|puffball|shelf|bracket/.test(hay)) out.push("Other / smooth / irregular");
+  return out.length ? [...new Set(out)] : explicit;
+}
+
+function mushroomUndersideColorValues(record = {}) {
+  return broadColorValues([
+    ...mushroomProfileValues(record, [
+      "underside_color", "fertile_surface_color", "gill_color", "gill_colours", "pore_color",
+      "pore_colours", "tooth_color", "teeth_color", "ridge_color", "hymenium_color"
+    ]),
+    ...contextSnippets(mushroomFieldText(record), ["underside", "gill", "gills", "pore", "pores", "tooth", "teeth", "ridge", "ridges"])
+  ]);
+}
+
+function mushroomStemColorValues(record = {}) {
+  return broadColorValues([
+    ...mushroomProfileValues(record, [
+      "stem_color", "stipe_color", "stem_colours", "stem_description"
+    ]),
+    ...contextSnippets(mushroomFieldText(record), ["stem", "stipe"] )
+  ]);
+}
+
+function mushroomFleshColorValues(record = {}) {
+  return broadColorValues([
+    ...mushroomProfileValues(record, [
+      "flesh_color", "flesh_colours", "context_color", "cut_flesh_color", "interior_color"
+    ]),
+    ...contextSnippets(mushroomFieldText(record), ["flesh", "context", "cut"] )
+  ]);
+}
+
+function mushroomSporePrintColorValues(record = {}) {
+  return broadColorValues(mushroomProfileValues(record, [
+    "spore_print", "spore_print_color", "spore_color", "spore_deposit_color"
+  ]));
+}
+
+function mushroomStainingValues(record = {}) {
+  return broadValuesFromText(collectValues(record, [["staining"], ["bruising"], ["color_change"], ["mushroom_profile", "staining"], ["mushroom_profile", "bruising"], ["mushroom_profile", "color_change"]]), [
+    [/blue/, "Blue bruising"],
+    [/green/, "Green staining"],
+    [/brown|gray|grey|black|dark/, "Brown / gray / dark staining"],
+    [/red|reddish|rose|pink/, "Red / pink staining"],
+    [/none|not notable|no notable|does not bruise|unchanging/, "No notable bruising"],
+    [/yellow/, "Yellow staining"]
+  ]);
+}
+
+function mushroomTasteValues(record = {}) {
+  return broadValuesFromText(collectValues(record, [["taste"], ["mushroom_profile", "taste"]]), [
+    [/bitter/, "Bitter"],
+    [/mild|not distinctive|pleasant/, "Mild / not distinctive"],
+    [/pepper|acrid|hot|sharp/, "Peppery / acrid"],
+    [/sweet|nutty|rich/, "Pleasant / nutty"],
+    [/mealy|farinaceous|cucumber/, "Mealy / cucumber-like"],
+    [/fishy|seafood/, "Fishy / seafood-like"]
+  ]);
 }
 
 function boleteQuickGroupValues(record) {
@@ -572,16 +710,22 @@ function valuesForFilter(record, valueKey) {
     case "mushroomSubstrate": return cleanOptionValues(collectValues(record, [["substrate"], ["mushroom_profile", "substrate"]]));
     case "mushroomTreeType": return treeTypeValues(record);
     case "mushroomHost": return hostTreeValues(record);
-    case "mushroomUnderside": return cleanOptionValues(collectValues(record, [["underside"], ["mushroom_profile", "underside"], ["mushroom_profile", "underside_type"], ["mushroom_profile", "fertile_surface"]]));
+    case "mushroomCapColor": return mushroomCapColorValues(record);
+    case "mushroomUnderside": return mushroomUndersideTypeValues(record);
+    case "mushroomUndersideColor": return mushroomUndersideColorValues(record);
+    case "mushroomStemColor": return mushroomStemColorValues(record);
+    case "mushroomFleshColor": return mushroomFleshColorValues(record);
+    case "mushroomSporePrintColor": return mushroomSporePrintColorValues(record);
     case "mushroomRing": return cleanOptionValues(collectValues(record, [["ring"], ["mushroom_profile", "ring"]]));
     case "mushroomTexture": return cleanOptionValues(collectValues(record, [["texture"], ["mushroom_profile", "texture"]]));
     case "mushroomSmell": return cleanOptionValues(collectValues(record, [["smell"], ["odor"], ["mushroom_profile", "smell"], ["mushroom_profile", "odor"]]));
-    case "mushroomStaining": return cleanOptionValues(collectValues(record, [["staining"], ["mushroom_profile", "staining"]]));
+    case "mushroomStaining": return mushroomStainingValues(record);
     case "mushroomCapSurface": return cleanOptionValues(collectValues(record, [["capSurface"], ["cap_surface"], ["mushroom_profile", "cap_surface"]]));
     case "mushroomStemFeature": return cleanOptionValues(collectValues(record, [["stemFeature"], ["stem_feature"], ["mushroom_profile", "stem_feature"]]));
+    case "mushroomTaste": return mushroomTasteValues(record);
     case "mushroomBoleteGroup": return cleanOptionValues(collectValues(record, [["boleteGroup"], ["mushroom_family"]]));
     case "mushroomBoleteSubgroup": return cleanOptionValues(collectValues(record, [["boleteSubgroup"]]));
-    case "mushroomPoreColor": return cleanOptionValues(collectValues(record, [["poreColor"], ["pore_color"], ["mushroom_profile", "pore_color"]]));
+    case "mushroomPoreColor": return mushroomUndersideColorValues(record);
     default: return [];
   }
 }
@@ -934,7 +1078,12 @@ function normalizeFilters(filtersOrSearch) {
     mushroomSubstrate: filtersOrSearch?.mushroomSubstrate || "",
     mushroomTreeType: filtersOrSearch?.mushroomTreeType || "",
     mushroomHost: filtersOrSearch?.mushroomHost || "",
+    mushroomCapColor: filtersOrSearch?.mushroomCapColor || "",
     mushroomUnderside: filtersOrSearch?.mushroomUnderside || "",
+    mushroomUndersideColor: filtersOrSearch?.mushroomUndersideColor || "",
+    mushroomStemColor: filtersOrSearch?.mushroomStemColor || "",
+    mushroomFleshColor: filtersOrSearch?.mushroomFleshColor || "",
+    mushroomSporePrintColor: filtersOrSearch?.mushroomSporePrintColor || "",
     mushroomRing: filtersOrSearch?.mushroomRing || "",
     mushroomTexture: filtersOrSearch?.mushroomTexture || "",
     mushroomSmell: filtersOrSearch?.mushroomSmell || "",
