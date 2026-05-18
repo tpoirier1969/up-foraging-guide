@@ -1,4 +1,3 @@
-import { APP_VERSION as CONFIG_APP_VERSION } from "./config.js";
 import { state, setRoute, setSpecies, setRareSpecies, setReferences, logBoot } from "./state.js";
 import { MEDICINAL_VOCAB } from "./data/medicinal-vocabulary.js";
 import { renderPage, openModal, closeModal, els } from "./ui/dom.js";
@@ -6,7 +5,7 @@ import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
 import { isEdibleForSection } from "./lib/merge.js";
 
-const APP_VERSION = new URL(import.meta.url).searchParams.get("v") || CONFIG_APP_VERSION || "dev";
+const APP_VERSION = new URL(import.meta.url).searchParams.get("v") || window.UP_FORAGING_APP_VERSION || "dev";
 const REVIEW_STORAGE_KEY = "foraging_review_overlay_v1";
 const moduleCache = new Map();
 let loadAppDataPromise = null;
@@ -797,7 +796,7 @@ export async function renderCurrentRoute() {
 }
 
 export async function startApp() {
-  document.getElementById("versionBadge")?.replaceChildren(document.createTextNode(APP_VERSION));
+  // Visible version badge is owned by boot.js so the UI shows one consistent human-facing version.
   wireModalClose();
   loadReviewOverlay();
   window.addEventListener("hashchange", renderCurrentRoute);
