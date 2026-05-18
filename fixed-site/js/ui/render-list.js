@@ -882,6 +882,14 @@ function seasonSummary(record = {}) {
   return "Needs review";
 }
 
+function substrateSummary(record = {}) {
+  const substrate = firstCleanListText([
+    asList(record.mushroom_profile?.substrate).join(", "),
+    asList(record.substrate).join(", ")
+  ]);
+  return substrate;
+}
+
 
 function isRedundantCautionMeta(record = {}) {
   const severity = String(record.non_edible_severity || "").trim().toLowerCase();
@@ -947,11 +955,19 @@ function isQualityValue(value = "") {
   return /prime|choice|excellent|very good|good|fair|poor|occasional|niche|processed|tea|flavoring|caution|avoid|not recommended|expert/i.test(text);
 }
 
+function isRareCommonality(value = "") {
+  return /\brare\b|uncommon|scarce|infrequent/i.test(String(value || ""));
+}
+
 function foragingValueText(record = {}) {
   const explicit = realText(record.foraging_value || record.food_value || "");
   if (explicit) return explicit;
   const legacy = realText(record.food_quality || "");
-  return isQualityValue(legacy) ? legacy : "";
+  if (!isQualityValue(legacy)) return "";
+  if (isRareCommonality(record.commonness) && /choice|excellent|very good|good|prime/i.test(legacy)) {
+    return `${legacy}; low practical value if locally rare`;
+  }
+  return legacy;
 }
 
 function isPrimeForagingValue(value = "") {
@@ -961,36 +977,47 @@ function isPrimeForagingValue(value = "") {
 function foragingValueTag(record = {}) {
   const value = foragingValueText(record);
   if (!value) return "";
-  if (isPrimeForagingValue(value)) return `<span class="tag good">Prime foraging</span>`;
-  const danger = /not recommended|avoid|poor|inedible|caution|expert/i.test(value);
-  return labelTag("Foraging value", value, danger ? "danger" : "good");
+  const danger = /not recommended|avoid|poor|inedible|caution|expert|low practical value/i.test(value);
+  if (isPrimeForagingValue(value) && !danger) return `<span class="tag good">Food / forage value: Prime</span>`;
+  return labelTag("Food / forage value", value, danger ? "danger" : "good");
 }
 
 function makeMeta(record, route = "general") {
   const info = classifyRecord(record);
   const edibleUse = record.edible_use || null;
   const bits = [];
-  if (record.record_type === "mushroom") {
-    bits.push(labelTag("Type", laneLabel(record)));
-  } else if (record.foraging_class) {
-    bits.push(labelTag("Type", String(record.foraging_class).replaceAll("_", " ")));
-  } else if (record.category) {
-    bits.push(labelTag("Type", record.category));
+  const isMushroomList = ["mushrooms-gilled", "boletes", "mushrooms-other"].includes(route) && record.record_type === "mushroom";
+
+  if (!isMushroomList) {
+    if (record.record_type === "mushroom") {
+      bits.push(labelTag("Type", laneLabel(record)));
+    } else if (record.foraging_class) {
+      bits.push(labelTag("Type", String(record.foraging_class).replaceAll("_", " ")));
+    } else if (record.category) {
+      bits.push(labelTag("Type", record.category));
+    }
   }
+
   bits.push(useRoleTag(record, info));
+  bits.push(foragingValueTag(record));
+  bits.push(labelTag("Season", seasonSummary(record)));
+  if (record.commonness) bits.push(labelTag("Commonality", record.commonness));
+  if (isMushroomList) {
+    bits.push(labelTag("Substrate", substrateSummary(record)));
+  }
+
   if (route === "plants") {
     const parts = usablePartsForRecord(record);
     if (parts.length) bits.push(labelTag("Useful parts", parts.slice(0, 4).join(", ")));
   }
-  if (record.commonness) bits.push(labelTag("Commonality", record.commonness));
-  bits.push(labelTag("Season", seasonSummary(record)));
-  bits.push(foragingValueTag(record));
   if (edibleUse?.has_ingestible_use && /tea|infusion|beverage/i.test(String(edibleUse.method || "")) && !hasTeaUse(record)) {
     bits.push(`<span class="tag good">Tea / infusion</span>`);
   }
   if (record.non_edible_severity && !edibleUse?.has_ingestible_use && !isRedundantCautionMeta(record)) bits.push(labelTag("Safety", record.non_edible_severity, "danger"));
-  dataQualityTags(record, route).forEach((label) => bits.push(`<span class="tag review">${esc(label)}</span>`));
-  if (record.review_status === "needs_review") bits.push(`<span class="tag review">Needs review</span>`);
+  if (!isMushroomList) {
+    dataQualityTags(record, route).forEach((label) => bits.push(`<span class="tag review">${esc(label)}</span>`));
+    if (record.review_status === "needs_review") bits.push(`<span class="tag review">Needs review</span>`);
+  }
   return bits.filter(Boolean).join("");
 }
 

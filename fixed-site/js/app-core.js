@@ -210,6 +210,28 @@ function renderTraitFilters(route, filterFields = [], activeTraitFilters = false
   `;
 }
 
+
+function sanitizeTraitFiltersForRoute(route, filterFields = []) {
+  const activeKeys = new Set((filterFields || []).map((field) => field.key));
+  const validValuesByKey = new Map((filterFields || []).map((field) => [field.key, new Set((field.options || []).map((option) => String(option.value || option || "")))]));
+  const keys = isPlantFilterRoute(route)
+    ? PLANT_TRAIT_FILTER_KEYS
+    : (isMushroomFilterRoute(route) ? MUSHROOM_TRAIT_FILTER_KEYS : []);
+  let changed = false;
+  for (const key of keys) {
+    const selected = String(state.filters[key] || "").trim();
+    if (!selected) continue;
+    const validValues = validValuesByKey.get(key);
+    // Filters shared across mushroom lanes should not silently zero out another lane.
+    // If the selected value is not available for the current lane, clear it for this view.
+    if (!activeKeys.has(key) || !validValues || !validValues.has(selected)) {
+      state.filters[key] = "";
+      changed = true;
+    }
+  }
+  return changed;
+}
+
 function controlsHtml(route = "general", placeholder = "Search species", filterFields = [], activeTraitFilters = false, plantLaneControls = "") {
   const search = state.filters.search || "";
   const sortControls = renderSortControls(route);
@@ -679,7 +701,10 @@ async function renderSpeciesRoute(route, token) {
   } = await importModule("./ui/render-list.js");
   if (token !== renderToken) return;
   const matchRoute = route === "search" ? "general" : route;
-  const filterFields = getFilterFieldsForRoute(state.species, matchRoute, state.filters);
+  let filterFields = getFilterFieldsForRoute(state.species, matchRoute, state.filters);
+  if (sanitizeTraitFiltersForRoute(matchRoute, filterFields)) {
+    filterFields = getFilterFieldsForRoute(state.species, matchRoute, state.filters);
+  }
   const activeTraitFilters = hasActiveTraitFilters(matchRoute, state.filters);
   const plantLaneControls = route === "plants" ? renderPlantLaneControls(state.species, state.filters) : "";
   const filtered = filterRecords(state.species, matchRoute, state.filters);
