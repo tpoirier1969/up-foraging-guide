@@ -9,7 +9,6 @@
     "source_mushrooms_build": "pre-split uploaded mushrooms baseline",
     "source_record_count_before_split": 209,
     "record_count": 15,
-    "notes": "Core/restored mushroom records retained at the original mushrooms.json path. Expanded mushroom records now load from smaller grouped files listed in split_manifest. v4.2.80 adds a core mushroom credibility pass: source links, use roles, foraging values, card notes, and cleaned placeholder use text for high-visibility mushrooms. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved. v4.3.61-r2026-05-14-mushroom-completion-wave1-15species: completed selected mushroom species records in-place with rights metadata and stale review flags cleared.",
     "split_manifest": [
       {
         "path": "data/mushrooms.json",
@@ -57,8 +56,7 @@
     "source_build_before_size_split": "v4.2.80-r2026-04-29-mushroom-core-credibility1",
     "last_completion_wave": "v4.3.63-r2026-05-14-mushroom-completion-wave3-16species-rights-strict1",
     "last_completion_wave_date": "2026-05-14",
-    "last_reaudit_build": "v4.3.64-r2026-05-14-mushroom-waves1-3-reaudit1",
-    "last_reaudit_note": "Re-audited v4.3.61-v4.3.63 touched mushroom species against hard completion checklist; incomplete items explicitly declared instead of silently marked complete."
+    "last_reaudit_build": "v4.3.64-r2026-05-14-mushroom-waves1-3-reaudit1"
   },
   "records": [
     {
@@ -67,7 +65,6 @@
       "common_name": "Old Man of the Woods",
       "category": "Mushroom",
       "notes": "Old Man of the Woods is kept under the common-name slug. The former scientific-name slug strobilomyces-strobilaceus has been merged here to avoid duplicate listings.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "July",
         "August",
@@ -90,7 +87,6 @@
       "general_notes": "Hard to confuse with choice boletes because of the shaggy black-gray cap and blackening flesh. Species-level Strobilomyces taxonomy can be fiddly.",
       "record_type": "mushroom",
       "lane": "bolete",
-      "reviewReasons": [],
       "review_status": "complete",
       "search_aliases": [
         "strobilomyces-strobilaceus",
@@ -103,10 +99,6 @@
       ],
       "commonness": "Occasional",
       "food_quality": "Fair",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "scientific_name": "Strobilomyces strobilaceus / Strobilomyces floccopus group",
       "food_role": "caution",
       "edibility_status": "edible_with_caution",
@@ -185,8 +177,6 @@
         "season_note": "Summer into fall."
       },
       "primary_type": "mushroom",
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "common_names": [
         "Old Man of the Woods"
       ],
@@ -199,7 +189,6 @@
         9,
         10
       ],
-      "habitats": [],
       "look_alikes": [
         "confusing-bolete",
         "ash-tree-bolete",
@@ -207,14 +196,9 @@
       ],
       "look_alike_risk": "",
       "look_alike_notes": "",
-      "rare_profile": null,
       "overview": "",
       "other_uses": "",
       "edibility_notes": "Edible by some accounts when young, but usually poor quality; included mainly because it is distinctive and useful for ID practice. Not a prime edible.",
-      "curation_notes": [
-        "Original app species restored into the standalone modular build.",
-        "Recreated locally from the original app baseline checklist for the modular standalone build."
-      ],
       "edible_use": {
         "has_ingestible_use": true,
         "method": "Food",
@@ -225,13 +209,8 @@
         "has_meaningful_content": false,
         "summary": "",
         "evidence_tier": "",
-        "actions": [],
-        "body_systems": [],
-        "medical_terms": [],
-        "parts_used": [],
         "preparation_notes": "",
-        "warnings": "",
-        "claims": []
+        "warnings": ""
       },
       "mushroom_family": "Shaggy & scaly oddballs",
       "is_medicinal": false,
@@ -326,12 +305,7 @@
         }
       ],
       "needs_review": false,
-      "review_note": "",
-      "review_notes": "",
-      "image_review_status": "verified_rights_complete",
-      "image_review_reasons": [],
       "photo_patch_alias_source_slug": "strobilomyces-strobilaceus",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
       "food_quality_score": 2,
       "commonness_score": 3,
       "mushroom_card_note": "Sooty shaggy bolete; interesting ID, mediocre food.",
@@ -371,7 +345,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -382,7 +355,6 @@
       "common_name": "Pearl oyster",
       "category": "Mushroom",
       "notes": "Classic hardwood oyster.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "October",
         "November",
@@ -392,7 +364,6 @@
         "March",
         "April"
       ],
-      "links": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2098857466.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2099863890.jpg",
@@ -403,19 +374,13 @@
       "general_notes": "A core gilled mushroom entry for the guide. Keep separate from the warmer-season phoenix oyster and the aspen-focused oyster entry.",
       "record_type": "mushroom",
       "lane": "gilled",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood"
       ],
       "commonness": "Common",
       "food_quality": "Good",
       "non_edible_severity": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         10,
         11,
@@ -475,7 +440,6 @@
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2098857466.jpg?width=480",
           "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2098857466.jpg?width=900",
           "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2098857466.jpg",
-          "source": "commons-verified-image-batch-v4.3.52",
           "title": "Pearl oyster fruiting cluster",
           "part_or_stage": "field view",
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_ostreatus_98857466.jpg",
@@ -499,7 +463,6 @@
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2099863890.jpg?width=480",
           "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2099863890.jpg?width=900",
           "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2099863890.jpg",
-          "source": "commons-verified-image-batch-v4.3.52",
           "title": "Pearl oyster shelf cluster on wood",
           "part_or_stage": "supporting field view",
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_ostreatus_99863890.jpg",
@@ -523,7 +486,6 @@
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2094246379.jpg?width=480",
           "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2094246379.jpg?width=900",
           "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2094246379.jpg",
-          "source": "commons-verified-image-batch-v4.3.52",
           "title": "Pearl oyster additional field view",
           "part_or_stage": "additional field view",
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_ostreatus_94246379.jpg",
@@ -555,14 +517,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2094246379.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20ostreatus%2098857466.jpg?width=480",
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "Photo rights metadata verified and completed in v4.3.61-r2026-05-14-mushroom-completion-wave1-15species."
-      ],
-      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch A — common shelf/wood edibles",
       "photo_patch_alias_source_slug": "oyster-mushroom",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
       "season_months": [
         10,
         11,
@@ -576,8 +531,6 @@
       "edibility_detail": "Confirm wood growth, decurrent pale gills, no ring or volva, and a white to pale lilac spore print. Do not treat every pale shelf mushroom as an oyster.",
       "field_identification": "Overlapping shelf-like clusters on hardwood, with white to grayish caps, whitish decurrent gills running down a short lateral stem or pseudostem, firm white flesh, and a white to faintly lilac spore print.",
       "mushroom_card_note": "Classic cool-weather hardwood oyster; confirm decurrent gills and no ring/volva.",
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "schema_completion_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
       "schema_completion_date": "2026-05-14",
       "completion_audit": {
@@ -597,7 +550,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -608,7 +560,6 @@
       "common_name": "Phoenix oyster / summer oyster",
       "category": "Mushroom",
       "notes": "Warm-season oyster on hardwood.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "April",
         "May",
@@ -630,19 +581,13 @@
       "general_notes": "Use this entry for the thinner, warmer-season oyster type rather than treating every oyster as a fall pearl oyster.",
       "record_type": "mushroom",
       "lane": "gilled",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood"
       ],
       "commonness": "Occasional",
       "food_quality": "Good",
       "non_edible_severity": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         4,
         5,
@@ -701,7 +646,6 @@
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20pulmonarius%20%2826156491568%29.jpg?width=480",
           "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20pulmonarius%20%2826156491568%29.jpg?width=900",
           "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20pulmonarius%20%2826156491568%29.jpg",
-          "source": "commons-verified-image-batch-v4.3.51",
           "title": "Phoenix oyster / summer oyster cluster on wood",
           "part_or_stage": "field view",
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_pulmonarius_(26156491568).jpg",
@@ -725,7 +669,6 @@
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20pulmonarius%20133642508.jpg?width=480",
           "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20pulmonarius%20133642508.jpg?width=900",
           "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20pulmonarius%20133642508.jpg",
-          "source": "commons-verified-image-batch-v4.3.51",
           "title": "Summer oyster mushroom field view",
           "part_or_stage": "field view",
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_pulmonarius_133642508.jpg",
@@ -749,7 +692,6 @@
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20pulmonarius%20134572137.jpg?width=480",
           "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20pulmonarius%20134572137.jpg?width=900",
           "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20pulmonarius%20134572137.jpg",
-          "source": "commons-verified-image-batch-v4.3.51",
           "title": "Summer oyster mushroom supporting field view",
           "part_or_stage": "supporting field view",
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Pleurotus_pulmonarius_134572137.jpg",
@@ -782,7 +724,6 @@
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus%20pulmonarius%20%2826156491568%29.jpg?width=480",
       "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
-      "photo_patch_group": "Batch E — mixed exact-slug mushrooms",
       "season_months": [
         4,
         5,
@@ -793,12 +734,6 @@
       ],
       "edibility_status": "edible_with_confident_id",
       "mushroom_card_note": "Warm-season oyster type; confirm wood growth, decurrent gills, and lack of ring/volva.",
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "Photo rights metadata verified and completed in v4.3.61-r2026-05-14-mushroom-completion-wave1-15species."
-      ],
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "schema_completion_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
       "schema_completion_date": "2026-05-14",
       "edibility_detail": "Edible only after confident oyster-mushroom identification and normal cooking. Confirm hardwood growth, decurrent pale gills, white flesh, no ring or volva, and warm-season timing; do not use if the specimen is old, buggy, strongly off-smelling, or growing in a way that suggests a different gilled mushroom.",
@@ -829,7 +764,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -840,7 +774,6 @@
       "common_name": "Red chanterelles / cinnabars",
       "category": "Mushroom",
       "notes": "",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "June",
         "July",
@@ -862,17 +795,10 @@
       "general_notes": "Tiny red chanterelles are easy to overlook. The false-gill ridges and soil growth are more important than color alone.",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
-      "host_filter_tokens": [],
       "commonness": "Occasional",
       "food_quality": "Good",
       "non_edible_severity": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus_cinnabarinus.jpg?width=480",
@@ -961,12 +887,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus_cinnabarinus_129003.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus_cinnabarinus.jpg?width=480",
-      "image_review_status": "verified_rights_complete",
-      "image_review_reasons": [],
       "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
-      "photo_patch_batch": "v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact",
-      "photo_patch_group": "Batch E — mixed exact-slug mushrooms",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
       "scientific_name": "Cantharellus cinnabarinus group",
       "food_role": "food",
       "edibility_status": "edible_with_caution",
@@ -1059,16 +980,9 @@
         "has_meaningful_content": false,
         "summary": "",
         "evidence_tier": "",
-        "actions": [],
-        "body_systems": [],
-        "medical_terms": [],
-        "parts_used": [],
         "preparation_notes": "",
-        "warnings": "",
-        "claims": []
+        "warnings": ""
       },
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "completion_build": "v4.3.63-r2026-05-14-mushroom-completion-wave3-16species-rights-strict1",
       "completion_date": "2026-05-14",
       "rights_review_status": "exact_metadata_verified",
@@ -1105,7 +1019,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -1116,7 +1029,6 @@
       "common_name": "Red-belted conk",
       "category": "Mushroom",
       "notes": "",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "January",
         "February",
@@ -1144,18 +1056,9 @@
       "general_notes": "Common northern conk. Compare with artist’s conk and hemlock varnish shelf; red-belted conk lacks the glossy varnished reishi surface and has a distinct banded hoof/shelf form.",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [
-        "Re-audit incomplete: photo coverage is below the 2-image minimum using exact-rights images."
-      ],
       "review_status": "needs_review",
-      "search_aliases": [],
-      "host_filter_tokens": [],
       "commonness": "Common",
       "food_quality": "Not food",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "food_role": "other_use",
       "edibility_status": "not_edible",
       "edible_use": {
@@ -1198,12 +1101,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis_pinicola_2011_G1.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis_pinicola_2011_G1.jpg?width=480",
-      "image_review_status": "verified_rights_complete",
-      "image_review_reasons": [],
       "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
-      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
-      "photo_patch_group": "Batch E — conks, chanterelle allies, and caution gilled record",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
       "scientific_name": "Fomitopsis pinicola group",
       "food_quality_score": 1,
       "commonness_score": 4,
@@ -1284,18 +1182,9 @@
         "has_meaningful_content": false,
         "summary": "",
         "evidence_tier": "",
-        "actions": [],
-        "body_systems": [],
-        "medical_terms": [],
-        "parts_used": [],
         "preparation_notes": "",
-        "warnings": "",
-        "claims": []
+        "warnings": ""
       },
-      "review_reasons": [
-        "Re-audit incomplete: photo coverage is below the 2-image minimum using exact-rights images."
-      ],
-      "manual_review_reasons": [],
       "completion_build": "v4.3.63-r2026-05-14-mushroom-completion-wave3-16species-rights-strict1",
       "completion_date": "2026-05-14",
       "rights_review_status": "exact_metadata_verified",
@@ -1359,8 +1248,6 @@
       "display_name": "Reindeer lichen",
       "common_name": "Reindeer lichen",
       "category": "Mushroom",
-      "notes": "Needs review: category should be reviewed.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "January",
         "February",
@@ -1380,7 +1267,6 @@
         "https://www.purdue.edu/hla/sites/famine-foods/famine_food/cladonia-rangiferina-2/",
         "https://en.wikipedia.org/wiki/Cladonia_rangiferina"
       ],
-      "images": [],
       "medicinal_uses": "Poultice for wound care",
       "culinary_uses": "Emergency/survival-use lichen only: historical use involved soaking/boiling or alkaline processing. Not recommended as a routine edible.",
       "non_edible_severity": "Emergency only",
@@ -1442,8 +1328,7 @@
         "research_notes": [
           "Better treated as a lichen entry than a mushroom entry.",
           "Known more as animal browse and famine food than as a casual wild edible.",
-          "Source coverage count in current app data: 2",
-          "Image status in current repo build: has image"
+          "Source coverage count in current app data: 2"
         ],
         "host_filter_tokens": [
           "Ground",
@@ -1458,10 +1343,6 @@
           "Lichen thallus; no mushroom gills or pores"
         ]
       },
-      "manual_review_reasons": [
-        "No exact-rights images verified in the local credit map for this pass; species remains visible with image coverage incomplete.",
-        "Record is a lichen-group entry, not a single casual food mushroom; edibility remains emergency-only."
-      ],
       "mushroom_family": "Lichens & survival entries",
       "related_mushroom_slugs": [
         "rock-tripe-lichen"
@@ -1482,23 +1363,10 @@
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [
-        "No exact-rights images verified in the local credit map for this pass; species remains visible with image coverage incomplete.",
-        "Record is a lichen-group entry, not a single casual food mushroom; edibility remains emergency-only."
-      ],
       "review_status": "needs_review",
-      "search_aliases": [],
-      "host_filter_tokens": [],
       "commonness": "",
       "food_quality": "",
-      "habitat": [],
       "needs_review": true,
-      "review_reasons": [
-        "No exact-rights images verified in the local credit map for this pass; species remains visible with image coverage incomplete.",
-        "Record is a lichen-group entry, not a single casual food mushroom; edibility remains emergency-only."
-      ],
-      "review_note": "Needs review: category should be reviewed.",
-      "review_notes": "Needs review: category should be reviewed.",
       "common_names": [
         "Caribou moss",
         "Reindeer lichen",
@@ -1520,14 +1388,7 @@
         "Cladonia portentosa / other reindeer lichens",
         "Other pale fruticose lichens"
       ],
-      "images_structured": [],
-      "detail_images": [],
-      "enlarge_images": [],
       "list_thumbnail": "",
-      "image_review_status": "no_verified_images",
-      "image_review_reasons": [
-        "No exact-rights images were verified in this pass; species remains visible but image coverage is incomplete."
-      ],
       "completion_audit": {
         "checklist_id": "mushroom-species-hard-completion-checklist-v2-measurements",
         "audited_build": "v4.3.68-r2026-05-14-zero-image-measurement-pass1-5species",
@@ -1547,13 +1408,11 @@
           "review_flags_resolved_or_unresolved_declared": true
         },
         "unresolved_items": [
-          "No exact-rights images verified in the local credit map for this pass; species remains visible with image coverage incomplete.",
           "Record is a lichen-group entry, not a single casual food mushroom; edibility remains emergency-only."
         ],
         "auditor_note": "This pass prioritized no-image mushroom records. Species remain visible even when incomplete; unresolved measurement/photo/source gaps are explicitly declared instead of being hidden."
       },
       "completion_gaps": [
-        "No exact-rights images verified in the local credit map for this pass; species remains visible with image coverage incomplete.",
         "Record is a lichen-group entry, not a single casual food mushroom; edibility remains emergency-only."
       ],
       "completion_status": "incomplete_declared"
@@ -1563,8 +1422,6 @@
       "display_name": "Rock tripe (lichen)",
       "common_name": "Rock tripe (lichen)",
       "category": "Mushroom",
-      "notes": "Needs review: category should be reviewed.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "January",
         "February",
@@ -1584,7 +1441,6 @@
         "https://whatsinaname.hmnh.harvard.edu/rocktripe",
         "https://en.wikipedia.org/wiki/Umbilicaria_mammulata"
       ],
-      "images": [],
       "medicinal_uses": "Traditional source of vitamin C in survival situations",
       "culinary_uses": "Emergency food only when properly processed; not a normal table mushroom.",
       "non_edible_severity": "Emergency only",
@@ -1648,8 +1504,7 @@
           "Common name covers edible Umbilicaria lichens rather than a single mushroom species.",
           "Treat as a survival food entry, not a routine edible.",
           "Slow-growing and best not heavily harvested.",
-          "Source coverage count in current app data: 2",
-          "Image status in current repo build: has image"
+          "Source coverage count in current app data: 2"
         ],
         "host_filter_tokens": [
           "Rock",
@@ -1665,10 +1520,6 @@
           "Lichen thallus; no mushroom gills or pores"
         ]
       },
-      "manual_review_reasons": [
-        "No exact-rights images verified in the local credit map for this pass; species remains visible with image coverage incomplete.",
-        "Record is a broad rock-tripe lichen group; measurements use U. mammulata as representative rather than every Umbilicaria species."
-      ],
       "mushroom_family": "Lichens & survival entries",
       "related_mushroom_slugs": [
         "reindeer-lichen"
@@ -1686,24 +1537,10 @@
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [
-        "No exact-rights images verified in the local credit map for this pass; species remains visible with image coverage incomplete.",
-        "Record is a broad rock-tripe lichen group; measurements use U. mammulata as representative rather than every Umbilicaria species."
-      ],
       "review_status": "needs_review",
-      "search_aliases": [],
-      "host_filter_tokens": [],
       "commonness": "",
       "food_quality": "",
-      "medicinalTerms": [],
-      "habitat": [],
       "needs_review": true,
-      "review_reasons": [
-        "No exact-rights images verified in the local credit map for this pass; species remains visible with image coverage incomplete.",
-        "Record is a broad rock-tripe lichen group; measurements use U. mammulata as representative rather than every Umbilicaria species."
-      ],
-      "review_note": "Needs review: category should be reviewed.",
-      "review_notes": "Needs review: category should be reviewed.",
       "common_names": [
         "Rock tripe",
         "Smooth rock tripe"
@@ -1723,14 +1560,7 @@
         "Other Umbilicaria rock-tripe lichens",
         "Other dark foliose rock lichens"
       ],
-      "images_structured": [],
-      "detail_images": [],
-      "enlarge_images": [],
       "list_thumbnail": "",
-      "image_review_status": "no_verified_images",
-      "image_review_reasons": [
-        "No exact-rights images were verified in this pass; species remains visible but image coverage is incomplete."
-      ],
       "completion_audit": {
         "checklist_id": "mushroom-species-hard-completion-checklist-v2-measurements",
         "audited_build": "v4.3.68-r2026-05-14-zero-image-measurement-pass1-5species",
@@ -1750,13 +1580,11 @@
           "review_flags_resolved_or_unresolved_declared": true
         },
         "unresolved_items": [
-          "No exact-rights images verified in the local credit map for this pass; species remains visible with image coverage incomplete.",
           "Record is a broad rock-tripe lichen group; measurements use U. mammulata as representative rather than every Umbilicaria species."
         ],
         "auditor_note": "This pass prioritized no-image mushroom records. Species remain visible even when incomplete; unresolved measurement/photo/source gaps are explicitly declared instead of being hidden."
       },
       "completion_gaps": [
-        "No exact-rights images verified in the local credit map for this pass; species remains visible with image coverage incomplete.",
         "Record is a broad rock-tripe lichen group; measurements use U. mammulata as representative rather than every Umbilicaria species."
       ],
       "completion_status": "incomplete_declared"
@@ -1767,8 +1595,6 @@
       "common_name": "Scaber-stalk boletes / birch-aspen boletes",
       "category": "Mushroom",
       "notes": "",
-      "short_reason": "Original app species restored into the standalone modular build.",
-      "months_available": [],
       "links": [
         "https://en.wikipedia.org/wiki/Leccinum_scabrum"
       ],
@@ -1782,20 +1608,10 @@
       "general_notes": "Representative Commons images currently use Leccinum scabrum to illustrate the broader scaber-stalk birch/aspen bolete group.",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [
-        "Group-level record: measurements and images are representative of Leccinum scabrum, not a definitive measurement range for every scaber-stalk bolete.",
-        "Keep as needs_review until this broad group is either split into species records or explicitly retained as a caution-group page."
-      ],
       "review_status": "needs_review",
-      "search_aliases": [],
-      "host_filter_tokens": [],
       "commonness": "",
       "food_quality": "",
       "non_edible_severity": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "hidden": true,
       "duplicate_of": "leccinum-scabrum",
       "legacy_alias": true,
@@ -1949,8 +1765,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/LeccinumScabrum.JPG"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum_scabrum_117467.jpg?width=480",
-      "image_review_status": "verified_rights",
-      "image_review_reasons": [],
       "completion_audit": {
         "checklist_id": "mushroom-species-hard-completion-checklist-v2-measurements",
         "audited_build": "v4.3.68-r2026-05-14-zero-image-measurement-pass1-5species",
@@ -1979,15 +1793,7 @@
         "Group-level record: measurements and images are representative of Leccinum scabrum, not a definitive measurement range for every scaber-stalk bolete.",
         "Keep as needs_review until this broad group is either split into species records or explicitly retained as a caution-group page."
       ],
-      "completion_status": "incomplete_declared",
-      "review_reasons": [
-        "Group-level record: measurements and images are representative of Leccinum scabrum, not a definitive measurement range for every scaber-stalk bolete.",
-        "Keep as needs_review until this broad group is either split into species records or explicitly retained as a caution-group page."
-      ],
-      "manual_review_reasons": [
-        "Group-level record: measurements and images are representative of Leccinum scabrum, not a definitive measurement range for every scaber-stalk bolete.",
-        "Keep as needs_review until this broad group is either split into species records or explicitly retained as a caution-group page."
-      ]
+      "completion_status": "incomplete_declared"
     },
     {
       "slug": "shaggy-mane",
@@ -1995,7 +1801,6 @@
       "common_name": "Shaggy mane",
       "category": "Mushroom",
       "notes": "Fast-deliquescing gilled mushroom of disturbed ground.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "July",
         "August",
@@ -2015,17 +1820,10 @@
       "general_notes": "Good beginner ID shape, but timing is everything. Alcohol warnings belong more strongly to some inky cap relatives, but old/inky shaggy manes are still not worth eating.",
       "record_type": "mushroom",
       "lane": "gilled",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
-      "host_filter_tokens": [],
       "commonness": "Occasional",
       "food_quality": "Good",
       "non_edible_severity": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         7,
         8,
@@ -2180,11 +1978,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinus_comatus_2011_G1.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinus_comatus_2009_G1.jpg?width=480",
-      "image_review_status": "verified_rights_complete",
-      "image_review_reasons": [],
-      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch B — common edible forms",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
       "season_months": [
         7,
         8,
@@ -2219,16 +2012,9 @@
         "has_meaningful_content": false,
         "summary": "",
         "evidence_tier": "",
-        "actions": [],
-        "body_systems": [],
-        "medical_terms": [],
-        "parts_used": [],
         "preparation_notes": "",
-        "warnings": "",
-        "claims": []
+        "warnings": ""
       },
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "completion_build": "v4.3.63-r2026-05-14-mushroom-completion-wave3-16species-rights-strict1",
       "completion_date": "2026-05-14",
       "rights_review_status": "exact_metadata_verified",
@@ -2251,7 +2037,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -2261,8 +2046,7 @@
       "display_name": "Short-stemmed russula",
       "common_name": "Short-stemmed russula",
       "category": "Mushroom",
-      "notes": "Needs review: needs real field photo / image coverage.",
-      "short_reason": "Original app species restored into the standalone modular build.",
+      "notes": "",
       "months_available": [
         "July",
         "August",
@@ -2281,9 +2065,7 @@
       "general_notes": "A good reminder that russulas belong in the gilled lane too. The short thick stem and brittle white flesh matter more than generic 'mushroom' features.",
       "record_type": "mushroom",
       "lane": "gilled",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
         "Conifer / softwood"
@@ -2291,10 +2073,6 @@
       "commonness": "Occasional",
       "food_quality": "Fair",
       "non_edible_severity": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         7,
         8,
@@ -2346,10 +2124,7 @@
       },
       "commonness_score": 3,
       "food_quality_score": 3,
-      "review_reasons": [],
       "needs_review": false,
-      "review_note": "Needs review: Needs real field photo / image coverage; Russula species/group ID should be kept conservative.",
-      "review_notes": "Needs review: Needs real field photo / image coverage; Russula species/group ID should be kept conservative.",
       "scientific_name": "Russula brevipes group",
       "use_roles": [
         "Food"
@@ -2363,7 +2138,6 @@
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Short%20Stem%20Russula%20Mushroom%20%2825c54de9bfa34332ab6e1ec379311ec3%29.JPG?width=480",
           "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Short%20Stem%20Russula%20Mushroom%20%2825c54de9bfa34332ab6e1ec379311ec3%29.JPG?width=900",
           "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Short%20Stem%20Russula%20Mushroom%20%2825c54de9bfa34332ab6e1ec379311ec3%29.JPG",
-          "source": "commons-verified-image-batch-v4.3.51",
           "title": "Short-stemmed russula field view",
           "part_or_stage": "field view",
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Short_Stem_Russula_Mushroom_(25c54de9bfa34332ab6e1ec379311ec3).JPG",
@@ -2387,7 +2161,6 @@
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20brevipes.JPG?width=480",
           "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20brevipes.JPG?width=900",
           "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20brevipes.JPG",
-          "source": "commons-verified-image-batch-v4.3.51",
           "title": "Short-stemmed russula cap and stem view",
           "part_or_stage": "field view",
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Russula_brevipes.JPG",
@@ -2411,7 +2184,6 @@
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20brevipes%20380443.jpg?width=480",
           "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20brevipes%20380443.jpg?width=900",
           "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20brevipes%20380443.jpg",
-          "source": "commons-verified-image-batch-v4.3.51",
           "title": "Short-stemmed russula stem detail",
           "part_or_stage": "stem detail",
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Russula_brevipes_380443.jpg",
@@ -2455,11 +2227,6 @@
           "notes": "Short-stemmed white russula traits and comparison notes."
         }
       ],
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "Photo rights metadata verified and completed in v4.3.61-r2026-05-14-mushroom-completion-wave1-15species."
-      ],
-      "manual_review_reasons": [],
       "schema_completion_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
       "schema_completion_date": "2026-05-14",
       "completion_audit": {
@@ -2479,7 +2246,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -2490,9 +2256,6 @@
       "common_name": "Shrimp of the woods / aborted entoloma",
       "category": "Mushroom",
       "notes": "",
-      "short_reason": "Original app species restored into the standalone modular build.",
-      "months_available": [],
-      "links": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%20(33383198385).jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Hypomyces%20lactifluorum%20169126.jpg",
@@ -2506,16 +2269,9 @@
       "general_notes": "Representative Commons images currently show the Hypomyces lactifluorum / lobster-mushroom side of the concept pending a stronger aborted-entoloma image set.",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [],
       "review_status": "ok",
-      "search_aliases": [],
-      "host_filter_tokens": [],
       "commonness": "",
       "food_quality": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Entoloma%20abortivum%20117422.jpg?width=480",
@@ -2534,22 +2290,13 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Entoloma%20abortivum%20117422.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Entoloma%20abortivum%20117422.jpg?width=480",
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.62-r2026-04-28-mushroom-photo-batchpack2 (Batch C — milkcaps, russula-adjacent edibles, and parasitized forms)."
-      ],
-      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch C — milkcaps, russula-adjacent edibles, and parasitized forms",
-      "photo_patch_alias_source_slug": "shrimp-of-the-woods",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_alias_source_slug": "shrimp-of-the-woods"
     },
     {
       "slug": "shrimp-russulas",
       "display_name": "Shrimp russulas",
       "common_name": "Shrimp russulas",
       "category": "Mushroom",
-      "notes": "Needs review: needs real field photo / image coverage. Russula group with seafood-like odor.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "July",
         "August",
@@ -2569,9 +2316,7 @@
       "general_notes": "This belongs in the gilled lane even though it does not look like a typical agaric. Russula brittleness and odor are important criteria for the mushroom schema.",
       "record_type": "mushroom",
       "lane": "gilled",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
         "Conifer / softwood"
@@ -2579,10 +2324,6 @@
       "commonness": "Occasional",
       "food_quality": "Fair",
       "non_edible_severity": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         7,
         8,
@@ -2635,10 +2376,7 @@
       },
       "commonness_score": 3,
       "food_quality_score": 3,
-      "review_reasons": [],
       "needs_review": false,
-      "review_note": "Needs review: Needs real field photo / image coverage; Russula species/group ID should be kept conservative.",
-      "review_notes": "Needs review: Needs real field photo / image coverage; Russula species/group ID should be kept conservative.",
       "scientific_name": "Russula xerampelina group / North American shrimp russulas",
       "use_roles": [
         "Food"
@@ -2652,7 +2390,6 @@
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20xerampelina%20%2823480902859%29.jpg?width=480",
           "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20xerampelina%20%2823480902859%29.jpg?width=900",
           "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20xerampelina%20%2823480902859%29.jpg",
-          "source": "commons-verified-image-batch-v4.3.51",
           "title": "Shrimp russula field view",
           "part_or_stage": "field view",
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Russula_xerampelina_(23480902859).jpg",
@@ -2676,7 +2413,6 @@
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20Xerampelina.jpg?width=480",
           "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20Xerampelina.jpg?width=900",
           "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20Xerampelina.jpg",
-          "source": "commons-verified-image-batch-v4.3.51",
           "title": "Shrimp russula tall field view",
           "part_or_stage": "field view",
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Russula_Xerampelina.jpg",
@@ -2700,7 +2436,6 @@
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20xerampelina.jpg?width=480",
           "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20xerampelina.jpg?width=900",
           "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20xerampelina.jpg",
-          "source": "commons-verified-image-batch-v4.3.51",
           "title": "Shrimp russula supporting field view",
           "part_or_stage": "supporting field view",
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Russula_xerampelina.jpg",
@@ -2744,11 +2479,6 @@
           "notes": "Shrimp-russula traits, odor, staining, and group caution."
         }
       ],
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "Photo rights metadata verified and completed in v4.3.61-r2026-05-14-mushroom-completion-wave1-15species."
-      ],
-      "manual_review_reasons": [],
       "schema_completion_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
       "schema_completion_date": "2026-05-14",
       "completion_audit": {
@@ -2768,7 +2498,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -2779,7 +2508,6 @@
       "common_name": "Smooth chanterelles",
       "category": "Mushroom",
       "notes": "",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "July",
         "August",
@@ -2797,17 +2525,10 @@
       "general_notes": "Smooth chanterelles can fool people expecting obvious ridges. The underside may be nearly smooth, but it should not have thin blade-like gills.",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
-      "host_filter_tokens": [],
       "commonness": "Occasional",
       "food_quality": "Choice",
       "non_edible_severity": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "scientific_name": "Cantharellus lateritius",
       "use_roles": [
         "Food"
@@ -2877,12 +2598,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus_lateritius_240835.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Cantharellus_lateritius_120774.jpg?width=480",
-      "image_review_status": "verified_rights_complete",
-      "image_review_reasons": [],
       "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
-      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
-      "photo_patch_group": "Batch E — conks, chanterelle allies, and caution gilled record",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
       "month_numbers": [
         7,
         8,
@@ -2973,16 +2689,9 @@
         "has_meaningful_content": false,
         "summary": "",
         "evidence_tier": "",
-        "actions": [],
-        "body_systems": [],
-        "medical_terms": [],
-        "parts_used": [],
         "preparation_notes": "",
-        "warnings": "",
-        "claims": []
+        "warnings": ""
       },
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "completion_build": "v4.3.63-r2026-05-14-mushroom-completion-wave3-16species-rights-strict1",
       "completion_date": "2026-05-14",
       "rights_review_status": "exact_metadata_verified",
@@ -3005,7 +2714,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -3016,9 +2724,6 @@
       "common_name": "Tinder conk / hoof fungus",
       "category": "Mushroom",
       "notes": "Hard hoof-shaped bracket on hardwoods, especially birch and beech. The tough gray-brown hoof form and pale pore underside are the key field marks.",
-      "short_reason": "Original app species restored into the standalone modular build.",
-      "months_available": [],
-      "links": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20177852044.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20170079378.jpg",
@@ -3034,16 +2739,9 @@
       "general_notes": "Not food; included for tinder/utility value and for separating woody conks from edible shelf fungi.",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [],
       "review_status": "ok",
-      "search_aliases": [],
-      "host_filter_tokens": [],
       "commonness": "",
       "food_quality": "Not recommended",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "food_role": "avoid",
       "edibility_status": "not_edible",
       "edible_use": {
@@ -3052,7 +2750,6 @@
         "preparation_required": false,
         "notes": ""
       },
-      "review_reasons": [],
       "needs_review": false,
       "images_structured": [
         {
@@ -3094,13 +2791,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Echte%20tonderzwam%20-%20Fomes%20fomentarius.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomes%20fomentarius%20%2833753874398%29.jpg?width=480",
-      "image_review_status": "field_photo_patch",
-      "image_review_reasons": [
-        "Commons-backed field photo patch appended in v4.2.57-r2026-04-28-mushroom-photo-patch5."
-      ],
-      "photo_patch_batch": "v4.2.57-r2026-04-28-mushroom-photo-patch5",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-      "manual_review_reasons": [],
       "photo_review_cleanup_build": "v4.2.65-r2026-04-28-mushroom-needs-review-cleanup1",
       "photo_review_cleanup_note": "Removed from Needs Review because the only explicit review reasons were image/photo-related and a real Commons-backed image is now available.",
       "photo_review_cleanup_removed_reasons": [
@@ -3114,8 +2804,6 @@
       "common_name": "Turkey tail",
       "category": "Mushroom",
       "notes": "",
-      "short_reason": "Original app species restored into the standalone modular build.",
-      "months_available": [],
       "links": [
         "https://mushroomexpert.com/trametes_versicolor.html"
       ],
@@ -3131,16 +2819,9 @@
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [],
       "review_status": "ok",
-      "search_aliases": [],
-      "host_filter_tokens": [],
       "commonness": "",
       "food_quality": "Not recommended",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "food_role": "avoid",
       "edibility_status": "not_edible",
       "edible_use": {
@@ -3175,14 +2856,7 @@
       "enlarge_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Trametes%20versicolor.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Trametes%20versicolor.jpg?width=480",
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch A — common shelf/wood edibles)."
-      ],
-      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch A — common shelf/wood edibles",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Trametes%20versicolor.jpg?width=480"
     }
   ]
 }

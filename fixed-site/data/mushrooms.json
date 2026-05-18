@@ -9,7 +9,6 @@
     "source_mushrooms_build": "pre-split uploaded mushrooms baseline",
     "source_record_count_before_split": 209,
     "record_count": 9,
-    "notes": "Core/restored mushroom records retained at the original mushrooms.json path. Expanded mushroom records now load from smaller grouped files listed in split_manifest. v4.2.80 adds a core mushroom credibility pass: source links, use roles, foraging values, card notes, and cleaned placeholder use text for high-visibility mushrooms. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved.",
     "split_manifest": [
       {
         "path": "data/mushrooms.json",
@@ -59,8 +58,7 @@
     "last_completion_wave_date": "2026-05-14",
     "last_photo_rights_correction": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
     "last_photo_rights_correction_date": "2026-05-14",
-    "last_reaudit_build": "v4.3.64-r2026-05-14-mushroom-waves1-3-reaudit1",
-    "last_reaudit_note": "Re-audited v4.3.61-v4.3.63 touched mushroom species against hard completion checklist; incomplete items explicitly declared instead of silently marked complete."
+    "last_reaudit_build": "v4.3.64-r2026-05-14-mushroom-waves1-3-reaudit1"
   },
   "records": [
     {
@@ -69,7 +67,6 @@
       "common_name": "Artist's conk",
       "category": "Mushroom",
       "notes": "Hard woody bracket fungus with a white pore surface that bruises brown and can be scratched for drawing.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "January",
         "February",
@@ -99,18 +96,12 @@
       "general_notes": "Best treated as a shelf fungus ID entry rather than a food species.",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood"
       ],
       "commonness": "Common",
       "food_quality": "Not recommended",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         1,
         2,
@@ -145,7 +136,6 @@
         "host_filter_tokens": [
           "Hardwood"
         ],
-        "ring": [],
         "texture": [
           "Woody / tough"
         ],
@@ -278,14 +268,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Artists_conk-Ganoderma_applanatum_(7402107040).jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma_applanatum_1259894.jpg?width=480",
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
-      ],
-      "photo_patch_batch": "v4.2.60-r2026-04-28-mushroom-photo-patch6",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
       "completion_date": "2026-05-14",
       "use_links": [
@@ -319,7 +301,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -330,7 +311,6 @@
       "common_name": "Ash-tree Bolete",
       "category": "Mushroom",
       "notes": "",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "July",
         "August",
@@ -370,7 +350,6 @@
           "Forest soil",
           "Near ash"
         ],
-        "wood_type": [],
         "host_trees": [
           "Ash"
         ],
@@ -393,10 +372,6 @@
         ],
         "spore_print": "",
         "season_note": "July, August, September, June, October.",
-        "processing_required": [],
-        "research_notes": [
-          "Species seed added from the Michigan / Upper Midwest bolete pass."
-        ],
         "cap_surface": [
           "Dry to slightly tacky",
           "Dry to tacky",
@@ -429,7 +404,6 @@
           "Mild / sometimes fragrant"
         ]
       },
-      "manual_review_reasons": [],
       "mushroom_family": "Oddballs / veined / shaggy boletes",
       "boleteGroup": [
         "Oddballs / veined / shaggy boletes"
@@ -445,19 +419,13 @@
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "bolete",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
         "Ash"
       ],
       "commonness": "Occasional",
       "food_quality": "Fair",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "commonness_score": 3,
       "food_quality_score": 2,
       "look_alikes": [
@@ -481,7 +449,6 @@
           "notes": "Ash association and pore/staining details."
         }
       ],
-      "review_reasons": [],
       "common_names": [
         "Ash-tree Bolete"
       ],
@@ -495,16 +462,11 @@
         6,
         10
       ],
-      "habitats": [],
       "look_alike_risk": "",
       "look_alike_notes": "The ash association and wide, radially stretched pores separate it from many ordinary boletes; old man of the woods is darker and shaggier, while parasitic bolete grows on earthballs.",
-      "rare_profile": null,
       "overview": "",
       "other_uses": "",
       "edibility_notes": "Edible but not usually ranked with choice boletes; use only young, firm specimens after confident ID near ash.",
-      "curation_notes": [
-        "Original app species restored into the standalone modular build."
-      ],
       "edible_use": {
         "has_ingestible_use": true,
         "method": "Food",
@@ -515,13 +477,8 @@
         "has_meaningful_content": false,
         "summary": "",
         "evidence_tier": "",
-        "actions": [],
-        "body_systems": [],
-        "medical_terms": [],
-        "parts_used": [],
         "preparation_notes": "",
-        "warnings": "",
-        "claims": []
+        "warnings": ""
       },
       "images_structured": [
         {
@@ -608,12 +565,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10_Boletinellus_merulioides_(Schwein.)_Murrill_247593.jpg?width=480",
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
-      ],
-      "photo_patch_batch": "v4.2.57-r2026-04-28-mushroom-photo-patch5",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
       "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
       "completion_date": "2026-05-14",
       "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -636,7 +587,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -647,7 +597,6 @@
       "common_name": "Aspen oyster",
       "category": "Mushroom",
       "notes": "Shelf-forming oyster on aspen and related hardwoods.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "September",
         "October",
@@ -666,9 +615,7 @@
       "general_notes": "Treat as a gilled wood-rotting oyster rather than 'other'. In the U.P. this is a late-season hardwood oyster-type entry and should be compared with pearl and summer oysters.",
       "record_type": "mushroom",
       "lane": "gilled",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
         "Aspen / poplar"
@@ -676,10 +623,6 @@
       "commonness": "Occasional",
       "food_quality": "Good",
       "non_edible_severity": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         9,
         10,
@@ -825,16 +768,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_O._Hilber_%26_O.K._Mill_89533.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_13996.jpg?width=480",
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
-      ],
       "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
-      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
-      "photo_patch_group": "Batch A — gilled/toothed edible-style records",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
       "completion_date": "2026-05-14",
       "edibility_status": "edible_with_confident_id",
@@ -870,7 +804,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -881,7 +814,6 @@
       "common_name": "Bay Bolete",
       "category": "Mushroom",
       "notes": "Bay Bolete is treated here as Imleria badia. Older app data also used the scientific-name slug imleria-badia; that duplicate has been merged into this page.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "July",
         "August",
@@ -900,7 +832,6 @@
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "bolete",
-      "reviewReasons": [],
       "review_status": "complete",
       "search_aliases": [
         "bay-bolete",
@@ -916,10 +847,6 @@
       "commonness": "Occasional",
       "food_quality": "Good",
       "non_edible_severity": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "commonness_score": 4,
       "food_quality_score": 4,
       "month_numbers": [
@@ -1002,15 +929,10 @@
         "caution_level": "medium",
         "summary": "Bay-brown to reddish-brown cap, pale yellow pores that bruise grayish blue, wrinkled non-reticulate stem, and frequent fruiting near conifers or very decayed mossy wood.",
         "ecology": "bolete",
-        "wood_type": [],
         "host_certainty": "unknown",
         "ring": "Unknown",
         "odor": "Unknown",
-        "spore_print": "",
-        "processing_required": [],
-        "research_notes": [
-          "Species seed added from the Michigan bolete audit."
-        ]
+        "spore_print": ""
       },
       "scientific_name": "Imleria badia",
       "edibility_status": "edible_with_caution",
@@ -1035,8 +957,6 @@
         "Decayed wood vicinity"
       ],
       "primary_type": "mushroom",
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "common_names": [
         "Bay Bolete"
       ],
@@ -1049,17 +969,11 @@
         9,
         10
       ],
-      "habitats": [],
       "look_alike_risk": "",
       "look_alike_notes": "Bitter bolete has pinkish pores and a very bitter taste; king bolete is usually more robust with a different reticulate stem pattern and does not show the same bay-bolete blue bruising pattern.",
-      "rare_profile": null,
       "overview": "",
       "other_uses": "",
       "edibility_notes": "Cooked food. Generally regarded as edible when confidently identified and cooked; avoid old, buggy, or waterlogged specimens.",
-      "curation_notes": [
-        "Original app species restored into the standalone modular build.",
-        "Recreated locally from the original app baseline checklist for the modular standalone build. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes."
-      ],
       "edible_use": {
         "has_ingestible_use": true,
         "method": "Cooked food",
@@ -1070,13 +984,8 @@
         "has_meaningful_content": false,
         "summary": "",
         "evidence_tier": "",
-        "actions": [],
-        "body_systems": [],
-        "medical_terms": [],
-        "parts_used": [],
         "preparation_notes": "",
-        "warnings": "",
-        "claims": []
+        "warnings": ""
       },
       "hidden": true,
       "duplicate_of": "imleria-badia",
@@ -1144,14 +1053,7 @@
         }
       ],
       "needs_review": false,
-      "review_note": "",
-      "review_notes": "",
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
-      ],
       "photo_patch_alias_source_slug": "imleria-badia",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
       "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
       "completion_date": "2026-05-14",
       "detail_images": [
@@ -1183,7 +1085,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -1194,7 +1095,6 @@
       "common_name": "Bear's head tooth",
       "category": "Mushroom",
       "notes": "Cascading white tooth fungus with branched clusters rather than one round pom-pom mass.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "August",
         "September",
@@ -1212,21 +1112,13 @@
       "general_notes": "One of the Hericium mushrooms; useful to distinguish from lion's mane and coral tooth.",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [
-        "Re-audit incomplete: photo coverage is below the 2-image minimum using exact-rights images."
-      ],
       "review_status": "needs_review",
-      "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood"
       ],
       "commonness": "Uncommon",
       "food_quality": "Choice",
       "non_edible_severity": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         8,
         9,
@@ -1253,7 +1145,6 @@
         "host_filter_tokens": [
           "Hardwood"
         ],
-        "ring": [],
         "texture": [
           "Soft / fleshy"
         ],
@@ -1325,18 +1216,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_americanum_135426.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_americanum_135426.jpg?width=480",
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
-      ],
       "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
-      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
-      "photo_patch_group": "Batch A — gilled/toothed edible-style records",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-      "review_reasons": [
-        "Re-audit incomplete: photo coverage is below the 2-image minimum using exact-rights images."
-      ],
-      "manual_review_reasons": [],
       "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
       "completion_date": "2026-05-14",
       "edibility_status": "edible_with_confident_id",
@@ -1392,7 +1272,6 @@
       "common_name": "Birch polypore",
       "category": "Mushroom",
       "notes": "Look for pale hoof-like brackets on birch with a fine white pore surface underneath.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "January",
         "February",
@@ -1419,23 +1298,16 @@
       "culinary_uses": "Not a table mushroom; corky, bitter, and tough.",
       "non_edible_severity": "Non-culinary / tea",
       "edibility_detail": "Generally treated as non-culinary; better known for utility and tea-type use than as food.",
-      "photo_subject": "Birch",
       "general_notes": "A birch specialist and a good host-linked ID species for the app.",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
         "Birch"
       ],
       "commonness": "Common",
       "food_quality": "Not recommended",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         1,
         2,
@@ -1471,7 +1343,6 @@
           "Hardwood",
           "Birch"
         ],
-        "ring": [],
         "texture": [
           "Tough / corky"
         ],
@@ -1572,14 +1443,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Piptoporus_betulinus_2009_G1.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis_betulina_2011_G1.jpg?width=480",
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
-      ],
-      "photo_patch_batch": "v4.2.57-r2026-04-28-mushroom-photo-patch5",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
       "completion_date": "2026-05-14",
       "edibility_status": "non_culinary_tea_use",
@@ -1622,7 +1485,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -1633,7 +1495,6 @@
       "common_name": "Bitter Bolete",
       "category": "Mushroom",
       "notes": "Bitter Bolete is treated here as the Tylopilus felleus concept: a bitter, pink-pored bolete often confused with porcini-type mushrooms. North American material may not all be true European T. felleus, so use this page as a field-guide concept rather than a final microscope-level taxonomy claim.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "July",
         "August",
@@ -1654,20 +1515,14 @@
       "general_notes": "Key field clues: pinkish pores as it matures, a strongly bitter nibble-and-spit taste, and dark netting on the stalk. Often confused with porcini/king bolete types.",
       "record_type": "mushroom",
       "lane": "bolete",
-      "reviewReasons": [],
       "review_status": "complete",
       "search_aliases": [
         "bitter-bolete",
         "Bitter Bolete",
         "Tylopilus felleus"
       ],
-      "host_filter_tokens": [],
       "commonness": "Common",
       "food_quality": "Poor / bitter",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "commonness_score": 4,
       "food_quality_score": 2,
       "month_numbers": [
@@ -1721,8 +1576,6 @@
         "substrate": [
           "Forest soil"
         ],
-        "wood_type": [],
-        "host_trees": [],
         "host_certainty": "unknown",
         "underside": [
           "Pores"
@@ -1733,11 +1586,7 @@
         ],
         "odor": "Unknown",
         "staining": "Unknown",
-        "spore_print": "",
-        "processing_required": [],
-        "research_notes": [
-          "Species seed added from the Michigan / Upper Midwest bolete pass."
-        ]
+        "spore_print": ""
       },
       "common_names": [
         "Bitter Bolete",
@@ -1748,7 +1597,6 @@
       "look_alike_risk": "",
       "danger_level": "Niche edible / intensely bitter",
       "poisoning_effects": "Large amounts may cause stomach upset in some people; the practical problem is intense bitterness and confusion with better edible porcini-type boletes.",
-      "affected_systems": [],
       "kingdom_type": "mushroom",
       "species_scope": "species",
       "foraging_class": "mushroom",
@@ -1759,17 +1607,10 @@
         9,
         10
       ],
-      "habitats": [],
       "look_alike_notes": "Important king-bolete confusion risk: bitter bolete has pinkish mature pores and a bitter taste; do not mix it into a pan of good boletes unless you truly want bitterness.",
-      "rare_profile": null,
       "overview": "",
       "other_uses": "",
       "edibility_notes": "Inedible because of intense bitterness rather than dangerous poisoning. Keep it out of the Caution page unless a future record adds a real toxicity concern.",
-      "curation_notes": [
-        "Original app species restored into the standalone modular build.",
-        "Recreated locally from the original app baseline checklist for the modular standalone build. Baseline audit pass added lane, seasonality, commonness, food quality, host filtering, and comparison notes."
-      ],
-      "review_reasons": [],
       "edible_use": {
         "has_ingestible_use": false,
         "method": "",
@@ -1780,13 +1621,8 @@
         "has_meaningful_content": false,
         "summary": "",
         "evidence_tier": "",
-        "actions": [],
-        "body_systems": [],
-        "medical_terms": [],
-        "parts_used": [],
         "preparation_notes": "",
-        "warnings": "",
-        "claims": []
+        "warnings": ""
       },
       "use_links": [
         {
@@ -1803,7 +1639,6 @@
       "legacy_alias": true,
       "list_visibility": "hidden-duplicate",
       "duplicate_note": "Duplicate Bitter Bolete record kept only as a legacy slug alias.",
-      "manual_review_reasons": [],
       "is_non_edible": false,
       "toxicity_notes": "Not treated as a poison species in this guide; retained as a niche/acquired-taste edible with a strong bitter flavor.",
       "medicinal_uses": "",
@@ -1818,8 +1653,6 @@
       "primary_type": "mushroom",
       "is_medicinal": false,
       "needs_review": false,
-      "review_note": "",
-      "review_notes": "",
       "former_slugs": [
         "true-bitter-bolete"
       ],
@@ -1901,12 +1734,7 @@
           "checked_date": "2026-05-14"
         }
       ],
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
-      ],
       "photo_patch_alias_source_slug": "true-bitter-bolete",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
       "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
       "completion_date": "2026-05-14",
       "detail_images": [
@@ -1940,7 +1768,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -1951,7 +1778,6 @@
       "common_name": "Black morels",
       "category": "Mushroom",
       "notes": "Spring morels with darker ridges and a fully attached cap; hollow from tip through stem.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "April",
         "May",
@@ -1970,9 +1796,7 @@
       "general_notes": "Grouped here as a practical field-guide complex rather than a single strict species concept.",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
         "Conifer / softwood"
@@ -1980,10 +1804,6 @@
       "commonness": "Occasional",
       "food_quality": "Choice",
       "non_edible_severity": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         4,
         5,
@@ -2013,7 +1833,6 @@
           "Hardwood",
           "Conifer / softwood"
         ],
-        "ring": [],
         "texture": [
           "Fleshy / hollow"
         ],
@@ -2137,16 +1956,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_septentrionalis_344833.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_angusticeps_2009_G1.jpg?width=480",
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
-      ],
-      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch A — morels and early morel relatives",
       "photo_patch_alias_source_slug": "black-morel",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
       "completion_date": "2026-05-14",
       "edibility_status": "edible_with_caution",
@@ -2181,7 +1991,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -2192,7 +2001,6 @@
       "common_name": "Black trumpet",
       "category": "Mushroom",
       "notes": "Dark hollow trumpet with no true gills; the outside fertile surface is smooth to wrinkled, not bladed.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "July",
         "August",
@@ -2211,19 +2019,13 @@
       "general_notes": "Easy to miss because of its dark color, especially in leaf litter.",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood"
       ],
       "commonness": "Occasional",
       "food_quality": "Choice",
       "non_edible_severity": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         7,
         8,
@@ -2251,7 +2053,6 @@
         "host_filter_tokens": [
           "Hardwood"
         ],
-        "ring": [],
         "texture": [
           "Thin / pliable"
         ],
@@ -2349,15 +2150,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus_fallax_97831898.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus_fallax_95068953.jpg?width=480",
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
-      ],
-      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch B — common edible forms",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
       "completion_date": "2026-05-14",
       "edibility_status": "edible",
@@ -2392,7 +2184,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"

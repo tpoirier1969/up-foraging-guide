@@ -377,7 +377,7 @@ function lookAlikeSeparationNote(record = {}, rawName = "") {
   if (/galerina/.test(hay)) {
     return "Galerina is a serious/deadly wood-growing look-alike group. Check spore color, ring, cap texture, and growth on wood; do not treat small brown mushrooms as interchangeable.";
   }
-  return "Compare the linked page against this one using underside, pore/gill color, bruising, stem clues, host tree/substrate, season, and any taste warning.";
+  return "";
 }
 
 function lookAlikeRiskClass(status = {}) {

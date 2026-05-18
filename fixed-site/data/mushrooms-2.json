@@ -9,7 +9,6 @@
     "source_mushrooms_build": "pre-split uploaded mushrooms baseline",
     "source_record_count_before_split": 209,
     "record_count": 12,
-    "notes": "Core/restored mushroom records retained at the original mushrooms.json path. Expanded mushroom records now load from smaller grouped files listed in split_manifest. v4.2.80 adds a core mushroom credibility pass: source links, use roles, foraging values, card notes, and cleaned placeholder use text for high-visibility mushrooms. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved. v4.3.61-r2026-05-14-mushroom-completion-wave1-15species: completed selected mushroom species records in-place with rights metadata and stale review flags cleared.",
     "split_manifest": [
       {
         "path": "data/mushrooms.json",
@@ -59,8 +58,7 @@
     "last_completion_wave_date": "2026-05-14",
     "last_photo_rights_correction": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
     "last_photo_rights_correction_date": "2026-05-14",
-    "last_reaudit_build": "v4.3.64-r2026-05-14-mushroom-waves1-3-reaudit1",
-    "last_reaudit_note": "Re-audited v4.3.61-v4.3.63 touched mushroom species against hard completion checklist; incomplete items explicitly declared instead of silently marked complete."
+    "last_reaudit_build": "v4.3.64-r2026-05-14-mushroom-waves1-3-reaudit1"
   },
   "records": [
     {
@@ -69,7 +67,6 @@
       "common_name": "Blewit mushroom",
       "category": "Mushroom",
       "notes": "Lilac-toned forest-litter gilled mushroom.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "September",
         "October",
@@ -88,9 +85,7 @@
       "general_notes": "A practical gilled entry for the guide because the color, smell, and late-season habit are all useful identification cues.",
       "record_type": "mushroom",
       "lane": "gilled",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
         "Conifer / softwood"
@@ -98,10 +93,6 @@
       "commonness": "Occasional",
       "food_quality": "Good",
       "non_edible_severity": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         9,
         10,
@@ -249,16 +240,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Clitocybe_nuda_2011_G1.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lepista_nuda.jpg?width=480",
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
-      ],
       "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
-      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
-      "photo_patch_group": "Batch A — gilled/toothed edible-style records",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
       "completion_date": "2026-05-14",
       "edibility_status": "edible_with_caution",
@@ -294,7 +276,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -305,7 +286,6 @@
       "common_name": "Blue-staining / red-pored boletes (caution group)",
       "category": "Mushroom",
       "notes": "",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "July",
         "August",
@@ -326,16 +306,9 @@
       "general_notes": "This is a safety grouping, not a single species. It catches the red-pored/blue-staining bolete lane so users do not accidentally treat all boletes as edible.",
       "record_type": "mushroom",
       "lane": "bolete",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
-      "host_filter_tokens": [],
       "commonness": "Occasional",
       "food_quality": "Do not eat",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "commonness_score": 3,
       "food_quality_score": 0,
       "month_numbers": [
@@ -491,12 +464,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Exsudoporus_frostii_43854.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus_sensibilis_384173.jpg?width=480",
-      "image_review_status": "verified_rights_complete",
-      "image_review_reasons": [],
       "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
-      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
-      "photo_patch_group": "Batch D — red/yellow/caution boletes",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
       "scientific_name": "mixed red-pored / blue-staining bolete caution group",
       "field_identification": "Umbrella caution group for boletes with red to orange pore surfaces and/or rapid blue staining. Check pore color, bruising speed, reticulation on the stem, cap color, smell, and tree association. In this guide, red-pored or strongly blue-staining boletes are not food entries.",
       "mushroom_card_note": "Red pores or strong blue staining = caution lane. Do not eat from this group as a beginner.",
@@ -533,16 +501,9 @@
         "has_meaningful_content": false,
         "summary": "",
         "evidence_tier": "",
-        "actions": [],
-        "body_systems": [],
-        "medical_terms": [],
-        "parts_used": [],
         "preparation_notes": "",
-        "warnings": "",
-        "claims": []
+        "warnings": ""
       },
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "completion_build": "v4.3.63-r2026-05-14-mushroom-completion-wave3-16species-rights-strict1",
       "completion_date": "2026-05-14",
       "rights_review_status": "exact_metadata_verified",
@@ -565,7 +526,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -576,7 +536,6 @@
       "common_name": "Cauliflower mushroom",
       "category": "Mushroom",
       "notes": "Large ruffled mass with noodle-like folds rather than gills, pores, or teeth.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "August",
         "September",
@@ -595,9 +554,7 @@
       "general_notes": "Eastern North American cauliflower mushrooms are often treated around the Sparassis spathulata/americana complex. Use as a field-group entry rather than overpromising one species name.",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
       "host_filter_tokens": [
         "Conifer / softwood",
         "Pine"
@@ -605,10 +562,6 @@
       "commonness": "Occasional",
       "food_quality": "Good",
       "non_edible_severity": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         8,
         9,
@@ -725,11 +678,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Sparassis_spathulata_101065.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Sparassis_crispa_3.jpg?width=480",
-      "image_review_status": "verified_rights_complete",
-      "image_review_reasons": [],
-      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch D — coral, jelly, and odd-form mushrooms",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
       "scientific_name": "Sparassis spathulata / Sparassis americana complex",
       "edibility_status": "edible_with_caution",
       "field_identification": "Large cream to pale yellow mass of flattened, ruffled, noodle-like folds at the base of trees or from buried roots. It looks like a loose cauliflower or egg noodles, not an upright coral with many tiny branch tips.",
@@ -773,16 +721,9 @@
         "has_meaningful_content": false,
         "summary": "",
         "evidence_tier": "",
-        "actions": [],
-        "body_systems": [],
-        "medical_terms": [],
-        "parts_used": [],
         "preparation_notes": "",
-        "warnings": "",
-        "claims": []
+        "warnings": ""
       },
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "completion_build": "v4.3.63-r2026-05-14-mushroom-completion-wave3-16species-rights-strict1",
       "completion_date": "2026-05-14",
       "rights_review_status": "exact_metadata_verified",
@@ -805,7 +746,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -816,7 +756,6 @@
       "common_name": "Chaga",
       "category": "Mushroom",
       "notes": "Irregular black charcoal-like mass on living birch with warm brown interior.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "January",
         "February",
@@ -847,7 +786,6 @@
       "general_notes": "Not a culinary mushroom; better filed under medicinal/other uses despite being a fungus.",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [],
       "review_status": "complete",
       "search_aliases": [
         "clinker polypore",
@@ -881,7 +819,6 @@
         "Blood sugar interaction",
         "Kidney injury risk with heavy use"
       ],
-      "habitat": [],
       "month_numbers": [
         1,
         2,
@@ -918,7 +855,6 @@
           "Hardwood",
           "Birch"
         ],
-        "ring": [],
         "texture": [
           "Hard woody mass",
           "Woody / hard",
@@ -993,8 +929,7 @@
           "Sclerotium / conk"
         ],
         "preparation_notes": "Usually simmered or steeped as tea; stronger extracts/supplements are a different risk category than an occasional beverage.",
-        "warnings": "Use moderation. Chaga can be high in oxalates and case reports link heavy or long-term powder use with kidney injury. It may also increase bleeding risk with anticoagulant/antiplatelet drugs and may affect blood sugar, so avoid casual supplement-style use with kidney disease, bleeding disorders, diabetes drugs, blood thinners, pregnancy, or before surgery without medical guidance.",
-        "claims": []
+        "warnings": "Use moderation. Chaga can be high in oxalates and case reports link heavy or long-term powder use with kidney injury. It may also increase bleeding risk with anticoagulant/antiplatelet drugs and may affect blood sugar, so avoid casual supplement-style use with kidney disease, bleeding disorders, diabetes drugs, blood thinners, pregnancy, or before surgery without medical guidance."
       },
       "use_tags": [
         "E",
@@ -1038,16 +973,10 @@
         11,
         12
       ],
-      "habitats": [],
       "look_alike_risk": "",
       "look_alike_notes": "Birch polypore and hoof fungus form recognizable brackets; chaga is a black, cracked sterile mass with orange-brown interior, usually on living birch.",
-      "rare_profile": null,
       "overview": "",
       "edibility_notes": "Tea / infusion. Woody conk is not eaten like a normal mushroom, but it is commonly simmered or steeped as a bitter tea / coffee-like beverage. Used for tea/extract traditions rather than as food.",
-      "curation_notes": [
-        "Original app species restored into the standalone modular build."
-      ],
-      "review_reasons": [],
       "edible_use": {
         "has_ingestible_use": true,
         "method": "Tea / infusion",
@@ -1146,13 +1075,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Chaga_Mushroom_-_Inonotus_obliquus_(30222675437).jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Inonotus_obliquus.jpg?width=480",
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
-      ],
-      "photo_patch_batch": "v4.2.56-r2026-04-28-mushroom-photo-patch4",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-      "manual_review_reasons": [],
       "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
       "completion_date": "2026-05-14",
       "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -1175,7 +1097,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -1186,13 +1107,11 @@
       "common_name": "Charcoal burners / mild flexible-gill russulas",
       "category": "Mushroom",
       "notes": "Mild russula group.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "July",
         "August",
         "September"
       ],
-      "links": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/GT%20Charcoal%20Burner%2C%20Russula%20cyanoxantha.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20cyanoxantha%2001.jpg"
@@ -1202,19 +1121,13 @@
       "general_notes": "Useful as a group entry because amateurs often meet the field concept before they sort out the exact Russula name. Flexible gills are a meaningful criterion here. Representative Commons images use Russula cyanoxantha to illustrate the mild flexible-gill charcoal-burner group.",
       "record_type": "mushroom",
       "lane": "gilled",
-      "reviewReasons": [],
       "review_status": "ok",
-      "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood"
       ],
       "commonness": "Occasional",
       "food_quality": "Fair",
       "non_edible_severity": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         7,
         8,
@@ -1289,8 +1202,7 @@
           "credit": "Wikimedia Commons",
           "license": "See Wikimedia Commons file page"
         }
-      ],
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      ]
     },
     {
       "slug": "chicken-of-the-woods",
@@ -1298,7 +1210,6 @@
       "common_name": "Chicken of the woods",
       "category": "Mushroom",
       "notes": "Bright orange and yellow shelving bracket with pores below, not true gills.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "May",
         "June",
@@ -1321,9 +1232,7 @@
       "general_notes": "Some people react to it, especially older specimens or those from some conifers.",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood",
         "Conifer / softwood"
@@ -1331,10 +1240,6 @@
       "commonness": "Common",
       "food_quality": "Good",
       "non_edible_severity": "Edible with caution",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         5,
         6,
@@ -1366,7 +1271,6 @@
           "Hardwood",
           "Conifer / softwood"
         ],
-        "ring": [],
         "texture": [
           "Soft / fleshy"
         ],
@@ -1463,13 +1367,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/2007-06-27%20Laetiporus%20sulphureus%20crop.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Laetiporus%20sulphureus.jpg?width=480",
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "Photo rights metadata verified and completed in v4.3.61-r2026-05-14-mushroom-completion-wave1-15species."
-      ],
-      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch A — common shelf/wood edibles",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
       "season_months": [
         5,
         6,
@@ -1498,8 +1395,6 @@
           "notes": "Separates common Laetiporus species and host patterns."
         }
       ],
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "schema_completion_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
       "schema_completion_date": "2026-05-14",
       "completion_audit": {
@@ -1519,7 +1414,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -1530,7 +1424,6 @@
       "common_name": "Coral tooth fungus",
       "category": "Mushroom",
       "notes": "White coral-like tooth fungus with many branches carrying hanging spines.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "August",
         "September",
@@ -1550,19 +1443,13 @@
       "general_notes": "Another Hericium ally that benefits from side-by-side comparison with lion's mane and bear's head tooth.",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood"
       ],
       "commonness": "Uncommon",
       "food_quality": "Choice",
       "non_edible_severity": "",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         8,
         9,
@@ -1588,7 +1475,6 @@
         "host_filter_tokens": [
           "Hardwood"
         ],
-        "ring": [],
         "texture": [
           "Soft / fleshy"
         ],
@@ -1712,16 +1598,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_coralloides_2011_G1.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium-coralloides.jpg?width=480",
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
-      ],
       "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
-      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
-      "photo_patch_group": "Batch A — gilled/toothed edible-style records",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
       "completion_date": "2026-05-14",
       "edibility_status": "edible_with_confident_id",
@@ -1764,7 +1641,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -1775,7 +1651,6 @@
       "common_name": "Destroying angel",
       "category": "Mushroom",
       "notes": "Deadly white Amanita.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "July",
         "August",
@@ -1808,10 +1683,6 @@
       ],
       "commonness": "Occasional",
       "food_quality": "Deadly poisonous",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         7,
         8,
@@ -1934,9 +1805,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%20-%20Eastern%20North%20American%20Destroying%20Angel.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%20destroying%20angel%20skirt.jpg?width=480",
-      "photo_patch_batch": "v4.2.62-r2026-04-28-mushroom-photo-batchpack2",
-      "photo_patch_group": "Batch E — poisonous and caution look-alike support",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
       "common_names": [
         "Destroying angel",
         "Destroying angels",
@@ -1982,13 +1850,6 @@
         }
       ],
       "review_status": "complete",
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "Photo rights metadata verified and completed in v4.3.61-r2026-05-14-mushroom-completion-wave1-15species."
-      ],
-      "reviewReasons": [],
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "schema_completion_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
       "schema_completion_date": "2026-05-14",
       "completion_audit": {
@@ -2008,7 +1869,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -2019,7 +1879,6 @@
       "common_name": "Dryad's saddle / pheasant back",
       "category": "Mushroom",
       "notes": "Large tan-brown bracket with dark scales above and broad pores underneath.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "April",
         "May",
@@ -2041,18 +1900,12 @@
       "general_notes": "Mostly worth collecting young; older specimens get leathery fast.",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
       "host_filter_tokens": [
         "Hardwood"
       ],
       "commonness": "Common",
       "food_quality": "Fair to good when young",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         4,
         5,
@@ -2078,7 +1931,6 @@
         "host_filter_tokens": [
           "Hardwood"
         ],
-        "ring": [],
         "texture": [
           "Toughening with age"
         ],
@@ -2202,17 +2054,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/0%20Polyporus%20squamosus.JPG"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Polyporus%20squamosus%20Molter.jpg?width=480",
-      "image_review_status": "verified_rights_images_restored",
-      "image_review_reasons": [
-        "Dryad image coverage restored in v4.3.66 using only Wikimedia Commons images with exact author/license metadata transcribed.",
-        "Removed earlier invalid/unverified generated FilePath names for this record."
-      ],
-      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch B — common edible forms",
       "photo_patch_alias_source_slug": "dryad-s-saddle",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
       "completion_date": "2026-05-14",
       "edibility_status": "edible_young_with_caution",
@@ -2255,7 +2097,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared.",
         "photo_coverage": "pass",
         "photo_rights": "pass",
@@ -2270,7 +2111,6 @@
       "common_name": "False morel / Gyromitra group",
       "category": "Mushroom",
       "notes": "",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "April",
         "May",
@@ -2290,18 +2130,12 @@
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [],
       "review_status": "ok",
-      "search_aliases": [],
       "host_filter_tokens": [
         "Conifer / softwood"
       ],
       "commonness": "Occasional",
       "food_quality": "Not recommended",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "commonness_score": 3,
       "food_quality_score": 1,
       "month_numbers": [
@@ -2373,14 +2207,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Gyromitra%20esculenta.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Gyromitra%20esculenta.jpg?width=480",
-      "image_review_status": "field_photo_batchpack",
-      "image_review_reasons": [
-        "Commons-backed field photo batch-pack candidate appended in v4.2.61-r2026-04-28-mushroom-photo-batchpack1 (Batch D — poisonous/look-alike support records)."
-      ],
-      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch D — poisonous/look-alike support records",
-      "photo_patch_alias_source_slug": "false-morel",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_alias_source_slug": "false-morel"
     },
     {
       "slug": "field-mushroom",
@@ -2388,7 +2215,6 @@
       "common_name": "Field mushroom",
       "category": "Mushroom",
       "notes": "Open-ground agaric.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "August",
         "September",
@@ -2409,16 +2235,9 @@
       "general_notes": "One of the everyday 'looks like a store mushroom' entries, but still a caution species because white Amanitas and yellowing toxic Agaricus relatives complicate things.",
       "record_type": "mushroom",
       "lane": "gilled",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
-      "host_filter_tokens": [],
       "commonness": "Occasional",
       "food_quality": "Good when certain",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         8,
         9,
@@ -2443,7 +2262,6 @@
           "Grass",
           "Soil"
         ],
-        "host_filter_tokens": [],
         "ring": [
           "Ring present"
         ],
@@ -2560,16 +2378,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_091024.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Agaricus_campestris_2011_G1.jpg?width=480",
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
-      ],
       "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
-      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
-      "photo_patch_group": "Batch A — gilled/toothed edible-style records",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
       "completion_date": "2026-05-14",
       "scientific_name": "Agaricus campestris",
@@ -2606,7 +2415,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"
@@ -2617,7 +2425,6 @@
       "common_name": "Giant puffball",
       "category": "Mushroom",
       "notes": "Only edible when the interior is pure white and uniform all the way through.",
-      "short_reason": "Original app species restored into the standalone modular build.",
       "months_available": [
         "August",
         "September",
@@ -2636,17 +2443,10 @@
       "general_notes": "A cut-open check is mandatory because immature deadly amanitas can fool people when still buttoned.",
       "record_type": "mushroom",
       "lane": "other",
-      "reviewReasons": [],
       "review_status": "complete",
-      "search_aliases": [],
-      "host_filter_tokens": [],
       "commonness": "Occasional",
       "food_quality": "Good",
       "non_edible_severity": "Edible with caution",
-      "medicinalAction": [],
-      "medicinalSystem": [],
-      "medicinalTerms": [],
-      "habitat": [],
       "month_numbers": [
         8,
         9,
@@ -2671,8 +2471,6 @@
           "Meadow",
           "Forest edge / openings"
         ],
-        "host_filter_tokens": [],
-        "ring": [],
         "texture": [
           "Soft white interior when young"
         ],
@@ -2796,15 +2594,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2011_G1.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea.jpg?width=480",
-      "image_review_status": "rights_metadata_verified",
-      "image_review_reasons": [
-        "v4.3.62 corrective pass replaced placeholder Commons rights text with exact author/license metadata in v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1."
-      ],
-      "photo_patch_batch": "v4.2.61-r2026-04-28-mushroom-photo-batchpack1",
-      "photo_patch_group": "Batch B — common edible forms",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-      "review_reasons": [],
-      "manual_review_reasons": [],
       "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
       "completion_date": "2026-05-14",
       "edibility_status": "edible_with_caution",
@@ -2839,7 +2628,6 @@
           "photo_coverage_two_or_more_genuinely_distinct_images": true,
           "review_flags_resolved_or_unresolved_declared": true
         },
-        "unresolved_items": [],
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "complete"

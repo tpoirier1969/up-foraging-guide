@@ -9,7 +9,6 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 4,
-    "notes": "Split from former mushrooms-boletes-other.json in v4.2.90 to reduce large-file handling/static. Record bodies and order were preserved; each canonical slug still appears in exactly one base mushroom split file. Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.81 added species-specific bolete notes/source links and simplified review reasons for selected records. v4.2.91: other-bolete review pass updated review flags using the 2-3 distinct-image rule. v4.2.92: removed stale seed/review/build notes from user-facing nested profile fields while preserving active review reasons. v4.2.93 reviewed the 11 remaining other-bolete Needs Review records, resolving records with adequate source/photo support and retaining only true blocked review reasons. v4.2.94 separated food-use text from caution text and removed duplicate edible/caution echoes in detail-facing fields. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -56,7 +55,6 @@
       "category": "Mushroom",
       "culinary_uses": "Not a core food target; mainly useful for comparison among small red-pored boletes.",
       "medicinal_uses": "",
-      "notes": "Needs review: Needs more distinct photo coverage.",
       "months_available": [
         "July",
         "August",
@@ -111,9 +109,7 @@
         ],
         "spore_print": "",
         "season_note": "July to September in reported North American material.",
-        "processing_required": [],
         "research_notes": [
-          "Reviewed in v4.2.93: only one distinct Commons field image found; image coverage remains open.",
           "Small yellow to red-pink cap, red-pink pores fading yellow-orange/brown, yellow flesh that does not blue, and yellow-based pinkish stem."
         ],
         "cap_surface": [
@@ -136,9 +132,6 @@
           "Convex cap with central stem"
         ]
       },
-      "manual_review_reasons": [
-        "Needs more distinct photo coverage"
-      ],
       "mushroom_family": "Peppery & chalciporoid boletes",
       "boleteGroup": [
         "Peppery & chalciporoid boletes"
@@ -156,22 +149,11 @@
       "food_quality": "Poor",
       "food_quality_score": 2,
       "lane": "bolete",
-      "host_filter_tokens": [],
-      "look_alikes": [],
-      "confused_with": [],
       "general_notes": "",
       "edibility_detail": "Treat as specialist-ID only. Confirm the small yellow to red-pink cap, red-pink pores fading orange-brown, yellow flesh that does not blue, and yellow-based pinkish stem; this record still needs more distinct public image coverage.",
       "food_role": "food",
       "needs_review": true,
       "review_status": "needs_review",
-      "review_reasons": [
-        "Needs more distinct photo coverage"
-      ],
-      "reviewReasons": [
-        "Needs more distinct photo coverage"
-      ],
-      "review_note": "Needs review: Needs more distinct photo coverage.",
-      "review_notes": "Needs review: Needs more distinct photo coverage.",
       "mushroom_card_note": "Small red-pored Chalciporus with yellow flesh and pinkish-red pores; type material was collected in Michigan, but use a conservative ID standard.",
       "field_identification": "Look for a small yellow to red-pink cap, red-pink pores fading yellow-orange/brown, yellow flesh that does not blue, and a yellow-based pinkish stem. Best treated as a specialist Chalciporus ID.",
       "use_roles": [
@@ -179,15 +161,6 @@
       ],
       "foraging_value": "ID / comparison",
       "foraging_value_score": 1,
-      "image_review_status": "field_photo_exact_slug_batchpack",
-      "image_review_reasons": [
-        "Exact-slug photo batch-pack record appended in v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact (Batch C — butyriboletes, caloboletes, and chalciporoid allies); source URLs came from uploaded mushrooms.json."
-      ],
-      "curation_notes": [
-        "v4.2.91 image review: only one distinct real image is loaded; keep in Needs Review until at least 2 genuinely different photos are available.",
-        "v4.2.93 confirmed this remains image-blocked: one distinct Commons image found."
-      ],
-      "photo_subject": "Only one distinct Commons image currently available; do not count thumbnail/detail/enlarge variants as extra coverage.",
       "edibility_notes": "Treat as specialist-ID only. Confirm the small yellow to red-pink cap, red-pink pores fading orange-brown, yellow flesh that does not blue, and yellow-based pinkish stem; this record still needs more distinct public image coverage.",
       "images_structured": [
         {
@@ -207,10 +180,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20pseudorubinellus%20%28A.H.%20Sm.%20%26%20Thiers%29%20L.D.%20G%C3%B3mez%20435922.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20pseudorubinellus%20%28A.H.%20Sm.%20%26%20Thiers%29%20L.D.%20G%C3%B3mez%20435922.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
-      "photo_patch_batch": "v4.2.66-r2026-04-28-mushroom-photo-batchpack4-exact",
-      "photo_patch_group": "Batch C — butyriboletes, caloboletes, and chalciporoid allies",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
     },
     {
       "slug": "chalciporus-rubinellus",
@@ -271,10 +241,8 @@
         ],
         "spore_print": "",
         "season_note": "July through September.",
-        "processing_required": [],
         "research_notes": [
-          "Small convex cap often purple-red to reddish brown, red to pinkish pore surface, yellow flesh that generally does not blue, and a bare stem. Compare with C. pseudorubinellus and C. piperatus.",
-          "v4.2.91 image review: 2 distinct real image URLs present."
+          "Small convex cap often purple-red to reddish brown, red to pinkish pore surface, yellow flesh that generally does not blue, and a bare stem. Compare with C. pseudorubinellus and C. piperatus."
         ],
         "cap_surface": [
           "Purple-red to reddish-brown cap"
@@ -295,7 +263,6 @@
           "Convex cap with central stem"
         ]
       },
-      "manual_review_reasons": [],
       "mushroom_family": "Peppery & chalciporoid boletes",
       "boleteGroup": [
         "Peppery & chalciporoid boletes"
@@ -313,18 +280,11 @@
       "food_quality": "Poor",
       "food_quality_score": 2,
       "lane": "bolete",
-      "host_filter_tokens": [],
-      "look_alikes": [],
-      "confused_with": [],
       "general_notes": "",
       "edibility_detail": "Use caution with small red-pored boletes. Confirm red to pinkish pores, yellow flesh that generally does not blue, and separation from C. pseudorubinellus and C. piperatus.",
       "food_role": "food",
       "needs_review": false,
       "review_status": "ok",
-      "review_reasons": [],
-      "reviewReasons": [],
-      "review_note": "",
-      "review_notes": "",
       "mushroom_card_note": "Small purple-red/red-pored bolete; useful as a comparison species among peppery/red-pored Chalciporus rather than a major edible.",
       "field_identification": "Small convex cap often purple-red to reddish brown, red to pinkish pore surface, yellow flesh that generally does not blue, and a bare stem. Compare with C. pseudorubinellus and C. piperatus.",
       "use_roles": [
@@ -332,10 +292,6 @@
       ],
       "foraging_value": "ID / comparison",
       "foraging_value_score": 1,
-      "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
-      "curation_notes": [
-        "v4.2.91 image review: 2 distinct real image URLs are present; stale image-only review flags cleared."
-      ],
       "edibility_notes": "Use caution with small red-pored boletes. Confirm red to pinkish pores, yellow flesh that generally does not blue, and separation from C. pseudorubinellus and C. piperatus.",
       "images_structured": [
         {
@@ -366,14 +322,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20rubinellus%20%28Peck%29%20Singer%20665287.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20rubinellus%20%28Peck%29%20Singer%20635642.jpg?width=480",
-      "image_review_status": "field_photo_exact_slug_batchpack",
-      "image_review_reasons": [
-        "Exact-slug photo batch-pack record appended in v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact (Batch C — Suillus and peppery/chalciporoid allies); source URLs came from uploaded mushrooms.json."
-      ],
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
-      "photo_patch_batch": "v4.2.64-r2026-04-28-mushroom-photo-batchpack3-exact",
-      "photo_patch_group": "Batch C — Suillus and peppery/chalciporoid allies",
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
     },
     {
       "slug": "harrya-chromapes",
@@ -437,10 +386,8 @@
         ],
         "spore_print": "",
         "season_note": "July through September.",
-        "processing_required": [],
         "research_notes": [
-          "The key combination is pinkish to tan cap, creamy pores becoming pinkish/brownish, pinkish scabers on the stem, and a bright chrome-yellow stem base/basal mycelium. Often formerly listed as Tylopilus or Leccinum chromapes.",
-          "v4.2.91 image review: 3 distinct real image URLs present."
+          "The key combination is pinkish to tan cap, creamy pores becoming pinkish/brownish, pinkish scabers on the stem, and a bright chrome-yellow stem base/basal mycelium. Often formerly listed as Tylopilus or Leccinum chromapes."
         ],
         "cap_surface": [
           "Pinkish young cap"
@@ -462,7 +409,6 @@
           "Convex cap with central stem"
         ]
       },
-      "manual_review_reasons": [],
       "mushroom_family": "Long-stemmed & textured boletes",
       "boleteGroup": [
         "Long-stemmed & textured boletes"
@@ -480,19 +426,11 @@
       "food_quality": "Fair",
       "food_quality_score": 3,
       "lane": "bolete",
-      "host_filter_tokens": [],
-      "look_alikes": [],
-      "confused_with": [],
       "general_notes": "",
       "edibility_detail": "Edible with correct ID and fresh condition, but not prime.",
       "food_role": "food",
-      "photo_subject": "Field-view fruiting body; microscopy-only images intentionally avoided.",
       "needs_review": false,
       "review_status": "ok",
-      "review_reasons": [],
-      "reviewReasons": [],
-      "review_note": "",
-      "review_notes": "",
       "mushroom_card_note": "Pretty and distinctive bolete with pinkish cap, pink scabers on the stem, and a chrome-yellow stem base.",
       "field_identification": "The key combination is pinkish to tan cap, creamy pores becoming pinkish/brownish, pinkish scabers on the stem, and a bright chrome-yellow stem base/basal mycelium. Often formerly listed as Tylopilus or Leccinum chromapes.",
       "use_roles": [
@@ -500,9 +438,6 @@
       ],
       "foraging_value": "Good forage",
       "foraging_value_score": 3,
-      "curation_notes": [
-        "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
-      ],
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Harrya%20chromapes%20359731.jpg",
@@ -537,8 +472,7 @@
           "credit": "Wikimedia Commons",
           "license": "See Wikimedia Commons file page"
         }
-      ],
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      ]
     },
     {
       "slug": "aureoboletus-innixus",
@@ -602,10 +536,8 @@
         ],
         "spore_print": "",
         "season_note": "July through September.",
-        "processing_required": [],
         "research_notes": [
-          "Look for clustered growth, dry brown to reddish-brown cap, bright yellow pores that do not bruise blue, yellow basal mycelium, and a stem swollen near the base before tapering into a short root.",
-          "v4.2.91 image review: 3 distinct real image URLs present."
+          "Look for clustered growth, dry brown to reddish-brown cap, bright yellow pores that do not bruise blue, yellow basal mycelium, and a stem swollen near the base before tapering into a short root."
         ],
         "cap_surface": [
           "Dry brown to reddish-brown cap"
@@ -628,7 +560,6 @@
           "Convex cap with central stem"
         ]
       },
-      "manual_review_reasons": [],
       "mushroom_family": "Long-stemmed & textured boletes",
       "boleteGroup": [
         "Long-stemmed & textured boletes"
@@ -646,18 +577,11 @@
       "food_quality": "Fair",
       "food_quality_score": 3,
       "lane": "bolete",
-      "host_filter_tokens": [],
-      "look_alikes": [],
-      "confused_with": [],
       "general_notes": "",
       "edibility_detail": "Use as an ID/comparison species unless local edible-use confidence is stronger.",
       "food_role": "food",
       "needs_review": false,
       "review_status": "ok",
-      "review_reasons": [],
-      "reviewReasons": [],
-      "review_note": "",
-      "review_notes": "",
       "mushroom_card_note": "Clustered brown bolete with a dry brown cap, bright yellow non-bruising pores, yellow basal mycelium, and a stem often swollen above a short root.",
       "field_identification": "Look for clustered growth, dry brown to reddish-brown cap, bright yellow pores that do not bruise blue, yellow basal mycelium, and a stem swollen near the base before tapering into a short root.",
       "use_roles": [
@@ -665,10 +589,6 @@
       ],
       "foraging_value": "Occasional / niche use",
       "foraging_value_score": 2,
-      "photo_subject": "Field-view fruiting body photos; duplicate thumbnail/detail/full variants do not count as extra coverage.",
-      "curation_notes": [
-        "v4.2.91 image review: 3 distinct real image URLs are present; stale image-only review flags cleared."
-      ],
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20innixus%20%28Frost%29%20Halling%2C%20A.R.%20Bessette%20%26%20A.E.%20Bessette%20532912.jpg",
@@ -703,8 +623,7 @@
           "credit": "Wikimedia Commons",
           "license": "See Wikimedia Commons file page"
         }
-      ],
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      ]
     }
   ]
 }

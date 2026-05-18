@@ -9,7 +9,6 @@
     "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 3,
-    "notes": "Physical data split only. Species record bodies were preserved; each canonical slug appears in exactly one base mushroom file. v4.2.84 updated 25 red/caution bolete records with conservative notes, sources, and explicit remaining review reasons. v4.2.86: optional photo patches are treated as fill-only for existing base-record image fields; direct image fallback hardened for Black Velvet Bolete and Suillus tomentosus where applicable. v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4: carried forward with patch-precedence-safe image handling. v4.2.88: 25-record mushroom credibility/review pass; porcini/Tylopilus/Xerocomus records rechecked and remaining red/caution records improved while preserving true image/local-taxonomy review flags. v4.2.96: large red-caution source split into 3 chunks of 13 records; record bodies preserved and original order retained. v4.2.97 reviewed first 25 remaining red-caution Needs Review records after the file split; stale image-only flags were cleared only where 2+ genuinely distinct real image URLs existed, one-photo/placeholder records stayed in review, taxonomy flags were preserved, and duplicate food/caution language was cleaned. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved.",
     "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
     "review_reason_audit": {
       "audited_on": "2026-04-28",
@@ -67,7 +66,6 @@
       "category": "Mushroom",
       "culinary_uses": "Not a food target in this guide.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs source links and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -92,7 +90,7 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "high",
-        "summary": "Lanmaoa red/yellow blue-staining bolete; keep as comparison-only until app images and stronger field confirmation are in place.",
+        "summary": "Red/yellow blue-staining bolete; treat as a specialist ID with low local confidence rather than a food target.",
         "ecology": "mycorrhizal bolete",
         "substrate": [
           "Forest soil"
@@ -121,10 +119,6 @@
         ],
         "spore_print": "",
         "season_note": "Summer to fall; confirm locally.",
-        "processing_required": [],
-        "research_notes": [
-          "Updated in v4.2.84 with conservative field-guide wording and source links."
-        ],
         "cap_surface": [
           "Red to reddish-brown cap"
         ],
@@ -145,10 +139,6 @@
           "Convex cap with central stem"
         ]
       },
-      "manual_review_reasons": [
-        "needs source links",
-        "needs species-level notes review"
-      ],
       "mushroom_family": "Red-staining & red-pored caution boletes",
       "boleteGroup": [
         "Red-staining & red-pored caution boletes"
@@ -166,7 +156,6 @@
       "food_quality": "Use with caution",
       "food_quality_score": 1,
       "lane": "bolete",
-      "host_filter_tokens": [],
       "look_alikes": [
         "blue-staining-red-pored-boletes-caution-group",
         "lurid-bolete",
@@ -181,11 +170,7 @@
       "food_role": "avoid",
       "needs_review": false,
       "review_status": "ok",
-      "review_reasons": [],
-      "reviewReasons": [],
-      "review_note": "",
-      "review_notes": "",
-      "mushroom_card_note": "Lanmaoa red/yellow blue-staining bolete; keep as comparison-only until app images and stronger field confirmation are in place.",
+      "mushroom_card_note": "Red/yellow blue-staining bolete; treat as a specialist ID with low local confidence rather than a food target.",
       "field_identification": "Use red/yellow cap and stem pattern, yellow pores with blue staining, hardwood association, and current Lanmaoa/Boletus taxonomy as the ID frame.",
       "use_roles": [
         "ID / caution"
@@ -206,8 +191,7 @@
           "credit": "Wikimedia Commons",
           "license": "See Wikimedia Commons file page"
         }
-      ],
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      ]
     },
     {
       "slug": "lanmaoa-fallax",
@@ -216,7 +200,7 @@
       "category": "Mushroom",
       "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs real field photo / image coverage, needs source links, and needs species-specific notes review.",
+      "notes": "",
       "months_available": [
         "July",
         "August",
@@ -269,8 +253,6 @@
         ],
         "spore_print": "",
         "season_note": "Summer to fall; confirm locally.",
-        "processing_required": [],
-        "research_notes": [],
         "cap_surface": [
           "Red to brownish-red cap"
         ],
@@ -291,9 +273,6 @@
           "Convex cap with central stem"
         ]
       },
-      "manual_review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
       "mushroom_family": "Red-staining & red-pored caution boletes",
       "boleteGroup": [
         "Red-staining & red-pored caution boletes"
@@ -311,7 +290,6 @@
       "food_quality": "Not recommended",
       "food_quality_score": 1,
       "lane": "bolete",
-      "host_filter_tokens": [],
       "look_alikes": [
         "blue-staining-red-pored-boletes-caution-group",
         "lurid-bolete",
@@ -333,28 +311,14 @@
         "preparation_required": false,
         "notes": ""
       },
-      "image_review_status": "needs_field_photo",
-      "image_review_reasons": [
-        "Fewer than two genuinely distinct real source images are currently available in the app.",
-        "Replace placeholder or single-photo coverage with clear field photos showing cap/stem/underside or growth context."
-      ],
-      "reviewReasons": [
-        "Needs real field photo / image coverage"
-      ],
-      "review_reasons": [
-        "Needs real field photo / image coverage"
-      ],
       "needs_review": true,
-      "review_note": "Needs review: Needs real field photo / image coverage.",
-      "review_notes": "Needs review: Needs real field photo / image coverage.",
       "mushroom_card_note": "Lanmaoa/Boletus fallax-style record; needs images and modern taxonomy confidence before being treated as settled.",
       "field_identification": "Treat as a red/yellow blue-staining Lanmaoa comparison. Confirm cap color, pore bruising, stem color pattern, hardwood host, and microscopy/current name.",
       "use_roles": [
         "ID / caution"
       ],
       "foraging_value": "Use with caution",
-      "foraging_value_score": 1,
-      "curation_notes": []
+      "foraging_value_score": 1
     },
     {
       "slug": "lanmaoa-pallidorosea",
@@ -363,7 +327,6 @@
       "category": "Mushroom",
       "culinary_uses": "Not a food target in this guide.",
       "medicinal_uses": "",
-      "notes": "Needs review: needs source links and needs species-specific notes review.",
       "months_available": [
         "July",
         "August",
@@ -418,10 +381,6 @@
         ],
         "spore_print": "",
         "season_note": "Summer to fall; confirm locally.",
-        "processing_required": [],
-        "research_notes": [
-          "Updated in v4.2.84 with conservative field-guide wording and source links."
-        ],
         "cap_surface": [
           "Pale rosy to reddish cap"
         ],
@@ -442,10 +401,6 @@
           "Convex cap with central stem"
         ]
       },
-      "manual_review_reasons": [
-        "needs source links",
-        "needs species-level notes review"
-      ],
       "mushroom_family": "Red-staining & red-pored caution boletes",
       "boleteGroup": [
         "Red-staining & red-pored caution boletes"
@@ -463,7 +418,6 @@
       "food_quality": "Use with caution",
       "food_quality_score": 1,
       "lane": "bolete",
-      "host_filter_tokens": [],
       "look_alikes": [
         "blue-staining-red-pored-boletes-caution-group",
         "lurid-bolete",
@@ -486,10 +440,6 @@
         "notes": ""
       },
       "needs_review": false,
-      "review_reasons": [],
-      "reviewReasons": [],
-      "review_note": "",
-      "review_notes": "",
       "mushroom_card_note": "Pale rosy Lanmaoa-style record; retained for comparison in the red/yellow blue-staining bolete group.",
       "field_identification": "Use as a tentative Lanmaoa comparison record. Confirm pale rosy cap tones, yellow pores, blue staining, hardwood host, and current taxonomy before trusting the name.",
       "use_roles": [
@@ -531,8 +481,7 @@
           "credit": "Wikimedia Commons",
           "license": "See Wikimedia Commons file page"
         }
-      ],
-      "photo_patch_folded_in_build": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1"
+      ]
     }
   ]
 }
