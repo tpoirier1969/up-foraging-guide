@@ -1145,12 +1145,56 @@ function matchesTraitFilters(record, route, filters) {
   });
 }
 
+function mushroomDisplayText(record = {}) {
+  return [
+    record.display_name,
+    record.common_name,
+    record.scientific_name,
+    record.category,
+    record.foraging_class,
+    record.mushroom_family,
+    record.mushroom_profile?.family,
+    record.mushroom_profile?.group
+  ].join(" | ").toLowerCase();
+}
+
+function mushroomRouteLane(record) {
+  const lane = String(record?.lane || "").toLowerCase().trim();
+  const explicitUndersideText = [
+    ...cleanOptionValues(collectValues(record, [
+      ["underside"], ["underside_type"], ["fertile_surface"],
+      ["mushroom_profile", "underside"], ["mushroom_profile", "underside_type"], ["mushroom_profile", "fertile_surface"]
+    ])),
+    ...mushroomProfileValues(record, ["gill_color", "pore_color", "tooth_color", "ridge_color", "hymenium_color"])
+  ].join(" | ").toLowerCase();
+  const nameText = mushroomDisplayText(record);
+  const trueGillText = /gill|lamella/.test(explicitUndersideText) && !/false gill|false-gill|no gill|ridge|fold|chanterelle/.test(explicitUndersideText);
+  const boleteNameText = /\b(bolete|boletus|suillus|leccinum|tylopilus|xerocomellus|aureoboletus|butyriboletus|boletellus|chalciporus|gyroporus|caloboletus|cyanoboletus|neoboletus|exsudoporus|baorangia|strobilomyces|boletinellus|buchwaldoboletus|hemileccinum|porphyrellus|i?mleria|xerocomus)\b/.test(nameText);
+  const poredText = /pore|tube|sponge|spongy/.test(explicitUndersideText);
+
+  // Explicit lanes win first so gilled boletes (Phylloporus), chanterelles with ridges,
+  // morels, tooth fungi, and polypores do not get dragged into the wrong page by text snippets.
+  if (["gilled", "true-gilled", "true_gilled"].includes(lane)) return "gilled";
+  if (["bolete", "boletes", "pored", "pores", "spongelike", "spongy"].includes(lane)) return "boletes";
+  if (["other", "morel", "tooth", "polypore", "chanterelle", "puffball", "coral", "jelly", "crust", "club", "trumpet", "lichen"].includes(lane)) return "other";
+
+  if (poredText || boleteNameText) return "boletes";
+  if (trueGillText) return "gilled";
+  return "other";
+}
+
+function mushroomRouteMatch(record, route) {
+  const routeLane = mushroomRouteLane(record);
+  if (route === "boletes") return routeLane === "boletes";
+  if (route === "mushrooms-gilled") return routeLane === "gilled";
+  if (route === "mushrooms-other") return routeLane === "other";
+  return true;
+}
+
 function routeMatch(record, route) {
   const info = classifyRecord(record);
   if (route === "plants") return info.isPlant && info.edible;
-  if (route === "mushrooms-gilled") return info.isMushroom && info.edible && record.lane === "gilled";
-  if (route === "boletes") return info.isMushroom && info.edible && record.lane === "bolete";
-  if (route === "mushrooms-other") return info.isMushroom && info.edible && record.lane === "other";
+  if (["mushrooms-gilled", "boletes", "mushrooms-other"].includes(route)) return info.isMushroom && info.edible && mushroomRouteMatch(record, route);
   if (route === "medicinal") return info.medicinal;
   if (route === "lookalikes") return info.caution;
   if (route === "caution") return info.caution;
