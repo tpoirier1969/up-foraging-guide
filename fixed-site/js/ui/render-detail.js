@@ -1,6 +1,6 @@
 import { esc } from "../lib/escape.js";
 import { state } from "../state.js";
-import { getMedicinalData, isBuildNoteText, cleanUserFacingText } from "../lib/merge.js?v=v4.3.25-r2026-05-12-safety-language-cleanup1";
+import { getMedicinalData, isBuildNoteText, cleanUserFacingText } from "../lib/merge.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [

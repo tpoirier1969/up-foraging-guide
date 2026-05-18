@@ -1,4 +1,4 @@
-import { classifyRecord } from "../lib/merge.js?v=v4.2.47-r2026-04-27-mushroom-photo-fix1";
+import { classifyRecord } from "../lib/merge.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
