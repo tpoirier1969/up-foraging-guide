@@ -276,10 +276,11 @@
       "display_name": "Burn-site morel",
       "common_name": "Burn-site morel",
       "common_names": [
-        "Burn-site morel",
         "Burn morel",
-        "Morchella exuberans",
-        "Morchella capitata"
+        "Burn-site morel",
+        "Fire morel",
+        "Morchella capitata",
+        "Morchella exuberans"
       ],
       "search_aliases": [
         "burn site morel",
@@ -300,8 +301,8 @@
       "commonness": "Localized",
       "edibility_status": "edible_with_preparation",
       "non_edible_severity": "",
-      "culinary_uses": "Edible true morel when positively identified, cleaned well to remove ash residue, and cooked thoroughly.",
-      "edibility_detail": "Fire-associated true morel; use only after confident true-morel identification and thorough cooking.",
+      "culinary_uses": "Edible after confident true-morel ID and thorough cooking; clean carefully because burn-site morels may hold ash, grit, and insects in pits.",
+      "edibility_detail": "Edible true morel only after confident true-morel identification and thorough cooking; avoid if false-morel traits are present or the specimen is deteriorated.",
       "months_available": [
         "May",
         "June"
@@ -316,13 +317,13 @@
       ],
       "mushroom_profile": {
         "underside": [
-          "Pitted / ridged",
-          "No gills"
+          "No gills",
+          "Pitted cap exterior"
         ],
         "substrate": [
-          "Burn sites",
-          "Forest soil",
-          "Charred ground"
+          "Charred forest soil",
+          "Recent burn sites",
+          "Ashy or disturbed conifer-burn ground"
         ],
         "host_filter_tokens": [
           "Burn sites",
@@ -344,20 +345,37 @@
           "Dark ridges when mature"
         ],
         "stem_feature": [
-          "Hollow stem"
+          "Hollow stem",
+          "Cap attached to stem as a true morel"
         ],
         "growth_form": [
-          "Morel-like fruitbody"
+          "True morel fruitbody"
         ],
-        "season_note": "Spring after fire; Michigan DNR notes burn-site morels may appear in conifer forests the first year after a fire, and more rarely two years after."
+        "season_note": "Spring, especially the first year after fire; sometimes reported in the second spring after a burn.",
+        "entry_scope": "species",
+        "wood_type": [
+          "Burned conifer forest context",
+          "Pine burn context"
+        ],
+        "host_trees": [
+          "Pine / conifer burn sites"
+        ],
+        "fertile_surface": [
+          "Pitted cap; no gills or pores"
+        ],
+        "spore_print": "Not useful for casual field ID"
       },
-      "field_identification": "True morel associated with recent burn sites. Hollow fruitbody with pitted cap; mature caps can have dark brown to black ridges. Search only where recent burn conditions make sense; season, burn substrate, hollow structure, and size all need to be checked together once definitive measurements are added.",
+      "field_identification": "Fire-associated true morel: hollow from cap tip through stem, pitted cap with darker ridges at maturity, no cottony/chambered interior like false morels, and a strong recent-burn context. Search especially in the first spring after a conifer/pine burn; in Michigan this is a northern spring morel and the burn history, hollow body, pitted cap, and season should all agree before considering it.",
       "mushroom_card_note": "Localized true morel of recent burn sites; clean off ash and cook thoroughly.",
       "look_alikes": [
-        "false-morel"
+        "false-morel",
+        "false-morel-gyromitra-group",
+        "half-free-morels"
       ],
       "confused_with": [
-        "false-morel"
+        "false-morel",
+        "false-morel-gyromitra-group",
+        "half-free-morels"
       ],
       "look_alike_risk": "serious",
       "look_alike_notes": "False morels may occur in spring. Confirm hollow true-morel structure and pitted cap; avoid brain-like, wrinkled, chambered, solid, or free-hanging forms.",
@@ -376,7 +394,8 @@
       },
       "links": [
         "https://www.michigan.gov/dnr/things-to-do/morels/morel-identification",
-        "https://www.michigan.gov/dnr/things-to-do/morels"
+        "https://www.michigan.gov/dnr/things-to-do/morels",
+        "https://en.wikipedia.org/wiki/Morchella_exuberans"
       ],
       "use_links": [
         {
@@ -398,29 +417,60 @@
       ],
       "review_status": "needs_review",
       "review_reasons": [
-        "Canonical spring morel record still needs dedicated image coverage.",
-        "Needs at least 2 exact-rights images.",
-        "Needs definitive cm/inch measurement range for the exact taxon."
+        "No exact-rights images verified yet for Morchella exuberans; species remains visible with image coverage incomplete.",
+        "Definitive species-specific cap/stem/body measurements in cm and inches were not verified from accessible sources in this pass."
       ],
-      "image_review_status": "needs_photo",
+      "image_review_status": "no_verified_images",
       "image_review_reasons": [
-        "Canonical spring morel record still needs dedicated images.",
-        "No exact-rights images verified yet; species remains visible and searchable."
+        "No exact-rights images were verified in this pass; species remains visible but image coverage is incomplete."
       ],
       "field_measurements": {
-        "status": "not_verified_for_exact_taxon",
-        "overall": "",
-        "cap": "",
-        "stem": "",
-        "notes": "Needs review: no definitive cm/inch field-size range has been verified yet for the exact app taxon Morchella exuberans. Keep this species visible, but do not mark its measurements complete until cap/body and stem ranges are sourced.",
-        "checked_build": "v4.3.67-r2026-05-14-field-id-measurement-schema1",
-        "checked_date": "2026-05-14"
+        "notes": "Definitive published cm/inch cap-and-stem range for Morchella exuberans was not verified in this pass; do not infer size from other morels.",
+        "needs_measurement_research": true,
+        "missing_measurement_reason": "Accessible references confirmed burn-site ecology and true-morel characters, but did not provide a clean species-specific size range."
       },
       "completion_gaps": [
-        "Image coverage incomplete: no exact-rights images verified yet for this record.",
-        "Size measurements incomplete: definitive cm and inch ranges for cap/body and stem have not yet been verified for the exact app taxon Morchella exuberans."
+        "No exact-rights images verified yet for Morchella exuberans; species remains visible with image coverage incomplete.",
+        "Definitive species-specific cap/stem/body measurements in cm and inches were not verified from accessible sources in this pass."
       ],
-      "completion_status": "incomplete_declared"
+      "completion_status": "incomplete_declared",
+      "images_structured": [],
+      "images": [],
+      "detail_images": [],
+      "enlarge_images": [],
+      "list_thumbnail": "",
+      "completion_audit": {
+        "checklist_id": "mushroom-species-hard-completion-checklist-v2-measurements",
+        "audited_build": "v4.3.68-r2026-05-14-zero-image-measurement-pass1-5species",
+        "audited_date": "2026-05-14",
+        "checklist": {
+          "identity_scope_and_scientific_name": true,
+          "practical_field_identification": true,
+          "definitive_measurements_cm_and_inches": false,
+          "edibility_or_toxicity_status_and_detail": true,
+          "culinary_or_do_not_eat_guidance": true,
+          "lookalikes_or_confusion_risk": true,
+          "habitat_substrate_host_or_growth_context": true,
+          "seasonality": true,
+          "source_or_use_links": true,
+          "photo_rights_exact_for_all_used_images": true,
+          "photo_coverage_two_or_more_genuinely_distinct_images": false,
+          "review_flags_resolved_or_unresolved_declared": true
+        },
+        "unresolved_items": [
+          "No exact-rights images verified yet for Morchella exuberans; species remains visible with image coverage incomplete.",
+          "Definitive species-specific cap/stem/body measurements in cm and inches were not verified from accessible sources in this pass."
+        ],
+        "auditor_note": "This pass prioritized no-image mushroom records. Species remain visible even when incomplete; unresolved measurement/photo/source gaps are explicitly declared instead of being hidden."
+      },
+      "reviewReasons": [
+        "No exact-rights images verified yet for Morchella exuberans; species remains visible with image coverage incomplete.",
+        "Definitive species-specific cap/stem/body measurements in cm and inches were not verified from accessible sources in this pass."
+      ],
+      "manual_review_reasons": [
+        "No exact-rights images verified yet for Morchella exuberans; species remains visible with image coverage incomplete.",
+        "Definitive species-specific cap/stem/body measurements in cm and inches were not verified from accessible sources in this pass."
+      ]
     }
   ]
 }
