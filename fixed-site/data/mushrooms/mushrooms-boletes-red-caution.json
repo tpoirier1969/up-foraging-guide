@@ -1,21 +1,12 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1",
     "primary_type": "mushroom",
     "split_version": "size-chunk-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-red-caution.json",
     "split_role": "Expanded red/yellow, blue-staining, red-pored, and caution-lane bolete records.",
-    "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 10,
-    "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
-    "review_reason_audit": {
-      "audited_on": "2026-04-28",
-      "rule": "Normalize explicit review signals into review_reasons/review_note and prefix notes for Needs Review list visibility.",
-      "review_records_in_file": 36,
-      "cleared_image_only_slugs_not_reopened": []
-    },
     "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
     "last_credibility_batch": "v4.2.97-r2026-04-30-red-caution-review1",
     "split_part": 1,
@@ -52,10 +43,7 @@
       ],
       "rule": "Clear stale image-only review only when at least two distinct real source-image URLs exist; keep one-photo and placeholder records in review."
     },
-    "last_photo_patch_fold": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-    "photo_patch_folded_record_count": 10,
-    "source_group": "data/mushrooms/mushrooms-boletes-red-caution",
-    "source_build_before_size_split": "v4.2.97-r2026-04-30-red-caution-review1"
+    "source_group": "data/mushrooms/mushrooms-boletes-red-caution"
   },
   "records": [
     {
@@ -92,7 +80,7 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Bicolor Bolete. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Minimal bolete seed entry for Bicolor Bolete.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -404,8 +392,7 @@
       "enlarge_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/2013-08-04%20Boletus%20bicoloroides%20A.H.%20Sm.%20%26%20Thiers%20354793.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2013-08-04%20Boletus%20bicoloroides%20A.H.%20Sm.%20%26%20Thiers%20354793.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2013-08-04%20Boletus%20bicoloroides%20A.H.%20Sm.%20%26%20Thiers%20354793.jpg?width=480"
     },
     {
       "slug": "boletus-miniato-olivaceus",
@@ -545,8 +532,7 @@
       "enlarge_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20miniato-olivaceus%20158624.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20miniato-olivaceus%20158624.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20miniato-olivaceus%20158624.jpg?width=480"
     },
     {
       "slug": "boletus-rubissimus",
@@ -959,8 +945,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20speciosus%20var.%20brunneus%2036525.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Icones%20Farlowianae%20%28Pl.%2081%29%20%288489496242%29.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20speciosus%20var.%20brunneus%20169906.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20speciosus%20var.%20brunneus%20169906.jpg?width=480"
     },
     {
       "slug": "boletus-subdepauperatus",
@@ -1246,8 +1231,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subfraternus%20485977.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subfraternus%20763390.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subfraternus%20485976.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subfraternus%20485976.jpg?width=480"
     },
     {
       "slug": "boletus-subgraveolens",
@@ -1386,8 +1370,7 @@
       "enlarge_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subgraveolens%2075322.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subgraveolens%2075322.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subgraveolens%2075322.jpg?width=480"
     },
     {
       "slug": "boletus-vermiculosoides",
@@ -1546,8 +1529,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20vermiculosoides%2018333.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20vermiculosoides%2078531.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20vermiculosoides%2018333.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20vermiculosoides%2018333.jpg?width=480"
     }
   ]
 }

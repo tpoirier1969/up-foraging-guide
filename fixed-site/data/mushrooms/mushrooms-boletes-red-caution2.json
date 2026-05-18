@@ -1,21 +1,12 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1",
     "primary_type": "mushroom",
     "split_version": "size-chunk-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-red-caution2.json",
     "split_role": "Expanded red/yellow, blue-staining, red-pored, and caution-lane bolete records.",
-    "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 10,
-    "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
-    "review_reason_audit": {
-      "audited_on": "2026-04-28",
-      "rule": "Normalize explicit review signals into review_reasons/review_note and prefix notes for Needs Review list visibility.",
-      "review_records_in_file": 36,
-      "cleared_image_only_slugs_not_reopened": []
-    },
     "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
     "last_credibility_batch": "v4.2.97-r2026-04-30-red-caution-review1",
     "split_part": 1,
@@ -52,10 +43,7 @@
       ],
       "rule": "Clear stale image-only review only when at least two distinct real source-image URLs exist; keep one-photo and placeholder records in review."
     },
-    "last_photo_patch_fold": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-    "photo_patch_folded_record_count": 8,
-    "source_group": "data/mushrooms/mushrooms-boletes-red-caution2",
-    "source_build_before_size_split": "v4.2.97-r2026-04-30-red-caution-review1"
+    "source_group": "data/mushrooms/mushrooms-boletes-red-caution2"
   },
   "records": [
     {
@@ -225,8 +213,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/2013-06-07%20Caloboletus%20inedulis%20%28Murrill%29%20Vizzini%20338362.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/2013-07-09%20Caloboletus%20inedulis%20%28Murrill%29%20Vizzini%20347317.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2013-06-07%20Caloboletus%20inedulis%20%28Murrill%29%20Vizzini%20338361.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2013-06-07%20Caloboletus%20inedulis%20%28Murrill%29%20Vizzini%20338361.jpg?width=480"
     },
     {
       "slug": "caloboletus-peckii",
@@ -370,8 +357,7 @@
       "enlarge_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/2016-08-06%20Caloboletus%20peckii%20%28Frost%29%20Vizzini%20643530.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2016-08-06%20Caloboletus%20peckii%20%28Frost%29%20Vizzini%20643530.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2016-08-06%20Caloboletus%20peckii%20%28Frost%29%20Vizzini%20643530.jpg?width=480"
     },
     {
       "slug": "exsudoporus-frostii",
@@ -621,7 +607,7 @@
         "entry_scope": "species",
         "edibility_status": "toxic_or_dangerous",
         "caution_level": "high",
-        "summary": "Minimal bolete seed entry for Curry Bolete. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Minimal bolete seed entry for Curry Bolete.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"

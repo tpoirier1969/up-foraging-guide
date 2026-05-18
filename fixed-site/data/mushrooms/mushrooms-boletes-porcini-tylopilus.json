@@ -1,30 +1,18 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1",
     "primary_type": "mushroom",
     "split_version": "size-chunk-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-porcini-tylopilus.json",
     "split_role": "Expanded porcini, Tylopilus, dark-pored, and brown bolete records.",
-    "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 8,
-    "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
-    "review_reason_audit": {
-      "audited_on": "2026-04-28",
-      "rule": "Normalize explicit review signals into review_reasons/review_note and prefix notes for Needs Review list visibility.",
-      "review_records_in_file": 36,
-      "cleared_image_only_slugs_not_reopened": []
-    },
     "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
     "last_credibility_batch": "v4.2.88-r2026-04-30-mushroom-porcini-red-credibility5",
-    "last_photo_patch_fold": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-    "photo_patch_folded_record_count": 22,
     "split_part": 1,
     "split_parts_total": 4,
     "split_series": "data/mushrooms/mushrooms-boletes-porcini-tylopilus*.json",
-    "source_group": "data/mushrooms/mushrooms-boletes-porcini-tylopilus",
-    "source_build_before_size_split": "v4.2.88-r2026-04-30-mushroom-porcini-red-credibility5"
+    "source_group": "data/mushrooms/mushrooms-boletes-porcini-tylopilus"
   },
   "records": [
     {
@@ -56,7 +44,7 @@
         "entry_scope": "species",
         "edibility_status": "good",
         "caution_level": "low",
-        "summary": "Minimal bolete seed entry for Almost Bluing King Bolete. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Minimal bolete seed entry for Almost Bluing King Bolete.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -376,8 +364,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20intermedius%20460247.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/2014-08-02%20Tylopilus%20intermedius%20A.H.%20Sm.%20%26%20Thiers%20440549.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20intermedius%20460246.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20intermedius%20460246.jpg?width=480"
     },
     {
       "slug": "neoporphyrellus-alboater",
@@ -563,7 +550,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20alboater%2037003009051.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus%20alboater%2037155404400.jpg"
       ],
-      "image_audit_status": "v4.2.86_direct_upload_fallback_and_patch_fill_only",
       "photo_credits": [
         {
           "source": "Wikimedia Commons",
@@ -575,8 +561,7 @@
       ],
       "v4283_checked": true,
       "v4285_checked": "direct upload.wikimedia image URL used to avoid Commons redirect-image loading issues",
-      "v4286_checked": "v4.2.86 converted legacy images[] fallback to direct upload.wikimedia.org URL and made photo patches fill-only so older redirect patch images cannot override structured base images.",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "v4286_checked": "v4.2.86 converted legacy images[] fallback to direct upload.wikimedia.org URL and made photo patches fill-only so older redirect patch images cannot override structured base images."
     },
     {
       "slug": "gyroporus-cyanescens",
@@ -732,8 +717,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Gyroporus%20cyanescens%2062587843.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Gyroporus%20cyanescens%2065379328.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Gyroporus%20cyanescens%2062587839.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Gyroporus%20cyanescens%2062587839.jpg?width=480"
     },
     {
       "slug": "boletus-atkinsonii",
@@ -893,8 +877,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20atkinsonii%20687057.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20atkinsonii%20347687.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20atkinsonii%20630278.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20atkinsonii%20630278.jpg?width=480"
     },
     {
       "slug": "boletus-variipes-fagicola",
@@ -929,7 +912,7 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Boletus Variipes-Fagicola. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Minimal bolete seed entry for Boletus Variipes-Fagicola.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -1118,8 +1101,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20variipes%20UL%2002.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20variipes%20765524%20crop.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20variipes%20531448.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20variipes%20531448.jpg?width=480"
     },
     {
       "slug": "bothia-castanella",
@@ -1257,8 +1239,7 @@
       "enlarge_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Bothia%20castanella%20188132.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Bothia%20castanella%20188132.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Bothia%20castanella%20188132.jpg?width=480"
     },
     {
       "slug": "boletus-auripes",
@@ -1293,7 +1274,7 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Butter Foot Bolete. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Minimal bolete seed entry for Butter Foot Bolete.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"

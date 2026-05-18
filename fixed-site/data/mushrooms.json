@@ -1,12 +1,10 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1",
     "primary_type": "mushroom",
     "split_version": "size-chunk-split-v1",
     "split_file": "data/mushrooms.json",
     "split_role": "Core/restored baseline mushroom records kept at the original path.",
-    "source_mushrooms_build": "pre-split uploaded mushrooms baseline",
     "source_record_count_before_split": 209,
     "record_count": 9,
     "split_manifest": [
@@ -36,28 +34,15 @@
         "role": "Expanded long-stemmed, peppery, gilled-bolete, wood-inhabiting, and oddball bolete records."
       }
     ],
-    "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
-    "review_reason_audit": {
-      "audited_on": "2026-04-28",
-      "rule": "Normalize explicit review signals into review_reasons/review_note and prefix notes for Needs Review list visibility.",
-      "review_records_in_file": 8,
-      "cleared_image_only_slugs_not_reopened": [
-        "slippery-jack"
-      ]
-    },
     "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
-    "last_photo_patch_fold": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-    "photo_patch_folded_record_count": 50,
     "split_part": 1,
     "split_parts_total": 5,
     "split_series": "data/mushrooms*.json",
     "source_group": "data/mushrooms",
-    "source_build_before_size_split": "v4.2.80-r2026-04-29-mushroom-core-credibility1",
     "last_completion_wave": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species",
     "last_completion_wave_date": "2026-05-14",
     "last_photo_rights_correction": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
-    "last_photo_rights_correction_date": "2026-05-14",
-    "last_reaudit_build": "v4.3.64-r2026-05-14-mushroom-waves1-3-reaudit1"
+    "last_photo_rights_correction_date": "2026-05-14"
   },
   "records": [
     {
@@ -201,7 +186,7 @@
           "attribution_required": true,
           "modification_allowed": true,
           "share_alike_required": true,
-          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v2); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v2); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -225,7 +210,7 @@
           "attribution_required": true,
           "modification_allowed": true,
           "share_alike_required": true,
-          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v2); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v2); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -249,7 +234,7 @@
           "attribution_required": true,
           "modification_allowed": true,
           "share_alike_required": false,
-          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v2); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v2); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -267,8 +252,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Artists_conk-Ganoderma_applanatum_(7402107040).jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma_applanatum_1259894.jpg?width=480",
-      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
-      "completion_date": "2026-05-14",
       "use_links": [
         {
           "label": "MushroomExpert: Ganoderma applanatum",
@@ -280,27 +263,6 @@
         }
       ],
       "look_alike_notes": "Compare with birch polypore and hoof/tinder conk; artist's conk has a white pore surface that bruises/scratches brown.",
-      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
-      "photo_rights_checked_date": "2026-05-14",
-      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available.",
-      "completion_audit": {
-        "checklist_id": "mushroom-species-hard-completion-checklist-v1",
-        "audited_build": "v4.3.64-r2026-05-14-mushroom-waves1-3-reaudit1",
-        "audited_date": "2026-05-14",
-        "checklist": {
-          "identity_scope_and_scientific_name": true,
-          "practical_field_identification": true,
-          "edibility_or_toxicity_status_and_detail": true,
-          "culinary_or_do_not_eat_guidance": true,
-          "lookalikes_or_confusion_risk": true,
-          "habitat_substrate_host_or_growth_context": true,
-          "seasonality": true,
-          "source_or_use_links": true,
-          "photo_rights_exact_for_all_used_images": true,
-          "photo_coverage_two_or_more_genuinely_distinct_images": true,
-          "review_flags_resolved_or_unresolved_declared": true
-        }
-      },
       "completion_status": "complete"
     },
     {
@@ -497,7 +459,7 @@
           "attribution_required": true,
           "modification_allowed": true,
           "share_alike_required": true,
-          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v14); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v14); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -521,7 +483,7 @@
           "attribution_required": true,
           "modification_allowed": true,
           "share_alike_required": true,
-          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v14); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v14); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -545,7 +507,7 @@
           "attribution_required": true,
           "modification_allowed": true,
           "share_alike_required": false,
-          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v14); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v14); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -563,29 +525,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10_Boletinellus_merulioides_(Schwein.)_Murrill_247593.jpg?width=480",
-      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
-      "completion_date": "2026-05-14",
-      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
-      "photo_rights_checked_date": "2026-05-14",
-      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available.",
-      "completion_audit": {
-        "checklist_id": "mushroom-species-hard-completion-checklist-v1",
-        "audited_build": "v4.3.64-r2026-05-14-mushroom-waves1-3-reaudit1",
-        "audited_date": "2026-05-14",
-        "checklist": {
-          "identity_scope_and_scientific_name": true,
-          "practical_field_identification": true,
-          "edibility_or_toxicity_status_and_detail": true,
-          "culinary_or_do_not_eat_guidance": true,
-          "lookalikes_or_confusion_risk": true,
-          "habitat_substrate_host_or_growth_context": true,
-          "seasonality": true,
-          "source_or_use_links": true,
-          "photo_rights_exact_for_all_used_images": true,
-          "photo_coverage_two_or_more_genuinely_distinct_images": true,
-          "review_flags_resolved_or_unresolved_declared": true
-        }
-      },
       "completion_status": "complete"
     },
     {
@@ -699,7 +638,7 @@
           "attribution_required": true,
           "modification_allowed": true,
           "share_alike_required": true,
-          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v2); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v2); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -723,7 +662,7 @@
           "attribution_required": true,
           "modification_allowed": true,
           "share_alike_required": true,
-          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v2); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v2); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -747,7 +686,7 @@
           "attribution_required": true,
           "modification_allowed": true,
           "share_alike_required": true,
-          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v2); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v2); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -765,9 +704,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_O._Hilber_%26_O.K._Mill_89533.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Pleurotus_populinus_13996.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
-      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
-      "completion_date": "2026-05-14",
       "edibility_status": "edible_with_confident_id",
       "use_links": [
         {
@@ -780,28 +716,7 @@
         }
       ],
       "look_alike_notes": "Compare with pearl and summer oysters; host wood and season help. Avoid orange jack-o-lanterns, which grow from buried wood/roots and have true orange gills.",
-      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
-      "photo_rights_checked_date": "2026-05-14",
-      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available.",
       "edibility_detail": "Edible oyster mushroom after confident identification and cooking. Use the aspen/poplar host clue, decurrent white gills, white flesh, whitish spore print, and shelf-like growth habit; avoid old, waterlogged, buggy, or dried-out specimens and do not assume every pale shelf mushroom on wood is an oyster.",
-      "completion_audit": {
-        "checklist_id": "mushroom-species-hard-completion-checklist-v1",
-        "audited_build": "v4.3.64-r2026-05-14-mushroom-waves1-3-reaudit1",
-        "audited_date": "2026-05-14",
-        "checklist": {
-          "identity_scope_and_scientific_name": true,
-          "practical_field_identification": true,
-          "edibility_or_toxicity_status_and_detail": true,
-          "culinary_or_do_not_eat_guidance": true,
-          "lookalikes_or_confusion_risk": true,
-          "habitat_substrate_host_or_growth_context": true,
-          "seasonality": true,
-          "source_or_use_links": true,
-          "photo_rights_exact_for_all_used_images": true,
-          "photo_coverage_two_or_more_genuinely_distinct_images": true,
-          "review_flags_resolved_or_unresolved_declared": true
-        }
-      },
       "completion_status": "complete"
     },
     {
@@ -1017,7 +932,7 @@
           "attribution_required": true,
           "modification_allowed": true,
           "share_alike_required": true,
-          "rights_notes": "Exact author/license metadata copied from local credit table (wave2-rights-known-table); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (wave2-rights-known-table); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -1041,7 +956,7 @@
           "attribution_required": false,
           "modification_allowed": true,
           "share_alike_required": false,
-          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v73); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v73); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -1049,9 +964,6 @@
         }
       ],
       "needs_review": false,
-      "photo_patch_alias_source_slug": "imleria-badia",
-      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
-      "completion_date": "2026-05-14",
       "detail_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria_badia.jpg?width=900",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria_badia_2011_G1.jpg?width=900"
@@ -1061,27 +973,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria_badia_2011_G1.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria_badia.jpg?width=480",
-      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
-      "photo_rights_checked_date": "2026-05-14",
-      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available.",
-      "completion_audit": {
-        "checklist_id": "mushroom-species-hard-completion-checklist-v1",
-        "audited_build": "v4.3.64-r2026-05-14-mushroom-waves1-3-reaudit1",
-        "audited_date": "2026-05-14",
-        "checklist": {
-          "identity_scope_and_scientific_name": true,
-          "practical_field_identification": true,
-          "edibility_or_toxicity_status_and_detail": true,
-          "culinary_or_do_not_eat_guidance": true,
-          "lookalikes_or_confusion_risk": true,
-          "habitat_substrate_host_or_growth_context": true,
-          "seasonality": true,
-          "source_or_use_links": true,
-          "photo_rights_exact_for_all_used_images": true,
-          "photo_coverage_two_or_more_genuinely_distinct_images": true,
-          "review_flags_resolved_or_unresolved_declared": true
-        }
-      },
       "completion_status": "complete"
     },
     {
@@ -1197,7 +1088,7 @@
           "attribution_required": true,
           "modification_allowed": true,
           "share_alike_required": true,
-          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v62); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v62); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -1211,9 +1102,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_americanum_135426.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_americanum_135426.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
-      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
-      "completion_date": "2026-05-14",
       "edibility_status": "edible_with_confident_id",
       "use_links": [
         {
@@ -1234,30 +1122,6 @@
         }
       ],
       "look_alike_notes": "Compared with lion's mane and coral tooth, bear's head tooth is branched but has longer, shaggy clusters of teeth hanging from branch tips.",
-      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
-      "photo_rights_checked_date": "2026-05-14",
-      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available.",
-      "completion_audit": {
-        "checklist_id": "mushroom-species-hard-completion-checklist-v1",
-        "audited_build": "v4.3.64-r2026-05-14-mushroom-waves1-3-reaudit1",
-        "audited_date": "2026-05-14",
-        "checklist": {
-          "identity_scope_and_scientific_name": true,
-          "practical_field_identification": true,
-          "edibility_or_toxicity_status_and_detail": true,
-          "culinary_or_do_not_eat_guidance": true,
-          "lookalikes_or_confusion_risk": true,
-          "habitat_substrate_host_or_growth_context": true,
-          "seasonality": true,
-          "source_or_use_links": true,
-          "photo_rights_exact_for_all_used_images": true,
-          "photo_coverage_two_or_more_genuinely_distinct_images": false,
-          "review_flags_resolved_or_unresolved_declared": true
-        },
-        "unresolved_items": [
-          "photo coverage is below the 2-image minimum using exact-rights images"
-        ]
-      },
       "completion_status": "incomplete_declared"
     },
     {
@@ -1397,7 +1261,7 @@
           "attribution_required": false,
           "modification_allowed": true,
           "share_alike_required": false,
-          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v67); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v67); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -1421,7 +1285,7 @@
           "attribution_required": false,
           "modification_allowed": true,
           "share_alike_required": false,
-          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v109); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v109); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -1437,8 +1301,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Piptoporus_betulinus_2009_G1.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Fomitopsis_betulina_2011_G1.jpg?width=480",
-      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
-      "completion_date": "2026-05-14",
       "edibility_status": "non_culinary_tea_use",
       "use_links": [
         {
@@ -1459,27 +1321,6 @@
         }
       ],
       "look_alike_notes": "Birch host is the big clue. Artist's conk has a brown-bruising white pore surface and hoof fungus is harder/hoof-shaped and perennial.",
-      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
-      "photo_rights_checked_date": "2026-05-14",
-      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available.",
-      "completion_audit": {
-        "checklist_id": "mushroom-species-hard-completion-checklist-v1",
-        "audited_build": "v4.3.64-r2026-05-14-mushroom-waves1-3-reaudit1",
-        "audited_date": "2026-05-14",
-        "checklist": {
-          "identity_scope_and_scientific_name": true,
-          "practical_field_identification": true,
-          "edibility_or_toxicity_status_and_detail": true,
-          "culinary_or_do_not_eat_guidance": true,
-          "lookalikes_or_confusion_risk": true,
-          "habitat_substrate_host_or_growth_context": true,
-          "seasonality": true,
-          "source_or_use_links": true,
-          "photo_rights_exact_for_all_used_images": true,
-          "photo_coverage_two_or_more_genuinely_distinct_images": true,
-          "review_flags_resolved_or_unresolved_declared": true
-        }
-      },
       "completion_status": "complete"
     },
     {
@@ -1672,7 +1513,7 @@
           "attribution_required": true,
           "modification_allowed": true,
           "share_alike_required": true,
-          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v11); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v11); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -1696,7 +1537,7 @@
           "attribution_required": true,
           "modification_allowed": true,
           "share_alike_required": true,
-          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v23); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v23); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -1720,16 +1561,13 @@
           "attribution_required": true,
           "modification_allowed": true,
           "share_alike_required": false,
-          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v23); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v23); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "checked_date": "2026-05-14"
         }
       ],
-      "photo_patch_alias_source_slug": "true-bitter-bolete",
-      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
-      "completion_date": "2026-05-14",
       "detail_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus_felleus.jpg?width=900",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus-felleus-010.jpg?width=900",
@@ -1741,27 +1579,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus_felleus_14.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus_felleus.jpg?width=480",
-      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
-      "photo_rights_checked_date": "2026-05-14",
-      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available.",
-      "completion_audit": {
-        "checklist_id": "mushroom-species-hard-completion-checklist-v1",
-        "audited_build": "v4.3.64-r2026-05-14-mushroom-waves1-3-reaudit1",
-        "audited_date": "2026-05-14",
-        "checklist": {
-          "identity_scope_and_scientific_name": true,
-          "practical_field_identification": true,
-          "edibility_or_toxicity_status_and_detail": true,
-          "culinary_or_do_not_eat_guidance": true,
-          "lookalikes_or_confusion_risk": true,
-          "habitat_substrate_host_or_growth_context": true,
-          "seasonality": true,
-          "source_or_use_links": true,
-          "photo_rights_exact_for_all_used_images": true,
-          "photo_coverage_two_or_more_genuinely_distinct_images": true,
-          "review_flags_resolved_or_unresolved_declared": true
-        }
-      },
       "completion_status": "complete"
     },
     {
@@ -1882,7 +1699,7 @@
           "attribution_required": false,
           "modification_allowed": true,
           "share_alike_required": false,
-          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v69); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v69); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -1906,7 +1723,7 @@
           "attribution_required": false,
           "modification_allowed": true,
           "share_alike_required": false,
-          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v130); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v130); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -1930,7 +1747,7 @@
           "attribution_required": true,
           "modification_allowed": true,
           "share_alike_required": true,
-          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v69); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (credits-enrichment-v69); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -1948,9 +1765,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_septentrionalis_344833.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella_angusticeps_2009_G1.jpg?width=480",
-      "photo_patch_alias_source_slug": "black-morel",
-      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
-      "completion_date": "2026-05-14",
       "edibility_status": "edible_with_caution",
       "use_links": [
         {
@@ -1963,27 +1777,6 @@
         }
       ],
       "look_alike_notes": "False morels are the danger: true morels are hollow from cap through stem and have a pitted attached cap; Gyromitra types are chambered/cottony/wrinkled rather than cleanly hollow.",
-      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
-      "photo_rights_checked_date": "2026-05-14",
-      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available.",
-      "completion_audit": {
-        "checklist_id": "mushroom-species-hard-completion-checklist-v1",
-        "audited_build": "v4.3.64-r2026-05-14-mushroom-waves1-3-reaudit1",
-        "audited_date": "2026-05-14",
-        "checklist": {
-          "identity_scope_and_scientific_name": true,
-          "practical_field_identification": true,
-          "edibility_or_toxicity_status_and_detail": true,
-          "culinary_or_do_not_eat_guidance": true,
-          "lookalikes_or_confusion_risk": true,
-          "habitat_substrate_host_or_growth_context": true,
-          "seasonality": true,
-          "source_or_use_links": true,
-          "photo_rights_exact_for_all_used_images": true,
-          "photo_coverage_two_or_more_genuinely_distinct_images": true,
-          "review_flags_resolved_or_unresolved_declared": true
-        }
-      },
       "completion_status": "complete"
     },
     {
@@ -2101,7 +1894,7 @@
           "attribution_required": true,
           "modification_allowed": true,
           "share_alike_required": false,
-          "rights_notes": "Exact author/license metadata copied from local credit table (wave2-rights-known-table); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (wave2-rights-known-table); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -2125,7 +1918,7 @@
           "attribution_required": true,
           "modification_allowed": true,
           "share_alike_required": false,
-          "rights_notes": "Exact author/license metadata copied from local credit table (wave2-rights-known-table); source page retained for audit.",
+          "rights_notes": "Exact author/license metadata copied from local credit table (wave2-rights-known-table); source page retained for attribution.",
           "rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
@@ -2141,8 +1934,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus_fallax_97831898.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus_fallax_95068953.jpg?width=480",
-      "completion_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
-      "completion_date": "2026-05-14",
       "edibility_status": "edible",
       "use_links": [
         {
@@ -2155,27 +1946,6 @@
         }
       ],
       "look_alike_notes": "Yellowfoot and smooth chanterelles are relatives rather than dangerous look-alikes; black trumpet is darker, hollow, and lacks true gills.",
-      "photo_rights_checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
-      "photo_rights_checked_date": "2026-05-14",
-      "rights_correction_note": "Photo-rights placeholders removed; image set limited to records with exact author/license metadata available.",
-      "completion_audit": {
-        "checklist_id": "mushroom-species-hard-completion-checklist-v1",
-        "audited_build": "v4.3.64-r2026-05-14-mushroom-waves1-3-reaudit1",
-        "audited_date": "2026-05-14",
-        "checklist": {
-          "identity_scope_and_scientific_name": true,
-          "practical_field_identification": true,
-          "edibility_or_toxicity_status_and_detail": true,
-          "culinary_or_do_not_eat_guidance": true,
-          "lookalikes_or_confusion_risk": true,
-          "habitat_substrate_host_or_growth_context": true,
-          "seasonality": true,
-          "source_or_use_links": true,
-          "photo_rights_exact_for_all_used_images": true,
-          "photo_coverage_two_or_more_genuinely_distinct_images": true,
-          "review_flags_resolved_or_unresolved_declared": true
-        }
-      },
       "completion_status": "complete"
     }
   ]

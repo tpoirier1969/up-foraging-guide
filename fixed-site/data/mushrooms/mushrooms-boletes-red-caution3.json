@@ -1,21 +1,12 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1",
     "primary_type": "mushroom",
     "split_version": "size-chunk-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-red-caution3.json",
     "split_role": "Expanded red/yellow, blue-staining, red-pored, and caution-lane bolete records.",
-    "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 13,
-    "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
-    "review_reason_audit": {
-      "audited_on": "2026-04-28",
-      "rule": "Normalize explicit review signals into review_reasons/review_note and prefix notes for Needs Review list visibility.",
-      "review_records_in_file": 36,
-      "cleared_image_only_slugs_not_reopened": []
-    },
     "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
     "last_credibility_batch": "v4.2.97-r2026-04-30-red-caution-review1",
     "split_part": 1,
@@ -52,10 +43,7 @@
       ],
       "rule": "Clear stale image-only review only when at least two distinct real source-image URLs exist; keep one-photo and placeholder records in review."
     },
-    "last_photo_patch_fold": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-    "photo_patch_folded_record_count": 4,
-    "source_group": "data/mushrooms/mushrooms-boletes-red-caution3",
-    "source_build_before_size_split": "v4.2.97-r2026-04-30-red-caution-review1"
+    "source_group": "data/mushrooms/mushrooms-boletes-red-caution3"
   },
   "records": [
     {
@@ -348,8 +336,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%201.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%20%28Boletus%20luridus%29%20%2850198792546%29.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-09-13%20Boletus%20luridus%20Schaeff%20104527.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-09-13%20Boletus%20luridus%20Schaeff%20104527.jpg?width=480"
     },
     {
       "slug": "neoboletus-pseudosulphureus",
@@ -699,7 +686,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/2014-07-29%20Boletus%20firmus%20Frost%20439076.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2014-07-29%20Boletus%20firmus%20Frost%20439076.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json",
       "season_months": [
         7,
         8,
@@ -723,7 +709,7 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "high",
-        "summary": "Minimal bolete seed entry for Pulchroboletus Pseudosclerotiorum. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Minimal bolete seed entry for Pulchroboletus Pseudosclerotiorum.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -775,7 +761,7 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "high",
-        "summary": "Minimal bolete seed entry for Pulchroboletus Sclerotiorum. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Minimal bolete seed entry for Pulchroboletus Sclerotiorum.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -830,7 +816,7 @@
         "entry_scope": "species_complex_caution",
         "edibility_status": "review_required",
         "caution_level": "high",
-        "summary": "Minimal bolete seed entry for Red Crack Bolete. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Minimal bolete seed entry for Red Crack Bolete.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -955,29 +941,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Xerocomellus_chrysenteron_2010_G1.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Xerocomellus_chrysenteron_2010_G1.jpg?width=480",
-      "completion_audit": {
-        "checklist_id": "mushroom-species-hard-completion-checklist-v2-measurements",
-        "audited_build": "v4.3.68-r2026-05-14-zero-image-measurement-pass1-5species",
-        "audited_date": "2026-05-14",
-        "checklist": {
-          "identity_scope_and_scientific_name": true,
-          "practical_field_identification": true,
-          "definitive_measurements_cm_and_inches": true,
-          "edibility_or_toxicity_status_and_detail": true,
-          "culinary_or_do_not_eat_guidance": true,
-          "lookalikes_or_confusion_risk": true,
-          "habitat_substrate_host_or_growth_context": true,
-          "seasonality": true,
-          "source_or_use_links": true,
-          "photo_rights_exact_for_all_used_images": true,
-          "photo_coverage_two_or_more_genuinely_distinct_images": false,
-          "review_flags_resolved_or_unresolved_declared": true
-        },
-        "unresolved_items": [
-          "Only one exact-rights image verified in the local credit map; target photo coverage is 2–3 distinct images.",
-          "Species complex can require microscopy or expert confirmation; keep as caution/incomplete rather than a beginner-complete edible."
-        ]
-      },
       "completion_gaps": [
         "Only one exact-rights image verified in the local credit map; target photo coverage is 2–3 distinct images.",
         "Species complex can require microscopy or expert confirmation; keep as caution/incomplete rather than a beginner-complete edible."
@@ -1020,7 +983,7 @@
         "entry_scope": "species",
         "edibility_status": "toxic_or_dangerous",
         "caution_level": "high",
-        "summary": "Minimal bolete seed entry for Red Mouth Bolete. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Minimal bolete seed entry for Red Mouth Bolete.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -1205,7 +1168,7 @@
         "entry_scope": "species",
         "edibility_status": "toxic_or_dangerous",
         "caution_level": "high",
-        "summary": "Minimal bolete seed entry for Scarletina Complex. Added in the Michigan / Upper Midwest bolete pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Minimal bolete seed entry for Scarletina Complex.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -1270,7 +1233,7 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "high",
-        "summary": "Minimal bolete seed entry for Xerocomellus Intermedius. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Minimal bolete seed entry for Xerocomellus Intermedius.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -1322,7 +1285,7 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "high",
-        "summary": "Minimal bolete seed entry for Xerocomellus Truncatus. Added in the Michigan audit pass; fuller ID notes, sources, and images still need review.",
+        "summary": "Minimal bolete seed entry for Xerocomellus Truncatus.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"

@@ -1,30 +1,18 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1",
     "primary_type": "mushroom",
     "split_version": "size-chunk-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-suillus-leccinum-5.json",
     "split_role": "Expanded Suillus and Leccinum/scaber-stalk bolete records.",
-    "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 10,
-    "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
-    "review_reason_audit": {
-      "audited_on": "2026-04-28",
-      "rule": "Normalize explicit review signals into review_reasons/review_note and prefix notes for Needs Review list visibility.",
-      "review_records_in_file": 44,
-      "cleared_image_only_slugs_not_reopened": []
-    },
     "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
     "last_suillus_leccinum_batch": "v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4",
-    "last_photo_patch_fold": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-    "photo_patch_folded_record_count": 19,
     "split_part": 5,
     "split_parts_total": 5,
     "split_series": "data/mushrooms/mushrooms-boletes-suillus-leccinum-5*.json",
-    "source_group": "data/mushrooms/mushrooms-boletes-suillus-leccinum-5",
-    "source_build_before_size_split": "v4.2.87-r2026-04-30-mushroom-suillus-leccinum-credibility4"
+    "source_group": "data/mushrooms/mushrooms-boletes-suillus-leccinum-5"
   },
   "records": [
     {
@@ -312,8 +300,7 @@
       "enlarge_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20punctipes%20275731.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20punctipes%20275731.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20punctipes%20275731.jpg?width=480"
     },
     {
       "slug": "suillus-sinuspaulianus",
@@ -613,89 +600,6 @@
       ]
     },
     {
-      "slug": "suillus-lakei",
-      "display_name": "Western Painted Suillus",
-      "common_name": "Western Painted Suillus",
-      "category": "Mushroom",
-      "culinary_uses": "Hold as comparison only for this Upper Michigan guide unless a local planted-Douglas-fir context is documented.",
-      "medicinal_uses": "",
-      "notes": "",
-      "links": [
-        "https://www.mushroomexpert.com/suillus_lakei.html"
-      ],
-      "images": [
-        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EWestern%20Painted%20Suillus%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ESuillus%20lakei%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
-      ],
-      "scientific_name": "Suillus lakei",
-      "mushroom_profile": {
-        "scientific_name": "Suillus lakei",
-        "entry_scope": "species",
-        "edibility_status": "review_required",
-        "caution_level": "medium",
-        "summary": "Western painted Suillus with Douglas-fir; included as a comparison but U.P. relevance is doubtful unless planted Douglas-fir is involved.",
-        "ecology": "bolete",
-        "substrate": [
-          "Forest soil"
-        ],
-        "host_trees": [
-          "Douglas-fir"
-        ],
-        "host_certainty": "unknown",
-        "underside": "Pores",
-        "ring": "Unknown",
-        "texture": [
-          "Fleshy / firm"
-        ],
-        "odor": "Unknown",
-        "staining": [
-          "Unknown",
-          "Bluish-green in stem base"
-        ],
-        "spore_print": "",
-        "season_note": "Summer into fall.",
-        "research_notes": [
-          "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo.",
-          "Look for Douglas-fir association, dull brick-red scruffy cap, partial veil/ring, and bluish-green staining in the stem base. Treat local records skeptically."
-        ],
-        "cap_surface": [
-          "Dull brick-red scruffy cap"
-        ],
-        "stem_feature": [
-          "Ring; stem base may turn bluish-green"
-        ],
-        "pore_color": [
-          "Yellow pores"
-        ]
-      },
-      "mushroom_family": "Suillus / slippery jacks",
-      "boleteGroup": [
-        "Suillus / slippery jacks"
-      ],
-      "boleteSubgroup": [
-        "Suillus",
-        "Pine/larch allies"
-      ],
-      "weekPrecision": "needs-review",
-      "primary_type": "mushroom",
-      "is_medicinal": false,
-      "is_non_edible": false,
-      "review_status": "needs_review",
-      "needs_review": true,
-      "mushroom_card_note": "Western painted Suillus with Douglas-fir; included as a comparison but U.P. relevance is doubtful unless planted Douglas-fir is involved.",
-      "field_identification": "Look for Douglas-fir association, dull brick-red scruffy cap, partial veil/ring, and bluish-green staining in the stem base. Treat local records skeptically.",
-      "edibility_detail": "Hold as comparison only for this Upper Michigan guide unless a local planted-Douglas-fir context is documented.",
-      "use_roles": [
-        "ID / comparison"
-      ],
-      "foraging_value": "Use with caution",
-      "foraging_value_score": 1,
-      "host_filter_tokens": [
-        "Douglas-fir"
-      ],
-      "v4287_checked": true
-    },
-    {
       "slug": "suillus-placidus",
       "display_name": "White Suillus",
       "common_name": "White Suillus",
@@ -834,7 +738,6 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20placidus%20157923.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20placidus%20157923.jpg?width=480",
-      "photo_patch_alias_source_slug": "white-suillus",
       "season_months": [
         7,
         8,

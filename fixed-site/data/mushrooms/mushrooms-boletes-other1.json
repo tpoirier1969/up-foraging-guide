@@ -1,21 +1,12 @@
 {
   "metadata": {
     "project": "Upper Michigan Foraging Guide",
-    "build": "v4.3.0-r2026-05-11-data-chunk-size-cleanup1",
     "primary_type": "mushroom",
     "split_version": "size-chunk-split-v1",
     "split_file": "data/mushrooms/mushrooms-boletes-other1.json",
     "split_role": "Expanded long-stemmed, peppery, chalciporoid, and early oddball bolete records; first half of former mushrooms-boletes-other.json.",
-    "source_mushrooms_build": "v4.2.47-r2026-04-27-mushroom-photo-fix1",
     "source_record_count_before_split": 209,
     "record_count": 7,
-    "last_review_reason_audit": "v4.2.69-r2026-04-28-needs-review-reasons1",
-    "review_reason_audit": {
-      "audited_on": "2026-04-28",
-      "rule": "Normalize explicit review signals into review_reasons/review_note and prefix notes for Needs Review list visibility.",
-      "review_records_in_file": 20,
-      "cleared_image_only_slugs_not_reopened": []
-    },
     "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
     "source_split_file": "data/mushrooms/mushrooms-boletes-other.json",
     "source_split_record_count": 23,
@@ -23,28 +14,13 @@
     "split_part_count": 2,
     "last_credibility_batch": "v4.2.93-r2026-04-30-bolete-other-final-review1",
     "last_other_bolete_review": "v4.2.91-r2026-04-30-bolete-other-review1",
-    "distinct_image_rule": "2-3 image coverage means 2-3 genuinely different source images; thumbnails/detail/full variants or placeholders do not count.",
     "last_other_bolete_cleanup": "v4.2.92-r2026-04-30-bolete-other-stale-review-cleanup1",
     "last_stale_review_text_cleanup": "v4.2.92-r2026-04-30-bolete-other-stale-review-cleanup1",
     "last_remaining_review_cleanup": "v4.2.93-r2026-04-30-bolete-other-final-review1",
-    "v4_2_93_review_audit": {
-      "reviewed_on": "2026-04-30",
-      "scope": "Remaining Needs Review records in other-bolete split files.",
-      "record_count": 12,
-      "needs_review_after": 2,
-      "needs_review_slugs_after": [
-        "chalciporus-piperatoides",
-        "chalciporus-pseudorubinellus"
-      ],
-      "rule": "Clear only when actual review reason is fixed; keep photo review when fewer than 2 genuinely distinct real images are available."
-    },
     "last_food_caution_cleanup": "v4.2.94-r2026-04-30-food-caution-language1",
-    "last_photo_patch_fold": "v4.2.99-r2026-05-11-fold-mushroom-photo-patches1",
-    "photo_patch_folded_record_count": 12,
     "split_parts_total": 2,
     "split_series": "data/mushrooms/mushrooms-boletes-other1*.json",
-    "source_group": "data/mushrooms/mushrooms-boletes-other1",
-    "source_build_before_size_split": "v4.2.94-r2026-04-30-food-caution-language1"
+    "source_group": "data/mushrooms/mushrooms-boletes-other1"
   },
   "records": [
     {
@@ -601,8 +577,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletellus%20chrysenteroides%20%28Snell%29%20Snell%201052896.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletellus%20chrysenteroides%20100400.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletellus%20chrysenteroides%20%28Snell%29%20Snell%201052896.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletellus%20chrysenteroides%20%28Snell%29%20Snell%201052896.jpg?width=480"
     },
     {
       "slug": "boletellus-pseudochrysenteroides",
@@ -747,8 +722,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletellus%20pseudochrysenteroides%20A.H.%20Sm.%20%26%20Thiers%20776871.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletellus%20pseudochrysenteroides%20A.H.%20Sm.%20%26%20Thiers%20776874.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletellus%20pseudochrysenteroides%20A.H.%20Sm.%20%26%20Thiers%20776871.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletellus%20pseudochrysenteroides%20A.H.%20Sm.%20%26%20Thiers%20776871.jpg?width=480"
     },
     {
       "slug": "buchwaldoboletus-sphaerocephalus",
@@ -927,8 +901,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Buchwaldoboletus%20sphaerocephalus%202.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Buchwaldoboletus%20sphaerocephalus%203.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Buchwaldoboletus%20sphaerocephalus%201.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Buchwaldoboletus%20sphaerocephalus%201.jpg?width=480"
     },
     {
       "slug": "chalciporus-piperatoides",
@@ -1030,7 +1003,7 @@
       "food_quality_score": 2,
       "lane": "bolete",
       "general_notes": "",
-      "edibility_detail": "Use only as a careful ID/comparison species. The peppery/bitter taste clue should be nibble-and-spit only, and this record still needs more distinct public image coverage.",
+      "edibility_detail": "Use only as a careful ID/comparison species. The peppery/bitter taste clue should be nibble-and-spit only, and",
       "food_role": "food",
       "needs_review": true,
       "review_status": "needs_review",
@@ -1041,7 +1014,7 @@
       ],
       "foraging_value": "Occasional / niche use",
       "foraging_value_score": 2,
-      "edibility_notes": "Use only as a careful ID/comparison species. The peppery/bitter taste clue should be nibble-and-spit only, and this record still needs more distinct public image coverage.",
+      "edibility_notes": "Use only as a careful ID/comparison species. The peppery/bitter taste clue should be nibble-and-spit only, and",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2019-08-17%20Chalciporus%20piperatoides%20%28Smith%20%26%20Thiers%29%20Baroni%20%26%20Both%201075368.jpg?width=480",
@@ -1059,8 +1032,7 @@
       "enlarge_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/2019-08-17%20Chalciporus%20piperatoides%20%28Smith%20%26%20Thiers%29%20Baroni%20%26%20Both%201075368.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2019-08-17%20Chalciporus%20piperatoides%20%28Smith%20%26%20Thiers%29%20Baroni%20%26%20Both%201075368.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2019-08-17%20Chalciporus%20piperatoides%20%28Smith%20%26%20Thiers%29%20Baroni%20%26%20Both%201075368.jpg?width=480"
     },
     {
       "slug": "chalciporus-piperatus",
@@ -1215,8 +1187,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20piperatus.jpeg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20piperatus%20463119734.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20piperatus.jpg?width=480",
-      "photo_patch_basis": "exact slug match in uploaded mushrooms.json"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20piperatus.jpg?width=480"
     }
   ]
 }
