@@ -9,7 +9,7 @@
     "source_mushrooms_build": "pre-split uploaded mushrooms baseline",
     "source_record_count_before_split": 209,
     "record_count": 6,
-    "notes": "Core/restored mushroom records retained at the original mushrooms.json path. Expanded mushroom records now load from smaller grouped files listed in split_manifest. v4.2.80 adds a core mushroom credibility pass: source links, use roles, foraging values, card notes, and cleaned placeholder use text for high-visibility mushrooms. v4.2.99-r2026-05-11-fold-mushroom-photo-patches1: folded mushroom photo patch records directly into canonical source records and retired runtime PHOTO_PATCH_PATHS. v4.3.0-r2026-05-11-data-chunk-size-cleanup1 split active data sources by size; record bodies and source order preserved. v4.3.61-r2026-05-14-mushroom-completion-wave1-15species: completed selected mushroom species records in-place with rights metadata and stale review flags cleared.",
+    "notes": "Canonical data update; no sidecar/add-on species file.",
     "split_manifest": [
       {
         "path": "data/mushrooms.json",
@@ -58,7 +58,8 @@
     "last_completion_wave": "v4.3.63-r2026-05-14-mushroom-completion-wave3-16species-rights-strict1",
     "last_completion_wave_date": "2026-05-14",
     "last_reaudit_build": "v4.3.64-r2026-05-14-mushroom-waves1-3-reaudit1",
-    "last_reaudit_note": "Re-audited v4.3.61-v4.3.63 touched mushroom species against hard completion checklist; incomplete items explicitly declared instead of silently marked complete."
+    "last_reaudit_note": "Re-audited v4.3.61-v4.3.63 touched mushroom species against hard completion checklist; incomplete items explicitly declared instead of silently marked complete.",
+    "updated_by": "v4.3.72 coverage audit batch 1"
   },
   "records": [
     {
@@ -1182,6 +1183,1009 @@
         "auditor_note": "Species touched in v4.3.61-v4.3.63 was rechecked against the hard completion checklist. A record is only marked complete when all checklist items pass; otherwise the missing requirement is explicitly declared."
       },
       "completion_status": "incomplete_declared"
+    },
+    {
+      "slug": "wine-cap-king-stropharia",
+      "display_name": "Wine cap / king stropharia",
+      "common_name": "Wine cap / king stropharia",
+      "scientific_name": "Stropharia rugosoannulata",
+      "category": "Mushroom",
+      "record_type": "mushroom",
+      "primary_type": "mushroom",
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "lane": "gilled",
+      "food_role": "food",
+      "food_quality": "Good edible with caution",
+      "edibility_status": "edible_with_caution",
+      "edibility_detail": "Generally treated as edible when confirmed, but identification must rule out unsafe gilled mushrooms and contaminated urban mulch sites.",
+      "culinary_uses": "Edible when confidently identified and cooked. Avoid old, bug-filled, or polluted-site specimens; do not treat any lawn/mulch mushroom as food without spore print and ring/gill confirmation.",
+      "medicinal_uses": "No reliable medicinal use is recorded for this app entry unless noted in Other uses or source links.",
+      "other_uses": "No practical non-food use is recorded for this app entry yet.",
+      "overview": "Large woodchip-loving edible gilled mushroom often cultivated in mulch beds; useful for the app because it is a major missing gilled edible.",
+      "notes": "Large woodchip-loving edible gilled mushroom often cultivated in mulch beds; useful for the app because it is a major missing gilled edible.",
+      "general_notes": "Large woodchip-loving edible gilled mushroom often cultivated in mulch beds; useful for the app because it is a major missing gilled edible.",
+      "field_identification": "Wine-red to reddish-brown caps fading tan; purple-gray gills darkening with spores; thick cogwheel-like ring; white stem; often in woodchips or rich mulched ground. Dark purple-brown to purplish-black spore print.",
+      "short_reason": "Coverage Audit Batch 1: added directly to canonical mushroom data so common/dangerous missing species are represented without sidecar files.",
+      "months_available": [
+        "June",
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "month_numbers": [
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "commonness": "Occasional to common in mulched habitats",
+      "commonness_score": 3,
+      "foraging_value": "Good edible with caution",
+      "foraging_value_score": 3,
+      "food_quality_score": 4,
+      "use_roles": [
+        "Food"
+      ],
+      "habitat": [
+        "Woodchips",
+        "Gardens",
+        "Disturbed areas"
+      ],
+      "host_filter_tokens": [
+        "Woodchips",
+        "Ground"
+      ],
+      "search_aliases": [],
+      "look_alikes": [
+        "green-spored-parasol",
+        "small-deadly-lepiota-group"
+      ],
+      "confused_with": [],
+      "mushroom_profile": {
+        "underside": [
+          "Gills"
+        ],
+        "underside_type": [
+          "Gills"
+        ],
+        "cap_color": [
+          "Wine red",
+          "Reddish brown",
+          "Tan"
+        ],
+        "cap_surface": [
+          "Dry",
+          "Smooth"
+        ],
+        "gill_color": [
+          "Pale",
+          "Purple-gray",
+          "Dark purple-brown"
+        ],
+        "underside_color": [
+          "Pale",
+          "Purple-gray",
+          "Dark"
+        ],
+        "stem_color": [
+          "White",
+          "Yellowing",
+          "Brownish with age"
+        ],
+        "stem_feature": [
+          "Thick ring",
+          "Cogwheel ring underside"
+        ],
+        "ring": [
+          "Thick ring present"
+        ],
+        "spore_print": "Dark purple-brown to purplish black",
+        "spore_print_color": [
+          "Purple-brown",
+          "Purplish black"
+        ],
+        "flesh_color": [
+          "White"
+        ],
+        "staining": [
+          "Flesh unchanging"
+        ],
+        "substrate": [
+          "Woodchips",
+          "Mulch",
+          "Rich disturbed ground"
+        ],
+        "habitat": [
+          "Woodchips",
+          "Gardens",
+          "Disturbed areas"
+        ],
+        "host_filter_tokens": [
+          "Woodchips",
+          "Ground"
+        ],
+        "growth_form": [
+          "Scattered",
+          "Clusters"
+        ],
+        "smell": [
+          "Not distinctive"
+        ],
+        "taste": [
+          "Mild / not distinctive"
+        ],
+        "caution_level": "medium"
+      },
+      "use_links": [
+        {
+          "label": "MushroomExpert: Stropharia rugosoannulata",
+          "url": "https://www.mushroomexpert.com/stropharia_rugosoannulata.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Wine-red caps fading brown, purple-gray gills/spore print, cogwheel ring, woodchip habitat."
+        },
+        {
+          "label": "MAMI: Stropharia rugoso-annulata",
+          "url": "https://midwestmycology.org/stropharia-rugoso-annulata/",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Midwestern certification-study entry; purple-black spore print and gill color progression."
+        }
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/stropharia_rugosoannulata.html",
+        "https://midwestmycology.org/stropharia-rugoso-annulata/"
+      ],
+      "images": [],
+      "images_structured": [],
+      "image_coverage_status": "missing_verified_images",
+      "review_status": "incomplete",
+      "completion_status": "incomplete",
+      "reviewReasons": [
+        "New coverage-audit record; needs 2–3 verified-rights images.",
+        "Regional Upper Michigan commonness and exact local occurrence should be reviewed.",
+        "Measurements and morphology are useful but should be checked against additional sources before marking complete."
+      ]
+    },
+    {
+      "slug": "wood-ear-jelly-ear",
+      "display_name": "Wood ear / jelly ear",
+      "common_name": "Wood ear / jelly ear",
+      "scientific_name": "Auricularia americana / Auricularia angiospermarum group",
+      "category": "Mushroom",
+      "record_type": "mushroom",
+      "primary_type": "mushroom",
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "lane": "other",
+      "food_role": "food",
+      "food_quality": "Useful edible",
+      "edibility_status": "edible",
+      "edibility_detail": "Generally edible/useful, but this app keeps it as a species-complex record because North American names are more complicated than older guides suggest.",
+      "culinary_uses": "Edible when confidently identified and cooked; texture is the main culinary value. Avoid polluted wood and old degraded specimens.",
+      "medicinal_uses": "No reliable medicinal use is recorded for this app entry unless noted in Other uses or source links.",
+      "other_uses": "No practical non-food use is recorded for this app entry yet.",
+      "overview": "Useful jelly fungus group missing from the app. Best treated as a genus/species-complex entry until exact species can be separated by host and source review.",
+      "notes": "Useful jelly fungus group missing from the app. Best treated as a genus/species-complex entry until exact species can be separated by host and source review.",
+      "general_notes": "Useful jelly fungus group missing from the app. Best treated as a genus/species-complex entry until exact species can be separated by host and source review.",
+      "field_identification": "Brown to reddish-brown gelatinous ear-shaped or irregular floppy fruiting bodies on wood, especially after rain. North American wood ears include species on hardwoods and conifers; old field-guide names may be outdated.",
+      "short_reason": "Coverage Audit Batch 1: added directly to canonical mushroom data so common/dangerous missing species are represented without sidecar files.",
+      "months_available": [
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November"
+      ],
+      "month_numbers": [
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "commonness": "Occasional after rain",
+      "commonness_score": 3,
+      "foraging_value": "Useful edible",
+      "foraging_value_score": 3,
+      "food_quality_score": 3,
+      "use_roles": [
+        "Food"
+      ],
+      "habitat": [
+        "Forest",
+        "Wet woods",
+        "Streamside woods"
+      ],
+      "host_filter_tokens": [
+        "Hardwood",
+        "Conifer",
+        "Dead wood"
+      ],
+      "search_aliases": [],
+      "look_alikes": [],
+      "confused_with": [],
+      "mushroom_profile": {
+        "underside": [
+          "Smooth / jelly surface"
+        ],
+        "underside_type": [
+          "Jelly fungus"
+        ],
+        "cap_color": [
+          "Brown",
+          "Reddish brown",
+          "Dark brown"
+        ],
+        "cap_surface": [
+          "Gelatinous",
+          "Ear-shaped",
+          "Ribbed or veined"
+        ],
+        "underside_color": [
+          "Brown",
+          "Reddish brown"
+        ],
+        "stem_color": [
+          "No stem"
+        ],
+        "stem_feature": [
+          "Sessile / no stem"
+        ],
+        "ring": [
+          "Absent"
+        ],
+        "spore_print": "White",
+        "spore_print_color": [
+          "White"
+        ],
+        "flesh_color": [
+          "Brown",
+          "Translucent brown"
+        ],
+        "substrate": [
+          "Dead hardwood",
+          "Dead conifer",
+          "Logs / branches"
+        ],
+        "habitat": [
+          "Forest",
+          "Wet woods",
+          "Streamside woods"
+        ],
+        "host_filter_tokens": [
+          "Hardwood",
+          "Conifer",
+          "Dead wood"
+        ],
+        "growth_form": [
+          "Ear-shaped",
+          "Clusters",
+          "Jelly fungus"
+        ],
+        "smell": [
+          "Mild"
+        ],
+        "taste": [
+          "Mild"
+        ],
+        "texture": [
+          "Gelatinous"
+        ],
+        "caution_level": "medium"
+      },
+      "use_links": [
+        {
+          "label": "MushroomExpert: Auricularia americana",
+          "url": "https://www.mushroomexpert.com/auricularia_americana.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Wood-ear/jelly-ear form on hardwoods or conifers in wet conditions."
+        },
+        {
+          "label": "MushroomExpert: Auricularia angiospermarum",
+          "url": "https://www.mushroomexpert.com/fungionwood/cup%20and%20saucer/species%20pages/Auricularia%20angiospermarum.htm",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Notes North American species and outdated European name issue."
+        }
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/auricularia_americana.html",
+        "https://www.mushroomexpert.com/fungionwood/cup%20and%20saucer/species%20pages/Auricularia%20angiospermarum.htm"
+      ],
+      "images": [],
+      "images_structured": [],
+      "image_coverage_status": "missing_verified_images",
+      "review_status": "incomplete",
+      "completion_status": "incomplete",
+      "reviewReasons": [
+        "New coverage-audit record; needs 2–3 verified-rights images.",
+        "Regional Upper Michigan commonness and exact local occurrence should be reviewed.",
+        "Measurements and morphology are useful but should be checked against additional sources before marking complete."
+      ]
+    },
+    {
+      "slug": "umbrella-polypore",
+      "display_name": "Umbrella polypore",
+      "common_name": "Umbrella polypore",
+      "scientific_name": "Polyporus umbellatus",
+      "category": "Mushroom",
+      "record_type": "mushroom",
+      "primary_type": "mushroom",
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "lane": "other",
+      "food_role": "food",
+      "food_quality": "Choice but uncommon",
+      "edibility_status": "edible_with_caution",
+      "edibility_detail": "Edible but uncommon; app should emphasize conservation-minded foraging and strong ID before harvest.",
+      "culinary_uses": "Edible when confidently identified and fresh, but harvest conservatively; if only one fruiting body is found, leave it or document it rather than taking it.",
+      "medicinal_uses": "No reliable medicinal use is recorded for this app entry unless noted in Other uses or source links.",
+      "other_uses": "No practical non-food use is recorded for this app entry yet.",
+      "overview": "Important MAMI-listed species and useful look-alike/comparison entry for hen-of-the-woods style clusters, but should be treated conservatively because it is not commonly encountered.",
+      "notes": "Important MAMI-listed species and useful look-alike/comparison entry for hen-of-the-woods style clusters, but should be treated conservatively because it is not commonly encountered.",
+      "general_notes": "Important MAMI-listed species and useful look-alike/comparison entry for hen-of-the-woods style clusters, but should be treated conservatively because it is not commonly encountered.",
+      "field_identification": "Compound cluster with many small round umbrella-like caps branching from a central/base stalk; pores, not gills; fruits on the ground near hardwood roots, stumps, or buried wood. Reported as uncommon/rare in North America.",
+      "short_reason": "Coverage Audit Batch 1: added directly to canonical mushroom data so common/dangerous missing species are represented without sidecar files.",
+      "months_available": [
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "month_numbers": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "commonness": "Uncommon / rare",
+      "commonness_score": 1,
+      "foraging_value": "Choice but uncommon",
+      "foraging_value_score": 2,
+      "food_quality_score": 4,
+      "use_roles": [
+        "Food"
+      ],
+      "habitat": [
+        "Hardwood forest",
+        "Near hardwood stumps"
+      ],
+      "host_filter_tokens": [
+        "Hardwood",
+        "Buried wood"
+      ],
+      "search_aliases": [],
+      "look_alikes": [
+        "hen-of-the-woods",
+        "black-staining-polypore"
+      ],
+      "confused_with": [],
+      "mushroom_profile": {
+        "underside": [
+          "Pores"
+        ],
+        "underside_type": [
+          "Pores"
+        ],
+        "cap_color": [
+          "Whitish",
+          "Ochre",
+          "Pale brown"
+        ],
+        "cap_surface": [
+          "Dry",
+          "Fibrous to smooth",
+          "Depressed center"
+        ],
+        "pore_color": [
+          "Whitish",
+          "Yellowish with age"
+        ],
+        "underside_color": [
+          "White",
+          "Yellowish"
+        ],
+        "stem_color": [
+          "White",
+          "Pale"
+        ],
+        "stem_feature": [
+          "Branching central stalk"
+        ],
+        "ring": [
+          "Absent"
+        ],
+        "spore_print": "White",
+        "spore_print_color": [
+          "White"
+        ],
+        "flesh_color": [
+          "White"
+        ],
+        "substrate": [
+          "Buried hardwood roots",
+          "Hardwood roots",
+          "Near stumps"
+        ],
+        "habitat": [
+          "Hardwood forest",
+          "Near hardwood stumps"
+        ],
+        "host_filter_tokens": [
+          "Hardwood",
+          "Buried wood"
+        ],
+        "growth_form": [
+          "Branched cluster",
+          "Many small caps"
+        ],
+        "smell": [
+          "Mild"
+        ],
+        "taste": [
+          "Mild"
+        ],
+        "caution_level": "medium"
+      },
+      "use_links": [
+        {
+          "label": "MushroomExpert: Polyporus umbellatus",
+          "url": "https://www.mushroomexpert.com/polyporus_umbellatus.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Fruits terrestrially near hardwood bases/roots; rare in North America."
+        },
+        {
+          "label": "MAMI: Polyporus umbellatus",
+          "url": "https://midwestmycology.org/polyporus-umbellatus/",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Dimensions and identifying characteristics for umbrella polypore."
+        }
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/polyporus_umbellatus.html",
+        "https://midwestmycology.org/polyporus-umbellatus/"
+      ],
+      "images": [],
+      "images_structured": [],
+      "image_coverage_status": "missing_verified_images",
+      "review_status": "incomplete",
+      "completion_status": "incomplete",
+      "reviewReasons": [
+        "New coverage-audit record; needs 2–3 verified-rights images.",
+        "Regional Upper Michigan commonness and exact local occurrence should be reviewed.",
+        "Measurements and morphology are useful but should be checked against additional sources before marking complete."
+      ]
+    },
+    {
+      "slug": "edible-milk-caps-volemus-group",
+      "display_name": "Edible milk caps / voluminous-latex group",
+      "common_name": "Edible milk caps / voluminous-latex group",
+      "scientific_name": "Lactifluus volemus / Lactifluus hygrophoroides / related milk caps",
+      "category": "Mushroom",
+      "record_type": "mushroom",
+      "primary_type": "mushroom",
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "lane": "gilled",
+      "food_role": "food",
+      "food_quality": "Good edible with expert confirmation",
+      "edibility_status": "edible_with_caution",
+      "edibility_detail": "Edible group with caution; latex color/change, taste, odor, host tree, and exact species matter.",
+      "culinary_uses": "Some milk caps are good edibles when confidently identified and cooked, but the group is not beginner-simple. Avoid acrid, peppery, bitter, or poorly identified milk caps.",
+      "medicinal_uses": "No reliable medicinal use is recorded for this app entry unless noted in Other uses or source links.",
+      "other_uses": "No practical non-food use is recorded for this app entry yet.",
+      "overview": "Broad edible/caution group for milk caps because Lactarius/Lactifluus are a major missing gilled category and require latex-color filtering.",
+      "notes": "Broad edible/caution group for milk caps because Lactarius/Lactifluus are a major missing gilled category and require latex-color filtering.",
+      "general_notes": "Broad edible/caution group for milk caps because Lactarius/Lactifluus are a major missing gilled category and require latex-color filtering.",
+      "field_identification": "Orange-brown to reddish-brown milk caps with brittle flesh and white latex when cut; L. volemus-type mushrooms produce copious white milk that stains brown and often develop a fishy odor. Milk color and changes are critical ID traits.",
+      "short_reason": "Coverage Audit Batch 1: added directly to canonical mushroom data so common/dangerous missing species are represented without sidecar files.",
+      "months_available": [
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "month_numbers": [
+        7,
+        8,
+        9,
+        10
+      ],
+      "commonness": "Needs regional review",
+      "commonness_score": 2,
+      "foraging_value": "Good edible with expert confirmation",
+      "foraging_value_score": 3,
+      "food_quality_score": 4,
+      "use_roles": [
+        "Food"
+      ],
+      "habitat": [
+        "Hardwood forest",
+        "Mixed forest",
+        "Conifer forest"
+      ],
+      "host_filter_tokens": [
+        "Hardwood",
+        "Conifer",
+        "Oak",
+        "Mixed woods"
+      ],
+      "search_aliases": [],
+      "look_alikes": [
+        "acrid-milk-caps",
+        "russula-groups"
+      ],
+      "confused_with": [],
+      "mushroom_profile": {
+        "underside": [
+          "Gills"
+        ],
+        "underside_type": [
+          "Gills"
+        ],
+        "cap_color": [
+          "Orange brown",
+          "Reddish brown",
+          "Tan"
+        ],
+        "cap_surface": [
+          "Smooth",
+          "Velvety",
+          "Sometimes wrinkled"
+        ],
+        "gill_color": [
+          "Cream",
+          "Pale yellow",
+          "Orange-tinted"
+        ],
+        "underside_color": [
+          "Cream",
+          "Pale yellow",
+          "Orange-tinted"
+        ],
+        "stem_color": [
+          "Orange brown",
+          "Tan",
+          "Reddish brown"
+        ],
+        "stem_feature": [
+          "Brittle stem"
+        ],
+        "ring": [
+          "Absent"
+        ],
+        "spore_print": "White to cream",
+        "spore_print_color": [
+          "White",
+          "Cream"
+        ],
+        "flesh_color": [
+          "White",
+          "Cream"
+        ],
+        "latex_color": [
+          "White",
+          "White staining brown"
+        ],
+        "staining": [
+          "Latex/flesh may stain brown"
+        ],
+        "substrate": [
+          "Ground",
+          "Forest floor"
+        ],
+        "habitat": [
+          "Hardwood forest",
+          "Mixed forest",
+          "Conifer forest"
+        ],
+        "host_filter_tokens": [
+          "Hardwood",
+          "Conifer",
+          "Oak",
+          "Mixed woods"
+        ],
+        "growth_form": [
+          "Solitary",
+          "Scattered"
+        ],
+        "smell": [
+          "Fishy in volemus group",
+          "Mild in some species"
+        ],
+        "taste": [
+          "Mild preferred",
+          "Avoid acrid/peppery"
+        ],
+        "caution_level": "medium"
+      },
+      "use_links": [
+        {
+          "label": "MushroomExpert: Lactarius genus",
+          "url": "https://www.mushroomexpert.com/lactarius.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Milk color and changes after exposure to air are important for milky cap ID."
+        },
+        {
+          "label": "MushroomExpert: Lactarius volemus",
+          "url": "https://www.mushroomexpert.com/lactarius_volemus.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Brownish-orange color, copious white milk staining brown, fishy odor."
+        },
+        {
+          "label": "MushroomExpert: Lactarius hygrophoroides",
+          "url": "https://www.mushroomexpert.com/lactarius_hygrophoroides.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Related edible milk cap with dull orange cap, widely spaced gills, copious white milk."
+        }
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/lactarius.html",
+        "https://www.mushroomexpert.com/lactarius_volemus.html",
+        "https://www.mushroomexpert.com/lactarius_hygrophoroides.html"
+      ],
+      "images": [],
+      "images_structured": [],
+      "image_coverage_status": "missing_verified_images",
+      "review_status": "incomplete",
+      "completion_status": "incomplete",
+      "reviewReasons": [
+        "New coverage-audit record; needs 2–3 verified-rights images.",
+        "Regional Upper Michigan commonness and exact local occurrence should be reviewed.",
+        "Measurements and morphology are useful but should be checked against additional sources before marking complete."
+      ]
+    },
+    {
+      "slug": "armillaria-gallica-bulbous-honey",
+      "display_name": "Bulbous honey mushroom",
+      "common_name": "Bulbous honey mushroom",
+      "scientific_name": "Armillaria gallica",
+      "category": "Mushroom",
+      "record_type": "mushroom",
+      "primary_type": "mushroom",
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "lane": "gilled",
+      "food_role": "food",
+      "food_quality": "Edible with caution",
+      "edibility_status": "edible_with_caution",
+      "edibility_detail": "Edible with caution; species-level Armillaria ID is tricky and reactions are common enough to emphasize careful cooking and small first portions.",
+      "culinary_uses": "Edible only when confidently identified and cooked; honey mushrooms cause GI upset for some people. Avoid raw, old, or poorly confirmed specimens.",
+      "medicinal_uses": "No reliable medicinal use is recorded for this app entry unless noted in Other uses or source links.",
+      "other_uses": "No practical non-food use is recorded for this app entry yet.",
+      "overview": "Species-level split for the honey mushroom complex so the app does not treat all honeys as one vague bucket.",
+      "notes": "Species-level split for the honey mushroom complex so the app does not treat all honeys as one vague bucket.",
+      "general_notes": "Species-level split for the honey mushroom complex so the app does not treat all honeys as one vague bucket.",
+      "field_identification": "Honey mushroom relative, often on the ground or near hardwood bases; usually smaller than classic A. mellea, with a cobwebby or ephemeral ring/ring zone and sometimes a bulbous base; grows alone or in loose groups more than dense fused clusters.",
+      "short_reason": "Coverage Audit Batch 1: added directly to canonical mushroom data so common/dangerous missing species are represented without sidecar files.",
+      "months_available": [
+        "August",
+        "September",
+        "October",
+        "November"
+      ],
+      "month_numbers": [
+        8,
+        9,
+        10,
+        11
+      ],
+      "commonness": "Occasional",
+      "commonness_score": 3,
+      "foraging_value": "Edible with caution",
+      "foraging_value_score": 3,
+      "food_quality_score": 3,
+      "use_roles": [
+        "Food"
+      ],
+      "habitat": [
+        "Hardwood forest",
+        "Mixed forest"
+      ],
+      "host_filter_tokens": [
+        "Hardwood",
+        "Buried wood",
+        "Roots"
+      ],
+      "search_aliases": [],
+      "look_alikes": [
+        "jack-o-lantern",
+        "deadly-galerina",
+        "honey-mushroom"
+      ],
+      "confused_with": [],
+      "mushroom_profile": {
+        "underside": [
+          "Gills"
+        ],
+        "underside_type": [
+          "Gills"
+        ],
+        "cap_color": [
+          "Honey brown",
+          "Brown",
+          "Yellow brown"
+        ],
+        "cap_surface": [
+          "Fine scales",
+          "Dry"
+        ],
+        "gill_color": [
+          "White",
+          "Cream"
+        ],
+        "underside_color": [
+          "White",
+          "Cream"
+        ],
+        "stem_color": [
+          "Whitish",
+          "Brownish"
+        ],
+        "stem_feature": [
+          "Cobwebby or ephemeral ring zone",
+          "Bulbous base possible"
+        ],
+        "ring": [
+          "Ring zone possible",
+          "Ephemeral ring"
+        ],
+        "spore_print": "White",
+        "spore_print_color": [
+          "White"
+        ],
+        "flesh_color": [
+          "White"
+        ],
+        "substrate": [
+          "Ground near hardwoods",
+          "Buried wood",
+          "Roots"
+        ],
+        "habitat": [
+          "Hardwood forest",
+          "Mixed forest"
+        ],
+        "host_filter_tokens": [
+          "Hardwood",
+          "Buried wood",
+          "Roots"
+        ],
+        "growth_form": [
+          "Loose groups",
+          "Scattered",
+          "Solitary"
+        ],
+        "smell": [
+          "Mushroomy"
+        ],
+        "taste": [
+          "Mild"
+        ],
+        "caution_level": "medium"
+      },
+      "use_links": [
+        {
+          "label": "MushroomExpert: Armillaria gallica",
+          "url": "https://www.mushroomexpert.com/armillaria_gallica.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Eastern North American honey mushroom near hardwood bases; ring tends cobwebby/ephemeral."
+        },
+        {
+          "label": "MushroomExpert: Armillaria genus",
+          "url": "https://www.mushroomexpert.com/armillaria.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Armillaria overview: white spore prints, attached/decurrent gills, wood-rotting habit, variable partial veil."
+        }
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/armillaria_gallica.html",
+        "https://www.mushroomexpert.com/armillaria.html"
+      ],
+      "images": [],
+      "images_structured": [],
+      "image_coverage_status": "missing_verified_images",
+      "review_status": "incomplete",
+      "completion_status": "incomplete",
+      "reviewReasons": [
+        "New coverage-audit record; needs 2–3 verified-rights images.",
+        "Regional Upper Michigan commonness and exact local occurrence should be reviewed.",
+        "Measurements and morphology are useful but should be checked against additional sources before marking complete."
+      ]
+    },
+    {
+      "slug": "ringless-honey-mushroom-group",
+      "display_name": "Ringless honey mushroom group",
+      "common_name": "Ringless honey mushroom group",
+      "scientific_name": "Desarmillaria caespitosa / Desarmillaria tabescens group",
+      "category": "Mushroom",
+      "record_type": "mushroom",
+      "primary_type": "mushroom",
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "lane": "gilled",
+      "food_role": "food",
+      "food_quality": "Edible with caution",
+      "edibility_status": "edible_with_caution",
+      "edibility_detail": "Edible with caution; ringless honey ID requires white spore print, wood/root growth, clustered habit, and exclusion of poisonous look-alikes.",
+      "culinary_uses": "Edible only when confidently identified and cooked; not a beginner mushroom. Must be separated from jack-o’-lanterns and other clustered gilled mushrooms.",
+      "medicinal_uses": "No reliable medicinal use is recorded for this app entry unless noted in Other uses or source links.",
+      "other_uses": "No practical non-food use is recorded for this app entry yet.",
+      "overview": "Ringless honey group added to separate no-ring honey mushrooms from classic ringed Armillaria and to improve gilled mushroom coverage.",
+      "notes": "Ringless honey group added to separate no-ring honey mushrooms from classic ringed Armillaria and to improve gilled mushroom coverage.",
+      "general_notes": "Ringless honey group added to separate no-ring honey mushrooms from classic ringed Armillaria and to improve gilled mushroom coverage.",
+      "field_identification": "Honey-colored clustered gilled mushrooms on hardwood roots, stumps, or buried wood; lacks a ring on the stalk; white spore print; clustered stems often fused near the base. More likely south of the Great Lakes but worth representing as a look-alike/coverage group.",
+      "short_reason": "Coverage Audit Batch 1: added directly to canonical mushroom data so common/dangerous missing species are represented without sidecar files.",
+      "months_available": [
+        "September",
+        "October",
+        "November"
+      ],
+      "month_numbers": [
+        9,
+        10,
+        11
+      ],
+      "commonness": "Needs regional review; more southern/warm-region tendency",
+      "commonness_score": 2,
+      "foraging_value": "Edible with caution",
+      "foraging_value_score": 2,
+      "food_quality_score": 3,
+      "use_roles": [
+        "Food"
+      ],
+      "habitat": [
+        "Hardwood forest",
+        "Yards near trees"
+      ],
+      "host_filter_tokens": [
+        "Hardwood",
+        "Oak",
+        "Buried wood",
+        "Roots"
+      ],
+      "search_aliases": [],
+      "look_alikes": [
+        "jack-o-lantern",
+        "honey-mushroom",
+        "deadly-galerina"
+      ],
+      "confused_with": [],
+      "mushroom_profile": {
+        "underside": [
+          "Gills"
+        ],
+        "underside_type": [
+          "Gills"
+        ],
+        "cap_color": [
+          "Honey brown",
+          "Yellow brown",
+          "Tan"
+        ],
+        "cap_surface": [
+          "Dry",
+          "Small scales when young"
+        ],
+        "gill_color": [
+          "White",
+          "Cream",
+          "Pinkish-brown staining"
+        ],
+        "underside_color": [
+          "White",
+          "Cream"
+        ],
+        "stem_color": [
+          "Whitish",
+          "Brownish"
+        ],
+        "stem_feature": [
+          "No ring",
+          "Fused stem bases"
+        ],
+        "ring": [
+          "Absent"
+        ],
+        "spore_print": "White",
+        "spore_print_color": [
+          "White"
+        ],
+        "flesh_color": [
+          "White"
+        ],
+        "substrate": [
+          "Hardwood roots",
+          "Stumps",
+          "Buried wood"
+        ],
+        "habitat": [
+          "Hardwood forest",
+          "Yards near trees"
+        ],
+        "host_filter_tokens": [
+          "Hardwood",
+          "Oak",
+          "Buried wood",
+          "Roots"
+        ],
+        "growth_form": [
+          "Dense clusters",
+          "Fused bases"
+        ],
+        "smell": [
+          "Mushroomy"
+        ],
+        "taste": [
+          "Mild"
+        ],
+        "caution_level": "medium"
+      },
+      "use_links": [
+        {
+          "label": "MushroomExpert: Armillaria tabescens",
+          "url": "https://www.mushroomexpert.com/armillaria_tabescens.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Ringless honey mushroom: clusters on hardwoods, no ring/ring zone, eastern North America from Great Lakes southward."
+        },
+        {
+          "label": "Missouri Dept. of Conservation: Ringless honey mushroom",
+          "url": "https://mdc.mo.gov/discover-nature/field-guide/ringless-honey-mushroom",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Field traits: honey-colored, dry/scaly cap, no ring, clusters at tree bases/stumps, white spore print."
+        }
+      ],
+      "links": [
+        "https://www.mushroomexpert.com/armillaria_tabescens.html",
+        "https://mdc.mo.gov/discover-nature/field-guide/ringless-honey-mushroom"
+      ],
+      "images": [],
+      "images_structured": [],
+      "image_coverage_status": "missing_verified_images",
+      "review_status": "incomplete",
+      "completion_status": "incomplete",
+      "reviewReasons": [
+        "New coverage-audit record; needs 2–3 verified-rights images.",
+        "Regional Upper Michigan commonness and exact local occurrence should be reviewed.",
+        "Measurements and morphology are useful but should be checked against additional sources before marking complete."
+      ]
     }
   ]
 }
