@@ -1205,7 +1205,8 @@ function routeMatch(record, route) {
 
 export function filterRecords(records, route, filtersOrSearch = "") {
   const filters = normalizeFilters(filtersOrSearch);
-  const q = String(filters.search || "").trim().toLowerCase();
+  const searchApplies = route === "general" || route === "search";
+  const q = searchApplies ? String(filters.search || "").trim().toLowerCase() : "";
   return (records || []).filter((record) => {
     if (record.hidden) return false;
     const matchRoute = route === "search" ? "general" : route;
