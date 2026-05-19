@@ -3,11 +3,14 @@
     "version": "v1",
     "created_at": "2026-04-20T19:40:00-04:00",
     "note": "Species reservation and status ledger. Includes cumulative image batches through the remaining-coverage pass, which finished the last 14 uncovered plant-record slugs and upgraded 7 thinner existing image sets.",
-    "active_app_baseline": "v4.3.80-r2026-05-18-gilled-safety-audit1",
+    "active_app_baseline": "v4.3.81-r2026-05-18-image-recovery-audit1",
     "parallel_work_model": "foreman-worker; worker chats research claimed species, integration chat applies canonical JSON edits and package/version changes",
     "coordination_rule": "Claim species before editing; avoid editing slugs already marked in_use unless explicitly reassigned or stale; do not create deployable sidecar species files.",
-    "updated_at": "2026-05-18T00:00:00-04:00",
-    "last_integration_batch": "gilled-safety-audit1"
+    "updated_at": "2026-05-18T23:59:00-04:00",
+    "last_integration_batch": "image-recovery-audit1",
+    "last_worker_inputs_integrated": [
+      "worker-1-image-recovery-batch-1"
+    ]
   },
   "entries": [
     {
@@ -1062,6 +1065,69 @@
       "claimed_at": "2026-05-18T16:00:00-04:00",
       "status": "needs_review",
       "work_note": "Gilled safety/commonness audit pass applied; canonical JSON updated with species-specific morphology and look-alike notes. Image coverage remains incomplete and should be handled in a later image-recovery pass."
+    },
+    {
+      "slug": "lobster-mushroom",
+      "batch_id": "v4.3.81-image-recovery-audit1",
+      "reserved_by_chat": "foreman-integrator-chat",
+      "work_type": "image_recovery_and_credit_metadata",
+      "claimed_at": "2026-05-18T23:59:00-04:00",
+      "status": "needs_review",
+      "work_note": "Worker 1 image recovery integrated: open-license image/gallery metadata updated; no species split or sidecar file created."
+    },
+    {
+      "slug": "shrimp-of-the-woods-aborted-entoloma",
+      "batch_id": "v4.3.81-image-recovery-audit1",
+      "reserved_by_chat": "foreman-integrator-chat",
+      "work_type": "image_recovery_and_credit_metadata",
+      "claimed_at": "2026-05-18T23:59:00-04:00",
+      "status": "needs_review",
+      "work_note": "Worker 1 image recovery integrated: open-license image/gallery metadata updated; no species split or sidecar file created."
+    },
+    {
+      "slug": "black-trumpet",
+      "batch_id": "v4.3.81-image-recovery-audit1",
+      "reserved_by_chat": "foreman-integrator-chat",
+      "work_type": "image_recovery_and_credit_metadata",
+      "claimed_at": "2026-05-18T23:59:00-04:00",
+      "status": "needs_review",
+      "work_note": "Worker 1 image recovery integrated: open-license image/gallery metadata updated; no species split or sidecar file created."
+    },
+    {
+      "slug": "aureoboletus-projectellus",
+      "batch_id": "v4.3.81-image-recovery-audit1",
+      "reserved_by_chat": "foreman-integrator-chat",
+      "work_type": "image_recovery_and_credit_metadata",
+      "claimed_at": "2026-05-18T23:59:00-04:00",
+      "status": "needs_review",
+      "work_note": "Worker 1 image recovery integrated: open-license image/gallery metadata updated; no species split or sidecar file created."
+    },
+    {
+      "slug": "tylopilus-badiceps",
+      "batch_id": "v4.3.81-image-recovery-audit1",
+      "reserved_by_chat": "foreman-integrator-chat",
+      "work_type": "image_recovery_and_credit_metadata",
+      "claimed_at": "2026-05-18T23:59:00-04:00",
+      "status": "needs_review",
+      "work_note": "Worker 1 image recovery integrated: open-license image/gallery metadata updated; no species split or sidecar file created."
+    },
+    {
+      "slug": "suillus-americanus",
+      "batch_id": "v4.3.81-image-recovery-audit1",
+      "reserved_by_chat": "foreman-integrator-chat",
+      "work_type": "image_recovery_and_credit_metadata",
+      "claimed_at": "2026-05-18T23:59:00-04:00",
+      "status": "needs_review",
+      "work_note": "Worker 1 image recovery integrated: open-license image/gallery metadata updated; no species split or sidecar file created."
+    },
+    {
+      "slug": "suillus-punctipes",
+      "batch_id": "v4.3.81-image-recovery-audit1",
+      "reserved_by_chat": "foreman-integrator-chat",
+      "work_type": "image_recovery_and_credit_metadata",
+      "claimed_at": "2026-05-18T23:59:00-04:00",
+      "status": "needs_review",
+      "work_note": "Worker 1 image recovery integrated: open-license image/gallery metadata updated; no species split or sidecar file created."
     }
   ]
 }

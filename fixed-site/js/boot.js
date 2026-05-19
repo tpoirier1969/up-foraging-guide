@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.80-r2026-05-18-gilled-safety-audit1";
-const DISPLAY_VERSION = "V4.3.80-r26-05-18";
+const APP_VERSION = "v4.3.81-r2026-05-18-image-recovery-audit1";
+const DISPLAY_VERSION = "V4.3.81-r26-05-18";
 window.UP_FORAGING_APP_VERSION = APP_VERSION;
 window.UP_FORAGING_DISPLAY_VERSION = DISPLAY_VERSION;
 
