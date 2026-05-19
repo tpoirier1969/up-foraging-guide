@@ -131,6 +131,8 @@ const PLANT_TRAIT_FILTER_KEYS = [
   "plantLane"
 ];
 
+const CAUTION_FILTER_KEYS = ["cautionSeverity", "cautionForm", "cautionConfusedWith", "cautionAffectedSystem"];
+
 const MUSHROOM_TRAIT_FILTER_KEYS = [
   "mushroomMonth", "mushroomReviewFlag", "mushroomCapColor", "mushroomUnderside",
   "mushroomUndersideColor", "mushroomStemColor", "mushroomStaining", "mushroomFleshColor",
@@ -210,6 +212,29 @@ function renderTraitFilters(route, filterFields = [], activeTraitFilters = false
 }
 
 
+
+function renderCautionFilters(filterFields = [], activeCautionFilters = false) {
+  if (!filterFields.length) return "";
+  return `
+    <section class="panel">
+      <div class="home-focus-heading">
+        <h3>Caution filters</h3>
+        ${activeCautionFilters ? `<button id="cautionClearBtn" type="button">Clear filters</button>` : ""}
+      </div>
+      <div class="medicinal-filter-row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;align-items:end;">
+        ${filterFields.map((field) => `
+          <div class="medicinal-filter-cell">
+            <label for="cautionFilter_${esc(field.key)}" class="muted small">${esc(field.label)}</label>
+            <select id="cautionFilter_${esc(field.key)}" data-caution-filter="${esc(field.key)}" style="width:100%">
+              ${optionHtml(field.options, state.filters[field.key] || "", field.blankLabel || "Any")}
+            </select>
+          </div>
+        `).join("")}
+      </div>
+    </section>
+  `;
+}
+
 function sanitizeTraitFiltersForRoute(route, filterFields = []) {
   const activeKeys = new Set((filterFields || []).map((field) => field.key));
   const validValuesByKey = new Map((filterFields || []).map((field) => [field.key, new Set((field.options || []).map((option) => String(option.value || option || "")))]));
@@ -257,6 +282,9 @@ function controlsHtml(route = "general", placeholder = "Search species", filterF
       </section>
       ${sortControls}
     `;
+  }
+  if (route === "lookalikes" || route === "caution") {
+    return `${renderCautionFilters(filterFields, activeTraitFilters)}${sortControls}`;
   }
   if (route === "search") {
     return `
@@ -398,6 +426,9 @@ function clearRouteFilters(route) {
     state.filters.medicinalSystem = "";
     state.filters.medicinalTerm = "";
   }
+  if (route === "lookalikes" || route === "caution") {
+    CAUTION_FILTER_KEYS.forEach((key) => { state.filters[key] = ""; });
+  }
   clearTraitFiltersForRoute(route);
 }
 
@@ -453,6 +484,25 @@ function wireCommonEvents(route) {
     clearTraitFiltersForRoute(route);
     renderCurrentRoute();
   });
+  document.querySelectorAll("[data-caution-filter]").forEach((select) => {
+    select.addEventListener("change", (event) => {
+      const key = event.currentTarget.dataset.cautionFilter || "";
+      if (!key) return;
+      state.filters[key] = event.currentTarget.value || "";
+      renderCurrentRoute();
+    });
+  });
+  document.getElementById("cautionClearBtn")?.addEventListener("click", () => {
+    CAUTION_FILTER_KEYS.forEach((key) => { state.filters[key] = ""; });
+    renderCurrentRoute();
+  });
+  if (route === "search") {
+    const searchInput = document.getElementById("speciesSearch");
+    window.requestAnimationFrame(() => {
+      try { searchInput?.focus({ preventScroll: true }); } catch { searchInput?.focus(); }
+      try { searchInput?.select?.(); } catch {}
+    });
+  }
   wireActionButtons(document);
   enhanceImages(els.pageRoot);
   document.getElementById("retryRoute")?.addEventListener("click", () => renderCurrentRoute());
@@ -696,15 +746,21 @@ async function renderSpeciesRoute(route, token) {
     getFilterFieldsForRoute,
     hasActiveTraitFilters,
     sortRecords,
-    renderPlantLaneControls
+    renderPlantLaneControls,
+    getCautionFilterFields,
+    hasActiveCautionFilters
   } = await importModule("./ui/render-list.js");
   if (token !== renderToken) return;
   const matchRoute = route === "search" ? "general" : route;
-  let filterFields = getFilterFieldsForRoute(state.species, matchRoute, state.filters);
-  if (sanitizeTraitFiltersForRoute(matchRoute, filterFields)) {
+  let filterFields = (route === "lookalikes" || route === "caution")
+    ? getCautionFilterFields(state.species, state.filters)
+    : getFilterFieldsForRoute(state.species, matchRoute, state.filters);
+  if (!(route === "lookalikes" || route === "caution") && sanitizeTraitFiltersForRoute(matchRoute, filterFields)) {
     filterFields = getFilterFieldsForRoute(state.species, matchRoute, state.filters);
   }
-  const activeTraitFilters = hasActiveTraitFilters(matchRoute, state.filters);
+  const activeTraitFilters = (route === "lookalikes" || route === "caution")
+    ? hasActiveCautionFilters(state.filters)
+    : hasActiveTraitFilters(matchRoute, state.filters);
   const plantLaneControls = route === "plants" ? renderPlantLaneControls(state.species, state.filters) : "";
   const filtered = filterRecords(state.species, matchRoute, state.filters);
   const sorted = sortRecords(filtered, state.filters.sortSpecies || "default");

@@ -7,6 +7,8 @@ export const els = {
 
 let lightboxEls = null;
 let lightboxEscapeBound = false;
+let lightboxGallery = [];
+let lightboxGalleryIndex = 0;
 
 function lightboxHost() {
   if (els.modal?.hasAttribute?.("open")) return els.modal;
@@ -95,10 +97,13 @@ function ensureLightbox() {
     <div class="image-lightbox-card" role="dialog" aria-modal="true" aria-label="Expanded image">
       <button class="image-lightbox-close" type="button" data-lightbox-close aria-label="Close expanded image">Close</button>
       <div class="image-lightbox-body">
+        <button class="image-lightbox-nav image-lightbox-prev" type="button" data-lightbox-prev aria-label="Previous image">‹</button>
         <img class="image-lightbox-image" alt="">
+        <button class="image-lightbox-nav image-lightbox-next" type="button" data-lightbox-next aria-label="Next image">›</button>
       </div>
       <div class="image-lightbox-meta">
         <div class="image-lightbox-title" data-lightbox-title></div>
+        <div class="image-lightbox-count" data-lightbox-count></div>
         <div class="image-lightbox-actions">
           <a class="buttonish subtle" hidden data-lightbox-source target="_blank" rel="noreferrer">Open source</a>
         </div>
@@ -113,18 +118,28 @@ function ensureLightbox() {
     shell,
     image: shell.querySelector(".image-lightbox-image"),
     title: shell.querySelector("[data-lightbox-title]"),
-    source: shell.querySelector("[data-lightbox-source]")
+    count: shell.querySelector("[data-lightbox-count]"),
+    source: shell.querySelector("[data-lightbox-source]"),
+    prev: shell.querySelector("[data-lightbox-prev]"),
+    next: shell.querySelector("[data-lightbox-next]")
   };
 
   shell.querySelectorAll("[data-lightbox-close]").forEach((node) => {
     node.addEventListener("click", closeLightbox);
   });
+  shell.querySelector("[data-lightbox-prev]")?.addEventListener("click", () => showLightboxGalleryOffset(-1));
+  shell.querySelector("[data-lightbox-next]")?.addEventListener("click", () => showLightboxGalleryOffset(1));
 
   if (!lightboxEscapeBound) {
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && !lightboxEls?.shell?.hidden) {
         event.preventDefault();
         closeLightbox();
+        return;
+      }
+      if (!lightboxEls?.shell?.hidden && (event.key === "ArrowLeft" || event.key === "ArrowRight")) {
+        event.preventDefault();
+        showLightboxGalleryOffset(event.key === "ArrowLeft" ? -1 : 1);
       }
     });
     lightboxEscapeBound = true;
@@ -153,20 +168,41 @@ export function closeModal() {
   els.modal.removeAttribute("open");
 }
 
-export function openLightbox({ src = "", alt = "", title = "", sourceHref = "", sourceLabel = "Open source" } = {}) {
+
+function applyLightboxPayload(payload = {}) {
+  if (!lightboxEls || !payload?.src) return;
+  lightboxEls.image.src = payload.src;
+  lightboxEls.image.alt = payload.alt || payload.title || "Expanded image";
+  lightboxEls.title.textContent = payload.title || "";
+  if (lightboxEls.count) {
+    lightboxEls.count.textContent = lightboxGallery.length > 1 ? `${lightboxGalleryIndex + 1} of ${lightboxGallery.length}` : "";
+  }
+  if (payload.sourceHref) {
+    lightboxEls.source.href = payload.sourceHref;
+    lightboxEls.source.textContent = payload.sourceLabel || "Open source";
+    lightboxEls.source.hidden = false;
+  } else {
+    lightboxEls.source.hidden = true;
+    lightboxEls.source.removeAttribute("href");
+  }
+  const multi = lightboxGallery.length > 1;
+  if (lightboxEls.prev) lightboxEls.prev.hidden = !multi;
+  if (lightboxEls.next) lightboxEls.next.hidden = !multi;
+}
+
+function showLightboxGalleryOffset(offset = 0) {
+  if (!lightboxGallery.length) return;
+  lightboxGalleryIndex = (lightboxGalleryIndex + offset + lightboxGallery.length) % lightboxGallery.length;
+  applyLightboxPayload(lightboxGallery[lightboxGalleryIndex]);
+}
+
+export function openLightbox({ src = "", alt = "", title = "", sourceHref = "", sourceLabel = "Open source", gallery = [], index = 0 } = {}) {
   if (!src) return;
   const refs = ensureLightbox();
-  refs.image.src = src;
-  refs.image.alt = alt || title || "Expanded image";
-  refs.title.textContent = title || "";
-  if (sourceHref) {
-    refs.source.href = sourceHref;
-    refs.source.textContent = sourceLabel || "Open source";
-    refs.source.hidden = false;
-  } else {
-    refs.source.hidden = true;
-    refs.source.removeAttribute("href");
-  }
+  const galleryList = Array.isArray(gallery) && gallery.length ? gallery : [{ src, alt, title, sourceHref, sourceLabel }];
+  lightboxGallery = galleryList.filter((item) => item?.src);
+  lightboxGalleryIndex = Math.max(0, Math.min(Number(index) || 0, Math.max(0, lightboxGallery.length - 1)));
+  applyLightboxPayload(lightboxGallery[lightboxGalleryIndex] || { src, alt, title, sourceHref, sourceLabel });
   refs.shell.hidden = false;
   refs.shell.style.display = "flex";
   document.body.style.overflow = "hidden";
@@ -180,6 +216,9 @@ export function closeLightbox() {
   lightboxEls.image.removeAttribute("src");
   lightboxEls.image.alt = "";
   lightboxEls.title.textContent = "";
+  if (lightboxEls.count) lightboxEls.count.textContent = "";
+  lightboxGallery = [];
+  lightboxGalleryIndex = 0;
   lightboxEls.source.hidden = true;
   lightboxEls.source.removeAttribute("href");
   document.body.style.overflow = "";

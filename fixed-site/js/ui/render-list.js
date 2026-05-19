@@ -951,8 +951,8 @@ function useRoleTag(record = {}, info = {}) {
 function isSafetyOnlyValue(value = "") {
   const text = String(value || "").trim().toLowerCase();
   if (!text) return false;
-  if (/(choice|prime|excellent|very good|good|fair|poor|mediocre|modest|niche|tea|flavoring)/.test(text)) return false;
-  return /(caution|use with caution|edible with caution|expert confirmation|avoid|not recommended|do not eat|poisonous|toxic|deadly|inedible|not food)/.test(text);
+  if (/\b(choice|prime|excellent|very good|good|fair|poor|mediocre|modest|niche|tea|flavoring)\b/.test(text)) return false;
+  return /\b(caution|use with caution|edible with caution|expert confirmation|avoid|not recommended|do not eat|poisonous|toxic|deadly|inedible|not food)\b/.test(text);
 }
 
 function isQualityValue(value = "") {
@@ -987,10 +987,23 @@ function isRareCommonality(value = "") {
   return /\brare\b|uncommon|scarce|infrequent/i.test(String(value || ""));
 }
 
+function cleanForagingQuality(value = "") {
+  return realText(value)
+    .replace(/\s*\/\s*caution\b/gi, "")
+    .replace(/\bcaution\s*food\b/gi, "")
+    .replace(/\bedible\s+with\s+caution\b/gi, "edible")
+    .replace(/\badvanced\s+edible[- ]with[- ]caution\b/gi, "Advanced edible")
+    .replace(/\bID[- ]learning\s*\/\s*caution\s*food\b/gi, "ID-learning; fair edible")
+    .replace(/\s{2,}/g, " ")
+    .replace(/\s+([,.;:])/g, "$1")
+    .replace(/\s*\/\s*$/g, "")
+    .trim();
+}
+
 function foragingValueText(record = {}) {
-  const explicit = realText(record.foraging_value || record.food_value || "");
+  const explicit = cleanForagingQuality(record.foraging_value || record.food_value || "");
   if (explicit && isQualityValue(explicit)) return explicit;
-  const legacy = realText(record.food_quality || "");
+  const legacy = cleanForagingQuality(record.food_quality || "");
   if (!isQualityValue(legacy)) return "";
   if (isRareCommonality(record.commonness) && /choice|excellent|very good|good|prime/i.test(legacy)) {
     return `${legacy}; low practical value if locally rare`;
@@ -1152,6 +1165,10 @@ function normalizeFilters(filtersOrSearch) {
     mushroomReviewFlag: filtersOrSearch?.mushroomReviewFlag || "",
     mushroomTreeAssociation: filtersOrSearch?.mushroomTreeAssociation || "",
     mushroomTaste: filtersOrSearch?.mushroomTaste || "",
+    cautionSeverity: filtersOrSearch?.cautionSeverity || "",
+    cautionForm: filtersOrSearch?.cautionForm || "",
+    cautionConfusedWith: filtersOrSearch?.cautionConfusedWith || "",
+    cautionAffectedSystem: filtersOrSearch?.cautionAffectedSystem || "",
     sortSpecies: filtersOrSearch?.sortSpecies || "default"
   };
 }
@@ -1220,6 +1237,104 @@ function mushroomRouteMatch(record, route) {
   return true;
 }
 
+
+const CAUTION_CONFUSION_GROUPS = [
+  { value: "chanterelles", label: "Chanterelles", re: /chanterelle|jack-o-lantern|omphalotus|false-chanterelle/i },
+  { value: "honey-wood", label: "Honey / wood mushrooms", re: /honey|armillaria|velvet|enoki|galerina|pholiota|sulfur|hypholoma|wood/i },
+  { value: "puffballs", label: "Puffballs / earthballs", re: /puffball|earthball|scleroderma|amanita egg|egg button/i },
+  { value: "morels", label: "Morels / false morels", re: /morel|gyromitra|verpa/i },
+  { value: "agaricus-lawns", label: "Agaricus / lawn mushrooms", re: /agaricus|meadow|field mushroom|green-spored|parasol|lepiota|lawn/i },
+  { value: "boletes", label: "Boletes", re: /bolete|porcini|red-pored|blue-staining|huronensis|tylopilus|leccinum/i },
+  { value: "milkcaps-russulas", label: "Milk caps / Russulas", re: /milkcap|milk cap|lactarius|lactifluus|russula/i }
+];
+
+const CAUTION_SYSTEMS = [
+  { value: "liver", label: "Liver", re: /liver|hepatic|amatoxin/i },
+  { value: "kidneys", label: "Kidneys", re: /kidney|renal|orellanine/i },
+  { value: "gi", label: "GI / stomach", re: /gastro|stomach|nausea|vomit|diarrhea|cramp|digestive/i },
+  { value: "nervous", label: "Nervous system", re: /nervous|neurolog|seizure|confusion|tremor|muscarine|sweating|salivation/i },
+  { value: "blood", label: "Blood / red blood cells", re: /blood|hemolysis|red blood/i },
+  { value: "respiratory", label: "Respiratory / cardiovascular", re: /breath|respiratory|pulse|blood pressure|cardio/i }
+];
+
+function cautionText(record = {}) {
+  return [
+    record.display_name, record.common_name, record.scientific_name, record.overview,
+    record.field_identification, record.edibility_detail, record.caution_reason,
+    record.non_edible_severity, record.danger_level, record.toxicity_level,
+    record.look_alike_notes, record.symptoms, record.affected_body_systems,
+    record.confused_with, record.look_alikes, record.mushroom_profile?.substrate,
+    record.mushroom_profile?.underside, record.mushroom_profile?.underside_type,
+    record.mushroom_profile?.spore_print
+  ].flatMap(asList).join(" ");
+}
+
+function cautionSeverityValue(record = {}) {
+  const text = cautionText(record).toLowerCase();
+  if (/deadly|fatal|lethal|amatoxin|liver failure|kidney failure|orellanine/.test(text)) return "deadly";
+  if (/poison|toxic|severe gi|severe gastrointestinal/.test(text)) return "poisonous";
+  if (/avoid|not recommended|inedible|muscarine|gi irritant|caution/.test(text)) return "caution";
+  return "caution";
+}
+
+function cautionFormValue(record = {}) {
+  const lane = mushroomRouteLane(record);
+  const text = cautionText(record).toLowerCase();
+  if (/puffball|earthball|scleroderma|gleba|amanita egg|egg-like/.test(text)) return "puffball-like";
+  if (/morel|gyromitra|verpa|brain-like|cup|saddle/.test(text)) return "morel-like";
+  if (lane === "boletes") return "spongelike-boletes";
+  if (lane === "gilled") return "gilled";
+  return "other";
+}
+
+function cautionConfusionValues(record = {}) {
+  const text = cautionText(record);
+  return CAUTION_CONFUSION_GROUPS.filter((group) => group.re.test(text)).map((group) => group.value);
+}
+
+function cautionAffectedSystemValues(record = {}) {
+  const text = cautionText(record);
+  return CAUTION_SYSTEMS.filter((system) => system.re.test(text)).map((system) => system.value);
+}
+
+function matchesCautionFilters(record = {}, filters = {}) {
+  if (filters.cautionSeverity && cautionSeverityValue(record) !== filters.cautionSeverity) return false;
+  if (filters.cautionForm && cautionFormValue(record) !== filters.cautionForm) return false;
+  if (filters.cautionConfusedWith && !cautionConfusionValues(record).includes(filters.cautionConfusedWith)) return false;
+  if (filters.cautionAffectedSystem && !cautionAffectedSystemValues(record).includes(filters.cautionAffectedSystem)) return false;
+  return true;
+}
+
+function countOptions(records = [], getter, labels = {}) {
+  const counts = new Map();
+  for (const record of records) {
+    const values = asList(getter(record)).filter(Boolean);
+    values.forEach((value) => counts.set(value, (counts.get(value) || 0) + 1));
+  }
+  return Array.from(counts.keys()).sort((a, b) => String(labels[a] || a).localeCompare(String(labels[b] || b))).map((value) => ({
+    value,
+    label: `${labels[value] || value} (${counts.get(value) || 0})`
+  }));
+}
+
+export function getCautionFilterFields(records = [], filters = {}) {
+  const baseRecords = (records || []).filter((record) => !record?.hidden && routeMatch(record, "lookalikes"));
+  const severityLabels = { deadly: "Deadly / organ damage", poisonous: "Poisonous", caution: "Caution / avoid" };
+  const formLabels = { "gilled": "Gilled", "spongelike-boletes": "Spongelike / bolete", "puffball-like": "Puffball / earthball-like", "morel-like": "Morel / cup-like", "other": "Other" };
+  const confusionLabels = Object.fromEntries(CAUTION_CONFUSION_GROUPS.map((g) => [g.value, g.label]));
+  const systemLabels = Object.fromEntries(CAUTION_SYSTEMS.map((g) => [g.value, g.label]));
+  return [
+    { key: "cautionSeverity", label: "Risk level", blankLabel: "Any risk level", options: countOptions(baseRecords, cautionSeverityValue, severityLabels) },
+    { key: "cautionForm", label: "Mushroom form", blankLabel: "Any form", options: countOptions(baseRecords, cautionFormValue, formLabels) },
+    { key: "cautionConfusedWith", label: "Often confused with", blankLabel: "Any confusion group", options: countOptions(baseRecords, cautionConfusionValues, confusionLabels) },
+    { key: "cautionAffectedSystem", label: "Affected system", blankLabel: "Any affected system", options: countOptions(baseRecords, cautionAffectedSystemValues, systemLabels) }
+  ].filter((field) => field.options.length > 0 || String(filters?.[field.key] || "").trim());
+}
+
+export function hasActiveCautionFilters(filters = {}) {
+  return !!(filters.cautionSeverity || filters.cautionForm || filters.cautionConfusedWith || filters.cautionAffectedSystem);
+}
+
 function routeMatch(record, route) {
   const info = classifyRecord(record);
   if (route === "plants") return info.isPlant && info.edible;
@@ -1242,6 +1357,7 @@ export function filterRecords(records, route, filtersOrSearch = "") {
     if (!routeMatch(record, matchRoute)) return false;
     if (matchRoute === "plants" && filters.plantLane && !plantLaneIdsForRecord(record).has(filters.plantLane)) return false;
     if (route === "medicinal" && !matchesMedicinalFilters(record, filters)) return false;
+    if ((matchRoute === "lookalikes" || matchRoute === "caution") && !matchesCautionFilters(record, filters)) return false;
     if (!matchesTraitFilters(record, matchRoute, filters)) return false;
     if (!q) return true;
     return matchesSearch(record, q);

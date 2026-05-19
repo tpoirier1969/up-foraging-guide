@@ -189,7 +189,15 @@ async function ensureGallery(record) {
 }
 
 function describeItem(item, index) {
-  return titleizeStage(item?.partOrStage) || item?.title || `Photo ${index + 1}`;
+  const raw = titleizeStage(item?.partOrStage) || item?.title || `Photo ${index + 1}`;
+  const text = String(raw || "").replace(/\s+/g, " ").trim();
+  if (text.length <= 34) return text;
+  return `${text.slice(0, 31).trim()}…`;
+}
+
+function lightboxTitleForItem(item, record, index) {
+  const title = titleizeStage(item?.partOrStage) || item?.title || `Photo ${index + 1}`;
+  return `${record.display_name || record.common_name || record.slug || "Species"} — ${title}`;
 }
 
 function candidateSourcesForVariant(item, variant) {
@@ -215,20 +223,32 @@ function buildCandidateQueue(items, variant) {
   );
 }
 
-function bindEnlarge(img, item, record, index) {
+function lightboxPayloadForItem(item, record, index) {
   const lightboxSrc = item?.full || item?.detail || item?.thumb || "";
-  if (!lightboxSrc) return;
-
-  img._lightboxPayload = {
+  if (!lightboxSrc) return null;
+  return {
     src: lightboxSrc,
-    alt: img.alt,
-    title: `${record.display_name || record.common_name || record.slug || "Species"} — ${describeItem(item, index)}`,
+    alt: `${record.display_name || record.common_name || record.slug || "Species photo"} photo ${index + 1}`,
+    title: lightboxTitleForItem(item, record, index),
     sourceHref: item?.sourcePage || item?.full || item?.detail || item?.thumb || "",
     sourceLabel: item?.sourcePage ? "Open source" : "Open full image"
   };
+}
+
+function bindEnlarge(img, item, record, index, galleryItems = []) {
+  const payload = lightboxPayloadForItem(item, record, index);
+  if (!payload) return;
+
+  const gallery = (galleryItems || [])
+    .map((galleryItem, galleryIndex) => lightboxPayloadForItem(galleryItem, record, galleryIndex))
+    .filter(Boolean);
+  img._lightboxPayload = {
+    ...payload,
+    gallery: gallery.length ? gallery : [payload],
+    index: Math.max(0, index)
+  };
 
   if (img.dataset.enlargeBound === "1") return;
-
   img.dataset.enlargeBound = "1";
   img.style.cursor = "zoom-in";
   img.title = "View larger image";
@@ -241,7 +261,7 @@ function bindEnlarge(img, item, record, index) {
   });
 }
 
-function loadCandidateSequence(img, container, orderedItems, record, index, variant) {
+function loadCandidateSequence(img, container, orderedItems, record, index, variant, galleryItems = []) {
   const queue = buildCandidateQueue(orderedItems, variant);
   let pos = 0;
 
@@ -261,7 +281,7 @@ function loadCandidateSequence(img, container, orderedItems, record, index, vari
       img.dataset.resolvedSource = item.source || "local-manifest";
       setBadge(container, describeItem(item, index));
       setSourceLink(container, item.sourcePage || item.full || "", item.sourcePage ? "Source" : "Full image");
-      bindEnlarge(img, item, record, index);
+      bindEnlarge(img, item, record, index, galleryItems);
     };
     img.onerror = () => { tryNext(); };
     img.src = src;
@@ -290,7 +310,7 @@ async function hydrateImage(img, record) {
     ? variantItems
     : [...variantItems.slice(index), ...variantItems.slice(0, index)];
 
-  loadCandidateSequence(img, container, orderedItems, record, index, variant);
+  loadCandidateSequence(img, container, orderedItems, record, index, variant, variantItems);
 }
 
 export function installLazyImages(root, getRecordBySlug) {

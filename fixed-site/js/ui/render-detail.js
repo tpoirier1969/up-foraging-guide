@@ -20,7 +20,7 @@ function clarifyVagueSafetyText(value = "") {
     .replace(/\buse\s+with\s+caution\b/gi, "Use only after checking species-specific risk notes, look-alikes, and preparation limits")
     .replace(/\bwith\s+caution\b/gi, "after checking species-specific risk notes")
     .replace(/\bnot\s+recommended\s+for\s+beginners\b/gi, "Not recommended for beginners because the ID or preparation risk is easy to misjudge")
-    .replace(/\bnot\s+recommended\b(?!\s+for\s+(?:beginners|eating)\b)/gi, "Not recommended for eating unless a trusted source gives a species-specific reason to use it")
+    .replace(/\bnot\s+recommended\b(?!\s+for\s+(?:beginners|eating)\b)/gi, "Not recommended for eating: check the specific poisoning, look-alike, condition, and preparation risk notes below")
     .replace(/\bexercise\s+caution\b/gi, "Check the specific look-alike, preparation, and poisoning-risk notes before use");
 }
 
@@ -458,13 +458,17 @@ function lookAlikeBlock(record) {
     if (["unsafe", "inedible", "bitter", "poor"].includes(status.kind)) hasCaution = true;
     if (status.kind === "review") hasReview = true;
 
-    return `<li class="lookalike-cue-item ${esc(riskClass)}">
-      <div class="lookalike-title-row">
-        <button class="subtle" type="button" data-detail="${esc(slug)}">${esc(label)}</button>
-        ${statusTagHtml(status)}
+    const showWarningThumb = linkedRecord && ["deadly", "poisonous", "unsafe"].includes(status.kind);
+    return `<li class="lookalike-cue-item ${esc(riskClass)} ${showWarningThumb ? "with-warning-thumb" : ""}">
+      ${showWarningThumb ? `<div class="lookalike-warning-thumb">${renderImageSlot(linkedRecord, "card", { showMeta: false })}</div>` : ""}
+      <div class="lookalike-cue-text">
+        <div class="lookalike-title-row">
+          <button class="subtle" type="button" data-detail="${esc(slug)}">${esc(label)}</button>
+          ${statusTagHtml(status)}
+        </div>
+        ${warning ? `<div class="lookalike-warning">${esc(warning)}</div>` : ""}
+        ${note ? `<div class="muted small">How to tell apart: ${esc(note)}</div>` : ""}
       </div>
-      ${warning ? `<div class="lookalike-warning">${esc(warning)}</div>` : ""}
-      ${note ? `<div class="muted small">How to tell apart: ${esc(note)}</div>` : ""}
     </li>`;
   }).join("");
 
@@ -500,8 +504,8 @@ function isUsefulFoodText(value = "") {
 function isSafetyOnlyFoodValue(value = "") {
   const text = String(value || "").trim().toLowerCase();
   if (!text) return false;
-  if (/(choice|prime|excellent|very good|good|fair|poor|mediocre|modest|niche|tea|flavoring)/.test(text)) return false;
-  return /(caution|use with caution|edible with caution|expert confirmation|avoid|not recommended|do not eat|poisonous|toxic|deadly|inedible|not food)/.test(text);
+  if (/\b(choice|prime|excellent|very good|good|fair|poor|mediocre|modest|niche|tea|flavoring)\b/.test(text)) return false;
+  return /\b(caution|use with caution|edible with caution|expert confirmation|avoid|not recommended|do not eat|poisonous|toxic|deadly|inedible|not food)\b/.test(text);
 }
 
 function isFoodQualityValue(value = "") {
@@ -512,10 +516,23 @@ function isFoodQualityValue(value = "") {
   return /prime|choice|excellent|very good|good|fair|poor|mediocre|modest|occasional|niche|tea|flavoring/i.test(text);
 }
 
+function cleanFoodQualityLabel(value = "") {
+  return clean(value)
+    .replace(/\s*\/\s*caution\b/gi, "")
+    .replace(/\bcaution\s*food\b/gi, "")
+    .replace(/\bedible\s+with\s+caution\b/gi, "edible")
+    .replace(/\badvanced\s+edible[- ]with[- ]caution\b/gi, "Advanced edible")
+    .replace(/\bID[- ]learning\s*\/\s*caution\s*food\b/gi, "ID-learning; fair edible")
+    .replace(/\s{2,}/g, " ")
+    .replace(/\s+([,.;:])/g, "$1")
+    .replace(/\s*\/\s*$/g, "")
+    .trim();
+}
+
 function detailFoodQualityText(record = {}) {
-  const explicit = clean(record.foraging_value || record.food_value || "");
+  const explicit = cleanFoodQualityLabel(record.foraging_value || record.food_value || "");
   if (explicit && isFoodQualityValue(explicit)) return explicit;
-  const quality = clean(record.food_quality || "");
+  const quality = cleanFoodQualityLabel(record.food_quality || "");
   return isFoodQualityValue(quality) ? quality : "";
 }
 
