@@ -42,7 +42,11 @@
     "last_completion_wave": "v4.3.63-r2026-05-14-mushroom-completion-wave3-16species-rights-strict1",
     "last_completion_wave_date": "2026-05-14",
     "last_image_recovery_batch": "v4.3.81-r2026-05-18-image-recovery-audit1",
-    "last_image_recovery_date": "2026-05-18"
+    "last_image_recovery_date": "2026-05-18",
+    "last_data_integration": "v4.3.83-r2026-05-18-data-integration1",
+    "last_data_integration_date": "2026-05-18",
+    "last_data_integration": "v4.3.83-r2026-05-18-data-integration1",
+    "last_data_integration_date": "2026-05-18"
   },
   "records": [
     {
@@ -810,8 +814,8 @@
       "edibility_status": "edible_with_caution",
       "food_quality_score": 4,
       "commonness_score": 3,
-      "field_identification": "Small red to cinnabar-orange chanterelle with blunt forked ridges running down the stem, not thin blade-like true gills. Grows on forest soil, often in mossy hardwood or mixed woods.",
-      "edibility_detail": "Good edible after confirming blunt false gills/ridges and chanterelle structure. Avoid orange gilled mushrooms on wood, especially jack-o-lanterns.",
+      "field_identification": "Ground-growing chanterelle relatives with blunt false gills, ridges, wrinkles, or a smooth underside rather than thin blade-like true gills. The false gills usually run down the stem, fork, cross-vein, or look melted into the cap. Flesh is usually firm and pale inside, often with a fruity or apricot-like smell. Do not identify by orange/yellow color alone.",
+      "edibility_detail": "Choice edible when confidently identified by false gills/ridges, ground growth, firm flesh, and appropriate habitat. Do not eat orange mushrooms with true blade-like gills or mushrooms growing in dense clusters from wood or buried roots.",
       "mushroom_card_note": "Small cinnabar chanterelle: blunt decurrent ridges, not sharp gills.",
       "look_alikes": [
         "jack-o-lantern",
@@ -820,7 +824,9 @@
       ],
       "confused_with": [
         "jack-o-lantern",
-        "yellowfoot-chanterelle"
+        "false-chanterelle",
+        "hygrophoropsis-aurantiaca",
+        "orange-gilled-mushrooms"
       ],
       "use_links": [
         {
@@ -846,8 +852,7 @@
           "False gills / ridges"
         ],
         "substrate": [
-          "Forest soil",
-          "Mossy ground"
+          "Ground"
         ],
         "host_filter_tokens": [
           "Hardwood",
@@ -860,7 +865,10 @@
           "Firm but small"
         ],
         "smell": [
-          "Mild fruity to mild mushroomy"
+          "fruity",
+          "apricot-like",
+          "sweet",
+          "not distinctive in some species"
         ],
         "staining": [
           "None notable"
@@ -872,14 +880,74 @@
         "stem_feature": [
           "Same color or slightly paler stem"
         ],
-        "spore_print": "Pale cream to yellowish",
+        "spore_print": [
+          "white",
+          "cream",
+          "yellowish",
+          "pinkish in some species"
+        ],
         "growth_form": [
           "Scattered or small groups"
         ],
         "fertile_surface": [
           "Blunt forked ridges"
         ],
-        "season_note": "Summer into early fall."
+        "season_note": "Summer through fall.",
+        "mushroom_group": "chanterelles",
+        "mushroom_profile_type": "group",
+        "underside_type": [
+          "false gills",
+          "wrinkles",
+          "smooth underside in smooth chanterelles"
+        ],
+        "true_gills_present": false,
+        "false_gill_features": [
+          "blunt",
+          "forking",
+          "cross-veined",
+          "decurrent",
+          "melted into cap"
+        ],
+        "cap_color": [
+          "yellow",
+          "golden yellow",
+          "orange-yellow",
+          "pale yellow",
+          "peach",
+          "cinnabar red in cinnabar chanterelles"
+        ],
+        "stem_color": [
+          "yellow",
+          "pale yellow",
+          "orange-yellow",
+          "same as cap or paler"
+        ],
+        "flesh_color": [
+          "white",
+          "pale yellow",
+          "yellowish"
+        ],
+        "taste": [
+          "mild to slightly peppery in some species; not a primary beginner ID trait"
+        ],
+        "growth_from_wood": false,
+        "host_trees": [
+          "oak",
+          "beech",
+          "maple",
+          "birch",
+          "hemlock",
+          "pine",
+          "mixed hardwoods",
+          "mixed woods depending on species"
+        ],
+        "key_filters": [
+          "false gills",
+          "ground-growing",
+          "fruity smell",
+          "firm pale flesh",
+          "not growing directly from wood"
+        ]
       },
       "common_names": [
         "Red chanterelles / cinnabars"
@@ -915,7 +983,10 @@
         9,
         10
       ],
-      "completion_status": "complete"
+      "completion_status": "complete",
+      "look_alike_notes": "Main concern is jack-o’-lantern mushrooms. Jack-o’-lanterns have true blade-like gills, often grow in dense clusters from wood, stumps, buried roots, or tree bases, and are typically deeper pumpkin-orange. Chanterelles grow from the ground and have blunt ridges or false gills rather than separable true gills. False chanterelles and other orange gilled mushrooms should also be separated by true gills, softer texture, and different growth habits.",
+      "bad_condition_warnings": "Reject slimy, brown-edged, waterlogged, moldy, or bug-heavy specimens. Reject specimens where the underside has sharp, separable true gills. Reject orange clustered mushrooms from wood, stumps, or buried roots.",
+      "image_needs": "Needs underside macro showing false gills/ridges, side view showing ridges running down stem, split specimen showing pale/solid flesh, habitat shot showing ground growth, and chanterelle vs jack-o’-lantern comparison."
     },
     {
       "slug": "red-belted-conk",
@@ -946,7 +1017,7 @@
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
       "culinary_uses": "Not edible as food. Keep as an ID/practical-use bracket fungus.",
       "non_edible_severity": "Inedible / woody",
-      "edibility_detail": "Not edible as food; hard, perennial, woody bracket. Keep as an identification/practical-use record only. North American red-belted-conk material may represent Fomitopsis mounceae/schrenkii-style members of the former F. pinicola complex rather than strict Eurasian F. pinicola, so this app treats the name as a cautious group label.",
+      "edibility_detail": "Not edible as food; hard, perennial, woody bracket. Keep as an identification/practical-use record only. North American red-belted-conk material may represent Fomitopsis mounceae/schrenkii-style members of the former F. pinicola complex rather than strict Eurasian F. pinicola, so this guide treats the name as a cautious group label.",
       "general_notes": "Common northern conk. Compare with artist’s conk and hemlock varnish shelf; red-belted conk lacks the glossy varnished reishi surface and has a distinct banded hoof/shelf form.",
       "record_type": "mushroom",
       "lane": "other",
@@ -1000,7 +1071,7 @@
       "commonness_score": 4,
       "field_identification": "Hard woody perennial bracket with a pale growing margin, darker older zones, and often a reddish-orange band near the edge. Underside is pored and pale; grows on dead conifer or hardwood logs, stumps, and snags.",
       "mushroom_card_note": "Hard banded conk with red belt; useful ID/practical species, not food.",
-      "other_uses": "Can be used as a teaching/display bracket. Some traditional tinder/practical interest exists for bracket fungi, but this app treats it mainly as a woody non-food ID entry.",
+      "other_uses": "Can be used as a teaching/display bracket. Some traditional tinder/practical interest exists for bracket fungi, but this guide treats it mainly as a woody non-food ID entry.",
       "look_alikes": [
         "artist-s-conk",
         "hemlock-varnish-shelf-reishi",
@@ -1107,7 +1178,7 @@
         11,
         12
       ],
-      "taxonomy_notes": "North American red-belted conks have been split from strict Eurasian Fomitopsis pinicola in modern treatments; use this app record as a practical field group, not a final microscope/DNA-level determination.",
+      "taxonomy_notes": "North American red-belted conks have been split from strict Eurasian Fomitopsis pinicola in modern treatments; use this guide record as a practical field group, not a final microscope/DNA-level determination.",
       "completion_status": "incomplete_declared"
     },
     {
@@ -1400,7 +1471,7 @@
       "field_identification": "Large, leathery foliose lichen attached to rock by a central holdfast/navel-like point, usually forming dark, rounded, leaf-like thalli on boulders or steep rock walls. Upper surface is reddish-brown to gray-brown; underside can be dark to black. ID depends on rock substrate, central attachment, leathery thallus, and lichen—not mushroom—structure.",
       "field_measurements": {
         "overall": "Representative U. mammulata thallus usually about 4–15 cm across / about 1.6–5.9 in across",
-        "notes": "Exceptional U. mammulata specimens reported to 63 cm / about 2.1 ft across. This app entry covers rock-tripe lichens broadly, so the range is representative, not every Umbilicaria species."
+        "notes": "Exceptional U. mammulata specimens reported to 63 cm / about 2.1 ft across. This guide entry covers rock-tripe lichens broadly, so the range is representative, not every Umbilicaria species."
       },
       "edibility_status": "emergency_only",
       "other_uses": "Useful as an ID/lichen ecology entry. Slow-growing rock lichens should be observed more than harvested.",
@@ -1427,7 +1498,7 @@
     },
     {
       "slug": "scaber-stalk-boletes-birch-aspen-boletes",
-      "display_name": "Scaber-stalk boletes / birch-aspen boletes",
+      "display_name": "Scaber-stalk boletes / Leccinum group",
       "common_name": "Scaber-stalk boletes / birch-aspen boletes",
       "category": "Mushroom",
       "notes": "",
@@ -1443,23 +1514,23 @@
       "culinary_uses": "Only for experienced foragers who can narrow the species/group and cook thoroughly; avoid old, soft, bug-ridden, or uncertain collections.",
       "general_notes": "Representative Commons images currently use Leccinum scabrum to illustrate the broader scaber-stalk birch/aspen bolete group.",
       "record_type": "mushroom",
-      "lane": "other",
+      "lane": "bolete",
       "review_status": "needs_review",
       "commonness": "",
-      "food_quality": "",
+      "food_quality": "Caution-level; quality varies",
       "non_edible_severity": "",
       "hidden": true,
       "duplicate_of": "leccinum-scabrum",
       "legacy_alias": true,
       "list_visibility": "hidden-duplicate",
       "duplicate_note": "Broad scaber-stalk duplicate/group page kept only as a legacy slug alias. Its caution content has been consolidated into Birch Bolete / Leccinum scabrum.",
-      "scientific_name": "Leccinum scabrum group / Leccinum spp. with scabers",
+      "scientific_name": "Leccinum spp. / scaber-stalk bolete group",
       "common_names": [
         "Birch boletes",
         "Rough-stemmed boletes",
         "Scaber-stalk boletes"
       ],
-      "field_identification": "Bolete group with pores instead of gills and a stem covered in dark scabers/dots or rough flecks. Birch/aspen association is a major ID clue. Representative birch bolete features: tan to brown cap, whitish pores aging gray, slim tapering stem with blackish scabers, and mycorrhizal association with birch. Treat orange-capped/aspen scaber-stalks separately because some Leccinum-type boletes have caused illness when undercooked or misidentified.",
+      "field_identification": "Pored boletes with rough, dark-dotted or scabered stalks. Look for a sponge-like pore surface instead of gills, a pale stalk covered with rough dots that often darken with age, and flesh that may stain gray, blue-gray, pinkish-gray, purplish-gray, or blackish after cutting. Host tree is important: many are associated with aspen, birch, oak, or other northern hardwoods. Do not identify these by cap color alone.",
       "field_measurements": {
         "cap": "Representative L. scabrum cap about 4–10 cm wide / about 1.5–4 in wide",
         "stem": "Representative L. scabrum stem about 5–15 cm long and 1–3.5 cm wide / about 2–6 in long and 3/8–1 3/8 in wide",
@@ -1469,19 +1540,24 @@
         "entry_scope": "group",
         "ecology": "bolete",
         "substrate": [
-          "Forest soil"
+          "Ground"
         ],
         "wood_type": [
           "Hardwood association"
         ],
         "host_trees": [
-          "Birch",
-          "Aspen / poplar for some related scaber-stalk boletes"
+          "aspen",
+          "birch",
+          "oak",
+          "mixed hardwoods",
+          "conifers depending on species"
         ],
         "host_filter_tokens": [
-          "Birch",
           "Aspen / poplar",
-          "Hardwood"
+          "Birch",
+          "Oak",
+          "Hardwood",
+          "Conifer"
         ],
         "underside": [
           "Pores"
@@ -1490,8 +1566,10 @@
           "Whitish when young; grayish with age in representative birch bolete"
         ],
         "stem_feature": [
-          "Scabers / dark rough dots on stem",
-          "No ring"
+          "rough scabers",
+          "dark dotted stalk",
+          "no ring",
+          "solid stalk"
         ],
         "cap_surface": [
           "Tan to brown cap in representative birch bolete"
@@ -1502,11 +1580,63 @@
         "fertile_surface": [
           "Pored underside"
         ],
-        "season_note": "Representative birch bolete fruits in summer to fall; North American timing varies by region.",
-        "spore_print": "Brown to olive-brown in many field guides for Leccinum-type boletes."
+        "season_note": "Summer and fall.",
+        "spore_print": "brown to olive-brown",
+        "mushroom_group": "boletes",
+        "mushroom_profile_type": "group",
+        "underside_type": "pores",
+        "pore_surface_color": [
+          "white",
+          "cream",
+          "pale gray",
+          "tan",
+          "brownish with age"
+        ],
+        "cap_color": [
+          "orange-brown",
+          "red-orange",
+          "brown",
+          "tan",
+          "gray-brown"
+        ],
+        "stem_color": [
+          "white",
+          "pale gray",
+          "pale tan"
+        ],
+        "stem_features": [
+          "rough scabers",
+          "dark dotted stalk",
+          "no ring",
+          "solid stalk"
+        ],
+        "flesh_color": [
+          "white",
+          "pale"
+        ],
+        "bruising_staining": [
+          "gray staining",
+          "blue-gray staining",
+          "pinkish-gray staining",
+          "purplish-gray staining",
+          "blackish staining",
+          "blue staining at stem base in some species"
+        ],
+        "smell": [
+          "mild or not distinctive"
+        ],
+        "taste": [
+          "not recommended as an ID trait"
+        ],
+        "key_filters": [
+          "pores",
+          "scabered stalk",
+          "host tree important",
+          "flesh staining possible"
+        ]
       },
       "edibility_status": "edible_with_caution",
-      "edibility_detail": "Group-level caution: some scaber-stalk boletes are eaten when firm and thoroughly cooked, but species-level ID matters and orange/aspen Leccinum-type boletes have illness reports. Keep this as a caution group, not a blanket edible.",
+      "edibility_detail": "Edible by some experienced foragers, but caution-level. Several scaber-stalk boletes have caused gastrointestinal upset, especially when undercooked, old, or misidentified. Use only young, firm specimens that fit the scaber-stalk group clearly, and do not rely on cap color alone.",
       "look_alikes": [
         "leccinum-versipelle",
         "leccinum-insigne",
@@ -1514,10 +1644,12 @@
         "false-king-bolete"
       ],
       "confused_with": [
+        "other-boletes",
+        "bitter-bolete",
+        "red-pored-blue-staining-boletes-group",
+        "false-king-bolete",
         "leccinum-versipelle",
-        "leccinum-insigne",
-        "wrinkled-bolete",
-        "false-king-bolete"
+        "leccinum-scabrum"
       ],
       "images_structured": [
         {
@@ -1605,7 +1737,13 @@
         "Group-level record: measurements and images are representative of Leccinum scabrum, not a definitive measurement range for every scaber-stalk bolete.",
         "Keep as needs_review until this broad group is either split into species records or explicitly retained as a caution-group page."
       ],
-      "completion_status": "incomplete_declared"
+      "completion_status": "incomplete_declared",
+      "foraging_value": "Caution-level edible group for experienced foragers; quality varies",
+      "food_quality_score": 2,
+      "foraging_value_score": 2,
+      "look_alike_notes": "Can be confused with other boletes, especially by beginners using cap color alone. The rough scabered stalk is the main group clue. Species-level ID can be difficult in North America, and some older names from European field guides are misapplied here. Avoid old, buggy, soft, or strongly decayed specimens. Some scaber-stalk boletes have caused gastrointestinal upset, so this group stays caution-level rather than a casual beginner edible.",
+      "bad_condition_warnings": "Reject soft, bug-riddled, sour-smelling, waterlogged, blackened, mushy-pored, or badly decayed specimens. Avoid old orange-capped specimens and any collection where host/tree context and scabered stalk are not clear.",
+      "image_needs": "Needs host-context habitat, close-up of scabered stalk, young/mature pore surfaces, cut flesh staining sequence, stem-base staining, and reject/old specimen examples."
     },
     {
       "slug": "shaggy-mane",
@@ -1649,7 +1787,9 @@
       ],
       "confused_with": [
         "inky-caps",
-        "destroying-angel"
+        "destroying-angel",
+        "green-spored-parasol",
+        "alcohol-inky-cap"
       ],
       "mushroom_profile": {
         "lane": "gilled",
@@ -1828,21 +1968,24 @@
         "warnings": ""
       },
       "rights_review_status": "exact_metadata_verified",
-      "completion_status": "complete"
+      "completion_status": "complete",
+      "look_alike_notes": "Use only young, classic shaggy manes with white shaggy cylindrical caps and gills not yet black; avoid smooth gray inky caps and parasol-like lawn mushrooms, especially anything with a green spore print."
     },
     {
       "slug": "short-stemmed-russula",
-      "display_name": "Short-stemmed russula",
-      "common_name": "Short-stemmed russula",
+      "display_name": "Short-stemmed White Russula Group",
+      "common_name": "Short-stemmed White Russula Group",
       "category": "Mushroom",
-      "notes": "",
+      "notes": "MushroomExpert explicitly treats North American R. brevipes as a species-complex problem, with multiple cryptic forms and variable taste/ecology. Group treatment is safer.",
       "months_available": [
         "July",
         "August",
-        "September"
+        "September",
+        "October"
       ],
       "links": [
-        "https://www.mushroomexpert.com/russula_brevipes.html"
+        "https://www.mushroomexpert.com/russula_brevipes.html",
+        "https://www.mushroomexpert.com/hypomyces_lactifluorum.html"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Short%20Stem%20Russula%20Mushroom%20%2825c54de9bfa34332ab6e1ec379311ec3%29.JPG",
@@ -1854,73 +1997,83 @@
       "general_notes": "A good reminder that russulas belong in the gilled lane too. The short thick stem and brittle white flesh matter more than generic 'mushroom' features.",
       "record_type": "mushroom",
       "lane": "gilled",
-      "review_status": "complete",
+      "review_status": "needs_images",
       "host_filter_tokens": [
         "Hardwood",
         "Conifer / softwood"
       ],
       "commonness": "Occasional",
-      "food_quality": "Fair",
+      "food_quality": "Good edible with expert confirmation",
       "non_edible_severity": "",
       "month_numbers": [
         7,
         8,
-        9
+        9,
+        10
       ],
       "food_role": "food",
-      "look_alikes": [
-        "shrimp-russulas",
-        "charcoal-burners-mild-flexible-gill-russulas"
-      ],
-      "confused_with": [
-        "shrimp-russulas",
-        "charcoal-burners-mild-flexible-gill-russulas"
-      ],
+      "look_alikes": [],
+      "confused_with": [],
       "mushroom_profile": {
         "lane": "gilled",
+        "entry_scope": "group",
         "underside": [
           "Gills"
         ],
-        "substrate": [
-          "Forest soil"
+        "underside_type": "gills",
+        "cap_color": [
+          "Large, sturdy, white to off-white, often funnel-shaped/depressed; cap skin not easily peeled."
         ],
-        "host_filter_tokens": [
-          "Hardwood",
-          "Conifer / softwood"
+        "gill_color": [
+          "White to cream; attached to decurrent; spacing variable; brittle Russula gills that do not exude latex."
+        ],
+        "stem_color": [
+          "Short, thick, white, sturdy; no ring, volva, or latex."
         ],
         "ring": [
           "None"
         ],
-        "texture": [
-          "Brittle"
+        "volva": "None",
+        "latex_present": false,
+        "latex_color_initial": null,
+        "latex_abundance": "none",
+        "latex_color_change": null,
+        "latex_notes": "No latex. This is the key separator from white Lactarius look-alikes.",
+        "staining": [
+          "White to off-white cap often becomes tan, brownish, or orange-brown with age; gills/stem may bruise brownish."
         ],
         "smell": [
-          "Mild"
+          "Usually mild/not decisive; old specimens may be unpleasant."
         ],
-        "staining": [
-          "None notable"
+        "taste": [
+          "Group varies from mild to acrid. Do not treat all short-stemmed white Russulas as edible just because they look like R. brevipes."
         ],
-        "cap_surface": [
-          "Smooth"
+        "substrate": [
+          "Ground"
         ],
-        "stem_feature": [
-          "Short stout brittle stem"
+        "host_trees": [
+          "mixed woods with sandy soil",
+          "northern Michigan mixed woods",
+          "hardwood/conifer associations vary across the complex"
         ],
-        "spore_print": "White to cream",
-        "gill_attachment": "Attached",
-        "volva": "None",
-        "season_note": "July through September."
+        "host_filter_tokens": [
+          "mixed woods with sandy soil",
+          "northern Michigan mixed woods",
+          "hardwood/conifer associations vary across the complex"
+        ],
+        "season_note": "Summer to fall in northern Great Lakes woods; exact timing varies by species/group.",
+        "spore_print": "White to cream/pale yellow for many milkcaps and russulas; check species/group notes."
       },
-      "commonness_score": 3,
+      "commonness_score": 2,
       "food_quality_score": 3,
       "needs_review": false,
       "scientific_name": "Russula brevipes group",
       "use_roles": [
         "Food"
       ],
-      "foraging_value": "Fair / expert confirmation",
-      "foraging_value_score": 2,
-      "field_identification": "Large, dense white to cream russula with a very short stem, brittle flesh, thick crowded gills that may run slightly down the stem, and no ring or volva. Often partly buried or dirty.",
+      "foraging_value": "Good edible with expert confirmation",
+      "foraging_value_score": 3,
+      "field_identification": "Russula-style entry: brittle/chalky flesh and no latex when cut. Large, sturdy, white to off-white, often funnel-shaped/depressed; cap skin not easily peeled. White to cream; attached to decurrent; spacing variable; brittle Russula gills that do not exude latex. Short, thick, white, sturdy; no ring, volva, or latex.",
       "mushroom_card_note": "Conservative white-russula entry; useful mainly as a lobster-mushroom host.",
       "images_structured": [
         {
@@ -2005,18 +2158,39 @@
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Short%20Stem%20Russula%20Mushroom%20%2825c54de9bfa34332ab6e1ec379311ec3%29.JPG?width=480",
       "edibility_status": "edible_with_caution",
-      "edibility_detail": "Edible by some foragers, but usually firm, bland, and often parasitized into lobster mushrooms. Keep ID conservative and avoid acrid or unknown white russulas.",
+      "edibility_detail": "Advanced/conditional edible posture at most; many are mediocre and some are acrid. Best app use: host/look-alike education and no-latex separator.",
       "use_links": [
         {
-          "label": "MushroomExpert: Russula brevipes",
+          "label": "mushroomexpert.com source",
           "url": "https://www.mushroomexpert.com/russula_brevipes.html",
           "link_type": "identification",
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
-          "notes": "Short-stemmed white russula traits and comparison notes."
+          "notes": "Identification/source reference."
+        },
+        {
+          "label": "mushroomexpert.com source",
+          "url": "https://www.mushroomexpert.com/hypomyces_lactifluorum.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Identification/source reference."
         }
       ],
-      "completion_status": "complete"
+      "completion_status": "needs_images",
+      "primary_type": "mushroom",
+      "species_scope": "group",
+      "look_alike_notes": "Lactarius deceptivus: near-identical at a glance but exudes white latex when cut cut flesh/gills; do not rely on shape White peppery milkcaps: white latex and often crowded gills/acrid burn not beginner edibles Destroying angel / white Amanita group: free gills, ring, volva/cup at base; no brittle Russula texture deadly; inspect base Lobster mushroom host forms: when parasitized by Hypomyces, host identity can be obscured by orange crust covered under lobster mushroom entry, not raw R. brevipes ID",
+      "edible_use": {
+        "has_ingestible_use": true,
+        "method": "Food",
+        "preparation_required": true,
+        "notes": "Advanced/conditional edible posture at most; many are mediocre and some are acrid. Best app use: host/look-alike education and no-latex separator."
+      },
+      "image_needs": "Needs 2–3 distinct open-license images showing cap/gills/stem plus latex/staining or brittle/no-latex traits as applicable.",
+      "alternate_slugs": [
+        "russula-brevipes-group"
+      ]
     },
     {
       "slug": "shrimp-of-the-woods-aborted-entoloma",
@@ -2031,13 +2205,13 @@
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
       "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
       "non_edible_severity": "Conditionally edible",
-      "edibility_detail": "Treat as caution / not for meals in this guide until species-level edibility is clarified.",
+      "edibility_detail": "Edible when confidently identified, especially the firm aborted form. The normal gilled form is not recommended for beginners because other Entoloma species can be toxic or inedible. Prefer young, firm, white aborted forms.",
       "general_notes": "Representative Commons images currently show the Hypomyces lactifluorum / lobster-mushroom side of the concept pending a stronger aborted-entoloma image set.",
       "record_type": "mushroom",
       "lane": "other",
       "review_status": "ok",
       "commonness": "",
-      "food_quality": "",
+      "food_quality": "Good when young aborted form",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2013-10-13_Entoloma_abortivum_(Berk._and_M.A._Curtis)_Donk_389689.jpg?width=480",
@@ -2091,21 +2265,100 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Entoloma.abortivum.001.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2013-10-13_Entoloma_abortivum_(Berk._and_M.A._Curtis)_Donk_389689.jpg?width=480",
-      "scientific_name": "Entoloma abortivum"
+      "scientific_name": "Entoloma abortivum",
+      "foraging_value": "Good edible when the firm aborted form is confidently identified",
+      "food_quality_score": 4,
+      "foraging_value_score": 4,
+      "edibility_status": "edible_with_caution",
+      "field_identification": "Best recognized in the aborted form: irregular white to pale tan, popcorn-like or shrimp-like lumps, usually firm and dense, sometimes with pinkish or whitish interior when cut. Often found near decaying wood, roots, stumps, or honey mushrooms. The normal gilled form is grayish to gray-brown with gills that become pinkish as spores mature and should not be a beginner harvest target.",
+      "look_alike_notes": "The aborted form is distinctive, but the normal gilled form can resemble other Entoloma species, some of which are toxic or inedible. Target only the firm white aborted form unless you already know Entoloma identification. Brown-spotted, waterlogged, or soft aborted forms are past prime.",
+      "confused_with": [
+        "honey-mushrooms",
+        "poisonous-entoloma-pinkgill-group",
+        "entoloma-warning-group",
+        "destroying-angel",
+        "puffballs"
+      ],
+      "bad_condition_warnings": "Reject brown-spotted, slimy, waterlogged, soft, bug-riddled, sour-smelling, or rotten aborted forms. Avoid normal gilled forms unless confirmed by an experienced identifier. Do not treat every pale lump near wood as edible; cut and inspect.",
+      "image_needs": "Needs aborted form cluster, cut interior, aborted form near wood/honey mushrooms, normal gilled form comparison, and reject examples showing brown-spotted or waterlogged specimens.",
+      "mushroom_profile": {
+        "mushroom_group": "gilled mushrooms / aborted form",
+        "mushroom_profile_type": "species",
+        "scientific_name": "Entoloma abortivum",
+        "preferred_foraging_form": "aborted form",
+        "form_types": [
+          "aborted form",
+          "normal gilled form"
+        ],
+        "aborted_form_shape": [
+          "irregular glob",
+          "popcorn-like",
+          "shrimp-like",
+          "lumpy"
+        ],
+        "aborted_form_color": [
+          "white",
+          "cream",
+          "pale tan",
+          "brownish with age"
+        ],
+        "aborted_interior_color": [
+          "white",
+          "pinkish white"
+        ],
+        "normal_form_cap_color": [
+          "gray",
+          "gray-brown"
+        ],
+        "normal_form_gill_color": [
+          "grayish young",
+          "pinkish mature"
+        ],
+        "underside_type": "gills in normal form; absent in aborted form",
+        "spore_print": "pink",
+        "texture": [
+          "firm",
+          "dense"
+        ],
+        "smell": [
+          "mild to mealy"
+        ],
+        "taste": [
+          "not recommended as an ID trait"
+        ],
+        "substrate": [
+          "ground near decaying wood",
+          "near roots",
+          "near stumps"
+        ],
+        "associated_mushrooms": [
+          "honey mushrooms",
+          "Armillaria species"
+        ],
+        "season_note": "Late summer and fall.",
+        "key_filters": [
+          "aborted lump form",
+          "near decaying wood",
+          "near honey mushrooms",
+          "pink spore print in normal form"
+        ]
+      }
     },
     {
       "slug": "shrimp-russulas",
-      "display_name": "Shrimp russulas",
-      "common_name": "Shrimp russulas",
+      "display_name": "Shrimp Russula Group",
+      "common_name": "Shrimp Russula Group",
       "category": "Mushroom",
       "months_available": [
         "July",
         "August",
-        "September"
+        "September",
+        "October"
       ],
       "links": [
+        "https://www.mushroomexpert.com/russula_xerampelina.html",
         "https://www.mushroomexpert.com/russula_shrimp.html",
-        "https://www.mushroomexpert.com/russula_xerampelina.html"
+        "https://www.mushroomexpert.com/russula.html"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20xerampelina%20%2823480902859%29.jpg",
@@ -2116,74 +2369,83 @@
       "culinary_uses": "Use only mild-tasting, confidently identified shrimp russulas. Cook and sample conservatively; the fishy/shrimp odor and staining pattern are key clues, not permission to guess.",
       "record_type": "mushroom",
       "lane": "gilled",
-      "review_status": "complete",
+      "review_status": "needs_images",
       "host_filter_tokens": [
         "Hardwood",
         "Conifer / softwood"
       ],
       "commonness": "Occasional",
-      "food_quality": "Fair",
+      "food_quality": "Good edible with expert confirmation",
       "non_edible_severity": "",
       "month_numbers": [
         7,
         8,
-        9
+        9,
+        10
       ],
       "food_role": "food",
-      "look_alikes": [
-        "short-stemmed-russula",
-        "charcoal-burners-mild-flexible-gill-russulas"
-      ],
-      "confused_with": [
-        "short-stemmed-russula",
-        "charcoal-burners-mild-flexible-gill-russulas"
-      ],
+      "look_alikes": [],
+      "confused_with": [],
       "mushroom_profile": {
         "lane": "gilled",
+        "entry_scope": "group",
         "underside": [
           "Gills"
         ],
-        "substrate": [
-          "Forest soil"
+        "underside_type": "gills",
+        "cap_color": [
+          "Variable red, wine-red, purple, brownish, or mixed tones depending on group member; cap color alone is not enough."
         ],
-        "host_filter_tokens": [
-          "Hardwood",
-          "Conifer / softwood"
+        "gill_color": [
+          "White to cream/yellowish, brittle, attached; no latex."
+        ],
+        "stem_color": [
+          "White to flushed; may discolor brownish/yellowish with age or handling; no ring or volva."
         ],
         "ring": [
           "None"
         ],
-        "texture": [
-          "Brittle"
+        "volva": "None",
+        "latex_present": false,
+        "latex_color_initial": null,
+        "latex_abundance": "none",
+        "latex_color_change": null,
+        "latex_notes": "Russula; no latex.",
+        "staining": [
+          "Flesh can slowly discolor yellowish brown to brown when sliced; odor becomes more fishy/shrimp-like with age or drying."
         ],
         "smell": [
-          "Seafood-like",
-          "Shrimp-like"
+          "Fishy or shrimp-like, often faint when young and stronger with age or drying."
         ],
-        "staining": [
-          "None notable"
+        "taste": [
+          "Mild taste is part of the group concept. Reject hot, peppery, or acrid red/purple Russulas."
         ],
-        "cap_surface": [
-          "Smooth"
+        "substrate": [
+          "Ground"
         ],
-        "stem_feature": [
-          "Brittle chalky stem"
+        "host_trees": [
+          "hardwoods",
+          "conifers",
+          "host varies across group"
         ],
-        "spore_print": "Cream to pale ochre",
-        "gill_attachment": "Attached",
-        "volva": "None",
-        "season_note": "July through September."
+        "host_filter_tokens": [
+          "hardwoods",
+          "conifers",
+          "host varies across group"
+        ],
+        "season_note": "Summer to fall in northern Great Lakes woods; exact timing varies by species/group.",
+        "spore_print": "White to cream/pale yellow for many milkcaps and russulas; check species/group notes."
       },
-      "commonness_score": 3,
+      "commonness_score": 2,
       "food_quality_score": 3,
       "needs_review": false,
-      "scientific_name": "Russula xerampelina group / North American shrimp russulas",
+      "scientific_name": "North American Russula xerampelina group / shrimp Russulas",
       "use_roles": [
         "Food"
       ],
-      "foraging_value": "Fair / expert confirmation",
-      "foraging_value_score": 2,
-      "field_identification": "Russula with brittle flesh, no ring or volva, wine-red to purple-brown cap tones, mild taste, and a distinctive shrimp/fishy odor that develops especially with age or handling; stem and gills may discolor yellowish to brownish.",
+      "foraging_value": "Good edible with expert confirmation",
+      "foraging_value_score": 3,
+      "field_identification": "Russula-style entry: brittle/chalky flesh and no latex when cut. Variable red, wine-red, purple, brownish, or mixed tones depending on group member; cap color alone is not enough. White to cream/yellowish, brittle, attached; no latex. White to flushed; may discolor brownish/yellowish with age or handling; no ring or volva.",
       "mushroom_card_note": "Edible russula group, but do not wing it: confirm mild taste, brittle russula structure, and shrimp/fishy odor.",
       "images_structured": [
         {
@@ -2268,18 +2530,48 @@
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Russula%20xerampelina%20%2823480902859%29.jpg?width=480",
       "edibility_status": "edible_with_caution",
-      "edibility_detail": "Shrimp russulas are edible when the ID is solid, but russulas are a difficult group. Avoid acrid, unknown, or poorly identified russulas.",
+      "edibility_detail": "Edible group for advanced confirmation only. Use this entry only when it shows mild taste, fish/shrimp odor developing with age/drying, no latex, and Russula brittleness. Not a beginner color-match entry.",
       "use_links": [
         {
-          "label": "MushroomExpert: Russula xerampelina",
+          "label": "mushroomexpert.com source",
           "url": "https://www.mushroomexpert.com/russula_xerampelina.html",
           "link_type": "identification",
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
-          "notes": "Shrimp-russula traits, odor, staining, and group caution."
+          "notes": "Identification/source reference."
+        },
+        {
+          "label": "mushroomexpert.com source",
+          "url": "https://www.mushroomexpert.com/russula_shrimp.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Identification/source reference."
+        },
+        {
+          "label": "mushroomexpert.com source",
+          "url": "https://www.mushroomexpert.com/russula.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Identification/source reference."
         }
       ],
-      "completion_status": "complete"
+      "completion_status": "needs_images",
+      "primary_type": "mushroom",
+      "species_scope": "group",
+      "notes": "MushroomExpert treats shrimp Russulas as a North American group with many members. Group treatment is much safer than a single R. xerampelina species label.",
+      "look_alike_notes": "Acrid red Russula / sickener group: hot/acrid taste and no shrimp/fishy odor pattern GI poison; avoid acrid Russulas Other red/purple Russulas: lack shrimp/fishy odor, may have different spore print and staining behavior color is a lousy steering wheel here",
+      "edible_use": {
+        "has_ingestible_use": true,
+        "method": "Food",
+        "preparation_required": true,
+        "notes": "Edible group for advanced confirmation only. Use this entry only when it shows mild taste, fish/shrimp odor developing with age/drying, no latex, and Russula brittleness. Not a beginner color-match entry."
+      },
+      "image_needs": "Needs 2–3 distinct open-license images showing cap/gills/stem plus latex/staining or brittle/no-latex traits as applicable.",
+      "alternate_slugs": [
+        "shrimp-russula-group"
+      ]
     },
     {
       "slug": "smooth-chanterelles",
@@ -2314,7 +2606,7 @@
       ],
       "foraging_value": "Prime foraging",
       "foraging_value_score": 5,
-      "field_identification": "Orange-yellow chanterelle with a mostly smooth to shallowly wrinkled underside rather than deep blade-like gills. Grows on soil in hardwood woods; flesh is solid, with fruity/apricot odor when fresh.",
+      "field_identification": "Ground-growing chanterelle relatives with blunt false gills, ridges, wrinkles, or a smooth underside rather than thin blade-like true gills. The false gills usually run down the stem, fork, cross-vein, or look melted into the cap. Flesh is usually firm and pale inside, often with a fruity or apricot-like smell. Do not identify by orange/yellow color alone.",
       "mushroom_card_note": "Chanterelle with a smooth/wrinkled underside; soil-grown, fruity, solid flesh.",
       "images_structured": [
         {
@@ -2394,7 +2686,7 @@
           "False gills / ridges weak or absent"
         ],
         "substrate": [
-          "Forest soil"
+          "Ground"
         ],
         "host_filter_tokens": [
           "Hardwood",
@@ -2408,7 +2700,10 @@
           "Firm / solid flesh"
         ],
         "smell": [
-          "Fruity / apricot when fresh"
+          "fruity",
+          "apricot-like",
+          "sweet",
+          "not distinctive in some species"
         ],
         "staining": [
           "None notable"
@@ -2421,17 +2716,77 @@
           "Solid stem",
           "Same color to paler than cap"
         ],
-        "spore_print": "Pale yellowish to cream",
+        "spore_print": [
+          "white",
+          "cream",
+          "yellowish",
+          "pinkish in some species"
+        ],
         "growth_form": [
           "Scattered or groups on soil"
         ],
-        "season_note": "Summer into early fall."
+        "season_note": "Summer through fall.",
+        "mushroom_group": "chanterelles",
+        "mushroom_profile_type": "group",
+        "underside_type": [
+          "false gills",
+          "wrinkles",
+          "smooth underside in smooth chanterelles"
+        ],
+        "true_gills_present": false,
+        "false_gill_features": [
+          "blunt",
+          "forking",
+          "cross-veined",
+          "decurrent",
+          "melted into cap"
+        ],
+        "cap_color": [
+          "yellow",
+          "golden yellow",
+          "orange-yellow",
+          "pale yellow",
+          "peach",
+          "cinnabar red in cinnabar chanterelles"
+        ],
+        "stem_color": [
+          "yellow",
+          "pale yellow",
+          "orange-yellow",
+          "same as cap or paler"
+        ],
+        "flesh_color": [
+          "white",
+          "pale yellow",
+          "yellowish"
+        ],
+        "taste": [
+          "mild to slightly peppery in some species; not a primary beginner ID trait"
+        ],
+        "growth_from_wood": false,
+        "host_trees": [
+          "oak",
+          "beech",
+          "maple",
+          "birch",
+          "hemlock",
+          "pine",
+          "mixed hardwoods",
+          "mixed woods depending on species"
+        ],
+        "key_filters": [
+          "false gills",
+          "ground-growing",
+          "fruity smell",
+          "firm pale flesh",
+          "not growing directly from wood"
+        ]
       },
       "food_role": "food",
       "edibility_status": "edible_with_caution",
       "food_quality_score": 5,
       "commonness_score": 3,
-      "edibility_detail": "Choice edible after confirming chanterelle structure, soil growth, solid flesh, and lack of true sharp gills. Avoid orange gilled clusters on wood.",
+      "edibility_detail": "Choice edible when confidently identified by false gills/ridges, ground growth, firm flesh, and appropriate habitat. Do not eat orange mushrooms with true blade-like gills or mushrooms growing in dense clusters from wood or buried roots.",
       "look_alikes": [
         "jack-o-lantern",
         "yellow-chanterelles-hardwood-associated-complex",
@@ -2439,7 +2794,9 @@
       ],
       "confused_with": [
         "jack-o-lantern",
-        "yellow-chanterelles-hardwood-associated-complex"
+        "false-chanterelle",
+        "hygrophoropsis-aurantiaca",
+        "orange-gilled-mushrooms"
       ],
       "use_links": [
         {
@@ -2471,7 +2828,10 @@
         "warnings": ""
       },
       "rights_review_status": "exact_metadata_verified",
-      "completion_status": "complete"
+      "completion_status": "complete",
+      "look_alike_notes": "Main concern is jack-o’-lantern mushrooms. Jack-o’-lanterns have true blade-like gills, often grow in dense clusters from wood, stumps, buried roots, or tree bases, and are typically deeper pumpkin-orange. Chanterelles grow from the ground and have blunt ridges or false gills rather than separable true gills. False chanterelles and other orange gilled mushrooms should also be separated by true gills, softer texture, and different growth habits.",
+      "bad_condition_warnings": "Reject slimy, brown-edged, waterlogged, moldy, or bug-heavy specimens. Reject specimens where the underside has sharp, separable true gills. Reject orange clustered mushrooms from wood, stumps, or buried roots.",
+      "image_needs": "Needs underside macro showing false gills/ridges, side view showing ridges running down stem, split specimen showing pale/solid flesh, habitat shot showing ground growth, and chanterelle vs jack-o’-lantern comparison."
     },
     {
       "slug": "tinder-conk-hoof-fungus",
@@ -2567,7 +2927,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Turkey%20Tail%20(4063595386).jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Trametes%20versicolor.jpg"
       ],
-      "medicinal_uses": "Traditional and supplement interest, especially as tea/extract; this app does not treat it as a cure.",
+      "medicinal_uses": "Traditional and supplement interest, especially as tea/extract; this guide does not treat it as a cure.",
       "culinary_uses": "Too tough for table eating; usually dried and simmered for tea/decoction.",
       "non_edible_severity": "Inedible",
       "edibility_detail": "Avoid for food in this guide; keep as an identification/caution record.",

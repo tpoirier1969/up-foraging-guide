@@ -46,7 +46,11 @@
     "last_image_recovery_batch": "v4.3.81-r2026-05-18-image-recovery-audit1",
     "last_image_recovery_date": "2026-05-18",
     "last_content_update": "v4.3.82-r2026-05-18-danger-entries-forage-display1",
-    "last_content_update_date": "2026-05-18"
+    "last_content_update_date": "2026-05-18",
+    "last_data_integration": "v4.3.83-r2026-05-18-data-integration1",
+    "last_data_integration_date": "2026-05-18",
+    "last_data_integration": "v4.3.83-r2026-05-18-data-integration1",
+    "last_data_integration_date": "2026-05-18"
   },
   "records": [
     {
@@ -92,7 +96,9 @@
       ],
       "confused_with": [
         "false-morel",
-        "black-morels"
+        "black-morels",
+        "false-morel-gyromitra-group",
+        "verpa-group"
       ],
       "edibility_detail": "Good edible after confident true-morel identification. Slice lengthwise to confirm hollow interior and cap attachment; avoid any brainy, chambered, or cottony false morels.",
       "mushroom_profile": {
@@ -273,7 +279,8 @@
         "warnings": ""
       },
       "rights_review_status": "exact_metadata_verified",
-      "completion_status": "complete"
+      "completion_status": "complete",
+      "look_alike_notes": "Every morel must be cut lengthwise before eating; discard any specimen that is not hollow from cap tip to stem base or has a wrinkled/brain-like cap instead of true pits. Link false morels/Gyromitra and Verpa-style early false morels as primary dangers."
     },
     {
       "slug": "hedgehog-mushrooms",
@@ -495,7 +502,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma_tsugae_123102289.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma_tsugae_Vermont,_USA.jpg"
       ],
-      "medicinal_uses": "Traditional reishi-style use; app should present this as traditional/field-guide use rather than medical treatment.",
+      "medicinal_uses": "Traditional reishi-style use; this guide should present this as traditional/field-guide use rather than medical treatment.",
       "culinary_uses": "Not eaten as a mushroom. Usually dried for tea/tincture by people who already know what they are doing.",
       "non_edible_severity": "Inedible / tough; medicinal-use caution",
       "edibility_detail": "Not a food mushroom. Used in some traditional/reishi-style preparations, but this guide treats it as a cautious medicinal/practical ID entry, not a meal.",
@@ -906,7 +913,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/2010-09-30_Armillaria_mellea_s.str._cropped.jpg"
       ],
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Experienced-forager only; never raw, never old, and never without a confident white spore print and wood/root association. This app keeps them in the caution lane.",
+      "culinary_uses": "Experienced-forager only; never raw, never old, and never without a confident white spore print and wood/root association. This guide keeps them in the caution lane.",
       "non_edible_severity": "Caution — toxic look-alikes and individual reactions",
       "edibility_detail": "Edible with caution for experienced foragers only. Confirm a white spore print, wood/root growth, pale attached-to-decurrent gills, and Armillaria traits. Cook thoroughly; avoid old specimens and try a small amount first.",
       "general_notes": "Honey mushrooms are a species complex. The combination of clustered growth from wood/roots, white spores, ring/rhizomorph clues, and lack of orange glow helps separate them from jack-o-lanterns.",
@@ -1125,7 +1132,7 @@
       },
       "rights_review_status": "exact_metadata_verified",
       "completion_status": "complete",
-      "look_alike_notes": "Honey mushrooms have white spores and Armillaria-style growth on wood, roots, or buried wood. Deadly galerina has rusty-brown spores and small brown caps; sulfur tuft has yellow-green gills and purple-brown spores; brick cap has gray to purple-gray gills and brick-red caps; shaggy scalycap has heavy scales and cinnamon-brown spores; jack-o-lanterns are orange, clustered on wood, and poisonous.",
+      "look_alike_notes": "Honey mushrooms have white spores and Armillaria-style growth on wood, roots, or buried wood. Deadly galerina has rusty-brown spores and small brown caps; sulfur tuft has yellow-green gills and purple-brown spores; brick cap has gray to purple-gray gills and brick-red caps; shaggy scalycap has heavy scales and cinnamon-brown spores; jack-o-lanterns are orange, clustered on wood, and poisonous. Do not eat honey mushrooms unless a mature cap gives a white spore print; deadly galerina can grow on the same wood and has a rusty-brown spore print, while jack-o’-lanterns can share the white spore print but have bright orange flesh and true orange gills.",
       "foraging_value": "Fair to good edible for experienced foragers only",
       "caution_reason": "Requires a white spore print and confident Armillaria-style wood/root association; deadly galerina can grow on the same wood and has rusty-brown spores, while jack-o-lanterns have orange flesh and true orange gills.",
       "flavor_texture_notes": "Best young and firm; older caps and stems can be tough, buggy, or trigger individual reactions."
@@ -1150,7 +1157,9 @@
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20566096317.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%2078007.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-09-25%20Omphalotus%20illudens%20(Schwein.)%20Bresinsky%20%26%20Besl%20270109.jpg"
       ],
       "culinary_uses": "Do not eat. Do not eat orange clustered mushrooms from wood or buried roots. True gills plus orange clusters equals no, even if it looks chanterelle-ish.",
       "non_edible_severity": "Deadly poisonous",
@@ -1318,15 +1327,67 @@
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
           "checked_date": "2026-05-14"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%2078007.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%2078007.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%2078007.jpg",
+          "source": "wikimedia-commons-open-license-image-recovery-batch2",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Jack-o’-lantern / Omphalotus illudens",
+          "part_or_stage": "Mature orange jack-o’-lantern fruitbody; useful color and gill warning against chanterelles.",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Omphalotus_illudens_78007.jpg",
+          "author": "Walt Sturgeon / Mycowalt, via Mushroom Observer",
+          "credit": "Walt Sturgeon / Mycowalt, via Mushroom Observer",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Open-license candidate from image-recovery batch 2. Included after duplicate/crop/uncertain-ID screening; source page retained for attribution and license verification.",
+          "rights_checked_build": "v4.3.83-r2026-05-18-image-recovery-data-integration1",
+          "rights_checked_date": "2026-05-18",
+          "checked_build": "v4.3.83-r2026-05-18-image-recovery-data-integration1",
+          "checked_date": "2026-05-18"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-09-25%20Omphalotus%20illudens%20(Schwein.)%20Bresinsky%20%26%20Besl%20270109.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-09-25%20Omphalotus%20illudens%20(Schwein.)%20Bresinsky%20%26%20Besl%20270109.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-09-25%20Omphalotus%20illudens%20(Schwein.)%20Bresinsky%20%26%20Besl%20270109.jpg",
+          "source": "wikimedia-commons-open-license-image-recovery-batch2",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Jack-o’-lantern / Omphalotus illudens",
+          "part_or_stage": "Alternate mature jack-o’-lantern view showing orange clustered/growth habit.",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:2012-09-25_Omphalotus_illudens_(Schwein.)_Bresinsky_%26_Besl_270109.jpg",
+          "author": "Ann F. Berger / Ann B., via Mushroom Observer",
+          "credit": "Ann F. Berger / Ann B., via Mushroom Observer",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Open-license candidate from image-recovery batch 2. Included after duplicate/crop/uncertain-ID screening; source page retained for attribution and license verification.",
+          "rights_checked_build": "v4.3.83-r2026-05-18-image-recovery-data-integration1",
+          "rights_checked_date": "2026-05-18",
+          "checked_build": "v4.3.83-r2026-05-18-image-recovery-data-integration1",
+          "checked_date": "2026-05-18"
         }
       ],
       "detail_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20566096317.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg?width=900"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%2078007.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-09-25%20Omphalotus%20illudens%20(Schwein.)%20Bresinsky%20%26%20Besl%20270109.jpg?width=900"
       ],
       "enlarge_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20566096317.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%2078007.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/2012-09-25%20Omphalotus%20illudens%20(Schwein.)%20Bresinsky%20%26%20Besl%20270109.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20566096317.jpg?width=480",
       "common_names": [
@@ -1394,7 +1455,8 @@
       "foraging_value": "Deadly poisonous",
       "foraging_value_score": 0,
       "toxicity_notes": "Toxic principle: illudin-type compounds and other gastrointestinal irritants; sources vary in how they summarize the toxin. Affected systems: gastrointestinal tract, fluid/electrolyte balance in severe vomiting/diarrhea.",
-      "image_coverage_status": "needs image recovery"
+      "image_coverage_status": "needs image recovery",
+      "image_recovery_status": "image-recovery_batch2_expanded"
     },
     {
       "slug": "king-bolete",
@@ -1911,7 +1973,7 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Hericium_erinaceus_2011_G1.jpg"
       ],
-      "medicinal_uses": "Popular medicinal-interest species, especially for nerve/cognition claims, but this app should treat claims as preliminary/traditional unless supported by specific research.",
+      "medicinal_uses": "Popular medicinal-interest species, especially for nerve/cognition claims, but this guide should treat claims as preliminary/traditional unless supported by specific research.",
       "culinary_uses": "Tear or slice fresh white flesh and cook thoroughly; often used like seafood-textured mushroom in sautés or patties.",
       "general_notes": "Separate from bear’s head tooth and coral tooth by growth form: lion’s mane is mostly unbranched with one compact mass of teeth.",
       "record_type": "mushroom",
@@ -2094,7 +2156,7 @@
         "Conifer / softwood"
       ],
       "commonness": "Occasional",
-      "food_quality": "Good",
+      "food_quality": "Choice when fresh and firm",
       "non_edible_severity": "",
       "month_numbers": [
         7,
@@ -2107,25 +2169,31 @@
         "red-chanterelles-cinnabars"
       ],
       "confused_with": [
-        "jack-o-lantern"
+        "russula-brevipes-group",
+        "short-stemmed-russula",
+        "lactarius-deceptivus",
+        "orange-moldy-mushrooms",
+        "old-decaying-mushrooms"
       ],
-      "edibility_detail": "Good edible when fresh and not waterlogged or buggy.",
+      "edibility_detail": "Choice edible when fresh, firm, and fully transformed. This is a parasitic fungus on other mushrooms, usually Russula or Lactarius. Eat only firm, fresh, fully orange specimens with the host mushroom clearly transformed.",
       "mushroom_profile": {
         "underside": [
           "Deformed / obscured"
         ],
         "substrate": [
-          "Forest soil"
+          "Ground"
         ],
         "host_filter_tokens": [
           "Hardwood",
           "Conifer / softwood"
         ],
         "texture": [
-          "Firm dense flesh"
+          "firm",
+          "dense",
+          "somewhat brittle"
         ],
         "smell": [
-          "Seafood-like"
+          "mild to seafood-like in some specimens"
         ],
         "staining": [
           "Orange-red exterior"
@@ -2136,7 +2204,7 @@
         "stem_feature": [
           "Distorted host mushroom form"
         ],
-        "spore_print": "Usually not useful",
+        "spore_print": "not usually practical",
         "growth_form": [
           "Parasitized irregular cap"
         ],
@@ -2146,10 +2214,53 @@
         "branching_form": [
           "Single distorted fruitbody"
         ],
-        "season_note": "July through September."
+        "season_note": "Mid-summer through fall.",
+        "mushroom_group": "parasitized mushrooms",
+        "mushroom_profile_type": "species",
+        "scientific_name": "Hypomyces lactifluorum",
+        "is_parasitized_mushroom": true,
+        "parasite_on": [
+          "Russula species",
+          "Lactarius species",
+          "Lactifluus species"
+        ],
+        "cap_color": [
+          "bright orange",
+          "reddish orange"
+        ],
+        "outer_surface_color": [
+          "orange",
+          "red-orange"
+        ],
+        "outer_surface_texture": [
+          "hard",
+          "warty",
+          "pimply",
+          "rough"
+        ],
+        "underside_type": "gills obscured or deformed",
+        "flesh_color": [
+          "white",
+          "pale interior"
+        ],
+        "taste": [
+          "seafood-like or mild when fresh"
+        ],
+        "host_trees": [
+          "oak",
+          "poplar",
+          "mixed hardwoods",
+          "mixed woods"
+        ],
+        "key_filters": [
+          "orange crust",
+          "parasitized mushroom",
+          "warty surface",
+          "gills obscured"
+        ]
       },
       "commonness_score": 3,
-      "food_quality_score": 4,
+      "food_quality_score": 5,
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Lobster_Mushroom_(Hypomyces_lactifluorum)_-_La_P%C3%AAche,_Qu%C3%A9bec_2016-09-20.jpg?width=480",
@@ -2203,7 +2314,14 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Lobster_Mushroom_cross-section.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Lobster_Mushroom_(Hypomyces_lactifluorum)_-_La_P%C3%AAche,_Qu%C3%A9bec_2016-09-20.jpg?width=480",
-      "scientific_name": "Hypomyces lactifluorum"
+      "scientific_name": "Hypomyces lactifluorum",
+      "foraging_value": "Choice edible when fresh, firm, and fully transformed",
+      "foraging_value_score": 5,
+      "edibility_status": "edible_with_caution",
+      "field_identification": "A bright orange to reddish-orange parasitic fungus that covers and deforms a host mushroom, usually a white Russula or Lactarius. Mature lobster mushrooms are firm, dense, irregularly shaped, and covered with a hard, warty or pimply orange crust. The original host’s gills are usually reduced, blunted, or completely obscured.",
+      "look_alike_notes": "Few true look-alikes when fully developed, but partial infections, rotten specimens, and orange moldy mushrooms should not be treated as lobster mushrooms. The whole mushroom should be firm and thoroughly transformed, not just patched with orange mold. Do not eat specimens where the host is still mostly visible, slimy, decaying, or foul-smelling.",
+      "bad_condition_warnings": "Reject soft, slimy, waterlogged, moldy, sour, insect-riddled, faded, brown, mushy, or foul-smelling specimens. Reject partially parasitized mushrooms where normal gills and host traits remain obvious. Slice open before cooking; interior should be firm and clean, not rotten.",
+      "image_needs": "Needs whole bright orange specimen, warty/pimply crust close-up, obscured/deformed gills, cut pale firm interior, partially infected/reject specimen, and hardwood habitat image."
     },
     {
       "slug": "meadow-mushroom",

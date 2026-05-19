@@ -44,7 +44,11 @@
     "last_photo_rights_correction": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
     "last_photo_rights_correction_date": "2026-05-14",
     "last_image_recovery_batch": "v4.3.81-r2026-05-18-image-recovery-audit1",
-    "last_image_recovery_date": "2026-05-18"
+    "last_image_recovery_date": "2026-05-18",
+    "last_data_integration": "v4.3.83-r2026-05-18-data-integration1",
+    "last_data_integration_date": "2026-05-18",
+    "last_data_integration": "v4.3.83-r2026-05-18-data-integration1",
+    "last_data_integration_date": "2026-05-18"
   },
   "records": [
     {
@@ -75,7 +79,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma_applanatum_(Ganodermataceae).jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Artists_conk-Ganoderma_applanatum_(7402107040).jpg"
       ],
-      "medicinal_uses": "Traditional/reishi-adjacent interest exists in some sources, but this app treats it mainly as a non-food identification and practical-use species.",
+      "medicinal_uses": "Traditional/reishi-adjacent interest exists in some sources, but this guide treats it mainly as a non-food identification and practical-use species.",
       "culinary_uses": "Not a food mushroom; woody, perennial bracket.",
       "non_edible_severity": "Inedible",
       "edibility_detail": "Avoid for food in this guide; keep as an identification/caution record.",
@@ -1628,7 +1632,9 @@
       ],
       "confused_with": [
         "false-morel-gyromitra-group",
-        "half-free-morels"
+        "half-free-morels",
+        "false-morel",
+        "verpa-group"
       ],
       "edibility_detail": "Excellent edible; false morels are the main danger.",
       "mushroom_profile": {
@@ -1778,12 +1784,12 @@
           "notes": "Black morel traits, hollow interior, attachment, and comparison notes."
         }
       ],
-      "look_alike_notes": "False morels are the danger: true morels are hollow from cap through stem and have a pitted attached cap; Gyromitra types are chambered/cottony/wrinkled rather than cleanly hollow.",
+      "look_alike_notes": "False morels are the danger: true morels are hollow from cap through stem and have a pitted attached cap; Gyromitra types are chambered/cottony/wrinkled rather than cleanly hollow. Every morel must be cut lengthwise before eating; discard any specimen that is not hollow from cap tip to stem base or has a wrinkled/brain-like cap instead of true pits. Link false morels/Gyromitra and Verpa-style early false morels as primary dangers.",
       "completion_status": "complete"
     },
     {
       "slug": "black-trumpet",
-      "display_name": "Black trumpet",
+      "display_name": "Eastern black trumpet",
       "common_name": "Black trumpet",
       "category": "Mushroom",
       "notes": "Dark hollow trumpet with no true gills; the outside fertile surface is smooth to wrinkled, not bladed.",
@@ -1825,26 +1831,31 @@
         "smooth-chanterelles"
       ],
       "confused_with": [
-        "yellowfoot-chanterelle"
+        "dark-cup-fungi",
+        "old-decayed-mushrooms",
+        "chanterelles"
       ],
-      "edibility_detail": "Choice edible with a strong aroma when dried.",
+      "edibility_detail": "Choice edible when fresh and confidently identified by hollow trumpet shape, thin flesh, and lack of true gills. Clean carefully; grit and leaf litter hide inside the trumpet.",
       "mushroom_profile": {
         "underside": [
           "Smooth",
           "Wrinkled"
         ],
         "substrate": [
-          "Forest soil",
-          "Leaf litter"
+          "Ground"
         ],
         "host_filter_tokens": [
           "Hardwood"
         ],
         "texture": [
-          "Thin / pliable"
+          "thin",
+          "fragile",
+          "brittle"
         ],
         "smell": [
-          "Mild fruity"
+          "fruity",
+          "smoky",
+          "not distinctive"
         ],
         "staining": [
           "None"
@@ -1855,7 +1866,7 @@
         "stem_feature": [
           "Hollow trumpet body"
         ],
-        "spore_print": "Pale yellow to cream",
+        "spore_print": "pinkish yellow to pale orange-yellow in eastern black trumpet",
         "growth_form": [
           "Trumpet / funnel"
         ],
@@ -1865,18 +1876,68 @@
         "branching_form": [
           "Single fruitbody"
         ],
-        "season_note": "Most often late summer into fall in moist hardwood woods.",
-        "caution_level": "low"
+        "season_note": "Summer through fall.",
+        "caution_level": "low",
+        "mushroom_group": "chanterelle relatives",
+        "mushroom_profile_type": "species_or_tight_group",
+        "common_name_note": "Often called black trumpet; older sources may use Craterellus cornucopioides.",
+        "fruitbody_shape": [
+          "trumpet-shaped",
+          "vase-shaped",
+          "funnel-shaped"
+        ],
+        "hollow_center": true,
+        "true_gills_present": false,
+        "cap_color": [
+          "black",
+          "dark gray",
+          "brownish black"
+        ],
+        "underside_type": "smooth to wrinkled outer surface; no true gills",
+        "outer_surface_texture": [
+          "smooth",
+          "wrinkled",
+          "slightly veined"
+        ],
+        "stem_color": [
+          "black",
+          "dark gray",
+          "brownish black"
+        ],
+        "flesh_color": [
+          "thin",
+          "gray-black",
+          "blackish"
+        ],
+        "taste": [
+          "mild, rich, smoky/fruity when cooked"
+        ],
+        "host_trees": [
+          "oak",
+          "mixed hardwoods",
+          "beech-maple hardwoods possible"
+        ],
+        "habitat_notes": [
+          "mossy areas",
+          "hardwood forest floor",
+          "camouflaged in leaf litter"
+        ],
+        "key_filters": [
+          "black trumpet shape",
+          "hollow center",
+          "no true gills",
+          "thin fragile flesh"
+        ]
       },
       "commonness_score": 3,
       "food_quality_score": 5,
-      "scientific_name": "Craterellus fallax",
+      "scientific_name": "Craterellus fallax / eastern black trumpet group",
       "use_roles": [
         "Food"
       ],
-      "foraging_value": "Prime foraging",
+      "foraging_value": "Choice edible when fresh and confidently identified",
       "foraging_value_score": 5,
-      "field_identification": "Dark hollow trumpet or vase with no true gills; fertile outer surface smooth to shallowly wrinkled.",
+      "field_identification": "A thin, hollow, trumpet-shaped mushroom, dark gray to black inside, with a gray to blackish outer surface that is smooth to shallowly wrinkled rather than gilled. The body is vase-like or funnel-like, fragile, and usually found on the ground in mossy hardwood areas. Eastern black trumpets may have a pale pinkish-orange to yellowish spore print.",
       "mushroom_card_note": "Prime edible trumpet; easy to miss on the forest floor but excellent fresh or dried.",
       "images_structured": [
         {
@@ -1971,8 +2032,10 @@
           "notes": "Eastern black trumpet traits, smooth/wrinkled fertile surface, and hardwood habitat."
         }
       ],
-      "look_alike_notes": "Yellowfoot and smooth chanterelles are relatives rather than dangerous look-alikes; black trumpet is darker, hollow, and lacks true gills.",
-      "completion_status": "complete"
+      "look_alike_notes": "Few dangerous look-alikes when the hollow trumpet shape and lack of true gills are confirmed. Do not confuse with blackened rotten mushrooms, dark cup fungi, or random decayed funnel-shaped mushrooms. Black trumpets should be thin, hollow, trumpet-shaped, and fresh, not slimy or decomposing.",
+      "completion_status": "complete",
+      "bad_condition_warnings": "Reject slimy, rotten, sour-smelling, collapsed, or blackened mushrooms that are not naturally trumpet-shaped and hollow. Check inside for insects, grit, and debris. Drying quality is good, but only start with clean, fresh specimens.",
+      "image_needs": "Needs habitat cluster in leaf litter/moss, side profile showing hollow trumpet, inside of trumpet, outer fertile surface showing wrinkles/no gills, cross-section, and spore print if available."
     }
   ]
 }
