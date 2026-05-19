@@ -1801,7 +1801,57 @@
       "symptoms_body_systems": "If confused with false morels: gastrointestinal tract, liver, kidneys, nervous system, and blood. If true morels are raw/undercooked: gastrointestinal upset.",
       "field_traits_that_create_risk": "Morel-like mushrooms may be wrinkled, lobed, chambered, or attached differently. True morels should be hollow from cap tip through stem when cut lengthwise, with the cap properly attached to the stem.",
       "hard_rule": "Do not eat morels raw or undercooked. Do not eat any “morel” unless every specimen is cut lengthwise and confirmed as true Morchella.",
-      "caution_reason": "False morels and Verpa-type look-alikes can be poisonous. Even true morels can cause gastrointestinal upset if raw, undercooked, eaten in large amounts, or possibly combined with alcohol."
+      "caution_reason": "False morels and Verpa-type look-alikes can be poisonous. Even true morels can cause gastrointestinal upset if raw, undercooked, eaten in large amounts, or possibly combined with alcohol.",
+      "lookalike_risk": {
+        "level": 3,
+        "label": "Extreme — severe false-morel confusion possible",
+        "short_label": "Extreme — severe look-alike possible",
+        "summary": "Morels are choice food only after every specimen is cut lengthwise and separated from Gyromitra/Verpa-style false morels.",
+        "required_checks": [
+          "Cut every specimen lengthwise",
+          "Confirm hollow interior from cap through stem",
+          "Confirm proper cap attachment",
+          "Reject brain-like, chambered, cottony, saddle-shaped, or free-hanging cap structures"
+        ],
+        "hard_rule": "Every morel goes under the knife; if the inside or cap attachment is wrong, do not eat it.",
+        "dangerous_lookalikes": [
+          {
+            "slug": "false-morel",
+            "risk": "Poisonous / potentially severe or fatal.",
+            "warning": "False morels can look “morel-ish” but may contain gyromitrin-type toxins.",
+            "target_traits": [
+              "Pitted cap, not brain-like folds",
+              "Hollow from cap tip through stem",
+              "Cap correctly attached to stem"
+            ],
+            "lookalike_traits": [
+              "Wrinkled, lobed, brain-like, saddle-shaped, or irregular cap",
+              "Interior may be chambered, cottony, or not cleanly hollow",
+              "Cap may be oddly attached or not attached like a true morel"
+            ],
+            "required_checks": [
+              "Lengthwise cut required"
+            ],
+            "hard_rule": "If it is not cleanly hollow and correctly attached, do not eat it."
+          },
+          {
+            "slug": "verpa-group",
+            "risk": "Not recommended morel look-alike group.",
+            "warning": "Verpa-like morel look-alikes are not treated as edible in this app.",
+            "target_traits": [
+              "True Morchella hollow structure and cap attachment"
+            ],
+            "lookalike_traits": [
+              "Cap attached only at the top or hanging like a thimble",
+              "Stem may be cottony or chambered"
+            ],
+            "required_checks": [
+              "Lengthwise cut required"
+            ],
+            "hard_rule": "A free-hanging cap or cottony/chambered stem means do not eat as a true morel."
+          }
+        ]
+      }
     },
     {
       "slug": "black-trumpet",
@@ -2058,7 +2108,18 @@
       "eating_use_notes": "Excellent dried and powdered; clean carefully.",
       "risk_reason": "Main risk is confirmation of the true trumpet/vase structure and condition, not food quality.",
       "field_traits_that_create_risk": "Dark vase or trumpet shape can collect grit and leaf litter; reject rotten, waterlogged, or uncertain dark mushrooms.",
-      "hard_rule": "Use only confirmed black trumpets in good condition; do not treat every dark funnel-shaped mushroom as food."
+      "hard_rule": "Use only confirmed black trumpets in good condition; do not treat every dark funnel-shaped mushroom as food.",
+      "lookalike_risk": {
+        "level": 0,
+        "label": "Low — no major dangerous look-alike flagged",
+        "short_label": "Low",
+        "summary": "No close deadly or strongly poisonous look-alike is currently flagged for this app entry. Still confirm the full ID and condition.",
+        "required_checks": [
+          "Confirm the app’s field marks and growth habit",
+          "Reject old, rotten, buggy, or uncertain specimens"
+        ],
+        "hard_rule": "Low look-alike risk does not mean skip identification."
+      }
     }
   ]
 }

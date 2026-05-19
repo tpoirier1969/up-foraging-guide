@@ -983,6 +983,23 @@ function foodSafetyTag(record = {}) {
   return labelTag("Safety", value, cls);
 }
 
+function lookalikeRiskTag(record = {}) {
+  const risk = record.lookalike_risk;
+  if (!risk || typeof risk !== "object" || Array.isArray(risk)) return "";
+  const level = Number(risk.level);
+  if (!Number.isFinite(level)) return "";
+  const safeLevel = Math.max(0, Math.min(3, Math.round(level)));
+  const fallback = [
+    "Low",
+    "Moderate",
+    "High",
+    "Extreme"
+  ][safeLevel] || "Needs review";
+  const label = realText(risk.short_label || risk.label || fallback);
+  const cls = safeLevel >= 3 ? "danger" : (safeLevel === 2 ? "caution" : (safeLevel === 1 ? "review" : "good"));
+  return labelTag("Look-alike risk", `${safeLevel} — ${label}`, cls);
+}
+
 function isRareCommonality(value = "") {
   return /\brare\b|uncommon|scarce|infrequent/i.test(String(value || ""));
 }
@@ -1041,6 +1058,7 @@ function makeMeta(record, route = "general") {
 
   bits.push(useRoleTag(record, info));
   bits.push(foodSafetyTag(record));
+  bits.push(lookalikeRiskTag(record));
   bits.push(foragingValueTag(record));
   bits.push(labelTag("Season", seasonSummary(record)));
   if (record.commonness) bits.push(labelTag("Commonality", record.commonness));

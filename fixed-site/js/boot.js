@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.93-r2026-05-19-routing-alias-crosslink-cleanup1";
-const DISPLAY_VERSION = "V4.3.93-r26-05-19";
+const APP_VERSION = "v4.3.94-r2026-05-19-lookalike-risk-scale1";
+const DISPLAY_VERSION = "V4.3.94-r26-05-19";
 window.UP_FORAGING_APP_VERSION = APP_VERSION;
 window.UP_FORAGING_DISPLAY_VERSION = DISPLAY_VERSION;
 

@@ -265,7 +265,38 @@
         "Food",
         "ID / caution"
       ],
-      "danger_level": ""
+      "danger_level": "",
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — red/yellow blue-staining bolete confusion possible",
+        "short_label": "High — expert bolete ID required",
+        "summary": "Bicolor-like boletes sit in a red/yellow/blue-staining caution zone. Good food reports do not make this beginner-safe.",
+        "required_checks": [
+          "Confirm true bicolor traits",
+          "Reject red/orange pore surfaces outside the expected pattern",
+          "Reject instant strong blue staining everywhere",
+          "Separate from sensibilis/pseudosensibilis-style caution boletes"
+        ],
+        "hard_rule": "If the red/yellow bolete does not cleanly fit true bicolor traits, do not eat it.",
+        "dangerous_lookalikes": [
+          {
+            "slug": "blue-staining-red-pored-boletes-caution-group",
+            "risk": "Caution group — some cause GI illness.",
+            "warning": "This is the main bicolor-like danger bucket for this app.",
+            "target_traits": [
+              "Red cap/stem with bright yellow young pores",
+              "Shallow tube layer",
+              "Flesh bruises faintly/erratically rather than violently everywhere"
+            ],
+            "lookalike_traits": [
+              "Red/orange pores",
+              "Rapid strong blue bruising",
+              "Unclear red/yellow bolete identity"
+            ],
+            "hard_rule": "Fast strong blue staining or red/orange-pored uncertainty means do not eat."
+          }
+        ]
+      }
     },
     {
       "slug": "boletus-bicoloroides",

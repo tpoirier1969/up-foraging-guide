@@ -89,10 +89,12 @@
       "food_role": "food",
       "look_alikes": [
         "purple-cortinarius-group",
-        "wood-blewit-lookalikes"
+        "wood-blewit-lookalikes",
+        "cortinarius-webcap-warning-group"
       ],
       "confused_with": [
-        "purple-cortinarius-group"
+        "purple-cortinarius-group",
+        "cortinarius-webcap-warning-group"
       ],
       "mushroom_profile": {
         "lane": "gilled",
@@ -260,7 +262,42 @@
         "wood blewit group",
         "Clitocybe nuda group",
         "Lepista nuda"
-      ]
+      ],
+      "lookalike_risk": {
+        "level": 3,
+        "label": "Extreme — dangerous Cortinarius confusion possible",
+        "short_label": "Extreme — dangerous look-alike possible",
+        "summary": "Blewits are not beginner-safe because purple Cortinarius/webcaps can overlap visually and some Cortinarius can damage kidneys.",
+        "required_checks": [
+          "Pale pinkish spore print required",
+          "No rusty-brown spore print",
+          "No cortina/cobwebby veil remnants",
+          "Fresh lilac/purple blewit traits must match"
+        ],
+        "hard_rule": "Do not eat a suspected blewit without a pale pinkish spore print and no rusty cortina evidence.",
+        "dangerous_lookalikes": [
+          {
+            "slug": "cortinarius-webcap-warning-group",
+            "risk": "Dangerous / possible delayed kidney toxicity.",
+            "warning": "Purple color alone is not enough; Cortinarius/webcaps can be dangerous.",
+            "target_traits": [
+              "Pale pinkish spore print",
+              "No cortina",
+              "No rusty spore dust",
+              "Blewit growth in leaf litter/duff with fresh lilac tones"
+            ],
+            "lookalike_traits": [
+              "Rusty-brown spore print",
+              "Cobwebby cortina or rusty veil remnants",
+              "Rusty/brown dust on gills or stem"
+            ],
+            "required_checks": [
+              "Spore print required"
+            ],
+            "hard_rule": "Rusty-brown spores or cortina remnants mean do not eat as blewit."
+          }
+        ]
+      }
     },
     {
       "slug": "blue-staining-red-pored-boletes-caution-group",
@@ -2859,7 +2896,58 @@
       "risk_reason": "Old puffballs become inedible, and young Amanita buttons or earthballs can be mistaken for puffballs if not cut open.",
       "symptoms_body_systems": "Old/contaminated puffballs can cause GI upset. Amanita confusion can cause liver/kidney failure. Earthball confusion can cause GI irritation and sometimes neurologic/cardiovascular symptoms.",
       "field_traits_that_create_risk": "Round white mushrooms with no visible gills can hide dangerous look-alikes. Edible puffballs must be solid and uniform white inside, with no gills, stem outline, yellow, green, brown, purple, black, or developing cap/stem structure.",
-      "hard_rule": "Cut every puffball from top to bottom. If the inside is not solid pure white with no internal mushroom outline, do not eat it."
+      "hard_rule": "Cut every puffball from top to bottom. If the inside is not solid pure white with no internal mushroom outline, do not eat it.",
+      "lookalike_risk": {
+        "level": 3,
+        "label": "Extreme — Amanita button / earthball confusion possible",
+        "short_label": "Extreme — deadly button-stage look-alike possible",
+        "summary": "Puffballs are edible only when the interior is pure white and uniform. Button-stage Amanitas and earthballs are the dangerous traps.",
+        "required_checks": [
+          "Cut every puffball-like mushroom top to bottom",
+          "Interior must be solid, soft, and pure white",
+          "Reject any gills, cap outline, stem outline, volva, marbling, yellowing, browning, purple, black, or powdery interior"
+        ],
+        "hard_rule": "If the inside is not solid pure white with no internal mushroom outline, do not eat it.",
+        "dangerous_lookalikes": [
+          {
+            "slug": "destroying-angel",
+            "risk": "Deadly — Amanita buttons can contain amatoxins.",
+            "warning": "Young Amanita buttons can resemble puffballs before the cap opens.",
+            "target_traits": [
+              "Solid uniform pure-white interior",
+              "No cap/gill/stem outline",
+              "No volva or basal cup structure"
+            ],
+            "lookalike_traits": [
+              "Internal cap/gill/stem outline when cut",
+              "Volva/cup/bulb or buried base",
+              "White gills/spores after opening"
+            ],
+            "required_checks": [
+              "Full lengthwise cut required",
+              "Dig/check base if any stem-like structure appears"
+            ],
+            "hard_rule": "Any internal mushroom outline means do not eat as puffball."
+          },
+          {
+            "slug": "earthballs-scleroderma",
+            "risk": "Poisonous / gastrointestinal and possible systemic effects.",
+            "warning": "Earthballs are puffball-like but have a thick rind and darkening interior.",
+            "target_traits": [
+              "Soft, solid, pure-white interior"
+            ],
+            "lookalike_traits": [
+              "Thick tough rind",
+              "Interior turns purple, black, brown, marbled, powdery, or veined",
+              "Potato-like toughness"
+            ],
+            "required_checks": [
+              "Cut every specimen"
+            ],
+            "hard_rule": "Any dark, veined, marbled, powdery, or tough interior means do not eat."
+          }
+        ]
+      }
     }
   ]
 }

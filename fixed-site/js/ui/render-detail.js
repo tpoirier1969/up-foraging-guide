@@ -390,23 +390,138 @@ function lookAlikeRiskClass(status = {}) {
   return "";
 }
 
-function lookAlikeWarningText(status = {}) {
+function lookAlikeWarningText(status = {}, comparison = null) {
+  const specific = clean(comparison?.warning || comparison?.summary || "");
+  if (specific) return specific;
   if (status.kind === "deadly") {
-    return "Deadly look-alike: treat this comparison as a stop sign, not a casual note.";
+    return "Deadly look-alike: use the comparison traits below as stop-sign checks before any food decision.";
   }
   if (status.kind === "poisonous") {
-    return "Poisonous look-alike: confirm the separating features before considering this species for food.";
+    return "Poisonous look-alike: use the comparison traits below before considering this species for food.";
   }
   if (status.kind === "bitter") {
-    return "Bitter / inedible look-alike: confirm the separating features before this goes anywhere near the pan.";
+    return "Bitter / inedible look-alike: check the comparison traits before this goes anywhere near the pan.";
   }
   if (["unsafe", "inedible", "poor"].includes(status.kind)) {
-    return "Unsafe or not-recommended look-alike: confirm the separating features before treating this as food.";
+    return "Unsafe or not-recommended look-alike: use the comparison traits below before treating this as food.";
   }
   if (status.className === "review") {
     return "Look-alike status needs review: do not use this comparison as a final ID.";
   }
   return "";
+}
+
+function normalizeRiskLevel(value) {
+  const n = Number(value);
+  if (Number.isFinite(n)) return Math.max(0, Math.min(3, Math.round(n)));
+  return null;
+}
+
+function lookAlikeRiskData(record = {}) {
+  const risk = record.lookalike_risk;
+  if (!risk || typeof risk !== "object" || Array.isArray(risk)) return null;
+  const level = normalizeRiskLevel(risk.level);
+  if (level === null) return null;
+  return { ...risk, level };
+}
+
+function lookAlikeRiskLabel(risk = {}) {
+  const level = normalizeRiskLevel(risk.level);
+  const fallback = [
+    "Low — no major dangerous look-alike flagged",
+    "Moderate — confusing look-alikes",
+    "High — poisonous look-alike possible",
+    "Extreme — deadly or organ-damaging confusion possible"
+  ][level] || "Needs review";
+  return `${level} — ${clean(risk.label || risk.short_label || fallback.replace(/^\d+\s*[—-]\s*/, ""))}`;
+}
+
+function lookAlikeRiskCssClass(level) {
+  if (level >= 3) return "danger";
+  if (level === 2) return "caution";
+  if (level === 1) return "review";
+  return "good";
+}
+
+function lookAlikeRiskTag(record = {}) {
+  const risk = lookAlikeRiskData(record);
+  if (!risk) return "";
+  return `<span class="tag ${lookAlikeRiskCssClass(risk.level)}">Look-alike risk: ${esc(lookAlikeRiskLabel(risk))}</span>`;
+}
+
+function structuredLookAlikeComparisons(record = {}) {
+  const risk = lookAlikeRiskData(record);
+  const items = asArray(risk?.dangerous_lookalikes).filter((item) => item && typeof item === "object");
+  return items;
+}
+
+function findStructuredLookAlikeComparison(record = {}, rawName = "", linkedRecord = null, key = "") {
+  const candidates = [
+    key,
+    rawName,
+    linkedRecord?.slug,
+    linkedRecord?.duplicate_of,
+    linkedRecord?.display_name,
+    linkedRecord?.common_name,
+    linkedRecord?.scientific_name,
+    ...(asArray(linkedRecord?.common_names)),
+    ...(asArray(linkedRecord?.search_aliases))
+  ].map(slugifyLookup).filter(Boolean);
+
+  return structuredLookAlikeComparisons(record).find((item) => {
+    const itemKeys = [
+      item.slug,
+      item.lookalike_slug,
+      item.target_slug,
+      item.name,
+      item.display_name,
+      item.scientific_name
+    ].map(slugifyLookup).filter(Boolean);
+    return itemKeys.some((itemKey) => candidates.includes(itemKey));
+  }) || null;
+}
+
+function comparisonTraitList(title, values) {
+  const cleaned = asArray(values).map(clean).filter(Boolean);
+  if (!cleaned.length) return "";
+  return `<div class="lookalike-trait-list"><strong>${esc(title)}</strong><ul>${cleaned.map((value) => `<li>${esc(value)}</li>`).join("")}</ul></div>`;
+}
+
+function structuredLookAlikeDetailHtml(comparison = null) {
+  if (!comparison) return "";
+  const targetTraits = comparisonTraitList("This entry should show", comparison.target_traits || comparison.edible_traits || comparison.separating_traits_target);
+  const lookalikeTraits = comparisonTraitList("Look-alike warning traits", comparison.lookalike_traits || comparison.danger_traits || comparison.separating_traits_lookalike);
+  const required = comparisonTraitList("Required checks", comparison.required_checks);
+  const hardRule = clean(comparison.hard_rule || "");
+  const risk = clean(comparison.risk || comparison.danger_level || "");
+  const bits = [
+    risk ? `<div class="lookalike-specific-risk"><strong>Risk:</strong> ${esc(risk)}</div>` : "",
+    targetTraits,
+    lookalikeTraits,
+    required,
+    hardRule ? `<div class="lookalike-hard-rule"><strong>Hard rule:</strong> ${esc(hardRule)}</div>` : ""
+  ].filter(Boolean).join("");
+  return bits ? `<div class="lookalike-specific-detail">${bits}</div>` : "";
+}
+
+function lookAlikeRiskSummaryBlock(record = {}) {
+  const risk = lookAlikeRiskData(record);
+  if (!risk) return "";
+  const required = asArray(risk.required_checks).map(clean).filter(Boolean);
+  const summary = clean(risk.summary || "");
+  const hardRule = clean(risk.hard_rule || "");
+  const lines = [
+    lineIf("Scale", lookAlikeRiskLabel(risk)),
+    lineIf("Meaning", summary),
+    lineIf("Hard rule", hardRule)
+  ].join("");
+  return `
+    <section class="detail-block lookalike-risk-block lookalike-risk-level-${risk.level}">
+      <h4>Look-alike Risk</h4>
+      <dl class="kv">${lines}</dl>
+      ${required.length ? `<ul class="list-tight">${required.map((value) => `<li>${esc(value)}</li>`).join("")}</ul>` : ""}
+    </section>
+  `;
 }
 
 function canonicalLookAlikeKey(rawName = "", linkedRecord = null) {
@@ -450,8 +565,10 @@ function lookAlikeBlock(record) {
     const label = linkedRecord ? (linkedRecord.display_name || linkedRecord.common_name || titleFromSlugOrName(name)) : titleFromSlugOrName(name);
     const status = lookAlikeStatus(linkedRecord, name);
     const riskClass = lookAlikeRiskClass(status);
-    const warning = lookAlikeWarningText(status);
-    const note = lookAlikeSeparationNote(record, name);
+    const comparison = findStructuredLookAlikeComparison(record, name, linkedRecord, key);
+    const warning = lookAlikeWarningText(status, comparison);
+    const note = comparison ? "" : lookAlikeSeparationNote(record, name);
+    const specificDetail = structuredLookAlikeDetailHtml(comparison);
 
     if (status.kind === "deadly") hasDeadly = true;
     if (status.kind === "poisonous") hasPoison = true;
@@ -467,6 +584,7 @@ function lookAlikeBlock(record) {
           ${statusTagHtml(status)}
         </div>
         ${warning ? `<div class="lookalike-warning">${esc(warning)}</div>` : ""}
+        ${specificDetail}
         ${note ? `<div class="muted small">How to tell apart: ${esc(note)}</div>` : ""}
       </div>
     </li>`;
@@ -841,6 +959,7 @@ function heroBlock(record, typeLabel, edibleUse) {
           ${record.commonness ? `<span class="tag">Commonality: ${esc(record.commonness)}</span>` : ""}
           ${seasonText(record) ? `<span class="tag">Season: ${esc(seasonText(record))}</span>` : ""}
           ${detailSafetyTag(record)}
+          ${lookAlikeRiskTag(record)}
           ${detailForageTag(record)}
           ${record.non_edible_severity && !edibleUse?.has_ingestible_use && !detailSafetyText(record) ? `<span class="tag danger">${esc(record.non_edible_severity)}</span>` : ""}
           ${record.image_review_status ? `<span class="tag review">Photo: ${esc(String(record.image_review_status).replaceAll("_", " "))}</span>` : ""}
@@ -873,6 +992,7 @@ function renderMushroomDetail(record, context) {
       ${mushroomIdentificationBlock(record, fieldIdentification)}
       ${mushroomNotesBlock(record, notes, generalNotes, otherUses)}
       ${mushroomSeasonalityBlock(record)}
+      ${lookAlikeRiskSummaryBlock(record)}
       ${lookAlikeBlock(record)}
       ${dangerBlock(record)}
       ${rareBlock(record)}

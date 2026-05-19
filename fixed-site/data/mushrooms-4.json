@@ -2821,7 +2821,8 @@
       "look_alikes": [
         "jack-o-lantern",
         "yellow-chanterelles-hardwood-associated-complex",
-        "hedgehog-mushrooms"
+        "hedgehog-mushrooms",
+        "false-chanterelle"
       ],
       "confused_with": [
         "jack-o-lantern",
@@ -2870,7 +2871,53 @@
       "symptoms_body_systems": "If confused with jack-o’-lantern: gastrointestinal tract, with cramps, vomiting, and diarrhea.",
       "field_traits_that_create_risk": "True chanterelles have blunt, forked ridges or false gills that look melted into the underside, grow from soil, and are usually singly or loosely scattered. Jack-o’-lanterns grow in dense clusters from wood or buried roots and have sharp true gills.",
       "hard_rule": "Do not eat any “chanterelle” unless the underside has blunt ridges, not blade-like gills, and the mushroom is not growing from wood.",
-      "caution_reason": "The main danger is confusing true chanterelles with jack-o’-lanterns or false chanterelles. Jack-o’-lanterns are poisonous."
+      "caution_reason": "The main danger is confusing true chanterelles with jack-o’-lanterns or false chanterelles. Jack-o’-lanterns are poisonous.",
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — poisonous orange look-alikes possible",
+        "short_label": "High — poisonous look-alike possible",
+        "summary": "True chanterelles must be separated from jack-o’-lanterns and false chanterelles by underside structure, growth habit, and flesh/texture.",
+        "required_checks": [
+          "Confirm blunt ridges / false gills, not blade-like true gills",
+          "Confirm ground growth, not dense clusters from wood or buried roots",
+          "Reject soft orange gilled mushrooms on wood/litter when unsure"
+        ],
+        "hard_rule": "Do not eat orange “chanterelles” with sharp true gills or clustered wood growth.",
+        "dangerous_lookalikes": [
+          {
+            "slug": "jack-o-lantern",
+            "risk": "Poisonous — causes cramps, vomiting, and diarrhea.",
+            "warning": "Jack-o’-lantern is the main poisonous chanterelle look-alike.",
+            "target_traits": [
+              "Blunt, forked ridges/false gills",
+              "Usually grows from soil",
+              "Firmer flesh, not bright orange throughout"
+            ],
+            "lookalike_traits": [
+              "Sharp blade-like true gills",
+              "Dense clusters from wood, stumps, or buried roots",
+              "Bright orange flesh"
+            ],
+            "hard_rule": "True gills plus wood-cluster growth means do not eat as chanterelle."
+          },
+          {
+            "slug": "false-chanterelle",
+            "risk": "Not recommended / confusion record.",
+            "warning": "False chanterelle is mainly a field-ID trap: it has true gills, not blunt ridges.",
+            "target_traits": [
+              "Blunt ridges that look melted into the underside",
+              "Firmer chanterelle texture",
+              "Often fruity odor"
+            ],
+            "lookalike_traits": [
+              "Thin, forked true gills",
+              "Softer flimsier flesh",
+              "Often on woody debris or conifer litter"
+            ],
+            "hard_rule": "Do not use color alone; underside structure decides the call."
+          }
+        ]
+      }
     },
     {
       "slug": "tinder-conk-hoof-fungus",
