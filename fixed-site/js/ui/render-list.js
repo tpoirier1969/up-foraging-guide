@@ -1601,6 +1601,44 @@ export function sortRecords(records = [], sortKey = "default") {
   });
 }
 
+function actualImageCount(record = {}) {
+  const urls = [
+    ...(Array.isArray(record.images_structured) ? record.images_structured.flatMap((item) => [item?.thumb, item?.detail, item?.full]) : []),
+    ...(Array.isArray(record.images) ? record.images.map((item) => typeof item === "string" ? item : (item?.src || item?.thumb || item?.detail || item?.full)) : []),
+    ...(Array.isArray(record.detail_images) ? record.detail_images : []),
+    ...(Array.isArray(record.enlarge_images) ? record.enlarge_images : []),
+    record.list_thumbnail
+  ];
+  const seen = new Set();
+  for (const url of urls) {
+    const text = String(url || "").trim();
+    if (!text || text.startsWith("data:image/svg")) continue;
+    seen.add(text.split("?")[0]);
+  }
+  return seen.size;
+}
+
+function isImageOnlyReview(record = {}) {
+  if (record.review_status === "needs_images" || record.image_status === "needs_images") return true;
+  if (record.review_status !== "needs_review") return false;
+  const text = [
+    record.review_note, record.work_note, record.completion_status, record.completion_notes,
+    record.image_status, record.image_needs, record.image_notes, record.missing_fields,
+    record.notes, record.overview
+  ].flatMap(asList).join(" ").toLowerCase();
+  const hasPlaceholder = [
+    ...(Array.isArray(record.images) ? record.images : []),
+    record.list_thumbnail
+  ].some((value) => String(value || "").startsWith("data:image/svg"));
+  if (hasPlaceholder && actualImageCount(record) < 2) return true;
+  if (actualImageCount(record) === 0) return true;
+  return /needs? (photo|image)|image needed|photo needed|public usable photo not yet found|image[- ]poor|missing image/.test(text);
+}
+
+function shouldShowReviewOk(record = {}) {
+  return record.review_status === "needs_review" && !isImageOnlyReview(record);
+}
+
 export function renderRecordCards(records, route = "general") {
   if (!records.length) return `<section class="panel empty-state"><h3>No matches</h3></section>`;
   return `<section class="record-list">${records.map((record) => `
@@ -1613,7 +1651,7 @@ export function renderRecordCards(records, route = "general") {
         ${cardSnippetHtml(record)}
         <div class="control-row">
           <button class="primary" type="button" data-detail="${esc(record.slug)}">Open details</button>
-          ${record.review_status === "needs_review" ? `<button class="warn" type="button" data-review-action="mark-ok" data-slug="${esc(record.slug)}">Mark OK</button>` : ""}
+          ${shouldShowReviewOk(record) ? `<button class="warn" type="button" data-review-action="mark-ok" data-slug="${esc(record.slug)}">Mark OK</button>` : ""}
         </div>
       </div>
     </article>

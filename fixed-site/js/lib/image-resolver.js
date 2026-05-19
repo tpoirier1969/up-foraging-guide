@@ -190,9 +190,7 @@ async function ensureGallery(record) {
 
 function describeItem(item, index) {
   const raw = titleizeStage(item?.partOrStage) || item?.title || `Photo ${index + 1}`;
-  const text = String(raw || "").replace(/\s+/g, " ").trim();
-  if (text.length <= 34) return text;
-  return `${text.slice(0, 31).trim()}…`;
+  return String(raw || "").replace(/\s+/g, " ").trim();
 }
 
 function lightboxTitleForItem(item, record, index) {
@@ -304,13 +302,14 @@ async function hydrateImage(img, record) {
   img.alt = alt;
 
   const items = await ensureGallery(record);
-  const variantItems = (variant === "card" ? items.slice(0, 1) : items).filter(Boolean);
+  const allGalleryItems = items.filter(Boolean);
+  const variantItems = (variant === "card" ? allGalleryItems.slice(0, 1) : allGalleryItems).filter(Boolean);
 
   const orderedItems = variant === "card"
     ? variantItems
     : [...variantItems.slice(index), ...variantItems.slice(0, index)];
 
-  loadCandidateSequence(img, container, orderedItems, record, index, variant, variantItems);
+  loadCandidateSequence(img, container, orderedItems, record, index, variant, allGalleryItems.length ? allGalleryItems : variantItems);
 }
 
 export function installLazyImages(root, getRecordBySlug) {

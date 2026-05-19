@@ -1,6 +1,6 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.85-r2026-05-19-caution-visuals-species-cleanup1";
+const APP_VERSION = "v4.3.86-r2026-05-19-image-ui-fixes1";
 const DISPLAY_VERSION = "V4.3.84-r26-05-19";
 window.UP_FORAGING_APP_VERSION = APP_VERSION;
 window.UP_FORAGING_DISPLAY_VERSION = DISPLAY_VERSION;

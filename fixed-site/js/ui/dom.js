@@ -58,6 +58,7 @@ function applyLightboxInlineStyles(shell) {
     body.style.alignItems = "center";
     body.style.justifyContent = "center";
     body.style.overflow = "auto";
+    body.style.position = "relative";
   }
 
   const image = shell.querySelector(".image-lightbox-image");
@@ -125,10 +126,22 @@ function ensureLightbox() {
   };
 
   shell.querySelectorAll("[data-lightbox-close]").forEach((node) => {
-    node.addEventListener("click", closeLightbox);
+    node.addEventListener("click", (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      closeLightbox();
+    });
   });
-  shell.querySelector("[data-lightbox-prev]")?.addEventListener("click", () => showLightboxGalleryOffset(-1));
-  shell.querySelector("[data-lightbox-next]")?.addEventListener("click", () => showLightboxGalleryOffset(1));
+  shell.querySelector("[data-lightbox-prev]")?.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    showLightboxGalleryOffset(-1);
+  });
+  shell.querySelector("[data-lightbox-next]")?.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    showLightboxGalleryOffset(1);
+  });
 
   if (!lightboxEscapeBound) {
     document.addEventListener("keydown", (event) => {

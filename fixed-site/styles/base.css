@@ -304,3 +304,12 @@ textarea.review-note{width:100%;min-height:84px}
 .caution-filter-cell select{width:100%;min-width:0;border-color:#d9bfa5;background:#fffefa;}
 .caution-filter-cell select:focus{outline:2px solid rgba(165,58,42,.25);border-color:#a53a2a;}
 @media (max-width:700px){.caution-filter-grid{grid-template-columns:minmax(0,1fr);}.caution-filter-heading{display:grid;grid-template-columns:minmax(0,1fr);}.caution-filter-heading #cautionClearBtn{width:100%;}}
+
+
+/* v4.3.86 image/gallery usability fixes */
+.record-image-slot.detail .image-meta-line{display:grid;grid-template-columns:minmax(0,1fr);gap:4px;align-items:start;}
+.record-image-slot.detail .image-source-badge{max-width:100%;white-space:normal;overflow:visible;text-overflow:clip;word-break:normal;overflow-wrap:anywhere;}
+.record-image-slot.detail .record-image-cell{align-content:start;}
+.image-lightbox-body{position:relative;}
+.image-lightbox-nav{user-select:none;}
+.image-lightbox-nav:focus-visible{outline:3px solid #2f5d46;outline-offset:2px;}
