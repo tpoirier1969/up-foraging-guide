@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Upper Michigan Foraging Guide</title>
   <meta name="theme-color" content="#2f5d46">
-  <link rel="manifest" href="site.webmanifest?v=v4.3.24-r2026-05-12-poison-lookalike-emphasis1">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/up-foraging-guide-icon-32.png?v=v4.3.24-r2026-05-12-poison-lookalike-emphasis1">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/up-foraging-guide-icon-180.png?v=v4.3.24-r2026-05-12-poison-lookalike-emphasis1">
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/up-foraging-guide-icon-192.png?v=v4.3.24-r2026-05-12-poison-lookalike-emphasis1">
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/up-foraging-guide-icon-512.png?v=v4.3.24-r2026-05-12-poison-lookalike-emphasis1">
-  <link rel="stylesheet" href="styles/base.css?v=v4.3.24-r2026-05-12-poison-lookalike-emphasis1">
+  <link rel="manifest" href="site.webmanifest?v=v4.3.83-r2026-05-18-data-integration1">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/up-foraging-guide-icon-32.png?v=v4.3.83-r2026-05-18-data-integration1">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/up-foraging-guide-icon-180.png?v=v4.3.83-r2026-05-18-data-integration1">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/up-foraging-guide-icon-192.png?v=v4.3.83-r2026-05-18-data-integration1">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/up-foraging-guide-icon-512.png?v=v4.3.83-r2026-05-18-data-integration1">
+  <link rel="stylesheet" href="styles/base.css?v=v4.3.83-r2026-05-18-data-integration1">
   <style>
     .image-lightbox[hidden]{display:none !important;}
     .image-lightbox{position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;padding:20px;}
@@ -31,6 +31,9 @@
     .lookalike-cue-item.lookalike-deadly{background:#fff0ef;box-shadow:inset 5px 0 0 #8f1515;}
     .lookalike-warning{font-weight:800;color:#8f1515;margin:2px 0 4px;}
     .lookalike-cue-item.lookalike-review{border-style:dashed;background:#fffaf0;}
+    .lookalike-cue-item.lookalike-caution,.lookalike-cue-item.lookalike-bitter{border-color:#d49b38;background:#fffaf0;box-shadow:inset 4px 0 0 #d49b38;}
+    .lookalike-cue-item.lookalike-bitter .lookalike-warning,.lookalike-cue-item.lookalike-caution .lookalike-warning{color:#7a4a00;}
+    .tag.caution{border-color:#d49b38;background:#fffaf0;color:#7a4a00;}
     .mobile-menu-toggle{display:none;align-items:center;justify-content:center;gap:.45rem;padding:10px 14px;border:1px solid var(--accent);border-radius:14px;background:#fff;color:var(--accent);font-weight:800;cursor:pointer;}
     .mobile-menu-toggle::before{content:"☰";font-size:1.1rem;line-height:1;}
     body.nav-open .mobile-menu-toggle::before{content:"×";font-size:1.25rem;}
@@ -68,6 +71,10 @@
       .medicinal-filter-actions{display:grid !important;grid-template-columns:minmax(0,1fr) !important;white-space:normal !important;}
       .medicinal-filter-actions > *{width:100% !important;}
       .lane-grid,.grid-2,.grid-3,.grid-4,.home-focus-highlights{grid-template-columns:minmax(0,1fr) !important;width:100%;}
+      .mushroom-lane-switcher .lane-grid{grid-template-columns:repeat(4,minmax(0,1fr)) !important;gap:5px !important;width:100%;}
+      .mushroom-lane-switcher .lane-card{padding:8px 4px;border-radius:12px;min-width:0;width:100%;}
+      .mushroom-lane-switcher .lane-card strong{font-size:clamp(.64rem,2.7vw,.78rem);line-height:1.08;}
+      .mushroom-lane-switcher .lane-card span{display:none;}
       .section-jump-row,.chip-row,.quick-actions{display:grid !important;grid-template-columns:minmax(0,1fr) !important;width:100%;}
       .section-jump-button,.chip-button,.quick-actions > *,button.buttonish,.buttonish{width:100%;justify-content:center;}
       .record-card.with-image,.detail-hero{grid-template-columns:minmax(0,1fr) !important;}
@@ -86,7 +93,7 @@
           <h1>Upper Michigan Foraging Guide</h1>
           <p class="subhead">Merged master build</p>
         </div>
-        <div class="version-pill" id="versionBadge">V4.3.24-r26-05-12</div>
+        <div class="version-pill" id="versionBadge">Loading version…</div>
       </div>
       <button id="mobileMenuToggle" class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="primaryNav">Menu</button>
       <nav id="primaryNav" class="main-nav" aria-label="Primary">
@@ -116,6 +123,6 @@
       <div id="modalContent"></div>
     </article>
   </dialog>
-  <script type="module" src="js/boot.js?v=v4.3.24-r2026-05-12-poison-lookalike-emphasis1"></script>
+  <script type="module" src="js/boot.js?v=v4.3.83-r2026-05-18-data-integration1"></script>
 </body>
 </html>
