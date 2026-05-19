@@ -313,3 +313,11 @@ textarea.review-note{width:100%;min-height:84px}
 .image-lightbox-body{position:relative;}
 .image-lightbox-nav{user-select:none;}
 .image-lightbox-nav:focus-visible{outline:3px solid #2f5d46;outline-offset:2px;}
+
+/* v4.3.88 image-system cleanup: keep gallery controls above image/backdrop and captions readable. */
+.image-lightbox-card{isolation:isolate;}
+.image-lightbox-body{isolation:isolate;}
+.image-lightbox-image{position:relative;z-index:1;}
+.image-lightbox-nav{z-index:6;pointer-events:auto;}
+.record-image-slot.detail .image-meta-line{min-height:auto;}
+.record-image-slot.detail .image-source-badge{display:block;white-space:normal;overflow:visible;text-overflow:clip;line-height:1.22;}

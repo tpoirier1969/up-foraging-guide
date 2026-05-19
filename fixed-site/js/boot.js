@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.87-r2026-05-19-version-flag-fix1";
-const DISPLAY_VERSION = "V4.3.87-r26-05-19";
+const APP_VERSION = "v4.3.88-r2026-05-19-image-gallery-dedupe-fallback1";
+const DISPLAY_VERSION = "V4.3.88-r26-05-19";
 window.UP_FORAGING_APP_VERSION = APP_VERSION;
 window.UP_FORAGING_DISPLAY_VERSION = DISPLAY_VERSION;
 

@@ -35,10 +35,83 @@ function titleizeStage(value) {
     .replace(/\b\w/g, (m) => m.toUpperCase());
 }
 
+
+function normalizeCommonsFileName(value = "") {
+  return String(value || "")
+    .replace(/^File:/i, "")
+    .replace(/^\d+px-/i, "")
+    .replace(/\s+/g, "_")
+    .toLowerCase();
+}
+
+function canonicalImageKey(value = "") {
+  const raw = String(value || "").trim();
+  if (!raw || raw.startsWith("data:image/svg")) return "";
+  try {
+    const parsed = new URL(raw, typeof window !== "undefined" ? window.location.href : "https://example.local/");
+    const host = parsed.hostname.toLowerCase();
+    const path = decodeURIComponent(parsed.pathname || "");
+    const filePathMatch = path.match(/\/Special:FilePath\/([^/?#]+)/i);
+    if (filePathMatch) return `commons:${normalizeCommonsFileName(filePathMatch[1])}`;
+    const wikiFileMatch = path.match(/\/wiki\/File:([^/?#]+)/i);
+    if (wikiFileMatch) return `commons:${normalizeCommonsFileName(wikiFileMatch[1])}`;
+    if (host.includes("wikimedia.org") && path.includes("/wikipedia/commons/thumb/")) {
+      const parts = path.split("/").filter(Boolean);
+      const originalName = parts.length >= 2 ? parts[parts.length - 2] : parts[parts.length - 1];
+      if (originalName) return `commons:${normalizeCommonsFileName(originalName)}`;
+    }
+    if (host.includes("wikimedia.org") && path.includes("/wikipedia/commons/")) {
+      const parts = path.split("/").filter(Boolean);
+      const fileName = parts[parts.length - 1] || "";
+      if (fileName) return `commons:${normalizeCommonsFileName(fileName)}`;
+    }
+    parsed.search = "";
+    parsed.hash = "";
+    return `${parsed.hostname.toLowerCase()}${decodeURIComponent(parsed.pathname).toLowerCase()}`;
+  } catch {
+    return raw.split("?")[0].split("#")[0].toLowerCase();
+  }
+}
+
+function itemKey(item = {}) {
+  return canonicalImageKey(item.sourcePage)
+    || canonicalImageKey(item.full)
+    || canonicalImageKey(item.detail)
+    || canonicalImageKey(item.thumb);
+}
+
+function mergeImageItems(primary = {}, extra = {}) {
+  return {
+    ...primary,
+    thumb: primary.thumb || extra.thumb || "",
+    detail: primary.detail || extra.detail || "",
+    full: primary.full || extra.full || "",
+    sourcePage: primary.sourcePage || extra.sourcePage || "",
+    title: primary.title || extra.title || "",
+    partOrStage: primary.partOrStage || extra.partOrStage || "",
+    author: primary.author || extra.author,
+    credit: primary.credit || extra.credit,
+    license: primary.license || extra.license,
+    licenseUrl: primary.licenseUrl || extra.licenseUrl,
+    source: primary.source || extra.source || ""
+  };
+}
+
+function uniqueGalleryItems(items = []) {
+  const map = new Map();
+  for (const item of items) {
+    if (!item || !(item.thumb || item.detail || item.full)) continue;
+    const key = itemKey(item) || `${item.thumb || item.detail || item.full}`;
+    if (map.has(key)) map.set(key, mergeImageItems(map.get(key), item));
+    else map.set(key, item);
+  }
+  return Array.from(map.values());
+}
+
 function normalizeStructuredImages(record) {
   const structured = Array.isArray(record?.images_structured) ? record.images_structured : [];
   if (structured.length) {
-    return structured
+    const items = structured
       .map((item, index) => {
         if (!item || typeof item !== "object") return null;
         return {
@@ -56,6 +129,7 @@ function normalizeStructuredImages(record) {
         };
       })
       .filter(Boolean);
+    return uniqueGalleryItems(items);
   }
 
   const detail = Array.isArray(record?.detail_images) ? record.detail_images : [];
@@ -63,7 +137,7 @@ function normalizeStructuredImages(record) {
   const count = Math.max(detail.length, enlarge.length, record?.list_thumbnail ? 1 : 0);
   if (!count) return [];
 
-  return Array.from({ length: count }, (_, index) => ({
+  return uniqueGalleryItems(Array.from({ length: count }, (_, index) => ({
     thumb: index === 0
       ? (record?.list_thumbnail || detail[0] || enlarge[0] || "")
       : (detail[index] || enlarge[index] || detail[0] || record?.list_thumbnail || ""),
@@ -73,12 +147,12 @@ function normalizeStructuredImages(record) {
     title: `Photo ${index + 1}`,
     partOrStage: "",
     sourcePage: ""
-  })).filter((item) => item.thumb || item.detail || item.full);
+  })).filter((item) => item.thumb || item.detail || item.full));
 }
 
 function normalizeHardwiredImages(record) {
   const list = Array.isArray(record?.images) ? record.images : [];
-  return list
+  const items = list
     .map((item) => {
       if (typeof item === "string") {
         return {
@@ -106,6 +180,7 @@ function normalizeHardwiredImages(record) {
       };
     })
     .filter(Boolean);
+  return uniqueGalleryItems(items);
 }
 
 async function loadLocalManifest() {
@@ -172,9 +247,10 @@ async function ensureGallery(record) {
       })
       .filter(Boolean);
 
-    rememberImageResult(record.slug, { source: "local-manifest", items: normalizedManifestItems });
-    creditAll(record, normalizedManifestItems, "local-manifest");
-    return normalizedManifestItems;
+    const uniqueManifestItems = uniqueGalleryItems(normalizedManifestItems);
+    rememberImageResult(record.slug, { source: "local-manifest", items: uniqueManifestItems });
+    creditAll(record, uniqueManifestItems, "local-manifest");
+    return uniqueManifestItems;
   }
 
   const hardwired = normalizeHardwiredImages(record);
@@ -222,10 +298,12 @@ function buildCandidateQueue(items, variant) {
 }
 
 function lightboxPayloadForItem(item, record, index) {
-  const lightboxSrc = item?.full || item?.detail || item?.thumb || "";
+  const candidates = candidateSourcesForVariant(item, "detail");
+  const lightboxSrc = candidates[0] || "";
   if (!lightboxSrc) return null;
   return {
     src: lightboxSrc,
+    srcCandidates: candidates,
     alt: `${record.display_name || record.common_name || record.slug || "Species photo"} photo ${index + 1}`,
     title: lightboxTitleForItem(item, record, index),
     sourceHref: item?.sourcePage || item?.full || item?.detail || item?.thumb || "",
@@ -302,12 +380,16 @@ async function hydrateImage(img, record) {
   img.alt = alt;
 
   const items = await ensureGallery(record);
-  const allGalleryItems = items.filter(Boolean);
+  const allGalleryItems = uniqueGalleryItems(items.filter(Boolean));
   const variantItems = (variant === "card" ? allGalleryItems.slice(0, 1) : allGalleryItems).filter(Boolean);
 
+  // Detail galleries should not fall back to a different photo slot, because that
+  // makes failed images appear as duplicates. Each detail cell may try its own
+  // thumb/detail/full variants only. Card thumbnails may fall forward to another
+  // usable image so the list stays visual when the primary thumb fails.
   const orderedItems = variant === "card"
     ? variantItems
-    : [...variantItems.slice(index), ...variantItems.slice(0, index)];
+    : (variantItems[index] ? [variantItems[index]] : []);
 
   loadCandidateSequence(img, container, orderedItems, record, index, variant, allGalleryItems.length ? allGalleryItems : variantItems);
 }

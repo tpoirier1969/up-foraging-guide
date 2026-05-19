@@ -9,6 +9,7 @@ let lightboxEls = null;
 let lightboxEscapeBound = false;
 let lightboxGallery = [];
 let lightboxGalleryIndex = 0;
+let lightboxPayloadAttempt = 0;
 
 function lightboxHost() {
   if (els.modal?.hasAttribute?.("open")) return els.modal;
@@ -182,9 +183,34 @@ export function closeModal() {
 }
 
 
+function payloadCandidates(payload = {}) {
+  const raw = Array.isArray(payload.srcCandidates) && payload.srcCandidates.length
+    ? payload.srcCandidates
+    : [payload.src, payload.detail, payload.full, payload.thumb];
+  const seen = new Set();
+  return raw.map((value) => String(value || "").trim()).filter((value) => {
+    if (!value || seen.has(value)) return false;
+    seen.add(value);
+    return true;
+  });
+}
+
 function applyLightboxPayload(payload = {}) {
   if (!lightboxEls || !payload?.src) return;
-  lightboxEls.image.src = payload.src;
+  const candidates = payloadCandidates(payload);
+  lightboxPayloadAttempt = 0;
+  lightboxEls.image.onerror = () => {
+    lightboxPayloadAttempt += 1;
+    const nextSrc = candidates[lightboxPayloadAttempt];
+    if (nextSrc) {
+      lightboxEls.image.src = nextSrc;
+      return;
+    }
+    lightboxEls.image.onerror = null;
+    lightboxEls.image.alt = "Image could not be loaded";
+    lightboxEls.title.textContent = `${payload.title || "Image"} — image could not be loaded`;
+  };
+  lightboxEls.image.src = candidates[0] || payload.src;
   lightboxEls.image.alt = payload.alt || payload.title || "Expanded image";
   lightboxEls.title.textContent = payload.title || "";
   if (lightboxEls.count) {
@@ -226,6 +252,7 @@ export function closeLightbox() {
   if (!lightboxEls) return;
   lightboxEls.shell.hidden = true;
   lightboxEls.shell.style.display = "none";
+  lightboxEls.image.onerror = null;
   lightboxEls.image.removeAttribute("src");
   lightboxEls.image.alt = "";
   lightboxEls.title.textContent = "";

@@ -1601,19 +1601,56 @@ export function sortRecords(records = [], sortKey = "default") {
   });
 }
 
+
+function normalizeCommonsFileName(value = "") {
+  return String(value || "")
+    .replace(/^File:/i, "")
+    .replace(/^\d+px-/i, "")
+    .replace(/\s+/g, "_")
+    .toLowerCase();
+}
+
+function canonicalImageKey(value = "") {
+  const raw = String(value || "").trim();
+  if (!raw || raw.startsWith("data:image/svg")) return "";
+  try {
+    const parsed = new URL(raw, window.location.href);
+    const host = parsed.hostname.toLowerCase();
+    const path = decodeURIComponent(parsed.pathname || "");
+    const filePathMatch = path.match(/\/Special:FilePath\/([^/?#]+)/i);
+    if (filePathMatch) return `commons:${normalizeCommonsFileName(filePathMatch[1])}`;
+    const wikiFileMatch = path.match(/\/wiki\/File:([^/?#]+)/i);
+    if (wikiFileMatch) return `commons:${normalizeCommonsFileName(wikiFileMatch[1])}`;
+    if (host.includes("wikimedia.org") && path.includes("/wikipedia/commons/thumb/")) {
+      const parts = path.split("/").filter(Boolean);
+      const originalName = parts.length >= 2 ? parts[parts.length - 2] : parts[parts.length - 1];
+      if (originalName) return `commons:${normalizeCommonsFileName(originalName)}`;
+    }
+    if (host.includes("wikimedia.org") && path.includes("/wikipedia/commons/")) {
+      const parts = path.split("/").filter(Boolean);
+      const fileName = parts[parts.length - 1] || "";
+      if (fileName) return `commons:${normalizeCommonsFileName(fileName)}`;
+    }
+    parsed.search = "";
+    parsed.hash = "";
+    return `${parsed.hostname.toLowerCase()}${decodeURIComponent(parsed.pathname).toLowerCase()}`;
+  } catch {
+    return raw.split("?")[0].split("#")[0].toLowerCase();
+  }
+}
+
 function actualImageCount(record = {}) {
   const urls = [
-    ...(Array.isArray(record.images_structured) ? record.images_structured.flatMap((item) => [item?.thumb, item?.detail, item?.full]) : []),
-    ...(Array.isArray(record.images) ? record.images.map((item) => typeof item === "string" ? item : (item?.src || item?.thumb || item?.detail || item?.full)) : []),
+    ...(Array.isArray(record.images_structured) ? record.images_structured.flatMap((item) => [item?.sourcePage, item?.source_page, item?.thumb, item?.detail, item?.full]) : []),
+    ...(Array.isArray(record.images) ? record.images.map((item) => typeof item === "string" ? item : (item?.sourcePage || item?.source_page || item?.src || item?.thumb || item?.detail || item?.full)) : []),
     ...(Array.isArray(record.detail_images) ? record.detail_images : []),
     ...(Array.isArray(record.enlarge_images) ? record.enlarge_images : []),
     record.list_thumbnail
   ];
   const seen = new Set();
   for (const url of urls) {
-    const text = String(url || "").trim();
-    if (!text || text.startsWith("data:image/svg")) continue;
-    seen.add(text.split("?")[0]);
+    const key = canonicalImageKey(url);
+    if (key) seen.add(key);
   }
   return seen.size;
 }
