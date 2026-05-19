@@ -92,15 +92,13 @@
       "food_role": "food",
       "look_alikes": [
         "galerina",
-        "funeral-bell-galerina",
-        "sulphur-tuft",
-        "honey-mushroom",
-        "sulfur-tuft"
+        "sulfur-tuft",
+        "honey-mushrooms"
       ],
       "confused_with": [
         "galerina",
-        "funeral-bell-galerina",
-        "sulfur-tuft"
+        "sulfur-tuft",
+        "honey-mushrooms"
       ],
       "mushroom_profile": {
         "lane": "gilled",
@@ -447,7 +445,6 @@
       "confused_with": [
         "jack-o-lantern",
         "false-chanterelle",
-        "hygrophoropsis-aurantiaca",
         "orange-gilled-mushrooms"
       ],
       "bad_condition_warnings": "Reject slimy, brown-edged, waterlogged, moldy, or bug-heavy specimens. Reject specimens where the underside has sharp, separable true gills. Reject orange clustered mushrooms from wood, stumps, or buried roots.",
@@ -460,7 +457,11 @@
       "symptoms_body_systems": "If confused with jack-o’-lantern: gastrointestinal tract, with cramps, vomiting, and diarrhea.",
       "field_traits_that_create_risk": "True chanterelles have blunt, forked ridges or false gills that look melted into the underside, grow from soil, and are usually singly or loosely scattered. Jack-o’-lanterns grow in dense clusters from wood or buried roots and have sharp true gills.",
       "hard_rule": "Do not eat any “chanterelle” unless the underside has blunt ridges, not blade-like gills, and the mushroom is not growing from wood.",
-      "caution_reason": "The main danger is confusing true chanterelles with jack-o’-lanterns or false chanterelles. Jack-o’-lanterns are poisonous."
+      "caution_reason": "The main danger is confusing true chanterelles with jack-o’-lanterns or false chanterelles. Jack-o’-lanterns are poisonous.",
+      "look_alikes": [
+        "jack-o-lantern",
+        "false-chanterelle"
+      ]
     },
     {
       "slug": "yellow-chanterelles-hardwood-associated-complex",
@@ -673,7 +674,6 @@
       "confused_with": [
         "jack-o-lantern",
         "false-chanterelle",
-        "hygrophoropsis-aurantiaca",
         "orange-gilled-mushrooms"
       ],
       "bad_condition_warnings": "Reject slimy, brown-edged, waterlogged, moldy, or bug-heavy specimens. Reject specimens where the underside has sharp, separable true gills. Reject orange clustered mushrooms from wood, stumps, or buried roots.",
@@ -686,7 +686,11 @@
       "symptoms_body_systems": "If confused with jack-o’-lantern: gastrointestinal tract, with cramps, vomiting, and diarrhea.",
       "field_traits_that_create_risk": "True chanterelles have blunt, forked ridges or false gills that look melted into the underside, grow from soil, and are usually singly or loosely scattered. Jack-o’-lanterns grow in dense clusters from wood or buried roots and have sharp true gills.",
       "hard_rule": "Do not eat any “chanterelle” unless the underside has blunt ridges, not blade-like gills, and the mushroom is not growing from wood.",
-      "caution_reason": "The main danger is confusing true chanterelles with jack-o’-lanterns or false chanterelles. Jack-o’-lanterns are poisonous."
+      "caution_reason": "The main danger is confusing true chanterelles with jack-o’-lanterns or false chanterelles. Jack-o’-lanterns are poisonous.",
+      "look_alikes": [
+        "jack-o-lantern",
+        "false-chanterelle"
+      ]
     },
     {
       "slug": "yellow-fly-agaric-guessowii",
@@ -921,7 +925,7 @@
     },
     {
       "slug": "yellow-morels",
-      "display_name": "Yellow morels",
+      "display_name": "Yellow morels — see White / yellow morels",
       "common_name": "Yellow morels",
       "category": "Mushroom",
       "notes": "",
@@ -958,11 +962,7 @@
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20americana%2070966.jpg?width=480",
       "look_alike_notes": "Every morel must be cut lengthwise before eating; discard any specimen that is not hollow from cap tip to stem base or has a wrinkled/brain-like cap instead of true pits. Link false morels/Gyromitra and Verpa-style early false morels as primary dangers.",
-      "confused_with": [
-        "false-morel-gyromitra-group",
-        "false-morel",
-        "verpa-group"
-      ],
+      "confused_with": [],
       "safety": "Edible with caution",
       "food_value": "Choice",
       "quality_notes": "Excellent spring mushroom when fresh and firm; quality drops when old, dry, buggy, sandy, or mushy.",
@@ -979,7 +979,19 @@
         "method": "Cooked food",
         "preparation_required": true,
         "notes": "Choice spring edible after confident true-morel identification. Slice every specimen lengthwise to confirm a hollow interior and proper cap attachment; cook thoroughly and do not eat raw."
-      }
+      },
+      "hidden": true,
+      "duplicate_of": "white-yellow-morels",
+      "legacy_alias": true,
+      "list_visibility": "hidden-duplicate",
+      "redirect_note": "Yellow morels are covered under the canonical white-yellow-morels record.",
+      "look_alikes": [],
+      "search_aliases": [
+        "yellow morel",
+        "yellow morels",
+        "Morchella americana",
+        "Morchella esculentoides"
+      ]
     },
     {
       "slug": "yellowfoot-chanterelle",
@@ -1168,12 +1180,13 @@
       "look_alikes": [
         "hedgehog-mushrooms",
         "red-chanterelles-cinnabars",
-        "small-brown-gilled-mushrooms"
+        "small-brown-gilled-mushrooms",
+        "jack-o-lantern",
+        "false-chanterelle"
       ],
       "confused_with": [
         "jack-o-lantern",
         "false-chanterelle",
-        "hygrophoropsis-aurantiaca",
         "orange-gilled-mushrooms"
       ],
       "use_links": [
@@ -1236,8 +1249,8 @@
       "edibility_status": "edible_with_caution",
       "edibility_detail": "Generally treated as edible when confirmed, but identification must rule out unsafe gilled mushrooms and contaminated urban mulch sites.",
       "culinary_uses": "Edible when confidently identified and cooked. Avoid old, bug-filled, or polluted-site specimens; do not treat any lawn/mulch mushroom as food without spore print and ring/gill confirmation.",
-      "medicinal_uses": "No reliable medicinal use is recorded for this guide entry unless noted in Other uses or source links.",
-      "other_uses": "No practical non-food use is recorded for this guide entry yet.",
+      "medicinal_uses": "",
+      "other_uses": "",
       "overview": "Large woodchip-loving edible gilled mushroom often cultivated in mulch beds; useful for the app because it is a major missing gilled edible.",
       "notes": "Large woodchip-loving edible gilled mushroom often cultivated in mulch beds; useful for the app because it is a major missing gilled edible.",
       "general_notes": "Large woodchip-loving edible gilled mushroom often cultivated in mulch beds; useful for the app because it is a major missing gilled edible.",
@@ -1390,7 +1403,14 @@
         "king stropharia",
         "garden giant mushroom",
         "burgundy mushroom"
-      ]
+      ],
+      "medicinal": {
+        "has_meaningful_content": false,
+        "summary": "",
+        "evidence_tier": "",
+        "preparation_notes": "",
+        "warnings": ""
+      }
     },
     {
       "slug": "wood-ear-jelly-ear",
@@ -1408,8 +1428,8 @@
       "edibility_status": "edible",
       "edibility_detail": "Edible when confidently identified and cooked, but this entry is a group-level field record because North American wood-ear names have shifted. Host wood and overall jelly-ear form matter more here than old European names in field guides.",
       "culinary_uses": "Edible when confidently identified and cooked; valued more for chewy texture than flavor. Use fresh, clean specimens from sound wood, or dry and rehydrate them for soups, stir-fries, and brothy dishes. Avoid old, blackened, polluted, or slimy-decomposing specimens.",
-      "medicinal_uses": "No reliable medicinal use is recorded for this guide entry unless noted in Other uses or source links.",
-      "other_uses": "No practical non-food use is recorded for this guide entry yet.",
+      "medicinal_uses": "",
+      "other_uses": "",
       "overview": "Wood ears are brown, rubbery-gelatinous fungi that form ear-shaped, cup-shaped, or irregular floppy fruiting bodies on dead wood after wet weather. In North America, older field guides often used European wood-ear names, but current sources separate similar-looking hardwood and conifer species. For field use in Upper Michigan, this entry treats them as a wood-ear group and leans on substrate: hardwood logs and branches suggest an Auricularia angiospermarum-type wood ear, while conifer wood suggests an Auricularia americana-type wood ear.",
       "notes": "Brown ear-shaped to cup-shaped jelly fungi on dead wood; substrate matters because North American wood-ear taxonomy separates hardwood and conifer associates more than older field guides did.",
       "general_notes": "A field-useful wood-ear group entry. Record the host wood when possible: hardwood and conifer collections may represent different North American Auricularia species even when they look nearly identical.",
@@ -1575,7 +1595,14 @@
       "confused_with": [
         "exidia-jelly-fungi",
         "tremella-leafy-jelly-fungi"
-      ]
+      ],
+      "medicinal": {
+        "has_meaningful_content": false,
+        "summary": "",
+        "evidence_tier": "",
+        "preparation_notes": "",
+        "warnings": ""
+      }
     },
     {
       "slug": "umbrella-polypore",
@@ -1593,8 +1620,8 @@
       "edibility_status": "edible_with_caution",
       "edibility_detail": "Edible but uncommon; this guide should emphasize conservation-minded foraging and strong ID before harvest.",
       "culinary_uses": "Edible when confidently identified and fresh, but harvest conservatively; if only one fruiting body is found, leave it or document it rather than taking it.",
-      "medicinal_uses": "No reliable medicinal use is recorded for this guide entry unless noted in Other uses or source links.",
-      "other_uses": "No practical non-food use is recorded for this guide entry yet.",
+      "medicinal_uses": "",
+      "other_uses": "",
       "overview": "Important MAMI-listed species and useful look-alike/comparison entry for hen-of-the-woods style clusters, but should be treated conservatively because it is not commonly encountered.",
       "notes": "Important MAMI-listed species and useful look-alike/comparison entry for hen-of-the-woods style clusters, but should be treated conservatively because it is not commonly encountered.",
       "general_notes": "Important MAMI-listed species and useful look-alike/comparison entry for hen-of-the-woods style clusters, but should be treated conservatively because it is not commonly encountered.",
@@ -1737,7 +1764,14 @@
         "Grifola umbellata",
         "umbrella polypore",
         "zhu ling mushroom"
-      ]
+      ],
+      "medicinal": {
+        "has_meaningful_content": false,
+        "summary": "",
+        "evidence_tier": "",
+        "preparation_notes": "",
+        "warnings": ""
+      }
     },
     {
       "slug": "edible-milk-caps-volemus-group",
@@ -1755,8 +1789,8 @@
       "edibility_status": "edible_with_caution",
       "edibility_detail": "Some milk caps are good edibles, but this group stays caution-level unless the entry is a well-supported species. Confirm latex color, latex color-change, gill spacing, odor, host tree, and staining behavior. Avoid acrid/hot, poorly identified, old, dry, or latex-free specimens unless the species is confirmed by other traits.",
       "culinary_uses": "Some milk caps are good edibles when confidently identified and cooked, but the group is not beginner-simple. Avoid acrid, peppery, bitter, or poorly identified milk caps.",
-      "medicinal_uses": "No reliable medicinal use is recorded for this guide entry unless noted in Other uses or source links.",
-      "other_uses": "No practical non-food use is recorded for this guide entry yet.",
+      "medicinal_uses": "",
+      "other_uses": "",
       "overview": "Broad edible/caution group for milk caps because Lactarius/Lactifluus are a major missing gilled category and require latex-color filtering.",
       "notes": "Practical field treatment is safer than pretending every orange-brown, mild milkcap can be cleanly species-keyed in the app. Lactifluus volemus is recognizable when classic, but similar edible/nearby taxa differ in gill spacing, odor, and latex staining.",
       "general_notes": "Broad edible/caution group for milk caps because Lactarius/Lactifluus are a major missing gilled category and require latex-color filtering.",
@@ -1792,7 +1826,17 @@
         "Oak",
         "Mixed woods"
       ],
-      "look_alikes": [],
+      "look_alikes": [
+        "russula-brevipes-group",
+        "short-stemmed-russula",
+        "orange-latex-milkcap-group",
+        "lactarius-indigo",
+        "lactarius-deceptivus",
+        "white-peppery-milkcap-group",
+        "woolly-milkcap-group",
+        "fenugreek-milkcap-group",
+        "yellowing-milkcap-group"
+      ],
       "mushroom_profile": {
         "lane": "gilled",
         "entry_scope": "group",
@@ -1990,7 +2034,14 @@
       "symptoms_body_systems": "Some toxic or irritating milkcaps can cause gastrointestinal and autonomic symptoms such as nausea, vomiting, abdominal pain, diarrhea, salivation, sweating, vertigo, or cold feeling.",
       "field_traits_that_create_risk": "Latex may be white, colored, watery, scant, or absent in old/dry specimens. Staining reactions can take up to an hour. Acrid, bitter, strongly peppery, or uncertain milkcaps should not be eaten.",
       "hard_rule": "Do not eat milk caps based only on “it has latex.” Only eat species/groups the app treats as confirmed edible, and reject acrid, bitter, strongly peppery, or unidentified milk caps.",
-      "caution_reason": "Group complexity and latex/staining/taste/host-tree dependence; caution is ID risk, not food value."
+      "caution_reason": "Group complexity and latex/staining/taste/host-tree dependence; caution is ID risk, not food value.",
+      "medicinal": {
+        "has_meaningful_content": false,
+        "summary": "",
+        "evidence_tier": "",
+        "preparation_notes": "",
+        "warnings": ""
+      }
     },
     {
       "slug": "armillaria-gallica-bulbous-honey",
@@ -2008,8 +2059,8 @@
       "edibility_status": "edible_with_caution",
       "edibility_detail": "Edible with caution; species-level Armillaria ID is tricky and reactions are common enough to emphasize careful cooking and small first portions.",
       "culinary_uses": "Cook completely and start with a small serving. Keep mixed wood-mushroom collections out of the pan.",
-      "medicinal_uses": "No reliable medicinal use is recorded for this guide entry unless noted in Other uses or source links.",
-      "other_uses": "No practical non-food use is recorded for this guide entry yet.",
+      "medicinal_uses": "",
+      "other_uses": "",
       "overview": "Bulbous honey mushroom is an Armillaria species usually found on the ground or near hardwood bases, often attached to buried roots. It tends to be smaller and looser than classic honey mushroom clusters, with a swollen/bulbous stem base and a cobwebby or short-lived ring zone.",
       "notes": "Species-level split for the honey mushroom complex so the app does not treat all honeys as one vague bucket.",
       "general_notes": "Species-level split for the honey mushroom complex so the app does not treat all honeys as one vague bucket.",
@@ -2045,9 +2096,8 @@
       ],
       "look_alikes": [
         "jack-o-lantern",
-        "deadly-galerina",
-        "honey-mushroom",
         "galerina",
+        "honey-mushrooms",
         "sulfur-tuft",
         "brick-cap",
         "shaggy-scalycap"
@@ -2140,9 +2190,8 @@
       "completion_status": "incomplete",
       "confused_with": [
         "jack-o-lantern",
-        "deadly-galerina",
-        "honey-mushroom",
         "galerina",
+        "honey-mushrooms",
         "sulfur-tuft",
         "brick-cap",
         "shaggy-scalycap"
@@ -2157,7 +2206,14 @@
       "risk_reason": "Honey mushrooms overlap with deadly Galerina, sulfur tuft, and jack-o’-lantern. Correctly identified honeys can still cause GI upset in some people.",
       "symptoms_body_systems": "Honey intolerance can cause GI upset; Galerina confusion can affect liver/kidneys; jack-o’-lantern and sulfur tuft confusion can cause GI poisoning.",
       "field_traits_that_create_risk": "Clustered growth on wood or buried roots, variable ring presence, tan/yellow-brown caps, and mixed wood-mushroom collections. White spore print is required for honey mushrooms.",
-      "hard_rule": "Do not eat honey mushrooms without a white spore print and positive Armillaria/Desarmillaria identification. Any rusty-brown or purple-brown spore print means do not eat."
+      "hard_rule": "Do not eat honey mushrooms without a white spore print and positive Armillaria/Desarmillaria identification. Any rusty-brown or purple-brown spore print means do not eat.",
+      "medicinal": {
+        "has_meaningful_content": false,
+        "summary": "",
+        "evidence_tier": "",
+        "preparation_notes": "",
+        "warnings": ""
+      }
     },
     {
       "slug": "ringless-honey-mushroom-group",
@@ -2175,8 +2231,8 @@
       "edibility_status": "edible_with_caution",
       "edibility_detail": "Edible with caution; ringless honey ID requires white spore print, wood/root growth, clustered habit, and exclusion of poisonous look-alikes.",
       "culinary_uses": "Cook completely and start with a small serving. Keep mixed wood-mushroom collections out of the pan.",
-      "medicinal_uses": "No reliable medicinal use is recorded for this guide entry unless noted in Other uses or source links.",
-      "other_uses": "No practical non-food use is recorded for this guide entry yet.",
+      "medicinal_uses": "",
+      "other_uses": "",
       "overview": "Ringless honey mushrooms are honey-like clustered wood/root mushrooms without a true ring. In this guide they remain a group-level caution entry because North American ringless honey taxonomy has shifted and because clustered ringless gilled mushrooms are easy to over-trust.",
       "notes": "Ringless honey group added to separate no-ring honey mushrooms from classic ringed Armillaria and to improve gilled mushroom coverage.",
       "general_notes": "Ringless honey group added to separate no-ring honey mushrooms from classic ringed Armillaria and to improve gilled mushroom coverage.",
@@ -2211,8 +2267,7 @@
       ],
       "look_alikes": [
         "jack-o-lantern",
-        "honey-mushroom",
-        "deadly-galerina",
+        "honey-mushrooms",
         "galerina",
         "sulfur-tuft",
         "brick-cap",
@@ -2326,8 +2381,7 @@
       ],
       "confused_with": [
         "jack-o-lantern",
-        "honey-mushroom",
-        "deadly-galerina",
+        "honey-mushrooms",
         "galerina",
         "sulfur-tuft",
         "brick-cap",
@@ -2343,7 +2397,14 @@
       "risk_reason": "Honey mushrooms overlap with deadly Galerina, sulfur tuft, and jack-o’-lantern. Correctly identified honeys can still cause GI upset in some people.",
       "symptoms_body_systems": "Honey intolerance can cause GI upset; Galerina confusion can affect liver/kidneys; jack-o’-lantern and sulfur tuft confusion can cause GI poisoning.",
       "field_traits_that_create_risk": "Clustered growth on wood or buried roots, variable ring presence, tan/yellow-brown caps, and mixed wood-mushroom collections. White spore print is required for honey mushrooms.",
-      "hard_rule": "Do not eat honey mushrooms without a white spore print and positive Armillaria/Desarmillaria identification. Any rusty-brown or purple-brown spore print means do not eat."
+      "hard_rule": "Do not eat honey mushrooms without a white spore print and positive Armillaria/Desarmillaria identification. Any rusty-brown or purple-brown spore print means do not eat.",
+      "medicinal": {
+        "has_meaningful_content": false,
+        "summary": "",
+        "evidence_tier": "",
+        "preparation_notes": "",
+        "warnings": ""
+      }
     },
     {
       "slug": "brick-cap",
@@ -2549,7 +2610,6 @@
         "Deer mushroom",
         "Fawn mushroom",
         "Pluteus cervinus",
-        "Pluteus cervinus group",
         "Pluteus cervinus group"
       ],
       "scientific_name": "Pluteus cervinus group / deer mushroom complex",
@@ -2852,7 +2912,6 @@
         "Fairy ring mushroom",
         "Fairy ring champignon",
         "Scotch bonnet",
-        "Marasmius oreades",
         "Marasmius oreades"
       ],
       "scientific_name": "Marasmius oreades",
@@ -3093,8 +3152,16 @@
         "spore_print": "White to cream/pale yellow for many milkcaps and russulas; check species/group notes."
       },
       "look_alike_notes": "Lactarius paradoxus: can be blue-gray when young but has reddish-brown to purple-brown latex/gills rather than true blue latex do not treat as L. indigo without blue latex Lactarius chelidonium: yellowish/dingy cap tones and yellowish to brown latex, not indigo-blue milk separate; avoid uncertain blue-gray milkcaps",
-      "look_alikes": [],
-      "confused_with": [],
+      "look_alikes": [
+        "yellowing-milkcap-group",
+        "white-peppery-milkcap-group",
+        "edible-milk-caps-volemus-group"
+      ],
+      "confused_with": [
+        "yellowing-milkcap-group",
+        "white-peppery-milkcap-group",
+        "edible-milk-caps-volemus-group"
+      ],
       "links": [
         "https://www.mushroomexpert.com/lactarius_indigo.html"
       ],
@@ -3467,8 +3534,16 @@
         "spore_print": "White to cream/pale yellow for many milkcaps and russulas; check species/group notes."
       },
       "look_alike_notes": "Lactarius deceptivus: larger roughened/scaly cap and gills not as densely crowded also not a beginner edible Russula brevipes group: no latex; brittle Russula flesh/gills can look extremely similar at first glance Destroying angel / white Amanita group: free gills, ring, volva/cup at base, no latex deadly; never identify white gilled mushrooms casually",
-      "look_alikes": [],
-      "confused_with": [],
+      "look_alikes": [
+        "edible-milk-caps-volemus-group",
+        "lactarius-indigo",
+        "orange-latex-milkcap-group"
+      ],
+      "confused_with": [
+        "edible-milk-caps-volemus-group",
+        "lactarius-indigo",
+        "orange-latex-milkcap-group"
+      ],
       "links": [
         "https://www.mushroomexpert.com/lactarius_piperatus.html",
         "https://www.mushroomexpert.com/lactarius_glaucescens.html",
@@ -3596,8 +3671,16 @@
         "spore_print": "White to cream/pale yellow for many milkcaps and russulas; check species/group notes."
       },
       "look_alike_notes": "Orange-latex milkcaps: orange latex rather than white latex; often conifer/cedar bog association do not judge by orange-pink cap alone Mild edible milkcaps: lack woolly pink margin and acrid burn woolly/acrid milkcaps should be treated as avoid",
-      "look_alikes": [],
-      "confused_with": [],
+      "look_alikes": [
+        "edible-milk-caps-volemus-group",
+        "lactarius-indigo",
+        "orange-latex-milkcap-group"
+      ],
+      "confused_with": [
+        "edible-milk-caps-volemus-group",
+        "lactarius-indigo",
+        "orange-latex-milkcap-group"
+      ],
       "links": [
         "https://www.first-nature.com/fungi/lactarius-torminosus.php",
         "https://en.wikipedia.org/wiki/Lactarius_torminosus"
@@ -3716,8 +3799,16 @@
         "spore_print": "White to cream/pale yellow for many milkcaps and russulas; check species/group notes."
       },
       "look_alike_notes": "Lactifluus volemus group: white copious latex that may brown-stain and often fishy odor; not watery latex in sphagnum bog do not confuse food-scent/milk behavior Candy-cap / maple-scented milkcaps: small brown milkcaps with maple odor can overlap by smell; habitat, latex, size, and cap/gill details matter avoid eating scent-only IDs",
-      "look_alikes": [],
-      "confused_with": [],
+      "look_alikes": [
+        "edible-milk-caps-volemus-group",
+        "lactarius-indigo",
+        "orange-latex-milkcap-group"
+      ],
+      "confused_with": [
+        "edible-milk-caps-volemus-group",
+        "lactarius-indigo",
+        "orange-latex-milkcap-group"
+      ],
       "links": [
         "https://www.mushroomexpert.com/lactarius_helvus.html",
         "https://explorer.natureserve.org/Taxon/ELEMENT_GLOBAL.2.881134/Lactarius_helvus"
@@ -3834,8 +3925,16 @@
         "spore_print": "White to cream/pale yellow for many milkcaps and russulas; check species/group notes."
       },
       "look_alike_notes": "Orange-latex milkcaps / saffron group: true orange latex rather than white latex turning yellow do not put yellowing white-latex milkcaps in edible saffron group White peppery milkcaps: white cap and crowded gills; latex may remain white, green, or yellowish by species acrid milkcaps are not beginner edibles",
-      "look_alikes": [],
-      "confused_with": [],
+      "look_alikes": [
+        "edible-milk-caps-volemus-group",
+        "lactarius-indigo",
+        "orange-latex-milkcap-group"
+      ],
+      "confused_with": [
+        "edible-milk-caps-volemus-group",
+        "lactarius-indigo",
+        "orange-latex-milkcap-group"
+      ],
       "links": [
         "https://www.mushroomexpert.com/lactarius_vinaceorufescens.html",
         "https://www.mushroomexpert.com/lactarius_chrysorrheus.html"
@@ -3952,8 +4051,14 @@
         "spore_print": "White to cream/pale yellow for many milkcaps and russulas; check species/group notes."
       },
       "look_alike_notes": "Amanita phalloides-like green Amanitas: Amanitas have ring/volva/free gills and fibrous flesh, not brittle Russula flesh deadly Amanita risk means base/ring/gill attachment must be checked Other green Russulas: may be smooth-capped rather than quilted/cracked; some require spore print/taste/chemistry/microscopy group entry should not overpromise species ID Acrid Russulas: hot/peppery taste, different cap patterns/colors avoid acrid Russulas",
-      "look_alikes": [],
-      "confused_with": [],
+      "look_alikes": [
+        "acrid-red-russula-sickener-group",
+        "destroying-angel"
+      ],
+      "confused_with": [
+        "acrid-red-russula-sickener-group",
+        "destroying-angel"
+      ],
       "links": [
         "https://www.mushroomexpert.com/russula_parvovirescens.html",
         "https://www.mushroomexpert.com/russula_virescens.html",

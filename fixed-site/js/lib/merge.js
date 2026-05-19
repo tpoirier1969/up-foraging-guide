@@ -42,6 +42,9 @@ const PLACEHOLDER_MEDICINAL_PATTERNS = [
   /^minimal food-medicine importance(?: in this context)?\.?$/,
   /^mostly of curiosity or minor traditional interest rather than a major local food species\.?$/,
   /^mostly culinary, though related species are used in traditional food-medicine contexts\.?$/,
+  /^no reliable medicinal use(?: is recorded)?(?: for this guide entry)?(?: unless noted in other uses or source links)?\.?$/,
+  /^no medicinal use(?: for foraging purposes| in this guide)?\.?$/,
+  /^no known medicinal use(?: for foraging purposes)?\.?$/,
   /traditional interest still being compiled/,
   /detailed copyback is still pending/,
   /related use context/
@@ -132,6 +135,7 @@ const FORAGING_CLASS_MAP = new Map([
 ]);
 
 const OTHER_USE_KEYWORDS = /\b(artist|art|draw|drawing|scratch|scratched|tinder|fire ?starter|kindling|dye|dyestuff|pigment|ink|fiber|fibre|cordage|rope|twine|basket|weav|craft|tool|utility|polish|stain|smudge|resin|pitch|glue|adhesive|soap|container|whistle|broom|brush|mat|thatch|fungus paper|amadou)\b/i;
+const NEGATIVE_OTHER_USE_PATTERN = /\b(no practical non[- ]food use|no practical use|no reliable non[- ]food use|no other use recorded|no known practical use|no known non[- ]food use|not used for craft|no known craft use)\b/i;
 
 // Food-list eligibility is deliberately narrower than "can be ingested".
 // Medicinal-only tinctures, extracts, and decoctions should stay medicinal, not edible.
@@ -160,6 +164,11 @@ export function isPlaceholderMedicinalText(value) {
 export function hasRealMedicinalText(value) {
   const normalized = normalizeMedicinalText(value);
   return !!normalized && !isPlaceholderMedicinalText(normalized);
+}
+
+function isNegativeOtherUseText(value) {
+  const normalized = String(value || "").replace(/\s+/g, " ").trim();
+  return !!normalized && NEGATIVE_OTHER_USE_PATTERN.test(normalized);
 }
 
 export function isBuildNoteText(value) {
@@ -539,13 +548,13 @@ function hasAbsoluteDangerLabel(record = {}) {
 
 export function hasMeaningfulOtherUses(record = {}) {
   const direct = cleanUserFacingText(record.other_uses);
-  if (direct && !isTeaOnlyUseText(direct)) return true;
+  if (direct && !isTeaOnlyUseText(direct) && !isNegativeOtherUseText(direct)) return true;
 
   const explicit = [record.practical_uses, record.utility_uses, record.craft_uses, record.fiber_uses, record.tinder_uses]
     .map(cleanUserFacingText)
     .filter(Boolean)
     .join(" ");
-  if (explicit && !isTeaOnlyUseText(explicit)) return true;
+  if (explicit && !isTeaOnlyUseText(explicit) && !isNegativeOtherUseText(explicit)) return true;
 
   const inferredText = [
     cleanUserFacingText(record.overview),
@@ -594,6 +603,8 @@ function isBenignNonCulinarySeverity(severity = "") {
 function isNonEdibleCautionSeverity(severity = "") {
   const value = String(severity || "").trim().toLowerCase();
   if (!value) return false;
+  if (/^edible with caution\b/.test(value)) return false;
+  if (/^caution with confident id\b/.test(value)) return false;
   if (isBenignNonCulinarySeverity(value)) return false;
   return /\b(inedible|not recommended|avoid|unsafe|caution|questionable|non-edible|non edible|poisonous|toxic|deadly|fatal)\b/.test(value);
 }
