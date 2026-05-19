@@ -2556,7 +2556,8 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2009_G1.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2011_G1.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2011_G1.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Purchawka_olbrzymia_i_widelec.jpg"
       ],
       "medicinal_uses": "Primarily culinary in this guide.",
       "culinary_uses": "Good edible only while the interior is pure white and uniform. Slice open every specimen; discard any yellowing, browning, developing gills, or odd structure.",
@@ -2629,7 +2630,7 @@
       ],
       "foraging_value": "Good forage",
       "foraging_value_score": 4,
-      "field_identification": "Large white ball-like puffball with no developing cap, stem, gills, or internal outline when cut open.",
+      "field_identification": "Large white ball-like puffball with no developing cap, stem, gills, or internal outline when cut open. The interior must be solid, featureless, and pure white; yellow, olive, brown, purple, black, marbled, gelatinous, or structured interiors are reject signs.",
       "mushroom_card_note": "Good edible only when cut-open flesh is pure white all the way through.",
       "images_structured": [
         {
@@ -2703,17 +2704,43 @@
           "rights_checked_date": "2026-05-14",
           "checked_build": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
           "checked_date": "2026-05-14"
+        },
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Purchawka_olbrzymia_i_widelec.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Purchawka_olbrzymia_i_widelec.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Purchawka_olbrzymia_i_widelec.jpg",
+          "source": "wikimedia-commons-field-visuals-v4.3.85",
+          "sourceLabel": "Wikimedia Commons",
+          "title": "Cut giant puffball showing uniform white interior",
+          "part_or_stage": "cut-open interior / edible-stage check",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Purchawka_olbrzymia_i_widelec.jpg",
+          "author": "Maerian",
+          "credit": "Maerian",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "attribution_required": true,
+          "modification_allowed": true,
+          "share_alike_required": true,
+          "rights_notes": "Verified from Wikimedia Commons source page/license metadata; source page retained for attribution.",
+          "rights_checked_build": "  const severityLabels = { deadly: \"Deadly / organ damage\", poisonous: \"Poisonous\", caution: \"Caution / avoid\" };\n  const formLabels = { \"gilled\": \"Gilled\", \"spongelike-boletes\": \"Spongelike / bolete\", \"puffball-like\": \"Puffball / earthball-like\", \"morel-like\": \"Morel / cup-like\", \"other\": \"Other\" };\n  const confusionLabels = Object.fromEntries(CAUTION_CONFUSION_GROUPS.map((g) => [g.value, g.label]));\n  const systemLabels = Object.fromEntries(CAUTION_SYSTEMS.map((g) => [g.value, g.label]));\n  const criticalCheckLabels = Object.fromEntries(CAUTION_CRITICAL_CHECKS.map((g) => [g.value, g.label]));\n  const seasonLabels = Object.fromEntries(CAUTION_SEASONS.map((g) => [g.value, g.label]));\n  return [\n    { key: \"cautionSeverity\", label: \"Risk level\", blankLabel: \"Any risk level\", options: countOptions(baseRecords, cautionSeverityValue, severityLabels) },\n    { key: \"cautionForm\", label: \"Mushroom form\", blankLabel: \"Any form\", options: countOptions(baseRecords, cautionFormValue, formLabels) },\n    { key: \"cautionConfusedWith\", label: \"Often confused with\", blankLabel: \"Any confusion group\", options: countOptions(baseRecords, cautionConfusionValues, confusionLabels) },\n    { key: \"cautionAffectedSystem\", label: \"Affected system\", blankLabel: \"Any affected system\", options: countOptions(baseRecords, cautionAffectedSystemValues, systemLabels) },\n    { key: \"cautionCriticalCheck\", label: \"Critical field check\", blankLabel: \"Any field check\", options: countOptions(baseRecords, cautionCriticalCheckValues, criticalCheckLabels) },\n    { key: \"cautionSeason\", label: \"Season\", blankLabel: \"Any season\", options: countOptions(baseRecords, cautionSeasonValues, seasonLabels) }\n  ].filter((field) => field.options.length > 0 || String(filters?.[field.key] || \"\").trim());\n}\n\nexport function hasActiveCautionFilters(filters = {}) {\n  return !!(filters.cautionSeverity || filters.cautionForm || filters.cautionConfusedWith || filters.cautionAffectedSystem || filters.cautionCriticalCheck || filters.cautionSeason);\n}\n",
+          "rights_checked_date": "2026-05-19",
+          "checked_build": "  const severityLabels = { deadly: \"Deadly / organ damage\", poisonous: \"Poisonous\", caution: \"Caution / avoid\" };\n  const formLabels = { \"gilled\": \"Gilled\", \"spongelike-boletes\": \"Spongelike / bolete\", \"puffball-like\": \"Puffball / earthball-like\", \"morel-like\": \"Morel / cup-like\", \"other\": \"Other\" };\n  const confusionLabels = Object.fromEntries(CAUTION_CONFUSION_GROUPS.map((g) => [g.value, g.label]));\n  const systemLabels = Object.fromEntries(CAUTION_SYSTEMS.map((g) => [g.value, g.label]));\n  const criticalCheckLabels = Object.fromEntries(CAUTION_CRITICAL_CHECKS.map((g) => [g.value, g.label]));\n  const seasonLabels = Object.fromEntries(CAUTION_SEASONS.map((g) => [g.value, g.label]));\n  return [\n    { key: \"cautionSeverity\", label: \"Risk level\", blankLabel: \"Any risk level\", options: countOptions(baseRecords, cautionSeverityValue, severityLabels) },\n    { key: \"cautionForm\", label: \"Mushroom form\", blankLabel: \"Any form\", options: countOptions(baseRecords, cautionFormValue, formLabels) },\n    { key: \"cautionConfusedWith\", label: \"Often confused with\", blankLabel: \"Any confusion group\", options: countOptions(baseRecords, cautionConfusionValues, confusionLabels) },\n    { key: \"cautionAffectedSystem\", label: \"Affected system\", blankLabel: \"Any affected system\", options: countOptions(baseRecords, cautionAffectedSystemValues, systemLabels) },\n    { key: \"cautionCriticalCheck\", label: \"Critical field check\", blankLabel: \"Any field check\", options: countOptions(baseRecords, cautionCriticalCheckValues, criticalCheckLabels) },\n    { key: \"cautionSeason\", label: \"Season\", blankLabel: \"Any season\", options: countOptions(baseRecords, cautionSeasonValues, seasonLabels) }\n  ].filter((field) => field.options.length > 0 || String(filters?.[field.key] || \"\").trim());\n}\n\nexport function hasActiveCautionFilters(filters = {}) {\n  return !!(filters.cautionSeverity || filters.cautionForm || filters.cautionConfusedWith || filters.cautionAffectedSystem || filters.cautionCriticalCheck || filters.cautionSeason);\n}\n",
+          "checked_date": "2026-05-19"
         }
       ],
       "detail_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea.jpg?width=900",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2009_G1.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2011_G1.jpg?width=900"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2011_G1.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Purchawka_olbrzymia_i_widelec.jpg?width=900"
       ],
       "enlarge_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2009_G1.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2011_G1.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea_2011_G1.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Purchawka_olbrzymia_i_widelec.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Calvatia_gigantea.jpg?width=480",
       "edibility_status": "edible_with_caution",
@@ -2729,7 +2756,7 @@
       ],
       "look_alike_notes": "Slice every puffball vertically. Giant puffballs must be solid white and uniform inside; any developing cap/gills/stem structure points toward an immature gilled mushroom, including deadly Amanita risk. Cut every puffball from top to bottom; eat only specimens with a solid, featureless, pure-white interior, and discard anything showing gills, a stem outline, gelatin, yellowing, browning, or dark flesh. Earthballs and Amanita buttons are the primary danger checks.",
       "completion_status": "complete",
-      "caution_reason": "Cut every puffball-like mushroom top to bottom; edible puffballs must be solid, featureless, and pure white inside. Reject anything with gills, cap/stem outline, gelatin, yellowing, browning, purple, black, or marbled flesh."
+      "caution_reason": "Cut every puffball-like mushroom top to bottom. Edible puffballs must be solid, featureless, and pure white inside. Reject anything with gills, cap/stem outline, gelatin, yellowing, browning, purple, black, marbling, or a tough dark earthball-like interior."
     }
   ]
 }

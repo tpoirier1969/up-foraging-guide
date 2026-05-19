@@ -131,7 +131,7 @@ const PLANT_TRAIT_FILTER_KEYS = [
   "plantLane"
 ];
 
-const CAUTION_FILTER_KEYS = ["cautionSeverity", "cautionForm", "cautionConfusedWith", "cautionAffectedSystem"];
+const CAUTION_FILTER_KEYS = ["cautionSeverity", "cautionForm", "cautionConfusedWith", "cautionAffectedSystem", "cautionCriticalCheck", "cautionSeason"];
 
 const MUSHROOM_TRAIT_FILTER_KEYS = [
   "mushroomMonth", "mushroomReviewFlag", "mushroomCapColor", "mushroomUnderside",
@@ -216,16 +216,19 @@ function renderTraitFilters(route, filterFields = [], activeTraitFilters = false
 function renderCautionFilters(filterFields = [], activeCautionFilters = false) {
   if (!filterFields.length) return "";
   return `
-    <section class="panel">
-      <div class="home-focus-heading">
-        <h3>Caution filters</h3>
+    <section class="panel caution-filter-panel">
+      <div class="home-focus-heading caution-filter-heading">
+        <div>
+          <h3>Caution filters</h3>
+          <p class="muted small">Narrow danger and caution records by risk, mushroom form, common confusion trap, affected body system, and the field check that separates the look-alikes.</p>
+        </div>
         ${activeCautionFilters ? `<button id="cautionClearBtn" type="button">Clear filters</button>` : ""}
       </div>
-      <div class="medicinal-filter-row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;align-items:end;">
+      <div class="caution-filter-grid">
         ${filterFields.map((field) => `
-          <div class="medicinal-filter-cell">
+          <div class="caution-filter-cell">
             <label for="cautionFilter_${esc(field.key)}" class="muted small">${esc(field.label)}</label>
-            <select id="cautionFilter_${esc(field.key)}" data-caution-filter="${esc(field.key)}" style="width:100%">
+            <select id="cautionFilter_${esc(field.key)}" data-caution-filter="${esc(field.key)}">
               ${optionHtml(field.options, state.filters[field.key] || "", field.blankLabel || "Any")}
             </select>
           </div>

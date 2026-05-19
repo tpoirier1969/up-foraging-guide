@@ -1257,6 +1257,22 @@ const CAUTION_SYSTEMS = [
   { value: "respiratory", label: "Respiratory / cardiovascular", re: /breath|respiratory|pulse|blood pressure|cardio/i }
 ];
 
+const CAUTION_CRITICAL_CHECKS = [
+  { value: "spore-print", label: "Spore print required", re: /spore print|spore color|spores|rusty[- ]brown|white spore|green spore|brown spore|pink spore|purple[- ]brown/i },
+  { value: "slice-open", label: "Slice / cut open", re: /slice|cut open|cut every|cut lengthwise|interior|inside|hollow|gleba|uniformly white|dark interior|cap\/stem outline|developing cap/i },
+  { value: "base-volva", label: "Dig/check base or volva", re: /volva|cup at the base|sacklike|sack-like|base was not dug|dig up|bulbous base|stem base|base\/volva/i },
+  { value: "underside-gills", label: "Underside / gill check", re: /true gills|false gills|blade-like gills|free gills|gill attachment|pores|underside|decurrent/i },
+  { value: "host-substrate", label: "Host/substrate check", re: /wood|buried root|stump|ground|soil|host|associated tree|aspen|birch|oak|pine|cedar|hardwood|conifer/i }
+];
+
+const CAUTION_SEASONS = [
+  { value: "spring", label: "Spring", months: ["March", "April", "May"] },
+  { value: "summer", label: "Summer", months: ["June", "July", "August"] },
+  { value: "fall", label: "Fall", months: ["September", "October", "November"] },
+  { value: "winter", label: "Winter", months: ["December", "January", "February"] },
+  { value: "year-round", label: "Year-round / many months", months: [] }
+];
+
 function cautionText(record = {}) {
   return [
     record.display_name, record.common_name, record.scientific_name, record.overview,
@@ -1297,11 +1313,29 @@ function cautionAffectedSystemValues(record = {}) {
   return CAUTION_SYSTEMS.filter((system) => system.re.test(text)).map((system) => system.value);
 }
 
+function cautionCriticalCheckValues(record = {}) {
+  const text = cautionText(record);
+  return CAUTION_CRITICAL_CHECKS.filter((check) => check.re.test(text)).map((check) => check.value);
+}
+
+function cautionSeasonValues(record = {}) {
+  const months = new Set(monthValues(record));
+  if (months.size >= 10) return ["year-round"];
+  const values = [];
+  for (const season of CAUTION_SEASONS) {
+    if (season.value === "year-round") continue;
+    if (season.months.some((month) => months.has(month))) values.push(season.value);
+  }
+  return values.length ? values : [];
+}
+
 function matchesCautionFilters(record = {}, filters = {}) {
   if (filters.cautionSeverity && cautionSeverityValue(record) !== filters.cautionSeverity) return false;
   if (filters.cautionForm && cautionFormValue(record) !== filters.cautionForm) return false;
   if (filters.cautionConfusedWith && !cautionConfusionValues(record).includes(filters.cautionConfusedWith)) return false;
   if (filters.cautionAffectedSystem && !cautionAffectedSystemValues(record).includes(filters.cautionAffectedSystem)) return false;
+  if (filters.cautionCriticalCheck && !cautionCriticalCheckValues(record).includes(filters.cautionCriticalCheck)) return false;
+  if (filters.cautionSeason && !cautionSeasonValues(record).includes(filters.cautionSeason)) return false;
   return true;
 }
 
@@ -1323,16 +1357,20 @@ export function getCautionFilterFields(records = [], filters = {}) {
   const formLabels = { "gilled": "Gilled", "spongelike-boletes": "Spongelike / bolete", "puffball-like": "Puffball / earthball-like", "morel-like": "Morel / cup-like", "other": "Other" };
   const confusionLabels = Object.fromEntries(CAUTION_CONFUSION_GROUPS.map((g) => [g.value, g.label]));
   const systemLabels = Object.fromEntries(CAUTION_SYSTEMS.map((g) => [g.value, g.label]));
+  const criticalCheckLabels = Object.fromEntries(CAUTION_CRITICAL_CHECKS.map((g) => [g.value, g.label]));
+  const seasonLabels = Object.fromEntries(CAUTION_SEASONS.map((g) => [g.value, g.label]));
   return [
     { key: "cautionSeverity", label: "Risk level", blankLabel: "Any risk level", options: countOptions(baseRecords, cautionSeverityValue, severityLabels) },
     { key: "cautionForm", label: "Mushroom form", blankLabel: "Any form", options: countOptions(baseRecords, cautionFormValue, formLabels) },
     { key: "cautionConfusedWith", label: "Often confused with", blankLabel: "Any confusion group", options: countOptions(baseRecords, cautionConfusionValues, confusionLabels) },
-    { key: "cautionAffectedSystem", label: "Affected system", blankLabel: "Any affected system", options: countOptions(baseRecords, cautionAffectedSystemValues, systemLabels) }
+    { key: "cautionAffectedSystem", label: "Affected system", blankLabel: "Any affected system", options: countOptions(baseRecords, cautionAffectedSystemValues, systemLabels) },
+    { key: "cautionCriticalCheck", label: "Critical field check", blankLabel: "Any field check", options: countOptions(baseRecords, cautionCriticalCheckValues, criticalCheckLabels) },
+    { key: "cautionSeason", label: "Season", blankLabel: "Any season", options: countOptions(baseRecords, cautionSeasonValues, seasonLabels) }
   ].filter((field) => field.options.length > 0 || String(filters?.[field.key] || "").trim());
 }
 
 export function hasActiveCautionFilters(filters = {}) {
-  return !!(filters.cautionSeverity || filters.cautionForm || filters.cautionConfusedWith || filters.cautionAffectedSystem);
+  return !!(filters.cautionSeverity || filters.cautionForm || filters.cautionConfusedWith || filters.cautionAffectedSystem || filters.cautionCriticalCheck || filters.cautionSeason);
 }
 
 function routeMatch(record, route) {
