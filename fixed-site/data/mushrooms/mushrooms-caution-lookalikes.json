@@ -3,18 +3,20 @@
     "project": "Upper Michigan Foraging Guide",
     "primary_type": "mushroom",
     "source_group": "data/mushrooms/mushrooms-caution-lookalikes",
-    "record_count": 12,
+    "record_count": 14,
     "role": "Canonical caution/look-alike mushroom records loaded with the normal mushroom chunks.",
     "purpose": "Canonical caution mushroom records that are not already present in the main mushroom chunks.",
     "last_completion_wave": "v4.3.77-r2026-05-18-muscarine-species-split1",
     "last_data_pass": "v4.3.80-r2026-05-18-gilled-safety-audit1",
-    "last_data_pass_date": "2026-05-18"
+    "last_data_pass_date": "2026-05-18",
+    "last_content_update": "v4.3.82-r2026-05-18-danger-entries-forage-display1",
+    "last_content_update_date": "2026-05-18"
   },
   "records": [
     {
       "slug": "galerina",
-      "display_name": "Deadly galerina",
-      "common_name": "Deadly galerina",
+      "display_name": "Deadly Galerina",
+      "common_name": "Deadly Galerina",
       "common_names": [
         "Galerina",
         "Deadly galerina",
@@ -26,7 +28,9 @@
         "deadly galerina",
         "funeral bell",
         "velvet foot look-alike",
-        "small brown wood mushroom"
+        "small brown wood mushroom",
+        "deadly-galerina",
+        "Galerina marginata; older names/synonyms in field guides may include Galerina autumnalis, Galerina oregonensis, Galerina unicolor, and Galerina venenata."
       ],
       "look_alike_aliases": [
         "galerina",
@@ -37,7 +41,7 @@
         "funeral-bell",
         "funeral bell"
       ],
-      "scientific_name": "Galerina marginata",
+      "scientific_name": "Galerina marginata; older names/synonyms in field guides may include Galerina autumnalis, Galerina oregonensis, Galerina unicolor, and Galerina venenata.",
       "category": "Mushroom",
       "record_type": "mushroom",
       "primary_type": "mushroom",
@@ -48,50 +52,95 @@
       "food_quality": "Deadly poisonous",
       "edibility_status": "deadly",
       "non_edible_severity": "Deadly poisonous",
-      "danger_level": "Deadly",
-      "poisoning_effects": "Contains amatoxin-type danger; poisoning can progress to severe liver injury and death. Treat any small brown wood-growing mushroom in this group as unsafe unless expert-confirmed.",
+      "danger_level": "Deadly poisonous",
+      "poisoning_effects": "Delayed severe gastrointestinal distress; Stomach cramps; Vomiting; Diarrhea; Temporary remission; Liver failure; Kidney failure; Coma or death in severe cases",
       "affected_systems": [
-        "Liver",
-        "Digestive system"
+        "gastrointestinal tract",
+        "liver",
+        "kidneys"
       ],
-      "culinary_uses": "Do not eat. This is a deadly look-alike group, included here only as a caution record.",
-      "field_identification": "Small brown gilled mushroom on wood or buried wood, often clustered; rusty brown spore print; brown to tawny cap that is moist when fresh and fades with age; thin ring or ring zone may be present but can disappear.",
-      "overview": "Caution stub for the Galerina marginata group because it can be confused with edible wood-growing mushrooms such as Velvet Foot by casual foragers.",
-      "look_alike_notes": "Separate from Velvet Foot and other edible wood mushrooms by spore print, ring/ring-zone clues, cap texture, season, and expert-level confirmation. Do not use this app as the deciding ID for small brown mushrooms.",
+      "culinary_uses": "Do not eat. Do not eat small brown mushrooms from wood unless the identification is expert-level and the spore print rules out Galerina. For this app: rusty-brown spores on a small wood mushroom means stop.",
+      "field_identification": "Small to medium brown/tawny mushroom growing on rotting wood, often in clusters. Cap is moist/sticky when fresh, honey yellow to cinnamon-brown, often fading as it dries and becoming two-toned. Rusty brown spore print is a critical separator from white-spored edible wood mushrooms. Thin ring or ring zone may be present but can disappear with age. Stem darkens brown to reddish brown from the base upward. Can fruit in spring and fall, and may appear outside those windows.",
+      "overview": "Searchable danger entry for Deadly Galerina. Included because it can be confused with edible mushrooms in Upper Michigan / northern Great Lakes foraging contexts.",
+      "look_alike_notes": "Velvet Foot: Velvet Foot has a white spore print and a dark velvety stem base; Deadly Galerina has rusty-brown spores and may have a fragile ring/ring zone. Honey Mushroom Complex: Honey mushrooms have white spore prints. Galerina has rusty-brown spores and can grow from the same wood, sometimes close enough to make mixed collections dangerous. Pholiota Group: Pholiota often has darker brown spores and scaly/sticky caps, but clustered wood growth is similar enough that it should not be treated as edible without strong ID.",
       "look_alikes": [
         "velvet-foot",
         "honey-mushroom",
-        "scaly-pholiota"
+        "scaly-pholiota",
+        "honey-mushroom-complex",
+        "small-honey-mushrooms",
+        "pholiota-group",
+        "sulfur-tuft",
+        "small-brown-mushrooms-lbm"
       ],
       "mushroom_profile": {
         "underside": [
-          "Gills"
+          "gills"
         ],
         "substrate": [
-          "Dead wood",
-          "Buried wood",
-          "Logs / stumps"
+          "rotting hardwood and conifer wood; stumps, logs, buried wood"
         ],
         "host_filter_tokens": [
-          "Wood",
-          "Hardwood",
-          "Conifer"
+          "hardwoods",
+          "conifers",
+          "deadwood"
         ],
         "ring": [
-          "Thin ring or ring zone may be present",
-          "Ring may disappear"
+          "thin ring/ring zone often present when young; may disappear"
         ],
-        "spore_print": "Rusty brown",
+        "spore_print": "rusty brown",
         "cap_surface": [
-          "Moist when fresh",
-          "Brown to tawny",
-          "Fades with age"
+          "sticky when fresh or wet",
+          "tacky to dry",
+          "bald"
         ],
         "growth_form": [
-          "Clusters",
-          "Small capped mushroom"
+          "clustered",
+          "gregarious",
+          "occasionally solitary"
         ],
-        "season_note": "Often spring and fall in temperate regions, but possible across a broad season when conditions fit."
+        "season_note": "spring, fall, occasionally year-round",
+        "lane": "gilled",
+        "cap_color": [
+          "honey yellow",
+          "tawny brown",
+          "cinnamon brown",
+          "brownish orange"
+        ],
+        "underside_color": [
+          "pale brownish when young",
+          "rusty brown with spores"
+        ],
+        "stem_color": [
+          "whitish above",
+          "brownish",
+          "dark brown to reddish brown toward base"
+        ],
+        "stem_feature": [
+          "thin ring or ring zone may be present",
+          "white basal mycelium"
+        ],
+        "volva": "absent",
+        "flesh_color": [
+          "yellowish",
+          "watery brownish"
+        ],
+        "staining": [
+          "flesh unchanging when sliced"
+        ],
+        "smell": [
+          "not a safe identification feature"
+        ],
+        "taste": [
+          "do not taste"
+        ],
+        "host_trees": [
+          "hardwoods",
+          "conifers",
+          "deadwood"
+        ],
+        "gill_attachment": "attached to slightly descending; check source photos/keys for specimen-level confirmation",
+        "caution_level": "deadly"
       },
       "use_links": [
         {
@@ -101,10 +150,28 @@
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
           "notes": "Wood growth, rusty brown spore print, small brown cap, and ring/ring-zone clues."
+        },
+        {
+          "label": "MSU Extension: Don't Pick Poison — amatoxins in Michigan",
+          "url": "https://www.canr.msu.edu/resources/dont_pick_poison_when_gathering_mushrooms_for_food_in_michigan_e2777",
+          "link_type": "identification/safety",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology / toxicology reference",
+          "notes": "Michigan relevance, amatoxin symptoms, Galerina occurs in Michigan"
+        },
+        {
+          "label": "Tom Volk / University of Wisconsin: Galerina autumnalis",
+          "url": "https://botit.botany.wisc.edu/toms_fungi/may2003.html",
+          "link_type": "identification/safety",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology / toxicology reference",
+          "notes": "white-spored edible wood mushroom comparison, rusty-brown spore print warning"
         }
       ],
       "links": [
-        "https://www.mushroomexpert.com/galerina_marginata.html"
+        "https://www.mushroomexpert.com/galerina_marginata.html",
+        "https://www.canr.msu.edu/resources/dont_pick_poison_when_gathering_mushrooms_for_food_in_michigan_e2777",
+        "https://botit.botany.wisc.edu/toms_fungi/may2003.html"
       ],
       "images_structured": [
         {
@@ -170,7 +237,7 @@
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Galerina%20marginata%2001.jpg?width=480",
       "review_status": "complete",
-      "mushroom_card_note": "Deadly brown gilled wood mushroom; never confuse with velvet foot, honey mushrooms, or small edible brown caps.",
+      "mushroom_card_note": "Do not eat small brown mushrooms from wood unless the identification is expert-level and the spore print rules out Galerina. For this app: rusty-brown spores on a small wood mushroom means stop.",
       "month_numbers": [
         1,
         2,
@@ -213,14 +280,28 @@
         "November",
         "December"
       ],
-      "edibility_detail": "Deadly poisonous amatoxin-containing small brown mushroom. Do not eat under any circumstance. This record is included because Galerina marginata can grow on wood in clusters and can be confused with small edible wood-loving mushrooms such as velvet foot by careless foragers; cooking, drying, or freezing should not be treated as making it safe.",
-      "toxicity_notes": "Potentially fatal amatoxin poisoning risk; treat every suspected Galerina marginata as deadly. Key practical separation from edible wood mushrooms includes rusty brown spore print, small brown hygrophanous cap, wood growth, and a ring or ring zone that may disappear.",
-      "completion_status": "complete"
+      "edibility_detail": "Deadly poisonous. Do not eat small brown mushrooms from wood unless the identification is expert-level and the spore print rules out Galerina. For this app: rusty-brown spores on a small wood mushroom means stop.",
+      "toxicity_notes": "Toxic principle: amatoxins. Affected systems: gastrointestinal tract, liver, kidneys.",
+      "completion_status": "complete",
+      "foraging_value": "Deadly poisonous",
+      "foraging_value_score": 0,
+      "food_quality_score": 0,
+      "commonness": "Regional safety concern",
+      "commonness_score": 3,
+      "confused_with": [
+        "velvet-foot",
+        "honey-mushroom-complex",
+        "small-honey-mushrooms",
+        "pholiota-group",
+        "sulfur-tuft",
+        "small-brown-mushrooms-lbm"
+      ],
+      "image_coverage_status": "needs image recovery"
     },
     {
       "slug": "false-morel",
-      "display_name": "False morels / Gyromitra",
-      "common_name": "False morels",
+      "display_name": "False Morels / Gyromitra Group",
+      "common_name": "False Morels / Gyromitra Group",
       "common_names": [
         "False morel",
         "False morels",
@@ -235,7 +316,10 @@
         "gyromitra",
         "beefsteak morel",
         "verpa",
-        "morel look-alike"
+        "morel look-alike",
+        "false-morels-gyromitra-group",
+        "Gyromitra species likely to be encountered around Michigan morel season, especially Gyromitra esculenta ('beefsteak morel') and related false morel groups. This entry is for Gyromitra, not all Verpa species, though Verpa should remain linked as non-edible morel look-alikes.",
+        "False Morels / Gyromitra Group"
       ],
       "look_alike_aliases": [
         "false-morel",
@@ -247,7 +331,7 @@
         "beefsteak morel",
         "verpa"
       ],
-      "scientific_name": "Gyromitra / Verpa species",
+      "scientific_name": "Gyromitra species likely to be encountered around Michigan morel season, especially Gyromitra esculenta ('beefsteak morel') and related false morel groups. This entry is for Gyromitra, not all Verpa species, though Verpa should remain linked as non-edible morel look-alikes.",
       "category": "Mushroom",
       "record_type": "mushroom",
       "primary_type": "mushroom",
@@ -255,43 +339,102 @@
       "foraging_class": "mushroom",
       "lane": "other",
       "food_role": "avoid",
-      "food_quality": "Poisonous / not edible",
-      "edibility_status": "poisonous",
-      "non_edible_severity": "Poisonous / potentially deadly",
-      "danger_level": "Poisonous / potentially deadly",
-      "poisoning_effects": "False morels should be treated as poisonous. Some Gyromitra contain gyromitrin, which can convert to monomethylhydrazine; poisoning has caused severe illness and deaths.",
+      "food_quality": "Deadly poisonous",
+      "edibility_status": "deadly",
+      "non_edible_severity": "Deadly poisonous",
+      "danger_level": "Deadly poisonous",
+      "poisoning_effects": "Gastrointestinal prodrome; Nausea; Vomiting; Watery or bloody diarrhea; Abdominal pain; Weakness or dizziness; Liver injury; Kidney injury; Neurologic symptoms such as tremors, seizures, confusion, or coma in severe poisoning; Death in severe cases",
       "affected_systems": [
-        "Digestive system",
-        "Liver",
-        "Nervous system"
+        "gastrointestinal tract",
+        "liver",
+        "kidneys",
+        "central nervous system"
       ],
-      "culinary_uses": "Do not eat in this guide. Included only as a morel look-alike caution record.",
-      "field_identification": "Compare every morel-like mushroom by cutting it lengthwise. True morels are hollow inside and have pitted caps; false morels may be wrinkled, ridged, wavy, brain-like, free-hanging at the cap, cottony, chambered, or solid rather than cleanly hollow.",
-      "overview": "Caution stub for false morel groups, especially Gyromitra and Verpa species, because they can appear at similar times and places as true morels in Michigan.",
-      "look_alike_notes": "Do not rely on color alone. Check the cap attachment and interior structure. Free-hanging caps, solid or chambered stems, and brain-like or wrinkled caps are warning signs.",
+      "culinary_uses": "Do not eat. If it is not hollow from cap tip through stem base and does not have true morel pits, do not eat it. Any brain-like, wrinkled, folded, or beefsteak-looking spring mushroom is a hard no.",
+      "field_identification": "Wrinkled, folded, lobed, saddle-like, or brain-like cap rather than a regular pitted honeycomb cap. Often reddish brown, chestnut, mahogany, tan, or darker brown; color varies by species and age. Interior is not cleanly hollow like true morels; stem may be solid, chambered, cottony, or irregular inside. Cap attachment differs from true morels and can be irregular rather than neatly attached along the lower edge. Often appears in spring during or near morel season, sometimes close to true morel habitat. No gills; this is an ascomycete false-morel form, but it belongs in searchable mushroom danger records.",
+      "overview": "Searchable danger entry for False Morels / Gyromitra Group. Included because it can be confused with edible mushrooms in Upper Michigan / northern Great Lakes foraging contexts.",
+      "look_alike_notes": "Morels: True morels have a pitted cap and are hollow inside from top to bottom when cut lengthwise. Gyromitra is folded/brain-like and may be solid, chambered, or cottony inside. Half Free Morel: Half-free morels have a true morel pit pattern and a partially attached cap; false morels can have irregular folds and unsafe internal structure. Verpa Group: Verpa species are also non-edible look-alikes in the app; cap attachment and interior structure should be used to keep both Verpa and Gyromitra out of edible morel decisions.",
       "look_alikes": [
         "yellow-morel",
         "black-morel",
-        "half-free-morel"
+        "half-free-morel",
+        "morels",
+        "white-morel",
+        "verpa-group"
       ],
       "mushroom_profile": {
         "underside": [
-          "No gills"
+          "no gills; spore-bearing surface on folded/lobed cap"
         ],
         "substrate": [
-          "Soil",
-          "Forest floor"
+          "on ground in woods, forest edges, burns, sandy soils, or disturbed spring habitats depending species"
         ],
         "host_filter_tokens": [
-          "Mixed woods",
-          "Burn sites",
-          "Spring woods"
+          "hardwoods",
+          "conifers",
+          "morel-associated spring woods"
         ],
         "growth_form": [
-          "Morel-like fruitbody",
-          "Brain-like or wrinkled cap"
+          "solitary",
+          "scattered",
+          "gregarious"
         ],
-        "season_note": "April through June, overlapping true morel season; Michigan DNR notes false morels occur at the same times and places as true morels."
+        "season_note": "spring, early summer in colder northern sites",
+        "lane": "other",
+        "cap_color": [
+          "reddish brown",
+          "mahogany",
+          "chestnut brown",
+          "tan",
+          "brown"
+        ],
+        "cap_surface": [
+          "wrinkled",
+          "folded",
+          "brain-like",
+          "lobed",
+          "saddle-like in some species"
+        ],
+        "underside_color": [
+          "similar to cap or paler, species-dependent"
+        ],
+        "stem_color": [
+          "whitish",
+          "tan",
+          "brownish"
+        ],
+        "stem_feature": [
+          "solid",
+          "chambered",
+          "cottony",
+          "irregular interior"
+        ],
+        "ring": [
+          "absent"
+        ],
+        "volva": "absent",
+        "flesh_color": [
+          "whitish",
+          "tan",
+          "brownish"
+        ],
+        "staining": [
+          "not a primary field clue"
+        ],
+        "smell": [
+          "not a safe identification feature"
+        ],
+        "taste": [
+          "do not taste"
+        ],
+        "spore_print": "not applicable/useful in the usual cap-and-paper sense; microscopy may be needed for species-level Gyromitra identification",
+        "host_trees": [
+          "hardwoods",
+          "conifers",
+          "morel-associated spring woods"
+        ],
+        "gill_attachment": "not applicable; no gills",
+        "caution_level": "deadly"
       },
       "use_links": [
         {
@@ -309,11 +452,20 @@
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
           "notes": "False morel group traits and hollow-vs-not-hollow comparison."
+        },
+        {
+          "label": "NCBI Bookshelf / StatPearls: Gyromitra Mushroom Toxicity",
+          "url": "https://www.ncbi.nlm.nih.gov/books/NBK470580/",
+          "link_type": "identification/safety",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology / toxicology reference",
+          "notes": "gyromitrin, monomethylhydrazine, affected systems, clinical symptoms"
         }
       ],
       "links": [
         "https://www.michigan.gov/dnr/things-to-do/morels/morel-identification",
-        "https://www.mushroomexpert.com/gyromitra.html"
+        "https://www.mushroomexpert.com/gyromitra.html",
+        "https://www.ncbi.nlm.nih.gov/books/NBK470580/"
       ],
       "images_structured": [
         {
@@ -394,10 +546,23 @@
         6
       ],
       "review_status": "complete",
-      "mushroom_card_note": "Wrinkled/lobed false morel caution record; do not treat as a true morel.",
-      "edibility_detail": "Poisonous / avoid in this guide. False morels are not one safe species: several Gyromitra, Verpa, Discina, and Helvella-like morel look-alikes can cause severe poisoning, and some contain gyromitrin/MMH-related toxins. This app treats all false-morel candidates as reject mushrooms unless an expert has identified the exact species and local legal/food-safety guidance supports use.",
-      "toxicity_notes": "Morel-like mushroom with brainy, wavy, lobed, cottony, chambered, or not-cleanly-hollow interior should be rejected for this guide. Slice every morel-like mushroom lengthwise.",
-      "completion_status": "complete"
+      "mushroom_card_note": "If it is not hollow from cap tip through stem base and does not have true morel pits, do not eat it. Any brain-like, wrinkled, folded, or beefsteak-looking spring mushroom is a hard no.",
+      "edibility_detail": "Deadly poisonous. If it is not hollow from cap tip through stem base and does not have true morel pits, do not eat it. Any brain-like, wrinkled, folded, or beefsteak-looking spring mushroom is a hard no.",
+      "toxicity_notes": "Toxic principle: gyromitrin, metabolized to monomethylhydrazine. Affected systems: gastrointestinal tract, liver, kidneys, central nervous system.",
+      "completion_status": "complete",
+      "foraging_value": "Deadly poisonous",
+      "foraging_value_score": 0,
+      "food_quality_score": 0,
+      "commonness": "Regional safety concern",
+      "commonness_score": 3,
+      "confused_with": [
+        "morels",
+        "black-morel",
+        "white-morel",
+        "half-free-morel",
+        "verpa-group"
+      ],
+      "image_coverage_status": "needs image recovery"
     },
     {
       "slug": "death-cap",
@@ -594,9 +759,9 @@
     },
     {
       "slug": "small-deadly-lepiota-group",
-      "display_name": "Small deadly Lepiota group",
-      "common_name": "Small deadly Lepiota group",
-      "scientific_name": "Lepiota species / small lepiotoid mushrooms",
+      "display_name": "Deadly Lepiota Group",
+      "common_name": "Deadly Lepiota Group",
+      "scientific_name": "Small to medium Lepiota species capable of containing amatoxins, with Lepiota subincarnata / deadly parasol as an anchor example. Treat as a group unless a local specimen is expertly identified.",
       "category": "Mushroom",
       "record_type": "mushroom",
       "primary_type": "mushroom",
@@ -604,16 +769,16 @@
       "foraging_class": "mushroom",
       "lane": "gilled",
       "food_role": "avoid",
-      "food_quality": "Deadly poisonous risk",
+      "food_quality": "Deadly poisonous",
       "edibility_status": "deadly",
-      "edibility_detail": "Some Lepiota species are amatoxin-containing and potentially fatal; avoid small parasol/lepiotoid mushrooms unless identified by an expert.",
-      "culinary_uses": "Do not eat. Included as a dangerous look-alike/safety group, not as a food species.",
+      "edibility_detail": "Deadly poisonous. Do not eat small parasol-like mushrooms with white gills and white spores. If it is a small Lepiota-looking mushroom, it is not food.",
+      "culinary_uses": "Do not eat. Do not eat small parasol-like mushrooms with white gills and white spores. If it is a small Lepiota-looking mushroom, it is not food.",
       "medicinal_uses": "No reliable medicinal use is recorded for this app entry unless noted in Other uses or source links.",
       "other_uses": "No practical non-food use is recorded for this app entry yet.",
-      "overview": "Safety-group entry for small lepiotoid mushrooms because some Lepiota species contain amatoxins and can cause fatal poisoning.",
+      "overview": "Searchable danger entry for Deadly Lepiota Group. Included because it can be confused with edible mushrooms in Upper Michigan / northern Great Lakes foraging contexts.",
       "notes": "Safety-group entry for small lepiotoid mushrooms because some Lepiota species contain amatoxins and can cause fatal poisoning.",
       "general_notes": "Safety-group entry for small lepiotoid mushrooms because some Lepiota species contain amatoxins and can cause fatal poisoning.",
-      "field_identification": "Small to medium white or brown-scaled gilled mushrooms with a ring or ring zone; species-level ID often requires microscopy. Treat small Lepiota-like mushrooms as no-eat unless expert-confirmed.",
+      "field_identification": "Small to medium parasol-like mushrooms with free white gills. White spore print. Cap often has brown, pink-brown, orange-brown, or reddish-brown scales on a paler/white background. Stem may have bands, felty material, or a faint ring/ring zone rather than a strong movable ring. Can grow in lawns, mulch, gardens, and woods depending species. Species-level ID may require microscopy; do not use smell or attractive appearance as safety clues.",
       "months_available": [
         "July",
         "August",
@@ -626,11 +791,11 @@
         9,
         10
       ],
-      "commonness": "Needs regional review",
-      "commonness_score": 2,
-      "foraging_value": "Deadly poisonous risk",
-      "foraging_value_score": 2,
-      "food_quality_score": 2,
+      "commonness": "Regional safety concern",
+      "commonness_score": 3,
+      "foraging_value": "Deadly poisonous",
+      "foraging_value_score": 0,
+      "food_quality_score": 0,
       "use_roles": [
         "Caution / poisonous"
       ],
@@ -644,62 +809,88 @@
       "look_alikes": [
         "horse-mushroom-group",
         "shaggy-parasol-group",
-        "field-meadow-mushrooms"
+        "field-meadow-mushrooms",
+        "fairy-ring-mushroom",
+        "parasol-mushroom",
+        "shaggy-parasol",
+        "green-spored-parasol",
+        "meadow-mushroom-agaricus-group",
+        "leucoagaricus-americanus"
       ],
       "mushroom_profile": {
         "underside": [
-          "Gills"
+          "gills"
         ],
         "underside_type": [
           "Gills"
         ],
         "cap_color": [
-          "White",
-          "Brown",
-          "Tan"
+          "white with brown scales",
+          "pink-brown scaled",
+          "orange-brown scaled",
+          "reddish-brown scaled"
         ],
         "cap_surface": [
-          "Scaly",
-          "Fibrous"
+          "scaly",
+          "warty",
+          "velvety material breaking into concentric scales"
         ],
         "stem_color": [
-          "White",
-          "Tan"
+          "pale cream",
+          "pinkish",
+          "whitish"
         ],
         "stem_feature": [
-          "Ring or ring zone possible"
+          "bands or scattered felty material",
+          "faint ring zone possible"
         ],
         "ring": [
-          "Ring present or possible"
+          "faint ring/band or velvety veil remnants; variable"
         ],
-        "spore_print": "White to cream",
+        "spore_print": "white",
         "spore_print_color": [
           "White",
           "Cream"
         ],
         "substrate": [
-          "Ground",
-          "Forest floor",
-          "Lawns / disturbed ground"
+          "lawns, mulch, gardens, broadleaf/mixed woods, disturbed soil"
         ],
         "habitat": [
           "Forest",
           "Lawns / yards"
         ],
         "host_filter_tokens": [
-          "Ground"
+          "not tree-specific; saprotrophic habitats"
         ],
         "growth_form": [
-          "Solitary",
-          "Scattered"
+          "solitary",
+          "scattered",
+          "small groups"
         ],
         "smell": [
-          "Not distinctive"
+          "indistinct, sweet/fruity, sharp, or unpleasant depending species; do not rely on smell"
         ],
         "taste": [
-          "Do not taste"
+          "do not taste"
         ],
-        "caution_level": "deadly"
+        "caution_level": "deadly",
+        "lane": "gilled",
+        "underside_color": [
+          "white"
+        ],
+        "volva": "absent",
+        "flesh_color": [
+          "white",
+          "may pinken where damaged in some species"
+        ],
+        "staining": [
+          "some species may stain pinkish; not a safe separator"
+        ],
+        "host_trees": [
+          "not tree-specific; saprotrophic habitats"
+        ],
+        "gill_attachment": "free",
+        "season_note": "summer, fall"
       },
       "use_links": [
         {
@@ -717,21 +908,49 @@
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
           "notes": "Documents fatal-poisoning risk from amatoxin-containing Lepiota species."
+        },
+        {
+          "label": "Mushrooms Up! / Beaty Biodiversity Museum: Lepiota subincarnata",
+          "url": "https://explore.beatymuseum.ubc.ca/mushroomsup/L_subincarnata.html",
+          "link_type": "identification/safety",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology / toxicology reference",
+          "notes": "field identification, spore print, look-alikes, amatoxin toxicity"
+        },
+        {
+          "label": "MSU Extension: Don't Pick Poison — amatoxins in Michigan",
+          "url": "https://www.canr.msu.edu/resources/dont_pick_poison_when_gathering_mushrooms_for_food_in_michigan_e2777",
+          "link_type": "identification/safety",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology / toxicology reference",
+          "notes": "Michigan relevance, Lepiota amatoxins, delayed symptoms"
+        },
+        {
+          "label": "First Nature: Lepiota subincarnata",
+          "url": "https://www.first-nature.com/fungi/lepiota-subincarnata.php",
+          "link_type": "identification/safety",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology / toxicology reference",
+          "notes": "spore print, deadly poisonous status, habitat"
         }
       ],
       "links": [
         "https://www.mushroomexpert.com/lepiotoid.html",
-        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4147585/"
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC4147585/",
+        "https://explore.beatymuseum.ubc.ca/mushroomsup/L_subincarnata.html",
+        "https://www.canr.msu.edu/resources/dont_pick_poison_when_gathering_mushrooms_for_food_in_michigan_e2777",
+        "https://www.first-nature.com/fungi/lepiota-subincarnata.php"
       ],
-      "image_coverage_status": "missing_verified_images",
-      "review_status": "incomplete",
-      "completion_status": "incomplete",
-      "non_edible_severity": "Deadly poisonous risk",
-      "danger_level": "Deadly",
-      "poisoning_effects": "Some Lepiota species are amatoxin-containing and potentially fatal; avoid small parasol/lepiotoid mushrooms unless identified by an expert.",
+      "image_coverage_status": "needs image recovery",
+      "review_status": "complete",
+      "completion_status": "complete",
+      "non_edible_severity": "Deadly poisonous",
+      "danger_level": "Deadly poisonous",
+      "poisoning_effects": "Delayed severe gastrointestinal distress; Abdominal pain; Severe vomiting; Diarrhea; Leg cramps reported in poisoning cases; Temporary apparent improvement; Liver damage; Kidney damage; Death in severe cases",
       "affected_systems": [
-        "Liver",
-        "Digestive system"
+        "gastrointestinal tract",
+        "liver",
+        "kidneys"
       ],
       "common_names": [
         "Small deadly Lepiota",
@@ -742,8 +961,22 @@
         "Lepiota brunneoincarnata",
         "deadly dapperling",
         "small Lepiota",
-        "small lepiotoid mushroom"
-      ]
+        "small lepiotoid mushroom",
+        "deadly-lepiota-group",
+        "Small to medium Lepiota species capable of containing amatoxins, with Lepiota subincarnata / deadly parasol as an anchor example. Treat as a group unless a local specimen is expertly identified.",
+        "Deadly Lepiota Group"
+      ],
+      "mushroom_card_note": "Do not eat small parasol-like mushrooms with white gills and white spores. If it is a small Lepiota-looking mushroom, it is not food.",
+      "confused_with": [
+        "fairy-ring-mushroom",
+        "parasol-mushroom",
+        "shaggy-parasol",
+        "green-spored-parasol",
+        "meadow-mushroom-agaricus-group",
+        "leucoagaricus-americanus"
+      ],
+      "look_alike_notes": "Fairy Ring Mushroom: Fairy ring mushrooms have a smooth tan cap and tough smooth stem; deadly Lepiota has scaly cap material and often felty/scaly stem bands. Habitat overlap in lawns makes this dangerous. Green Spored Parasol: Green-spored parasol is usually much larger and has a dull green spore print, but young specimens and small parasol logic can confuse beginners. Meadow Mushroom Agaricus Group: Agaricus gills turn pink/chocolate with a dark brown spore print; Lepiota has white gills/spores. Small white-gilled parasols are not a substitute for Agaricus.",
+      "toxicity_notes": "Toxic principle: amatoxins in dangerous members. Affected systems: gastrointestinal tract, liver, kidneys."
     },
     {
       "slug": "conocybe-pholiotina-filaris-group",
@@ -933,9 +1166,9 @@
     },
     {
       "slug": "green-spored-parasol",
-      "display_name": "Green-spored parasol",
-      "common_name": "Green-spored parasol",
-      "scientific_name": "Chlorophyllum molybdites",
+      "display_name": "Green-spored Parasol",
+      "common_name": "Green-spored Parasol",
+      "scientific_name": "Chlorophyllum molybdites, also called false parasol, green-spored lepiota, or 'the vomiter'.",
       "category": "Mushroom",
       "record_type": "mushroom",
       "primary_type": "mushroom",
@@ -945,14 +1178,14 @@
       "food_role": "avoid",
       "food_quality": "Poisonous",
       "edibility_status": "poisonous",
-      "edibility_detail": "Poisonous; causes significant gastrointestinal illness and is too risky as a casual edible-parasol look-alike.",
-      "culinary_uses": "Do not eat. Common cause of severe gastrointestinal poisoning; included as a caution record.",
+      "edibility_detail": "Poisonous. Do not eat any parasol-like lawn mushroom with greenish gills or a green/gray-green spore print. Young white-gilled parasols are not beginner food either.",
+      "culinary_uses": "Do not eat. Do not eat any parasol-like lawn mushroom with greenish gills or a green/gray-green spore print. Young white-gilled parasols are not beginner food either.",
       "medicinal_uses": "No reliable medicinal use is recorded for this app entry unless noted in Other uses or source links.",
       "other_uses": "No practical non-food use is recorded for this app entry yet.",
-      "overview": "Important poisonous lawn mushroom and parasol look-alike. The greenish spore print is the key field clue when mature specimens are available.",
+      "overview": "Searchable danger entry for Green-spored Parasol. Included because it can be confused with edible mushrooms in Upper Michigan / northern Great Lakes foraging contexts.",
       "notes": "Important poisonous lawn mushroom and parasol look-alike. The greenish spore print is the key field clue when mature specimens are available.",
       "general_notes": "Important poisonous lawn mushroom and parasol look-alike. The greenish spore print is the key field clue when mature specimens are available.",
-      "field_identification": "Large white parasol-type mushroom in lawns or grassy places, often in rings; mature gills and spore print become greenish. Young white-gilled specimens are not safe to separate casually from edible parasols.",
+      "field_identification": "Large parasol-like lawn mushroom with broad white to brown cap and tan/cinnamon/pinkish-brown scales. Usually forms complete or partial fairy rings in lawns or grassy areas. White young gills become greenish-gray as spores mature. Large persistent ring on the stem; stem white to brownish and may discolor slightly brown when handled. Dull grayish-green spore print is the critical field mark. Young specimens with white gills can be confused with edible parasol/shaggy-parasol types.",
       "months_available": [
         "July",
         "August",
@@ -965,11 +1198,11 @@
         9,
         10
       ],
-      "commonness": "Needs regional review",
-      "commonness_score": 2,
+      "commonness": "Regional safety concern",
+      "commonness_score": 3,
       "foraging_value": "Poisonous",
-      "foraging_value_score": 2,
-      "food_quality_score": 2,
+      "foraging_value_score": 0,
+      "food_quality_score": 0,
       "use_roles": [
         "Caution / poisonous"
       ],
@@ -984,50 +1217,59 @@
       "look_alikes": [
         "horse-mushroom-group",
         "shaggy-parasol-group",
-        "field-meadow-mushrooms"
+        "field-meadow-mushrooms",
+        "shaggy-parasol",
+        "parasol-mushroom",
+        "meadow-mushroom-agaricus-group",
+        "leucoagaricus-americanus",
+        "deadly-lepiota-group"
       ],
       "mushroom_profile": {
         "underside": [
-          "Gills"
+          "gills"
         ],
         "underside_type": [
           "Gills"
         ],
         "cap_color": [
-          "White",
-          "Cream",
-          "Tan"
+          "white",
+          "brownish",
+          "tan-scaled",
+          "cinnamon-scaled",
+          "pinkish-brown scaled"
         ],
         "cap_surface": [
-          "Scaly",
-          "Umbrella-like"
+          "dry",
+          "scaly",
+          "patchy scales on pale background"
         ],
         "gill_color": [
           "White when young",
           "Greenish with age"
         ],
         "underside_color": [
-          "White",
-          "Greenish"
+          "white when young",
+          "greenish gray with age"
         ],
         "stem_color": [
-          "White",
-          "Tan"
+          "white",
+          "whitish brown"
         ],
         "stem_feature": [
-          "Ring present"
+          "large persistent ring",
+          "slightly enlarged base",
+          "smooth to finely fibrillose"
         ],
         "ring": [
-          "Ring present"
+          "present; large persistent ring, often with greenish/brownish lower edge"
         ],
-        "spore_print": "Green to gray-green",
+        "spore_print": "dull grayish green",
         "spore_print_color": [
           "Green",
           "Gray-green"
         ],
         "substrate": [
-          "Ground",
-          "Lawns / grass"
+          "lawns, grassy areas, open woods, agricultural/disturbed ground"
         ],
         "habitat": [
           "Lawns / yards",
@@ -1035,20 +1277,33 @@
           "Parks"
         ],
         "host_filter_tokens": [
-          "Ground"
+          "not tree-specific"
         ],
         "growth_form": [
-          "Fairy rings",
-          "Clusters",
-          "Solitary"
+          "fairy rings",
+          "scattered",
+          "gregarious"
         ],
         "smell": [
-          "Not distinctive"
+          "not distinctive"
         ],
         "taste": [
-          "Do not taste"
+          "do not taste"
         ],
-        "caution_level": "high"
+        "caution_level": "high",
+        "lane": "gilled",
+        "volva": "absent",
+        "flesh_color": [
+          "white"
+        ],
+        "staining": [
+          "flesh usually not staining; may stain reddish brown to pale pinkish red near stem base"
+        ],
+        "host_trees": [
+          "not tree-specific"
+        ],
+        "gill_attachment": "free; not attached to stem",
+        "season_note": "summer, fall, after rain"
       },
       "use_links": [
         {
@@ -1066,20 +1321,39 @@
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
           "notes": "Large white lawn mushroom with greenish gills/spores and ring."
+        },
+        {
+          "label": "UF/IFAS Extension: The Green-Spore Poison Parasol Mushroom",
+          "url": "https://ask.ifas.ufl.edu/publication/PP324",
+          "link_type": "identification/safety",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology / toxicology reference",
+          "notes": "toxicity, symptoms, lawns/fairy rings, common poisoning source"
+        },
+        {
+          "label": "NC State Extension: Chlorophyllum molybdites",
+          "url": "https://plants.ces.ncsu.edu/plants/chlorophyllum-molybdites/",
+          "link_type": "identification/safety",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology / toxicology reference",
+          "notes": "field identification, green spore print, poisonous status"
         }
       ],
       "links": [
         "https://www.mushroomexpert.com/chlorophyllum_molybdites.html",
-        "https://mdc.mo.gov/discover-nature/field-guide/green-spored-lepiota"
+        "https://mdc.mo.gov/discover-nature/field-guide/green-spored-lepiota",
+        "https://ask.ifas.ufl.edu/publication/PP324",
+        "https://plants.ces.ncsu.edu/plants/chlorophyllum-molybdites/"
       ],
-      "image_coverage_status": "partial_verified_images",
-      "review_status": "incomplete",
-      "completion_status": "incomplete",
+      "image_coverage_status": "needs image recovery",
+      "review_status": "complete",
+      "completion_status": "complete",
       "non_edible_severity": "Poisonous",
       "danger_level": "Poisonous",
-      "poisoning_effects": "Poisonous; causes significant gastrointestinal illness and is too risky as a casual edible-parasol look-alike.",
+      "poisoning_effects": "Severe stomach irritation; Vomiting; Diarrhea; Bloody diarrhea in severe cases; Hypovolemic shock in severe cases; Dehydration risk",
       "affected_systems": [
-        "Digestive system"
+        "gastrointestinal tract",
+        "fluid/electrolyte balance in severe cases"
       ],
       "common_names": [
         "Green-spored parasol",
@@ -1089,7 +1363,9 @@
         "Chlorophyllum molybdites",
         "green-spored parasol",
         "green spored parasol",
-        "false parasol"
+        "false parasol",
+        "green-spored-parasol",
+        "Chlorophyllum molybdites, also called false parasol, green-spored lepiota, or 'the vomiter'."
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Chlorophyllum%20molybdites%2080576927.jpg"
@@ -1118,7 +1394,17 @@
           "checked_build": "v4.3.76-r2026-05-18-zero-image-synonym-recovery1",
           "checked_date": "2026-05-18"
         }
-      ]
+      ],
+      "mushroom_card_note": "Do not eat any parasol-like lawn mushroom with greenish gills or a green/gray-green spore print. Young white-gilled parasols are not beginner food either.",
+      "confused_with": [
+        "shaggy-parasol",
+        "parasol-mushroom",
+        "meadow-mushroom-agaricus-group",
+        "leucoagaricus-americanus",
+        "deadly-lepiota-group"
+      ],
+      "look_alike_notes": "Shaggy Parasol: Shaggy parasols have white spore prints, not dull greenish prints; young green-spored parasols may still have white gills, so mature spores matter. Parasol Mushroom: True parasols are not a safe shortcut in Upper Michigan app logic; green-spored parasol is close enough in shape that spore print and gill color must be checked. Meadow Mushroom Agaricus Group: Agaricus gills mature pink to chocolate brown with a dark brown spore print; green-spored parasol matures greenish-gray with a dull green spore print.",
+      "toxicity_notes": "Toxic principle: unknown/poorly characterized gastrointestinal toxin(s). Affected systems: gastrointestinal tract, fluid/electrolyte balance in severe cases."
     },
     {
       "slug": "inocybe-clitocybe-muscarine-risk-group",
@@ -2336,6 +2622,366 @@
       "review_status": "needs_review",
       "completion_status": "incomplete",
       "mushroom_card_note": "Orange chanterelle look-alike with true forked gills; not a beginner edible."
+    },
+    {
+      "slug": "cortinarius-webcap-warning-group",
+      "display_name": "Cortinarius / Webcap Warning Group",
+      "common_name": "Cortinarius / Webcap Warning Group",
+      "scientific_name": "Cortinarius species with emphasis on orellanine-containing or suspected nephrotoxic webcaps, including the Michigan-reported Cortinarius orellanosus case and broader Cortinarius warning traits.",
+      "category": "Mushroom",
+      "record_type": "mushroom",
+      "primary_type": "mushroom",
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "lane": "gilled",
+      "overview": "Searchable danger entry for Cortinarius / Webcap Warning Group. Included because it can be confused with edible mushrooms in Upper Michigan / northern Great Lakes foraging contexts.",
+      "field_identification": "Usually terrestrial/mycorrhizal in woods, not truly growing from wood. Young mushrooms often have a cobwebby partial veil called a cortina between cap margin and stem. Rusty brown spore print; mature gills are often stained rusty brown by spores. Colors vary wildly: brown, orange-brown, yellow-brown, purple, violet, red-gilled, slimy, dry, scaly, or plain. Some species resemble blewits or other edible gilled woodland mushrooms. Species-level identification is often difficult; many require microscopy and expert keys.",
+      "mushroom_card_note": "Do not eat Cortinarius. Rusty-brown spores plus a cobwebby veil/cortina in a woodland mushroom means it is not food for this app.",
+      "culinary_uses": "Do not eat. Do not eat Cortinarius. Rusty-brown spores plus a cobwebby veil/cortina in a woodland mushroom means it is not food for this app.",
+      "edibility_detail": "Deadly poisonous. Do not eat Cortinarius. Rusty-brown spores plus a cobwebby veil/cortina in a woodland mushroom means it is not food for this app.",
+      "edibility_status": "deadly",
+      "non_edible_severity": "Deadly poisonous",
+      "danger_level": "Deadly poisonous",
+      "food_role": "avoid",
+      "food_quality": "Deadly poisonous",
+      "foraging_value": "Deadly poisonous",
+      "foraging_value_score": 0,
+      "food_quality_score": 0,
+      "commonness": "Regional safety concern",
+      "commonness_score": 3,
+      "months_available": [],
+      "month_numbers": [],
+      "look_alikes": [
+        "wood-blewit",
+        "violet-cortinarius",
+        "gymnopilus-group",
+        "tricholoma-group",
+        "honey-mushroom-complex",
+        "small-brown-mushrooms-lbm"
+      ],
+      "confused_with": [
+        "wood-blewit",
+        "violet-cortinarius",
+        "gymnopilus-group",
+        "tricholoma-group",
+        "honey-mushroom-complex",
+        "small-brown-mushrooms-lbm"
+      ],
+      "look_alike_notes": "Wood Blewit: Wood blewits have pale pinkish spore prints, not rusty brown, and lack a rusty cortina. Purple color alone is not enough. Gymnopilus Group: Gymnopilus usually grows from wood and has orange to rusty spores; Cortinarius is usually ground-growing/mycorrhizal, but buried wood can confuse beginners. Tricholoma Group: Tricholoma typically has white spores and no cortina; Cortinarius has rusty-brown spores and cortina evidence.",
+      "poisoning_effects": "Long delayed onset; Early gastrointestinal upset may occur; Vomiting; Diarrhea or constipation; Abdominal pain; Excessive thirst; Increased or decreased urination; Acute kidney failure days after ingestion; Chronic renal failure, dialysis, or transplant in severe cases",
+      "toxicity_notes": "Toxic principle: orellanine in some species; other Cortinarius toxicities/unknowns possible. Affected systems: kidneys, gastrointestinal tract, fluid/electrolyte balance.",
+      "affected_systems": [
+        "kidneys",
+        "gastrointestinal tract",
+        "fluid/electrolyte balance"
+      ],
+      "mushroom_profile": {
+        "lane": "gilled",
+        "underside": [
+          "gills"
+        ],
+        "cap_color": [
+          "brown",
+          "orange brown",
+          "yellow brown",
+          "rust brown",
+          "purple",
+          "violet",
+          "variable by species"
+        ],
+        "cap_surface": [
+          "dry",
+          "slimy",
+          "fibrous",
+          "scaly",
+          "variable by species"
+        ],
+        "underside_color": [
+          "pale when young",
+          "rusty brown at maturity",
+          "purple or red in some species before spore maturity"
+        ],
+        "stem_color": [
+          "variable",
+          "often similar to cap or paler"
+        ],
+        "stem_feature": [
+          "cobwebby cortina in young specimens",
+          "rusty spore deposits on cortina remnants/stem"
+        ],
+        "ring": [
+          "cortina present when young; not a solid skirtlike ring"
+        ],
+        "volva": "absent",
+        "flesh_color": [
+          "white",
+          "buff",
+          "brownish",
+          "purplish",
+          "variable"
+        ],
+        "staining": [
+          "variable; not a safe edible/poisonous separator"
+        ],
+        "smell": [
+          "variable; not a safe edible/poisonous separator"
+        ],
+        "taste": [
+          "do not taste"
+        ],
+        "spore_print": "rusty brown",
+        "substrate": [
+          "on ground in woods; mycorrhizal with trees"
+        ],
+        "host_trees": [
+          "hardwoods",
+          "conifers",
+          "oak",
+          "birch",
+          "aspen",
+          "pine",
+          "spruce",
+          "mixed woods depending species"
+        ],
+        "host_filter_tokens": [
+          "hardwoods",
+          "conifers",
+          "oak",
+          "birch",
+          "aspen",
+          "pine",
+          "spruce",
+          "mixed woods depending species"
+        ],
+        "growth_form": [
+          "solitary",
+          "scattered",
+          "gregarious"
+        ],
+        "gill_attachment": "attached/notched to attached; variable by species",
+        "season_note": "summer, fall",
+        "caution_level": "deadly"
+      },
+      "links": [
+        "https://mushroomexpert.com/cortinarius_cotoneus.html",
+        "https://pubmed.ncbi.nlm.nih.gov/20615153/",
+        "https://www.sciencedirect.com/science/article/abs/pii/S0041010116300289",
+        "https://www.merckvetmanual.com/toxicology/poisonous-mushrooms/toxin-latent-period-24-hours-after-ingestion-of-mushrooms"
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: The Genus Cortinarius",
+          "url": "https://mushroomexpert.com/cortinarius_cotoneus.html",
+          "link_type": "identification/safety",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology / toxicology reference",
+          "notes": "cortina concept, rusty-brown spore print, genus-level identification"
+        },
+        {
+          "label": "PubMed: Cortinarius orellanosus ingestion causing chronic renal failure in Michigan",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/20615153/",
+          "link_type": "identification/safety",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology / toxicology reference",
+          "notes": "Michigan renal-failure case, Cortinarius toxicity"
+        },
+        {
+          "label": "ScienceDirect / Toxicon: Novel orellanine-containing Cortinarius",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0041010116300289",
+          "link_type": "identification/safety",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology / toxicology reference",
+          "notes": "orellanine, renal failure, Michigan case context"
+        },
+        {
+          "label": "Merck Veterinary Manual: Toxin latent period >24h / orellanine",
+          "url": "https://www.merckvetmanual.com/toxicology/poisonous-mushrooms/toxin-latent-period-24-hours-after-ingestion-of-mushrooms",
+          "link_type": "identification/safety",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology / toxicology reference",
+          "notes": "delayed kidney symptoms, renal target organ, treatment context"
+        }
+      ],
+      "search_aliases": [
+        "cortinarius-webcap-warning-group",
+        "Cortinarius species with emphasis on orellanine-containing or suspected nephrotoxic webcaps, including the Michigan-reported Cortinarius orellanosus case and broader Cortinarius warning traits.",
+        "Cortinarius / Webcap Warning Group"
+      ],
+      "review_status": "complete",
+      "completion_status": "complete",
+      "image_coverage_status": "needs image recovery"
+    },
+    {
+      "slug": "earthballs-scleroderma",
+      "display_name": "Earthballs / Pigskin Poison Puffballs",
+      "common_name": "Earthballs / Pigskin Poison Puffballs",
+      "scientific_name": "Scleroderma species, with Scleroderma citrinum as the main common-earthball anchor; includes Scleroderma aurantium/vulgare synonym context where used by sources.",
+      "category": "Mushroom",
+      "record_type": "mushroom",
+      "primary_type": "mushroom",
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "lane": "other",
+      "overview": "Searchable danger entry for Earthballs / Pigskin Poison Puffballs. Included because it can be confused with edible mushrooms in Upper Michigan / northern Great Lakes foraging contexts.",
+      "field_identification": "Round to flattened puffball-like fruiting body with no true cap, gills, pores, or stem. Outer skin/rind is tough, thick, yellowish to yellow-brown, and often coarse-scaly or cracked like pigskin. Cut open: interior quickly becomes purple-gray, purple-black, blackish brown, or mottled dark; not pure white throughout like an edible puffball. Mature interior becomes powdery dark spore mass. Often attached at base to whitish/yellowish rhizomorphs. Can smell rubbery, unpleasant, or gas-like in some descriptions.",
+      "mushroom_card_note": "Cut every puffball-like mushroom open. If the inside is not pure white and uniform like cream cheese, do not eat it. Dark, purple, black, marbled, or tough pigskin interior means no.",
+      "culinary_uses": "Do not eat. Cut every puffball-like mushroom open. If the inside is not pure white and uniform like cream cheese, do not eat it. Dark, purple, black, marbled, or tough pigskin interior means no.",
+      "edibility_detail": "Poisonous. Cut every puffball-like mushroom open. If the inside is not pure white and uniform like cream cheese, do not eat it. Dark, purple, black, marbled, or tough pigskin interior means no.",
+      "edibility_status": "poisonous",
+      "non_edible_severity": "Poisonous",
+      "danger_level": "Poisonous",
+      "food_role": "avoid",
+      "food_quality": "Poisonous",
+      "foraging_value": "Poisonous",
+      "foraging_value_score": 0,
+      "food_quality_score": 0,
+      "commonness": "Regional safety concern",
+      "commonness_score": 3,
+      "months_available": [],
+      "month_numbers": [],
+      "look_alikes": [
+        "puffballs",
+        "gem-studded-puffball",
+        "pear-shaped-puffball",
+        "giant-puffball",
+        "truffles"
+      ],
+      "confused_with": [
+        "puffballs",
+        "gem-studded-puffball",
+        "pear-shaped-puffball",
+        "giant-puffball",
+        "truffles"
+      ],
+      "look_alike_notes": "Puffballs: Edible puffballs must be pure white and uniform inside when sliced. Earthballs have tough skin and a darkening purple-black/blackish interior. Pear Shaped Puffball: Pear-shaped puffballs usually grow on rotting wood and are softer; earthballs are tough, pigskin-like, and dark inside. Truffles: Inexperienced collectors sometimes mistake earthballs for truffles; slicing reveals the dark spore mass and tough rind.",
+      "poisoning_effects": "Vomiting; Abdominal/stomach cramps; Diarrhea, sometimes watery or bloody in reports; Sweating; Pallor; Weakness; Unconsciousness in severe reports; Eye/nasal irritation possible with spore exposure",
+      "toxicity_notes": "Toxic principle: unidentified gastrointestinal irritants/toxic principle. Affected systems: gastrointestinal tract, autonomic/vascular signs in severe cases, respiratory/eye irritation possible from spores.",
+      "affected_systems": [
+        "gastrointestinal tract",
+        "autonomic/vascular signs in severe cases",
+        "respiratory/eye irritation possible from spores"
+      ],
+      "mushroom_profile": {
+        "lane": "other",
+        "underside": [
+          "none; enclosed gleba/spore mass"
+        ],
+        "cap_color": [
+          "yellowish brown",
+          "yellow brown",
+          "pale brown",
+          "ochre brown"
+        ],
+        "cap_surface": [
+          "tough",
+          "coarse-scaly",
+          "warty",
+          "cracked"
+        ],
+        "underside_color": [
+          "not applicable"
+        ],
+        "stem_color": [
+          "not applicable",
+          "base may have rhizomorphs"
+        ],
+        "stem_feature": [
+          "usually no true stem",
+          "pinched attachment point",
+          "whitish to yellowish rhizomorphs"
+        ],
+        "ring": [
+          "absent"
+        ],
+        "volva": "absent",
+        "flesh_color": [
+          "white outer rind",
+          "purple-gray interior",
+          "purple-black interior",
+          "blackish brown spore mass"
+        ],
+        "staining": [
+          "fresh rind may blush yellowish or reddish when sliced"
+        ],
+        "smell": [
+          "may be rubbery/unpleasant/gas-like"
+        ],
+        "taste": [
+          "do not taste"
+        ],
+        "spore_print": "not a normal cap spore print; mature gleba/spore mass dark purple-black to blackish brown",
+        "substrate": [
+          "on ground in woods, paths, disturbed soil, around trees; mycorrhizal"
+        ],
+        "host_trees": [
+          "hardwoods",
+          "conifers",
+          "oak",
+          "mixed woods"
+        ],
+        "host_filter_tokens": [
+          "hardwoods",
+          "conifers",
+          "oak",
+          "mixed woods"
+        ],
+        "growth_form": [
+          "solitary",
+          "scattered",
+          "gregarious"
+        ],
+        "gill_attachment": "not applicable; no gills",
+        "season_note": "summer, fall",
+        "caution_level": "high"
+      },
+      "links": [
+        "https://www.mushroomexpert.com/scleroderma_citrinum.html",
+        "https://www.mushroomexpert.com/scleroderma.html",
+        "https://plants.ces.ncsu.edu/plants/scleroderma-aurantium/",
+        "https://pmc.ncbi.nlm.nih.gov/articles/PMC6971433/"
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Scleroderma citrinum",
+          "url": "https://www.mushroomexpert.com/scleroderma_citrinum.html",
+          "link_type": "identification/safety",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology / toxicology reference",
+          "notes": "field identification, interior color, morphology, synonyms"
+        },
+        {
+          "label": "MushroomExpert: The Genus Scleroderma",
+          "url": "https://www.mushroomexpert.com/scleroderma.html",
+          "link_type": "identification/safety",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology / toxicology reference",
+          "notes": "group scope, North American occurrence, mycorrhizal ecology"
+        },
+        {
+          "label": "NC State Extension: Scleroderma aurantium",
+          "url": "https://plants.ces.ncsu.edu/plants/scleroderma-aurantium/",
+          "link_type": "identification/safety",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology / toxicology reference",
+          "notes": "poison severity, symptoms, toxic principle"
+        },
+        {
+          "label": "NCBI/PMC: Scleroderma poisoning case report",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6971433/",
+          "link_type": "identification/safety",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology / toxicology reference",
+          "notes": "gastrointestinal symptoms, case-report evidence"
+        }
+      ],
+      "search_aliases": [
+        "earthballs-scleroderma",
+        "Scleroderma species, with Scleroderma citrinum as the main common-earthball anchor; includes Scleroderma aurantium/vulgare synonym context where used by sources.",
+        "Earthballs / Pigskin Poison Puffballs"
+      ],
+      "review_status": "complete",
+      "completion_status": "complete",
+      "image_coverage_status": "needs image recovery"
     }
   ]
 }

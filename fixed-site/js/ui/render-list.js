@@ -948,11 +948,39 @@ function useRoleTag(record = {}, info = {}) {
   return `<span class="tag good">Uses: ${esc(roles.join(" · "))}</span>`;
 }
 
+function isSafetyOnlyValue(value = "") {
+  const text = String(value || "").trim().toLowerCase();
+  if (!text) return false;
+  if (/(choice|prime|excellent|very good|good|fair|poor|mediocre|modest|niche|tea|flavoring)/.test(text)) return false;
+  return /(caution|use with caution|edible with caution|expert confirmation|avoid|not recommended|do not eat|poisonous|toxic|deadly|inedible|not food)/.test(text);
+}
+
 function isQualityValue(value = "") {
   const text = String(value || "").trim();
   if (!text) return false;
   if (/^(food|edible|tea|medicinal|other use|other|yes|true)$/i.test(text)) return false;
-  return /prime|choice|excellent|very good|good|fair|poor|occasional|niche|processed|tea|flavoring|caution|avoid|not recommended|expert/i.test(text);
+  if (isSafetyOnlyValue(text)) return false;
+  return /prime|choice|excellent|very good|good|fair|poor|mediocre|modest|occasional|niche|processed|tea|flavoring/i.test(text);
+}
+
+function foodSafetyText(record = {}) {
+  const edibility = String(record.edibility_status || record.mushroom_profile?.edibility_status || "").trim().toLowerCase();
+  const severity = realText(record.non_edible_severity || record.danger_level || "");
+  const reason = realText(record.caution_reason || "");
+  if (/deadly|fatal|lethal/.test(`${edibility} ${severity}`.toLowerCase())) return severity || "Deadly poisonous";
+  if (/poison|toxic/.test(`${edibility} ${severity}`.toLowerCase())) return severity || "Poisonous";
+  if (/not_edible|not edible|inedible|avoid|not_recommended|not recommended/.test(`${edibility} ${severity}`.toLowerCase())) return severity || "Not recommended for food";
+  if (/edible[_-]with[_-]caution|high_caution|strict/.test(edibility) || reason) return "Edible with caution";
+  if (/edible[_-]with[_-]confident[_-]id|confident/.test(edibility)) return "Edible with confident ID";
+  if (/edible[_-]with[_-]preparation|preparation/.test(edibility)) return "Needs proper preparation";
+  return "";
+}
+
+function foodSafetyTag(record = {}) {
+  const value = foodSafetyText(record);
+  if (!value) return "";
+  const cls = /deadly|poison|toxic|avoid|inedible|not recommended/i.test(value) ? "danger" : "caution";
+  return labelTag("Safety", value, cls);
 }
 
 function isRareCommonality(value = "") {
@@ -961,7 +989,7 @@ function isRareCommonality(value = "") {
 
 function foragingValueText(record = {}) {
   const explicit = realText(record.foraging_value || record.food_value || "");
-  if (explicit) return explicit;
+  if (explicit && isQualityValue(explicit)) return explicit;
   const legacy = realText(record.food_quality || "");
   if (!isQualityValue(legacy)) return "";
   if (isRareCommonality(record.commonness) && /choice|excellent|very good|good|prime/i.test(legacy)) {
@@ -977,9 +1005,9 @@ function isPrimeForagingValue(value = "") {
 function foragingValueTag(record = {}) {
   const value = foragingValueText(record);
   if (!value) return "";
-  const danger = /not recommended|avoid|poor|inedible|caution|expert|low practical value/i.test(value);
-  if (isPrimeForagingValue(value) && !danger) return `<span class="tag good">Food / forage value: Prime</span>`;
-  return labelTag("Food / forage value", value, danger ? "danger" : "good");
+  const caution = /poor|low practical value|advanced|expert/i.test(value);
+  if (isPrimeForagingValue(value) && !caution) return `<span class="tag good">Food / forage value: Prime</span>`;
+  return labelTag("Food / forage value", value, caution ? "caution" : "good");
 }
 
 function makeMeta(record, route = "general") {
@@ -999,6 +1027,7 @@ function makeMeta(record, route = "general") {
   }
 
   bits.push(useRoleTag(record, info));
+  bits.push(foodSafetyTag(record));
   bits.push(foragingValueTag(record));
   bits.push(labelTag("Season", seasonSummary(record)));
   if (record.commonness) bits.push(labelTag("Commonality", record.commonness));
@@ -1013,7 +1042,7 @@ function makeMeta(record, route = "general") {
   if (edibleUse?.has_ingestible_use && /tea|infusion|beverage/i.test(String(edibleUse.method || "")) && !hasTeaUse(record)) {
     bits.push(`<span class="tag good">Tea / infusion</span>`);
   }
-  if (record.non_edible_severity && !edibleUse?.has_ingestible_use && !isRedundantCautionMeta(record)) bits.push(labelTag("Safety", record.non_edible_severity, "danger"));
+  if (record.non_edible_severity && !edibleUse?.has_ingestible_use && !isRedundantCautionMeta(record) && !foodSafetyText(record)) bits.push(labelTag("Safety", record.non_edible_severity, "danger"));
   if (!isMushroomList) {
     dataQualityTags(record, route).forEach((label) => bits.push(`<span class="tag review">${esc(label)}</span>`));
     if (record.review_status === "needs_review") bits.push(`<span class="tag review">Needs review</span>`);

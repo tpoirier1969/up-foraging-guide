@@ -44,7 +44,9 @@
     "last_data_pass": "v4.3.80-r2026-05-18-gilled-safety-audit1",
     "last_data_pass_date": "2026-05-18",
     "last_image_recovery_batch": "v4.3.81-r2026-05-18-image-recovery-audit1",
-    "last_image_recovery_date": "2026-05-18"
+    "last_image_recovery_date": "2026-05-18",
+    "last_content_update": "v4.3.82-r2026-05-18-danger-entries-forage-display1",
+    "last_content_update_date": "2026-05-18"
   },
   "records": [
     {
@@ -906,7 +908,7 @@
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
       "culinary_uses": "Experienced-forager only; never raw, never old, and never without a confident white spore print and wood/root association. This app keeps them in the caution lane.",
       "non_edible_severity": "Caution — toxic look-alikes and individual reactions",
-      "edibility_detail": "Caution entry. Some honey mushrooms are eaten by experienced foragers, but reactions are common and confusion with dangerous gilled mushrooms is possible. This guide does not treat them as beginner food.",
+      "edibility_detail": "Edible with caution for experienced foragers only. Confirm a white spore print, wood/root growth, pale attached-to-decurrent gills, and Armillaria traits. Cook thoroughly; avoid old specimens and try a small amount first.",
       "general_notes": "Honey mushrooms are a species complex. The combination of clustered growth from wood/roots, white spores, ring/rhizomorph clues, and lack of orange glow helps separate them from jack-o-lanterns.",
       "record_type": "mushroom",
       "lane": "gilled",
@@ -916,7 +918,7 @@
         "Conifer / softwood"
       ],
       "commonness": "Common",
-      "food_quality": "Caution",
+      "food_quality": "Fair to good when young",
       "month_numbers": [
         8,
         9,
@@ -1123,12 +1125,15 @@
       },
       "rights_review_status": "exact_metadata_verified",
       "completion_status": "complete",
-      "look_alike_notes": "Honey mushrooms have white spores and Armillaria-style growth on wood, roots, or buried wood. Deadly galerina has rusty-brown spores and small brown caps; sulfur tuft has yellow-green gills and purple-brown spores; brick cap has gray to purple-gray gills and brick-red caps; shaggy scalycap has heavy scales and cinnamon-brown spores; jack-o-lanterns are orange, clustered on wood, and poisonous."
+      "look_alike_notes": "Honey mushrooms have white spores and Armillaria-style growth on wood, roots, or buried wood. Deadly galerina has rusty-brown spores and small brown caps; sulfur tuft has yellow-green gills and purple-brown spores; brick cap has gray to purple-gray gills and brick-red caps; shaggy scalycap has heavy scales and cinnamon-brown spores; jack-o-lanterns are orange, clustered on wood, and poisonous.",
+      "foraging_value": "Fair to good edible for experienced foragers only",
+      "caution_reason": "Requires a white spore print and confident Armillaria-style wood/root association; deadly galerina can grow on the same wood and has rusty-brown spores, while jack-o-lanterns have orange flesh and true orange gills.",
+      "flavor_texture_notes": "Best young and firm; older caps and stems can be tough, buggy, or trigger individual reactions."
     },
     {
       "slug": "jack-o-lantern",
-      "display_name": "Jack-o'-lantern",
-      "common_name": "Jack-o'-lantern",
+      "display_name": "Jack-o’-Lantern",
+      "common_name": "Jack-o’-Lantern",
       "category": "Mushroom",
       "notes": "Poisonous gilled wood-rotting mushroom.",
       "months_available": [
@@ -1138,15 +1143,18 @@
         "October"
       ],
       "links": [
-        "https://www.mushroomexpert.com/omphalotus_illudens"
+        "https://www.mushroomexpert.com/omphalotus_illudens",
+        "https://www.mushroomexpert.com/omphalotus_illudens.html",
+        "https://blog.mycology.cornell.edu/2007/04/02/an-adventure-with-omphalotus/",
+        "https://pubmed.ncbi.nlm.nih.gov/2024797/"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20566096317.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Omphalotus%20illudens%20%2821630755718%29.jpg"
       ],
-      "culinary_uses": "Do not eat. Included as a poisonous chanterelle look-alike caution record.",
-      "non_edible_severity": "Poisonous",
-      "edibility_detail": "Avoid for food in this guide; keep as an identification/caution record.",
+      "culinary_uses": "Do not eat. Do not eat orange clustered mushrooms from wood or buried roots. True gills plus orange clusters equals no, even if it looks chanterelle-ish.",
+      "non_edible_severity": "Deadly poisonous",
+      "edibility_detail": "Deadly poisonous. Do not eat orange clustered mushrooms from wood or buried roots. True gills plus orange clusters equals no, even if it looks chanterelle-ish.",
       "general_notes": "This should stay in the caution side of the app. It is a key chanterelle look-alike and belongs in the gilled lane, not 'other'.",
       "record_type": "mushroom",
       "lane": "gilled",
@@ -1154,13 +1162,16 @@
         "jack o lantern",
         "jack-o-lantern mushroom",
         "omphalotus illudens",
-        "chanterelle look-alike"
+        "chanterelle look-alike",
+        "jack-o-lantern",
+        "Omphalotus illudens, the eastern North American jack-o’-lantern mushroom.",
+        "Jack-o’-Lantern"
       ],
       "host_filter_tokens": [
         "Hardwood"
       ],
-      "commonness": "Occasional",
-      "food_quality": "Poisonous",
+      "commonness": "Regional safety concern",
+      "food_quality": "Deadly poisonous",
       "month_numbers": [
         7,
         8,
@@ -1172,45 +1183,87 @@
         "golden-chanterelle",
         "smooth-chanterelle",
         "cinnabar-chanterelle",
-        "false-chanterelle"
+        "false-chanterelle",
+        "chanterelles"
       ],
       "confused_with": [
         "yellow-chanterelles-hardwood-associated-complex",
         "yellow-chanterelles-conifer-associated-complex",
         "yellowfoot-chanterelle",
-        "honey-mushrooms"
+        "honey-mushrooms",
+        "chanterelles",
+        "smooth-chanterelle",
+        "golden-chanterelle",
+        "false-chanterelle"
       ],
       "mushroom_profile": {
         "underside": [
-          "Gills",
-          "True gills"
+          "true gills"
         ],
         "substrate": [
-          "Stumps",
-          "Buried roots",
-          "Dead hardwood"
+          "hardwood stumps, dead wood, dying trees, buried hardwood roots"
         ],
         "host_filter_tokens": [
-          "Hardwood",
-          "Wood"
+          "oak",
+          "hardwoods"
         ],
         "ring": [
-          "None"
+          "absent"
         ],
-        "spore_print": "White to pale yellow",
+        "spore_print": "white to creamy or pale yellow",
         "cap_surface": [
-          "Bright orange",
-          "Pumpkin orange"
+          "smooth",
+          "bald",
+          "dry to slightly greasy"
         ],
         "growth_form": [
-          "Dense clusters"
+          "dense clusters",
+          "tufts",
+          "occasionally smaller clusters from buried roots"
         ],
-        "gill_attachment": "Decurrent",
-        "season_note": "Late summer and fall."
+        "gill_attachment": "decurrent; gills run down the stem",
+        "season_note": "late summer, fall",
+        "lane": "gilled",
+        "cap_color": [
+          "bright orange",
+          "pumpkin orange",
+          "orange"
+        ],
+        "underside_color": [
+          "bright orange",
+          "pale orange"
+        ],
+        "stem_color": [
+          "pale orange",
+          "orange"
+        ],
+        "stem_feature": [
+          "solid",
+          "tapering toward base"
+        ],
+        "volva": "absent",
+        "flesh_color": [
+          "pale orange",
+          "orange"
+        ],
+        "staining": [
+          "unchanging when sliced"
+        ],
+        "smell": [
+          "not distinctive"
+        ],
+        "taste": [
+          "do not taste"
+        ],
+        "host_trees": [
+          "oak",
+          "hardwoods"
+        ],
+        "caution_level": "deadly"
       },
       "commonness_score": 3,
-      "food_quality_score": 1,
-      "edibility_status": "poisonous",
+      "food_quality_score": 0,
+      "edibility_status": "deadly",
       "edible_use": {
         "has_ingestible_use": false,
         "method": "",
@@ -1288,18 +1341,19 @@
         "omphalotus",
         "omphalotus illudens"
       ],
-      "scientific_name": "Omphalotus illudens",
+      "scientific_name": "Omphalotus illudens, the eastern North American jack-o’-lantern mushroom.",
       "primary_type": "mushroom",
       "kingdom_type": "mushroom",
       "foraging_class": "mushroom",
-      "danger_level": "Poisonous",
-      "poisoning_effects": "Poisonous mushroom associated with gastrointestinal illness. Do not eat; the main app value is comparison against chanterelles and other orange mushrooms.",
+      "danger_level": "Deadly poisonous",
+      "poisoning_effects": "Painful stomach cramps; Nausea; Vomiting; Diarrhea; Weakness; Dizziness; Dehydration risk in severe cases",
       "affected_systems": [
-        "Digestive system"
+        "gastrointestinal tract",
+        "fluid/electrolyte balance in severe vomiting/diarrhea"
       ],
-      "field_identification": "Bright orange to pumpkin-orange mushroom, usually in dense clusters from stumps, dead hardwood, or buried roots; true sharp gills run down the stem; flesh is orange to orangish when cut; spore print is white to pale yellow.",
-      "overview": "Poisonous orange wood-growing mushroom often confused with chanterelles when it appears to fruit from buried wood.",
-      "look_alike_notes": "Chanterelles have blunt ridges rather than true gills and usually do not grow in dense clusters from wood. Jack-o'-lantern has true decurrent gills and a wood/buried-root connection.",
+      "field_identification": "Bright orange to pumpkin-orange mushroom, usually in clusters. Grows from hardwood stumps, buried roots, or dead/dying hardwood wood; can appear to grow from the ground when attached to buried wood. True gills are sharp-edged, close/crowded, orange, and run down the stem. Flesh is orange or orangish when sliced. Spore print is white to creamy or pale yellow. Fresh gills can glow faintly green in the dark, but glow is not reliable enough to use as the main ID trait.",
+      "overview": "Searchable danger entry for Jack-o’-Lantern. Included because it can be confused with edible mushrooms in Upper Michigan / northern Great Lakes foraging contexts.",
+      "look_alike_notes": "Chanterelles: Chanterelles grow singly or scattered from the forest floor and have blunt false gills/ridges, not sharp true gills. Jack-o’-lanterns usually cluster on wood or buried roots. False Chanterelle: False chanterelle is also orange with true gill-like structures but is generally smaller/flimsier and not the same clustered wood-rotting jack-o’-lantern hazard.",
       "use_links": [
         {
           "label": "MushroomExpert: Omphalotus illudens",
@@ -1308,11 +1362,39 @@
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
           "notes": "Clustered wood growth, orange color, true gills, and chanterelle comparison."
+        },
+        {
+          "label": "MushroomExpert: Omphalotus illudens",
+          "url": "https://www.mushroomexpert.com/omphalotus_illudens.html",
+          "link_type": "identification/safety",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology / toxicology reference",
+          "notes": "field identification, spore print, substrate, chanterelle look-alike notes"
+        },
+        {
+          "label": "Cornell Mushroom Blog: An adventure with Omphalotus",
+          "url": "https://blog.mycology.cornell.edu/2007/04/02/an-adventure-with-omphalotus/",
+          "link_type": "identification/safety",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology / toxicology reference",
+          "notes": "chanterelle confusion, symptoms, wood vs ground distinction"
+        },
+        {
+          "label": "Annals of Emergency Medicine / PubMed: Jack-o’-lantern mushroom poisoning",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/2024797/",
+          "link_type": "identification/safety",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology / toxicology reference",
+          "notes": "poisoning symptoms, clinical course"
         }
       ],
       "review_status": "complete",
-      "mushroom_card_note": "Poisonous chanterelle look-alike: orange clustered wood-grower with true gills.",
-      "completion_status": "complete"
+      "mushroom_card_note": "Do not eat orange clustered mushrooms from wood or buried roots. True gills plus orange clusters equals no, even if it looks chanterelle-ish.",
+      "completion_status": "complete",
+      "foraging_value": "Deadly poisonous",
+      "foraging_value_score": 0,
+      "toxicity_notes": "Toxic principle: illudin-type compounds and other gastrointestinal irritants; sources vary in how they summarize the toxin. Affected systems: gastrointestinal tract, fluid/electrolyte balance in severe vomiting/diarrhea.",
+      "image_coverage_status": "needs image recovery"
     },
     {
       "slug": "king-bolete",
@@ -2167,11 +2249,13 @@
       "look_alikes": [
         "destroying-angel",
         "field-mushroom",
-        "yellow-staining-agaricus"
+        "yellow-staining-agaricus",
+        "green-spored-parasol"
       ],
       "confused_with": [
         "destroying-angel",
-        "field-mushroom"
+        "field-mushroom",
+        "green-spored-parasol"
       ],
       "mushroom_profile": {
         "lane": "gilled",
@@ -2347,7 +2431,8 @@
         "warnings": ""
       },
       "rights_review_status": "exact_metadata_verified",
-      "completion_status": "complete"
+      "completion_status": "complete",
+      "caution_reason": "Agaricus-type mushrooms require pink-to-brown mature gills, dark brown spore print, no volva, and no phenolic/chemical odor or bright yellow base staining."
     }
   ]
 }

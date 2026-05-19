@@ -497,6 +497,55 @@ function isUsefulFoodText(value = "") {
   return /\b(choice|excellent|good|fair|edible|food|culinary|meal|seasoning|tea|broth|soup|fried|sauté|saute|cook|cooked|dry|dried|powder|occasional|niche|target|table)\b/.test(text);
 }
 
+function isSafetyOnlyFoodValue(value = "") {
+  const text = String(value || "").trim().toLowerCase();
+  if (!text) return false;
+  if (/(choice|prime|excellent|very good|good|fair|poor|mediocre|modest|niche|tea|flavoring)/.test(text)) return false;
+  return /(caution|use with caution|edible with caution|expert confirmation|avoid|not recommended|do not eat|poisonous|toxic|deadly|inedible|not food)/.test(text);
+}
+
+function isFoodQualityValue(value = "") {
+  const text = clean(value);
+  if (!text) return false;
+  if (/^(food|edible|yes|true)$/i.test(text)) return false;
+  if (isSafetyOnlyFoodValue(text)) return false;
+  return /prime|choice|excellent|very good|good|fair|poor|mediocre|modest|occasional|niche|tea|flavoring/i.test(text);
+}
+
+function detailFoodQualityText(record = {}) {
+  const explicit = clean(record.foraging_value || record.food_value || "");
+  if (explicit && isFoodQualityValue(explicit)) return explicit;
+  const quality = clean(record.food_quality || "");
+  return isFoodQualityValue(quality) ? quality : "";
+}
+
+function detailSafetyText(record = {}) {
+  const edibility = String(record.edibility_status || record.mushroom_profile?.edibility_status || "").trim().toLowerCase();
+  const severity = clean(record.non_edible_severity || record.danger_level || "");
+  const reason = clean(record.caution_reason || "");
+  if (/deadly|fatal|lethal/.test(`${edibility} ${severity}`.toLowerCase())) return severity || "Deadly poisonous";
+  if (/poison|toxic/.test(`${edibility} ${severity}`.toLowerCase())) return severity || "Poisonous";
+  if (/not_edible|not edible|inedible|avoid|not_recommended|not recommended/.test(`${edibility} ${severity}`.toLowerCase())) return severity || "Not recommended for food";
+  if (/edible[_-]with[_-]caution|high_caution|strict/.test(edibility) || reason) return "Edible with caution";
+  if (/edible[_-]with[_-]confident[_-]id|confident/.test(edibility)) return "Edible with confident ID";
+  if (/edible[_-]with[_-]preparation|preparation/.test(edibility)) return "Needs proper preparation";
+  return "";
+}
+
+function detailSafetyTag(record = {}) {
+  const value = detailSafetyText(record);
+  if (!value) return "";
+  const cls = /deadly|poison|toxic|avoid|inedible|not recommended/i.test(value) ? "danger" : "caution";
+  return `<span class="tag ${cls}">Safety: ${esc(value)}</span>`;
+}
+
+function detailForageTag(record = {}) {
+  const value = detailFoodQualityText(record);
+  if (!value) return "";
+  const cls = /poor|low practical value|advanced|expert/i.test(value) ? "caution" : "good";
+  return `<span class="tag ${cls}">Food / forage value: ${esc(value)}</span>`;
+}
+
 function foodUseBlock(record, title = "Food use") {
   const edibleUse = record.edible_use || null;
   const profile = record.mushroom_profile || {};
@@ -525,12 +574,18 @@ function foodUseBlock(record, title = "Food use") {
     isCautionText(culinaryUses) ? culinaryUses : ""
   ]);
 
+  const safetyText = detailSafetyText(record);
+  const qualityText = detailFoodQualityText(record);
+  const reason = clean(record.caution_reason || "");
+  const flavorTexture = clean(record.flavor_texture_notes || "");
   const lines = [
-    lineIf("Food quality", record.food_quality),
+    lineIf("Safety", safetyText),
+    lineIf("Food / forage value", qualityText),
     lineIf("Use form", method && method.toLowerCase() !== "food" ? method : ""),
     lineIf("Taste", taste),
-    lineIf("Texture", texture),
+    lineIf("Texture", texture || flavorTexture),
     lineIf("Best uses / cooking notes", bestUses),
+    lineIf("Caution reason", reason),
     lineIf("Caution", cautionLines.join(" "))
   ].join("");
 
@@ -750,8 +805,9 @@ function heroBlock(record, typeLabel, edibleUse) {
           ${record.lane ? `<span class="tag">Type: ${esc(record.lane === "bolete" ? "Pores / spongy underside" : record.lane)}</span>` : (typeLabel ? `<span class="tag">Type: ${esc(typeLabel)}</span>` : "")}
           ${record.commonness ? `<span class="tag">Commonality: ${esc(record.commonness)}</span>` : ""}
           ${seasonText(record) ? `<span class="tag">Season: ${esc(seasonText(record))}</span>` : ""}
-          ${record.food_quality ? `<span class="tag ${/not recommended|avoid|poor|inedible/i.test(String(record.food_quality)) ? "danger" : "good"}">Food quality: ${esc(record.food_quality)}</span>` : ""}
-          ${record.non_edible_severity && !edibleUse?.has_ingestible_use ? `<span class="tag danger">${esc(record.non_edible_severity)}</span>` : ""}
+          ${detailSafetyTag(record)}
+          ${detailForageTag(record)}
+          ${record.non_edible_severity && !edibleUse?.has_ingestible_use && !detailSafetyText(record) ? `<span class="tag danger">${esc(record.non_edible_severity)}</span>` : ""}
           ${record.image_review_status ? `<span class="tag review">Photo: ${esc(String(record.image_review_status).replaceAll("_", " "))}</span>` : ""}
           ${record.review_status === "needs_review" ? `<span class="tag review">Needs review</span>` : ""}
         </div>

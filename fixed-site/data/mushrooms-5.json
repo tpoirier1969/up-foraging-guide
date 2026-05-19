@@ -42,7 +42,9 @@
     "last_completion_wave": "v4.3.63-r2026-05-14-mushroom-completion-wave3-16species-rights-strict1",
     "last_completion_wave_date": "2026-05-14",
     "last_data_pass": "v4.3.80-r2026-05-18-gilled-safety-audit1",
-    "last_data_pass_date": "2026-05-18"
+    "last_data_pass_date": "2026-05-18",
+    "last_content_update": "v4.3.82-r2026-05-18-danger-entries-forage-display1",
+    "last_content_update_date": "2026-05-18"
   },
   "records": [
     {
@@ -90,11 +92,13 @@
         "galerina",
         "funeral-bell-galerina",
         "sulphur-tuft",
-        "honey-mushroom"
+        "honey-mushroom",
+        "sulfur-tuft"
       ],
       "confused_with": [
         "galerina",
-        "funeral-bell-galerina"
+        "funeral-bell-galerina",
+        "sulfur-tuft"
       ],
       "mushroom_profile": {
         "lane": "gilled",
@@ -218,7 +222,8 @@
       "edibility_status": "edible_with_confident_id",
       "field_identification": "Small to medium orange-brown caps in clusters on dead hardwood, often in cold weather. Gills are pale, spore print white, there is no ring, and the lower stem becomes dark and velvety.",
       "mushroom_card_note": "Winter edible only with careful ID; deadly Galerina is the ugly little goblin in this room.",
-      "completion_status": "complete"
+      "completion_status": "complete",
+      "caution_reason": "White spore print, no ring, and a dark velvety stem base are required; deadly galerina grows on wood too and has rusty-brown spores."
     },
     {
       "slug": "yellow-chanterelles-conifer-associated-complex",
@@ -1636,7 +1641,7 @@
       "foraging_class": "mushroom",
       "lane": "gilled",
       "food_role": "food",
-      "food_quality": "Edible with caution",
+      "food_quality": "Fair to good when young",
       "edibility_status": "edible_with_caution",
       "edibility_detail": "Edible with caution; species-level Armillaria ID is tricky and reactions are common enough to emphasize careful cooking and small first portions.",
       "culinary_uses": "Edible only when confidently identified and cooked; honey mushrooms cause GI upset for some people. Avoid raw, old, or poorly confirmed specimens.",
@@ -1660,7 +1665,7 @@
       ],
       "commonness": "Occasional",
       "commonness_score": 3,
-      "foraging_value": "Edible with caution",
+      "foraging_value": "Fair to good edible for experienced foragers only",
       "foraging_value_score": 3,
       "food_quality_score": 3,
       "use_roles": [
@@ -1779,7 +1784,9 @@
         "brick-cap",
         "shaggy-scalycap"
       ],
-      "look_alike_notes": "Honey mushrooms have white spores and Armillaria-style growth on wood, roots, or buried wood. Deadly galerina has rusty-brown spores and small brown caps; sulfur tuft has yellow-green gills and purple-brown spores; brick cap has gray to purple-gray gills and brick-red caps; shaggy scalycap has heavy scales and cinnamon-brown spores; jack-o-lanterns are orange, clustered on wood, and poisonous."
+      "look_alike_notes": "Honey mushrooms have white spores and Armillaria-style growth on wood, roots, or buried wood. Deadly galerina has rusty-brown spores and small brown caps; sulfur tuft has yellow-green gills and purple-brown spores; brick cap has gray to purple-gray gills and brick-red caps; shaggy scalycap has heavy scales and cinnamon-brown spores; jack-o-lanterns are orange, clustered on wood, and poisonous.",
+      "caution_reason": "Honey mushroom group with toxic wood-growing look-alikes; white spore print and Armillaria traits are required.",
+      "flavor_texture_notes": "Quality is best in young firm caps; stems can be fibrous."
     },
     {
       "slug": "ringless-honey-mushroom-group",
@@ -1793,7 +1800,7 @@
       "foraging_class": "mushroom",
       "lane": "gilled",
       "food_role": "food",
-      "food_quality": "Edible with caution",
+      "food_quality": "Fair when young",
       "edibility_status": "edible_with_caution",
       "edibility_detail": "Edible with caution; ringless honey ID requires white spore print, wood/root growth, clustered habit, and exclusion of poisonous look-alikes.",
       "culinary_uses": "Edible only when confidently identified and cooked; not a beginner mushroom. Must be separated from jack-o’-lanterns and other clustered gilled mushrooms.",
@@ -1815,7 +1822,7 @@
       ],
       "commonness": "Needs regional review; more southern/warm-region tendency",
       "commonness_score": 2,
-      "foraging_value": "Edible with caution",
+      "foraging_value": "Fair edible for experienced foragers only",
       "foraging_value_score": 2,
       "food_quality_score": 3,
       "use_roles": [
@@ -1955,7 +1962,9 @@
         "brick-cap",
         "shaggy-scalycap"
       ],
-      "look_alike_notes": "Honey mushrooms have white spores and Armillaria-style growth on wood, roots, or buried wood. Deadly galerina has rusty-brown spores and small brown caps; sulfur tuft has yellow-green gills and purple-brown spores; brick cap has gray to purple-gray gills and brick-red caps; shaggy scalycap has heavy scales and cinnamon-brown spores; jack-o-lanterns are orange, clustered on wood, and poisonous."
+      "look_alike_notes": "Honey mushrooms have white spores and Armillaria-style growth on wood, roots, or buried wood. Deadly galerina has rusty-brown spores and small brown caps; sulfur tuft has yellow-green gills and purple-brown spores; brick cap has gray to purple-gray gills and brick-red caps; shaggy scalycap has heavy scales and cinnamon-brown spores; jack-o-lanterns are orange, clustered on wood, and poisonous.",
+      "caution_reason": "Ringless honeys lack the ring beginners often expect; separate from jack-o-lantern, sulfur tuft, and deadly galerina with spore print, color, gill, and substrate clues.",
+      "flavor_texture_notes": "Use only young firm specimens; older clusters become tough or buggy."
     },
     {
       "slug": "brick-cap",
