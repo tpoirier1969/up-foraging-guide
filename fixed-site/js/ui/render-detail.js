@@ -504,7 +504,7 @@ function isUsefulFoodText(value = "") {
 function isSafetyOnlyFoodValue(value = "") {
   const text = String(value || "").trim().toLowerCase();
   if (!text) return false;
-  if (/\b(choice|prime|excellent|very good|good|fair|poor|mediocre|modest|niche|tea|flavoring)\b/.test(text)) return false;
+  if (/\b(choice|prime|excellent|very good|good|fair|poor|low|utility|mediocre|modest|niche|tea|flavoring)\b/.test(text)) return false;
   return /\b(caution|use with caution|edible with caution|expert confirmation|avoid|not recommended|do not eat|poisonous|toxic|deadly|inedible|not food)\b/.test(text);
 }
 
@@ -513,7 +513,7 @@ function isFoodQualityValue(value = "") {
   if (!text) return false;
   if (/^(food|edible|yes|true)$/i.test(text)) return false;
   if (isSafetyOnlyFoodValue(text)) return false;
-  return /prime|choice|excellent|very good|good|fair|poor|mediocre|modest|occasional|niche|tea|flavoring/i.test(text);
+  return /prime|choice|excellent|very good|good|fair|poor|low|utility|mediocre|modest|occasional|niche|tea|flavoring/i.test(text);
 }
 
 function cleanFoodQualityLabel(value = "") {
@@ -530,16 +530,20 @@ function cleanFoodQualityLabel(value = "") {
 }
 
 function detailFoodQualityText(record = {}) {
-  const explicit = cleanFoodQualityLabel(record.foraging_value || record.food_value || "");
+  const explicit = cleanFoodQualityLabel(record.food_value || "");
   if (explicit && isFoodQualityValue(explicit)) return explicit;
   const quality = cleanFoodQualityLabel(record.food_quality || "");
-  return isFoodQualityValue(quality) ? quality : "";
+  if (quality && isFoodQualityValue(quality)) return quality;
+  const fallback = cleanFoodQualityLabel(record.foraging_value || "");
+  return isFoodQualityValue(fallback) ? fallback : "";
 }
 
 function detailSafetyText(record = {}) {
+  const directSafety = clean(record.safety || "");
+  if (directSafety) return directSafety;
   const edibility = String(record.edibility_status || record.mushroom_profile?.edibility_status || "").trim().toLowerCase();
   const severity = clean(record.non_edible_severity || record.danger_level || "");
-  const reason = clean(record.caution_reason || "");
+  const reason = clean(record.caution_reason || record.risk_reason || "");
   if (/deadly|fatal|lethal/.test(`${edibility} ${severity}`.toLowerCase())) return severity || "Deadly poisonous";
   if (/poison|toxic/.test(`${edibility} ${severity}`.toLowerCase())) return severity || "Poisonous";
   if (/not_edible|not edible|inedible|avoid|not_recommended|not recommended/.test(`${edibility} ${severity}`.toLowerCase())) return severity || "Not recommended for food";
@@ -593,16 +597,26 @@ function foodUseBlock(record, title = "Food use") {
 
   const safetyText = detailSafetyText(record);
   const qualityText = detailFoodQualityText(record);
-  const reason = clean(record.caution_reason || "");
+  const reason = clean(record.risk_reason || record.caution_reason || "");
+  const qualityNotes = clean(record.quality_notes || "");
+  const eatingUseNotes = clean(record.eating_use_notes || "");
+  const hardRule = clean(record.hard_rule || "");
+  const fieldRisk = clean(record.field_traits_that_create_risk || "");
+  const symptoms = clean(record.symptoms_body_systems || "");
   const flavorTexture = clean(record.flavor_texture_notes || "");
   const lines = [
     lineIf("Safety", safetyText),
     lineIf("Food / forage value", qualityText),
+    lineIf("Quality notes", qualityNotes),
     lineIf("Use form", method && method.toLowerCase() !== "food" ? method : ""),
     lineIf("Taste", taste),
     lineIf("Texture", texture || flavorTexture),
+    lineIf("Eating / use notes", eatingUseNotes),
     lineIf("Best uses / cooking notes", bestUses),
-    lineIf("Caution reason", reason),
+    lineIf("Risk reason", reason),
+    lineIf("Symptoms / body systems", symptoms),
+    lineIf("Risky field traits", fieldRisk),
+    lineIf("Hard rule", hardRule),
     lineIf("Caution", cautionLines.join(" "))
   ].join("");
 
@@ -668,10 +682,12 @@ function dangerBlock(record) {
   const ed = String(record.edibility_status || "").trim().toLowerCase();
   const severity = clean(record.non_edible_severity);
   const level = clean(record.danger_level || (ed === "deadly" ? "Deadly" : ed === "poisonous" ? "Poisonous" : severity));
-  const effects = clean(record.poisoning_effects || record.toxicity_notes || "");
+  const effects = clean(record.poisoning_effects || record.toxicity_notes || record.symptoms_body_systems || "");
   const affected = asArray(record.affected_systems).map(clean).filter(Boolean);
-  const notes = clean(record.danger_notes || "");
-  const hay = `${ed} ${severity} ${level} ${effects} ${notes}`.toLowerCase();
+  const notes = clean(record.danger_notes || record.risk_reason || "");
+  const fieldRisk = clean(record.field_traits_that_create_risk || "");
+  const hardRule = clean(record.hard_rule || "");
+  const hay = `${ed} ${severity} ${level} ${effects} ${notes} ${fieldRisk} ${hardRule}`.toLowerCase();
   const isDanger = /poison|deadly|toxic|danger|fatal|liver|kidney|neurolog|gastrointestinal|gi distress|vomit|diarrhea|unsafe/.test(hay);
 
   if (!isDanger && !effects && !affected.length) return "";
@@ -685,6 +701,8 @@ function dangerBlock(record) {
         ${lineIf("Danger level", level || (ed === "deadly" ? "Deadly" : "Poisonous / unsafe"))}
         ${lineIf("Expected effects / symptoms", fallbackEffects)}
         ${lineIf("Body systems affected", affected.join(", "))}
+        ${lineIf("Risky field traits", fieldRisk)}
+        ${lineIf("Hard rule", hardRule)}
         ${lineIf("Notes", notes)}
       </dl>
     </section>

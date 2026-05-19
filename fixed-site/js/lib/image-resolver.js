@@ -275,9 +275,11 @@ function lightboxTitleForItem(item, record, index) {
 }
 
 function candidateSourcesForVariant(item, variant) {
-  const values = variant === "detail"
-    ? [item?.detail, item?.full, item?.thumb]
-    : [item?.thumb, item?.detail, item?.full];
+  const values = variant === "lightbox"
+    ? [item?.full, item?.detail, item?.thumb]
+    : (variant === "detail"
+      ? [item?.detail, item?.full, item?.thumb]
+      : [item?.thumb, item?.detail, item?.full]);
 
   const seen = new Set();
   return values.filter((value) => {
@@ -298,7 +300,7 @@ function buildCandidateQueue(items, variant) {
 }
 
 function lightboxPayloadForItem(item, record, index) {
-  const candidates = candidateSourcesForVariant(item, "detail");
+  const candidates = candidateSourcesForVariant(item, "lightbox");
   const lightboxSrc = candidates[0] || "";
   if (!lightboxSrc) return null;
   return {
