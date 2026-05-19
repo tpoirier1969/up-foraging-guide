@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.90-r2026-05-19-safety-food-image-cleanup1";
-const DISPLAY_VERSION = "V4.3.90-r26-05-19";
+const APP_VERSION = "v4.3.91-r2026-05-19-edible-section-routing-fix1";
+const DISPLAY_VERSION = "V4.3.91-r26-05-19";
 window.UP_FORAGING_APP_VERSION = APP_VERSION;
 window.UP_FORAGING_DISPLAY_VERSION = DISPLAY_VERSION;
 
