@@ -137,13 +137,8 @@
       "review_status": "ok",
       "general_notes": "Often abundant under pines. Texture is the limiting factor for many foragers; better young and firm than old and soggy.",
       "needs_review": true,
-      "non_edible_severity": "Edible with caution",
-      "edibility_detail": "Treat as caution / not for meals in this guide until species-level edibility is clarified.",
-      "hidden": true,
-      "duplicate_of": "suillus-luteus",
-      "legacy_alias": true,
-      "list_visibility": "hidden-duplicate",
-      "duplicate_note": "Duplicate Slippery Jack record kept only as a legacy slug alias.",
+      "non_edible_severity": "",
+      "edibility_detail": "Use only when ringed Suillus luteus traits are confirmed: glutinous brown cap, yellow pores, ring, pine association, and no serious decay.",
       "former_slugs": [
         "suillus-luteus"
       ],
@@ -269,7 +264,26 @@
       "photo_review_cleanup_removed_reasons": [
         "placeholder image inserted"
       ],
-      "photo_review_cleanup_status": "cleared_image_only_needs_review"
+      "photo_review_cleanup_status": "cleared_image_only_needs_review",
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "safety": "Edible with caution",
+      "food_value": "Fair",
+      "foraging_value": "Fair",
+      "quality_notes": "Condition-sensitive Suillus: young firm specimens can be useful, while older ones become slimy, soggy, buggy, or mushy.",
+      "eating_use_notes": "Use young, firm Suillus luteus; many foragers peel the slimy cap skin. Cook thoroughly and reject old or soggy specimens.",
+      "risk_reason": "Risk is loose common-name use: not every sticky Suillus is Suillus luteus, and poor condition ruins table value.",
+      "hard_rule": "Use only when ringed Suillus luteus traits are confirmed: glutinous brown cap, yellow pores, ring, pine association, and no serious decay.",
+      "use_roles": [
+        "Food"
+      ],
+      "edible_use": {
+        "has_ingestible_use": true,
+        "method": "Food",
+        "preparation_required": false,
+        "notes": "Use young, firm Suillus luteus; many foragers peel the slimy cap skin. Cook thoroughly and reject old or soggy specimens."
+      },
+      "danger_level": ""
     },
     {
       "slug": "hemileccinum-rubropunctum",
@@ -399,9 +413,9 @@
         "true-bitter-bolete"
       ],
       "general_notes": "",
-      "edibility_detail": "Avoid for food in this guide; keep as an identification/caution record.",
+      "edibility_detail": "Do not eat just because it resembles a mild yellow-pored bolete.",
       "food_role": "avoid",
-      "edibility_status": "not_edible",
+      "edibility_status": "review_required",
       "field_identification": "Reddish-brown to wrinkled/slimy cap, yellow pore surface that does not bruise, yellowish stem with reddish scabers or dots, and yellow flesh that does not stain on exposure. Reported under hardwoods or conifers.",
       "use_links": [
         {
@@ -473,7 +487,18 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20rubropunctum%20%28Peck%29%20Singer%20550957.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20rubropunctum%20%28Peck%29%20Singer%20875702.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20rubropunctum%20%28Peck%29%20Singer%20550957.jpg?width=480"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20rubropunctum%20%28Peck%29%20Singer%20550957.jpg?width=480",
+      "safety": "Not recommended / recognition-only",
+      "food_value": "Not a food target in this guide",
+      "foraging_value": "ID value / comparison",
+      "danger_level": "Caution / not recommended as food",
+      "risk_reason": "Avoid for food in this guide; included to prevent confusing it with mild yellow-pored boletes.",
+      "quality_notes": "Included for recognition, comparison, or caution rather than table value.",
+      "eating_use_notes": "Do not use this app entry as a food recommendation.",
+      "hard_rule": "Do not eat just because it resembles a mild yellow-pored bolete.",
+      "use_roles": [
+        "ID / caution"
+      ]
     },
     {
       "slug": "leccinum-scabrum",
@@ -510,7 +535,7 @@
       "mushroom_profile": {
         "scientific_name": "Leccinum scabrum",
         "entry_scope": "species",
-        "edibility_status": "review_required",
+        "edibility_status": "edible_with_caution",
         "caution_level": "medium",
         "summary": "Minimal bolete seed entry for Birch Bolete.",
         "ecology": "bolete",
@@ -591,7 +616,7 @@
       "is_non_edible": false,
       "commonness": "Occasional",
       "commonness_score": 4,
-      "food_quality": "Edible with caution",
+      "food_quality": "Fair to good when expertly confirmed",
       "food_quality_score": 4,
       "lane": "bolete",
       "host_filter_tokens": [
@@ -606,9 +631,9 @@
         "scaber-stalk-boletes-birch-aspen-boletes"
       ],
       "general_notes": "",
-      "edibility_detail": "Leccinum species are host-specific and can be difficult to pin down in North America. Record host tree, staining changes over 30 minutes, pore color, and scaber color before using.",
+      "edibility_detail": "Do not present scaber-stalk boletes as beginner-safe. If host tree, scabers, pores, staining, or freshness are uncertain, do not eat.",
       "food_role": "food",
-      "edibility_status": "edible_with_preparation",
+      "edibility_status": "edible_with_caution",
       "field_identification": "Leccinum-type boletes have pore surfaces and a central stem covered with scabers rather than glandular dots or netting. Host tree is a key identification clue; many are birch, aspen, oak, or other specific-tree associates.",
       "use_links": [
         {
@@ -654,7 +679,7 @@
         "has_ingestible_use": true,
         "method": "Food",
         "preparation_required": false,
-        "notes": "Some Leccinum are eaten, but this group needs thorough cooking and careful host/tree notes."
+        "notes": "Only use young firm specimens when birch/aspen host, scabers, pore color, and staining behavior fit; cook thoroughly."
       },
       "medicinal": {
         "has_meaningful_content": false,
@@ -691,7 +716,19 @@
           "part_or_stage": "Birch bolete upright specimen",
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Leccinum_Scabrum_%3B.jpg"
         }
-      ]
+      ],
+      "safety": "Edible with high caution",
+      "food_value": "Fair to good when expertly confirmed",
+      "foraging_value": "Fair to good when expertly confirmed",
+      "quality_notes": "Quality varies by age and species concept; older scaber-stalks soften, bug up, and darken when cooked.",
+      "eating_use_notes": "Only use young firm specimens when birch/aspen host, scabers, pore color, and staining behavior fit; cook thoroughly.",
+      "risk_reason": "Leccinum/scaber-stalk boletes have species-level uncertainty and reported GI reactions; this is a safety caution, not just a quality issue.",
+      "hard_rule": "Do not present scaber-stalk boletes as beginner-safe. If host tree, scabers, pores, staining, or freshness are uncertain, do not eat.",
+      "use_roles": [
+        "Food",
+        "ID / caution"
+      ],
+      "danger_level": ""
     },
     {
       "slug": "blue-staining-slippery-jack",

@@ -109,7 +109,7 @@
       "is_non_edible": false,
       "commonness": "Rare",
       "commonness_score": 1,
-      "food_quality": "Good",
+      "food_quality": "Not recommended",
       "food_quality_score": 4,
       "lane": "bolete",
       "host_filter_tokens": [
@@ -117,23 +117,41 @@
         "Mixed woods"
       ],
       "general_notes": "",
-      "edibility_detail": "Potentially edible group, but keep as cautious because the app record represents a borealis/smithii concept rather than a crisp single field-confirmed species.",
-      "food_role": "food",
+      "edibility_detail": "Do not use this record as a food recommendation; treat it as comparison/recognition until reviewed with stronger local evidence.",
+      "food_role": "avoid",
       "review_status": "needs_review",
       "needs_review": true,
       "mushroom_card_note": "Chestnut-type Gyroporus: brittle hollow stem, chestnut-brown cap, and yellowish spore-print group; treat species boundary as conservative.",
       "field_identification": "Gyroporus records should be checked for brittle/hollow stem tissue, dry cap, lack of strong reticulation, and association with hardwoods or mixed woods.",
       "use_roles": [
-        "Food"
+        "ID / caution"
       ],
-      "foraging_value": "Occasional / niche use",
+      "foraging_value": "ID value / comparison",
       "foraging_value_score": 2,
       "search_aliases": [
         "Chestnut bolete",
         "Gyroporus borealis",
         "Gyroporus smithii"
       ],
-      "v4288_checked": true
+      "v4288_checked": true,
+      "record_type": "mushroom",
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "edibility_status": "review_required",
+      "safety": "Recognition-only / not a food target",
+      "food_value": "Not a food target in this guide",
+      "non_edible_severity": "Caution / not recommended as food",
+      "danger_level": "Caution / not recommended as food",
+      "risk_reason": "Current confidence, food value, or field separation is not strong enough for a food recommendation. Keep searchable for comparison and field ID.",
+      "quality_notes": "Included for recognition, comparison, or caution rather than table value.",
+      "eating_use_notes": "Do not use this app entry as a food recommendation.",
+      "hard_rule": "Do not use this record as a food recommendation; treat it as comparison/recognition until reviewed with stronger local evidence.",
+      "edible_use": {
+        "has_ingestible_use": false,
+        "method": "",
+        "preparation_required": false,
+        "notes": ""
+      }
     },
     {
       "slug": "porphyrellus-porphyrosporus",
@@ -236,9 +254,9 @@
         "Mixed woods"
       ],
       "general_notes": "",
-      "edibility_detail": "Treat conservatively. Dark boletes in this group need careful separation before any food use.",
+      "edibility_detail": "Do not use this record as a food recommendation; treat it as comparison/recognition until reviewed with stronger local evidence.",
       "food_role": "avoid",
-      "edibility_status": "not_edible",
+      "edibility_status": "review_required",
       "non_edible_severity": "Caution / not recommended as food",
       "review_status": "needs_review",
       "edible_use": {
@@ -251,9 +269,9 @@
       "mushroom_card_note": "Dusky Bolete: dark brown to gray-brown bolete with brownish pore surface and darkening/staining tendencies; more ID interest than table prize.",
       "field_identification": "Check for a dusky cap, brownish pore surface, dark spore-print group, and flesh/stem staining tendencies. It is easy to confuse with other dark Tylopilus/Porphyrellus-like boletes.",
       "use_roles": [
-        "Food"
+        "ID / caution"
       ],
-      "foraging_value": "Use with caution",
+      "foraging_value": "ID value / comparison",
       "foraging_value_score": 1,
       "search_aliases": [
         "Dusky Bolete",
@@ -272,7 +290,17 @@
           "credit": "Wikimedia Commons",
           "license": "See Wikimedia Commons file page"
         }
-      ]
+      ],
+      "record_type": "mushroom",
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "safety": "Recognition-only / not a food target",
+      "food_value": "Not a food target in this guide",
+      "danger_level": "Caution / not recommended as food",
+      "risk_reason": "Current confidence, food value, or field separation is not strong enough for a food recommendation. Keep searchable for comparison and field ID.",
+      "quality_notes": "Included for recognition, comparison, or caution rather than table value.",
+      "eating_use_notes": "Do not use this app entry as a food recommendation.",
+      "hard_rule": "Do not use this record as a food recommendation; treat it as comparison/recognition until reviewed with stronger local evidence."
     },
     {
       "slug": "false-king-bolete",
@@ -302,7 +330,7 @@
       "mushroom_profile": {
         "scientific_name": "Boletus huronensis",
         "entry_scope": "species",
-        "edibility_status": "toxic_or_dangerous",
+        "edibility_status": "review_required",
         "caution_level": "high",
         "summary": "False King Bolete: a dangerous king-bolete look-alike concern in the Great Lakes region; do not treat as porcini.",
         "ecology": "bolete",
@@ -392,9 +420,9 @@
         "false-king-bolete",
         "true-bitter-bolete"
       ],
-      "edibility_detail": "Caution species; keep out of edible porcini decisions.",
+      "edibility_detail": "Do not eat porcini-like boletes with wrong pores, wrong staining, hemlock association, or uncertain ID.",
       "food_role": "avoid",
-      "edibility_status": "not_edible",
+      "edibility_status": "review_required",
       "edible_use": {
         "has_ingestible_use": false,
         "method": "",
@@ -405,11 +433,20 @@
       "mushroom_card_note": "False King Bolete: a dangerous king-bolete look-alike concern in the Great Lakes region; do not treat as porcini.",
       "field_identification": "Compare any “king bolete” carefully against Boletus huronensis: duller cap, yellowish pores at maturity, blue staining in some tissues, and Great Lakes reports matter.",
       "use_roles": [
-        "Caution"
+        "ID / caution"
       ],
-      "foraging_value": "Use with caution",
+      "foraging_value": "ID value / comparison",
       "foraging_value_score": 1,
-      "v4288_checked": true
+      "v4288_checked": true,
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "safety": "Do not eat / recognition record",
+      "food_value": "Not a food target in this guide",
+      "danger_level": "Caution / not recommended as food",
+      "risk_reason": "King-bolete look-alike associated with severe gastrointestinal illness; useful for recognizing unsafe porcini-like mushrooms.",
+      "quality_notes": "Included for recognition, comparison, or caution rather than table value.",
+      "eating_use_notes": "Do not use this app entry as a food recommendation.",
+      "hard_rule": "Do not eat porcini-like boletes with wrong pores, wrong staining, hemlock association, or uncertain ID."
     },
     {
       "slug": "retiboletus-griseus",
@@ -505,7 +542,7 @@
       "is_non_edible": false,
       "commonness": "Rare",
       "commonness_score": 1,
-      "food_quality": "Fair",
+      "food_quality": "Not recommended",
       "food_quality_score": 3,
       "lane": "bolete",
       "host_filter_tokens": [
@@ -521,16 +558,16 @@
         "true-bitter-bolete"
       ],
       "general_notes": "",
-      "edibility_detail": "Edibility is not emphasized here. Treat as ID/comparison rather than a food target.",
-      "food_role": "food",
+      "edibility_detail": "Do not use this record as a food recommendation; treat it as comparison/recognition until reviewed with stronger local evidence.",
+      "food_role": "avoid",
       "needs_review": true,
       "review_status": "needs_review",
       "mushroom_card_note": "Gray Bolete: drab gray oak/hardwood bolete with a coarsely reticulate stem that yellows from the base upward.",
       "field_identification": "Gray cap, whitish-to-gray pore surface, coarse stem reticulation, and yellowing lower stem are the useful checks.",
       "use_roles": [
-        "Food"
+        "ID / caution"
       ],
-      "foraging_value": "Occasional / niche use",
+      "foraging_value": "ID value / comparison",
       "foraging_value_score": 2,
       "search_aliases": [
         "Retiboletus griseus",
@@ -549,7 +586,25 @@
           "credit": "Wikimedia Commons",
           "license": "See Wikimedia Commons file page"
         }
-      ]
+      ],
+      "record_type": "mushroom",
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "edibility_status": "review_required",
+      "safety": "Recognition-only / not a food target",
+      "food_value": "Not a food target in this guide",
+      "non_edible_severity": "Caution / not recommended as food",
+      "danger_level": "Caution / not recommended as food",
+      "risk_reason": "Current confidence, food value, or field separation is not strong enough for a food recommendation. Keep searchable for comparison and field ID.",
+      "quality_notes": "Included for recognition, comparison, or caution rather than table value.",
+      "eating_use_notes": "Do not use this app entry as a food recommendation.",
+      "hard_rule": "Do not use this record as a food recommendation; treat it as comparison/recognition until reviewed with stronger local evidence.",
+      "edible_use": {
+        "has_ingestible_use": false,
+        "method": "",
+        "preparation_required": false,
+        "notes": ""
+      }
     },
     {
       "slug": "indecisus-bolete",
@@ -657,8 +712,8 @@
         "Hardwoods"
       ],
       "commonness": "Uncommon",
-      "food_quality": "Poor",
-      "non_edible_severity": "",
+      "food_quality": "Not recommended",
+      "non_edible_severity": "Caution / not recommended as food",
       "commonness_score": 2,
       "food_quality_score": 2,
       "look_alikes": [
@@ -670,15 +725,15 @@
         "bay-bolete",
         "king-bolete"
       ],
-      "edibility_detail": "Edible reports exist for mild Tylopilus, but treat this as a cautious/advanced ID mushroom.",
-      "food_role": "food",
+      "edibility_detail": "Do not use this record as a food recommendation; treat it as comparison/recognition until reviewed with stronger local evidence.",
+      "food_role": "avoid",
       "needs_review": false,
       "mushroom_card_note": "Indecisus Bolete: mild Tylopilus with pinkish mature pores that bruise brown and a mostly whitish, non-olive stem.",
       "field_identification": "Key checks: pinkish mature pore surface bruising brown, mild taste, soft flesh, fairly equal whitish stem, and hardwood/oak association.",
       "use_roles": [
-        "Food"
+        "ID / caution"
       ],
-      "foraging_value": "Occasional / niche use",
+      "foraging_value": "ID value / comparison",
       "foraging_value_score": 2,
       "images_structured": [
         {
@@ -714,7 +769,23 @@
           "credit": "Wikimedia Commons",
           "license": "See Wikimedia Commons file page"
         }
-      ]
+      ],
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "edibility_status": "review_required",
+      "safety": "Recognition-only / not a food target",
+      "food_value": "Not a food target in this guide",
+      "danger_level": "Caution / not recommended as food",
+      "risk_reason": "Current confidence, food value, or field separation is not strong enough for a food recommendation. Keep searchable for comparison and field ID.",
+      "quality_notes": "Included for recognition, comparison, or caution rather than table value.",
+      "eating_use_notes": "Do not use this app entry as a food recommendation.",
+      "hard_rule": "Do not use this record as a food recommendation; treat it as comparison/recognition until reviewed with stronger local evidence.",
+      "edible_use": {
+        "has_ingestible_use": false,
+        "method": "",
+        "preparation_required": false,
+        "notes": ""
+      }
     },
     {
       "slug": "boletus-alutaceus",
@@ -809,7 +880,7 @@
       "is_non_edible": false,
       "commonness": "Rare",
       "commonness_score": 1,
-      "food_quality": "Fair",
+      "food_quality": "Not recommended",
       "food_quality_score": 3,
       "lane": "bolete",
       "host_filter_tokens": [
@@ -825,16 +896,16 @@
         "true-bitter-bolete"
       ],
       "general_notes": "",
-      "edibility_detail": "Treat as occasional/niche until local ID confidence improves.",
-      "food_role": "food",
+      "edibility_detail": "Do not use this record as a food recommendation; treat it as comparison/recognition until reviewed with stronger local evidence.",
+      "food_role": "avoid",
       "needs_review": false,
       "review_status": "ok",
       "mushroom_card_note": "Leather-colored Bolete: brown/yellow-pored hardwood bolete; keep as a regional comparison rather than a prime edible.",
       "field_identification": "Use brown leather-colored cap, yellowish pore surface, hardwood context, and lack of strong dangerous-color signals to compare against porcini-like boletes.",
       "use_roles": [
-        "Food"
+        "ID / caution"
       ],
-      "foraging_value": "Occasional / niche use",
+      "foraging_value": "ID value / comparison",
       "foraging_value_score": 2,
       "search_aliases": [
         "Boletus alutaceus",
@@ -852,7 +923,25 @@
           "credit": "Wikimedia Commons",
           "license": "See Wikimedia Commons file page"
         }
-      ]
+      ],
+      "record_type": "mushroom",
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "edibility_status": "review_required",
+      "safety": "Recognition-only / not a food target",
+      "food_value": "Not a food target in this guide",
+      "non_edible_severity": "Caution / not recommended as food",
+      "danger_level": "Caution / not recommended as food",
+      "risk_reason": "Current confidence, food value, or field separation is not strong enough for a food recommendation. Keep searchable for comparison and field ID.",
+      "quality_notes": "Included for recognition, comparison, or caution rather than table value.",
+      "eating_use_notes": "Do not use this app entry as a food recommendation.",
+      "hard_rule": "Do not use this record as a food recommendation; treat it as comparison/recognition until reviewed with stronger local evidence.",
+      "edible_use": {
+        "has_ingestible_use": false,
+        "method": "",
+        "preparation_required": false,
+        "notes": ""
+      }
     },
     {
       "slug": "boletus-separans",
@@ -887,7 +976,7 @@
       "mushroom_profile": {
         "scientific_name": "Boletus separans",
         "entry_scope": "species",
-        "edibility_status": "review_required",
+        "edibility_status": "edible_with_caution",
         "caution_level": "medium",
         "summary": "Minimal bolete seed entry for Lilac Bolete.",
         "ecology": "bolete",
@@ -985,7 +1074,7 @@
         "true-bitter-bolete"
       ],
       "general_notes": "",
-      "edibility_detail": "Confirm yellow mature pores without olive shades, liver-red/lilac-brown tones, oak/hardwood setting, and non-staining white flesh.",
+      "edibility_detail": "Do not use as a generic brown bolete; confirm the full field-trait set before eating.",
       "food_role": "food",
       "edibility_status": "edible_with_caution",
       "field_identification": "Oak/hardwood bolete with young lilac-brown to liver-red tones, yellow mature pore surface lacking olive shades, stem often flushed with liver color, reticulation possible, and white flesh that does not stain.",
@@ -1023,7 +1112,7 @@
         "has_ingestible_use": true,
         "method": "Food",
         "preparation_required": false,
-        "notes": "Porcini-group edible when confidently identified and in good condition; keep separate from bitter Tylopilus and other brown boletes."
+        "notes": "Cook confirmed young, firm specimens; do not use as a generic brown bolete."
       },
       "medicinal": {
         "has_meaningful_content": false,
@@ -1060,7 +1149,18 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Xanthoconium%20separans%2054638.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Xanthoconium%20separans%20%28Peck%29%20Halling%20%26%20Both%20908614.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Xanthoconium%20separans%2054638.jpg?width=480"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Xanthoconium%20separans%2054638.jpg?width=480",
+      "safety": "Edible with caution",
+      "food_value": "Choice",
+      "foraging_value": "Choice",
+      "quality_notes": "High-value porcini ally when oak/hardwood habitat, yellow-not-olive mature pores, liver-red/lilac stem flush, mild taste, and non-staining flesh all fit.",
+      "eating_use_notes": "Cook confirmed young, firm specimens; do not use as a generic brown bolete.",
+      "risk_reason": "Risk is confusing a choice porcini ally with other brown boletes, bitter boletes, or false-king types.",
+      "hard_rule": "Do not use as a generic brown bolete; confirm the full field-trait set before eating.",
+      "use_roles": [
+        "Food"
+      ],
+      "danger_level": ""
     },
     {
       "slug": "sutorius-eximius",
@@ -1156,7 +1256,7 @@
       "is_non_edible": false,
       "commonness": "Occasional",
       "commonness_score": 3,
-      "food_quality": "Good",
+      "food_quality": "Not recommended",
       "food_quality_score": 4,
       "lane": "bolete",
       "host_filter_tokens": [
@@ -1164,16 +1264,16 @@
         "Mixed woods"
       ],
       "general_notes": "",
-      "edibility_detail": "Treat cautiously; not a prime edible record.",
-      "food_role": "food",
+      "edibility_detail": "Do not use this record as a food recommendation; treat it as comparison/recognition until reviewed with stronger local evidence.",
+      "food_role": "avoid",
       "needs_review": false,
       "review_status": "ok",
       "mushroom_card_note": "Lilac-brown Bolete: dark purplish-brown bolete with scaber-like stem dots and brown young pores; not a casual edible.",
       "field_identification": "Look for purplish-brown cap, brown young pore surface, and dark Leccinum-like scabers on the stem.",
       "use_roles": [
-        "Caution"
+        "ID / caution"
       ],
-      "foraging_value": "Use with caution",
+      "foraging_value": "ID value / comparison",
       "foraging_value_score": 1,
       "search_aliases": [
         "Sutorius eximius",
@@ -1207,7 +1307,25 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Sutorius%20eximius%2095313.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Sutorius%20eximius%20435211.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Sutorius%20eximius%2095313.jpg?width=480"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Sutorius%20eximius%2095313.jpg?width=480",
+      "record_type": "mushroom",
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "edibility_status": "review_required",
+      "safety": "Recognition-only / not a food target",
+      "food_value": "Not a food target in this guide",
+      "non_edible_severity": "Caution / not recommended as food",
+      "danger_level": "Caution / not recommended as food",
+      "risk_reason": "Current confidence, food value, or field separation is not strong enough for a food recommendation. Keep searchable for comparison and field ID.",
+      "quality_notes": "Included for recognition, comparison, or caution rather than table value.",
+      "eating_use_notes": "Do not use this app entry as a food recommendation.",
+      "hard_rule": "Do not use this record as a food recommendation; treat it as comparison/recognition until reviewed with stronger local evidence.",
+      "edible_use": {
+        "has_ingestible_use": false,
+        "method": "",
+        "preparation_required": false,
+        "notes": ""
+      }
     },
     {
       "slug": "noble-bolete",
@@ -1237,7 +1355,7 @@
       "mushroom_profile": {
         "scientific_name": "Boletus nobilis",
         "entry_scope": "species",
-        "edibility_status": "good",
+        "edibility_status": "edible_with_caution",
         "caution_level": "low",
         "summary": "Noble Bolete: porcini-like hardwood bolete; useful, but keep regional taxonomy and look-alikes in view.",
         "ecology": "bolete",
@@ -1296,7 +1414,7 @@
       "is_non_edible": false,
       "general_notes": "",
       "record_type": "mushroom",
-      "lane": "other",
+      "lane": "bolete",
       "review_status": "ok",
       "search_aliases": [
         "Boletus nobilis",
@@ -1307,16 +1425,16 @@
         "Hardwoods"
       ],
       "commonness": "",
-      "food_quality": "",
+      "food_quality": "Good",
       "non_edible_severity": "",
       "needs_review": false,
       "mushroom_card_note": "Noble Bolete: porcini-like hardwood bolete; useful, but keep regional taxonomy and look-alikes in view.",
       "field_identification": "Check for king-bolete style stature, pore color, stem reticulation, lack of strong blue bruising, and hardwood association.",
-      "edibility_detail": "Potentially useful edible with expert-level ID confidence.",
+      "edibility_detail": "Do not use as a generic brown bolete; confirm porcini-like traits and separate from bitter/false-king look-alikes.",
       "use_roles": [
         "Food"
       ],
-      "foraging_value": "Good forage",
+      "foraging_value": "Good; expert confirmation",
       "foraging_value_score": 3,
       "images_structured": [
         {
@@ -1340,7 +1458,24 @@
         7,
         8,
         9
-      ]
+      ],
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "food_role": "food",
+      "edibility_status": "edible_with_caution",
+      "safety": "Edible with caution",
+      "food_value": "Good; expert confirmation",
+      "quality_notes": "Potentially useful porcini-like bolete, but app confidence should remain expert-level.",
+      "eating_use_notes": "Cook only when porcini-like traits are confidently confirmed and condition is excellent.",
+      "risk_reason": "Risk is confusion with bitter, false-king, or other brown boletes.",
+      "hard_rule": "Do not use as a generic brown bolete; confirm porcini-like traits and separate from bitter/false-king look-alikes.",
+      "edible_use": {
+        "has_ingestible_use": true,
+        "method": "Food",
+        "preparation_required": false,
+        "notes": "Cook only when porcini-like traits are confidently confirmed and condition is excellent."
+      },
+      "danger_level": ""
     },
     {
       "slug": "retiboletus-ornatipes",
@@ -1372,7 +1507,7 @@
       "mushroom_profile": {
         "scientific_name": "Retiboletus ornatipes",
         "entry_scope": "species",
-        "edibility_status": "review_required",
+        "edibility_status": "inedible_bitter",
         "caution_level": "medium",
         "summary": "Ornate Bolete: yellow to brown cap and bright yellow, strongly netted stem; pretty, distinctive, and sometimes bitter.",
         "ecology": "bolete",
@@ -1435,11 +1570,11 @@
       "review_status": "ok",
       "mushroom_card_note": "Ornate Bolete: yellow to brown cap and bright yellow, strongly netted stem; pretty, distinctive, and sometimes bitter.",
       "field_identification": "Strong yellow reticulation over the stem, yellow pore surface, yellow flesh, and little to no blue bruising are the big field marks.",
-      "edibility_detail": "Treat as occasional/niche, not a basket priority.",
+      "edibility_detail": "Do not put bitter or uncertain Tylopilus/Retiboletus-style boletes in a meal; one bitter specimen can wreck the whole dish.",
       "use_roles": [
-        "Food"
+        "ID / comparison"
       ],
-      "foraging_value": "Occasional / niche use",
+      "foraging_value": "Not worth eating / bitter",
       "foraging_value_score": 2,
       "search_aliases": [
         "Retiboletus ornatipes",
@@ -1493,7 +1628,28 @@
         7,
         8,
         9
-      ]
+      ],
+      "record_type": "mushroom",
+      "kingdom_type": "mushroom",
+      "foraging_class": "mushroom",
+      "lane": "bolete",
+      "food_role": "avoid",
+      "edibility_status": "inedible_bitter",
+      "safety": "Not recommended for food",
+      "food_value": "Not worth eating / bitter",
+      "food_quality": "Not recommended",
+      "non_edible_severity": "Not recommended as food / bitter",
+      "danger_level": "Not recommended as food / bitter",
+      "risk_reason": "Taste can be bitter or unreliable; keep it as a recognition record unless a specimen is confidently identified and mild.",
+      "quality_notes": "Included for recognition, comparison, or caution rather than table value.",
+      "eating_use_notes": "Do not use this app entry as a food recommendation.",
+      "hard_rule": "Do not put bitter or uncertain Tylopilus/Retiboletus-style boletes in a meal; one bitter specimen can wreck the whole dish.",
+      "edible_use": {
+        "has_ingestible_use": false,
+        "method": "",
+        "preparation_required": false,
+        "notes": ""
+      }
     }
   ]
 }
