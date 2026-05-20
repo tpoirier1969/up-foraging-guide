@@ -266,28 +266,28 @@
       "lookalike_risk": {
         "level": 3,
         "label": "Extreme — dangerous Cortinarius confusion possible",
-        "short_label": "Extreme — dangerous look-alike possible",
-        "summary": "Blewits are not beginner-safe because purple Cortinarius/webcaps can overlap visually and some Cortinarius can damage kidneys.",
+        "short_label": "Extreme — dangerous Cortinarius confusion possible",
+        "summary": "Blewits are not beginner-safe because purple Cortinarius/webcaps can overlap visually and some Cortinarius can damage kidneys. Purple color alone is not enough.",
         "required_checks": [
-          "Pale pinkish spore print required",
+          "Pale pinkish-buff spore print required",
           "No rusty-brown spore print",
           "No cortina/cobwebby veil remnants",
-          "Fresh lilac/purple blewit traits must match"
+          "No rusty spore dust or rusty veil remnants",
+          "Fresh lilac/purple traits may fade with age"
         ],
-        "hard_rule": "Do not eat a suspected blewit without a pale pinkish spore print and no rusty cortina evidence.",
+        "hard_rule": "Rusty-brown spores or cortina remnants mean do not eat as blewit.",
         "dangerous_lookalikes": [
           {
-            "slug": "cortinarius-webcap-warning-group",
             "risk": "Dangerous / possible delayed kidney toxicity.",
-            "warning": "Purple color alone is not enough; Cortinarius/webcaps can be dangerous.",
+            "slug": "cortinarius-webcap-warning-group",
             "target_traits": [
-              "Pale pinkish spore print",
+              "Pale pinkish-buff spore print",
               "No cortina",
               "No rusty spore dust",
-              "Blewit growth in leaf litter/duff with fresh lilac tones"
+              "Blewit structure and habitat match"
             ],
             "lookalike_traits": [
-              "Rusty-brown spore print",
+              "Rusty-brown spores",
               "Cobwebby cortina or rusty veil remnants",
               "Rusty/brown dust on gills or stem"
             ],
@@ -576,10 +576,16 @@
       "look_alikes": [
         "coral-tooth-fungus",
         "bear-s-head-tooth",
-        "lion-s-mane"
+        "lion-s-mane",
+        "Pale coral fungi / false coral-type mushrooms",
+        "hen-of-the-woods",
+        "umbrella-polypore"
       ],
       "confused_with": [
-        "coral-tooth-fungus"
+        "coral-tooth-fungus",
+        "Pale coral fungi / false coral-type mushrooms",
+        "hen-of-the-woods",
+        "umbrella-polypore"
       ],
       "edibility_detail": "Good edible when young, clean, and confidently identified. Dirt, bugs, and sand collect deep in the folds, so discard old, waterlogged, or hard-to-clean specimens.",
       "mushroom_profile": {
@@ -757,7 +763,57 @@
         "warnings": ""
       },
       "rights_review_status": "exact_metadata_verified",
-      "completion_status": "complete"
+      "completion_status": "complete",
+      "lookalike_risk": {
+        "level": 1,
+        "label": "Moderate — coral/rosette confusion",
+        "short_label": "Moderate — coral/rosette confusion",
+        "summary": "Cauliflower mushroom needs noodle/ribbon-like folds, soft pliable flesh, and root/wood association, not upright brittle coral branches.",
+        "required_checks": [
+          "Growth form check required",
+          "Root/wood association required",
+          "Confirm soft ribbon/noodle folds",
+          "Reject brittle upright coral branches"
+        ],
+        "hard_rule": "Brittle upright coral branches are not cauliflower mushroom.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Not recommended / quality confusion.",
+            "display_name": "Pale coral fungi / false coral-type mushrooms",
+            "target_traits": [
+              "Broad ribbon/noodle folds",
+              "Soft pliable mass"
+            ],
+            "lookalike_traits": [
+              "Upright branching coral",
+              "Brittle branches"
+            ],
+            "hard_rule": "Brittle upright coral branches are not cauliflower mushroom."
+          },
+          {
+            "risk": "Edible confusion.",
+            "slug": "hen-of-the-woods",
+            "target_traits": [
+              "Curly ribbon folds"
+            ],
+            "lookalike_traits": [
+              "Pored fan fronds in gray-brown rosette"
+            ],
+            "hard_rule": "Pores on fronds route to hen/polypore, not Sparassis."
+          },
+          {
+            "risk": "Edible confusion.",
+            "slug": "umbrella-polypore",
+            "target_traits": [
+              "Fused curly folds"
+            ],
+            "lookalike_traits": [
+              "Separate little caps on branching stalks"
+            ],
+            "hard_rule": "Umbrella-like caps are not cauliflower."
+          }
+        ]
+      }
     },
     {
       "slug": "chaga",
@@ -1237,10 +1293,12 @@
       "food_role": "food",
       "look_alikes": [
         "jack-o-lantern",
-        "black-staining-polypore"
+        "black-staining-polypore",
+        "Old or conifer-associated Laetiporus"
       ],
       "confused_with": [
-        "jack-o-lantern"
+        "jack-o-lantern",
+        "Old or conifer-associated Laetiporus"
       ],
       "edibility_detail": "Good edible when young and tender, but not universally tolerated; avoid old, tough, bug-ridden, or conifer-grown material unless you know the local Laetiporus species well.",
       "mushroom_profile": {
@@ -1389,7 +1447,47 @@
       "symptoms_body_systems": "Gastrointestinal tract and possible neurologic/systemic symptoms in sensitive people; vomiting, chills, and unusual reactions have been reported.",
       "field_traits_that_create_risk": "Bright orange/yellow shelf mushroom on living or dead trees; host tree matters. Conifer or hemlock growth in the Great Lakes should be higher caution than classic hardwood growth.",
       "hard_rule": "Do not eat old, tough, buggy, or conifer-growing chicken of the woods. For confirmed young hardwood specimens, eat a small amount first.",
-      "caution_reason": "Substrate/species and individual-tolerance risk; high food value does not make every Laetiporus safe for every person."
+      "caution_reason": "Substrate/species and individual-tolerance risk; high food value does not make every Laetiporus safe for every person.",
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — orange wood mushroom and substrate/species caution",
+        "short_label": "High — orange wood mushroom and substrate/species caution",
+        "summary": "Chicken of the woods has pores, not gills. Risk includes poisonous orange gilled clusters and old/conifer/atypical Laetiporus tolerance issues.",
+        "required_checks": [
+          "Underside pore check required",
+          "Substrate/host check required",
+          "Use young tender material only",
+          "Reject gills, old/tough/sour/bug-ridden material, and uncertain conifer-associated specimens"
+        ],
+        "hard_rule": "If it has gills, it is not chicken of the woods.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Poisonous / GI illness.",
+            "slug": "jack-o-lantern",
+            "target_traits": [
+              "Bright orange/yellow shelves with pore surface underneath",
+              "Soft young margins"
+            ],
+            "lookalike_traits": [
+              "True gills",
+              "Orange gill surface",
+              "Clustered around wood/roots"
+            ],
+            "hard_rule": "If it has gills, it is not chicken of the woods."
+          },
+          {
+            "risk": "Tolerance/species caution.",
+            "display_name": "Old or conifer-associated Laetiporus",
+            "target_traits": [
+              "Young tender hardwood shelves when target fits"
+            ],
+            "lookalike_traits": [
+              "Old, chalky, sour, bug-ridden, conifer-associated, or atypical material"
+            ],
+            "hard_rule": "Old, tough, sour, bug-ridden, or uncertain-substrate Laetiporus stays out of the pan."
+          }
+        ]
+      }
     },
     {
       "slug": "coral-tooth-fungus",
@@ -1431,11 +1529,15 @@
       "food_role": "food",
       "look_alikes": [
         "bear-s-head-tooth",
-        "lion-s-mane"
+        "lion-s-mane",
+        "hedgehog-mushrooms",
+        "Coral fungi / clavarioid fungi"
       ],
       "confused_with": [
         "bear-s-head-tooth",
-        "lion-s-mane"
+        "lion-s-mane",
+        "hedgehog-mushrooms",
+        "Coral fungi / clavarioid fungi"
       ],
       "edibility_detail": "Good edible Hericium when young, white, and tender after confident identification. Confirm short teeth arranged along delicate branching structures on dead hardwood; avoid yellowing, brittle, dirty, or decaying specimens and separate it from bear’s head tooth and lion’s mane by branching and tooth placement.",
       "mushroom_profile": {
@@ -1591,7 +1693,44 @@
         }
       ],
       "look_alike_notes": "Coral tooth has many branches with teeth along the branches; bear's head tooth has longer teeth clustered near branch tips, while lion's mane is a denser unbranched clump.",
-      "completion_status": "complete"
+      "completion_status": "complete",
+      "lookalike_risk": {
+        "level": 1,
+        "label": "Moderate — edible Hericium confusion / condition risk",
+        "short_label": "Moderate — edible Hericium confusion / condition risk",
+        "summary": "Hericium risk is mostly edible species confusion and condition: verify white toothed growth on hardwood and reject yellowed/soggy/old material.",
+        "required_checks": [
+          "Confirm white soft toothed fungus",
+          "Confirm wood/hardwood growth",
+          "Check branching/tooth arrangement if species-level matters",
+          "Reject yellowed, brown, soggy, or old specimens"
+        ],
+        "hard_rule": "No teeth, no Hericium; use Hericium group-level if species separation is uncertain.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Edible confusion.",
+            "slug": "hedgehog-mushrooms",
+            "target_traits": [
+              "Wood-growing Hericium mass with hanging teeth"
+            ],
+            "lookalike_traits": [
+              "Terrestrial cap-and-stem mushroom with teeth under a cap"
+            ],
+            "hard_rule": "Cap-and-stem teeth on soil = Hydnum-style hedgehog, not Hericium."
+          },
+          {
+            "risk": "Not recommended / quality confusion.",
+            "display_name": "Coral fungi / clavarioid fungi",
+            "target_traits": [
+              "Hanging teeth"
+            ],
+            "lookalike_traits": [
+              "Upright coral branches without hanging teeth"
+            ],
+            "hard_rule": "No teeth, no Hericium."
+          }
+        ]
+      }
     },
     {
       "slug": "destroying-angel",
@@ -1997,10 +2136,16 @@
       "food_role": "food",
       "look_alikes": [
         "birch-polypore",
-        "artist-s-conk"
+        "artist-s-conk",
+        "Train-wrecker / Neolentinus lepideus",
+        "Hawk’s wing / Sarcodon group",
+        "Old dryad’s saddle"
       ],
       "confused_with": [
-        "artist-s-conk"
+        "artist-s-conk",
+        "Train-wrecker / Neolentinus lepideus",
+        "Hawk’s wing / Sarcodon group",
+        "Old dryad’s saddle"
       ],
       "mushroom_profile": {
         "underside": [
@@ -2157,7 +2302,60 @@
         }
       ],
       "look_alike_notes": "Older dryad's saddle becomes leathery; birch polypore and artist's conk are tougher shelf fungi without the big scaly cap and cucumber/watermelon odor.",
-      "completion_status": "complete"
+      "completion_status": "complete",
+      "lookalike_risk": {
+        "level": 1,
+        "label": "Moderate — quality and bracket-polypore confusion",
+        "short_label": "Moderate — quality and bracket-polypore confusion",
+        "summary": "Dryad’s saddle is mainly an age/texture and bracket-polypore confusion issue, not a deadly look-alike problem.",
+        "required_checks": [
+          "Pore underside required",
+          "Hardwood bracket growth required",
+          "Check scaly cap and cucumber/watermelon-rind odor",
+          "Use young tender margins only"
+        ],
+        "hard_rule": "Gills, teeth, or old leathery shelves mean not eating-quality dryad’s saddle.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Quality confusion.",
+            "display_name": "Train-wrecker / Neolentinus lepideus",
+            "target_traits": [
+              "Pored underside",
+              "Scaly cap",
+              "Hardwood bracket"
+            ],
+            "lookalike_traits": [
+              "Gills rather than pores",
+              "Often on worked/conifer wood"
+            ],
+            "hard_rule": "Gills mean not dryad’s saddle."
+          },
+          {
+            "risk": "Bitter / quality confusion.",
+            "display_name": "Hawk’s wing / Sarcodon group",
+            "target_traits": [
+              "Pored bracket on wood"
+            ],
+            "lookalike_traits": [
+              "Terrestrial toothed mushroom",
+              "Scaly brown cap",
+              "Often bitter"
+            ],
+            "hard_rule": "Teeth under a cap = not dryad’s saddle."
+          },
+          {
+            "risk": "Quality failure.",
+            "display_name": "Old dryad’s saddle",
+            "target_traits": [
+              "Young tender margins"
+            ],
+            "lookalike_traits": [
+              "Large, leathery, tough, bug-ridden, woody flesh"
+            ],
+            "hard_rule": "Old tough shelves are not eating-quality material."
+          }
+        ]
+      }
     },
     {
       "slug": "false-morel-gyromitra-group",
@@ -2707,14 +2905,14 @@
       ],
       "food_role": "food",
       "look_alikes": [
-        "earthballs",
         "destroying-angel",
-        "earthballs-scleroderma"
+        "earthballs-scleroderma",
+        "white-amanita-button-warning"
       ],
       "confused_with": [
-        "earthballs",
         "destroying-angel",
-        "earthballs-scleroderma"
+        "earthballs-scleroderma",
+        "white-amanita-button-warning"
       ],
       "edibility_detail": "Good edible when young and solid white inside.",
       "mushroom_profile": {
@@ -2900,51 +3098,40 @@
       "lookalike_risk": {
         "level": 3,
         "label": "Extreme — Amanita button / earthball confusion possible",
-        "short_label": "Extreme — deadly button-stage look-alike possible",
-        "summary": "Puffballs are edible only when the interior is pure white and uniform. Button-stage Amanitas and earthballs are the dangerous traps.",
+        "short_label": "Extreme — Amanita button / earthball confusion possible",
+        "summary": "Puffballs are edible only when the interior is solid, featureless, soft, and pure white.",
         "required_checks": [
-          "Cut every puffball-like mushroom top to bottom",
-          "Interior must be solid, soft, and pure white",
-          "Reject any gills, cap outline, stem outline, volva, marbling, yellowing, browning, purple, black, or powdery interior"
+          "Cut every puffball-like mushroom top-to-bottom",
+          "Interior must be solid, soft, featureless, and pure white",
+          "Reject cap/gill/stem outline",
+          "Reject thick rind, gelatinous layer, yellow/olive/brown/purple/black/marbled/veined interior, or powdery/darkening flesh"
         ],
         "hard_rule": "If the inside is not solid pure white with no internal mushroom outline, do not eat it.",
         "dangerous_lookalikes": [
           {
-            "slug": "destroying-angel",
-            "risk": "Deadly — Amanita buttons can contain amatoxins.",
-            "warning": "Young Amanita buttons can resemble puffballs before the cap opens.",
+            "risk": "Deadly — possible Amanita button.",
+            "slug": "white-amanita-button-warning",
             "target_traits": [
-              "Solid uniform pure-white interior",
-              "No cap/gill/stem outline",
-              "No volva or basal cup structure"
+              "Solid featureless pure-white interior",
+              "No cap/gill/stem outline"
             ],
             "lookalike_traits": [
-              "Internal cap/gill/stem outline when cut",
-              "Volva/cup/bulb or buried base",
+              "Hidden cap, stem, gills, ring, or cup/volva when cut",
               "White gills/spores after opening"
-            ],
-            "required_checks": [
-              "Full lengthwise cut required",
-              "Dig/check base if any stem-like structure appears"
             ],
             "hard_rule": "Any internal mushroom outline means do not eat as puffball."
           },
           {
-            "slug": "earthballs-scleroderma",
             "risk": "Poisonous / gastrointestinal and possible systemic effects.",
-            "warning": "Earthballs are puffball-like but have a thick rind and darkening interior.",
+            "slug": "earthballs-scleroderma",
             "target_traits": [
-              "Soft, solid, pure-white interior"
+              "Soft solid pure-white interior"
             ],
             "lookalike_traits": [
               "Thick tough rind",
-              "Interior turns purple, black, brown, marbled, powdery, or veined",
-              "Potato-like toughness"
+              "Dark, purple, brown, black, marbled, veined, powdery, or tough interior"
             ],
-            "required_checks": [
-              "Cut every specimen"
-            ],
-            "hard_rule": "Any dark, veined, marbled, powdery, or tough interior means do not eat."
+            "hard_rule": "Dark, marbled, veined, powdery, or tough interiors mean do not eat."
           }
         ]
       }

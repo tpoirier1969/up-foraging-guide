@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.95-r2026-05-19-list-risk-badge-position1";
-const DISPLAY_VERSION = "V4.3.95-r26-05-19";
+const APP_VERSION = "v4.3.96-r2026-05-20-lookalike-risk-coverage2";
+const DISPLAY_VERSION = "V4.3.96-r26-05-20";
 window.UP_FORAGING_APP_VERSION = APP_VERSION;
 window.UP_FORAGING_DISPLAY_VERSION = DISPLAY_VERSION;
 

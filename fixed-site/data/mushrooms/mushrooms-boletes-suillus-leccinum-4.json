@@ -133,7 +133,10 @@
       ],
       "look_alikes": [
         "leccinum-scabrum",
-        "ghost-bolete"
+        "ghost-bolete",
+        "Other Leccinum / scaber-stalk boletes",
+        "false-king-bolete",
+        "blue-staining-red-pored-boletes-caution-group"
       ],
       "look_alike_risk": "",
       "look_alike_notes": "Separate from brown birch bolete and other orange scaber-stalks by cap color, host clues, staining, pore surface, and scaber pattern. Do not rely on cap color alone.",
@@ -211,7 +214,10 @@
       ],
       "confused_with": [
         "leccinum-scabrum",
-        "ghost-bolete"
+        "ghost-bolete",
+        "Other Leccinum / scaber-stalk boletes",
+        "false-king-bolete",
+        "blue-staining-red-pored-boletes-caution-group"
       ],
       "detail_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/2006-09-02%20Leccinum%20versipelle.jpg?width=900",
@@ -228,7 +234,70 @@
       "species_completion_status": "complete_current_schema",
       "completed_build": "v4.3.63-r2026-05-14-mushroom-completion-wave1",
       "completed_date": "2026-05-14",
-      "completion_scope": "current app schema: practical ID, edibility/caution, look-alikes, source links, verified structured photos, and commercial-use photo-rights metadata"
+      "completion_scope": "current app schema: practical ID, edibility/caution, look-alikes, source links, verified structured photos, and commercial-use photo-rights metadata",
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — scaber-stalk GI/taxonomy caution",
+        "short_label": "High — scaber-stalk GI/taxonomy caution",
+        "summary": "Leccinum/scaber-stalk boletes are not beginner-safe because taxonomy is difficult, host/staining matter, and GI upset is reported in the group.",
+        "required_checks": [
+          "Host/substrate check required",
+          "Scaber-stalk check required",
+          "Pore and staining-over-time check required",
+          "Cook thoroughly if used",
+          "Expert confirmation recommended"
+        ],
+        "hard_rule": "Do not treat unknown scaber-stalks as casual edibles.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Edible confusion / GI risk.",
+            "display_name": "Other Leccinum / scaber-stalk boletes",
+            "target_traits": [
+              "Scabers on stem",
+              "Correct host",
+              "Expected pore color and staining"
+            ],
+            "lookalike_traits": [
+              "Wrong cap color/host/staining pattern",
+              "Red/orange scaber-stalk caution"
+            ],
+            "hard_rule": "Do not treat unknown scaber-stalks as casual edibles."
+          },
+          {
+            "risk": "Severe gastrointestinal illness concern.",
+            "slug": "false-king-bolete",
+            "warning": "False king bolete is a northern/Great Lakes porcini-type danger concern.",
+            "target_traits": [
+              "Non-blue-staining white flesh",
+              "White young pores aging yellow/olive",
+              "Pale netting near upper stem when expected",
+              "Full porcini package matches"
+            ],
+            "lookalike_traits": [
+              "Hemlock or northern Great Lakes false-king concern",
+              "Limited or absent reticulation",
+              "Yellowish flesh",
+              "Inconsistent blue/green-blue staining",
+              "Severe GI reports"
+            ],
+            "hard_rule": "If false king traits are possible, do not eat."
+          },
+          {
+            "risk": "Poisonous / not recommended red-pored blue-staining bolete group.",
+            "slug": "blue-staining-red-pored-boletes-caution-group",
+            "target_traits": [
+              "No red/orange pore surface",
+              "No violent instant blue staining"
+            ],
+            "lookalike_traits": [
+              "Red or orange pores",
+              "Rapid strong blue bruising",
+              "Red/yellow bolete complex traits"
+            ],
+            "hard_rule": "Red/orange pores or fast strong blue staining mean stop unless expert-confirmed."
+          }
+        ]
+      }
     },
     {
       "slug": "suillus-spraguei",
@@ -383,7 +452,10 @@
       ],
       "look_alikes": [
         "suillus-paluster",
-        "suillus-americanus"
+        "suillus-americanus",
+        "blue-staining-red-pored-boletes-caution-group",
+        "bitter-bolete",
+        "Other Suillus species"
       ],
       "look_alike_risk": "",
       "look_alike_notes": "Suillus paluster is smaller and associated with larch/tamarack rather than eastern white pine. Yellow Suillus such as S. americanus differ in cap texture/color pattern and glandular-dot details.",
@@ -461,7 +533,10 @@
       ],
       "confused_with": [
         "suillus-paluster",
-        "suillus-americanus"
+        "suillus-americanus",
+        "blue-staining-red-pored-boletes-caution-group",
+        "bitter-bolete",
+        "Other Suillus species"
       ],
       "detail_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus%20spraguei%2058269.jpg?width=900",
@@ -481,7 +556,66 @@
       "completed_build": "v4.3.63-r2026-05-14-mushroom-completion-wave1",
       "completed_date": "2026-05-14",
       "completion_scope": "current app schema: practical ID, edibility/caution, look-alikes, source links, verified structured photos, and commercial-use photo-rights metadata",
-      "photo_rights_status": "verified_commercial_use_tracked"
+      "photo_rights_status": "verified_commercial_use_tracked",
+      "lookalike_risk": {
+        "level": 1,
+        "label": "Moderate — Suillus ID, texture, tolerance, and bolete confusion",
+        "short_label": "Moderate — Suillus ID, texture, tolerance, and bolete confusion",
+        "summary": "Suillus risk is usually correct Suillus ID, host association, slimy cap/glandular dots/ring traits, condition, and personal tolerance — not a deadly twin.",
+        "required_checks": [
+          "Host/substrate check required",
+          "Pore check required",
+          "Confirm Suillus traits such as slime, ring, or glandular dots as appropriate",
+          "Reject old, soggy, buggy, mushy specimens"
+        ],
+        "hard_rule": "Do not collapse all Suillus into “slippery jack”; wrong host, wrong ring/dots, or poor condition means stop.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Poisonous / not recommended red-pored blue-staining bolete group.",
+            "slug": "blue-staining-red-pored-boletes-caution-group",
+            "target_traits": [
+              "No red/orange pore surface",
+              "No violent instant blue staining"
+            ],
+            "lookalike_traits": [
+              "Red or orange pores",
+              "Rapid strong blue bruising",
+              "Red/yellow bolete complex traits"
+            ],
+            "hard_rule": "Red/orange pores or fast strong blue staining mean stop unless expert-confirmed."
+          },
+          {
+            "risk": "Bitter / meal-spoiling, not deadly.",
+            "slug": "bitter-bolete",
+            "target_traits": [
+              "Mild taste",
+              "White/yellow pores without bitter Tylopilus posture"
+            ],
+            "lookalike_traits": [
+              "Pinkish pores with age",
+              "Brown reticulation in some species",
+              "Distinctly bitter taste"
+            ],
+            "required_checks": [
+              "Tiny nibble-and-spit only if you already know the mushroom is safe to taste"
+            ],
+            "hard_rule": "Bitter taste means not food; one specimen can ruin the pan."
+          },
+          {
+            "risk": "Edible/quality confusion.",
+            "display_name": "Other Suillus species",
+            "target_traits": [
+              "Species-specific ring, glandular dots, host tree, and pore size"
+            ],
+            "lookalike_traits": [
+              "Wrong host",
+              "Wrong ring/dots",
+              "Old slimy specimens"
+            ],
+            "hard_rule": "Do not collapse all Suillus into one edible label."
+          }
+        ]
+      }
     },
     {
       "slug": "suillus-paluster",
@@ -766,11 +900,17 @@
       "look_alikes": [
         "suillus-granulatus",
         "slippery-jack",
-        "suillus-spraguei"
+        "suillus-spraguei",
+        "blue-staining-red-pored-boletes-caution-group",
+        "bitter-bolete",
+        "Other Suillus species"
       ],
       "confused_with": [
         "suillus-granulatus",
-        "slippery-jack"
+        "slippery-jack",
+        "blue-staining-red-pored-boletes-caution-group",
+        "bitter-bolete",
+        "Other Suillus species"
       ],
       "look_alike_notes": "Compare with Suillus granulatus/weaverae, veiled Suillus species, and other pine-associated slippery jacks. Host pine type, ring/veil presence, glandular dots, pore surface, and cap slime matter.",
       "image_distinct_count": 2,
@@ -779,7 +919,66 @@
       "species_completion_status": "complete_current_schema",
       "completed_build": "v4.3.63-r2026-05-14-mushroom-completion-wave1",
       "completed_date": "2026-05-14",
-      "completion_scope": "current app schema: practical ID, edibility/caution, look-alikes, source links, verified structured photos, and commercial-use photo-rights metadata"
+      "completion_scope": "current app schema: practical ID, edibility/caution, look-alikes, source links, verified structured photos, and commercial-use photo-rights metadata",
+      "lookalike_risk": {
+        "level": 1,
+        "label": "Moderate — Suillus ID, texture, tolerance, and bolete confusion",
+        "short_label": "Moderate — Suillus ID, texture, tolerance, and bolete confusion",
+        "summary": "Suillus risk is usually correct Suillus ID, host association, slimy cap/glandular dots/ring traits, condition, and personal tolerance — not a deadly twin.",
+        "required_checks": [
+          "Host/substrate check required",
+          "Pore check required",
+          "Confirm Suillus traits such as slime, ring, or glandular dots as appropriate",
+          "Reject old, soggy, buggy, mushy specimens"
+        ],
+        "hard_rule": "Do not collapse all Suillus into “slippery jack”; wrong host, wrong ring/dots, or poor condition means stop.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Poisonous / not recommended red-pored blue-staining bolete group.",
+            "slug": "blue-staining-red-pored-boletes-caution-group",
+            "target_traits": [
+              "No red/orange pore surface",
+              "No violent instant blue staining"
+            ],
+            "lookalike_traits": [
+              "Red or orange pores",
+              "Rapid strong blue bruising",
+              "Red/yellow bolete complex traits"
+            ],
+            "hard_rule": "Red/orange pores or fast strong blue staining mean stop unless expert-confirmed."
+          },
+          {
+            "risk": "Bitter / meal-spoiling, not deadly.",
+            "slug": "bitter-bolete",
+            "target_traits": [
+              "Mild taste",
+              "White/yellow pores without bitter Tylopilus posture"
+            ],
+            "lookalike_traits": [
+              "Pinkish pores with age",
+              "Brown reticulation in some species",
+              "Distinctly bitter taste"
+            ],
+            "required_checks": [
+              "Tiny nibble-and-spit only if you already know the mushroom is safe to taste"
+            ],
+            "hard_rule": "Bitter taste means not food; one specimen can ruin the pan."
+          },
+          {
+            "risk": "Edible/quality confusion.",
+            "display_name": "Other Suillus species",
+            "target_traits": [
+              "Species-specific ring, glandular dots, host tree, and pore size"
+            ],
+            "lookalike_traits": [
+              "Wrong host",
+              "Wrong ring/dots",
+              "Old slimy specimens"
+            ],
+            "hard_rule": "Do not collapse all Suillus into one edible label."
+          }
+        ]
+      }
     },
     {
       "slug": "slim-jack",
@@ -972,6 +1171,75 @@
         8,
         9,
         10
+      ],
+      "lookalike_risk": {
+        "level": 1,
+        "label": "Moderate — Suillus ID, texture, tolerance, and bolete confusion",
+        "short_label": "Moderate — Suillus ID, texture, tolerance, and bolete confusion",
+        "summary": "Suillus risk is usually correct Suillus ID, host association, slimy cap/glandular dots/ring traits, condition, and personal tolerance — not a deadly twin.",
+        "required_checks": [
+          "Host/substrate check required",
+          "Pore check required",
+          "Confirm Suillus traits such as slime, ring, or glandular dots as appropriate",
+          "Reject old, soggy, buggy, mushy specimens"
+        ],
+        "hard_rule": "Do not collapse all Suillus into “slippery jack”; wrong host, wrong ring/dots, or poor condition means stop.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Poisonous / not recommended red-pored blue-staining bolete group.",
+            "slug": "blue-staining-red-pored-boletes-caution-group",
+            "target_traits": [
+              "No red/orange pore surface",
+              "No violent instant blue staining"
+            ],
+            "lookalike_traits": [
+              "Red or orange pores",
+              "Rapid strong blue bruising",
+              "Red/yellow bolete complex traits"
+            ],
+            "hard_rule": "Red/orange pores or fast strong blue staining mean stop unless expert-confirmed."
+          },
+          {
+            "risk": "Bitter / meal-spoiling, not deadly.",
+            "slug": "bitter-bolete",
+            "target_traits": [
+              "Mild taste",
+              "White/yellow pores without bitter Tylopilus posture"
+            ],
+            "lookalike_traits": [
+              "Pinkish pores with age",
+              "Brown reticulation in some species",
+              "Distinctly bitter taste"
+            ],
+            "required_checks": [
+              "Tiny nibble-and-spit only if you already know the mushroom is safe to taste"
+            ],
+            "hard_rule": "Bitter taste means not food; one specimen can ruin the pan."
+          },
+          {
+            "risk": "Edible/quality confusion.",
+            "display_name": "Other Suillus species",
+            "target_traits": [
+              "Species-specific ring, glandular dots, host tree, and pore size"
+            ],
+            "lookalike_traits": [
+              "Wrong host",
+              "Wrong ring/dots",
+              "Old slimy specimens"
+            ],
+            "hard_rule": "Do not collapse all Suillus into one edible label."
+          }
+        ]
+      },
+      "look_alikes": [
+        "blue-staining-red-pored-boletes-caution-group",
+        "bitter-bolete",
+        "Other Suillus species"
+      ],
+      "confused_with": [
+        "blue-staining-red-pored-boletes-caution-group",
+        "bitter-bolete",
+        "Other Suillus species"
       ]
     },
     {
@@ -1477,12 +1745,18 @@
       "look_alikes": [
         "suillus-weaverae",
         "suillus-brevipes",
-        "slippery-jack"
+        "slippery-jack",
+        "blue-staining-red-pored-boletes-caution-group",
+        "bitter-bolete",
+        "Other Suillus species"
       ],
       "confused_with": [
         "suillus-weaverae",
         "suillus-brevipes",
-        "slippery-jack"
+        "slippery-jack",
+        "blue-staining-red-pored-boletes-caution-group",
+        "bitter-bolete",
+        "Other Suillus species"
       ],
       "look_alike_notes": "White-pine-associated North American material often belongs near Suillus weaverae. Compare ringless/ringed Suillus species carefully, and do not use cap color alone.",
       "use_links": [
@@ -1505,7 +1779,66 @@
       "kingdom_type": "mushroom",
       "foraging_class": "mushroom",
       "edibility_status": "edible_with_caution",
-      "photo_rights_status": "verified_commercial_use_tracked"
+      "photo_rights_status": "verified_commercial_use_tracked",
+      "lookalike_risk": {
+        "level": 1,
+        "label": "Moderate — Suillus ID, texture, tolerance, and bolete confusion",
+        "short_label": "Moderate — Suillus ID, texture, tolerance, and bolete confusion",
+        "summary": "Suillus risk is usually correct Suillus ID, host association, slimy cap/glandular dots/ring traits, condition, and personal tolerance — not a deadly twin.",
+        "required_checks": [
+          "Host/substrate check required",
+          "Pore check required",
+          "Confirm Suillus traits such as slime, ring, or glandular dots as appropriate",
+          "Reject old, soggy, buggy, mushy specimens"
+        ],
+        "hard_rule": "Do not collapse all Suillus into “slippery jack”; wrong host, wrong ring/dots, or poor condition means stop.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Poisonous / not recommended red-pored blue-staining bolete group.",
+            "slug": "blue-staining-red-pored-boletes-caution-group",
+            "target_traits": [
+              "No red/orange pore surface",
+              "No violent instant blue staining"
+            ],
+            "lookalike_traits": [
+              "Red or orange pores",
+              "Rapid strong blue bruising",
+              "Red/yellow bolete complex traits"
+            ],
+            "hard_rule": "Red/orange pores or fast strong blue staining mean stop unless expert-confirmed."
+          },
+          {
+            "risk": "Bitter / meal-spoiling, not deadly.",
+            "slug": "bitter-bolete",
+            "target_traits": [
+              "Mild taste",
+              "White/yellow pores without bitter Tylopilus posture"
+            ],
+            "lookalike_traits": [
+              "Pinkish pores with age",
+              "Brown reticulation in some species",
+              "Distinctly bitter taste"
+            ],
+            "required_checks": [
+              "Tiny nibble-and-spit only if you already know the mushroom is safe to taste"
+            ],
+            "hard_rule": "Bitter taste means not food; one specimen can ruin the pan."
+          },
+          {
+            "risk": "Edible/quality confusion.",
+            "display_name": "Other Suillus species",
+            "target_traits": [
+              "Species-specific ring, glandular dots, host tree, and pore size"
+            ],
+            "lookalike_traits": [
+              "Wrong host",
+              "Wrong ring/dots",
+              "Old slimy specimens"
+            ],
+            "hard_rule": "Do not collapse all Suillus into one edible label."
+          }
+        ]
+      }
     },
     {
       "slug": "suillus-hirtellus",

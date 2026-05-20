@@ -249,51 +249,45 @@
       "caution_reason": "False morels and Verpa-type look-alikes can be poisonous. Even true morels can cause gastrointestinal upset if raw, undercooked, eaten in large amounts, or possibly combined with alcohol.",
       "lookalike_risk": {
         "level": 3,
-        "label": "Extreme — severe false-morel confusion possible",
-        "short_label": "Extreme — severe look-alike possible",
-        "summary": "Morels are choice food only after every specimen is cut lengthwise and separated from Gyromitra/Verpa-style false morels.",
+        "label": "Extreme — false morel / Verpa confusion possible",
+        "short_label": "Extreme — false morel / Verpa confusion possible",
+        "summary": "True morels must be cut lengthwise; false morels and Verpa can overlap in spring.",
         "required_checks": [
           "Cut every specimen lengthwise",
-          "Confirm hollow interior from cap through stem",
-          "Confirm proper cap attachment",
-          "Reject brain-like, chambered, cottony, saddle-shaped, or free-hanging cap structures"
+          "Interior must be hollow from cap through stem",
+          "Cap must be properly attached for the target morel type",
+          "Reject brain-like folds, saddle shapes, cottony/chambered interiors, or top-attached caps"
         ],
-        "hard_rule": "Every morel goes under the knife; if the inside or cap attachment is wrong, do not eat it.",
+        "hard_rule": "Every morel goes under the knife. If it is not cleanly hollow with the right cap attachment, do not eat it.",
         "dangerous_lookalikes": [
           {
-            "slug": "false-morel",
             "risk": "Poisonous / potentially severe or fatal.",
-            "warning": "False morels can look “morel-ish” but may contain gyromitrin-type toxins.",
+            "slug": "false-morel",
             "target_traits": [
-              "Pitted cap, not brain-like folds",
-              "Hollow from cap tip through stem",
-              "Cap correctly attached to stem"
+              "True pitted Morchella cap",
+              "Hollow when sliced lengthwise",
+              "Cap attachment matches true morel type"
             ],
             "lookalike_traits": [
-              "Wrinkled, lobed, brain-like, saddle-shaped, or irregular cap",
-              "Interior may be chambered, cottony, or not cleanly hollow",
-              "Cap may be oddly attached or not attached like a true morel"
+              "Brain-like, wrinkled, lobed, or saddle-like cap",
+              "Interior solid, cottony, or chambered",
+              "Irregular cap attachment"
             ],
-            "required_checks": [
-              "Lengthwise cut required"
-            ],
-            "hard_rule": "If it is not cleanly hollow and correctly attached, do not eat it."
+            "hard_rule": "Non-hollow or brain-like morel-ish mushrooms are not edible morels."
           },
           {
+            "risk": "Not edible / early false morel caution.",
             "slug": "verpa-group",
-            "risk": "Not recommended morel look-alike group.",
-            "warning": "Verpa-like morel look-alikes are not treated as edible in this app.",
             "target_traits": [
-              "True Morchella hollow structure and cap attachment"
+              "True morel cap attachment",
+              "Hollow interior"
             ],
             "lookalike_traits": [
-              "Cap attached only at the top or hanging like a thimble",
-              "Stem may be cottony or chambered"
+              "Cap attached only at top",
+              "Free-hanging thimble/skirt cap",
+              "Cottony or pithy stem"
             ],
-            "required_checks": [
-              "Lengthwise cut required"
-            ],
-            "hard_rule": "A free-hanging cap or cottony/chambered stem means do not eat as a true morel."
+            "hard_rule": "Top-attached free-hanging cap means Verpa caution, not true morel."
           }
         ]
       }
@@ -466,7 +460,51 @@
       "symptoms_body_systems": "If confused with false morels: gastrointestinal tract, liver, kidneys, nervous system, and blood. If true morels are raw/undercooked: gastrointestinal upset.",
       "field_traits_that_create_risk": "Morel-like mushrooms may be wrinkled, lobed, chambered, or attached differently. True morels should be hollow from cap tip through stem when cut lengthwise, with the cap properly attached to the stem.",
       "hard_rule": "Do not eat morels raw or undercooked. Do not eat any “morel” unless every specimen is cut lengthwise and confirmed as true Morchella.",
-      "caution_reason": "False morels and Verpa-type look-alikes can be poisonous. Even true morels can cause gastrointestinal upset if raw, undercooked, eaten in large amounts, or possibly combined with alcohol."
+      "caution_reason": "False morels and Verpa-type look-alikes can be poisonous. Even true morels can cause gastrointestinal upset if raw, undercooked, eaten in large amounts, or possibly combined with alcohol.",
+      "lookalike_risk": {
+        "level": 3,
+        "label": "Extreme — false morel / Verpa confusion possible",
+        "short_label": "Extreme — false morel / Verpa confusion possible",
+        "summary": "Burn-site habitat supports but never proves morel identity; true morel structure still has to check out.",
+        "required_checks": [
+          "Cut every specimen lengthwise",
+          "Interior must be hollow",
+          "Pitted cap attached to the stem",
+          "Reject brain-like folds, saddle shapes, cottony/chambered interiors, or top-attached caps"
+        ],
+        "hard_rule": "Burn-site habitat is not a safety shortcut; every specimen still gets cut open.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Poisonous / potentially severe or fatal.",
+            "slug": "false-morel",
+            "target_traits": [
+              "True pitted Morchella cap",
+              "Hollow when sliced lengthwise",
+              "Cap attachment matches true morel type"
+            ],
+            "lookalike_traits": [
+              "Brain-like, wrinkled, lobed, or saddle-like cap",
+              "Interior solid, cottony, or chambered",
+              "Irregular cap attachment"
+            ],
+            "hard_rule": "Non-hollow or brain-like morel-ish mushrooms are not edible morels."
+          },
+          {
+            "risk": "Not edible / early false morel caution.",
+            "slug": "verpa-group",
+            "target_traits": [
+              "True morel cap attachment",
+              "Hollow interior"
+            ],
+            "lookalike_traits": [
+              "Cap attached only at top",
+              "Free-hanging thimble/skirt cap",
+              "Cottony or pithy stem"
+            ],
+            "hard_rule": "Top-attached free-hanging cap means Verpa caution, not true morel."
+          }
+        ]
+      }
     }
   ]
 }

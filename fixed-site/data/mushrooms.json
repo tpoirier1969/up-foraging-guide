@@ -394,11 +394,17 @@
       "food_quality_score": 2,
       "look_alikes": [
         "old-man-of-the-woods",
-        "parasitic-bolete"
+        "parasitic-bolete",
+        "false-king-bolete",
+        "bitter-bolete",
+        "blue-staining-red-pored-boletes-caution-group"
       ],
       "confused_with": [
         "old-man-of-the-woods",
-        "parasitic-bolete"
+        "parasitic-bolete",
+        "false-king-bolete",
+        "bitter-bolete",
+        "blue-staining-red-pored-boletes-caution-group"
       ],
       "food_role": "food",
       "edibility_status": "edible_with_caution",
@@ -529,7 +535,74 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletinellus.merulioides.vermont1.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-08-10_Boletinellus_merulioides_(Schwein.)_Murrill_247593.jpg?width=480",
-      "completion_status": "complete"
+      "completion_status": "complete",
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — bolete confusion, severe-GI/bitter look-alikes possible",
+        "short_label": "High — bolete confusion, severe-GI/bitter look-alikes possible",
+        "summary": "Edible bolete use needs pore color, staining, host/substrate, taste where appropriate, and separation from false king, bitter Tylopilus, and red-pored/fast-blue-staining caution boletes.",
+        "required_checks": [
+          "Pore check required",
+          "Staining check required",
+          "Host/substrate check required",
+          "Reject red/orange pores",
+          "Reject fast strong blue staining",
+          "Reject bitter taste where safe nibble-and-spit is appropriate"
+        ],
+        "hard_rule": "Do not eat unidentified boletes; red/orange pores, bitter taste, or violent blue staining mean stop.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Severe gastrointestinal illness concern.",
+            "slug": "false-king-bolete",
+            "warning": "False king bolete is a northern/Great Lakes porcini-type danger concern.",
+            "target_traits": [
+              "Non-blue-staining white flesh",
+              "White young pores aging yellow/olive",
+              "Pale netting near upper stem when expected",
+              "Full porcini package matches"
+            ],
+            "lookalike_traits": [
+              "Hemlock or northern Great Lakes false-king concern",
+              "Limited or absent reticulation",
+              "Yellowish flesh",
+              "Inconsistent blue/green-blue staining",
+              "Severe GI reports"
+            ],
+            "hard_rule": "If false king traits are possible, do not eat."
+          },
+          {
+            "risk": "Bitter / meal-spoiling, not deadly.",
+            "slug": "bitter-bolete",
+            "target_traits": [
+              "Mild taste",
+              "White/yellow pores without bitter Tylopilus posture"
+            ],
+            "lookalike_traits": [
+              "Pinkish pores with age",
+              "Brown reticulation in some species",
+              "Distinctly bitter taste"
+            ],
+            "required_checks": [
+              "Tiny nibble-and-spit only if you already know the mushroom is safe to taste"
+            ],
+            "hard_rule": "Bitter taste means not food; one specimen can ruin the pan."
+          },
+          {
+            "risk": "Poisonous / not recommended red-pored blue-staining bolete group.",
+            "slug": "blue-staining-red-pored-boletes-caution-group",
+            "target_traits": [
+              "No red/orange pore surface",
+              "No violent instant blue staining"
+            ],
+            "lookalike_traits": [
+              "Red or orange pores",
+              "Rapid strong blue bruising",
+              "Red/yellow bolete complex traits"
+            ],
+            "hard_rule": "Red/orange pores or fast strong blue staining mean stop unless expert-confirmed."
+          }
+        ]
+      }
     },
     {
       "slug": "aspen-oyster",
@@ -571,11 +644,15 @@
       "food_role": "food",
       "look_alikes": [
         "pearl-oyster",
-        "phoenix-oyster-summer-oyster"
+        "phoenix-oyster-summer-oyster",
+        "angel-wing",
+        "jack-o-lantern"
       ],
       "confused_with": [
         "pearl-oyster",
-        "phoenix-oyster-summer-oyster"
+        "phoenix-oyster-summer-oyster",
+        "angel-wing",
+        "jack-o-lantern"
       ],
       "mushroom_profile": {
         "lane": "gilled",
@@ -721,7 +798,54 @@
       ],
       "look_alike_notes": "Compare with pearl and summer oysters; host wood and season help. Avoid orange jack-o-lanterns, which grow from buried wood/roots and have true orange gills.",
       "edibility_detail": "Edible oyster mushroom after confident identification and cooking. Use the aspen/poplar host clue, decurrent white gills, white flesh, whitish spore print, and shelf-like growth habit; avoid old, waterlogged, buggy, or dried-out specimens and do not assume every pale shelf mushroom on wood is an oyster.",
-      "completion_status": "complete"
+      "completion_status": "complete",
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — pale shelf-gilled mushroom confusion possible",
+        "short_label": "High — pale shelf-gilled mushroom confusion possible",
+        "summary": "Oyster mushrooms are safe only after confirming wood growth, decurrent pale gills, reduced/lateral stem, no ring/volva, and expected spore print. Angel Wing is the major missing caution in conifer country.",
+        "required_checks": [
+          "Substrate check required",
+          "Confirm decurrent pale gills and shelf/lateral form",
+          "Spore print recommended",
+          "No ring or volva",
+          "Avoid conifer-wood oyster-like mushrooms unless Angel Wing is ruled out"
+        ],
+        "hard_rule": "Do not eat oyster-like mushrooms from conifer wood unless Angel Wing has been ruled out.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Not recommended / oyster-like conifer-wood caution.",
+            "slug": "angel-wing",
+            "warning": "Angel Wing can resemble thin white oysters on conifer wood.",
+            "target_traits": [
+              "Fleshy Pleurotus oyster form",
+              "Hardwood/aspen/poplar host for aspen/pearl oysters when expected",
+              "White to pale-lilac spore print"
+            ],
+            "lookalike_traits": [
+              "Thin pure-white shelves",
+              "Often on conifer wood",
+              "Very little stem"
+            ],
+            "hard_rule": "Do not eat oyster-like mushrooms from conifer wood unless Angel Wing has been ruled out."
+          },
+          {
+            "risk": "Poisonous / gastrointestinal illness.",
+            "slug": "jack-o-lantern",
+            "warning": "Orange true-gilled clusters from wood are not the same as edible shelf/ridge mushrooms.",
+            "target_traits": [
+              "Target mushroom lacks true orange gills",
+              "Check underside and growth form"
+            ],
+            "lookalike_traits": [
+              "Bright orange flesh",
+              "Sharp true orange gills",
+              "Dense clusters from wood, roots, or buried roots"
+            ],
+            "hard_rule": "If it has true orange gills, route away from the edible target."
+          }
+        ]
+      }
     },
     {
       "slug": "bay-bolete",
@@ -1017,11 +1141,15 @@
       "food_role": "food",
       "look_alikes": [
         "lion-s-mane",
-        "coral-tooth-fungus"
+        "coral-tooth-fungus",
+        "hedgehog-mushrooms",
+        "Coral fungi / clavarioid fungi"
       ],
       "confused_with": [
         "lion-s-mane",
-        "coral-tooth-fungus"
+        "coral-tooth-fungus",
+        "hedgehog-mushrooms",
+        "Coral fungi / clavarioid fungi"
       ],
       "edibility_detail": "Good edible Hericium when young, white, and tender after confident identification. Confirm a branched white fruitbody with long teeth hanging from branch tips on hardwood; avoid yellowing, brown, soggy, or decaying specimens. Photo coverage remains below the 2-image goal until another exact-rights image is verified.",
       "mushroom_profile": {
@@ -1126,7 +1254,44 @@
         }
       ],
       "look_alike_notes": "Compared with lion's mane and coral tooth, bear's head tooth is branched but has longer, shaggy clusters of teeth hanging from branch tips.",
-      "completion_status": "incomplete_declared"
+      "completion_status": "incomplete_declared",
+      "lookalike_risk": {
+        "level": 1,
+        "label": "Moderate — edible Hericium confusion / condition risk",
+        "short_label": "Moderate — edible Hericium confusion / condition risk",
+        "summary": "Hericium risk is mostly edible species confusion and condition: verify white toothed growth on hardwood and reject yellowed/soggy/old material.",
+        "required_checks": [
+          "Confirm white soft toothed fungus",
+          "Confirm wood/hardwood growth",
+          "Check branching/tooth arrangement if species-level matters",
+          "Reject yellowed, brown, soggy, or old specimens"
+        ],
+        "hard_rule": "No teeth, no Hericium; use Hericium group-level if species separation is uncertain.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Edible confusion.",
+            "slug": "hedgehog-mushrooms",
+            "target_traits": [
+              "Wood-growing Hericium mass with hanging teeth"
+            ],
+            "lookalike_traits": [
+              "Terrestrial cap-and-stem mushroom with teeth under a cap"
+            ],
+            "hard_rule": "Cap-and-stem teeth on soil = Hydnum-style hedgehog, not Hericium."
+          },
+          {
+            "risk": "Not recommended / quality confusion.",
+            "display_name": "Coral fungi / clavarioid fungi",
+            "target_traits": [
+              "Hanging teeth"
+            ],
+            "lookalike_traits": [
+              "Upright coral branches without hanging teeth"
+            ],
+            "hard_rule": "No teeth, no Hericium."
+          }
+        ]
+      }
     },
     {
       "slug": "birch-polypore",
@@ -1804,51 +1969,45 @@
       "caution_reason": "False morels and Verpa-type look-alikes can be poisonous. Even true morels can cause gastrointestinal upset if raw, undercooked, eaten in large amounts, or possibly combined with alcohol.",
       "lookalike_risk": {
         "level": 3,
-        "label": "Extreme — severe false-morel confusion possible",
-        "short_label": "Extreme — severe look-alike possible",
-        "summary": "Morels are choice food only after every specimen is cut lengthwise and separated from Gyromitra/Verpa-style false morels.",
+        "label": "Extreme — false morel / Verpa confusion possible",
+        "short_label": "Extreme — false morel / Verpa confusion possible",
+        "summary": "True morels must be cut lengthwise; false morels and Verpa can overlap in spring.",
         "required_checks": [
           "Cut every specimen lengthwise",
-          "Confirm hollow interior from cap through stem",
-          "Confirm proper cap attachment",
-          "Reject brain-like, chambered, cottony, saddle-shaped, or free-hanging cap structures"
+          "Interior must be hollow from cap through stem",
+          "Cap must be properly attached for the target morel type",
+          "Reject brain-like folds, saddle shapes, cottony/chambered interiors, or top-attached caps"
         ],
-        "hard_rule": "Every morel goes under the knife; if the inside or cap attachment is wrong, do not eat it.",
+        "hard_rule": "Every morel goes under the knife. If it is not cleanly hollow with the right cap attachment, do not eat it.",
         "dangerous_lookalikes": [
           {
-            "slug": "false-morel",
             "risk": "Poisonous / potentially severe or fatal.",
-            "warning": "False morels can look “morel-ish” but may contain gyromitrin-type toxins.",
+            "slug": "false-morel",
             "target_traits": [
-              "Pitted cap, not brain-like folds",
-              "Hollow from cap tip through stem",
-              "Cap correctly attached to stem"
+              "True pitted Morchella cap",
+              "Hollow when sliced lengthwise",
+              "Cap attachment matches true morel type"
             ],
             "lookalike_traits": [
-              "Wrinkled, lobed, brain-like, saddle-shaped, or irregular cap",
-              "Interior may be chambered, cottony, or not cleanly hollow",
-              "Cap may be oddly attached or not attached like a true morel"
+              "Brain-like, wrinkled, lobed, or saddle-like cap",
+              "Interior solid, cottony, or chambered",
+              "Irregular cap attachment"
             ],
-            "required_checks": [
-              "Lengthwise cut required"
-            ],
-            "hard_rule": "If it is not cleanly hollow and correctly attached, do not eat it."
+            "hard_rule": "Non-hollow or brain-like morel-ish mushrooms are not edible morels."
           },
           {
+            "risk": "Not edible / early false morel caution.",
             "slug": "verpa-group",
-            "risk": "Not recommended morel look-alike group.",
-            "warning": "Verpa-like morel look-alikes are not treated as edible in this app.",
             "target_traits": [
-              "True Morchella hollow structure and cap attachment"
+              "True morel cap attachment",
+              "Hollow interior"
             ],
             "lookalike_traits": [
-              "Cap attached only at the top or hanging like a thimble",
-              "Stem may be cottony or chambered"
+              "Cap attached only at top",
+              "Free-hanging thimble/skirt cap",
+              "Cottony or pithy stem"
             ],
-            "required_checks": [
-              "Lengthwise cut required"
-            ],
-            "hard_rule": "A free-hanging cap or cottony/chambered stem means do not eat as a true morel."
+            "hard_rule": "Top-attached free-hanging cap means Verpa caution, not true morel."
           }
         ]
       }

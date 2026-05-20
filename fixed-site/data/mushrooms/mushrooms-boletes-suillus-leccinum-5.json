@@ -315,7 +315,76 @@
       "enlarge_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus_punctipes_275731.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus_punctipes_275731.jpg?width=480"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Suillus_punctipes_275731.jpg?width=480",
+      "lookalike_risk": {
+        "level": 1,
+        "label": "Moderate — Suillus ID, texture, tolerance, and bolete confusion",
+        "short_label": "Moderate — Suillus ID, texture, tolerance, and bolete confusion",
+        "summary": "Suillus risk is usually correct Suillus ID, host association, slimy cap/glandular dots/ring traits, condition, and personal tolerance — not a deadly twin.",
+        "required_checks": [
+          "Host/substrate check required",
+          "Pore check required",
+          "Confirm Suillus traits such as slime, ring, or glandular dots as appropriate",
+          "Reject old, soggy, buggy, mushy specimens"
+        ],
+        "hard_rule": "Do not collapse all Suillus into “slippery jack”; wrong host, wrong ring/dots, or poor condition means stop.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Poisonous / not recommended red-pored blue-staining bolete group.",
+            "slug": "blue-staining-red-pored-boletes-caution-group",
+            "target_traits": [
+              "No red/orange pore surface",
+              "No violent instant blue staining"
+            ],
+            "lookalike_traits": [
+              "Red or orange pores",
+              "Rapid strong blue bruising",
+              "Red/yellow bolete complex traits"
+            ],
+            "hard_rule": "Red/orange pores or fast strong blue staining mean stop unless expert-confirmed."
+          },
+          {
+            "risk": "Bitter / meal-spoiling, not deadly.",
+            "slug": "bitter-bolete",
+            "target_traits": [
+              "Mild taste",
+              "White/yellow pores without bitter Tylopilus posture"
+            ],
+            "lookalike_traits": [
+              "Pinkish pores with age",
+              "Brown reticulation in some species",
+              "Distinctly bitter taste"
+            ],
+            "required_checks": [
+              "Tiny nibble-and-spit only if you already know the mushroom is safe to taste"
+            ],
+            "hard_rule": "Bitter taste means not food; one specimen can ruin the pan."
+          },
+          {
+            "risk": "Edible/quality confusion.",
+            "display_name": "Other Suillus species",
+            "target_traits": [
+              "Species-specific ring, glandular dots, host tree, and pore size"
+            ],
+            "lookalike_traits": [
+              "Wrong host",
+              "Wrong ring/dots",
+              "Old slimy specimens"
+            ],
+            "hard_rule": "Do not collapse all Suillus into one edible label."
+          }
+        ]
+      },
+      "look_alikes": [
+        "blue-staining-red-pored-boletes-caution-group",
+        "bitter-bolete",
+        "Other Suillus species"
+      ],
+      "confused_with": [
+        "blue-staining-red-pored-boletes-caution-group",
+        "bitter-bolete",
+        "Other Suillus species"
+      ]
     },
     {
       "slug": "suillus-sinuspaulianus",
@@ -758,6 +827,75 @@
         8,
         9,
         10
+      ],
+      "lookalike_risk": {
+        "level": 1,
+        "label": "Moderate — Suillus ID, texture, tolerance, and bolete confusion",
+        "short_label": "Moderate — Suillus ID, texture, tolerance, and bolete confusion",
+        "summary": "Suillus risk is usually correct Suillus ID, host association, slimy cap/glandular dots/ring traits, condition, and personal tolerance — not a deadly twin.",
+        "required_checks": [
+          "Host/substrate check required",
+          "Pore check required",
+          "Confirm Suillus traits such as slime, ring, or glandular dots as appropriate",
+          "Reject old, soggy, buggy, mushy specimens"
+        ],
+        "hard_rule": "Do not collapse all Suillus into “slippery jack”; wrong host, wrong ring/dots, or poor condition means stop.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Poisonous / not recommended red-pored blue-staining bolete group.",
+            "slug": "blue-staining-red-pored-boletes-caution-group",
+            "target_traits": [
+              "No red/orange pore surface",
+              "No violent instant blue staining"
+            ],
+            "lookalike_traits": [
+              "Red or orange pores",
+              "Rapid strong blue bruising",
+              "Red/yellow bolete complex traits"
+            ],
+            "hard_rule": "Red/orange pores or fast strong blue staining mean stop unless expert-confirmed."
+          },
+          {
+            "risk": "Bitter / meal-spoiling, not deadly.",
+            "slug": "bitter-bolete",
+            "target_traits": [
+              "Mild taste",
+              "White/yellow pores without bitter Tylopilus posture"
+            ],
+            "lookalike_traits": [
+              "Pinkish pores with age",
+              "Brown reticulation in some species",
+              "Distinctly bitter taste"
+            ],
+            "required_checks": [
+              "Tiny nibble-and-spit only if you already know the mushroom is safe to taste"
+            ],
+            "hard_rule": "Bitter taste means not food; one specimen can ruin the pan."
+          },
+          {
+            "risk": "Edible/quality confusion.",
+            "display_name": "Other Suillus species",
+            "target_traits": [
+              "Species-specific ring, glandular dots, host tree, and pore size"
+            ],
+            "lookalike_traits": [
+              "Wrong host",
+              "Wrong ring/dots",
+              "Old slimy specimens"
+            ],
+            "hard_rule": "Do not collapse all Suillus into one edible label."
+          }
+        ]
+      },
+      "look_alikes": [
+        "blue-staining-red-pored-boletes-caution-group",
+        "bitter-bolete",
+        "Other Suillus species"
+      ],
+      "confused_with": [
+        "blue-staining-red-pored-boletes-caution-group",
+        "bitter-bolete",
+        "Other Suillus species"
       ]
     },
     {

@@ -877,10 +877,16 @@
         "Aspen / poplar"
       ],
       "look_alikes": [
-        "scaber-stalk-boletes-birch-aspen-boletes"
+        "scaber-stalk-boletes-birch-aspen-boletes",
+        "Other Leccinum / scaber-stalk boletes",
+        "false-king-bolete",
+        "blue-staining-red-pored-boletes-caution-group"
       ],
       "confused_with": [
-        "scaber-stalk-boletes-birch-aspen-boletes"
+        "scaber-stalk-boletes-birch-aspen-boletes",
+        "Other Leccinum / scaber-stalk boletes",
+        "false-king-bolete",
+        "blue-staining-red-pored-boletes-caution-group"
       ],
       "general_notes": "",
       "edibility_detail": "Use caution. Leccinum-style boletes can be hard to separate, and local ID matters.",
@@ -937,7 +943,70 @@
       "use_roles": [
         "Food"
       ],
-      "v4283_checked": true
+      "v4283_checked": true,
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — scaber-stalk GI/taxonomy caution",
+        "short_label": "High — scaber-stalk GI/taxonomy caution",
+        "summary": "Leccinum/scaber-stalk boletes are not beginner-safe because taxonomy is difficult, host/staining matter, and GI upset is reported in the group.",
+        "required_checks": [
+          "Host/substrate check required",
+          "Scaber-stalk check required",
+          "Pore and staining-over-time check required",
+          "Cook thoroughly if used",
+          "Expert confirmation recommended"
+        ],
+        "hard_rule": "Do not treat unknown scaber-stalks as casual edibles.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Edible confusion / GI risk.",
+            "display_name": "Other Leccinum / scaber-stalk boletes",
+            "target_traits": [
+              "Scabers on stem",
+              "Correct host",
+              "Expected pore color and staining"
+            ],
+            "lookalike_traits": [
+              "Wrong cap color/host/staining pattern",
+              "Red/orange scaber-stalk caution"
+            ],
+            "hard_rule": "Do not treat unknown scaber-stalks as casual edibles."
+          },
+          {
+            "risk": "Severe gastrointestinal illness concern.",
+            "slug": "false-king-bolete",
+            "warning": "False king bolete is a northern/Great Lakes porcini-type danger concern.",
+            "target_traits": [
+              "Non-blue-staining white flesh",
+              "White young pores aging yellow/olive",
+              "Pale netting near upper stem when expected",
+              "Full porcini package matches"
+            ],
+            "lookalike_traits": [
+              "Hemlock or northern Great Lakes false-king concern",
+              "Limited or absent reticulation",
+              "Yellowish flesh",
+              "Inconsistent blue/green-blue staining",
+              "Severe GI reports"
+            ],
+            "hard_rule": "If false king traits are possible, do not eat."
+          },
+          {
+            "risk": "Poisonous / not recommended red-pored blue-staining bolete group.",
+            "slug": "blue-staining-red-pored-boletes-caution-group",
+            "target_traits": [
+              "No red/orange pore surface",
+              "No violent instant blue staining"
+            ],
+            "lookalike_traits": [
+              "Red or orange pores",
+              "Rapid strong blue bruising",
+              "Red/yellow bolete complex traits"
+            ],
+            "hard_rule": "Red/orange pores or fast strong blue staining mean stop unless expert-confirmed."
+          }
+        ]
+      }
     },
     {
       "slug": "leccinum-quercophilum",
@@ -1163,10 +1232,16 @@
         "Hardwoods"
       ],
       "look_alikes": [
-        "scaber-stalk-boletes-birch-aspen-boletes"
+        "scaber-stalk-boletes-birch-aspen-boletes",
+        "Other Leccinum / scaber-stalk boletes",
+        "false-king-bolete",
+        "blue-staining-red-pored-boletes-caution-group"
       ],
       "confused_with": [
-        "scaber-stalk-boletes-birch-aspen-boletes"
+        "scaber-stalk-boletes-birch-aspen-boletes",
+        "Other Leccinum / scaber-stalk boletes",
+        "false-king-bolete",
+        "blue-staining-red-pored-boletes-caution-group"
       ],
       "general_notes": "",
       "edibility_detail": "Leccinum species can be difficult and sometimes cause stomach upset even when considered edible; keep this one in review until better local documentation exists.",
@@ -1181,7 +1256,70 @@
         "ID / comparison"
       ],
       "v4283_checked": true,
-      "v4287_checked": true
+      "v4287_checked": true,
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — scaber-stalk GI/taxonomy caution",
+        "short_label": "High — scaber-stalk GI/taxonomy caution",
+        "summary": "Leccinum/scaber-stalk boletes are not beginner-safe because taxonomy is difficult, host/staining matter, and GI upset is reported in the group.",
+        "required_checks": [
+          "Host/substrate check required",
+          "Scaber-stalk check required",
+          "Pore and staining-over-time check required",
+          "Cook thoroughly if used",
+          "Expert confirmation recommended"
+        ],
+        "hard_rule": "Do not treat unknown scaber-stalks as casual edibles.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Edible confusion / GI risk.",
+            "display_name": "Other Leccinum / scaber-stalk boletes",
+            "target_traits": [
+              "Scabers on stem",
+              "Correct host",
+              "Expected pore color and staining"
+            ],
+            "lookalike_traits": [
+              "Wrong cap color/host/staining pattern",
+              "Red/orange scaber-stalk caution"
+            ],
+            "hard_rule": "Do not treat unknown scaber-stalks as casual edibles."
+          },
+          {
+            "risk": "Severe gastrointestinal illness concern.",
+            "slug": "false-king-bolete",
+            "warning": "False king bolete is a northern/Great Lakes porcini-type danger concern.",
+            "target_traits": [
+              "Non-blue-staining white flesh",
+              "White young pores aging yellow/olive",
+              "Pale netting near upper stem when expected",
+              "Full porcini package matches"
+            ],
+            "lookalike_traits": [
+              "Hemlock or northern Great Lakes false-king concern",
+              "Limited or absent reticulation",
+              "Yellowish flesh",
+              "Inconsistent blue/green-blue staining",
+              "Severe GI reports"
+            ],
+            "hard_rule": "If false king traits are possible, do not eat."
+          },
+          {
+            "risk": "Poisonous / not recommended red-pored blue-staining bolete group.",
+            "slug": "blue-staining-red-pored-boletes-caution-group",
+            "target_traits": [
+              "No red/orange pore surface",
+              "No violent instant blue staining"
+            ],
+            "lookalike_traits": [
+              "Red or orange pores",
+              "Rapid strong blue bruising",
+              "Red/yellow bolete complex traits"
+            ],
+            "hard_rule": "Red/orange pores or fast strong blue staining mean stop unless expert-confirmed."
+          }
+        ]
+      }
     },
     {
       "slug": "leccinum-subleucophaeum",
@@ -1408,10 +1546,16 @@
       "commonness_score": 2,
       "food_quality_score": 4,
       "look_alikes": [
-        "scaber-stalk-boletes-birch-aspen-boletes"
+        "scaber-stalk-boletes-birch-aspen-boletes",
+        "Other Leccinum / scaber-stalk boletes",
+        "false-king-bolete",
+        "blue-staining-red-pored-boletes-caution-group"
       ],
       "confused_with": [
-        "scaber-stalk-boletes-birch-aspen-boletes"
+        "scaber-stalk-boletes-birch-aspen-boletes",
+        "Other Leccinum / scaber-stalk boletes",
+        "false-king-bolete",
+        "blue-staining-red-pored-boletes-caution-group"
       ],
       "edibility_detail": "Not recommended as a casual edible until the record is better documented for this region.",
       "food_role": "food",
@@ -1423,7 +1567,70 @@
       ],
       "foraging_value": "Use with caution",
       "foraging_value_score": 1,
-      "v4287_checked": true
+      "v4287_checked": true,
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — scaber-stalk GI/taxonomy caution",
+        "short_label": "High — scaber-stalk GI/taxonomy caution",
+        "summary": "Leccinum/scaber-stalk boletes are not beginner-safe because taxonomy is difficult, host/staining matter, and GI upset is reported in the group.",
+        "required_checks": [
+          "Host/substrate check required",
+          "Scaber-stalk check required",
+          "Pore and staining-over-time check required",
+          "Cook thoroughly if used",
+          "Expert confirmation recommended"
+        ],
+        "hard_rule": "Do not treat unknown scaber-stalks as casual edibles.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Edible confusion / GI risk.",
+            "display_name": "Other Leccinum / scaber-stalk boletes",
+            "target_traits": [
+              "Scabers on stem",
+              "Correct host",
+              "Expected pore color and staining"
+            ],
+            "lookalike_traits": [
+              "Wrong cap color/host/staining pattern",
+              "Red/orange scaber-stalk caution"
+            ],
+            "hard_rule": "Do not treat unknown scaber-stalks as casual edibles."
+          },
+          {
+            "risk": "Severe gastrointestinal illness concern.",
+            "slug": "false-king-bolete",
+            "warning": "False king bolete is a northern/Great Lakes porcini-type danger concern.",
+            "target_traits": [
+              "Non-blue-staining white flesh",
+              "White young pores aging yellow/olive",
+              "Pale netting near upper stem when expected",
+              "Full porcini package matches"
+            ],
+            "lookalike_traits": [
+              "Hemlock or northern Great Lakes false-king concern",
+              "Limited or absent reticulation",
+              "Yellowish flesh",
+              "Inconsistent blue/green-blue staining",
+              "Severe GI reports"
+            ],
+            "hard_rule": "If false king traits are possible, do not eat."
+          },
+          {
+            "risk": "Poisonous / not recommended red-pored blue-staining bolete group.",
+            "slug": "blue-staining-red-pored-boletes-caution-group",
+            "target_traits": [
+              "No red/orange pore surface",
+              "No violent instant blue staining"
+            ],
+            "lookalike_traits": [
+              "Red or orange pores",
+              "Rapid strong blue bruising",
+              "Red/yellow bolete complex traits"
+            ],
+            "hard_rule": "Red/orange pores or fast strong blue staining mean stop unless expert-confirmed."
+          }
+        ]
+      }
     }
   ]
 }

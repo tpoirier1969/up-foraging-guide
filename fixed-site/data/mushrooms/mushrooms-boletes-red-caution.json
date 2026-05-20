@@ -121,7 +121,7 @@
           "No strong reticulation"
         ],
         "pore_color": [
-          "Orange-red to red pores",
+          "Bright yellow when young; bruising blue",
           "Bright yellow; bruising blue"
         ],
         "growth_form": [
@@ -172,17 +172,19 @@
         "red-mouth-bolete",
         "Boletus sensibilis",
         "Boletus pseudosensibilis",
-        "Red-pored blue-staining boletes"
+        "Red-pored blue-staining boletes",
+        "Boletus sensibilis / pseudosensibilis type"
       ],
       "confused_with": [
         "blue-staining-red-pored-boletes-caution-group",
-        "red-mouth-bolete"
+        "red-mouth-bolete",
+        "Boletus sensibilis / pseudosensibilis type"
       ],
       "general_notes": "",
       "edibility_detail": "Do not eat unless true bicolor traits are confirmed: red cap/stem, bright yellow young pores, shallow tubes, and flesh that blues faintly or erratically rather than instantly everywhere.",
       "food_role": "food",
       "edibility_status": "edible_with_caution",
-      "field_identification": "Red cap and mostly red stem, bright yellow pores that bruise blue, shallow tube layer, yellow flesh that usually stains blue only faintly or erratically, under hardwoods/oaks. Compare carefully with Boletus sensibilis and pseudosensibilis.",
+      "field_identification": "Red cap and stem with bright yellow pores when young, shallow tube layer, and limited/appropriate blue bruising for true bicolor. Reject red/orange-pored or violently blue-staining red/yellow boletes unless expert-confirmed.",
       "use_links": [
         {
           "label": "MushroomExpert: Boletus bicolor",
@@ -268,32 +270,45 @@
       "danger_level": "",
       "lookalike_risk": {
         "level": 2,
-        "label": "High — red/yellow blue-staining bolete confusion possible",
+        "label": "High — expert bolete ID required",
         "short_label": "High — expert bolete ID required",
-        "summary": "Bicolor-like boletes sit in a red/yellow/blue-staining caution zone. Good food reports do not make this beginner-safe.",
+        "summary": "Bicolor-like red/yellow boletes require expert-level separation from red-pored and fast-blue-staining caution boletes.",
         "required_checks": [
-          "Confirm true bicolor traits",
-          "Reject red/orange pore surfaces outside the expected pattern",
-          "Reject instant strong blue staining everywhere",
-          "Separate from sensibilis/pseudosensibilis-style caution boletes"
+          "Confirm red cap/stem with bright yellow young pores",
+          "Confirm shallow tube layer",
+          "Confirm limited/appropriate blue bruising",
+          "Reject red/orange pores, very rapid dark-blue staining, extensive blue flesh staining, or bitter taste"
         ],
-        "hard_rule": "If the red/yellow bolete does not cleanly fit true bicolor traits, do not eat it.",
+        "hard_rule": "Red- or orange-pored boletes, very rapid dark-blue staining, or extensive blue staining through the flesh mean stop.",
         "dangerous_lookalikes": [
           {
+            "risk": "Poisonous / not recommended red-pored blue-staining bolete group.",
             "slug": "blue-staining-red-pored-boletes-caution-group",
-            "risk": "Caution group — some cause GI illness.",
-            "warning": "This is the main bicolor-like danger bucket for this app.",
             "target_traits": [
-              "Red cap/stem with bright yellow young pores",
-              "Shallow tube layer",
-              "Flesh bruises faintly/erratically rather than violently everywhere"
+              "No red/orange pore surface",
+              "No violent instant blue staining"
             ],
             "lookalike_traits": [
-              "Red/orange pores",
+              "Red or orange pores",
               "Rapid strong blue bruising",
-              "Unclear red/yellow bolete identity"
+              "Red/yellow bolete complex traits"
             ],
-            "hard_rule": "Fast strong blue staining or red/orange-pored uncertainty means do not eat."
+            "hard_rule": "Red/orange pores or fast strong blue staining mean stop unless expert-confirmed."
+          },
+          {
+            "risk": "Poisonous or suspect red/yellow bolete confusion.",
+            "display_name": "Boletus sensibilis / pseudosensibilis type",
+            "target_traits": [
+              "Bright yellow pores when young",
+              "Shallow tubes",
+              "Limited/erratic flesh bluing"
+            ],
+            "lookalike_traits": [
+              "Very rapid dark-blue staining",
+              "Extensive blue staining through flesh",
+              "Red/orange pore surface"
+            ],
+            "hard_rule": "Do not eat bicolor-like boletes unless true bicolor traits are confirmed."
           }
         ]
       }

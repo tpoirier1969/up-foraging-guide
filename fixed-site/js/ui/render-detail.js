@@ -580,7 +580,7 @@ function lookAlikeBlock(record) {
       ${showWarningThumb ? `<div class="lookalike-warning-thumb">${renderImageSlot(linkedRecord, "card", { showMeta: false })}</div>` : ""}
       <div class="lookalike-cue-text">
         <div class="lookalike-title-row">
-          <button class="subtle" type="button" data-detail="${esc(slug)}">${esc(label)}</button>
+          ${linkedRecord ? `<button class="subtle" type="button" data-detail="${esc(slug)}">${esc(label)}</button>` : `<span class="lookalike-title-static">${esc(label)}</span>`}
           ${statusTagHtml(status)}
         </div>
         ${warning ? `<div class="lookalike-warning">${esc(warning)}</div>` : ""}

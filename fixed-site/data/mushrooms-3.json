@@ -290,51 +290,45 @@
       "caution_reason": "False morels and Verpa-type look-alikes can be poisonous. Even true morels can cause gastrointestinal upset if raw, undercooked, eaten in large amounts, or possibly combined with alcohol.",
       "lookalike_risk": {
         "level": 3,
-        "label": "Extreme — severe false-morel confusion possible",
-        "short_label": "Extreme — severe look-alike possible",
-        "summary": "Morels are choice food only after every specimen is cut lengthwise and separated from Gyromitra/Verpa-style false morels.",
+        "label": "Extreme — false morel / Verpa confusion possible",
+        "short_label": "Extreme — false morel / Verpa confusion possible",
+        "summary": "Half-free morels require a special attachment check because the lower cap edge hangs free, but the cap is not attached only at the top like Verpa.",
         "required_checks": [
           "Cut every specimen lengthwise",
-          "Confirm hollow interior from cap through stem",
-          "Confirm proper cap attachment",
-          "Reject brain-like, chambered, cottony, saddle-shaped, or free-hanging cap structures"
+          "Interior must be hollow from cap through stem",
+          "Cap attached about halfway down the stem",
+          "Reject top-only attached caps, cottony interiors, chambered interiors, brain-like folds, saddle shapes, or non-hollow specimens"
         ],
-        "hard_rule": "Every morel goes under the knife; if the inside or cap attachment is wrong, do not eat it.",
+        "hard_rule": "Half-free morels must be hollow and attached partway down the stem; top-only attached caps are Verpa caution.",
         "dangerous_lookalikes": [
           {
-            "slug": "false-morel",
             "risk": "Poisonous / potentially severe or fatal.",
-            "warning": "False morels can look “morel-ish” but may contain gyromitrin-type toxins.",
+            "slug": "false-morel",
             "target_traits": [
-              "Pitted cap, not brain-like folds",
-              "Hollow from cap tip through stem",
-              "Cap correctly attached to stem"
+              "True pitted Morchella cap",
+              "Hollow when sliced lengthwise",
+              "Cap attachment matches true morel type"
             ],
             "lookalike_traits": [
-              "Wrinkled, lobed, brain-like, saddle-shaped, or irregular cap",
-              "Interior may be chambered, cottony, or not cleanly hollow",
-              "Cap may be oddly attached or not attached like a true morel"
+              "Brain-like, wrinkled, lobed, or saddle-like cap",
+              "Interior solid, cottony, or chambered",
+              "Irregular cap attachment"
             ],
-            "required_checks": [
-              "Lengthwise cut required"
-            ],
-            "hard_rule": "If it is not cleanly hollow and correctly attached, do not eat it."
+            "hard_rule": "Non-hollow or brain-like morel-ish mushrooms are not edible morels."
           },
           {
+            "risk": "Not edible / early false morel caution.",
             "slug": "verpa-group",
-            "risk": "Not recommended morel look-alike group.",
-            "warning": "Verpa-like morel look-alikes are not treated as edible in this app.",
             "target_traits": [
-              "True Morchella hollow structure and cap attachment"
+              "True morel cap attachment",
+              "Hollow interior"
             ],
             "lookalike_traits": [
-              "Cap attached only at the top or hanging like a thimble",
-              "Stem may be cottony or chambered"
+              "Cap attached only at top",
+              "Free-hanging thimble/skirt cap",
+              "Cottony or pithy stem"
             ],
-            "required_checks": [
-              "Lengthwise cut required"
-            ],
-            "hard_rule": "A free-hanging cap or cottony/chambered stem means do not eat as a true morel."
+            "hard_rule": "Top-attached free-hanging cap means Verpa caution, not true morel."
           }
         ]
       }
@@ -379,11 +373,17 @@
       "look_alikes": [
         "smooth-chanterelles",
         "yellowfoot-chanterelle",
-        "red-chanterelles-cinnabars"
+        "red-chanterelles-cinnabars",
+        "yellow-chanterelles-hardwood-associated-complex",
+        "lion-s-mane",
+        "Sarcodon / scaly toothed mushrooms"
       ],
       "confused_with": [
         "smooth-chanterelles",
-        "yellowfoot-chanterelle"
+        "yellowfoot-chanterelle",
+        "yellow-chanterelles-hardwood-associated-complex",
+        "lion-s-mane",
+        "Sarcodon / scaly toothed mushrooms"
       ],
       "edibility_detail": "Choice edible when young and confidently identified by the tooth underside. Older specimens can become bitter or buggy.",
       "mushroom_profile": {
@@ -529,7 +529,55 @@
         "warnings": ""
       },
       "rights_review_status": "exact_metadata_verified",
-      "completion_status": "complete"
+      "completion_status": "complete",
+      "lookalike_risk": {
+        "level": 1,
+        "label": "Moderate — tooth/gill/quality confusion",
+        "short_label": "Moderate — tooth/gill/quality confusion",
+        "summary": "Hedgehogs are comparatively safe when the underside has soft teeth/spines, but underside confirmation is mandatory.",
+        "required_checks": [
+          "Underside teeth required",
+          "Habitat/substrate check required",
+          "Reject ridges, gills, or dark scaly toothed mushrooms"
+        ],
+        "hard_rule": "No teeth = not a hedgehog.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Edible confusion.",
+            "slug": "yellow-chanterelles-hardwood-associated-complex",
+            "target_traits": [
+              "Soft teeth under cap"
+            ],
+            "lookalike_traits": [
+              "Ridges/false gills, not detachable teeth"
+            ],
+            "hard_rule": "No teeth = not a hedgehog."
+          },
+          {
+            "risk": "Edible confusion.",
+            "slug": "lion-s-mane",
+            "target_traits": [
+              "Cap-and-stem mushroom on soil"
+            ],
+            "lookalike_traits": [
+              "White wood-growing toothed mass"
+            ],
+            "hard_rule": "Wood-growing tooth mass routes to Hericium, not Hydnum."
+          },
+          {
+            "risk": "Bitter / quality confusion.",
+            "display_name": "Sarcodon / scaly toothed mushrooms",
+            "target_traits": [
+              "Pale peach/tan Hydnum with soft teeth"
+            ],
+            "lookalike_traits": [
+              "Dark scaly cap",
+              "Tougher or bitter flesh"
+            ],
+            "hard_rule": "Dark scaly toothed mushrooms are not beginner hedgehogs."
+          }
+        ]
+      }
     },
     {
       "slug": "hemlock-varnish-shelf-reishi",
@@ -822,10 +870,17 @@
       "food_role": "food",
       "look_alikes": [
         "black-staining-polypore",
-        "cauliflower-mushroom"
+        "cauliflower-mushroom",
+        "Black-staining polypore / Meripilus sumstinei",
+        "Berkeley’s polypore / Bondarzewia berkeleyi",
+        "umbrella-polypore"
       ],
       "confused_with": [
-        "black-staining-polypore"
+        "black-staining-polypore",
+        "Black-staining polypore / Meripilus sumstinei",
+        "Berkeley’s polypore / Bondarzewia berkeleyi",
+        "umbrella-polypore",
+        "cauliflower-mushroom"
       ],
       "edibility_detail": "Choice edible when fresh, young, and confidently identified; older rosettes get tough or bug-ridden.",
       "mushroom_profile": {
@@ -949,15 +1004,66 @@
       ],
       "completion_status": "complete",
       "lookalike_risk": {
-        "level": 0,
-        "label": "Low — no major dangerous look-alike flagged",
-        "short_label": "Low",
-        "summary": "No close deadly or strongly poisonous look-alike is currently flagged for this app entry. Still confirm the full ID and condition.",
+        "level": 1,
+        "label": "Moderate — polypore/quality confusion",
+        "short_label": "Moderate — polypore/quality confusion",
+        "summary": "No major deadly look-alike is flagged, but hen can be confused with other rosette polypores and quality declines with age.",
         "required_checks": [
-          "Confirm the app’s field marks and growth habit",
-          "Reject old, rotten, buggy, or uncertain specimens"
+          "Substrate/tree-base check required",
+          "Pored underside required",
+          "No gills",
+          "Reject black-staining or thick cream shelf forms as hen"
         ],
-        "hard_rule": "Low look-alike risk does not mean skip identification."
+        "hard_rule": "Black-staining fronds, thick cream shelves, or ribbon folds are not hen of the woods.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Quality confusion.",
+            "display_name": "Black-staining polypore / Meripilus sumstinei",
+            "target_traits": [
+              "Gray-brown rosette of many spoon/fan fronds at oak base",
+              "Pored underside"
+            ],
+            "lookalike_traits": [
+              "Bruises/stains black strongly",
+              "Tougher texture"
+            ],
+            "hard_rule": "Black-staining fronds are not hen of the woods."
+          },
+          {
+            "risk": "Quality confusion.",
+            "display_name": "Berkeley’s polypore / Bondarzewia berkeleyi",
+            "target_traits": [
+              "Many thinner gray-brown fronds"
+            ],
+            "lookalike_traits": [
+              "Thicker cream-colored shelves",
+              "Coarse/tough texture"
+            ],
+            "hard_rule": "Thick cream shelves are not maitake."
+          },
+          {
+            "risk": "Edible confusion.",
+            "slug": "umbrella-polypore",
+            "target_traits": [
+              "Spoon/fan fronds"
+            ],
+            "lookalike_traits": [
+              "Individual funnel-like caps on branching stalks"
+            ],
+            "hard_rule": "Funnel caps on branching stalks key to umbrella polypore, not hen."
+          },
+          {
+            "risk": "Edible confusion.",
+            "slug": "cauliflower-mushroom",
+            "target_traits": [
+              "Pored fan fronds"
+            ],
+            "lookalike_traits": [
+              "Noodle/ribbon folds, not pored fronds"
+            ],
+            "hard_rule": "Ribbon folds are not hen."
+          }
+        ]
       }
     },
     {
@@ -1003,7 +1109,6 @@
       "look_alikes": [
         "jack-o-lantern",
         "galerina",
-        "meadow-mushroom",
         "sulfur-tuft",
         "brick-cap",
         "shaggy-scalycap"
@@ -1011,7 +1116,6 @@
       "confused_with": [
         "jack-o-lantern",
         "galerina",
-        "meadow-mushroom",
         "sulfur-tuft",
         "brick-cap",
         "shaggy-scalycap"
@@ -1221,10 +1325,10 @@
           "White spore print required",
           "Confirm Armillaria/Desarmillaria traits",
           "Check every specimen in mixed wood clusters",
-          "Reject rusty-brown, cinnamon-brown, or purple-brown spore prints",
-          "Reject bright orange clustered wood mushrooms"
+          "Reject rusty-brown, cinnamon, purple-brown, greenish, or dark spores",
+          "Reject bright pumpkin-orange flesh or sharp true gills"
         ],
-        "hard_rule": "Do not eat honey mushrooms unless every specimen in the collection fits the edible honey-mushroom group and a mature cap gives a white spore print.",
+        "hard_rule": "Treat every honey mushroom collection specimen-by-specimen. One wrong wood mushroom ruins the basket.",
         "dangerous_lookalikes": [
           {
             "slug": "galerina",
@@ -1846,40 +1950,43 @@
       "lookalike_risk": {
         "level": 2,
         "label": "High — poisonous/severe-GI and bitter bolete confusion possible",
-        "short_label": "High — bolete confusion possible",
+        "short_label": "High — poisonous/severe-GI and bitter bolete confusion possible",
         "summary": "Porcini-type boletes are food only when bitter Tylopilus, false king bolete, and red-pored/fast-blue-staining boletes are ruled out.",
         "required_checks": [
-          "Confirm mild taste only with safe nibble-and-spit when appropriate",
+          "Confirm non-blue-staining white flesh",
+          "Confirm white young pores aging yellow/olive",
+          "Confirm pale netting near upper stem when expected",
           "Reject pinkish pores plus bitter taste",
           "Reject red/orange pores",
-          "Reject fast strong blue staining",
-          "Confirm expected stem netting and host/habitat"
+          "Reject strong or inconsistent blue/green-blue staining"
         ],
-        "hard_rule": "Do not eat unidentified boletes; red/orange pores, bitter taste, or violent blue staining mean stop.",
+        "hard_rule": "Do not eat any bolete that does not match the full porcini package.",
         "dangerous_lookalikes": [
           {
-            "slug": "false-king-bolete",
             "risk": "Severe gastrointestinal illness concern.",
-            "warning": "False king bolete is a Great Lakes porcini-type danger concern.",
+            "slug": "false-king-bolete",
+            "warning": "False king bolete is a northern/Great Lakes porcini-type danger concern.",
             "target_traits": [
-              "Firm mild porcini-like flesh",
-              "Correct pore color and stem netting for the target entry",
-              "No troubling staining pattern"
+              "Non-blue-staining white flesh",
+              "White young pores aging yellow/olive",
+              "Pale netting near upper stem when expected",
+              "Full porcini package matches"
             ],
             "lookalike_traits": [
-              "Wrong pore/staining pattern for the target porcini-type",
-              "Hemlock/Great Lakes false-king concern",
-              "Can resemble edible porcini to nonexperts"
+              "Hemlock or northern Great Lakes false-king concern",
+              "Limited or absent reticulation",
+              "Yellowish flesh",
+              "Inconsistent blue/green-blue staining",
+              "Severe GI reports"
             ],
             "hard_rule": "If false king traits are possible, do not eat."
           },
           {
-            "slug": "bitter-bolete",
             "risk": "Bitter / meal-spoiling, not deadly.",
-            "warning": "Bitter boletes are quality failures, not a reason to call the target poisonous.",
+            "slug": "bitter-bolete",
             "target_traits": [
               "Mild taste",
-              "White/yellow pores without bitter pink-pored Tylopilus posture"
+              "White/yellow pores without bitter Tylopilus posture"
             ],
             "lookalike_traits": [
               "Pinkish pores with age",
@@ -1887,23 +1994,23 @@
               "Distinctly bitter taste"
             ],
             "required_checks": [
-              "Tiny nibble-and-spit taste only if you know the mushroom is safe to taste"
+              "Tiny nibble-and-spit only if you already know the mushroom is safe to taste"
             ],
             "hard_rule": "Bitter taste means not food; one specimen can ruin the pan."
           },
           {
+            "risk": "Poisonous / not recommended red-pored blue-staining bolete group.",
             "slug": "blue-staining-red-pored-boletes-caution-group",
-            "risk": "Caution group — some red-pored/blue-staining boletes cause GI illness.",
             "target_traits": [
               "No red/orange pore surface",
               "No violent instant blue staining"
             ],
             "lookalike_traits": [
-              "Red/orange pores",
+              "Red or orange pores",
               "Rapid strong blue bruising",
               "Red/yellow bolete complex traits"
             ],
-            "hard_rule": "Red/orange pores or fast blue staining mean expert-only or leave it."
+            "hard_rule": "Red/orange pores or fast strong blue staining mean stop unless expert-confirmed."
           }
         ]
       }
@@ -2240,11 +2347,15 @@
       ],
       "look_alikes": [
         "bear-s-head-tooth",
-        "coral-tooth-fungus"
+        "coral-tooth-fungus",
+        "hedgehog-mushrooms",
+        "Coral fungi / clavarioid fungi"
       ],
       "confused_with": [
         "bear-s-head-tooth",
-        "coral-tooth-fungus"
+        "coral-tooth-fungus",
+        "hedgehog-mushrooms",
+        "Coral fungi / clavarioid fungi"
       ],
       "edibility_detail": "Choice edible when fresh, white, and confidently identified. Avoid yellowed, soggy, or old specimens.",
       "food_role": "food_medicinal_interest",
@@ -2373,7 +2484,44 @@
         "warnings": ""
       },
       "rights_review_status": "exact_metadata_verified",
-      "completion_status": "incomplete_declared"
+      "completion_status": "incomplete_declared",
+      "lookalike_risk": {
+        "level": 1,
+        "label": "Moderate — edible Hericium confusion / condition risk",
+        "short_label": "Moderate — edible Hericium confusion / condition risk",
+        "summary": "Hericium risk is mostly edible species confusion and condition: verify white toothed growth on hardwood and reject yellowed/soggy/old material.",
+        "required_checks": [
+          "Confirm white soft toothed fungus",
+          "Confirm wood/hardwood growth",
+          "Check branching/tooth arrangement if species-level matters",
+          "Reject yellowed, brown, soggy, or old specimens"
+        ],
+        "hard_rule": "No teeth, no Hericium; use Hericium group-level if species separation is uncertain.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Edible confusion.",
+            "slug": "hedgehog-mushrooms",
+            "target_traits": [
+              "Wood-growing Hericium mass with hanging teeth"
+            ],
+            "lookalike_traits": [
+              "Terrestrial cap-and-stem mushroom with teeth under a cap"
+            ],
+            "hard_rule": "Cap-and-stem teeth on soil = Hydnum-style hedgehog, not Hericium."
+          },
+          {
+            "risk": "Not recommended / quality confusion.",
+            "display_name": "Coral fungi / clavarioid fungi",
+            "target_traits": [
+              "Hanging teeth"
+            ],
+            "lookalike_traits": [
+              "Upright coral branches without hanging teeth"
+            ],
+            "hard_rule": "No teeth, no Hericium."
+          }
+        ]
+      }
     },
     {
       "slug": "lobster-mushroom",
@@ -2411,14 +2559,18 @@
       "food_role": "food",
       "look_alikes": [
         "jack-o-lantern",
-        "red-chanterelles-cinnabars"
+        "red-chanterelles-cinnabars",
+        "short-stemmed-russula",
+        "edible-milk-caps-volemus-group"
       ],
       "confused_with": [
         "russula-brevipes-group",
         "short-stemmed-russula",
         "lactarius-deceptivus",
         "orange-moldy-mushrooms",
-        "old-decaying-mushrooms"
+        "old-decaying-mushrooms",
+        "edible-milk-caps-volemus-group",
+        "jack-o-lantern"
       ],
       "edibility_detail": "Choice edible when fresh, firm, and fully transformed. This is a parasitic fungus on other mushrooms, usually Russula or Lactarius. Eat only firm, fresh, fully orange specimens with the host mushroom clearly transformed.",
       "mushroom_profile": {
@@ -2575,7 +2727,59 @@
       "symptoms_body_systems": "Mostly gastrointestinal upset risk from spoiled, old, partially parasitized, or uncertain specimens.",
       "field_traits_that_create_risk": "Orange crust should thoroughly cover/deform the host mushroom. Reject specimens where the host is still mostly visible, soft, slimy, purple, foul-smelling, or only patched with orange mold.",
       "hard_rule": "Do not eat partial, rotten, soft, foul, or mostly untransformed orange-moldy mushrooms as lobster mushrooms.",
-      "caution_reason": "Condition and complete parasitization matter more than the name."
+      "caution_reason": "Condition and complete parasitization matter more than the name.",
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — host/partial-infection uncertainty",
+        "short_label": "High — host/partial-infection uncertainty",
+        "summary": "Lobster mushroom is a parasitized Russula/Lactarius-type host. Risk rises with partial infection, rot, mold, or orange-gilled look-alikes.",
+        "required_checks": [
+          "Cut/check condition required",
+          "Host/shape check required",
+          "Reject partial orange coating if host traits remain unclear",
+          "Reject old, foul, light, purple, soft, or moldy specimens"
+        ],
+        "hard_rule": "Partial orange coating is not enough; if normal host traits are still doing the talking, identify the host separately.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Host confusion.",
+            "slug": "short-stemmed-russula",
+            "target_traits": [
+              "Fully transformed hard orange parasite crust"
+            ],
+            "lookalike_traits": [
+              "White Russula host not fully parasitized"
+            ],
+            "hard_rule": "Partial orange coating is not enough."
+          },
+          {
+            "risk": "Host confusion.",
+            "slug": "edible-milk-caps-volemus-group",
+            "target_traits": [
+              "Fully transformed lobster mushroom"
+            ],
+            "lookalike_traits": [
+              "Milkcap traits still visible, latex present, incomplete parasitism"
+            ],
+            "hard_rule": "If milkcap traits remain, identify the host separately."
+          },
+          {
+            "risk": "Poisonous / gastrointestinal illness.",
+            "slug": "jack-o-lantern",
+            "warning": "Orange true-gilled clusters from wood are not the same as edible shelf/ridge mushrooms.",
+            "target_traits": [
+              "Target mushroom lacks true orange gills",
+              "Check underside and growth form"
+            ],
+            "lookalike_traits": [
+              "Bright orange flesh",
+              "Sharp true orange gills",
+              "Dense clusters from wood, roots, or buried roots"
+            ],
+            "hard_rule": "If it has true orange gills, route away from the edible target."
+          }
+        ]
+      }
     },
     {
       "slug": "meadow-mushroom",
@@ -2626,12 +2830,14 @@
       "look_alikes": [
         "destroying-angel",
         "yellow-staining-agaricus",
-        "green-spored-parasol"
+        "green-spored-parasol",
+        "white-amanita-button-warning"
       ],
       "confused_with": [
         "destroying-angel",
         "green-spored-parasol",
-        "yellow-staining-agaricus"
+        "yellow-staining-agaricus",
+        "white-amanita-button-warning"
       ],
       "mushroom_profile": {
         "lane": "gilled",
@@ -2822,54 +3028,67 @@
       "lookalike_risk": {
         "level": 3,
         "label": "Extreme — deadly Amanita-button confusion possible",
-        "short_label": "Extreme — deadly button-stage look-alike possible",
-        "summary": "Meadow/field Agaricus can be good food, but button-stage white mushrooms require gill/spore/base checks because Amanitas and yellow-staining Agaricus are serious traps.",
+        "short_label": "Extreme — deadly Amanita-button confusion possible",
+        "summary": "Meadow/field Agaricus can be good food, but button-stage white mushrooms require gill/spore/base checks, and yellow-staining Agaricus plus green-spored parasols are serious traps.",
         "required_checks": [
           "Confirm gills mature pink to chocolate-brown",
           "Dark brown spore print required when uncertain",
           "No volva, cup, sack, or bulb at the base",
           "Reject bright yellow staining at stem base",
-          "Reject phenolic/inky/iodine/chemical odor"
+          "Reject phenolic/inky/iodine/chemical odor",
+          "Reject parasol-like mushrooms with greenish gills or dull green spore print"
         ],
         "hard_rule": "Do not eat Agaricus buttons until gill color, spore print, stem base, staining, and odor all fit.",
         "dangerous_lookalikes": [
           {
-            "slug": "destroying-angel",
-            "risk": "Deadly — amatoxin poisoning.",
-            "warning": "White Amanita buttons can be mistaken for edible white Agaricus buttons.",
+            "risk": "Deadly — Amanita button risk.",
+            "slug": "white-amanita-button-warning",
             "target_traits": [
-              "Gills become pink then chocolate-brown",
-              "Dark brown spore print",
-              "No volva/cup/bulb at base"
+              "Pink-to-chocolate gills",
+              "Dark brown spores",
+              "No volva/cup/bulb"
             ],
             "lookalike_traits": [
-              "White gills and white spore print",
-              "Cup/volva/sack/bulb at base, sometimes buried",
-              "May have a ring"
+              "White gills/spores",
+              "Volva/cup/sack/bulb at base",
+              "May have ring"
             ],
             "required_checks": [
-              "Spore print required if uncertain",
-              "Dig up entire base"
+              "Dig up entire base",
+              "Spore print required if uncertain"
             ],
             "hard_rule": "White gills/spores plus any volva/cup/bulb means do not eat."
           },
           {
-            "slug": "yellow-staining-agaricus",
             "risk": "Poisonous / gastrointestinal illness.",
-            "warning": "Yellow-staining Agaricus can look like edible field mushrooms.",
+            "slug": "yellow-staining-agaricus",
             "target_traits": [
               "Pleasant mushroomy odor",
               "No strong chrome-yellow staining at stem base"
             ],
             "lookalike_traits": [
-              "Bright yellow staining, especially stem base or cap edge",
+              "Bright yellow staining at base/cap edge",
               "Phenolic/inky/iodine/chemical/disinfectant odor"
             ],
-            "required_checks": [
-              "Cut/check stem base",
-              "Smell before cooking"
-            ],
             "hard_rule": "Bright yellow base staining or chemical odor means do not eat."
+          },
+          {
+            "risk": "Poisonous / severe gastrointestinal illness.",
+            "slug": "green-spored-parasol",
+            "target_traits": [
+              "Pink-to-chocolate Agaricus gills",
+              "Dark brown spore print",
+              "Meadow/field Agaricus build"
+            ],
+            "lookalike_traits": [
+              "Parasol-like scaly lawn mushroom",
+              "Gills turning gray-green/greenish",
+              "Dull green spore print"
+            ],
+            "required_checks": [
+              "Spore print required if parasol-like or uncertain"
+            ],
+            "hard_rule": "Green spore print means do not eat as Agaricus."
           }
         ]
       }

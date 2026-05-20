@@ -235,50 +235,48 @@
       "hard_rule": "Do not eat wild enoki without a confirmed white spore print and velvet-foot stem traits. Any brown/rust spore print means do not eat.",
       "lookalike_risk": {
         "level": 3,
-        "label": "Extreme — deadly Galerina confusion possible",
+        "label": "Extreme — deadly look-alike possible",
         "short_label": "Extreme — deadly look-alike possible",
-        "summary": "Wild velvet foot can be confused with Deadly Galerina on wood. The required separator is a white spore print plus the dark velvety ringless stem base.",
+        "summary": "Wild velvet foot/enoki overlaps with Deadly Galerina in wood habitat, so spore print and stem traits are mandatory.",
         "required_checks": [
           "White spore print required",
-          "Confirm ringless stem",
-          "Confirm dark velvety stem base",
-          "Reject rusty-brown spore prints"
+          "Cold-season hardwood/deadwood or buried-wood context",
+          "Sticky orange-brown cap",
+          "No ring",
+          "Dark velvety lower stem"
         ],
-        "hard_rule": "Do not eat wild velvet foot if the spore print is brown/rusty or the stem lacks the expected dark velvety base.",
+        "hard_rule": "Reject any rusty-brown spore print, ring zone, greenish gills, non-velvety stem base, or warm-season wood cluster that does not fit velvet foot.",
         "dangerous_lookalikes": [
           {
+            "risk": "Deadly — amatoxin risk.",
             "slug": "galerina",
-            "risk": "Deadly — amatoxin poisoning can damage liver and kidneys.",
-            "warning": "Deadly Galerina grows on wood and can overlap with wild enoki/velvet foot.",
             "target_traits": [
               "White spore print",
               "No ring",
-              "Dark velvety stem base",
-              "Cold-season wood growth"
+              "Dark velvety lower stem",
+              "Cold-season hardwood growth"
             ],
             "lookalike_traits": [
-              "Rusty-brown spore print",
-              "May have a thin ring or ring zone",
-              "Small brown wood-growing mushroom"
-            ],
-            "required_checks": [
-              "Spore print required"
+              "Rusty-brown spores",
+              "Ring or ring zone may be present",
+              "Small brown wood mushroom"
             ],
             "hard_rule": "Any rusty-brown spore print means do not eat."
           },
           {
+            "risk": "Poisonous / not edible.",
             "slug": "sulfur-tuft",
-            "risk": "Poisonous / not edible wood-cluster mushroom.",
             "target_traits": [
               "White spore print",
-              "Velvety darkening stem base"
+              "Orange-brown sticky cap",
+              "Dark velvety stem base"
             ],
             "lookalike_traits": [
-              "Yellow-green gills",
-              "Purple-brown spore print",
-              "Clustered on wood"
+              "Greenish-yellow gills",
+              "Purple-brown spores",
+              "Bitter yellow clustered wood mushroom"
             ],
-            "hard_rule": "Purple-brown spores or greenish gills mean do not eat."
+            "hard_rule": "Greenish gills or purple-brown spores mean do not eat."
           }
         ]
       }
@@ -513,47 +511,46 @@
       ],
       "lookalike_risk": {
         "level": 2,
-        "label": "High — poisonous orange look-alikes possible",
-        "short_label": "High — poisonous look-alike possible",
-        "summary": "True chanterelles must be separated from jack-o’-lanterns and false chanterelles by underside structure, growth habit, and flesh/texture.",
+        "label": "High — poisonous orange-gilled look-alike possible",
+        "short_label": "High — poisonous orange-gilled look-alike possible",
+        "summary": "Chanterelles must be separated from jack-o’-lanterns and false chanterelles by underside, flesh, and substrate.",
         "required_checks": [
-          "Confirm blunt ridges / false gills, not blade-like true gills",
-          "Confirm ground growth, not dense clusters from wood or buried roots",
-          "Reject soft orange gilled mushrooms on wood/litter when unsure"
+          "Confirm blunt forked ridges, wrinkles, folds, or nearly smooth underside",
+          "Confirm ground growth, not dense wood clusters",
+          "Reject sharp separable true gills",
+          "Reject bright orange flesh"
         ],
-        "hard_rule": "Do not eat orange “chanterelles” with sharp true gills or clustered wood growth.",
+        "hard_rule": "For yellow/smooth chanterelles, sharp true gills or dense orange wood clusters mean stop.",
         "dangerous_lookalikes": [
           {
+            "risk": "Poisonous / GI illness.",
             "slug": "jack-o-lantern",
-            "risk": "Poisonous — causes cramps, vomiting, and diarrhea.",
-            "warning": "Jack-o’-lantern is the main poisonous chanterelle look-alike.",
             "target_traits": [
-              "Blunt, forked ridges/false gills",
-              "Usually grows from soil",
-              "Firmer flesh, not bright orange throughout"
+              "Ground-growing chanterelle habit",
+              "Firm flesh",
+              "Blunt forked ridges, wrinkles, folds, or nearly smooth underside"
             ],
             "lookalike_traits": [
-              "Sharp blade-like true gills",
-              "Dense clusters from wood, stumps, or buried roots",
-              "Bright orange flesh"
+              "Dense clusters from wood/buried roots",
+              "Sharp true orange gills",
+              "Orange flesh"
             ],
-            "hard_rule": "True gills plus wood-cluster growth means do not eat as chanterelle."
+            "hard_rule": "Wood clusters with sharp true orange gills are not chanterelles."
           },
           {
+            "risk": "Not recommended / orange-gilled confusion.",
             "slug": "false-chanterelle",
-            "risk": "Not recommended / confusion record.",
-            "warning": "False chanterelle is mainly a field-ID trap: it has true gills, not blunt ridges.",
             "target_traits": [
-              "Blunt ridges that look melted into the underside",
-              "Firmer chanterelle texture",
-              "Often fruity odor"
+              "Blunt ridges/folds, not blade-like gills",
+              "Firm chanterelle flesh",
+              "Ground growth"
             ],
             "lookalike_traits": [
-              "Thin, forked true gills",
-              "Softer flimsier flesh",
-              "Often on woody debris or conifer litter"
+              "Thin true forked orange gills",
+              "Flimsier texture",
+              "Often on woody debris/litter"
             ],
-            "hard_rule": "Do not use color alone; underside structure decides the call."
+            "hard_rule": "Sharp separable true gills mean do not eat as chanterelle."
           }
         ]
       }
@@ -788,47 +785,46 @@
       ],
       "lookalike_risk": {
         "level": 2,
-        "label": "High — poisonous orange look-alikes possible",
-        "short_label": "High — poisonous look-alike possible",
-        "summary": "True chanterelles must be separated from jack-o’-lanterns and false chanterelles by underside structure, growth habit, and flesh/texture.",
+        "label": "High — poisonous orange-gilled look-alike possible",
+        "short_label": "High — poisonous orange-gilled look-alike possible",
+        "summary": "Chanterelles must be separated from jack-o’-lanterns and false chanterelles by underside, flesh, and substrate.",
         "required_checks": [
-          "Confirm blunt ridges / false gills, not blade-like true gills",
-          "Confirm ground growth, not dense clusters from wood or buried roots",
-          "Reject soft orange gilled mushrooms on wood/litter when unsure"
+          "Confirm blunt forked ridges, wrinkles, folds, or nearly smooth underside",
+          "Confirm ground growth, not dense wood clusters",
+          "Reject sharp separable true gills",
+          "Reject bright orange flesh"
         ],
-        "hard_rule": "Do not eat orange “chanterelles” with sharp true gills or clustered wood growth.",
+        "hard_rule": "For yellow/smooth chanterelles, sharp true gills or dense orange wood clusters mean stop.",
         "dangerous_lookalikes": [
           {
+            "risk": "Poisonous / GI illness.",
             "slug": "jack-o-lantern",
-            "risk": "Poisonous — causes cramps, vomiting, and diarrhea.",
-            "warning": "Jack-o’-lantern is the main poisonous chanterelle look-alike.",
             "target_traits": [
-              "Blunt, forked ridges/false gills",
-              "Usually grows from soil",
-              "Firmer flesh, not bright orange throughout"
+              "Ground-growing chanterelle habit",
+              "Firm flesh",
+              "Blunt forked ridges, wrinkles, folds, or nearly smooth underside"
             ],
             "lookalike_traits": [
-              "Sharp blade-like true gills",
-              "Dense clusters from wood, stumps, or buried roots",
-              "Bright orange flesh"
+              "Dense clusters from wood/buried roots",
+              "Sharp true orange gills",
+              "Orange flesh"
             ],
-            "hard_rule": "True gills plus wood-cluster growth means do not eat as chanterelle."
+            "hard_rule": "Wood clusters with sharp true orange gills are not chanterelles."
           },
           {
+            "risk": "Not recommended / orange-gilled confusion.",
             "slug": "false-chanterelle",
-            "risk": "Not recommended / confusion record.",
-            "warning": "False chanterelle is mainly a field-ID trap: it has true gills, not blunt ridges.",
             "target_traits": [
-              "Blunt ridges that look melted into the underside",
-              "Firmer chanterelle texture",
-              "Often fruity odor"
+              "Blunt ridges/folds, not blade-like gills",
+              "Firm chanterelle flesh",
+              "Ground growth"
             ],
             "lookalike_traits": [
-              "Thin, forked true gills",
-              "Softer flimsier flesh",
-              "Often on woody debris or conifer litter"
+              "Thin true forked orange gills",
+              "Flimsier texture",
+              "Often on woody debris/litter"
             ],
-            "hard_rule": "Do not use color alone; underside structure decides the call."
+            "hard_rule": "Sharp separable true gills mean do not eat as chanterelle."
           }
         ]
       }
@@ -1103,7 +1099,10 @@
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Morchella%20americana%2070966.jpg?width=480",
       "look_alike_notes": "Every morel must be cut lengthwise before eating; discard any specimen that is not hollow from cap tip to stem base or has a wrinkled/brain-like cap instead of true pits. Link false morels/Gyromitra and Verpa-style early false morels as primary dangers.",
-      "confused_with": [],
+      "confused_with": [
+        "false-morel",
+        "verpa-group"
+      ],
       "safety": "Edible with caution",
       "food_value": "Choice",
       "quality_notes": "Excellent spring mushroom when fresh and firm; quality drops when old, dry, buggy, sandy, or mushy.",
@@ -1126,13 +1125,60 @@
       "legacy_alias": true,
       "list_visibility": "hidden-duplicate",
       "redirect_note": "Yellow morels are covered under the canonical white-yellow-morels record.",
-      "look_alikes": [],
+      "look_alikes": [
+        "false-morel",
+        "verpa-group"
+      ],
       "search_aliases": [
         "yellow morel",
         "yellow morels",
         "Morchella americana",
         "Morchella esculentoides"
-      ]
+      ],
+      "lookalike_risk": {
+        "level": 3,
+        "label": "Extreme — false morel / Verpa confusion possible",
+        "short_label": "Extreme — false morel / Verpa confusion possible",
+        "summary": "True morels must be cut lengthwise; false morels and Verpa can overlap in spring.",
+        "required_checks": [
+          "Cut every specimen lengthwise",
+          "Interior must be hollow from cap through stem",
+          "Cap must be properly attached for the target morel type",
+          "Reject brain-like folds, saddle shapes, cottony/chambered interiors, or top-attached caps"
+        ],
+        "hard_rule": "Every morel goes under the knife. If it is not cleanly hollow with the right cap attachment, do not eat it.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Poisonous / potentially severe or fatal.",
+            "slug": "false-morel",
+            "target_traits": [
+              "True pitted Morchella cap",
+              "Hollow when sliced lengthwise",
+              "Cap attachment matches true morel type"
+            ],
+            "lookalike_traits": [
+              "Brain-like, wrinkled, lobed, or saddle-like cap",
+              "Interior solid, cottony, or chambered",
+              "Irregular cap attachment"
+            ],
+            "hard_rule": "Non-hollow or brain-like morel-ish mushrooms are not edible morels."
+          },
+          {
+            "risk": "Not edible / early false morel caution.",
+            "slug": "verpa-group",
+            "target_traits": [
+              "True morel cap attachment",
+              "Hollow interior"
+            ],
+            "lookalike_traits": [
+              "Cap attached only at top",
+              "Free-hanging thimble/skirt cap",
+              "Cottony or pithy stem"
+            ],
+            "hard_rule": "Top-attached free-hanging cap means Verpa caution, not true morel."
+          }
+        ]
+      }
     },
     {
       "slug": "yellowfoot-chanterelle",
@@ -1372,7 +1418,50 @@
       "symptoms_body_systems": "If confused with jack-o’-lantern: gastrointestinal tract, with cramps, vomiting, and diarrhea.",
       "field_traits_that_create_risk": "True chanterelles have blunt, forked ridges or false gills that look melted into the underside, grow from soil, and are usually singly or loosely scattered. Jack-o’-lanterns grow in dense clusters from wood or buried roots and have sharp true gills.",
       "hard_rule": "Do not eat any “chanterelle” unless the underside has blunt ridges, not blade-like gills, and the mushroom is not growing from wood.",
-      "caution_reason": "The main danger is confusing true chanterelles with jack-o’-lanterns or false chanterelles. Jack-o’-lanterns are poisonous."
+      "caution_reason": "The main danger is confusing true chanterelles with jack-o’-lanterns or false chanterelles. Jack-o’-lanterns are poisonous.",
+      "lookalike_risk": {
+        "level": 1,
+        "label": "Moderate — small orange/brown mushroom confusion possible",
+        "short_label": "Moderate — small orange/brown mushroom confusion possible",
+        "summary": "Yellowfoot is less like jack-o’-lantern than golden chanterelles, but it still needs the hollow yellow stem and fold-like underside package.",
+        "required_checks": [
+          "Confirm small brownish cap",
+          "Confirm hollow yellow stem",
+          "Confirm blunt folds/shallow ridges, not sharp gills",
+          "Reject wood-clustered orange mushrooms"
+        ],
+        "hard_rule": "Do not use yellow color alone; no hollow yellow stem and fold-like underside means no yellowfoot.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Not recommended / true-gilled confusion.",
+            "slug": "false-chanterelle",
+            "target_traits": [
+              "Hollow yellow stem",
+              "Fold-like underside"
+            ],
+            "lookalike_traits": [
+              "True forked orange gills",
+              "Flimsier texture"
+            ],
+            "hard_rule": "Sharp true gills mean not yellowfoot."
+          },
+          {
+            "risk": "Poisonous / gastrointestinal illness.",
+            "slug": "jack-o-lantern",
+            "warning": "Orange true-gilled clusters from wood are not the same as edible shelf/ridge mushrooms.",
+            "target_traits": [
+              "Target mushroom lacks true orange gills",
+              "Check underside and growth form"
+            ],
+            "lookalike_traits": [
+              "Bright orange flesh",
+              "Sharp true orange gills",
+              "Dense clusters from wood, roots, or buried roots"
+            ],
+            "hard_rule": "If it has true orange gills, route away from the edible target."
+          }
+        ]
+      }
     },
     {
       "slug": "wine-cap-king-stropharia",
@@ -1731,11 +1820,15 @@
       "look_alike_notes": "Brown jelly fungi such as Exidia species can look similar, but they usually form more blob-like, brain-like, or cushiony masses rather than thin ear-shaped cups. Leafy Tremella-like jelly fungi can form clustered folds, but they are usually more frilly or fused into masses instead of distinct ear-like lobes. Substrate and shape matter more here than color alone.",
       "look_alikes": [
         "exidia-jelly-fungi",
-        "tremella-leafy-jelly-fungi"
+        "tremella-leafy-jelly-fungi",
+        "Amber jelly roll / Exidia group",
+        "Brown cup fungi / Peziza-Gyromitra-like cups"
       ],
       "confused_with": [
         "exidia-jelly-fungi",
-        "tremella-leafy-jelly-fungi"
+        "tremella-leafy-jelly-fungi",
+        "Amber jelly roll / Exidia group",
+        "Brown cup fungi / Peziza-Gyromitra-like cups"
       ],
       "medicinal": {
         "has_meaningful_content": false,
@@ -1743,6 +1836,43 @@
         "evidence_tier": "",
         "preparation_notes": "",
         "warnings": ""
+      },
+      "lookalike_risk": {
+        "level": 1,
+        "label": "Moderate — jelly fungus / cup fungus confusion",
+        "short_label": "Moderate — jelly fungus / cup fungus confusion",
+        "summary": "Wood ear risk is mostly jelly fungus/cup fungus confusion; confirm ear-like gelatinous fruiting bodies attached to wood.",
+        "required_checks": [
+          "Substrate check required",
+          "Texture check required",
+          "Confirm ear-like gelatinous/rubbery wood-attached form",
+          "Reject terrestrial brittle/leathery cups"
+        ],
+        "hard_rule": "If it is not ear-like, gelatinous/rubbery, and wood-attached, do not call it wood ear.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Edible or quality confusion.",
+            "display_name": "Amber jelly roll / Exidia group",
+            "target_traits": [
+              "Ear-shaped rubbery-gelatinous lobe attached to wood"
+            ],
+            "lookalike_traits": [
+              "Blob-like or irregular jelly, less ear-shaped"
+            ],
+            "hard_rule": "If it is not ear-like and wood-attached, do not call it wood ear."
+          },
+          {
+            "risk": "Not recommended.",
+            "display_name": "Brown cup fungi / Peziza-Gyromitra-like cups",
+            "target_traits": [
+              "Gelatinous/rubbery wood-attached ear"
+            ],
+            "lookalike_traits": [
+              "Brittle or leathery cup on soil, not gelatinous wood ear"
+            ],
+            "hard_rule": "Terrestrial brown cups should not be eaten as wood ear."
+          }
+        ]
       }
     },
     {
@@ -2185,61 +2315,69 @@
       },
       "lookalike_risk": {
         "level": 2,
-        "label": "High — acrid/toxic milkcap confusion possible",
-        "short_label": "High — specific milkcap ID required",
-        "summary": "Milk caps are edible only as specific confirmed species/groups. Latex alone is not a food signal.",
+        "label": "High — milkcap group complexity / acrid look-alikes possible",
+        "short_label": "High — milkcap group complexity / acrid look-alikes possible",
+        "summary": "Volemus-type edible milk caps need white latex, correct odor/staining behavior, host/habitat, and mild taste under expert protocol. Old dry specimens can lose reliable latex.",
         "required_checks": [
-          "Confirm latex color and latex color-change over time",
-          "Confirm taste posture: reject acrid, peppery, bitter types",
-          "Confirm odor and host tree",
-          "Old/dry specimens may produce little latex"
+          "Latex check required",
+          "Latex color/staining check required",
+          "Odor and host/habitat check required",
+          "Reject acrid, peppery, woolly, yellowing-latex, or unidentified milkcaps",
+          "Old dry specimens with unreliable latex are not beginner-safe"
         ],
-        "hard_rule": "Do not eat generic milk caps; use only the exact edible milkcap entry the specimen fits.",
+        "hard_rule": "Do not eat milk caps based only on “it has latex”; exact milkcap type must be confirmed.",
         "dangerous_lookalikes": [
           {
+            "risk": "Not recommended / acrid milkcap.",
             "slug": "white-peppery-milkcap-group",
-            "risk": "Not recommended / acrid gastrointestinal risk.",
-            "warning": "Peppery white milkcaps are not the same as edible milkcap groups.",
             "target_traits": [
-              "Mild edible-group taste/odor",
-              "Correct latex behavior for the target entry"
+              "Mild volemus-type traits",
+              "Correct white latex/staining/odor package"
             ],
             "lookalike_traits": [
-              "Acrid, hot, or peppery taste",
-              "White latex and white/pale cap can mislead"
+              "Hot/acrid/peppery white milk",
+              "White peppery milkcap posture"
             ],
-            "required_checks": [
-              "Taste only with safe spit-out protocol when appropriate"
-            ],
-            "hard_rule": "Acrid, hot, peppery, or bitter milkcaps are not food entries."
+            "hard_rule": "Peppery white milkcaps stay out of edible milkcap use."
           },
           {
+            "risk": "Poisonous / avoid.",
             "slug": "yellowing-milkcap-group",
-            "risk": "Not recommended / confusing latex reaction group.",
-            "warning": "Yellowing latex is a key separator from edible target milkcaps.",
             "target_traits": [
-              "Latex behavior matches the target edible group"
+              "Volemus-type white latex behavior, not quick sulfur-yellow change"
             ],
             "lookalike_traits": [
-              "White latex turns yellow",
-              "Uncertain staining over time"
+              "White latex turning yellow",
+              "Yellow staining wrong for target"
             ],
-            "required_checks": [
-              "Watch latex/staining changes over several minutes"
-            ],
-            "hard_rule": "Unknown or yellowing-latex milkcaps are no-eat unless the exact entry says otherwise."
+            "hard_rule": "Yellowing latex means do not eat as volemus-type milkcap."
           },
           {
+            "risk": "Poisonous / avoid.",
             "slug": "woolly-milkcap-group",
-            "risk": "Not recommended / GI irritant look-alike group.",
             "target_traits": [
-              "Target edible milkcap cap texture and latex pattern"
+              "No woolly pink cap margin",
+              "Mild traits"
             ],
             "lookalike_traits": [
-              "Woolly/fuzzy cap margin",
-              "Pinkish to pale cap with acrid milkcap posture"
+              "Woolly/hairy pink cap margin",
+              "White latex",
+              "Hot/acrid burn"
             ],
-            "hard_rule": "Woolly/acrid milkcaps are not generic edible milkcaps."
+            "hard_rule": "Woolly pink acrid milkcaps are not edible milkcaps."
+          },
+          {
+            "risk": "Russula confusion.",
+            "slug": "short-stemmed-russula",
+            "target_traits": [
+              "Latex/milk present when fresh",
+              "Milkcap texture/odor/staining"
+            ],
+            "lookalike_traits": [
+              "No latex",
+              "Brittle/chalky Russula flesh"
+            ],
+            "hard_rule": "No latex in a fresh specimen means re-check as Russula, not milkcap."
           }
         ]
       }
@@ -2417,93 +2555,74 @@
       },
       "lookalike_risk": {
         "level": 3,
-        "label": "Extreme — deadly wood-mushroom confusion possible",
+        "label": "Extreme — deadly look-alike possible",
         "short_label": "Extreme — deadly look-alike possible",
-        "summary": "Honey mushrooms can be good food for experienced foragers, but Deadly Galerina and other clustered wood mushrooms are similar enough that spore print and specimen-by-specimen checks are mandatory.",
+        "summary": "Bulbous honey needs the full Armillaria gallica package, not generic honey-mushroom confidence.",
         "required_checks": [
           "White spore print required",
-          "Confirm Armillaria/Desarmillaria traits",
-          "Check every specimen in mixed wood clusters",
-          "Reject rusty-brown, cinnamon-brown, or purple-brown spore prints",
-          "Reject bright orange clustered wood mushrooms"
+          "Confirm swollen/bulbous stem base",
+          "Confirm yellowish ring zone or flimsy ring",
+          "Confirm whitish gills and wood/buried-root growth",
+          "Reject rusty-brown spores, orange true gills, sulfur-yellow clusters, or specimens lacking the bulbous-base/ring-zone package"
         ],
-        "hard_rule": "Do not eat honey mushrooms unless every specimen in the collection fits the edible honey-mushroom group and a mature cap gives a white spore print.",
+        "hard_rule": "For bulbous honey, confirm the full package or leave it.",
         "dangerous_lookalikes": [
           {
+            "risk": "Deadly — amatoxin risk.",
             "slug": "galerina",
-            "risk": "Deadly — amatoxin poisoning can damage liver and kidneys after delayed symptoms.",
-            "warning": "Deadly Galerina can grow on wood near honey mushrooms; spore print color is a stop-sign check.",
             "target_traits": [
-              "White spore print",
-              "Pale gills, not rusty-brown",
-              "Armillaria/Desarmillaria growth from wood, roots, or buried wood",
-              "Each specimen in a cluster matches the honey-mushroom group being used"
+              "White spores",
+              "Swollen stem base",
+              "Yellowish ring zone or flimsy ring",
+              "Whitish gills"
             ],
             "lookalike_traits": [
-              "Rusty-brown spore print",
-              "Small brown wood-growing mushroom",
-              "Thin ring or ring zone may be present",
-              "Can grow mixed with other wood mushrooms"
+              "Rusty-brown spores",
+              "Small brown wood mushroom",
+              "Thin ring zone may be present"
             ],
-            "required_checks": [
-              "Take a spore print from mature caps",
-              "Check every specimen in a mixed wood cluster"
-            ],
-            "hard_rule": "Any rusty-brown spore print means do not eat."
+            "hard_rule": "Rusty-brown spores mean do not eat."
           },
           {
-            "slug": "jack-o-lantern",
-            "risk": "Poisonous — causes gastrointestinal poisoning.",
-            "warning": "Jack-o’-lanterns can overlap with clustered wood-growing mushrooms and are poisonous.",
-            "target_traits": [
-              "Honey-yellow to brown tones rather than bright pumpkin-orange flesh",
-              "White spore print",
-              "Honey-mushroom structure, not thick orange true gills"
-            ],
-            "lookalike_traits": [
-              "Bright orange flesh",
-              "Sharp true orange gills",
-              "Dense clusters from wood, stumps, or buried roots"
-            ],
-            "hard_rule": "Do not eat orange clustered wood mushrooms as honey mushrooms."
-          },
-          {
+            "risk": "Poisonous / not edible.",
             "slug": "sulfur-tuft",
-            "risk": "Poisonous / not edible — clustered wood mushroom with dark spores.",
-            "warning": "Sulfur tuft is a clustered wood mushroom; yellow-green gills and purple-brown spores separate it from honey mushrooms.",
             "target_traits": [
-              "White spore print",
-              "Pale gills",
-              "Honey-brown cap colors without greenish gills"
+              "White spores",
+              "Whitish gills"
             ],
             "lookalike_traits": [
-              "Sulfur-yellow to greenish-yellow tones",
-              "Gills become greenish to dark purple-brown",
-              "Purple-brown spore print",
-              "Often bitter"
+              "Sulfur-yellow to greenish gills",
+              "Purple-brown spore print"
             ],
             "hard_rule": "Greenish gills or purple-brown spores mean do not eat."
           },
           {
-            "slug": "shaggy-scalycap",
-            "risk": "Unsafe / not recommended — Pholiota-type clustered wood mushroom.",
-            "warning": "Shaggy scalycap is not a deadly twin like Galerina, but it is a common honey-mushroom confusion trap.",
+            "risk": "Poisonous / gastrointestinal illness.",
+            "slug": "jack-o-lantern",
+            "warning": "Orange true-gilled clusters from wood are not the same as edible shelf/ridge mushrooms.",
             "target_traits": [
-              "White spore print",
-              "Honey-mushroom cap and stem without coarse shaggy scales covering both",
-              "Armillaria/Desarmillaria traits match consistently across the collection"
+              "Target mushroom lacks true orange gills",
+              "Check underside and growth form"
             ],
             "lookalike_traits": [
-              "Coarse shaggy/scaly cap",
-              "Scaly stem",
-              "Cinnamon-brown to rusty-brown spore print",
-              "Clustered on wood"
+              "Bright orange flesh",
+              "Sharp true orange gills",
+              "Dense clusters from wood, roots, or buried roots"
             ],
-            "required_checks": [
-              "Check cap/stem texture",
-              "Take a spore print when wood-cluster ID is uncertain"
+            "hard_rule": "If it has true orange gills, route away from the edible target."
+          },
+          {
+            "risk": "Not recommended / Pholiota confusion.",
+            "slug": "shaggy-scalycap",
+            "target_traits": [
+              "Bulbous base and Armillaria ring-zone package",
+              "White spore print"
             ],
-            "hard_rule": "Do not eat mixed wood clusters unless each mushroom is separated and confirmed."
+            "lookalike_traits": [
+              "Coarse shaggy scales on cap and stem",
+              "Rusty/cinnamon-brown spores"
+            ],
+            "hard_rule": "Coarse scaly Pholiota-like clusters are not bulbous honey."
           }
         ]
       }
@@ -2700,93 +2819,73 @@
       },
       "lookalike_risk": {
         "level": 3,
-        "label": "Extreme — deadly wood-mushroom confusion possible",
+        "label": "Extreme — deadly look-alike possible",
         "short_label": "Extreme — deadly look-alike possible",
-        "summary": "Honey mushrooms can be good food for experienced foragers, but Deadly Galerina and other clustered wood mushrooms are similar enough that spore print and specimen-by-specimen checks are mandatory.",
+        "summary": "Ringless honeys need their own checks because lack of a ring does not remove Deadly Galerina or sulfur-tuft risk.",
         "required_checks": [
           "White spore print required",
-          "Confirm Armillaria/Desarmillaria traits",
-          "Check every specimen in mixed wood clusters",
-          "Reject rusty-brown, cinnamon-brown, or purple-brown spore prints",
-          "Reject bright orange clustered wood mushrooms"
+          "Confirm ringless clustered growth from wood or buried roots",
+          "Confirm pale gills and fused/connected stem bases",
+          "Reject ring zones, cobwebby veil remnants, rusty-brown spores, purple-brown spores, or orange true gills"
         ],
-        "hard_rule": "Do not eat honey mushrooms unless every specimen in the collection fits the edible honey-mushroom group and a mature cap gives a white spore print.",
+        "hard_rule": "Ringless does not mean safe; do not eat unless every specimen fits ringless honey and gives white spores.",
         "dangerous_lookalikes": [
           {
+            "risk": "Deadly — amatoxin risk.",
             "slug": "galerina",
-            "risk": "Deadly — amatoxin poisoning can damage liver and kidneys after delayed symptoms.",
-            "warning": "Deadly Galerina can grow on wood near honey mushrooms; spore print color is a stop-sign check.",
             "target_traits": [
-              "White spore print",
-              "Pale gills, not rusty-brown",
-              "Armillaria/Desarmillaria growth from wood, roots, or buried wood",
-              "Each specimen in a cluster matches the honey-mushroom group being used"
+              "Ringless honey has white spores",
+              "Pale gills",
+              "No ring or cobwebby veil remnants",
+              "Clustered from wood or buried roots"
             ],
             "lookalike_traits": [
               "Rusty-brown spore print",
-              "Small brown wood-growing mushroom",
-              "Thin ring or ring zone may be present",
-              "Can grow mixed with other wood mushrooms"
+              "Small brown wood mushroom",
+              "Ring zone may be present"
             ],
-            "required_checks": [
-              "Take a spore print from mature caps",
-              "Check every specimen in a mixed wood cluster"
-            ],
-            "hard_rule": "Any rusty-brown spore print means do not eat."
+            "hard_rule": "Rusty-brown spores mean do not eat."
           },
           {
-            "slug": "jack-o-lantern",
-            "risk": "Poisonous — causes gastrointestinal poisoning.",
-            "warning": "Jack-o’-lanterns can overlap with clustered wood-growing mushrooms and are poisonous.",
-            "target_traits": [
-              "Honey-yellow to brown tones rather than bright pumpkin-orange flesh",
-              "White spore print",
-              "Honey-mushroom structure, not thick orange true gills"
-            ],
-            "lookalike_traits": [
-              "Bright orange flesh",
-              "Sharp true orange gills",
-              "Dense clusters from wood, stumps, or buried roots"
-            ],
-            "hard_rule": "Do not eat orange clustered wood mushrooms as honey mushrooms."
-          },
-          {
+            "risk": "Poisonous / not edible.",
             "slug": "sulfur-tuft",
-            "risk": "Poisonous / not edible — clustered wood mushroom with dark spores.",
-            "warning": "Sulfur tuft is a clustered wood mushroom; yellow-green gills and purple-brown spores separate it from honey mushrooms.",
             "target_traits": [
-              "White spore print",
-              "Pale gills",
-              "Honey-brown cap colors without greenish gills"
+              "White spores",
+              "Pale gills"
             ],
             "lookalike_traits": [
-              "Sulfur-yellow to greenish-yellow tones",
-              "Gills become greenish to dark purple-brown",
-              "Purple-brown spore print",
-              "Often bitter"
+              "Sulfur-yellow or greenish gills",
+              "Purple-brown spores"
             ],
             "hard_rule": "Greenish gills or purple-brown spores mean do not eat."
           },
           {
-            "slug": "shaggy-scalycap",
-            "risk": "Unsafe / not recommended — Pholiota-type clustered wood mushroom.",
-            "warning": "Shaggy scalycap is not a deadly twin like Galerina, but it is a common honey-mushroom confusion trap.",
+            "risk": "Poisonous / gastrointestinal illness.",
+            "slug": "jack-o-lantern",
+            "warning": "Orange true-gilled clusters from wood are not the same as edible shelf/ridge mushrooms.",
             "target_traits": [
-              "White spore print",
-              "Honey-mushroom cap and stem without coarse shaggy scales covering both",
-              "Armillaria/Desarmillaria traits match consistently across the collection"
+              "Target mushroom lacks true orange gills",
+              "Check underside and growth form"
             ],
             "lookalike_traits": [
-              "Coarse shaggy/scaly cap",
-              "Scaly stem",
-              "Cinnamon-brown to rusty-brown spore print",
-              "Clustered on wood"
+              "Bright orange flesh",
+              "Sharp true orange gills",
+              "Dense clusters from wood, roots, or buried roots"
             ],
-            "required_checks": [
-              "Check cap/stem texture",
-              "Take a spore print when wood-cluster ID is uncertain"
+            "hard_rule": "If it has true orange gills, route away from the edible target."
+          },
+          {
+            "risk": "Not recommended / Pholiota confusion.",
+            "slug": "shaggy-scalycap",
+            "target_traits": [
+              "Not coarsely shaggy-scaled",
+              "White spores"
             ],
-            "hard_rule": "Do not eat mixed wood clusters unless each mushroom is separated and confirmed."
+            "lookalike_traits": [
+              "Coarse scales on cap and stem",
+              "Cinnamon/rusty-brown spores"
+            ],
+            "hard_rule": "Coarse scaly Pholiota-like clusters are not ringless honeys."
           }
         ]
       }
@@ -3041,7 +3140,8 @@
       "look_alikes": [
         "meadow-mushroom",
         "destroying-angel",
-        "death-cap"
+        "death-cap",
+        "entoloma-warning-group"
       ],
       "confused_with": [
         "meadow-mushroom",
@@ -3343,12 +3443,14 @@
       "look_alikes": [
         "green-spored-parasol",
         "fools-funnel-clitocybe-rivulosa",
-        "meadow-mushroom"
+        "meadow-mushroom",
+        "inocybe-clitocybe-muscarine-risk-group"
       ],
       "confused_with": [
         "green-spored-parasol",
         "fools-funnel-clitocybe-rivulosa",
-        "meadow-mushroom"
+        "meadow-mushroom",
+        "inocybe-clitocybe-muscarine-risk-group"
       ],
       "look_alike_notes": "Do not use the ring pattern alone: green-spored parasol, meadow mushrooms, and poisonous pale funnels can also appear in grass or rings. Fairy ring mushroom is smaller, tan, white-spored, has well-spaced gills, and a tough pliant stem; fool’s funnel has more crowded decurrent gills and muscarine risk.",
       "mushroom_profile": {
@@ -3470,7 +3572,66 @@
       ],
       "review_status": "needs_review",
       "completion_status": "incomplete",
-      "mushroom_card_note": "Small tan grass mushroom; fairy rings alone do not identify it."
+      "mushroom_card_note": "Small tan grass mushroom; fairy rings alone do not identify it.",
+      "lookalike_risk": {
+        "level": 3,
+        "label": "Extreme — small lawn mushroom / muscarine look-alike risk",
+        "short_label": "Extreme — small lawn mushroom / muscarine look-alike risk",
+        "summary": "Fairy-ring growth is not an ID trait by itself; poisonous Clitocybe/Inocybe species can overlap in lawns and grassy areas.",
+        "required_checks": [
+          "Expert confirmation required for beginners",
+          "Spore print recommended but not sufficient",
+          "Confirm tough wiry stem and well-spaced gills",
+          "Reject pale funnels, decurrent gills, fibrous caps/stems, and parasol-like lawn mushrooms"
+        ],
+        "hard_rule": "Small lawn mushrooms are not casual food; decurrent funnel gills or fibrous muscarine-risk traits mean do not eat.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Poisonous / muscarine risk.",
+            "slug": "fools-funnel-clitocybe-rivulosa",
+            "target_traits": [
+              "Tan/buff cap",
+              "Tough wiry stem",
+              "Well-spaced gills",
+              "Grassy ring",
+              "Can revive after drying"
+            ],
+            "lookalike_traits": [
+              "Pale gray-white/pinkish funnel",
+              "Gills running down stalk",
+              "Fragile flesh"
+            ],
+            "hard_rule": "Decurrent funnel gills in grass = do not eat as fairy ring mushroom."
+          },
+          {
+            "risk": "Poisonous / muscarine risk.",
+            "slug": "inocybe-clitocybe-muscarine-risk-group",
+            "target_traits": [
+              "Tough stem",
+              "Buff cap",
+              "Widely spaced gills"
+            ],
+            "lookalike_traits": [
+              "Fibrous cap/stem",
+              "Small gray-brown/pale mushrooms",
+              "Muscarine-risk group"
+            ],
+            "hard_rule": "Small lawn mushrooms need expert-level confirmation."
+          },
+          {
+            "risk": "Poisonous / GI illness.",
+            "slug": "green-spored-parasol",
+            "target_traits": [
+              "Small tan Marasmius with white spore print"
+            ],
+            "lookalike_traits": [
+              "Larger parasol/lepiotoid lawn mushroom",
+              "Green spore print"
+            ],
+            "hard_rule": "Parasol-shaped lawn mushrooms are not fairy ring mushrooms."
+          }
+        ]
+      }
     },
     {
       "slug": "lactarius-indigo",
@@ -3540,12 +3701,14 @@
       "look_alikes": [
         "yellowing-milkcap-group",
         "white-peppery-milkcap-group",
-        "edible-milk-caps-volemus-group"
+        "edible-milk-caps-volemus-group",
+        "orange-latex-milkcap-group"
       ],
       "confused_with": [
         "yellowing-milkcap-group",
         "white-peppery-milkcap-group",
-        "edible-milk-caps-volemus-group"
+        "edible-milk-caps-volemus-group",
+        "orange-latex-milkcap-group"
       ],
       "links": [
         "https://www.mushroomexpert.com/lactarius_indigo.html"
@@ -3599,61 +3762,53 @@
       "hard_rule": "Do not eat uncertain blue-gray milkcaps without blue latex.",
       "lookalike_risk": {
         "level": 1,
-        "label": "Moderate — milkcap confirmation required",
-        "short_label": "Moderate — confirm blue latex",
-        "summary": "Indigo milk cap is distinctive, but blue color alone is not enough; confirm true milkcap structure and blue latex/staining.",
+        "label": "Moderate — confirm actual blue latex",
+        "short_label": "Moderate — confirm actual blue latex",
+        "summary": "Indigo milk cap is distinctive only when actual blue latex and blue tissue/staining behavior are confirmed; blue-gray cap color alone is not enough.",
         "required_checks": [
-          "Confirm latex color and latex color-change over time",
-          "Confirm taste posture: reject acrid, peppery, bitter types",
-          "Confirm odor and host tree",
-          "Old/dry specimens may produce little latex"
+          "Cut gills/flesh and confirm deep indigo latex",
+          "Confirm blue tissues with greenish staining of damage",
+          "Reject old dry specimens if latex/traits are unclear",
+          "Do not use cap color alone"
         ],
-        "hard_rule": "Do not eat generic milk caps; use only the exact edible milkcap entry the specimen fits.",
+        "hard_rule": "No blue latex means no indigo milk cap.",
         "dangerous_lookalikes": [
           {
-            "slug": "white-peppery-milkcap-group",
-            "risk": "Not recommended / acrid gastrointestinal risk.",
-            "warning": "Peppery white milkcaps are not the same as edible milkcap groups.",
-            "target_traits": [
-              "Mild edible-group taste/odor",
-              "Correct latex behavior for the target entry"
-            ],
-            "lookalike_traits": [
-              "Acrid, hot, or peppery taste",
-              "White latex and white/pale cap can mislead"
-            ],
-            "required_checks": [
-              "Taste only with safe spit-out protocol when appropriate"
-            ],
-            "hard_rule": "Acrid, hot, peppery, or bitter milkcaps are not food entries."
-          },
-          {
+            "risk": "Not recommended / wrong latex system.",
             "slug": "yellowing-milkcap-group",
-            "risk": "Not recommended / confusing latex reaction group.",
-            "warning": "Yellowing latex is a key separator from edible target milkcaps.",
             "target_traits": [
-              "Latex behavior matches the target edible group"
+              "Deep indigo latex",
+              "Blue flesh/gills with greenish staining"
             ],
             "lookalike_traits": [
-              "White latex turns yellow",
-              "Uncertain staining over time"
+              "White latex turning yellow",
+              "Non-blue milk system"
             ],
-            "required_checks": [
-              "Watch latex/staining changes over several minutes"
-            ],
-            "hard_rule": "Unknown or yellowing-latex milkcaps are no-eat unless the exact entry says otherwise."
+            "hard_rule": "White/yellowing latex is not indigo milk cap."
           },
           {
-            "slug": "woolly-milkcap-group",
-            "risk": "Not recommended / GI irritant look-alike group.",
+            "risk": "Edible confusion / wrong latex color.",
+            "slug": "orange-latex-milkcap-group",
             "target_traits": [
-              "Target edible milkcap cap texture and latex pattern"
+              "Blue latex"
             ],
             "lookalike_traits": [
-              "Woolly/fuzzy cap margin",
-              "Pinkish to pale cap with acrid milkcap posture"
+              "Orange latex",
+              "Orange/green saffron milkcap pattern"
             ],
-            "hard_rule": "Woolly/acrid milkcaps are not generic edible milkcaps."
+            "hard_rule": "Orange latex routes to orange-latex milkcap, not indigo."
+          },
+          {
+            "risk": "Not recommended / acrid milkcap.",
+            "slug": "white-peppery-milkcap-group",
+            "target_traits": [
+              "Blue latex and mild posture"
+            ],
+            "lookalike_traits": [
+              "White latex",
+              "Peppery/acrid taste"
+            ],
+            "hard_rule": "White peppery milkcaps are not indigo milk caps."
           }
         ]
       }
@@ -3725,8 +3880,18 @@
         "spore_print": "White to cream/pale yellow for many milkcaps and russulas; check species/group notes."
       },
       "look_alike_notes": "Lactarius vinaceorufescens / yellowing milkcaps: white latex that quickly turns yellow, not orange latex avoid; this guide should not place yellow-latex milkcaps in the saffron edible bucket Jack-o'-lantern mushroom: orange true-gilled mushroom on wood/buried roots with no latex poisonous GI mushroom; not a milkcap Chanterelles: false ridges rather than true gills and no latex different morphology lane",
-      "look_alikes": [],
-      "confused_with": [],
+      "look_alikes": [
+        "yellowing-milkcap-group",
+        "white-peppery-milkcap-group",
+        "woolly-milkcap-group",
+        "lactarius-indigo"
+      ],
+      "confused_with": [
+        "yellowing-milkcap-group",
+        "white-peppery-milkcap-group",
+        "woolly-milkcap-group",
+        "lactarius-indigo"
+      ],
       "links": [
         "https://www.mushroomexpert.com/lactarius_deliciosus.html",
         "https://www.mushroomexpert.com/lactarius_deliciosus_deterrimus.html",
@@ -3794,7 +3959,73 @@
       "eating_use_notes": "Cook; good sautéed, fried, braised, or preserved. Use species/group-level confirmation.",
       "risk_reason": "Milk color, staining, taste, host tree, and ground-growing habit matter. White-latex yellowing milkcaps and orange non-milkcaps should not be folded into this group.",
       "field_traits_that_create_risk": "Orange latex must be observed; some taxa green-stain, while Lactarius thyinos-type forms have orange milk without green bruising. No latex means this is not the target group.",
-      "hard_rule": "Do not eat orange mushrooms as saffron milkcaps unless latex is orange and the rest of the milkcap traits fit."
+      "hard_rule": "Do not eat orange mushrooms as saffron milkcaps unless latex is orange and the rest of the milkcap traits fit.",
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — latex color/change and milkcap complexity",
+        "short_label": "High — latex color/change and milkcap complexity",
+        "summary": "Orange-latex milkcaps require orange latex, host/tree context, and staining behavior; white/yellowing or woolly/acrid milkcaps are not in this edible group.",
+        "required_checks": [
+          "Latex check required",
+          "Latex color-change check required",
+          "Host/substrate check required",
+          "Reject white/yellowing latex, peppery white milk, woolly pink caps, and unidentified milkcaps"
+        ],
+        "hard_rule": "White/yellowing latex or woolly/acrid milkcap traits mean do not eat as orange-latex milkcap.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Poisonous / avoid.",
+            "slug": "yellowing-milkcap-group",
+            "target_traits": [
+              "Orange latex",
+              "Expected orange/green or non-greening orange-latex pattern"
+            ],
+            "lookalike_traits": [
+              "White latex turning yellow",
+              "Yellow staining wrong for target"
+            ],
+            "hard_rule": "White/yellowing latex is not orange-latex saffron milkcap."
+          },
+          {
+            "risk": "Not recommended / acrid milkcap.",
+            "slug": "white-peppery-milkcap-group",
+            "target_traits": [
+              "Orange latex"
+            ],
+            "lookalike_traits": [
+              "White latex",
+              "Peppery/acrid taste"
+            ],
+            "hard_rule": "Peppery white milkcaps do not belong in orange-latex edible use."
+          },
+          {
+            "risk": "Poisonous / avoid.",
+            "slug": "woolly-milkcap-group",
+            "target_traits": [
+              "Orange milk",
+              "No woolly pink cap"
+            ],
+            "lookalike_traits": [
+              "Woolly/hairy cap margin",
+              "White latex",
+              "Pinkish tones"
+            ],
+            "hard_rule": "Woolly milkcaps stay out of edible orange-latex treatment."
+          },
+          {
+            "risk": "Edible confusion.",
+            "slug": "lactarius-indigo",
+            "target_traits": [
+              "Orange latex"
+            ],
+            "lookalike_traits": [
+              "Blue latex",
+              "Blue/green staining"
+            ],
+            "hard_rule": "Blue latex routes to indigo milk cap, not orange-latex group."
+          }
+        ]
+      }
     },
     {
       "slug": "lactarius-deceptivus",
@@ -3927,7 +4158,7 @@
       "completion_status": "needs_images",
       "species_scope": "group",
       "notes": "Group treatment is safer because several white eastern milkcaps overlap heavily, and separating them often hinges on gill crowding, latex color change, cap texture, and taste.",
-      "field_identification": "Latex: white initially; L. piperatus milk stays white and does not dry olive/green; L. glaucescens milk slowly turns olive to pastel green; L. subvellereus milk may yellow slightly. White to off-white; funneling/depressed with age; surface may be smooth, velvety, or roughened depending on member. Often crowded to very crowded in L. piperatus and L. glaucescens; less densely crowded in some look-alikes. White to off-white, brittle, no ring or volva.",
+      "field_identification": "White to pale milkcap with white latex and a hot, peppery, or acrid taste; may resemble edible white milkcaps or short-stemmed Russula until latex/taste/gill traits are checked.",
       "mushroom_profile": {
         "lane": "gilled",
         "entry_scope": "group",
@@ -3982,12 +4213,14 @@
       "look_alikes": [
         "edible-milk-caps-volemus-group",
         "lactarius-indigo",
-        "orange-latex-milkcap-group"
+        "orange-latex-milkcap-group",
+        "short-stemmed-russula"
       ],
       "confused_with": [
         "edible-milk-caps-volemus-group",
         "lactarius-indigo",
-        "orange-latex-milkcap-group"
+        "orange-latex-milkcap-group",
+        "short-stemmed-russula"
       ],
       "links": [
         "https://www.mushroomexpert.com/lactarius_piperatus.html",
@@ -4035,7 +4268,7 @@
         "preparation_required": false,
         "notes": "Avoid / not recommended. Primarily useful as a field-ID warning group for white milkcaps."
       },
-      "non_edible_severity": "Not recommended",
+      "non_edible_severity": "Not recommended / acrid milkcap caution",
       "months_available": [
         "July",
         "August",
@@ -4049,7 +4282,15 @@
         10
       ],
       "image_needs": "Needs 2–3 distinct open-license images showing cap/gills/stem plus latex/staining or brittle/no-latex traits as applicable.",
-      "alternate_slugs": []
+      "alternate_slugs": [],
+      "safety": "Not recommended / acrid milkcap caution",
+      "risk_reason": "White peppery/acrid milkcaps are a common milkcap confusion trap and should not be treated as edible milkcaps by general app users.",
+      "symptoms_body_systems": "Gastrointestinal irritation is possible from acrid or improperly identified milkcaps.",
+      "hard_rule": "Do not eat white milkcaps that taste hot, peppery, or acrid; peppery white milkcaps stay out of the edible milkcap bucket.",
+      "danger_level": "Not recommended / acrid milkcap caution",
+      "search_aliases": [
+        "White Peppery Milkcap Group"
+      ]
     },
     {
       "slug": "woolly-milkcap-group",
@@ -4064,7 +4305,7 @@
       "completion_status": "needs_images",
       "species_scope": "group",
       "notes": "Use group treatment for app safety because hairy pink/orange birch milkcaps can be confused, and the practical warning is more important than splitting every close species.",
-      "field_identification": "Latex: white to cream initially; typically does not change color or stain gills in classic L. torminosus. Pinkish to salmon-pink/orange-pink, often zoned; margin inrolled and conspicuously woolly/hairy when young; becomes depressed/funnel-shaped. Pale flesh-colored to pinkish/salmon, narrow, crowded, slightly decurrent. Pale pinkish/flesh-colored, brittle, sometimes hollowing; no ring or volva.",
+      "field_identification": "Pinkish to salmon/orange-pink cap with an inrolled woolly/hairy margin when young; white latex; hot, acrid, or peppery taste; often associated with birch.",
       "mushroom_profile": {
         "lane": "gilled",
         "entry_scope": "group",
@@ -4155,7 +4396,7 @@
       "commonness": "Occasional",
       "commonness_score": 2,
       "food_role": "avoid",
-      "edibility_status": "not_edible",
+      "edibility_status": "poisonous",
       "edibility_detail": "Poisonous/avoid in this guide. Some traditions process it heavily, but that is outside this guide’s practical safety lane.",
       "edible_use": {
         "has_ingestible_use": false,
@@ -4163,7 +4404,7 @@
         "preparation_required": false,
         "notes": "Poisonous/avoid in this guide. Some traditions process it heavily, but that is outside this guide’s practical safety lane."
       },
-      "non_edible_severity": "Poisonous",
+      "non_edible_severity": "Poisonous / avoid",
       "months_available": [
         "July",
         "August",
@@ -4177,7 +4418,15 @@
         10
       ],
       "image_needs": "Needs 2–3 distinct open-license images showing cap/gills/stem plus latex/staining or brittle/no-latex traits as applicable.",
-      "alternate_slugs": []
+      "alternate_slugs": [],
+      "safety": "Poisonous / avoid",
+      "risk_reason": "Woolly pinkish milkcaps with white latex and hot/acrid taste are not beginner edible milkcaps and may cause significant gastrointestinal upset.",
+      "symptoms_body_systems": "Gastrointestinal tract: nausea, vomiting, severe diarrhea, abdominal cramps/colic, and dehydration risk in severe cases.",
+      "hard_rule": "Avoid pink woolly milkcaps with white latex and a hot/acrid burn; they are not beginner edible milkcaps and can cause severe gastrointestinal upset.",
+      "danger_level": "Poisonous / avoid",
+      "search_aliases": [
+        "Woolly Milkcap Group"
+      ]
     },
     {
       "slug": "fenugreek-milkcap-group",
@@ -4320,7 +4569,7 @@
       "completion_status": "needs_images",
       "species_scope": "group",
       "notes": "Practical field rule is stronger than species splitting: white latex that rapidly or slowly yellows is not the same as orange-latex edible saffron milkcaps.",
-      "field_identification": "Latex: white initially; turns yellow after exposure to air, sometimes within seconds depending on taxon. Cinnamon-pink, redder, pale, or zoned depending on species; can resemble edible milkcaps from above. Pale pinkish, cream, or cinnamon-tinged; may spot reddish/cinnamon with age or handling. Usually smooth in L. vinaceorufescens; some related species have potholes/scrobicules.",
+      "field_identification": "Milk starts white, then quickly or slowly turns yellow; cap may be cinnamon-pink, pale, reddish, or zoned; gills and flesh may spot or stain. Often associated with pine/conifers or oaks depending species.",
       "mushroom_profile": {
         "lane": "gilled",
         "entry_scope": "group",
@@ -4373,12 +4622,14 @@
       "look_alikes": [
         "edible-milk-caps-volemus-group",
         "lactarius-indigo",
-        "orange-latex-milkcap-group"
+        "orange-latex-milkcap-group",
+        "white-peppery-milkcap-group"
       ],
       "confused_with": [
         "edible-milk-caps-volemus-group",
         "lactarius-indigo",
-        "orange-latex-milkcap-group"
+        "orange-latex-milkcap-group",
+        "white-peppery-milkcap-group"
       ],
       "links": [
         "https://www.mushroomexpert.com/lactarius_vinaceorufescens.html",
@@ -4409,7 +4660,7 @@
       "commonness": "Occasional",
       "commonness_score": 2,
       "food_role": "avoid",
-      "edibility_status": "not_edible",
+      "edibility_status": "poisonous",
       "edibility_detail": "Avoid / not recommended. Use as a warning group attached to orange-latex milkcap searches.",
       "edible_use": {
         "has_ingestible_use": false,
@@ -4417,7 +4668,7 @@
         "preparation_required": false,
         "notes": "Avoid / not recommended. Use as a warning group attached to orange-latex milkcap searches."
       },
-      "non_edible_severity": "Not recommended",
+      "non_edible_severity": "Poisonous / avoid",
       "months_available": [
         "July",
         "August",
@@ -4431,7 +4682,15 @@
         10
       ],
       "image_needs": "Needs 2–3 distinct open-license images showing cap/gills/stem plus latex/staining or brittle/no-latex traits as applicable.",
-      "alternate_slugs": []
+      "alternate_slugs": [],
+      "safety": "Poisonous / avoid",
+      "risk_reason": "White-latex milkcaps whose milk turns yellow are not edible orange-latex milkcaps and should be treated as avoid in this app.",
+      "symptoms_body_systems": "Primarily gastrointestinal irritation is the practical concern; exact symptoms vary by species and report.",
+      "hard_rule": "Do not put white-latex milkcaps into the edible orange-latex bucket; if the milk starts white and turns yellow, treat it as a poisonous yellowing milkcap and avoid it.",
+      "danger_level": "Poisonous / avoid",
+      "search_aliases": [
+        "Yellowing Milkcap Group"
+      ]
     },
     {
       "slug": "green-cracking-russula-group",
@@ -4498,11 +4757,13 @@
       "look_alike_notes": "Amanita phalloides-like green Amanitas: Amanitas have ring/volva/free gills and fibrous flesh, not brittle Russula flesh deadly Amanita risk means base/ring/gill attachment must be checked Other green Russulas: may be smooth-capped rather than quilted/cracked; some require spore print/taste/chemistry/microscopy group entry should not overpromise species ID Acrid Russulas: hot/peppery taste, different cap patterns/colors avoid acrid Russulas",
       "look_alikes": [
         "acrid-red-russula-sickener-group",
-        "destroying-angel"
+        "destroying-angel",
+        "death-cap"
       ],
       "confused_with": [
         "acrid-red-russula-sickener-group",
-        "destroying-angel"
+        "destroying-angel",
+        "death-cap"
       ],
       "links": [
         "https://www.mushroomexpert.com/russula_parvovirescens.html",
@@ -4575,55 +4836,46 @@
       "hard_rule": "Do not eat green Russulas unless brittle Russula structure, no latex, no ring, no volva, and mild taste are confirmed.",
       "lookalike_risk": {
         "level": 2,
-        "label": "High — poisonous/acrid and Amanita confusion possible",
-        "short_label": "High — dangerous confusion possible",
-        "summary": "Green Russula entries require brittle Russula structure, mild taste, and no Amanita ring/volva/base features.",
+        "label": "High — Russula/Amanita/acrid Russula confusion possible",
+        "short_label": "High — Russula/Amanita/acrid Russula confusion possible",
+        "summary": "Green Russulas need brittle Russula traits and no Amanita-style base/ring/volva. Acrid Russulas are a taste/toxicity caution.",
         "required_checks": [
-          "Brittle/chalky Russula flesh",
+          "Confirm brittle, chalky Russula flesh and stem",
           "No latex",
           "No ring",
-          "No volva/cup/bulb at base",
-          "Mild taste only when tasting is appropriate and spit out"
+          "No volva/cup/bulb",
+          "No fibrous Amanita-style stem",
+          "Reject hot/acrid/peppery taste"
         ],
-        "hard_rule": "Do not eat green Russulas if any Amanita-like base/ring feature or hot/acrid taste is present.",
+        "hard_rule": "Any ring, volva, cup, bulb, latex, or hot/acrid taste means do not eat as green cracking Russula.",
         "dangerous_lookalikes": [
           {
+            "risk": "Poisonous / GI illness.",
             "slug": "acrid-red-russula-sickener-group",
-            "risk": "Poisonous / gastrointestinal upset.",
-            "warning": "Acrid Russulas are not food entries in this app.",
             "target_traits": [
-              "Mild taste",
-              "Brittle Russula structure",
+              "Mild Russula traits",
+              "Green cracked/quilted cap",
               "No latex"
             ],
             "lookalike_traits": [
-              "Hot, peppery, acrid, or bitter taste",
-              "Red or variable cap colors can mislead"
+              "Hot/acrid/peppery taste",
+              "Sickener-type Russula warning"
             ],
-            "required_checks": [
-              "Reject acrid/hot taste"
-            ],
-            "hard_rule": "Hot/acrid/peppery Russulas are not food."
+            "hard_rule": "Acrid Russulas are not edible basket mushrooms."
           },
           {
-            "slug": "destroying-angel",
-            "risk": "Deadly Amanita-type warning when green mushrooms are misread.",
-            "warning": "Do not confuse brittle green Russulas with Amanita-type mushrooms.",
+            "risk": "Deadly Amanita warning.",
+            "slug": "death-cap",
             "target_traits": [
-              "Brittle/chalky flesh",
-              "No ring",
-              "No volva",
-              "No latex"
+              "Brittle/chalky Russula flesh",
+              "No ring or volva"
             ],
             "lookalike_traits": [
-              "Ring or skirt",
-              "Volva/cup/bulb at base",
-              "Fibrous rather than brittle flesh"
+              "Ring, volva/cup/bulb",
+              "Fibrous non-brittle stem",
+              "Free pale gills"
             ],
-            "required_checks": [
-              "Check entire base"
-            ],
-            "hard_rule": "Any ring plus volva/cup/bulb means Amanita risk: do not eat."
+            "hard_rule": "Any Amanita-style base or ring means do not eat."
           }
         ]
       }
@@ -4641,7 +4893,7 @@
       "completion_status": "needs_images",
       "species_scope": "group",
       "notes": "The practical app hazard is red Russulas with acrid/hot taste causing GI illness. Species-level precision is less useful than flagging the avoid group.",
-      "field_identification": "Russula-style entry: brittle/chalky flesh and no latex when cut. Red to deep red, often darker centrally; smooth cap surface; cap skin may peel. White to pale cream, brittle Russula gills; no latex. White or pale, brittle/chalky; no ring or volva.",
+      "field_identification": "Brittle/chalky Russula flesh; no latex; red to deep red cap; white to pale cream brittle gills; hot, acrid, or peppery taste. Red cap color alone is not enough for ID.",
       "mushroom_profile": {
         "lane": "gilled",
         "entry_scope": "group",
@@ -4693,8 +4945,16 @@
         "spore_print": "White to cream/pale yellow for many milkcaps and russulas; check species/group notes."
       },
       "look_alike_notes": "Shrimp Russula group: mild taste and fishy/shrimp odor with age; not hot/acrid do not eat red Russulas based on color Other mild red Russulas: mild taste, different odor/spore print/ecology; species ID often hard group-level caution is safer Amanita muscaria buttons or red/orange Amanitas: Amanitas have universal veil remnants, ring/volva/basal bulb features; Russulas are brittle and lack veil structures separate dangerous genus check",
-      "look_alikes": [],
-      "confused_with": [],
+      "look_alikes": [
+        "shrimp-russulas",
+        "green-cracking-russula-group",
+        "short-stemmed-russula"
+      ],
+      "confused_with": [
+        "shrimp-russulas",
+        "green-cracking-russula-group",
+        "short-stemmed-russula"
+      ],
       "links": [
         "https://www.canr.msu.edu/news/russula-emetica",
         "https://www.first-nature.com/fungi/russula-emetica.php",
@@ -4733,7 +4993,7 @@
       "commonness": "Occasional",
       "commonness_score": 2,
       "food_role": "avoid",
-      "edibility_status": "not_edible",
+      "edibility_status": "poisonous",
       "edibility_detail": "Poisonous/avoid. Severe gastrointestinal upset is the app message; not deadly in typical North American treatment but absolutely not a food entry.",
       "edible_use": {
         "has_ingestible_use": false,
@@ -4741,7 +5001,7 @@
         "preparation_required": false,
         "notes": "Poisonous/avoid. Severe gastrointestinal upset is the app message; not deadly in typical North American treatment but absolutely not a food entry."
       },
-      "non_edible_severity": "Poisonous",
+      "non_edible_severity": "Poisonous / avoid",
       "months_available": [
         "July",
         "August",
@@ -4755,7 +5015,16 @@
         10
       ],
       "image_needs": "Needs 2–3 distinct open-license images showing cap/gills/stem plus latex/staining or brittle/no-latex traits as applicable.",
-      "alternate_slugs": []
+      "alternate_slugs": [],
+      "safety": "Poisonous / avoid",
+      "risk_reason": "Acrid red Russulas can be confused with edible Russula groups, but hot/peppery taste is a stop sign and may predict gastrointestinal illness.",
+      "symptoms_body_systems": "Gastrointestinal tract: nausea, vomiting, diarrhea, and colicky abdominal cramps, often within a few hours.",
+      "hard_rule": "Do not eat red or purple Russulas that taste hot, peppery, or acrid; acrid Russulas belong in the sickener group and can cause vomiting and severe gastrointestinal upset.",
+      "danger_level": "Poisonous / avoid",
+      "search_aliases": [
+        "Acrid Red Russula / Sickener Group",
+        "acrid red russula sickener group"
+      ]
     }
   ]
 }

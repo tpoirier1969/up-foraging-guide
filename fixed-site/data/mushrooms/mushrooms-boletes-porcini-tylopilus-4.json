@@ -1084,6 +1084,83 @@
           "part_or_stage": "Suede bolete cut surface",
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Xerocomus_subtomentosus_cut.jpg"
         }
+      ],
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — bolete confusion, severe-GI/bitter look-alikes possible",
+        "short_label": "High — bolete confusion, severe-GI/bitter look-alikes possible",
+        "summary": "Edible bolete use needs pore color, staining, host/substrate, taste where appropriate, and separation from false king, bitter Tylopilus, and red-pored/fast-blue-staining caution boletes.",
+        "required_checks": [
+          "Pore check required",
+          "Staining check required",
+          "Host/substrate check required",
+          "Reject red/orange pores",
+          "Reject fast strong blue staining",
+          "Reject bitter taste where safe nibble-and-spit is appropriate"
+        ],
+        "hard_rule": "Do not eat unidentified boletes; red/orange pores, bitter taste, or violent blue staining mean stop.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Severe gastrointestinal illness concern.",
+            "slug": "false-king-bolete",
+            "warning": "False king bolete is a northern/Great Lakes porcini-type danger concern.",
+            "target_traits": [
+              "Non-blue-staining white flesh",
+              "White young pores aging yellow/olive",
+              "Pale netting near upper stem when expected",
+              "Full porcini package matches"
+            ],
+            "lookalike_traits": [
+              "Hemlock or northern Great Lakes false-king concern",
+              "Limited or absent reticulation",
+              "Yellowish flesh",
+              "Inconsistent blue/green-blue staining",
+              "Severe GI reports"
+            ],
+            "hard_rule": "If false king traits are possible, do not eat."
+          },
+          {
+            "risk": "Bitter / meal-spoiling, not deadly.",
+            "slug": "bitter-bolete",
+            "target_traits": [
+              "Mild taste",
+              "White/yellow pores without bitter Tylopilus posture"
+            ],
+            "lookalike_traits": [
+              "Pinkish pores with age",
+              "Brown reticulation in some species",
+              "Distinctly bitter taste"
+            ],
+            "required_checks": [
+              "Tiny nibble-and-spit only if you already know the mushroom is safe to taste"
+            ],
+            "hard_rule": "Bitter taste means not food; one specimen can ruin the pan."
+          },
+          {
+            "risk": "Poisonous / not recommended red-pored blue-staining bolete group.",
+            "slug": "blue-staining-red-pored-boletes-caution-group",
+            "target_traits": [
+              "No red/orange pore surface",
+              "No violent instant blue staining"
+            ],
+            "lookalike_traits": [
+              "Red or orange pores",
+              "Rapid strong blue bruising",
+              "Red/yellow bolete complex traits"
+            ],
+            "hard_rule": "Red/orange pores or fast strong blue staining mean stop unless expert-confirmed."
+          }
+        ]
+      },
+      "look_alikes": [
+        "false-king-bolete",
+        "bitter-bolete",
+        "blue-staining-red-pored-boletes-caution-group"
+      ],
+      "confused_with": [
+        "false-king-bolete",
+        "bitter-bolete",
+        "blue-staining-red-pored-boletes-caution-group"
       ]
     }
   ]
