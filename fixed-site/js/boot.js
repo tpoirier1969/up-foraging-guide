@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.96-r2026-05-20-lookalike-risk-coverage2";
-const DISPLAY_VERSION = "V4.3.96-r26-05-20";
+const APP_VERSION = "v4.3.97-r2026-05-20-image-rights-audit1";
+const DISPLAY_VERSION = "V4.3.97-r26-05-20";
 window.UP_FORAGING_APP_VERSION = APP_VERSION;
 window.UP_FORAGING_DISPLAY_VERSION = DISPLAY_VERSION;
 
@@ -10,6 +10,16 @@ function esc(value) {
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;");
+}
+
+function setupImageAuditMode() {
+  const params = new URLSearchParams(window.location.search || "");
+  const auditValue = String(params.get("audit") || "").toLowerCase();
+  const imageAuditValue = String(params.get("imageAudit") || params.get("imageaudit") || "").toLowerCase();
+  const enabled = auditValue === "images" || imageAuditValue === "1" || imageAuditValue === "true" || imageAuditValue === "images";
+  window.UP_FORAGING_IMAGE_AUDIT = enabled;
+  document.documentElement.classList.toggle("image-audit-mode", enabled);
+  document.body?.classList.toggle("image-audit-mode", enabled);
 }
 
 function setupMobileMenu() {
@@ -49,6 +59,7 @@ function showVersion() {
 }
 
 async function start() {
+  setupImageAuditMode();
   setupMobileMenu();
   showVersion();
   try {

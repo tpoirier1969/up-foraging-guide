@@ -339,3 +339,19 @@ textarea.review-note{width:100%;min-height:84px}
 .lookalike-trait-list{margin-top:8px}
 .lookalike-trait-list ul{margin:4px 0 0 1.1rem;padding:0}
 .lookalike-hard-rule{margin-top:8px;font-weight:600}
+
+/* v4.3.97 internal image rights audit mode. Enable with ?audit=images or ?imageAudit=1. */
+html.image-audit-mode .record-image-cell .record-image{outline:3px solid transparent;outline-offset:2px;}
+html.image-audit-mode .record-image-cell[data-image-rights-status="commercial_ok"] .record-image{outline-color:rgba(47,93,70,.55);}
+html.image-audit-mode .record-image-cell[data-image-rights-status="commercial_ok_with_attribution"] .record-image{outline-color:rgba(84,124,93,.72);}
+html.image-audit-mode .record-image-cell[data-image-rights-status="commercial_ok_sharealike"] .record-image{outline-color:rgba(204,139,36,.86);}
+html.image-audit-mode .record-image-cell[data-image-rights-status="needs_review"] .record-image{outline-color:rgba(205,113,31,.9);box-shadow:0 0 0 4px rgba(205,113,31,.12);}
+html.image-audit-mode .record-image-cell[data-image-rights-status="replace_before_commercial"] .record-image,
+html.image-audit-mode .record-image-cell[data-image-rights-status="missing_image"] .record-image{outline-color:rgba(173,48,48,.92);box-shadow:0 0 0 4px rgba(173,48,48,.14);}
+html.image-audit-mode .record-image-cell[data-image-rights-status] .image-meta-line::after{content:attr(data-image-rights-label);display:inline-flex;width:max-content;max-width:100%;border-radius:999px;padding:2px 8px;font-size:.72rem;font-weight:800;letter-spacing:.01em;background:#f4eee3;color:#5c4630;border:1px solid rgba(92,70,48,.18);}
+html.image-audit-mode .record-image-cell[data-image-rights-status="commercial_ok"] .image-meta-line::after,
+html.image-audit-mode .record-image-cell[data-image-rights-status="commercial_ok_with_attribution"] .image-meta-line::after{background:#eaf3ec;color:#244e36;border-color:rgba(36,78,54,.18);}
+html.image-audit-mode .record-image-cell[data-image-rights-status="commercial_ok_sharealike"] .image-meta-line::after{background:#fff1d8;color:#6d4612;border-color:rgba(109,70,18,.22);}
+html.image-audit-mode .record-image-cell[data-image-rights-status="needs_review"] .image-meta-line::after{background:#fff0df;color:#7a3e10;border-color:rgba(122,62,16,.22);}
+html.image-audit-mode .record-image-cell[data-image-rights-status="replace_before_commercial"] .image-meta-line::after,
+html.image-audit-mode .record-image-cell[data-image-rights-status="missing_image"] .image-meta-line::after{background:#fbe5e5;color:#782323;border-color:rgba(120,35,35,.24);}

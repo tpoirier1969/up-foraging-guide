@@ -27,6 +27,64 @@ function setSourceLink(container, href, label = "source") {
   }
 }
 
+function boolValue(value) {
+  if (value === true || value === false) return value;
+  const text = String(value ?? "").trim().toLowerCase();
+  if (["true", "yes", "1", "allowed", "allow"].includes(text)) return true;
+  if (["false", "no", "0", "not allowed", "disallowed"].includes(text)) return false;
+  return undefined;
+}
+
+function inferImageRights(item = {}) {
+  const explicitStatus = String(item.rights_status || item.rightsStatus || "").trim().toLowerCase();
+  const license = String(item.license || "").trim();
+  const licenseText = license.toLowerCase();
+  const commercialUse = boolValue(item.commercial_use ?? item.commercialUse ?? item.commercial_use_allowed ?? item.commercialUseAllowed);
+  const modificationAllowed = boolValue(item.modification_allowed ?? item.modificationAllowed);
+  const shareAlike = boolValue(item.share_alike_required ?? item.shareAlikeRequired) === true || /by-sa|share[- ]?alike|gfdl/.test(licenseText);
+  const attribution = boolValue(item.attribution_required ?? item.attributionRequired) === true || /cc\s*by|attribution|by-sa/.test(licenseText);
+  const note = item.rights_notes || item.rights_note || item.rightsNote || "";
+
+  if (item.needs_commercial_replacement === true || item.needsCommercialReplacement === true) {
+    return { status: "replace_before_commercial", label: "Replace before commercial use", note };
+  }
+  if (commercialUse === false || modificationAllowed === false || /non[- ]?commercial|nc|no derivatives|nd/.test(licenseText)) {
+    return { status: "replace_before_commercial", label: "Replace before commercial use", note };
+  }
+  if (/public domain|cc0|pd[- ]?mark|u\.s\. national park service/.test(licenseText) || explicitStatus.includes("public_domain") || explicitStatus.includes("cc0")) {
+    return { status: "commercial_ok", label: "Commercial OK", note: note || license };
+  }
+  if (shareAlike) {
+    return { status: "commercial_ok_sharealike", label: "Commercial OK — share-alike", note: note || license };
+  }
+  if (/cc\s*by|creative commons attribution/.test(licenseText) || explicitStatus.includes("open_license") || explicitStatus.includes("free_license")) {
+    return { status: attribution ? "commercial_ok_with_attribution" : "commercial_ok", label: attribution ? "Commercial OK — attribution" : "Commercial OK", note: note || license };
+  }
+  if (/see wikimedia commons file page/.test(licenseText)) {
+    return { status: "needs_review", label: "Rights need review", note: note || license };
+  }
+  if (license || item.sourcePage || item.source_page) {
+    return { status: "needs_review", label: "Rights need review", note: note || license || "Source present; rights not fully structured" };
+  }
+  return { status: "needs_review", label: "Rights need review", note: note || "No structured rights metadata" };
+}
+
+function applyImageAuditState(container, item = {}, resolved = true) {
+  if (!container) return;
+  const rights = resolved ? inferImageRights(item) : { status: "missing_image", label: "Missing image", note: "No image resolved" };
+  container.dataset.imageRightsStatus = rights.status;
+  container.dataset.imageRightsLabel = rights.label;
+  const metaLine = container.querySelector?.(".image-meta-line");
+  if (metaLine) metaLine.dataset.imageRightsLabel = rights.label;
+  if (rights.note) container.dataset.imageRightsNote = String(rights.note);
+  else delete container.dataset.imageRightsNote;
+  if (window.UP_FORAGING_IMAGE_AUDIT) {
+    const titleParts = [rights.label];
+    if (rights.note) titleParts.push(String(rights.note));
+    container.title = titleParts.join(" — ");
+  }
+}
+
 function titleizeStage(value) {
   const text = String(value || "").trim();
   if (!text) return "";
@@ -92,8 +150,16 @@ function mergeImageItems(primary = {}, extra = {}) {
     author: primary.author || extra.author,
     credit: primary.credit || extra.credit,
     license: primary.license || extra.license,
-    licenseUrl: primary.licenseUrl || extra.licenseUrl,
-    source: primary.source || extra.source || ""
+    licenseUrl: primary.licenseUrl || primary.license_url || extra.licenseUrl || extra.license_url,
+    source: primary.source || extra.source || "",
+    rights_status: primary.rights_status || primary.rightsStatus || extra.rights_status || extra.rightsStatus,
+    rights_notes: primary.rights_notes || primary.rights_note || extra.rights_notes || extra.rights_note,
+    commercial_use: primary.commercial_use ?? primary.commercialUse ?? extra.commercial_use ?? extra.commercialUse,
+    commercial_use_allowed: primary.commercial_use_allowed ?? primary.commercialUseAllowed ?? extra.commercial_use_allowed ?? extra.commercialUseAllowed,
+    attribution_required: primary.attribution_required ?? primary.attributionRequired ?? extra.attribution_required ?? extra.attributionRequired,
+    modification_allowed: primary.modification_allowed ?? primary.modificationAllowed ?? extra.modification_allowed ?? extra.modificationAllowed,
+    share_alike_required: primary.share_alike_required ?? primary.shareAlikeRequired ?? extra.share_alike_required ?? extra.shareAlikeRequired,
+    needs_commercial_replacement: primary.needs_commercial_replacement ?? primary.needsCommercialReplacement ?? extra.needs_commercial_replacement ?? extra.needsCommercialReplacement
   };
 }
 
@@ -125,7 +191,15 @@ function normalizeStructuredImages(record) {
           author: item.author,
           credit: item.credit,
           license: item.license,
-          licenseUrl: item.licenseUrl
+          licenseUrl: item.licenseUrl || item.license_url,
+          rights_status: item.rights_status || item.rightsStatus,
+          rights_notes: item.rights_notes || item.rights_note || item.rightsNote,
+          commercial_use: item.commercial_use ?? item.commercialUse,
+          commercial_use_allowed: item.commercial_use_allowed ?? item.commercialUseAllowed,
+          attribution_required: item.attribution_required ?? item.attributionRequired,
+          modification_allowed: item.modification_allowed ?? item.modificationAllowed,
+          share_alike_required: item.share_alike_required ?? item.shareAlikeRequired,
+          needs_commercial_replacement: item.needs_commercial_replacement ?? item.needsCommercialReplacement
         };
       })
       .filter(Boolean);
@@ -176,7 +250,15 @@ function normalizeHardwiredImages(record) {
         author: item.author,
         credit: item.credit,
         license: item.license,
-        licenseUrl: item.licenseUrl
+        licenseUrl: item.licenseUrl || item.license_url,
+        rights_status: item.rights_status || item.rightsStatus,
+        rights_notes: item.rights_notes || item.rights_note || item.rightsNote,
+        commercial_use: item.commercial_use ?? item.commercialUse,
+        commercial_use_allowed: item.commercial_use_allowed ?? item.commercialUseAllowed,
+        attribution_required: item.attribution_required ?? item.attributionRequired,
+        modification_allowed: item.modification_allowed ?? item.modificationAllowed,
+        share_alike_required: item.share_alike_required ?? item.shareAlikeRequired,
+        needs_commercial_replacement: item.needs_commercial_replacement ?? item.needsCommercialReplacement
       };
     })
     .filter(Boolean);
@@ -209,7 +291,15 @@ function creditAll(record, items, sourceLabel) {
       license: item.license,
       licenseUrl: item.licenseUrl,
       sourcePage: item.sourcePage,
-      query: item.query
+      query: item.query,
+      rights_status: item.rights_status || item.rightsStatus,
+      rights_notes: item.rights_notes || item.rights_note || item.rightsNote,
+      commercial_use: item.commercial_use ?? item.commercialUse,
+      commercial_use_allowed: item.commercial_use_allowed ?? item.commercialUseAllowed,
+      attribution_required: item.attribution_required ?? item.attributionRequired,
+      modification_allowed: item.modification_allowed ?? item.modificationAllowed,
+      share_alike_required: item.share_alike_required ?? item.shareAlikeRequired,
+      needs_commercial_replacement: item.needs_commercial_replacement ?? item.needsCommercialReplacement
     });
   }
 }
@@ -242,7 +332,15 @@ async function ensureGallery(record) {
           author: item.author,
           credit: item.credit,
           license: item.license,
-          licenseUrl: item.licenseUrl
+          licenseUrl: item.licenseUrl || item.license_url,
+          rights_status: item.rights_status || item.rightsStatus,
+          rights_notes: item.rights_notes || item.rights_note || item.rightsNote,
+          commercial_use: item.commercial_use ?? item.commercialUse,
+          commercial_use_allowed: item.commercial_use_allowed ?? item.commercialUseAllowed,
+          attribution_required: item.attribution_required ?? item.attributionRequired,
+          modification_allowed: item.modification_allowed ?? item.modificationAllowed,
+          share_alike_required: item.share_alike_required ?? item.shareAlikeRequired,
+          needs_commercial_replacement: item.needs_commercial_replacement ?? item.needsCommercialReplacement
         };
       })
       .filter(Boolean);
@@ -353,12 +451,14 @@ function loadCandidateSequence(img, container, orderedItems, record, index, vari
       img.dataset.resolvedSource = "missing";
       setBadge(container, "Needs photo");
       setSourceLink(container, "", "");
+      applyImageAuditState(container, item, false);
       return;
     }
     img.onload = () => {
       img.dataset.resolvedSource = item.source || "local-manifest";
       setBadge(container, describeItem(item, index));
       setSourceLink(container, item.sourcePage || item.full || "", item.sourcePage ? "Source" : "Full image");
+      applyImageAuditState(container, item, true);
       bindEnlarge(img, item, record, index, galleryItems);
     };
     img.onerror = () => { tryNext(); };
