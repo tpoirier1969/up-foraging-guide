@@ -164,6 +164,14 @@ button.subtle{background:#f8faf8}
 .record-card h3{margin:.1rem 0 .4rem}
 .record-title-button{appearance:none;background:none;border:none;padding:0;margin:0;color:inherit;text-align:left;font:inherit;cursor:pointer}
 .record-title-button:hover{text-decoration:underline}
+.record-title-line{display:flex;flex-wrap:wrap;align-items:center;gap:8px 10px;line-height:1.15}
+.lookalike-title-risk{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:999px;padding:4px 8px 4px 7px;font-size:.76rem;font-weight:800;line-height:1;background:#f7f3ea;color:var(--ink);vertical-align:middle;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.lookalike-title-risk .risk-kicker{font-size:.64rem;text-transform:uppercase;letter-spacing:.055em;opacity:.76}
+.lookalike-title-risk strong{display:inline-grid;place-items:center;min-width:1.35em;height:1.35em;border-radius:999px;background:rgba(255,255,255,.78);font-size:.84rem}
+.lookalike-title-risk.level-3{background:#fff1f1;color:var(--danger);border-color:#e4b7b7}
+.lookalike-title-risk.level-2{background:#fff7ec;color:var(--warn);border-color:#efcfaa}
+.lookalike-title-risk.level-1{background:#eef3ff;color:#35508a;border-color:#bfd0f5}
+.lookalike-title-risk.level-0{background:#eff9f1;color:#1f6a32;border-color:#c9e6cf}
 .record-meta{display:flex;flex-wrap:wrap;gap:8px;margin:.2rem 0 .6rem}
 .tag{
   display:inline-flex;align-items:center;border:1px solid var(--line);

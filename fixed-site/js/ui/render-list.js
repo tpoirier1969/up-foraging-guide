@@ -1000,6 +1000,18 @@ function lookalikeRiskTag(record = {}) {
   return labelTag("Look-alike risk", `${safeLevel} — ${label}`, cls);
 }
 
+function lookalikeRiskTitleBadge(record = {}) {
+  const risk = record.lookalike_risk;
+  if (!risk || typeof risk !== "object" || Array.isArray(risk)) return "";
+  const level = Number(risk.level);
+  if (!Number.isFinite(level)) return "";
+  const safeLevel = Math.max(0, Math.min(3, Math.round(level)));
+  const fallback = ["Low", "Moderate", "High", "Extreme"][safeLevel] || "Needs review";
+  const label = realText(risk.short_label || risk.label || fallback);
+  const cls = `lookalike-title-risk level-${safeLevel}`;
+  return `<span class="${cls}" aria-label="Look-alike risk ${safeLevel}: ${esc(label)}"><span class="risk-kicker">Look-alike</span><strong>${safeLevel}</strong><span>${esc(label)}</span></span>`;
+}
+
 function isRareCommonality(value = "") {
   return /\brare\b|uncommon|scarce|infrequent/i.test(String(value || ""));
 }
@@ -1040,7 +1052,7 @@ function foragingValueTag(record = {}) {
   return labelTag("Food / forage value", value, caution ? "caution" : "good");
 }
 
-function makeMeta(record, route = "general") {
+function makeMeta(record, route = "general", options = {}) {
   const info = classifyRecord(record);
   const edibleUse = record.edible_use || null;
   const bits = [];
@@ -1058,7 +1070,7 @@ function makeMeta(record, route = "general") {
 
   bits.push(useRoleTag(record, info));
   bits.push(foodSafetyTag(record));
-  bits.push(lookalikeRiskTag(record));
+  if (options.includeLookalikeRisk !== false) bits.push(lookalikeRiskTag(record));
   bits.push(foragingValueTag(record));
   bits.push(labelTag("Season", seasonSummary(record)));
   if (record.commonness) bits.push(labelTag("Commonality", record.commonness));
@@ -1700,9 +1712,9 @@ export function renderRecordCards(records, route = "general") {
     <article class="record-card with-image">
       ${renderImageSlot(record, "card")}
       <div class="record-card-body">
-        <h3><button class="record-title-button" type="button" data-detail="${esc(record.slug)}">${esc(record.display_name || record.common_name || record.slug || "Untitled")}</button></h3>
+        <h3 class="record-title-line"><button class="record-title-button" type="button" data-detail="${esc(record.slug)}">${esc(record.display_name || record.common_name || record.slug || "Untitled")}</button>${lookalikeRiskTitleBadge(record)}</h3>
         <p class="muted small">${esc(record.scientific_name || "")}</p>
-        <div class="record-meta">${makeMeta(record, route)}</div>
+        <div class="record-meta">${makeMeta(record, route, { includeLookalikeRisk: false })}</div>
         ${cardSnippetHtml(record)}
         <div class="control-row">
           <button class="primary" type="button" data-detail="${esc(record.slug)}">Open details</button>
