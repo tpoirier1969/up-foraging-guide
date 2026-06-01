@@ -8,7 +8,9 @@
     "split_part": 4,
     "split_parts_total": 4,
     "split_series": "data/plants-4*.json",
-    "source_group": "data/plants-4"
+    "source_group": "data/plants-4",
+    "last_content_update": "v4.3.101-r2026-06-01-image-coverage-pass1",
+    "last_content_update_date": "2026-05-20"
   },
   "records": [
     {
@@ -574,7 +576,74 @@
       "confused_with": [
         "poison-hemlock",
         "water-hemlock"
-      ]
+      ],
+      "look_alike_notes": "Sweet cicely is a woodland Apiaceae; licorice-like aroma helps, but smell is not enough by itself. Separate it from deadly hemlocks with stem surface, blotching, habitat, leaf shape, and full plant confirmation.",
+      "risk_reason": "Sweet cicely has edible/aromatic uses, but carrot-family look-alike risk is serious because white umbels and divided leaves can overlap with deadly species.",
+      "field_traits_that_create_risk": "Ferny leaves, white umbels, and root/leaf use can tempt shortcuts in a plant family that includes deadly hemlocks.",
+      "hard_rule": "Do not eat sweet cicely unless the plant is positively identified and the hemlock stop-sign checks are negative.",
+      "lookalike_risk": {
+        "level": 3,
+        "label": "Extreme — deadly hemlock confusion possible",
+        "short_label": "Extreme — deadly hemlock confusion possible",
+        "summary": "Sweet cicely requires Apiaceae stop-sign checks. Do not rely on white umbels, ferny leaves, or scent alone.",
+        "required_checks": [
+          "Stem hair vs. smoothness check required.",
+          "Purple/red blotch check required.",
+          "Habitat moisture check required.",
+          "Root/taste checks are not substitutes for full positive identification.",
+          "Confirm sweet-cicely woodland form and sweet/anise-like odor as supporting traits only.",
+          "Reject smooth purple-spotted stems and wetland root situations."
+        ],
+        "hard_rule": "If the plant has poison-hemlock or water-hemlock stop signs, do not eat it as sweet cicely.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Deadly poisonous — nervous-system poisoning and respiratory failure risk.",
+            "slug": "poison-hemlock",
+            "warning": "Deadly look-alike: smooth purple-spotted stems and hairless ferny leaves are poison-hemlock warning traits.",
+            "target_traits": [
+              "Woodland sweet-cicely form with sweet/anise-like aroma as a supporting clue.",
+              "No smooth purple-spotted poison-hemlock stem.",
+              "Identification uses the whole plant, not only divided leaves or white umbels."
+            ],
+            "lookalike_traits": [
+              "Smooth, hairless, hollow stem instead of a bristly wild-carrot stem.",
+              "Purple or reddish blotches/spots on the stem or leaf stalks.",
+              "Glossy ferny divided leaves and white umbrella-like flower clusters.",
+              "Mousey, musty, or rank odor when crushed.",
+              "Deadly poisonous; can affect the nervous and respiratory systems."
+            ],
+            "required_checks": [
+              "Check stem surface and purple/red blotches.",
+              "Check overall habitat and plant structure.",
+              "Do not rely on white umbels alone."
+            ],
+            "hard_rule": "If a carrot-family plant has a smooth purple-spotted stem, do not eat it."
+          },
+          {
+            "risk": "Deadly poisonous — seizures and rapid severe poisoning risk.",
+            "slug": "water-hemlock",
+            "warning": "Deadly wetland look-alike: unknown wetland Apiaceae roots are a hard no.",
+            "target_traits": [
+              "Woodland sweet-cicely habit rather than marsh/ditch/shoreline habitat.",
+              "No thick or chambered water-hemlock root crown.",
+              "Full plant confirmation before any edible/aromatic use."
+            ],
+            "lookalike_traits": [
+              "Wetland, marsh, ditch, shore, or streamside habitat raises the danger level immediately.",
+              "White umbels and compound leaves with toothed leaflets can overlap with edible carrot-family plants.",
+              "Thick root crown or chambered root structure is an extreme danger sign; roots are especially hazardous.",
+              "Do not dig, taste, chew, or smell-test unknown wetland Apiaceae roots.",
+              "Deadly poisonous; rapid severe poisoning and seizures are possible."
+            ],
+            "required_checks": [
+              "Wetland habitat changes the ID problem immediately.",
+              "Do not dig or taste unknown wetland Apiaceae roots.",
+              "Reject thick/chambered root crowns."
+            ],
+            "hard_rule": "Do not dig or taste unknown wetland Apiaceae roots."
+          }
+        ]
+      }
     },
     {
       "slug": "sweet-flag",
@@ -849,7 +918,7 @@
         "Forest edge / openings",
         "Shoreline / riverbank"
       ],
-      "list_thumbnail": "",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Thimbleberry%20%28Rubus%20parviflorus%29%20--%20fruits.JPG?width=320",
       "scientific_name": "Rubus parviflorus",
       "edibility_detail": "Edible ripe fruit, but delicate and not very shelf-stable.",
       "month_numbers": [
@@ -876,9 +945,51 @@
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
       "plant_card_note": "Useful parts: fruit / berry. Edible ripe fruit, but delicate and not very shelf-stable.",
       "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ]
+        "needs_source_links"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Thimbleberry%20%28Rubus%20parviflorus%29%20--%20fruits.JPG"
+      ],
+      "images_structured": [
+        {
+          "title": "Thimbleberry fruits and leaves",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Thimbleberry%20%28Rubus%20parviflorus%29%20--%20fruits.JPG?width=320",
+          "detail": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Thimbleberry%20%28Rubus%20parviflorus%29%20--%20fruits.JPG?width=960",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Thimbleberry%20%28Rubus%20parviflorus%29%20--%20fruits.JPG",
+          "source": "wikimedia-commons-open-license",
+          "sourceLabel": "Wikimedia Commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Thimbleberry_(Rubus_parviflorus)_--_fruits.JPG",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Thimbleberry_(Rubus_parviflorus)_--_fruits.JPG",
+          "credit": "Jesse Taylor / Jrtayloriv, CC BY-SA 3.0",
+          "author": "Jesse Taylor",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "part_or_stage": "fruit_and_leaves",
+          "image_role": "primary field identification image",
+          "rights_status": "commercial_ok",
+          "commercial_use": true,
+          "commercial_use_allowed": true,
+          "modification_allowed": true,
+          "attribution_required": true,
+          "share_alike_required": true,
+          "needs_commercial_replacement": false,
+          "rights_checked_date": "2026-06-01",
+          "checked_date": "2026-06-01",
+          "rights_checked_build": "v4.3.101-r2026-06-01-image-coverage-pass1",
+          "checked_build": "v4.3.101-r2026-06-01-image-coverage-pass1",
+          "rights_note": "Commercial use and modification allowed by the listed open/public-domain style license. Attribution is required where the license requires it; share-alike is tracked internally when applicable.",
+          "rights_notes": "Commercial use and modification allowed by the listed open/public-domain style license. Attribution is required where the license requires it; share-alike is tracked internally when applicable."
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Thimbleberry%20%28Rubus%20parviflorus%29%20--%20fruits.JPG?width=960"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Thimbleberry%20%28Rubus%20parviflorus%29%20--%20fruits.JPG"
+      ],
+      "image_coverage_status": "verified_images",
+      "image_rights_audit_status": "rights_metadata_added"
     },
     {
       "slug": "toothwort",
@@ -910,7 +1021,7 @@
         "Mixed woods",
         "Forest edge / openings"
       ],
-      "list_thumbnail": "",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toothwort%20%28Dentaria%20diphylla%29.jpg?width=320",
       "usable_parts": [
         "Leaf / green",
         "Root / tuber / bulb"
@@ -922,9 +1033,7 @@
       ],
       "plant_lane_note": "Leaves and roots/rhizomes are the useful parts; flowers help with spring ID.",
       "plant_card_note": "Peppery spring woodland mustard relative; leaves and roots/rhizomes are the useful parts in small amounts.",
-      "plant_data_flags": [
-        "needs_image_coverage"
-      ],
+      "plant_data_flags": [],
       "month_numbers": [
         4,
         5,
@@ -935,7 +1044,50 @@
         "Leaf",
         "Root",
         "Flower"
-      ]
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Toothwort%20%28Dentaria%20diphylla%29.jpg"
+      ],
+      "images_structured": [
+        {
+          "title": "Toothwort leaves and flowers",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toothwort%20%28Dentaria%20diphylla%29.jpg?width=320",
+          "detail": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toothwort%20%28Dentaria%20diphylla%29.jpg?width=960",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Toothwort%20%28Dentaria%20diphylla%29.jpg",
+          "source": "wikimedia-commons-open-license",
+          "sourceLabel": "Wikimedia Commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Toothwort_(Dentaria_diphylla).jpg",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Toothwort_(Dentaria_diphylla).jpg",
+          "credit": "Atrian / English Wikipedia, Public Domain",
+          "author": "Atrian at English Wikipedia",
+          "license": "Public Domain",
+          "license_url": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+          "part_or_stage": "leaves_and_flowers",
+          "image_role": "primary field identification image",
+          "rights_status": "commercial_ok",
+          "commercial_use": true,
+          "commercial_use_allowed": true,
+          "modification_allowed": true,
+          "attribution_required": false,
+          "share_alike_required": false,
+          "needs_commercial_replacement": false,
+          "rights_checked_date": "2026-06-01",
+          "checked_date": "2026-06-01",
+          "rights_checked_build": "v4.3.101-r2026-06-01-image-coverage-pass1",
+          "checked_build": "v4.3.101-r2026-06-01-image-coverage-pass1",
+          "rights_note": "Commercial use and modification allowed by the listed open/public-domain style license. Attribution is required where the license requires it; share-alike is tracked internally when applicable.",
+          "rights_notes": "Commercial use and modification allowed by the listed open/public-domain style license. Attribution is required where the license requires it; share-alike is tracked internally when applicable."
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Toothwort%20%28Dentaria%20diphylla%29.jpg?width=960"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Toothwort%20%28Dentaria%20diphylla%29.jpg"
+      ],
+      "image_coverage_status": "verified_images",
+      "image_rights_audit_status": "rights_metadata_added"
     },
     {
       "slug": "velvetleaf-blueberry",
@@ -963,7 +1115,7 @@
         "Upland / dry forest",
         "Barrens / openings"
       ],
-      "list_thumbnail": "",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vaccinium%20myrtilloides.jpg?width=320",
       "edibility_detail": "Edible ripe fruit.",
       "month_numbers": [
         7,
@@ -989,9 +1141,52 @@
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
       "plant_card_note": "Useful parts: fruit / berry. Edible ripe fruit.",
       "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ]
+        "needs_source_links"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Vaccinium%20myrtilloides.jpg"
+      ],
+      "images_structured": [
+        {
+          "title": "Velvetleaf blueberry botanical illustration",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vaccinium%20myrtilloides.jpg?width=320",
+          "detail": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vaccinium%20myrtilloides.jpg?width=960",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Vaccinium%20myrtilloides.jpg",
+          "source": "wikimedia-commons-open-license",
+          "sourceLabel": "Wikimedia Commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Vaccinium_myrtilloides.jpg",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Vaccinium_myrtilloides.jpg",
+          "credit": "Britton, N.L., and A. Brown / Kentucky Native Plant Society scan, Public Domain",
+          "author": "Britton, N.L., and A. Brown",
+          "license": "Public Domain / PD-1923",
+          "license_url": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+          "licenseUrl": "https://commons.wikimedia.org/wiki/Commons:Copyright_tags#Public_domain",
+          "part_or_stage": "botanical_illustration_flowers_fruit_leaves",
+          "image_role": "fallback identification illustration",
+          "rights_status": "commercial_ok",
+          "commercial_use": true,
+          "commercial_use_allowed": true,
+          "modification_allowed": true,
+          "attribution_required": false,
+          "share_alike_required": false,
+          "needs_commercial_replacement": false,
+          "rights_checked_date": "2026-06-01",
+          "checked_date": "2026-06-01",
+          "rights_checked_build": "v4.3.101-r2026-06-01-image-coverage-pass1",
+          "checked_build": "v4.3.101-r2026-06-01-image-coverage-pass1",
+          "rights_note": "Commercial use and modification allowed by the listed open/public-domain style license. Attribution is required where the license requires it; share-alike is tracked internally when applicable.",
+          "rights_notes": "Commercial use and modification allowed by the listed open/public-domain style license. Attribution is required where the license requires it; share-alike is tracked internally when applicable.",
+          "image_note": "Exact-species botanical illustration used as minimum coverage fallback until a stronger open-license field photo is found."
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Vaccinium%20myrtilloides.jpg?width=960"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Vaccinium%20myrtilloides.jpg"
+      ],
+      "image_coverage_status": "fallback_verified_image",
+      "image_rights_audit_status": "rights_metadata_added"
     },
     {
       "slug": "violet",
@@ -1133,7 +1328,7 @@
       "display_name": "Wild carrot / Queen Anne’s lace",
       "common_name": "Wild carrot / Queen Anne’s lace",
       "category": "Root",
-      "notes": "Biennial Apiaceae with first-year rosettes, feathery leaves, hairy stems, white umbrella flower clusters, and a carrot-scented taproot. Serious hemlock confusion risk.",
+      "notes": "Biennial Apiaceae with first-year rosettes, feathery leaves, hairy stems, white umbrella flower clusters, and a carrot-scented taproot. Serious hemlock confusion risk: smooth purple-spotted stems or wetland carrot-family roots are stop signs.",
       "months_available": [
         "April",
         "May",
@@ -1183,7 +1378,7 @@
         8,
         9
       ],
-      "edibility_detail": "Only consider first-year roots with certain ID. Poison hemlock and water hemlock confusion can be deadly.",
+      "edibility_detail": "Only consider first-year roots with certain ID in a safe dry/open context. Poison hemlock and water hemlock confusion can be deadly.",
       "look_alikes": [
         "Poison hemlock",
         "Water hemlock",
@@ -1300,7 +1495,78 @@
       "confused_with": [
         "poison-hemlock",
         "water-hemlock"
-      ]
+      ],
+      "look_alike_notes": "Do not treat white umbels as a food ID. Wild carrot should show a hairy/bristly stem, lacy leaves, Queen Anne’s lace bracts, and dry/open habitat; poison hemlock and water hemlock require hard stop checks.",
+      "risk_reason": "Apiaceae confusion can be deadly because poison hemlock and water hemlock can overlap with white umbels and divided leaves.",
+      "field_traits_that_create_risk": "White umbels and ferny divided leaves are shared by several carrot-family plants; smooth purple-spotted stems and wetland roots are major danger traits.",
+      "hard_rule": "Do not eat wild carrot unless the plant clearly has a hairy/bristly stem and the dangerous hemlock checks are negative. Never taste unknown wetland carrot-family roots.",
+      "lookalike_risk": {
+        "level": 3,
+        "label": "Extreme — deadly hemlock confusion possible",
+        "short_label": "Extreme — deadly hemlock confusion possible",
+        "summary": "Wild carrot has deadly Apiaceae look-alikes. White umbels and lacy leaves are not enough; stem hair, purple blotches, habitat, bracts, odor, and root context all matter.",
+        "required_checks": [
+          "Stem hair vs. smoothness check required.",
+          "Purple/red blotch check required.",
+          "Habitat moisture check required.",
+          "Root/taste checks are not substitutes for full positive identification.",
+          "Queen Anne’s lace bracts and hairy/bristly stem should be present for wild carrot.",
+          "Reject wetland carrot-family plants for root use."
+        ],
+        "hard_rule": "Smooth purple-spotted stems or unknown wetland Apiaceae roots mean do not eat.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Deadly poisonous — nervous-system poisoning and respiratory failure risk.",
+            "slug": "poison-hemlock",
+            "warning": "Deadly look-alike: smooth purple-spotted stems, hairless foliage, and a mousey/musty odor are stop signs.",
+            "target_traits": [
+              "Hairy or bristly stem; not smooth and hairless.",
+              "Lacy, finely divided leaves and a carrot smell from a crushed confirmed first-year root.",
+              "White Queen Anne’s lace umbel with visible bracts below it; a dark central flower may be present but is not required.",
+              "Usually dry/open disturbed habitat such as fields, roadsides, or dry open ground.",
+              "Food use is limited to a positively identified first-year root in a safe context."
+            ],
+            "lookalike_traits": [
+              "Smooth, hairless, hollow stem instead of a bristly wild-carrot stem.",
+              "Purple or reddish blotches/spots on the stem or leaf stalks.",
+              "Glossy ferny divided leaves and white umbrella-like flower clusters.",
+              "Mousey, musty, or rank odor when crushed.",
+              "Deadly poisonous; can affect the nervous and respiratory systems."
+            ],
+            "required_checks": [
+              "Stem must be hairy/bristly for wild carrot.",
+              "Reject smooth hairless stems with purple/red blotches.",
+              "Do not rely on white umbels alone."
+            ],
+            "hard_rule": "If a carrot-family plant has a smooth purple-spotted stem, do not eat it."
+          },
+          {
+            "risk": "Deadly poisonous — rapid nervous-system poisoning, seizures, and respiratory failure risk.",
+            "slug": "water-hemlock",
+            "warning": "Deadly wetland look-alike: wet habitat plus carrot-family white umbels or thick roots is a hard stop.",
+            "target_traits": [
+              "Hairy or bristly stem; not smooth and hairless.",
+              "Lacy, finely divided leaves and a carrot smell from a crushed confirmed first-year root.",
+              "White Queen Anne’s lace umbel with visible bracts below it; a dark central flower may be present but is not required.",
+              "Usually dry/open disturbed habitat such as fields, roadsides, or dry open ground.",
+              "Food use is limited to a positively identified first-year root in a safe context."
+            ],
+            "lookalike_traits": [
+              "Wetland, marsh, ditch, shore, or streamside habitat raises the danger level immediately.",
+              "White umbels and compound leaves with toothed leaflets can overlap with edible carrot-family plants.",
+              "Thick root crown or chambered root structure is an extreme danger sign; roots are especially hazardous.",
+              "Do not dig, taste, chew, or smell-test unknown wetland Apiaceae roots.",
+              "Deadly poisonous; rapid severe poisoning and seizures are possible."
+            ],
+            "required_checks": [
+              "Dry/open disturbed habitat supports wild carrot; wetland habitat does not.",
+              "Do not dig or taste unknown wetland Apiaceae roots.",
+              "Treat chambered or thick root crowns as deadly danger traits."
+            ],
+            "hard_rule": "Do not dig or taste unknown wetland Apiaceae roots."
+          }
+        ]
+      }
     },
     {
       "slug": "wild-ginger",

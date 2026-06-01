@@ -8,7 +8,9 @@
     "split_part": 1,
     "split_parts_total": 4,
     "split_series": "data/plants*.json",
-    "source_group": "data/plants"
+    "source_group": "data/plants",
+    "last_content_update": "v4.3.101-r2026-06-01-image-coverage-pass1",
+    "last_content_update_date": "2026-05-20"
   },
   "records": [
     {
@@ -311,7 +313,74 @@
       "confused_with": [
         "poison-hemlock",
         "water-hemlock"
-      ]
+      ],
+      "look_alike_notes": "Angelica is also Apiaceae. Do not use purple-tinged stems or white umbels by themselves; separate it from poison hemlock and water hemlock with stem surface, blotching pattern, habitat, leaf/stalk structure, and expert-level confirmation.",
+      "risk_reason": "Large wet-ground Apiaceae can be confused with deadly hemlocks if the ID is based only on white umbels, divided leaves, or purple-toned stems.",
+      "field_traits_that_create_risk": "Tall carrot-family plant, wet habitat, divided leaves, white/greenish umbels, and purple-toned stems can overlap with dangerous hemlock cues.",
+      "hard_rule": "Do not eat angelica or any similar wet-ground Apiaceae unless poison hemlock and water hemlock have been ruled out by more than one field trait.",
+      "lookalike_risk": {
+        "level": 3,
+        "label": "Extreme — deadly hemlock confusion possible",
+        "short_label": "Extreme — deadly hemlock confusion possible",
+        "summary": "Angelica is a caution-heavy Apiaceae entry. Wet habitat and umbrella-like flowers make poison hemlock and water hemlock comparisons mandatory.",
+        "required_checks": [
+          "Stem hair vs. smoothness check required.",
+          "Purple/red blotch check required.",
+          "Habitat moisture check required.",
+          "Root/taste checks are not substitutes for full positive identification.",
+          "Confirm Angelica structure and aromatic stalk/leaf traits; do not use purple tone alone.",
+          "Reject any unknown wetland Apiaceae root."
+        ],
+        "hard_rule": "Unknown wet-ground Apiaceae stays out of the mouth unless the full plant is positively identified.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Deadly poisonous — nervous-system poisoning and respiratory failure risk.",
+            "slug": "poison-hemlock",
+            "warning": "Deadly look-alike: purple-spotted smooth hairless stems and mousey odor are poison-hemlock stop signs.",
+            "target_traits": [
+              "Confirmed Angelica structure, not just a tall Apiaceae with umbels.",
+              "Large wet-ground plant with Angelica leaf/stalk pattern and aromatic character.",
+              "No poison-hemlock-style smooth purple blotched stem pattern."
+            ],
+            "lookalike_traits": [
+              "Smooth, hairless, hollow stem instead of a bristly wild-carrot stem.",
+              "Purple or reddish blotches/spots on the stem or leaf stalks.",
+              "Glossy ferny divided leaves and white umbrella-like flower clusters.",
+              "Mousey, musty, or rank odor when crushed.",
+              "Deadly poisonous; can affect the nervous and respiratory systems."
+            ],
+            "required_checks": [
+              "Check smoothness and purple/red blotching pattern on stems.",
+              "Check odor and overall plant structure.",
+              "Do not identify from white umbels alone."
+            ],
+            "hard_rule": "Smooth purple-spotted Apiaceae stems are a do-not-eat signal."
+          },
+          {
+            "risk": "Deadly poisonous — seizures and rapid severe poisoning risk.",
+            "slug": "water-hemlock",
+            "warning": "Deadly wetland look-alike: never use or taste unknown wetland Apiaceae roots.",
+            "target_traits": [
+              "Confirmed Angelica structure and safe-use context.",
+              "No thick chambered water-hemlock root crown.",
+              "Identification is based on the full plant, not wet habitat plus umbels."
+            ],
+            "lookalike_traits": [
+              "Wetland, marsh, ditch, shore, or streamside habitat raises the danger level immediately.",
+              "White umbels and compound leaves with toothed leaflets can overlap with edible carrot-family plants.",
+              "Thick root crown or chambered root structure is an extreme danger sign; roots are especially hazardous.",
+              "Do not dig, taste, chew, or smell-test unknown wetland Apiaceae roots.",
+              "Deadly poisonous; rapid severe poisoning and seizures are possible."
+            ],
+            "required_checks": [
+              "Check wetland root danger before any root/stalk use.",
+              "Reject chambered or thick unknown root crowns.",
+              "Do not taste wetland Apiaceae roots."
+            ],
+            "hard_rule": "Do not dig or taste unknown wetland Apiaceae roots."
+          }
+        ]
+      }
     },
     {
       "slug": "barberries",
@@ -509,7 +578,7 @@
         "Upland / dry forest",
         "Forest edge / openings"
       ],
-      "list_thumbnail": "",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Arctostaphylos%20uva-ursi%20%285192873642%29.jpg?width=320",
       "scientific_name": "Arctostaphylos uva-ursi",
       "edibility_detail": "Edible, but the fruit is mealy and usually not considered a prime fresh-eating berry.",
       "look_alikes": [
@@ -548,9 +617,51 @@
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs, Tea / Infusions.",
       "plant_card_note": "Useful parts: fruit / berry, leaf / tea. Edible, but the fruit is mealy and usually not considered a prime fresh-eating berry.",
       "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ]
+        "needs_source_links"
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Arctostaphylos%20uva-ursi%20%285192873642%29.jpg"
+      ],
+      "images_structured": [
+        {
+          "title": "Bearberry fruit and evergreen leaves",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Arctostaphylos%20uva-ursi%20%285192873642%29.jpg?width=320",
+          "detail": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Arctostaphylos%20uva-ursi%20%285192873642%29.jpg?width=960",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Arctostaphylos%20uva-ursi%20%285192873642%29.jpg",
+          "source": "wikimedia-commons-open-license",
+          "sourceLabel": "Wikimedia Commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Arctostaphylos_uva-ursi_(5192873642).jpg",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Arctostaphylos_uva-ursi_(5192873642).jpg",
+          "credit": "Matt Lavin, CC BY-SA 2.0",
+          "author": "Matt Lavin from Bozeman, Montana, USA",
+          "license": "CC BY-SA 2.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "part_or_stage": "fruit_and_leaves",
+          "image_role": "primary field identification image",
+          "rights_status": "commercial_ok",
+          "commercial_use": true,
+          "commercial_use_allowed": true,
+          "modification_allowed": true,
+          "attribution_required": true,
+          "share_alike_required": true,
+          "needs_commercial_replacement": false,
+          "rights_checked_date": "2026-06-01",
+          "checked_date": "2026-06-01",
+          "rights_checked_build": "v4.3.101-r2026-06-01-image-coverage-pass1",
+          "checked_build": "v4.3.101-r2026-06-01-image-coverage-pass1",
+          "rights_note": "Commercial use and modification allowed by the listed open/public-domain style license. Attribution is required where the license requires it; share-alike is tracked internally when applicable.",
+          "rights_notes": "Commercial use and modification allowed by the listed open/public-domain style license. Attribution is required where the license requires it; share-alike is tracked internally when applicable."
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Arctostaphylos%20uva-ursi%20%285192873642%29.jpg?width=960"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Arctostaphylos%20uva-ursi%20%285192873642%29.jpg"
+      ],
+      "image_coverage_status": "verified_images",
+      "image_rights_audit_status": "rights_metadata_added"
     },
     {
       "slug": "bee-balm-wild-bergamot",
