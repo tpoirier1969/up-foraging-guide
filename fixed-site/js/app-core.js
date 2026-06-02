@@ -10,6 +10,9 @@ const REVIEW_STORAGE_KEY = "foraging_review_overlay_v1";
 const moduleCache = new Map();
 let loadAppDataPromise = null;
 let renderToken = 0;
+let searchInputDebounceTimer = null;
+const SEARCH_DEBOUNCE_MS = 3000;
+const SEARCH_RESULT_LIMIT = 80;
 
 const IN_SEASON_ROUTE = "mushrooms-in-season";
 const MONTHS = [
@@ -293,12 +296,13 @@ function controlsHtml(route = "general", placeholder = "Search species", filterF
     return `
       <section class="panel">
         <div class="control-row">
-          <input id="speciesSearch" type="search" value="${esc(search)}" placeholder="${esc(placeholder)}" style="flex:1;min-width:280px">
+          <input id="speciesSearch" type="search" value="${esc(search)}" placeholder="${esc(placeholder)}" style="flex:1;min-width:280px" autocomplete="off">
           <button id="speciesSearchBtn" class="primary" type="button">Search</button>
           ${search ? `<button id="speciesClearBtn" type="button">Clear</button>` : ""}
         </div>
+        <p id="speciesSearchStatus" class="muted small" aria-live="polite">${search ? "Edit the search text or press Search." : "Search opens blank. Start typing and results will load after a short pause."}</p>
       </section>
-      ${sortControls}
+      ${search ? sortControls : ""}
     `;
   }
   if (isPlantFilterRoute(route) || isMushroomFilterRoute(route)) {
@@ -441,7 +445,8 @@ function wireCommonEvents(route) {
     location.hash = "#/search";
   });
   wireSearchBlock("speciesSearch", "speciesSearchBtn", (value) => {
-    state.filters.search = value;
+    clearTimeout(searchInputDebounceTimer);
+    state.filters.search = String(value || "").trim();
     renderCurrentRoute();
   });
   document.getElementById("speciesClearBtn")?.addEventListener("click", () => {
@@ -501,6 +506,22 @@ function wireCommonEvents(route) {
   });
   if (route === "search") {
     const searchInput = document.getElementById("speciesSearch");
+    const searchStatus = document.getElementById("speciesSearchStatus");
+    searchInput?.addEventListener("input", () => {
+      clearTimeout(searchInputDebounceTimer);
+      const value = String(searchInput.value || "").trim();
+      if (!value) {
+        state.filters.search = "";
+        if (searchStatus) searchStatus.textContent = "Search is blank. Start typing to search.";
+        searchInputDebounceTimer = setTimeout(() => renderCurrentRoute(), 250);
+        return;
+      }
+      if (searchStatus) searchStatus.textContent = `Waiting ${Math.round(SEARCH_DEBOUNCE_MS / 1000)} seconds after typing stops before loading results…`;
+      searchInputDebounceTimer = setTimeout(() => {
+        state.filters.search = value;
+        renderCurrentRoute();
+      }, SEARCH_DEBOUNCE_MS);
+    });
     window.requestAnimationFrame(() => {
       try { searchInput?.focus({ preventScroll: true }); } catch { searchInput?.focus(); }
       try { searchInput?.select?.(); } catch {}
@@ -754,24 +775,45 @@ async function renderSpeciesRoute(route, token) {
     hasActiveCautionFilters
   } = await importModule("./ui/render-list.js");
   if (token !== renderToken) return;
+
+  if (route === "search" && !String(state.filters.search || "").trim()) {
+    renderPage(`
+      ${controlsHtml(route, "Search all species", [], false, "")}
+      <section class="panel empty-state">
+        <h2>Search</h2>
+        <p>Start typing to search the guide. Results are intentionally not loaded until after you pause, so the page does not try to render the entire species list at once.</p>
+      </section>
+    `);
+    wireCommonEvents(route);
+    return;
+  }
+
   const matchRoute = route === "search" ? "general" : route;
-  let filterFields = (route === "lookalikes" || route === "caution")
-    ? getCautionFilterFields(state.species, state.filters)
-    : getFilterFieldsForRoute(state.species, matchRoute, state.filters);
-  if (!(route === "lookalikes" || route === "caution") && sanitizeTraitFiltersForRoute(matchRoute, filterFields)) {
+  let filterFields = route === "search"
+    ? []
+    : ((route === "lookalikes" || route === "caution")
+      ? getCautionFilterFields(state.species, state.filters)
+      : getFilterFieldsForRoute(state.species, matchRoute, state.filters));
+  if (route !== "search" && !(route === "lookalikes" || route === "caution") && sanitizeTraitFiltersForRoute(matchRoute, filterFields)) {
     filterFields = getFilterFieldsForRoute(state.species, matchRoute, state.filters);
   }
-  const activeTraitFilters = (route === "lookalikes" || route === "caution")
-    ? hasActiveCautionFilters(state.filters)
-    : hasActiveTraitFilters(matchRoute, state.filters);
+  const activeTraitFilters = route === "search"
+    ? false
+    : ((route === "lookalikes" || route === "caution")
+      ? hasActiveCautionFilters(state.filters)
+      : hasActiveTraitFilters(matchRoute, state.filters));
   const plantLaneControls = route === "plants" ? renderPlantLaneControls(state.species, state.filters) : "";
   const filtered = filterRecords(state.species, matchRoute, state.filters);
   const sorted = sortRecords(filtered, state.filters.sortSpecies || "default");
-  const title = `${routeTitle(route)} (${filtered.length})`;
+  const visibleRecords = route === "search" ? sorted.slice(0, SEARCH_RESULT_LIMIT) : sorted;
+  const limitNote = route === "search" && sorted.length > visibleRecords.length
+    ? `<p class="muted small">Showing the first ${visibleRecords.length} of ${sorted.length} matches. Keep typing to narrow the list.</p>`
+    : "";
+  const title = route === "search" ? `Search results (${filtered.length})` : `${routeTitle(route)} (${filtered.length})`;
   renderPage(`
     ${controlsHtml(route, route === "search" ? "Search all species" : `Search ${routeTitle(route).toLowerCase()}`, filterFields, activeTraitFilters, plantLaneControls)}
-    <section class="panel"><h2>${esc(title)}</h2></section>
-    ${renderRecordCards(sorted, route)}
+    <section class="panel"><h2>${esc(title)}</h2>${limitNote}</section>
+    ${visibleRecords.length ? renderRecordCards(visibleRecords, route) : `<section class="panel empty-state"><h3>No species found</h3></section>`}
   `);
   wireCommonEvents(route);
 }
@@ -810,7 +852,7 @@ async function renderReferencesRoute(token) {
   }
   const { renderReferencesPage } = await importModule("./ui/render-references.js");
   if (token !== renderToken) return;
-  renderPage(renderReferencesPage(state.references, state.filters.search));
+  renderPage(renderReferencesPage(state.references, ""));
   wireCommonEvents("references");
 }
 

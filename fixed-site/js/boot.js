@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.110-r2026-06-02-season-image-coverage-pass8";
-const DISPLAY_VERSION = "V4.3.110-r26-06-02";
+const APP_VERSION = "v4.3.111-r2026-06-02-home-search-references-fix1";
+const DISPLAY_VERSION = "V4.3.111-r26-06-02";
 window.UP_FORAGING_APP_VERSION = APP_VERSION;
 window.UP_FORAGING_DISPLAY_VERSION = DISPLAY_VERSION;
 
