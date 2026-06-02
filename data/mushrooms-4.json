@@ -44,8 +44,6 @@
     "last_image_recovery_batch": "v4.3.81-r2026-05-18-image-recovery-audit1",
     "last_image_recovery_date": "2026-05-18",
     "last_data_integration": "v4.3.83-r2026-05-18-data-integration1",
-    "last_data_integration_date": "2026-05-18",
-    "last_data_integration": "v4.3.83-r2026-05-18-data-integration1",
     "last_data_integration_date": "2026-05-18"
   },
   "records": [
@@ -80,8 +78,10 @@
       "review_status": "complete",
       "search_aliases": [
         "strobilomyces-strobilaceus",
+        "strobilomyces-floccopus",
         "Old Man of the Woods",
-        "Strobilomyces sp. / Strobilomyces floccopus group"
+        "Strobilomyces sp.",
+        "Strobilomyces floccopus group"
       ],
       "host_filter_tokens": [
         "Hardwood",
@@ -205,10 +205,6 @@
       "mushroom_family": "Shaggy & scaly oddballs",
       "is_medicinal": false,
       "is_non_edible": false,
-      "hidden": true,
-      "duplicate_of": "old-man-of-the-woods",
-      "legacy_alias": true,
-      "list_visibility": "hidden-duplicate",
       "duplicate_note": "Duplicate Old Man of the Woods record kept only as a legacy slug alias.",
       "former_slugs": [
         "strobilomyces-strobilaceus"
@@ -359,11 +355,15 @@
       "food_role": "food",
       "look_alikes": [
         "aspen-oyster",
-        "phoenix-oyster-summer-oyster"
+        "phoenix-oyster-summer-oyster",
+        "angel-wing",
+        "jack-o-lantern"
       ],
       "confused_with": [
         "aspen-oyster",
-        "phoenix-oyster-summer-oyster"
+        "phoenix-oyster-summer-oyster",
+        "angel-wing",
+        "jack-o-lantern"
       ],
       "mushroom_profile": {
         "lane": "gilled",
@@ -496,7 +496,54 @@
       "edibility_detail": "Confirm wood growth, decurrent pale gills, no ring or volva, and a white to pale lilac spore print. Do not treat every pale shelf mushroom as an oyster.",
       "field_identification": "Overlapping shelf-like clusters on hardwood, with white to grayish caps, whitish decurrent gills running down a short lateral stem or pseudostem, firm white flesh, and a white to faintly lilac spore print.",
       "mushroom_card_note": "Classic cool-weather hardwood oyster; confirm decurrent gills and no ring/volva.",
-      "completion_status": "complete"
+      "completion_status": "complete",
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — pale shelf-gilled mushroom confusion possible",
+        "short_label": "High — pale shelf-gilled mushroom confusion possible",
+        "summary": "Oyster mushrooms are safe only after confirming wood growth, decurrent pale gills, reduced/lateral stem, no ring/volva, and expected spore print. Angel Wing is the major missing caution in conifer country.",
+        "required_checks": [
+          "Substrate check required",
+          "Confirm decurrent pale gills and shelf/lateral form",
+          "Spore print recommended",
+          "No ring or volva",
+          "Avoid conifer-wood oyster-like mushrooms unless Angel Wing is ruled out"
+        ],
+        "hard_rule": "Do not eat oyster-like mushrooms from conifer wood unless Angel Wing has been ruled out.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Not recommended / oyster-like conifer-wood caution.",
+            "slug": "angel-wing",
+            "warning": "Angel Wing can resemble thin white oysters on conifer wood.",
+            "target_traits": [
+              "Fleshy Pleurotus oyster form",
+              "Hardwood/aspen/poplar host for aspen/pearl oysters when expected",
+              "White to pale-lilac spore print"
+            ],
+            "lookalike_traits": [
+              "Thin pure-white shelves",
+              "Often on conifer wood",
+              "Very little stem"
+            ],
+            "hard_rule": "Do not eat oyster-like mushrooms from conifer wood unless Angel Wing has been ruled out."
+          },
+          {
+            "risk": "Poisonous / gastrointestinal illness.",
+            "slug": "jack-o-lantern",
+            "warning": "Orange true-gilled clusters from wood are not the same as edible shelf/ridge mushrooms.",
+            "target_traits": [
+              "Target mushroom lacks true orange gills",
+              "Check underside and growth form"
+            ],
+            "lookalike_traits": [
+              "Bright orange flesh",
+              "Sharp true orange gills",
+              "Dense clusters from wood, roots, or buried roots"
+            ],
+            "hard_rule": "If it has true orange gills, route away from the edible target."
+          }
+        ]
+      }
     },
     {
       "slug": "phoenix-oyster-summer-oyster",
@@ -543,11 +590,15 @@
       "food_role": "food",
       "look_alikes": [
         "pearl-oyster",
-        "aspen-oyster"
+        "aspen-oyster",
+        "angel-wing",
+        "jack-o-lantern"
       ],
       "confused_with": [
         "pearl-oyster",
-        "aspen-oyster"
+        "aspen-oyster",
+        "angel-wing",
+        "jack-o-lantern"
       ],
       "mushroom_profile": {
         "lane": "gilled",
@@ -688,7 +739,54 @@
           "notes": "Warm-season oyster traits, hardwood substrate, decurrent gills, spore print, and separation from P. ostreatus and P. populinus."
         }
       ],
-      "completion_status": "complete"
+      "completion_status": "complete",
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — pale shelf-gilled mushroom confusion possible",
+        "short_label": "High — pale shelf-gilled mushroom confusion possible",
+        "summary": "Oyster mushrooms are safe only after confirming wood growth, decurrent pale gills, reduced/lateral stem, no ring/volva, and expected spore print. Angel Wing is the major missing caution in conifer country.",
+        "required_checks": [
+          "Substrate check required",
+          "Confirm decurrent pale gills and shelf/lateral form",
+          "Spore print recommended",
+          "No ring or volva",
+          "Avoid conifer-wood oyster-like mushrooms unless Angel Wing is ruled out"
+        ],
+        "hard_rule": "Do not eat oyster-like mushrooms from conifer wood unless Angel Wing has been ruled out.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Not recommended / oyster-like conifer-wood caution.",
+            "slug": "angel-wing",
+            "warning": "Angel Wing can resemble thin white oysters on conifer wood.",
+            "target_traits": [
+              "Fleshy Pleurotus oyster form",
+              "Hardwood/aspen/poplar host for aspen/pearl oysters when expected",
+              "White to pale-lilac spore print"
+            ],
+            "lookalike_traits": [
+              "Thin pure-white shelves",
+              "Often on conifer wood",
+              "Very little stem"
+            ],
+            "hard_rule": "Do not eat oyster-like mushrooms from conifer wood unless Angel Wing has been ruled out."
+          },
+          {
+            "risk": "Poisonous / gastrointestinal illness.",
+            "slug": "jack-o-lantern",
+            "warning": "Orange true-gilled clusters from wood are not the same as edible shelf/ridge mushrooms.",
+            "target_traits": [
+              "Target mushroom lacks true orange gills",
+              "Check underside and growth form"
+            ],
+            "lookalike_traits": [
+              "Bright orange flesh",
+              "Sharp true orange gills",
+              "Dense clusters from wood, roots, or buried roots"
+            ],
+            "hard_rule": "If it has true orange gills, route away from the edible target."
+          }
+        ]
+      }
     },
     {
       "slug": "red-chanterelles-cinnabars",
@@ -820,12 +918,12 @@
       "look_alikes": [
         "jack-o-lantern",
         "yellow-chanterelles-hardwood-associated-complex",
-        "yellowfoot-chanterelle"
+        "yellowfoot-chanterelle",
+        "false-chanterelle"
       ],
       "confused_with": [
         "jack-o-lantern",
         "false-chanterelle",
-        "hygrophoropsis-aurantiaca",
         "orange-gilled-mushrooms"
       ],
       "use_links": [
@@ -986,7 +1084,61 @@
       "completion_status": "complete",
       "look_alike_notes": "Main concern is jack-o’-lantern mushrooms. Jack-o’-lanterns have true blade-like gills, often grow in dense clusters from wood, stumps, buried roots, or tree bases, and are typically deeper pumpkin-orange. Chanterelles grow from the ground and have blunt ridges or false gills rather than separable true gills. False chanterelles and other orange gilled mushrooms should also be separated by true gills, softer texture, and different growth habits.",
       "bad_condition_warnings": "Reject slimy, brown-edged, waterlogged, moldy, or bug-heavy specimens. Reject specimens where the underside has sharp, separable true gills. Reject orange clustered mushrooms from wood, stumps, or buried roots.",
-      "image_needs": "Needs underside macro showing false gills/ridges, side view showing ridges running down stem, split specimen showing pale/solid flesh, habitat shot showing ground growth, and chanterelle vs jack-o’-lantern comparison."
+      "image_needs": "Needs underside macro showing false gills/ridges, side view showing ridges running down stem, split specimen showing pale/solid flesh, habitat shot showing ground growth, and chanterelle vs jack-o’-lantern comparison.",
+      "safety": "Edible with caution",
+      "food_value": "Choice",
+      "quality_notes": "High-value table mushrooms when firm, fresh, and not waterlogged.",
+      "eating_use_notes": "Cook fresh; useful sautéed, dried, or preserved depending on species.",
+      "risk_reason": "The main danger is confusing true chanterelles with jack-o’-lanterns or false chanterelles. Jack-o’-lanterns are poisonous.",
+      "symptoms_body_systems": "If confused with jack-o’-lantern: gastrointestinal tract, with cramps, vomiting, and diarrhea.",
+      "field_traits_that_create_risk": "True chanterelles have blunt, forked ridges or false gills that look melted into the underside, grow from soil, and are usually singly or loosely scattered. Jack-o’-lanterns grow in dense clusters from wood or buried roots and have sharp true gills.",
+      "hard_rule": "Do not eat any “chanterelle” unless the underside has blunt ridges, not blade-like gills, and the mushroom is not growing from wood.",
+      "caution_reason": "The main danger is confusing true chanterelles with jack-o’-lanterns or false chanterelles. Jack-o’-lanterns are poisonous.",
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — orange/red gilled look-alike possible",
+        "short_label": "High — orange/red gilled look-alike possible",
+        "summary": "Cinnabar chanterelles need the same underside/substrate checks as yellow chanterelles, with small red/cinnabar traits.",
+        "required_checks": [
+          "Confirm small red/cinnabar Cantharellus form",
+          "Confirm blunt ridges or shallow folds",
+          "Confirm ground growth and pale inner flesh",
+          "Reject sharp true gills and wood clusters"
+        ],
+        "hard_rule": "Do not eat small red/orange mushrooms as chanterelles unless the underside has blunt ridges/folds and the mushroom grows from soil.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Poisonous / GI illness.",
+            "slug": "jack-o-lantern",
+            "target_traits": [
+              "Ground-growing chanterelle habit",
+              "Firm flesh",
+              "Blunt forked ridges, wrinkles, folds, or nearly smooth underside"
+            ],
+            "lookalike_traits": [
+              "Dense clusters from wood/buried roots",
+              "Sharp true orange gills",
+              "Orange flesh"
+            ],
+            "hard_rule": "Wood clusters with sharp true orange gills are not chanterelles."
+          },
+          {
+            "risk": "Not recommended / orange-gilled confusion.",
+            "slug": "false-chanterelle",
+            "target_traits": [
+              "Blunt ridges/folds, not blade-like gills",
+              "Firm chanterelle flesh",
+              "Ground growth"
+            ],
+            "lookalike_traits": [
+              "Thin true forked orange gills",
+              "Flimsier texture",
+              "Often on woody debris/litter"
+            ],
+            "hard_rule": "Sharp separable true gills mean do not eat as chanterelle."
+          }
+        ]
+      }
     },
     {
       "slug": "red-belted-conk",
@@ -1326,7 +1478,7 @@
         "Cladonia portentosa / other reindeer lichens",
         "Other pale fruticose lichens"
       ],
-      "list_thumbnail": "",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cladonia_rangiferina_1.jpg?width=320",
       "completion_gaps": [
         "Record is a lichen-group entry, not a single casual food mushroom; edibility remains emergency-only."
       ],
@@ -1337,7 +1489,50 @@
         "Cladonia arbuscula",
         "reindeer lichen",
         "reindeer moss"
-      ]
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cladonia_rangiferina_1.jpg"
+      ],
+      "images_structured": [
+        {
+          "title": "Reindeer lichen pale branching thallus",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cladonia_rangiferina_1.jpg?width=320",
+          "detail": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cladonia_rangiferina_1.jpg?width=960",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Cladonia_rangiferina_1.jpg",
+          "source": "wikimedia-commons-open-license",
+          "sourceLabel": "Wikimedia Commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Cladonia_rangiferina_1.jpg",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Cladonia_rangiferina_1.jpg",
+          "credit": "Paul Morris from USA, Cladonia rangiferina 1.jpg, CC BY-SA 2.0, via Wikimedia Commons",
+          "author": "Paul Morris from USA",
+          "license": "CC BY-SA 2.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+          "part_or_stage": "branching_lichen_thallus",
+          "image_role": "primary lichen field identification image",
+          "rights_status": "commercial_ok_sharealike",
+          "commercial_use": true,
+          "commercial_use_allowed": true,
+          "modification_allowed": true,
+          "attribution_required": true,
+          "share_alike_required": true,
+          "needs_commercial_replacement": false,
+          "rights_checked_date": "2026-06-01",
+          "checked_date": "2026-06-01",
+          "rights_checked_build": "v4.3.105-r2026-06-01-image-coverage-pass5",
+          "checked_build": "v4.3.105-r2026-06-01-image-coverage-pass5",
+          "rights_note": "Commercial use and modification allowed; attribution required and share-alike/copyleft terms may apply to adapted versions.",
+          "rights_notes": "Commercial use and modification allowed; attribution required and share-alike/copyleft terms may apply to adapted versions."
+        }
+      ],
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cladonia_rangiferina_1.jpg?width=960"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Cladonia_rangiferina_1.jpg"
+      ],
+      "image_coverage_status": "verified_images",
+      "image_rights_audit_status": "rights_metadata_added"
     },
     {
       "slug": "rock-tripe-lichen",
@@ -1499,7 +1694,7 @@
     {
       "slug": "scaber-stalk-boletes-birch-aspen-boletes",
       "display_name": "Scaber-stalk boletes / Leccinum group",
-      "common_name": "Scaber-stalk boletes / birch-aspen boletes",
+      "common_name": "Scaber-stalk boletes / Leccinum group",
       "category": "Mushroom",
       "notes": "",
       "links": [
@@ -1515,16 +1710,16 @@
       "general_notes": "Representative Commons images currently use Leccinum scabrum to illustrate the broader scaber-stalk birch/aspen bolete group.",
       "record_type": "mushroom",
       "lane": "bolete",
-      "review_status": "needs_review",
+      "review_status": "complete",
       "commonness": "",
-      "food_quality": "Caution-level; quality varies",
+      "food_quality": "Fair to good",
       "non_edible_severity": "",
       "hidden": true,
       "duplicate_of": "leccinum-scabrum",
       "legacy_alias": true,
       "list_visibility": "hidden-duplicate",
       "duplicate_note": "Broad scaber-stalk duplicate/group page kept only as a legacy slug alias. Its caution content has been consolidated into Birch Bolete / Leccinum scabrum.",
-      "scientific_name": "Leccinum spp. / scaber-stalk bolete group",
+      "scientific_name": "Leccinum spp. / scaber-stalk bolete complexes",
       "common_names": [
         "Birch boletes",
         "Rough-stemmed boletes",
@@ -1636,7 +1831,7 @@
         ]
       },
       "edibility_status": "edible_with_caution",
-      "edibility_detail": "Edible by some experienced foragers, but caution-level. Several scaber-stalk boletes have caused gastrointestinal upset, especially when undercooked, old, or misidentified. Use only young, firm specimens that fit the scaber-stalk group clearly, and do not rely on cap color alone.",
+      "edibility_detail": "Edible-with-caution for experienced foragers only. Some scaber-stalk boletes have caused significant GI reactions; use only young, firm, thoroughly cooked, confidently identified specimens.",
       "look_alikes": [
         "leccinum-versipelle",
         "leccinum-insigne",
@@ -1738,12 +1933,21 @@
         "Keep as needs_review until this broad group is either split into species records or explicitly retained as a caution-group page."
       ],
       "completion_status": "incomplete_declared",
-      "foraging_value": "Caution-level edible group for experienced foragers; quality varies",
+      "foraging_value": "Fair to good edible group for experienced foragers; not beginner-safe",
       "food_quality_score": 2,
       "foraging_value_score": 2,
       "look_alike_notes": "Can be confused with other boletes, especially by beginners using cap color alone. The rough scabered stalk is the main group clue. Species-level ID can be difficult in North America, and some older names from European field guides are misapplied here. Avoid old, buggy, soft, or strongly decayed specimens. Some scaber-stalk boletes have caused gastrointestinal upset, so this group stays caution-level rather than a casual beginner edible.",
       "bad_condition_warnings": "Reject soft, bug-riddled, sour-smelling, waterlogged, blackened, mushy-pored, or badly decayed specimens. Avoid old orange-capped specimens and any collection where host/tree context and scabered stalk are not clear.",
-      "image_needs": "Needs host-context habitat, close-up of scabered stalk, young/mature pore surfaces, cut flesh staining sequence, stem-base staining, and reject/old specimen examples."
+      "image_needs": "Needs host-context habitat, close-up of scabered stalk, young/mature pore surfaces, cut flesh staining sequence, stem-base staining, and reject/old specimen examples.",
+      "safety": "Edible with caution / high-confirmation only",
+      "food_value": "Fair to good",
+      "quality_notes": "Often softens, bugs easily, and may darken or blacken when cooked; quality varies by species, age, and host association.",
+      "eating_use_notes": "Only use young, firm, confidently identified specimens and cook thoroughly. Avoid old, soft, buggy, or uncertain collections.",
+      "risk_reason": "Some Leccinum/scaber-stalk boletes have caused serious gastrointestinal illness even when collected as edible boletes. Species-level ID is difficult in North America.",
+      "symptoms_body_systems": "Gastrointestinal tract and dehydration risk; nausea, vomiting, diarrhea, intestinal cramps, sweating, and weakness can occur.",
+      "field_traits_that_create_risk": "Scaber-like dark dots or scales on the stalk, orange/red/brown caps, staining reactions, mixed bolete collections, and confusion among Leccinum species. Some problem cases involve red/orange-capped Leccinum-type mushrooms.",
+      "hard_rule": "Do not present Leccinum as beginner-safe. Use only if the species/complex is confirmed, specimens are fresh, and the user already knows this group; otherwise do not eat.",
+      "caution_reason": "GI reaction reports and difficult species-level ID; caution is safety, not food quality."
     },
     {
       "slug": "shaggy-mane",
@@ -1783,13 +1987,17 @@
       "food_role": "food",
       "look_alikes": [
         "inky-caps",
-        "destroying-angel"
+        "destroying-angel",
+        "green-spored-parasol",
+        "alcohol-inky-cap",
+        "white-amanita-button-warning"
       ],
       "confused_with": [
         "inky-caps",
         "destroying-angel",
         "green-spored-parasol",
-        "alcohol-inky-cap"
+        "alcohol-inky-cap",
+        "white-amanita-button-warning"
       ],
       "mushroom_profile": {
         "lane": "gilled",
@@ -1969,7 +2177,62 @@
       },
       "rights_review_status": "exact_metadata_verified",
       "completion_status": "complete",
-      "look_alike_notes": "Use only young, classic shaggy manes with white shaggy cylindrical caps and gills not yet black; avoid smooth gray inky caps and parasol-like lawn mushrooms, especially anything with a green spore print."
+      "look_alike_notes": "Use only young, classic shaggy manes with white shaggy cylindrical caps and gills not yet black; avoid smooth gray inky caps and parasol-like lawn mushrooms, especially anything with a green spore print.",
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — inky-cap and white-button confusion",
+        "short_label": "High — inky-cap and white-button confusion",
+        "summary": "Shaggy mane is recognizable when young and classic, but risk rises when users generalize “inky cap.” Alcohol inky cap has an alcohol-interaction risk.",
+        "required_checks": [
+          "Age/condition check required",
+          "Use young white shaggy cylindrical specimens only",
+          "Reject smooth gray-brown clustered inky caps",
+          "Base/volva check recommended for young white button-like specimens"
+        ],
+        "hard_rule": "Do not treat other inky caps as shaggy mane.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Poisonous with alcohol / not recommended.",
+            "slug": "alcohol-inky-cap",
+            "target_traits": [
+              "Tall white shaggy cylindrical cap",
+              "Shaggy scales",
+              "Gills white then pink then black and deliquescing"
+            ],
+            "lookalike_traits": [
+              "Smoother gray-brown clustered inky caps",
+              "Alcohol reaction risk"
+            ],
+            "hard_rule": "Do not treat other inky caps as shaggy mane."
+          },
+          {
+            "risk": "Deadly Amanita button warning.",
+            "slug": "white-amanita-button-warning",
+            "target_traits": [
+              "Shaggy cylindrical cap",
+              "No volva/cup",
+              "Deliquescing gills"
+            ],
+            "lookalike_traits": [
+              "White Amanita button or opened Amanita with volva/cup and white gills"
+            ],
+            "hard_rule": "Any white mushroom with a volva/cup is not shaggy mane."
+          },
+          {
+            "risk": "Poisonous.",
+            "slug": "green-spored-parasol",
+            "target_traits": [
+              "Cylindrical shaggy cap that dissolves into ink"
+            ],
+            "lookalike_traits": [
+              "Parasol form",
+              "Greenish spore print",
+              "Non-deliquescing cap"
+            ],
+            "hard_rule": "If it opens like a parasol and does not ink, route away from shaggy mane."
+          }
+        ]
+      }
     },
     {
       "slug": "short-stemmed-russula",
@@ -2012,8 +2275,16 @@
         10
       ],
       "food_role": "food",
-      "look_alikes": [],
-      "confused_with": [],
+      "look_alikes": [
+        "acrid-red-russula-sickener-group",
+        "edible-milk-caps-volemus-group",
+        "white-amanita-button-warning"
+      ],
+      "confused_with": [
+        "acrid-red-russula-sickener-group",
+        "edible-milk-caps-volemus-group",
+        "white-amanita-button-warning"
+      ],
       "mushroom_profile": {
         "lane": "gilled",
         "entry_scope": "group",
@@ -2190,7 +2461,62 @@
       "image_needs": "Needs 2–3 distinct open-license images showing cap/gills/stem plus latex/staining or brittle/no-latex traits as applicable.",
       "alternate_slugs": [
         "russula-brevipes-group"
-      ]
+      ],
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — Russula/milkcap/Amanita group confusion possible",
+        "short_label": "High — Russula/milkcap/Amanita group confusion possible",
+        "summary": "Russula food use needs brittle flesh, no latex, no ring/volva, mild/non-acrid traits, and group-specific confirmation.",
+        "required_checks": [
+          "Latex check required",
+          "No ring/volva/cup/bulb",
+          "Confirm brittle/chalky Russula flesh",
+          "Reject hot/acrid/peppery taste",
+          "Expert nibble-and-spit only where appropriate"
+        ],
+        "hard_rule": "Latex, Amanita base/ring traits, or acrid taste means do not eat as edible Russula.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Poisonous / GI illness.",
+            "slug": "acrid-red-russula-sickener-group",
+            "target_traits": [
+              "Mild taste",
+              "Brittle Russula traits"
+            ],
+            "lookalike_traits": [
+              "Hot/acrid/peppery taste",
+              "Red/sickener-type Russula posture"
+            ],
+            "hard_rule": "Acrid Russulas are not edible basket mushrooms."
+          },
+          {
+            "risk": "Milkcap/Russula confusion.",
+            "slug": "edible-milk-caps-volemus-group",
+            "target_traits": [
+              "No latex",
+              "Brittle Russula flesh"
+            ],
+            "lookalike_traits": [
+              "Latex/milk when cut",
+              "Milkcap odor/staining patterns"
+            ],
+            "hard_rule": "Latex means it is not a Russula entry."
+          },
+          {
+            "risk": "Deadly Amanita button/base warning.",
+            "slug": "white-amanita-button-warning",
+            "target_traits": [
+              "No ring/volva/cup/bulb",
+              "Brittle/chalky stem"
+            ],
+            "lookalike_traits": [
+              "Ring, volva/cup/bulb",
+              "Fibrous Amanita-style stem"
+            ],
+            "hard_rule": "Any Amanita base/ring traits mean do not eat."
+          }
+        ]
+      }
     },
     {
       "slug": "shrimp-of-the-woods-aborted-entoloma",
@@ -2203,7 +2529,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Entoloma.abortivum.001.jpg"
       ],
       "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "culinary_uses": "Use firm white aborted forms only; clean heavily and brown well.",
       "non_edible_severity": "Conditionally edible",
       "edibility_detail": "Edible when confidently identified, especially the firm aborted form. The normal gilled form is not recommended for beginners because other Entoloma species can be toxic or inedible. Prefer young, firm, white aborted forms.",
       "general_notes": "Representative Commons images currently show the Hypomyces lactifluorum / lobster-mushroom side of the concept pending a stronger aborted-entoloma image set.",
@@ -2277,7 +2603,9 @@
         "poisonous-entoloma-pinkgill-group",
         "entoloma-warning-group",
         "destroying-angel",
-        "puffballs"
+        "puffballs",
+        "giant-puffball",
+        "earthballs-scleroderma"
       ],
       "bad_condition_warnings": "Reject brown-spotted, slimy, waterlogged, soft, bug-riddled, sour-smelling, or rotten aborted forms. Avoid normal gilled forms unless confirmed by an experienced identifier. Do not treat every pale lump near wood as edible; cut and inspect.",
       "image_needs": "Needs aborted form cluster, cut interior, aborted form near wood/honey mushrooms, normal gilled form comparison, and reject examples showing brown-spotted or waterlogged specimens.",
@@ -2342,7 +2670,72 @@
           "near honey mushrooms",
           "pink spore print in normal form"
         ]
-      }
+      },
+      "safety": "Edible with caution",
+      "food_value": "Good",
+      "quality_notes": "Texture is the main value; flavor can be mild unless browned well. Often dirty.",
+      "eating_use_notes": "Use firm white aborted forms, clean heavily, and brown hard for best flavor.",
+      "risk_reason": "Aborted popcorn-like forms are safer to target; the gilled Entoloma form is much riskier because other Entoloma species can be toxic or inedible.",
+      "symptoms_body_systems": "Gastrointestinal illness is the main concern if confused with toxic Entoloma or eaten in poor condition.",
+      "field_traits_that_create_risk": "The normal gilled form has grayish caps and pinkish gills and should not be a beginner harvest target. Brown-spotted, waterlogged, or soft aborted forms are past prime.",
+      "hard_rule": "Target only the firm white aborted form unless you already know Entoloma identification. Do not eat the normal gilled form as a beginner.",
+      "caution_reason": "Form matters: aborted form is the food target; gilled Entoloma forms are not beginner-safe.",
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — aborted-form-only edible use",
+        "short_label": "High — aborted-form-only edible use",
+        "summary": "The aborted white popcorn/shrimp form is the food target. The normal gilled Entoloma form is a serious ID problem because many Entoloma species are toxic.",
+        "required_checks": [
+          "Use aborted lumpy form only",
+          "Cut/check condition required",
+          "Expert confirmation required for any gilled Entoloma form",
+          "Reject dark/tough/marbled interiors if puffball-like"
+        ],
+        "hard_rule": "Only the aborted form belongs in the edible basket.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Poisonous/unknown Entoloma caution.",
+            "slug": "entoloma-warning-group",
+            "target_traits": [
+              "Aborted lumpy white/pinkish popcorn-like bodies"
+            ],
+            "lookalike_traits": [
+              "Grayish gilled mushroom",
+              "Pink mature gills/spore print",
+              "Attached gills"
+            ],
+            "hard_rule": "Do not eat ordinary gilled Entoloma-like mushrooms as shrimp of the woods."
+          },
+          {
+            "risk": "Edible confusion.",
+            "slug": "giant-puffball",
+            "target_traits": [
+              "Irregular lumpy aborted masses near wood/Armillaria areas"
+            ],
+            "lookalike_traits": [
+              "Round puffball-like mass; must be solid white inside if treated as puffball"
+            ],
+            "hard_rule": "If it looks puffball-like, cut it open and route by interior."
+          },
+          {
+            "risk": "Poisonous.",
+            "slug": "earthballs-scleroderma",
+            "target_traits": [
+              "Soft white aborted form"
+            ],
+            "lookalike_traits": [
+              "Tough rind",
+              "Dark/purple/brown marbled interior"
+            ],
+            "hard_rule": "Dark, marbled, or tough interior means do not eat."
+          }
+        ]
+      },
+      "look_alikes": [
+        "entoloma-warning-group",
+        "giant-puffball",
+        "earthballs-scleroderma"
+      ]
     },
     {
       "slug": "shrimp-russulas",
@@ -2384,8 +2777,16 @@
         10
       ],
       "food_role": "food",
-      "look_alikes": [],
-      "confused_with": [],
+      "look_alikes": [
+        "acrid-red-russula-sickener-group",
+        "edible-milk-caps-volemus-group",
+        "white-amanita-button-warning"
+      ],
+      "confused_with": [
+        "acrid-red-russula-sickener-group",
+        "edible-milk-caps-volemus-group",
+        "white-amanita-button-warning"
+      ],
       "mushroom_profile": {
         "lane": "gilled",
         "entry_scope": "group",
@@ -2571,7 +2972,70 @@
       "image_needs": "Needs 2–3 distinct open-license images showing cap/gills/stem plus latex/staining or brittle/no-latex traits as applicable.",
       "alternate_slugs": [
         "shrimp-russula-group"
-      ]
+      ],
+      "safety": "Edible with caution / group-level only",
+      "food_value": "Fair to good",
+      "quality_notes": "Very variable; some are brittle, crumbly, bland, peppery, or buggy.",
+      "eating_use_notes": "Use only species/groups with known safe posture; cook thoroughly.",
+      "risk_reason": "Russula is too broad for casual app confidence. Acrid/spicy Russulas can cause GI distress, and color is unreliable.",
+      "symptoms_body_systems": "Gastrointestinal tract; nausea, vomiting, stomach pain, diarrhea, and dehydration risk in vulnerable people.",
+      "field_traits_that_create_risk": "Brittle/chalky flesh, no latex, many cap colors, and difficult species-level taxonomy. Red/purple color alone is not a safe ID trait.",
+      "hard_rule": "Do not eat Russulas unless the exact edible species/group is confirmed. Do not eat red, acrid, peppery, or bitter Russulas.",
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — Russula/milkcap/Amanita group confusion possible",
+        "short_label": "High — Russula/milkcap/Amanita group confusion possible",
+        "summary": "Russula food use needs brittle flesh, no latex, no ring/volva, mild/non-acrid traits, and group-specific confirmation.",
+        "required_checks": [
+          "Latex check required",
+          "No ring/volva/cup/bulb",
+          "Confirm brittle/chalky Russula flesh",
+          "Reject hot/acrid/peppery taste",
+          "Expert nibble-and-spit only where appropriate"
+        ],
+        "hard_rule": "Latex, Amanita base/ring traits, or acrid taste means do not eat as edible Russula.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Poisonous / GI illness.",
+            "slug": "acrid-red-russula-sickener-group",
+            "target_traits": [
+              "Mild taste",
+              "Brittle Russula traits"
+            ],
+            "lookalike_traits": [
+              "Hot/acrid/peppery taste",
+              "Red/sickener-type Russula posture"
+            ],
+            "hard_rule": "Acrid Russulas are not edible basket mushrooms."
+          },
+          {
+            "risk": "Milkcap/Russula confusion.",
+            "slug": "edible-milk-caps-volemus-group",
+            "target_traits": [
+              "No latex",
+              "Brittle Russula flesh"
+            ],
+            "lookalike_traits": [
+              "Latex/milk when cut",
+              "Milkcap odor/staining patterns"
+            ],
+            "hard_rule": "Latex means it is not a Russula entry."
+          },
+          {
+            "risk": "Deadly Amanita button/base warning.",
+            "slug": "white-amanita-button-warning",
+            "target_traits": [
+              "No ring/volva/cup/bulb",
+              "Brittle/chalky stem"
+            ],
+            "lookalike_traits": [
+              "Ring, volva/cup/bulb",
+              "Fibrous Amanita-style stem"
+            ],
+            "hard_rule": "Any Amanita base/ring traits mean do not eat."
+          }
+        ]
+      }
     },
     {
       "slug": "smooth-chanterelles",
@@ -2790,12 +3254,12 @@
       "look_alikes": [
         "jack-o-lantern",
         "yellow-chanterelles-hardwood-associated-complex",
-        "hedgehog-mushrooms"
+        "hedgehog-mushrooms",
+        "false-chanterelle"
       ],
       "confused_with": [
         "jack-o-lantern",
         "false-chanterelle",
-        "hygrophoropsis-aurantiaca",
         "orange-gilled-mushrooms"
       ],
       "use_links": [
@@ -2831,7 +3295,61 @@
       "completion_status": "complete",
       "look_alike_notes": "Main concern is jack-o’-lantern mushrooms. Jack-o’-lanterns have true blade-like gills, often grow in dense clusters from wood, stumps, buried roots, or tree bases, and are typically deeper pumpkin-orange. Chanterelles grow from the ground and have blunt ridges or false gills rather than separable true gills. False chanterelles and other orange gilled mushrooms should also be separated by true gills, softer texture, and different growth habits.",
       "bad_condition_warnings": "Reject slimy, brown-edged, waterlogged, moldy, or bug-heavy specimens. Reject specimens where the underside has sharp, separable true gills. Reject orange clustered mushrooms from wood, stumps, or buried roots.",
-      "image_needs": "Needs underside macro showing false gills/ridges, side view showing ridges running down stem, split specimen showing pale/solid flesh, habitat shot showing ground growth, and chanterelle vs jack-o’-lantern comparison."
+      "image_needs": "Needs underside macro showing false gills/ridges, side view showing ridges running down stem, split specimen showing pale/solid flesh, habitat shot showing ground growth, and chanterelle vs jack-o’-lantern comparison.",
+      "safety": "Edible with caution",
+      "food_value": "Choice",
+      "quality_notes": "High-value table mushrooms when firm, fresh, and not waterlogged.",
+      "eating_use_notes": "Cook fresh; useful sautéed, dried, or preserved depending on species.",
+      "risk_reason": "The main danger is confusing true chanterelles with jack-o’-lanterns or false chanterelles. Jack-o’-lanterns are poisonous.",
+      "symptoms_body_systems": "If confused with jack-o’-lantern: gastrointestinal tract, with cramps, vomiting, and diarrhea.",
+      "field_traits_that_create_risk": "True chanterelles have blunt, forked ridges or false gills that look melted into the underside, grow from soil, and are usually singly or loosely scattered. Jack-o’-lanterns grow in dense clusters from wood or buried roots and have sharp true gills.",
+      "hard_rule": "Do not eat any “chanterelle” unless the underside has blunt ridges, not blade-like gills, and the mushroom is not growing from wood.",
+      "caution_reason": "The main danger is confusing true chanterelles with jack-o’-lanterns or false chanterelles. Jack-o’-lanterns are poisonous.",
+      "lookalike_risk": {
+        "level": 2,
+        "label": "High — poisonous orange-gilled look-alike possible",
+        "short_label": "High — poisonous orange-gilled look-alike possible",
+        "summary": "Chanterelles must be separated from jack-o’-lanterns and false chanterelles by underside, flesh, and substrate.",
+        "required_checks": [
+          "Confirm blunt forked ridges, wrinkles, folds, or nearly smooth underside",
+          "Confirm ground growth, not dense wood clusters",
+          "Reject sharp separable true gills",
+          "Reject bright orange flesh"
+        ],
+        "hard_rule": "For yellow/smooth chanterelles, sharp true gills or dense orange wood clusters mean stop.",
+        "dangerous_lookalikes": [
+          {
+            "risk": "Poisonous / GI illness.",
+            "slug": "jack-o-lantern",
+            "target_traits": [
+              "Ground-growing chanterelle habit",
+              "Firm flesh",
+              "Blunt forked ridges, wrinkles, folds, or nearly smooth underside"
+            ],
+            "lookalike_traits": [
+              "Dense clusters from wood/buried roots",
+              "Sharp true orange gills",
+              "Orange flesh"
+            ],
+            "hard_rule": "Wood clusters with sharp true orange gills are not chanterelles."
+          },
+          {
+            "risk": "Not recommended / orange-gilled confusion.",
+            "slug": "false-chanterelle",
+            "target_traits": [
+              "Blunt ridges/folds, not blade-like gills",
+              "Firm chanterelle flesh",
+              "Ground growth"
+            ],
+            "lookalike_traits": [
+              "Thin true forked orange gills",
+              "Flimsier texture",
+              "Often on woody debris/litter"
+            ],
+            "hard_rule": "Sharp separable true gills mean do not eat as chanterelle."
+          }
+        ]
+      }
     },
     {
       "slug": "tinder-conk-hoof-fungus",
