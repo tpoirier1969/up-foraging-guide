@@ -119,7 +119,7 @@ function isHighlightCandidate(record, month) {
   const info = classifyRecord(record);
   if (!info.edible) return false;
   if (!isInSeason(record, month)) return false;
-  if (!hasUsableImageCandidate(record)) return false;
+  if (!hasPreferredImageCandidate(record)) return false;
   return info.isPlant || info.isMushroom;
 }
 
