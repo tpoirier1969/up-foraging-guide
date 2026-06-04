@@ -483,12 +483,12 @@ async function hydrateImage(img, record) {
 
   const items = await ensureGallery(record);
   const allGalleryItems = uniqueGalleryItems(items.filter(Boolean));
-  const variantItems = (variant === "card" ? allGalleryItems.slice(0, 1) : allGalleryItems).filter(Boolean);
+  const variantItems = allGalleryItems.filter(Boolean);
 
   // Detail galleries should not fall back to a different photo slot, because that
   // makes failed images appear as duplicates. Each detail cell may try its own
-  // thumb/detail/full variants only. Card thumbnails may fall forward to another
-  // usable image so the list stays visual when the primary thumb fails.
+  // thumb/detail/full variants only. Card thumbnails may fall forward through the
+  // full record gallery so a single bad primary image cannot leave a blank card.
   const orderedItems = variant === "card"
     ? variantItems
     : (variantItems[index] ? [variantItems[index]] : []);
