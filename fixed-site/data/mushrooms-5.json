@@ -6,7 +6,7 @@
     "split_file": "data/mushrooms-5.json",
     "split_role": "Core/restored baseline mushroom records kept at the original path.",
     "source_record_count_before_split": 209,
-    "record_count": 24,
+    "record_count": 28,
     "split_manifest": [
       {
         "path": "data/mushrooms.json",
@@ -43,8 +43,8 @@
     "last_completion_wave_date": "2026-05-14",
     "last_data_pass": "v4.3.80-r2026-05-18-gilled-safety-audit1",
     "last_data_pass_date": "2026-05-18",
-    "last_content_update": "v4.3.82-r2026-05-18-danger-entries-forage-display1",
-    "last_content_update_date": "2026-05-18",
+    "last_content_update": "v4.3.120-r2026-06-04-content-expansion1",
+    "last_content_update_date": "2026-06-04",
     "last_data_integration": "v4.3.83-r2026-05-18-data-integration1",
     "last_data_integration_date": "2026-05-18"
   },
@@ -831,7 +831,7 @@
     },
     {
       "slug": "yellow-fly-agaric-guessowii",
-      "display_name": "Yellow fly agaric / guessowii",
+      "display_name": "Yellow fly agaric / Amanita muscaria group",
       "common_name": "Yellow fly agaric / guessowii",
       "category": "Mushroom",
       "notes": "Yellow fly agaric entry.",
@@ -851,7 +851,7 @@
       ],
       "culinary_uses": "None. Avoid as food.",
       "non_edible_severity": "Poisonous / psychoactive Amanita",
-      "edibility_detail": "Do not eat. Contains psychoactive/toxic compounds and can cause serious illness, confusion, vomiting, and unsafe intoxication.",
+      "edibility_detail": "Do not eat. Bright yellow/orange fly agarics contain psychoactive/toxic compounds and can cause serious illness, confusion, vomiting, and unsafe intoxication.",
       "general_notes": "A familiar northern Amanita and a useful safety record because it teaches cap warts, ring, white gills, and bulbous base checks.",
       "record_type": "mushroom",
       "lane": "gilled",
@@ -867,15 +867,18 @@
         9,
         10
       ],
-      "food_role": "avoid",
+      "food_role": "do_not_eat",
       "look_alikes": [
         "destroying-angel",
         "death-cap",
-        "amanita-flavoconia"
+        "amanita-flavoconia",
+        "white-amanita-button-warning"
       ],
       "confused_with": [
         "amanita-flavoconia",
-        "death-cap"
+        "death-cap",
+        "white-amanita-button-warning",
+        "destroying-angel"
       ],
       "mushroom_profile": {
         "lane": "gilled",
@@ -1018,9 +1021,9 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita_muscaria_var._guessowii_(1).jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita_muscaria_var._guessowii_(2).jpg?width=480",
-      "scientific_name": "Amanita muscaria var. guessowii / Amanita chrysoblema yellow-orange form",
+      "scientific_name": "Amanita muscaria var. guessowii / Amanita chrysoblema yellow-orange group",
       "field_identification": "Bright yellow to orange Amanita with white warts on the cap, white gills, ring on the stem, and a bulbous base with veil remnants. Often with birch, pine, spruce, or mixed woods in northern areas.",
-      "mushroom_card_note": "Yellow/orange fly agaric: white warts, white gills, ring, bulbous base. Do not eat.",
+      "mushroom_card_note": "Yellow/orange fly agaric warning group: white warts, white gills, ring, bulbous base. Do not eat.",
       "use_links": [
         {
           "label": "MushroomExpert: Amanita muscaria var. guessowii",
@@ -1040,7 +1043,10 @@
         }
       ],
       "common_names": [
-        "Yellow fly agaric / guessowii"
+        "Yellow fly agaric / guessowii",
+        "Yellow fly agaric",
+        "Amanita muscaria group",
+        "American yellow fly agaric"
       ],
       "primary_type": "mushroom",
       "kingdom_type": "mushroom",
@@ -1058,7 +1064,21 @@
         "warnings": ""
       },
       "rights_review_status": "exact_metadata_verified",
-      "completion_status": "complete"
+      "completion_status": "complete",
+      "image_coverage_status": "verified_representative_images",
+      "image_rights_audit_status": "rights_metadata_added",
+      "aliases": [
+        "amanita-muscaria-group"
+      ],
+      "search_aliases": [
+        "amanita-muscaria-group",
+        "Amanita muscaria var. guessowii",
+        "Amanita chrysoblema",
+        "yellow fly agaric",
+        "fly agaric",
+        "Amanita muscaria group"
+      ],
+      "danger_level": "poisonous / psychoactive"
     },
     {
       "slug": "yellow-morels",
@@ -6233,6 +6253,164 @@
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
       "image_coverage_note": "Added in ghost-reference cleanup pass 2 to resolve previously unresolved look-alike/reference targets."
+    },
+    {
+      "slug": "mica-cap-group",
+      "display_name": "Mica cap group",
+      "common_name": "Mica cap group",
+      "common_names": [
+        "Mica cap",
+        "Glistening inky cap",
+        "Coprinellus micaceus group"
+      ],
+      "search_aliases": [
+        "mica cap",
+        "mica-cap group",
+        "Coprinellus micaceus",
+        "Coprinus micaceus",
+        "glistening inky cap",
+        "inky cap cluster"
+      ],
+      "scientific_name": "Coprinellus micaceus group",
+      "category": "Mushroom",
+      "record_type": "mushroom",
+      "primary_type": "mushroom",
+      "kingdom_type": "fungus",
+      "foraging_class": "mushroom",
+      "lane": "gilled",
+      "food_role": "caution",
+      "food_quality": "Common ID mushroom; not promoted as food",
+      "food_quality_score": 1,
+      "edibility_status": "edible_with_caution_not_recommended",
+      "non_edible_severity": "caution",
+      "danger_level": "caution",
+      "review_status": "complete",
+      "commonness": "Common",
+      "commonness_score": 4,
+      "foraging_value": "Common ID / caution group",
+      "foraging_value_score": 2,
+      "months_available": [
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October"
+      ],
+      "month_numbers": [
+        5,
+        6,
+        7,
+        8,
+        9,
+        10
+      ],
+      "culinary_uses": "Not promoted as food in this guide. Some sources discuss young mica caps, but this app treats them as an ID/caution group because inky caps and LBMs are easy to over-trust.",
+      "medicinal_uses": "",
+      "other_uses": "Field identification / inky-cap comparison.",
+      "edibility_detail": "Caution group. Do not use this record as a food recommendation; learn it mainly to separate clustered mica caps from alcohol inky caps and other small brown/gilled mushrooms.",
+      "overview": "Common clustered inky-cap type on decaying or buried wood. Fresh caps can show tiny mica-like granules that rain may wash away.",
+      "notes": "Look for honey-brown clustered caps, mica-like granules on young caps, grooved margins, gills that darken, and growth from wood, buried wood, or root systems.",
+      "general_notes": "Group-scoped record to avoid brittle exact-species claims within the mica-cap complex.",
+      "field_identification": "Dense clusters on decaying/buried wood; honey-brown caps with tiny glistening granules when fresh; gills pale then brown/black; black spore print. Granules may disappear after rain.",
+      "look_alikes": [
+        "alcohol-inky-cap",
+        "small-brown-mushrooms-lbm",
+        "pholiota-group",
+        "shaggy-mane"
+      ],
+      "confused_with": [
+        "alcohol-inky-cap",
+        "small-brown-mushrooms-lbm",
+        "pholiota-group",
+        "shaggy-mane"
+      ],
+      "mushroom_profile": {
+        "lane": "gilled",
+        "underside": [
+          "Gills"
+        ],
+        "cap_color": [
+          "Honey brown",
+          "Tan",
+          "Brown"
+        ],
+        "gill_color": [
+          "Pale",
+          "Brown",
+          "Blackening"
+        ],
+        "spore_print": [
+          "Black"
+        ],
+        "substrate": [
+          "Decaying wood",
+          "Buried wood",
+          "Roots"
+        ],
+        "growth_form": [
+          "Dense clusters"
+        ],
+        "hard_rule": "Do not treat clustered inky-cap/LBM mushrooms as beginner food."
+      },
+      "links": [
+        "https://www.mushroomexpert.com/coprinellus_micaceus.html"
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Coprinellus micaceus",
+          "url": "https://www.mushroomexpert.com/coprinellus_micaceus.html",
+          "link_type": "identification",
+          "source_quality": "mycology reference",
+          "notes": "Clustered growth, mica-like granules, gills darkening to black, and black spore print."
+        }
+      ],
+      "mushroom_card_note": "Common clustered inky-cap group; useful for ID, not promoted as food.",
+      "images_structured": [
+        {
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinellus_micaceus_Glimmer-Tintling.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinellus_micaceus_Glimmer-Tintling.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinellus_micaceus_Glimmer-Tintling.jpg",
+          "src": "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinellus_micaceus_Glimmer-Tintling.jpg?width=480",
+          "title": "Mica cap cluster",
+          "part_or_stage": "clustered fruiting bodies / mica-cap group",
+          "source": "wikimedia-commons-open-license",
+          "sourceLabel": "Wikimedia Commons",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Coprinellus_micaceus_Glimmer-Tintling.jpg",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Coprinellus_micaceus_Glimmer-Tintling.jpg",
+          "author": "Holger Krisp",
+          "credit": "Holger Krisp, CC BY 3.0, via Wikimedia Commons",
+          "license": "CC BY 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/3.0/",
+          "license_url": "https://creativecommons.org/licenses/by/3.0/",
+          "rights_status": "commercial_ok_with_attribution",
+          "commercial_use": true,
+          "commercial_use_allowed": true,
+          "modification_allowed": true,
+          "attribution_required": true,
+          "share_alike_required": false,
+          "needs_commercial_replacement": false,
+          "rights_notes": "Commercial use and modification allowed; attribution required by license.",
+          "rights_note": "Commercial use and modification allowed; attribution required by license.",
+          "image_role": "primary representative image",
+          "rights_checked_build": "v4.3.120-r2026-06-04-content-expansion1",
+          "rights_checked_date": "2026-06-04",
+          "checked_build": "v4.3.120-r2026-06-04-content-expansion1",
+          "checked_date": "2026-06-04"
+        }
+      ],
+      "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinellus_micaceus_Glimmer-Tintling.jpg"
+      ],
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinellus_micaceus_Glimmer-Tintling.jpg?width=480",
+      "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinellus_micaceus_Glimmer-Tintling.jpg?width=900"
+      ],
+      "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinellus_micaceus_Glimmer-Tintling.jpg"
+      ],
+      "image_coverage_status": "verified_representative_images",
+      "image_rights_audit_status": "rights_metadata_added"
     }
   ]
 }

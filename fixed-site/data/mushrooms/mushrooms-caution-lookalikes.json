@@ -3,14 +3,14 @@
     "project": "Upper Michigan Foraging Guide",
     "primary_type": "mushroom",
     "source_group": "data/mushrooms/mushrooms-caution-lookalikes",
-    "record_count": 14,
+    "record_count": 34,
     "role": "Canonical caution/look-alike mushroom records loaded with the normal mushroom chunks.",
     "purpose": "Canonical caution mushroom records that are not already present in the main mushroom chunks.",
     "last_completion_wave": "v4.3.77-r2026-05-18-muscarine-species-split1",
     "last_data_pass": "v4.3.80-r2026-05-18-gilled-safety-audit1",
     "last_data_pass_date": "2026-05-18",
-    "last_content_update": "v4.3.82-r2026-05-18-danger-entries-forage-display1",
-    "last_content_update_date": "2026-05-18",
+    "last_content_update": "v4.3.120-r2026-06-04-content-expansion1",
+    "last_content_update_date": "2026-06-04",
     "last_data_integration": "v4.3.83-r2026-05-18-data-integration1",
     "last_data_integration_date": "2026-05-18"
   },
@@ -3295,7 +3295,9 @@
       "search_aliases": [
         "False chanterelle",
         "Hygrophoropsis aurantiaca",
-        "Clitocybe aurantiaca"
+        "Clitocybe aurantiaca",
+        "false-chanterelle",
+        "false chanterelle gills"
       ],
       "scientific_name": "Hygrophoropsis aurantiaca",
       "category": "Mushroom",
@@ -3342,13 +3344,17 @@
         "yellow-chanterelles-hardwood-associated-complex",
         "yellow-chanterelles-conifer-associated-complex",
         "red-chanterelles-cinnabars",
-        "jack-o-lantern"
+        "jack-o-lantern",
+        "chanterelles",
+        "orange-gilled-mushrooms"
       ],
       "confused_with": [
         "yellow-chanterelles-hardwood-associated-complex",
         "yellow-chanterelles-conifer-associated-complex",
         "red-chanterelles-cinnabars",
-        "jack-o-lantern"
+        "jack-o-lantern",
+        "chanterelles",
+        "orange-gilled-mushrooms"
       ],
       "look_alike_notes": "True chanterelles have blunt, shallow ridges and firm flesh; false chanterelle has true, thin, repeatedly forked orange gills and softer flesh. Jack-o-lanterns have true gills and grow from wood or buried wood in clusters; they are more robust and poisonous.",
       "mushroom_profile": {
@@ -3539,6 +3545,7 @@
       ],
       "image_coverage_status": "verified_images",
       "months_available": [
+        "July",
         "August",
         "September",
         "October",
@@ -3548,7 +3555,8 @@
         8,
         9,
         10,
-        11
+        11,
+        7
       ],
       "season_months": [
         8,
@@ -3560,7 +3568,10 @@
       "completion_status": "incomplete",
       "mushroom_card_note": "Orange chanterelle look-alike with true forked gills; not a beginner edible.",
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2011-09-16%20Hygrophoropsis%20aurantiaca.jpg?width=480",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "aliases": [
+        "false-chanterelle"
+      ]
     },
     {
       "slug": "cortinarius-webcap-warning-group",
@@ -4364,10 +4375,13 @@
     },
     {
       "slug": "alcohol-inky-cap",
-      "display_name": "Alcohol Inky Cap / Common Ink Cap",
-      "common_name": "Alcohol Inky Cap / Common Ink Cap",
+      "display_name": "Alcohol inky cap group",
+      "common_name": "Alcohol inky cap group",
       "common_names": [
-        "Alcohol Inky Cap / Common Ink Cap"
+        "Alcohol Inky Cap / Common Ink Cap",
+        "Alcohol inky cap group",
+        "Common ink cap",
+        "Tippler’s bane"
       ],
       "search_aliases": [
         "common ink cap",
@@ -4375,9 +4389,14 @@
         "alcohol inky",
         "coprinopsis atramentaria",
         "coprine mushroom",
-        "inky cap alcohol reaction"
+        "inky cap alcohol reaction",
+        "alcohol-inky-cap-group",
+        "tippler’s bane",
+        "tipplers bane",
+        "Coprinus atramentarius",
+        "common ink cap group"
       ],
-      "scientific_name": "Coprinopsis atramentaria",
+      "scientific_name": "Coprinopsis atramentaria group",
       "category": "Mushroom",
       "record_type": "mushroom_caution_lookalike",
       "primary_type": "Mushroom",
@@ -4398,10 +4417,14 @@
       "caution_reason": "Coprine-containing inky caps can trigger a disulfiram-like reaction if alcohol is consumed before or after eating them, and they can be confused with true shaggy mane by beginners.",
       "look_alike_notes": "Do not treat smooth gray inky caps as shaggy manes; Alcohol Inky Cap can cause coprine poisoning if alcohol is consumed before or after the meal.",
       "look_alikes": [
-        "shaggy-mane"
+        "shaggy-mane",
+        "mica-cap-group",
+        "small-brown-mushrooms-lbm"
       ],
       "confused_with": [
-        "shaggy-mane"
+        "shaggy-mane",
+        "mica-cap-group",
+        "small-brown-mushrooms-lbm"
       ],
       "mushroom_profile": {
         "edibility_status": "Do not eat / caution record",
@@ -4490,7 +4513,8 @@
         7,
         8,
         9,
-        10
+        10,
+        11
       ],
       "season_months": [
         5,
@@ -4511,7 +4535,20 @@
         "hard_rule": "Do not treat smooth gray inky caps as shaggy manes; Alcohol Inky Cap can cause coprine poisoning if alcohol is consumed before or after the meal.",
         "dangerous_lookalikes": []
       },
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "aliases": [
+        "alcohol-inky-cap-group"
+      ],
+      "months_available": [
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November"
+      ],
+      "mushroom_card_note": "Warning group: common ink cap can cause alcohol-reaction illness; not recommended as food."
     },
     {
       "slug": "white-amanita-button-warning",
