@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.122-r2026-06-07-image-provenance-cleanup1";
-const DISPLAY_VERSION = "V4.3.122-r26-06-07";
+const APP_VERSION = "v4.3.123-r2026-06-07-placeholder-card-cleanup1";
+const DISPLAY_VERSION = "V4.3.123-r26-06-07";
 window.UP_FORAGING_APP_VERSION = APP_VERSION;
 window.UP_FORAGING_DISPLAY_VERSION = DISPLAY_VERSION;
 
