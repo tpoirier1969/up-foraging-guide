@@ -5,8 +5,8 @@
     "source_group": "data/plants-caution-lookalikes",
     "record_count": 8,
     "purpose": "Canonical plant caution/look-alike entries used by related species links and caution views.",
-    "last_content_update": "v4.3.99-r2026-05-20-safety-trait-image-pass1",
-    "last_content_update_date": "2026-05-20"
+    "last_content_update": "v4.3.126-r2026-06-07-apiaceae-safety-source-cleanup1",
+    "last_content_update_date": "2026-06-07"
   },
   "records": [
     {
@@ -312,9 +312,9 @@
         "respiratory system",
         "gastrointestinal tract"
       ],
-      "field_identification": "Tall smooth-stemmed carrot-family plant with purple or reddish-brown spotting/blotching on hollow stems, ferny divided leaves, and white umbels. Lacks the bristly hairy stem of wild carrot.",
-      "edibility_detail": "Not treated as an edible species in this guide. Included as a searchable caution/look-alike warning record.",
-      "look_alike_notes": "Use this record to separate dangerous or not-recommended look-alikes from similar edible/tea-use records.",
+      "field_identification": "Tall smooth-stemmed carrot-family plant with purple or reddish-brown spotting/blotching on hollow stems, ferny divided leaves, white umbels, and a strong unpleasant/mousey odor. Lacks the bristly hairy stem of wild carrot.",
+      "edibility_detail": "DEADLY POISON — do not eat, taste, chew, or use for tea. Poison hemlock can cause severe nervous-system poisoning, respiratory failure, and death. Included as a searchable deadly Apiaceae warning record, not as a food plant.",
+      "look_alike_notes": "Deadly Apiaceae warning. Smooth hairless hollow stems with purple/red blotches, ferny divided leaves, and a mousey odor point toward poison hemlock. Do not use white umbels or carrot-family leaf shape as edible ID.",
       "look_alikes": [
         "wild-carrot",
         "angelica",
@@ -399,15 +399,46 @@
           "checked_date": "2026-05-20"
         }
       ],
-      "links": [],
-      "use_links": [],
+      "links": [
+        "https://blogs.cornell.edu/weedid/poison-hemlock/",
+        "https://blogs.cornell.edu/weedid/wild-carrot/",
+        "https://plants.usda.gov/plant-profile/COMA2",
+        "https://www.fs.usda.gov/wildflowers/plant-of-the-week/cicuta_maculata.shtml"
+      ],
+      "use_links": [
+        {
+          "label": "Cornell Weed ID: Poison hemlock",
+          "url": "https://blogs.cornell.edu/weedid/poison-hemlock/",
+          "link_type": "identification",
+          "source_quality": "extension"
+        },
+        {
+          "label": "Cornell Weed ID: Wild carrot comparison",
+          "url": "https://blogs.cornell.edu/weedid/wild-carrot/",
+          "link_type": "lookalike_comparison",
+          "source_quality": "extension"
+        },
+        {
+          "label": "USDA PLANTS: Conium maculatum",
+          "url": "https://plants.usda.gov/plant-profile/COMA2",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        },
+        {
+          "label": "US Forest Service: Water hemlock comparison",
+          "url": "https://www.fs.usda.gov/wildflowers/plant-of-the-week/cicuta_maculata.shtml",
+          "link_type": "dangerous_lookalike",
+          "source_quality": "government"
+        }
+      ],
       "search_aliases": [
         "poison hemlock",
         "conium maculatum"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Conium%20maculatum%20habit1%20%2814679508344%29.jpg?width=480",
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "hard_rule": "Tall white-umbel Apiaceae with smooth, hollow, hairless stems and purple/red blotches is a hard stop. Do not confuse poison hemlock with wild carrot, angelica, sweet cicely, or water hemlock."
     },
     {
       "slug": "water-hemlock",
@@ -430,9 +461,9 @@
         "respiratory system",
         "gastrointestinal tract"
       ],
-      "field_identification": "Wetland carrot-family plant with white umbels, divided leaves, and extremely poisonous roots. Do not handle or taste roots for identification. Treat wetland Apiaceae with extreme caution.",
-      "edibility_detail": "Not treated as an edible species in this guide. Included as a searchable caution/look-alike warning record.",
-      "look_alike_notes": "Use this record to separate dangerous or not-recommended look-alikes from similar edible/tea-use records.",
+      "field_identification": "Wetland carrot-family plant with white umbels, divided leaves, and extremely poisonous roots/stem bases. Often found in wet soils, ditches, stream banks, pond margins, and marshes. Do not handle, taste, or smell-test roots for identification.",
+      "edibility_detail": "DEADLY POISON — do not eat, taste, chew, smell-test, or dig unknown wetland Apiaceae roots. Water hemlock roots and stem bases are especially dangerous, and poisoning can progress rapidly to vomiting, convulsions/seizures, respiratory failure, and death.",
+      "look_alike_notes": "Deadly wetland Apiaceae warning. White umbels and divided leaves can overlap with edible/caution carrot-family plants; wet habitat and root/stem-base uncertainty are hard stop traits.",
       "look_alikes": [
         "wild-carrot",
         "angelica",
@@ -549,8 +580,38 @@
           "checked_date": "2026-05-20"
         }
       ],
-      "links": [],
-      "use_links": [],
+      "links": [
+        "https://www.fs.usda.gov/wildflowers/plant-of-the-week/cicuta_maculata.shtml",
+        "https://plants.usda.gov/plant-profile/CIMA2",
+        "https://plants.usda.gov/plant-profile/CIBU",
+        "https://blogs.cornell.edu/weedid/poison-hemlock/"
+      ],
+      "use_links": [
+        {
+          "label": "US Forest Service: Water hemlock",
+          "url": "https://www.fs.usda.gov/wildflowers/plant-of-the-week/cicuta_maculata.shtml",
+          "link_type": "identification_safety",
+          "source_quality": "government"
+        },
+        {
+          "label": "USDA PLANTS: Cicuta maculata",
+          "url": "https://plants.usda.gov/plant-profile/CIMA2",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        },
+        {
+          "label": "USDA PLANTS: Cicuta bulbifera",
+          "url": "https://plants.usda.gov/plant-profile/CIBU",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        },
+        {
+          "label": "Cornell Weed ID: Poison hemlock comparison",
+          "url": "https://blogs.cornell.edu/weedid/poison-hemlock/",
+          "link_type": "lookalike_comparison",
+          "source_quality": "extension"
+        }
+      ],
       "search_aliases": [
         "water hemlock",
         "cicuta species"
@@ -563,7 +624,9 @@
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Cicuta_maculata_inflorescence.JPG?width=320",
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "scope_note": "Broad Cicuta spp. warning record; Cicuta maculata is the representative eastern/Great Lakes water-hemlock source anchor, with Cicuta bulbifera included as another regional Cicuta source reference.",
+      "hard_rule": "Wetland, ditch, shoreline, streambank, or marsh Apiaceae with white umbels is a hard stop unless expertly identified. Unknown wetland carrot-family roots stay out of the mouth."
     },
     {
       "slug": "wild-parsnip",
@@ -589,10 +652,10 @@
       ],
       "field_identification": "Non-native biennial Apiaceae with first-year basal leaves and a second-year flowering stalk. Look for yellow to yellow-green flat-topped compound umbels, 5-15 coarse toothed leaflets, a stout hollow grooved stem, and sunny disturbed habitat such as roadsides, fields, trailsides, and open meadows.",
       "notes": "Same species as cultivated parsnip, but wild/escaped plants are treated as a serious caution record because above-ground sap can burn skin after sun exposure and Apiaceae root mistakes can be deadly.",
-      "edibility_detail": "First-year taproot is edible only with certain identification and serious handling caution. Above-ground sap can cause severe sunlight-triggered burns. This is not a beginner edible, and flowering/second-year plants are mainly a burn/contact warning rather than a food target.",
+      "edibility_detail": "Dangerous contact-burn plant. Do not handle wild parsnip bare-handed. Sap from leaves, stems, flowers, and fruit can cause phytophotodermatitis — severe rash, burns, blisters, and long-lasting discoloration after sunlight exposure. The only food-side use is a positively identified first-year taproot with gloves and skin protection.",
       "culinary_uses": "Edible root only, mainly first-year taproot, after certain identification. Do not handle bare-handed; avoid sap contact; do not taste unknown Apiaceae roots.",
       "medicinal_uses": "Not treated as a medicinal plant in this guide.",
-      "plant_card_note": "Edible first-year root with serious caution: above-ground sap can cause sun-triggered burns; Apiaceae root mistakes can be deadly.",
+      "plant_card_note": "Dangerous contact-burn Apiaceae. First-year taproot is edible only with certain ID and skin protection; flowering/second-year plants are mainly a burn/contact warning, not a beginner food.",
       "usable_parts": [
         "Root / tuber / bulb"
       ],
@@ -643,7 +706,38 @@
         "https://extension.usu.edu/yardandgarden/research/wild-parsnip-pastinaca-sativa-identification-and-control-in-residential-landscapes",
         "https://plants.ces.ncsu.edu/plants/pastinaca-sativa/"
       ],
-      "use_links": [],
+      "use_links": [
+        {
+          "label": "Michigan Tech KISMA: Wild parsnip",
+          "url": "https://www.mtu.edu/kisma/terrestrial-invasive-species/wild-parsnip/",
+          "link_type": "identification_safety",
+          "source_quality": "university"
+        },
+        {
+          "label": "MSU Extension: Wild parsnip",
+          "url": "https://www.canr.msu.edu/resources/wild-parsnip-pastinaca-sativa",
+          "link_type": "identification_safety",
+          "source_quality": "extension"
+        },
+        {
+          "label": "Michigan Invasive Species: Wild parsnip",
+          "url": "https://www.michigan.gov/invasives/id-report/plants/herbs/wild-parsnip",
+          "link_type": "michigan_relevance_safety",
+          "source_quality": "government"
+        },
+        {
+          "label": "Utah State Extension: Wild parsnip identification and control",
+          "url": "https://extension.usu.edu/yardandgarden/research/wild-parsnip-pastinaca-sativa-identification-and-control-in-residential-landscapes",
+          "link_type": "identification_safety",
+          "source_quality": "extension"
+        },
+        {
+          "label": "NC State Extension: Pastinaca sativa",
+          "url": "https://plants.ces.ncsu.edu/plants/pastinaca-sativa/",
+          "link_type": "identification_safety",
+          "source_quality": "extension"
+        }
+      ],
       "search_aliases": [
         "wild parsnip",
         "Pastinaca sativa",
@@ -654,7 +748,7 @@
         "yellow Apiaceae",
         "contact burn plant"
       ],
-      "look_alike_notes": "Wild parsnip can be confused with other carrot-family plants and should appear as a warning near Wild carrot / Queen Anne's lace. Yellow umbels help separate it from white-flowered Wild carrot, poison hemlock, water hemlock, angelica, and cow parsnip, but the sap burn risk makes handling caution mandatory.",
+      "look_alike_notes": "Wild parsnip can be confused with other carrot-family plants. Yellow to yellow-green umbels help separate it from white-flowered wild carrot, poison hemlock, water hemlock, angelica, and cow parsnip, but sap-burn risk makes gloves and skin protection mandatory.",
       "look_alikes": [
         "wild-carrot",
         "cow-parsnip",
@@ -673,7 +767,7 @@
       ],
       "risk_reason": "Wild parsnip is edible-root adjacent but dangerous because the above-ground sap causes severe sun-triggered burns, and Apiaceae root misidentification can be deadly.",
       "field_traits_that_create_risk": "Yellow/greenish compound umbels, grooved hollow stems, compound leaves, roadside/open habitats, and edible-root history can mislead people into treating it casually.",
-      "hard_rule": "Do not handle wild parsnip bare-handed. Do not harvest or taste any Apiaceae root unless the plant is positively identified and hemlock/wetland-root stop signs are negative.",
+      "hard_rule": "Do not handle wild parsnip bare-handed. Sap exposure plus sunlight can burn skin; unknown Apiaceae roots stay out of the mouth.",
       "lookalike_risk": {
         "level": 3,
         "label": "High — sap burns plus dangerous Apiaceae confusion",

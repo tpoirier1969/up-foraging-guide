@@ -9,7 +9,7 @@
     "split_parts_total": 4,
     "split_series": "data/plants*.json",
     "source_group": "data/plants",
-    "last_content_update": "v4.3.125-r2026-06-07-cherry-scope-lane-cleanup1",
+    "last_content_update": "v4.3.126-r2026-06-07-apiaceae-safety-source-cleanup1",
     "last_content_update_date": "2026-06-07"
   },
   "records": [
@@ -256,7 +256,7 @@
         "Shoreline / riverbank"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Purple-stemmed%20Angelica%20%28Angelica%20atropurpurea%29%20-%20London%2C%20Ontario.jpg?width=480",
-      "edibility_detail": "This is a knowledge plant, not a beginner nibble. Treat toxic-lookalike risk seriously.",
+      "edibility_detail": "Expert-only Apiaceae entry. Treat stem/leaf use cautiously and only after full positive identification. Do not use angelica based on purple stems, white/green umbels, wet habitat, or aromatic smell alone. Treat root use as historical/traditional context, not a casual food recommendation.",
       "look_alikes": [
         "poison-hemlock",
         "water-hemlock",
@@ -285,18 +285,14 @@
       "weekPrecision": "month-window-reviewed",
       "usable_parts": [
         "Stem / shoot / stalk",
-        "Leaf / green",
-        "Root / tuber / bulb"
+        "Leaf / green"
       ],
       "plant_lanes": [
-        "leaves-greens",
-        "roots-tubers"
+        "leaves-greens"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Roots / Tubers.",
-      "plant_card_note": "Useful parts: stem / shoot / stalk, leaf / green, root / tuber / bulb. This is a knowledge plant, not a beginner nibble. Treat toxic-lookalike risk seriously.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens only. Root use is treated as historical/traditional context, not a casual harvest lane.",
+      "plant_card_note": "Expert-only Apiaceae green/stalk entry. Unknown wet-ground carrot-family plants stay out of the mouth; root use is not a casual harvest recommendation.",
+      "plant_data_flags": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Purple-stemmed%20Angelica%20%28Angelica%20atropurpurea%29%20-%20London%2C%20Ontario.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Angelica%20atropurpurea%2015-p.bot-angel.atro-10.jpg"
@@ -368,10 +364,10 @@
         "water-hemlock",
         "wild-parsnip"
       ],
-      "look_alike_notes": "Angelica is also Apiaceae. Do not use purple-tinged stems or white umbels by themselves; separate it from poison hemlock and water hemlock with stem surface, blotching pattern, habitat, leaf/stalk structure, and expert-level confirmation. Also separate from wild parsnip, which has yellow-green umbels and sap that can cause sunlight-triggered burns.",
-      "risk_reason": "Large wet-ground Apiaceae can be confused with deadly hemlocks if the ID is based only on white umbels, divided leaves, or purple-toned stems.",
+      "look_alike_notes": "Angelica is a caution-heavy Apiaceae entry. Separate it from poison hemlock and water hemlock using full plant structure, stem surface/blotching, leaf and stalk traits, habitat, and root safety. Also separate it from wild parsnip, which has yellow-green umbels and sap that can cause sunlight-triggered burns.",
+      "risk_reason": "Large wet-ground Apiaceae can be confused with deadly hemlocks if the ID is based only on white/green umbels, divided leaves, purple-toned stems, wet habitat, or aromatic smell.",
       "field_traits_that_create_risk": "Tall carrot-family plant, wet habitat, divided leaves, white/greenish umbels, and purple-toned stems can overlap with dangerous hemlock cues.",
-      "hard_rule": "Do not eat angelica or any similar wet-ground Apiaceae unless poison hemlock and water hemlock have been ruled out by more than one field trait.",
+      "hard_rule": "Do not use angelica or any similar wet-ground Apiaceae unless poison hemlock and water hemlock have been ruled out by full plant traits, not by smell, purple tone, or umbrella flowers alone.",
       "lookalike_risk": {
         "level": 3,
         "label": "Extreme — deadly hemlock confusion possible",
@@ -435,7 +431,39 @@
           }
         ]
       },
-      "image_coverage_status": "verified_images"
+      "image_coverage_status": "verified_images",
+      "links": [
+        "https://plants.usda.gov/plant-profile/ANAT",
+        "https://blogs.cornell.edu/weedid/poison-hemlock/",
+        "https://www.fs.usda.gov/wildflowers/plant-of-the-week/cicuta_maculata.shtml",
+        "https://www.michigan.gov/invasives/id-report/plants/herbs/wild-parsnip"
+      ],
+      "use_links": [
+        {
+          "label": "USDA PLANTS: Angelica atropurpurea",
+          "url": "https://plants.usda.gov/plant-profile/ANAT",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        },
+        {
+          "label": "Cornell Weed ID: Poison hemlock",
+          "url": "https://blogs.cornell.edu/weedid/poison-hemlock/",
+          "link_type": "dangerous_lookalike",
+          "source_quality": "extension"
+        },
+        {
+          "label": "US Forest Service: Water hemlock",
+          "url": "https://www.fs.usda.gov/wildflowers/plant-of-the-week/cicuta_maculata.shtml",
+          "link_type": "dangerous_lookalike",
+          "source_quality": "government"
+        },
+        {
+          "label": "Michigan Invasive Species: Wild parsnip",
+          "url": "https://www.michigan.gov/invasives/id-report/plants/herbs/wild-parsnip",
+          "link_type": "dangerous_lookalike",
+          "source_quality": "government"
+        }
+      ]
     },
     {
       "slug": "barberries",

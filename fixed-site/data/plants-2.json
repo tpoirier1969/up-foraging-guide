@@ -8,7 +8,9 @@
     "split_part": 2,
     "split_parts_total": 4,
     "split_series": "data/plants-2*.json",
-    "source_group": "data/plants-2"
+    "source_group": "data/plants-2",
+    "last_content_update": "v4.3.126-r2026-06-07-apiaceae-safety-source-cleanup1",
+    "last_content_update_date": "2026-06-07"
   },
   "records": [
     {
@@ -99,7 +101,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Cow_Parsnip.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Heracleum_maximum_3.jpg"
       ],
-      "edibility_detail": "Use only very young peeled shoots with solid identification and caution around sap exposure.",
+      "edibility_detail": "Caution-heavy Apiaceae edible-use record. Use only very young peeled shoots or leaf stalks after positive identification and with gloves/skin protection; sap can irritate or burn sun-exposed skin. Unknown Apiaceae stays out of the mouth.",
       "month_numbers": [
         5,
         6
@@ -124,19 +126,65 @@
         "leaves-greens"
       ],
       "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens.",
-      "plant_card_note": "Useful parts: stem / shoot / stalk, leaf / green. Use only very young peeled shoots with solid identification and caution around sap exposure.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_card_note": "Young peeled shoots/stalks are the practical use, but this is not a casual green. Confirm ID and use gloves/skin protection; avoid confusion with wild parsnip, hemlocks, angelica, and wild carrot.",
+      "plant_data_flags": [],
       "look_alikes": [
-        "wild-parsnip"
+        "wild-parsnip",
+        "poison-hemlock",
+        "water-hemlock",
+        "angelica",
+        "wild-carrot"
       ],
       "confused_with": [
-        "wild-parsnip"
+        "wild-parsnip",
+        "poison-hemlock",
+        "water-hemlock",
+        "angelica",
+        "wild-carrot"
       ],
-      "look_alike_notes": "Also separate from wild parsnip, which has yellow-green umbels and sap that can cause sunlight-triggered burns.",
+      "look_alike_notes": "Separate cow parsnip from wild parsnip, poison hemlock, water hemlock, angelica, and wild carrot. Sap/contact risk plus Apiaceae confusion makes this a caution-heavy record. Giant hogweed may be relevant as a text-only regional caution where appropriate, but no new record is added here.",
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "links": [
+        "https://plants.ces.ncsu.edu/plants/heracleum-maximum/",
+        "https://plants.usda.gov/plant-profile/HEMA80",
+        "https://www.michigan.gov/invasives/id-report/plants/herbs/wild-parsnip",
+        "https://blogs.cornell.edu/weedid/poison-hemlock/",
+        "https://www.fs.usda.gov/wildflowers/plant-of-the-week/cicuta_maculata.shtml"
+      ],
+      "use_links": [
+        {
+          "label": "NC State Extension: Heracleum maximum",
+          "url": "https://plants.ces.ncsu.edu/plants/heracleum-maximum/",
+          "link_type": "identification_safety",
+          "source_quality": "extension"
+        },
+        {
+          "label": "USDA PLANTS: Heracleum maximum",
+          "url": "https://plants.usda.gov/plant-profile/HEMA80",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        },
+        {
+          "label": "Michigan Invasive Species: Wild parsnip",
+          "url": "https://www.michigan.gov/invasives/id-report/plants/herbs/wild-parsnip",
+          "link_type": "dangerous_lookalike",
+          "source_quality": "government"
+        },
+        {
+          "label": "Cornell Weed ID: Poison hemlock",
+          "url": "https://blogs.cornell.edu/weedid/poison-hemlock/",
+          "link_type": "dangerous_lookalike",
+          "source_quality": "extension"
+        },
+        {
+          "label": "US Forest Service: Water hemlock",
+          "url": "https://www.fs.usda.gov/wildflowers/plant-of-the-week/cicuta_maculata.shtml",
+          "link_type": "dangerous_lookalike",
+          "source_quality": "government"
+        }
+      ],
+      "hard_rule": "Do not eat or handle cow parsnip casually. Use gloves and skin protection, and do not harvest any carrot-family plant unless poison hemlock, water hemlock, and wild parsnip have been ruled out."
     },
     {
       "slug": "dandelion",

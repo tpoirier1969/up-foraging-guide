@@ -9,7 +9,7 @@
     "split_parts_total": 4,
     "split_series": "data/plants-4*.json",
     "source_group": "data/plants-4",
-    "last_content_update": "v4.3.122-r2026-06-07-image-provenance-cleanup1",
+    "last_content_update": "v4.3.126-r2026-06-07-apiaceae-safety-source-cleanup1",
     "last_content_update_date": "2026-06-07"
   },
   "records": [
@@ -1459,6 +1459,7 @@
         "https://extension.psu.edu/wild-carrot-or-queen-annes-lace",
         "https://blogs.cornell.edu/weedid/wild-carrot/",
         "https://blogs.cornell.edu/weedid/poison-hemlock/",
+        "https://www.fs.usda.gov/wildflowers/plant-of-the-week/cicuta_maculata.shtml",
         "https://www.mtu.edu/kisma/terrestrial-invasive-species/wild-parsnip/",
         "https://www.michigan.gov/invasives/id-report/plants/herbs/wild-parsnip"
       ],
@@ -1467,7 +1468,7 @@
       "general_notes": "",
       "record_type": "plant",
       "lane": "",
-      "review_status": "needs_review",
+      "review_status": "ok",
       "commonness": "",
       "food_quality": "",
       "non_edible_severity": "",
@@ -1484,10 +1485,8 @@
         "roots-tubers"
       ],
       "plant_lane_note": "Root is the useful part; flowers/leaves are ID clues, not extra food lanes.",
-      "plant_card_note": "Caution-heavy root entry: first-year root is the use, but hemlock confusion can be deadly. Not a beginner plant.",
-      "plant_data_flags": [
-        "needs_safety_wording_review"
-      ],
+      "plant_card_note": "Expert-only root entry. First-year roots are the possible use, but deadly hemlock confusion and wild-parsnip sap-burn risk make this a hard caution record, not a beginner plant.",
+      "plant_data_flags": [],
       "scientific_name": "Daucus carota",
       "month_numbers": [
         4,
@@ -1497,7 +1496,7 @@
         8,
         9
       ],
-      "edibility_detail": "Only consider first-year roots with certain ID in a safe dry/open context. Poison hemlock and water hemlock confusion can be deadly.",
+      "edibility_detail": "Expert-only Apiaceae root entry. Do not treat Wild carrot / Queen Anne’s lace as a beginner root food. Use only a positively identified first-year Daucus carota root from a dry/open site after poison hemlock, water hemlock, and wild parsnip have been ruled out. White umbels, lacy leaves, or carrot smell are not enough.",
       "look_alikes": [
         "poison-hemlock",
         "water-hemlock",
@@ -1614,10 +1613,10 @@
         "water-hemlock",
         "wild-parsnip"
       ],
-      "look_alike_notes": "Do not treat umbrella flowers as a food ID. Wild carrot should show a hairy/bristly stem, lacy leaves, Queen Anne’s lace bracts, and dry/open habitat; poison hemlock, water hemlock, and wild parsnip require hard stop checks. Wild parsnip has yellow-green umbels and phototoxic sap that can burn skin after sun exposure.",
-      "risk_reason": "Apiaceae confusion can be deadly because poison hemlock and water hemlock can overlap with white umbels and divided leaves.",
+      "look_alike_notes": "Wild carrot is a dangerous Apiaceae comparison plant, not a casual “free carrot.” Do not rely on white umbels, lacy leaves, or carrot smell. Separate it from poison hemlock, water hemlock, and wild parsnip using stem hair/surface, purple blotching, habitat, root structure, flower color, bracts, and sap-burn risk.",
+      "risk_reason": "Apiaceae confusion can be deadly: wild carrot can be mistaken for poison hemlock or water hemlock, and it can be confused with wild parsnip, whose sap can burn sun-exposed skin.",
       "field_traits_that_create_risk": "White/yellow umbels and divided leaves are shared by several carrot-family plants; smooth purple-spotted stems, wetland roots, and yellow wild-parsnip umbels with burn-causing sap are major danger traits.",
-      "hard_rule": "Do not eat wild carrot unless the plant clearly has a hairy/bristly stem and the dangerous hemlock/wild-parsnip checks are negative. Never taste unknown wetland or roadside Apiaceae roots.",
+      "hard_rule": "Do not eat wild carrot unless the plant is positively identified as Daucus carota and poison hemlock, water hemlock, and wild parsnip have been ruled out. Smooth purple-spotted stems, wetland habitat, thick/chambered roots, yellow wild-parsnip umbels, or sap-burn risk mean stop.",
       "lookalike_risk": {
         "level": 3,
         "label": "Extreme — deadly hemlock confusion possible",
@@ -1709,7 +1708,45 @@
             "hard_rule": "Yellow wild-parsnip umbels or sap exposure risk means do not treat the plant as Wild carrot."
           }
         ]
-      }
+      },
+      "use_links": [
+        {
+          "label": "Penn State Extension: Wild carrot / Queen Anne’s lace",
+          "url": "https://extension.psu.edu/wild-carrot-or-queen-annes-lace",
+          "link_type": "identification",
+          "source_quality": "extension"
+        },
+        {
+          "label": "Cornell Weed ID: Wild carrot",
+          "url": "https://blogs.cornell.edu/weedid/wild-carrot/",
+          "link_type": "identification",
+          "source_quality": "extension"
+        },
+        {
+          "label": "Cornell Weed ID: Poison hemlock",
+          "url": "https://blogs.cornell.edu/weedid/poison-hemlock/",
+          "link_type": "dangerous_lookalike",
+          "source_quality": "extension"
+        },
+        {
+          "label": "US Forest Service: Water hemlock",
+          "url": "https://www.fs.usda.gov/wildflowers/plant-of-the-week/cicuta_maculata.shtml",
+          "link_type": "dangerous_lookalike",
+          "source_quality": "government"
+        },
+        {
+          "label": "Michigan Tech KISMA: Wild parsnip",
+          "url": "https://www.mtu.edu/kisma/terrestrial-invasive-species/wild-parsnip/",
+          "link_type": "dangerous_lookalike",
+          "source_quality": "university"
+        },
+        {
+          "label": "Michigan Invasive Species: Wild parsnip",
+          "url": "https://www.michigan.gov/invasives/id-report/plants/herbs/wild-parsnip",
+          "link_type": "dangerous_lookalike",
+          "source_quality": "government"
+        }
+      ]
     },
     {
       "slug": "wild-ginger",
