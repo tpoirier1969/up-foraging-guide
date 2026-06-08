@@ -9,8 +9,8 @@
     "split_parts_total": 4,
     "split_series": "data/plants*.json",
     "source_group": "data/plants",
-    "last_content_update": "v4.3.101-r2026-06-01-image-coverage-pass1",
-    "last_content_update_date": "2026-05-20"
+    "last_content_update": "v4.3.125-r2026-06-07-cherry-scope-lane-cleanup1",
+    "last_content_update_date": "2026-06-07"
   },
   "records": [
     {
@@ -120,7 +120,7 @@
       "display_name": "American persimmon",
       "common_name": "American persimmon",
       "category": "Fruit",
-      "notes": "Small tree with orange fruits that must be truly ripe before they are pleasant. Included as a broad legacy fruit record even though it is more southern than many UP core species.",
+      "notes": "Small tree with orange fruits that must be fully soft-ripe before use. This is a legacy southern/eastern fruit record and is not currently proven as a normal wild Upper Michigan foraging target.",
       "months_available": [
         "September",
         "October",
@@ -131,7 +131,7 @@
       "general_notes": "",
       "record_type": "plant",
       "lane": "",
-      "review_status": "ok",
+      "review_status": "range_review",
       "commonness": "",
       "food_quality": "",
       "non_edible_severity": "",
@@ -141,7 +141,7 @@
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Diospyros_virginiana-fruit.jpg?width=320",
       "scientific_name": "Diospyros virginiana",
-      "edibility_detail": "Unripe fruit is intensely astringent. Wait until fully soft and ripe.",
+      "edibility_detail": "Fully soft ripe fruit is edible; unripe fruit is intensely astringent. This record is hidden pending U.P./northern Great Lakes range review.",
       "month_numbers": [
         9,
         10,
@@ -166,9 +166,10 @@
         "trees-shrubs-sap"
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
-      "plant_card_note": "Useful parts: fruit / berry. Unripe fruit is intensely astringent. Wait until fully soft and ripe.",
+      "plant_card_note": "Range-review record: American persimmon is a useful edible fruit farther south, but wild U.P. foraging relevance is not proven. Do not show as a normal active U.P. card until range proof exists.",
       "plant_data_flags": [
-        "needs_source_links"
+        "range_review",
+        "needs_up_relevance_proof"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Diospyros_virginiana-fruit.jpg"
@@ -212,7 +213,22 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Diospyros_virginiana-fruit.jpg"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "hidden": true,
+      "list_visibility": "hidden-range-review",
+      "display_status": "suppressed_from_normal_cards",
+      "suppression_reason": "Legacy/southern fruit record; wild Upper Michigan foraging relevance not proven.",
+      "links": [
+        "https://plants.ces.ncsu.edu/plants/diospyros-virginiana/"
+      ],
+      "use_links": [
+        {
+          "label": "NC State Extension: American Persimmon (Diospyros virginiana)",
+          "url": "https://plants.ces.ncsu.edu/plants/diospyros-virginiana/",
+          "link_type": "range_scope_edible_use",
+          "source_quality": "extension"
+        }
+      ]
     },
     {
       "slug": "angelica",
@@ -1039,10 +1055,8 @@
         "Roadside / disturbed"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Amerikaanse_vogelkers_Prunus_serotina_closeup.jpg?width=320",
-      "edibility_detail": "Ripe fruit is edible; pits and wilted foliage are not food. Processing is common.",
-      "look_alikes": [
-        "Other cherries"
-      ],
+      "edibility_detail": "Ripe pitted fruit can be used for jelly, syrup, wine, or cooked preparations. Do not eat pits/seeds, leaves, twigs, bark, or wilted foliage. Do not crush pits in blenders or food processors.",
+      "look_alikes": [],
       "month_numbers": [
         8,
         9
@@ -1070,10 +1084,8 @@
         "trees-shrubs-sap"
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
-      "plant_card_note": "Useful parts: fruit / berry. Ripe fruit is edible; pits and wilted foliage are not food. Processing is common.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_card_note": "Black cherry fruit is the useful part: use ripe, pitted fruit for cooked or processed foods. Pits, seeds, leaves, twigs, bark, and wilted foliage are not food.",
+      "plant_data_flags": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Amerikaanse_vogelkers_Prunus_serotina_closeup.jpg"
       ],
@@ -1117,7 +1129,20 @@
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Minimum image coverage added with flower/leaf image; fruiting raceme image still preferred later."
+      "image_coverage_note": "Minimum image coverage added with flower/leaf image; fruiting raceme image still preferred later.",
+      "links": [
+        "https://plants.ces.ncsu.edu/plants/prunus-serotina/"
+      ],
+      "use_links": [
+        {
+          "label": "NC State Extension: Black Cherry (Prunus serotina)",
+          "url": "https://plants.ces.ncsu.edu/plants/prunus-serotina/",
+          "link_type": "identification_safety_edible_use",
+          "source_quality": "extension"
+        }
+      ],
+      "look_alike_notes": "Other wild cherries such as chokecherry and pin cherry may be encountered in the region. Treat those as text-only context here unless they are added as separate reviewed records. For this Black Cherry card, confirm Prunus serotina traits: tall tree form, dark flaky mature bark, shiny alternate leaves, white flower racemes, and dark purple-black fruit in drooping clusters.",
+      "safety_note": "Cherry-family pits/seeds and wilted leaves can contain cyanogenic compounds. Use the fruit flesh only after removing pits; do not process whole fruit in a way that cracks pits."
     },
     {
       "slug": "black-currants",
