@@ -6,7 +6,7 @@
     "split_file": "data/mushrooms-2.json",
     "split_role": "Core/restored baseline mushroom records kept at the original path.",
     "source_record_count_before_split": 209,
-    "record_count": 12,
+    "record_count": 14,
     "split_manifest": [
       {
         "path": "data/mushrooms.json",
@@ -43,8 +43,8 @@
     "last_completion_wave_date": "2026-05-14",
     "last_photo_rights_correction": "v4.3.62-r2026-05-14-mushroom-completion-wave2-15species-rights-corrected1",
     "last_photo_rights_correction_date": "2026-05-14",
-    "last_content_update": "v4.3.82-r2026-05-18-danger-entries-forage-display1",
-    "last_content_update_date": "2026-05-18",
+    "last_content_update": "v4.3.127-r2026-06-09-mushroom-warning-group-cleanup1",
+    "last_content_update_date": "2026-06-09",
     "last_data_integration": "v4.3.83-r2026-05-18-data-integration1",
     "last_data_integration_date": "2026-05-18"
   },
@@ -298,17 +298,21 @@
     },
     {
       "slug": "blue-staining-red-pored-boletes-caution-group",
-      "display_name": "Blue-staining / red-pored boletes (caution group)",
-      "common_name": "Blue-staining / red-pored boletes (caution group)",
+      "display_name": "Blue-staining Red-pored Boletes",
+      "common_name": "Blue-staining Red-pored Boletes",
       "category": "Mushroom",
-      "notes": "",
+      "notes": "Shared warning-group record for red/orange-pored boletes and red/yellow boletes that bruise rapidly or strongly blue. This is a caution anchor, not a food target.",
       "months_available": [
         "July",
         "August",
         "September"
       ],
       "links": [
+        "https://www.mushroomexpert.com/boletes_red_capped_blue_staining.html",
+        "https://www.mushroomexpert.com/boletus_bicolor",
+        "https://www.mushroomexpert.com/boletus_06.html",
         "https://www.mushroomexpert.com/boletus_sensibilis.html",
+        "https://www.mushroomexpert.com/boletus_pseudosensibilis.html",
         "https://www.mushroomexpert.com/butyriboletus_frostii.html"
       ],
       "images": [
@@ -316,10 +320,10 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Exsudoporus_frostii.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Exsudoporus_frostii_43854.jpg"
       ],
-      "culinary_uses": "Not recommended for the table in this guide. Treat red pores plus blue staining as a stop sign unless confirmed by an expert.",
+      "culinary_uses": "Do not eat. Treat red/orange pores plus rapid or strong blue staining as a stop sign unless a qualified expert confirms the identification.",
       "non_edible_severity": "Avoid / potentially poisonous group",
-      "edibility_detail": "Avoid for food. Several red-pored or strongly blue-staining boletes can cause significant gastrointestinal illness, and beginner separation is unreliable.",
-      "general_notes": "This is a safety grouping, not a single species. It catches the red-pored/blue-staining bolete lane so users do not accidentally treat all boletes as edible.",
+      "edibility_detail": "Avoid for food. Red/orange-pored boletes and red/yellow boletes that bruise rapidly or strongly blue are difficult to separate; some can cause significant gastrointestinal illness, and beginner separation is unreliable.",
+      "general_notes": "This is a safety grouping, not a single species. It catches the red/orange-pored and strong blue-staining bolete lane so users do not accidentally treat all boletes as edible.",
       "record_type": "mushroom",
       "lane": "bolete",
       "review_status": "complete",
@@ -333,12 +337,18 @@
         9
       ],
       "look_alikes": [
+        "baorangia-bicolor",
+        "red-mouth-bolete",
+        "lurid-bolete",
         "king-bolete",
         "bay-bolete",
         "old-man-of-the-woods",
         "bitter-bolete"
       ],
       "confused_with": [
+        "baorangia-bicolor",
+        "red-mouth-bolete",
+        "lurid-bolete",
         "king-bolete",
         "bay-bolete",
         "old-man-of-the-woods"
@@ -480,10 +490,34 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Exsudoporus_frostii_43854.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus_sensibilis_384173.jpg?width=480",
-      "scientific_name": "mixed red-pored / blue-staining bolete caution group",
-      "field_identification": "Umbrella caution group for boletes with red to orange pore surfaces and/or rapid blue staining. Check pore color, bruising speed, reticulation on the stem, cap color, smell, and tree association. In this guide, red-pored or strongly blue-staining boletes are not food entries.",
-      "mushroom_card_note": "Red pores or strong blue staining = caution lane. Do not eat from this group as a beginner.",
+      "scientific_name": "Red/orange-pored and strong blue-staining bolete warning group; includes bicolor-like, sensibilis/pseudosensibilis-type, red-mouth/lurid, and similar caution boletes as field context.",
+      "field_identification": "Umbrella caution group for boletes with red to orange pore surfaces and/or rapid, strong blue staining. Check pore color, bruising speed, flesh color change, stem reticulation or dots, cap color, smell, and tree association. In this guide, red-pored or strongly blue-staining boletes are not food targets.",
+      "mushroom_card_note": "Red/orange pores or strong blue staining = caution lane. Do not eat from this group unless expert-confirmed.",
       "use_links": [
+        {
+          "label": "MushroomExpert: Key to red-capped, blue-staining boletes",
+          "url": "https://www.mushroomexpert.com/boletes_red_capped_blue_staining.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Explains why red-capped / blue-staining bolete IDs are difficult and often require advanced work."
+        },
+        {
+          "label": "MushroomExpert: Boletus bicolor",
+          "url": "https://www.mushroomexpert.com/boletus_bicolor",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Useful comparison for true bicolor traits versus stronger blue-staining/red-pored confusion."
+        },
+        {
+          "label": "MushroomExpert: Boletus page six",
+          "url": "https://www.mushroomexpert.com/boletus_06.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Keys eastern blue-staining boletes and related confusing taxa."
+        },
         {
           "label": "MushroomExpert: Boletus sensibilis",
           "url": "https://www.mushroomexpert.com/boletus_sensibilis.html",
@@ -491,6 +525,14 @@
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
           "notes": "Representative red/yellow pore, blue-staining caution bolete."
+        },
+        {
+          "label": "MushroomExpert: Boletus pseudosensibilis",
+          "url": "https://www.mushroomexpert.com/boletus_pseudosensibilis.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Representative red/yellow pore, blue-staining caution comparison."
         },
         {
           "label": "MushroomExpert: Frost's bolete",
@@ -502,7 +544,11 @@
         }
       ],
       "common_names": [
-        "Blue-staining / red-pored boletes (caution group)"
+        "Blue-staining red-pored boletes",
+        "Red-pored blue-staining boletes",
+        "Blue-staining / red-pored boletes caution group",
+        "Red-pored boletes",
+        "Red-capped blue-staining boletes"
       ],
       "primary_type": "mushroom",
       "kingdom_type": "mushroom",
@@ -525,11 +571,33 @@
       "food_value": "Do not eat",
       "quality_notes": "Representative caution group, not one species. Images and notes show mixed examples of red-pored and/or blue-staining risk patterns.",
       "eating_use_notes": "No food use recommended in this guide.",
-      "risk_reason": "Some red-pored or fast-blue-staining boletes can cause significant gastrointestinal illness, and beginner separation is unreliable.",
+      "risk_reason": "Many red-capped, red-pored, and blue-staining boletes are hard to separate; some are poisonous or not recommended, and names/concepts have shifted.",
       "symptoms_body_systems": "Gastrointestinal tract; nausea, vomiting, diarrhea, abdominal pain, weakness, and dehydration.",
       "field_traits_that_create_risk": "Red/orange pore surfaces, rapid blue staining, mixed red/yellow bolete color patterns, and confusing online/field-guide naming.",
-      "hard_rule": "Do not eat red/orange-pored or fast-blue-staining boletes unless keyed by an expert.",
-      "caution_reason": "Representative caution group; red pores and fast blue staining are stop signs for this app."
+      "hard_rule": "Do not eat red/orange-pored or fast/strong blue-staining boletes unless keyed by an expert.",
+      "caution_reason": "Shared caution group; red/orange pores and fast strong blue staining are stop signs for this app.",
+      "search_aliases": [
+        "blue-staining red-pored boletes",
+        "red-pored blue-staining boletes",
+        "red pored boletes",
+        "red-capped blue-staining boletes",
+        "Boletus sensibilis",
+        "Boletus pseudosensibilis",
+        "Lanmaoa pseudosensibilis",
+        "red-mouth bolete",
+        "lurid bolete"
+      ],
+      "look_alike_aliases": [
+        "blue-staining-red-pored-boletes-caution-group",
+        "blue-staining red-pored boletes",
+        "red-pored blue-staining boletes",
+        "red pored boletes",
+        "red-capped blue-staining boletes"
+      ],
+      "foraging_value": "Warning group",
+      "foraging_value_score": 0,
+      "image_coverage_status": "verified_representative_images",
+      "image_rights_audit_status": "rights_metadata_added"
     },
     {
       "slug": "cauliflower-mushroom",

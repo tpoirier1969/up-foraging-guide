@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.126-r2026-06-07-apiaceae-safety-source-cleanup1";
-const DISPLAY_VERSION = "V4.3.126-r26-06-07";
+const APP_VERSION = "v4.3.127-r2026-06-09-mushroom-warning-group-cleanup1";
+const DISPLAY_VERSION = "V4.3.127-r26-06-09";
 window.UP_FORAGING_APP_VERSION = APP_VERSION;
 window.UP_FORAGING_DISPLAY_VERSION = DISPLAY_VERSION;
 
