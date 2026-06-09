@@ -11,6 +11,7 @@ const moduleCache = new Map();
 let loadAppDataPromise = null;
 let renderToken = 0;
 let searchInputDebounceTimer = null;
+let plantLaneDelegationInstalled = false;
 const SEARCH_DEBOUNCE_MS = 3000;
 const SEARCH_RESULT_LIMIT = 80;
 
@@ -439,6 +440,29 @@ function clearRouteFilters(route) {
   clearTraitFiltersForRoute(route);
 }
 
+
+function installPlantLaneDelegation() {
+  if (plantLaneDelegationInstalled) return;
+  plantLaneDelegationInstalled = true;
+  document.addEventListener("click", (event) => {
+    const laneButton = event.target?.closest?.(".plant-lane-switcher [data-plant-lane]");
+    if (laneButton) {
+      event.preventDefault();
+      const lane = laneButton.dataset.plantLane || "";
+      state.filters.plantLane = state.filters.plantLane === lane ? "" : lane;
+      renderCurrentRoute();
+      return;
+    }
+
+    const clearButton = event.target?.closest?.(".plant-lane-switcher [data-plant-lane-clear], .plant-lane-switcher #plantLaneClearBtn");
+    if (clearButton) {
+      event.preventDefault();
+      state.filters.plantLane = "";
+      renderCurrentRoute();
+    }
+  });
+}
+
 function wireCommonEvents(route) {
   wireSearchBlock("homeSearch", "homeSearchBtn", (value) => {
     state.filters.search = value;
@@ -473,17 +497,9 @@ function wireCommonEvents(route) {
       renderCurrentRoute();
     });
   });
-  document.querySelectorAll("[data-plant-lane]").forEach((button) => {
-    button.addEventListener("click", () => {
-      const lane = button.dataset.plantLane || "";
-      state.filters.plantLane = state.filters.plantLane === lane ? "" : lane;
-      renderCurrentRoute();
-    });
-  });
-  document.getElementById("plantLaneClearBtn")?.addEventListener("click", () => {
-    state.filters.plantLane = "";
-    renderCurrentRoute();
-  });
+  // Plant-lane buttons are handled by one delegated listener installed at startup.
+  // Keeping the handler outside this per-render wiring avoids dead buttons when
+  // lane controls are re-rendered or injected by later UI passes.
   document.getElementById("speciesSortSelect")?.addEventListener("change", (event) => {
     state.filters.sortSpecies = event.currentTarget.value || "default";
     renderCurrentRoute();
@@ -898,6 +914,7 @@ export async function renderCurrentRoute() {
 
 export async function startApp() {
   // Visible version badge is owned by boot.js so the UI shows one consistent human-facing version.
+  installPlantLaneDelegation();
   wireModalClose();
   loadReviewOverlay();
   window.addEventListener("hashchange", renderCurrentRoute);

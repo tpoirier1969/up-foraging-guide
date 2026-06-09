@@ -5,12 +5,12 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Upper Michigan Foraging Guide</title>
   <meta name="theme-color" content="#2f5d46">
-  <link rel="manifest" href="site.webmanifest?v=v4.3.120-r2026-06-04-content-expansion1">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/up-foraging-guide-icon-32.png?v=v4.3.120-r2026-06-04-content-expansion1">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/up-foraging-guide-icon-180.png?v=v4.3.120-r2026-06-04-content-expansion1">
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/up-foraging-guide-icon-192.png?v=v4.3.120-r2026-06-04-content-expansion1">
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/up-foraging-guide-icon-512.png?v=v4.3.120-r2026-06-04-content-expansion1">
-  <link rel="stylesheet" href="styles/base.css?v=v4.3.120-r2026-06-04-content-expansion1">
+  <link rel="manifest" href="site.webmanifest?v=v4.3.134-r2026-06-09-plant-lane-ui-fix1">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/up-foraging-guide-icon-32.png?v=v4.3.134-r2026-06-09-plant-lane-ui-fix1">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/up-foraging-guide-icon-180.png?v=v4.3.134-r2026-06-09-plant-lane-ui-fix1">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/up-foraging-guide-icon-192.png?v=v4.3.134-r2026-06-09-plant-lane-ui-fix1">
+  <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/up-foraging-guide-icon-512.png?v=v4.3.134-r2026-06-09-plant-lane-ui-fix1">
+  <link rel="stylesheet" href="styles/base.css?v=v4.3.134-r2026-06-09-plant-lane-ui-fix1">
   <style>
     .image-lightbox[hidden]{display:none !important;}
     .image-lightbox{position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;padding:20px;}
@@ -83,6 +83,18 @@
       .modal-card{width:calc(100vw - 20px);max-width:calc(100vw - 20px);}
     }
     @media (min-width: 701px){.main-nav{display:flex !important;}.mobile-menu-toggle{display:none !important;}}
+
+/* v4.3.134: compact, functional plant-lane quick buttons. */
+.plant-lane-switcher .lane-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;}
+.plant-lane-switcher .lane-card{min-height:0;padding:8px 10px;border-radius:12px;gap:2px;line-height:1.12;}
+.plant-lane-switcher .lane-card strong{font-size:.86rem;line-height:1.08;margin-bottom:1px;}
+.plant-lane-switcher .lane-card span{font-size:.68rem;line-height:1.12;}
+.plant-lane-switcher .plant-lane-count{font-weight:800;}
+@media (max-width:700px){
+  .plant-lane-switcher .lane-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:6px !important;}
+  .plant-lane-switcher .lane-card{padding:8px 7px;border-radius:11px;}
+  .plant-lane-switcher .lane-card span{display:none;}
+}
   </style>
 </head>
 <body>
@@ -123,6 +135,6 @@
       <div id="modalContent"></div>
     </article>
   </dialog>
-  <script type="module" src="js/boot.js?v=v4.3.120-r2026-06-04-content-expansion1"></script>
+  <script type="module" src="js/boot.js?v=v4.3.134-r2026-06-09-plant-lane-ui-fix1"></script>
 </body>
 </html>

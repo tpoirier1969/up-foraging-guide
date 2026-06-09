@@ -175,7 +175,7 @@ export function renderPlantLaneControls(records = [], filters = {}) {
           <h3>Start with what you see or want</h3>
           <p class="muted small">Pick one edible-plant lane. A plant can belong to several lanes, but this view shows one lane at a time.</p>
         </div>
-        ${selected ? `<button id="plantLaneClearBtn" type="button">Show all edible plants</button>` : ""}
+        ${selected ? `<button id="plantLaneClearBtn" data-plant-lane-clear="1" type="button">Show all edible plants</button>` : ""}
       </div>
       <div class="lane-grid">${PLANT_LANES.map(buttonHtml).join("")}</div>
       <p class="muted small">${selectedLabel ? `Showing lane: ${esc(selectedLabel)}.` : `Showing all edible plant records. Pick a lane to narrow the list.`}</p>
