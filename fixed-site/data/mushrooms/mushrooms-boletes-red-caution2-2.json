@@ -43,7 +43,9 @@
       ],
       "rule": "Clear stale image-only review only when at least two distinct real source-image URLs exist; keep one-photo and placeholder records in review."
     },
-    "source_group": "data/mushrooms/mushrooms-boletes-red-caution2-2"
+    "source_group": "data/mushrooms/mushrooms-boletes-red-caution2-2",
+    "last_content_update": "v4.3.133-r2026-06-09-mushroom-placeholder-status-cleanup1",
+    "last_content_update_date": "2026-06-09"
   },
   "records": [
     {
@@ -75,7 +77,7 @@
       "mushroom_profile": {
         "scientific_name": "Lanmaoa borealis",
         "entry_scope": "species",
-        "edibility_status": "review_required",
+        "edibility_status": "not_edible",
         "caution_level": "high",
         "summary": "Red/yellow blue-staining bolete; treat as a specialist ID with low local confidence rather than a food target.",
         "ecology": "mycorrhizal bolete",
@@ -124,6 +126,9 @@
         ],
         "fruitbody_shape": [
           "Convex cap with central stem"
+        ],
+        "research_notes": [
+          "Avoid/comparison record; status normalized while retaining cautious taxonomy context."
         ]
       },
       "mushroom_family": "Red-staining & red-pored caution boletes",
@@ -134,7 +139,7 @@
         "Lanmaoa",
         "Blue staining / caution"
       ],
-      "weekPrecision": "needs-review",
+      "weekPrecision": "species-level-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
@@ -164,7 +169,7 @@
       ],
       "foraging_value": "Use with caution",
       "foraging_value_score": 1,
-      "edibility_status": "review_required",
+      "edibility_status": "not_edible",
       "non_edible_severity": "Caution / not a beginner food target",
       "images_structured": [
         {
@@ -203,7 +208,8 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Lanmaoa%20borealis%20146715716.jpg"
       ],
       "image_rights_audit_status": "rights_metadata_added",
-      "image_scope_note": "Exact Lanmaoa borealis image; Commons/iNaturalist review confirms CC0 licensing."
+      "image_scope_note": "Exact Lanmaoa borealis image; Commons/iNaturalist review confirms CC0 licensing.",
+      "source_note": "Status normalized for avoid/comparison use; broader Lanmaoa taxonomy and local confidence remain cautious context."
     },
     {
       "slug": "lanmaoa-fallax",
@@ -335,11 +341,17 @@
       "list_thumbnail": "",
       "image_coverage_status": "missing_verified_images",
       "image_rights_audit_status": "not_applicable_no_verified_image",
-      "image_coverage_note": "Exact public-usable photo not yet verified. Do not use generic relatives or placeholder art as a species image.",
+      "image_coverage_note": "Exact public-usable image not verified; do not use placeholder art or generic relatives as a species image.",
       "data_flags": [
         "needs_exact_image",
         "placeholder_image_removed"
-      ]
+      ],
+      "hidden": true,
+      "list_visibility": "hidden-missing-verified-image",
+      "display_status": "suppressed_from_normal_cards",
+      "suppression_reason": "Missing exact public-usable species image and taxonomy confidence; suppressed from normal cards until reviewed.",
+      "needs_exact_image": true,
+      "placeholder_image_removed": true
     },
     {
       "slug": "lanmaoa-pallidorosea",

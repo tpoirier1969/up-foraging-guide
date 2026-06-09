@@ -14,7 +14,9 @@
     "split_series": "data/mushrooms/mushrooms-boletes-suillus-leccinum*.json",
     "source_group": "data/mushrooms/mushrooms-boletes-suillus-leccinum",
     "last_image_recovery_batch": "v4.3.81-r2026-05-18-image-recovery-audit1",
-    "last_image_recovery_date": "2026-05-18"
+    "last_image_recovery_date": "2026-05-18",
+    "last_content_update": "v4.3.133-r2026-06-09-mushroom-placeholder-status-cleanup1",
+    "last_content_update_date": "2026-06-09"
   },
   "records": [
     {
@@ -82,10 +84,6 @@
         ],
         "spore_print": "",
         "season_note": "Summer into fall; often with pine.",
-        "research_notes": [
-          "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
-        ],
         "lane": "bolete",
         "host_filter_tokens": [
           "Softwood / conifer",
@@ -113,7 +111,7 @@
         "Suillus",
         "Pine/larch allies"
       ],
-      "weekPrecision": "needs-review",
+      "weekPrecision": "species-level-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
@@ -136,7 +134,7 @@
       "commonness_score": 3,
       "review_status": "ok",
       "general_notes": "Often abundant under pines. Texture is the limiting factor for many foragers; better young and firm than old and soggy.",
-      "needs_review": true,
+      "needs_review": false,
       "non_edible_severity": "",
       "edibility_detail": "Use only when ringed Suillus luteus traits are confirmed: glutinous brown cap, yellow pores, ring, pine association, and no serious decay.",
       "former_slugs": [
@@ -350,7 +348,8 @@
         "blue-staining-red-pored-boletes-caution-group",
         "bitter-bolete",
         "Other Suillus species"
-      ]
+      ],
+      "source_note": "Source links already present; stale source/placeholder notes removed. Image rights metadata modernization remains a separate task where needed."
     },
     {
       "slug": "hemileccinum-rubropunctum",
@@ -1150,9 +1149,7 @@
       "links": [
         "https://www.mushroomexpert.com/suillus.html"
       ],
-      "images": [
-        "data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%27http%3A//www.w3.org/2000/svg%27%20width%3D%271200%27%20height%3D%27900%27%20viewBox%3D%270%200%201200%20900%27%3E%0A%20%20%3Crect%20width%3D%271200%27%20height%3D%27900%27%20fill%3D%27%23f4f1e8%27/%3E%0A%20%20%3Crect%20x%3D%2740%27%20y%3D%2740%27%20width%3D%271120%27%20height%3D%27820%27%20rx%3D%2736%27%20fill%3D%27%23ebe5d6%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2710%27%20stroke-dasharray%3D%2720%2016%27/%3E%0A%20%20%3Cg%20fill%3D%27none%27%20stroke%3D%27%238a7757%27%20stroke-width%3D%2722%27%20stroke-linecap%3D%27round%27%20stroke-linejoin%3D%27round%27%3E%0A%20%20%20%20%3Cpath%20d%3D%27M360%20420c28-108%20122-178%20240-178s212%2070%20240%20178H360z%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M600%20420v170%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M525%20590h150%27/%3E%0A%20%20%20%20%3Cpath%20d%3D%27M470%20340c35-24%2082-38%20130-38%2047%200%2094%2014%20130%2038%27/%3E%0A%20%20%3C/g%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27680%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2772%27%20font-weight%3D%27700%27%20fill%3D%27%235f513c%27%3EIMAGE%20NEEDED%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27760%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2742%27%20font-weight%3D%27600%27%20fill%3D%27%236c5c43%27%3EBoreal%20Bolete%3C/text%3E%0A%20%20%3Ctext%20x%3D%27600%27%20y%3D%27815%27%20text-anchor%3D%27middle%27%20font-family%3D%27Arial%2C%20Helvetica%2C%20sans-serif%27%20font-size%3D%2730%27%20fill%3D%27%237a6a50%27%3ESuillus%20glandulosus%20%E2%80%94%20public%20usable%20photo%20not%20yet%20found%3C/text%3E%0A%3C/svg%3E"
-      ],
+      "images": [],
       "scientific_name": "Suillus glandulosus",
       "mushroom_profile": {
         "scientific_name": "Suillus glandulosus",
@@ -1187,8 +1184,8 @@
         "season_note": "July through September.",
         "research_notes": [
           "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo.",
-          "Check host tree, sticky/slimy cap feel, glandular dots, ring/veil absence or presence, and pore color before trusting the name."
+          "Check host tree, sticky/slimy cap feel, glandular dots, ring/veil absence or presence, and pore color before trusting the name.",
+          "Suppressed from normal cards because no exact public-usable image is verified."
         ],
         "cap_surface": [
           "Sticky to dry Suillus cap"
@@ -1260,7 +1257,20 @@
       ],
       "foraging_value": "Occasional / niche use",
       "foraging_value_score": 2,
-      "v4283_checked": true
+      "v4283_checked": true,
+      "images_structured": [],
+      "detail_images": [],
+      "enlarge_images": [],
+      "list_thumbnail": "",
+      "image_coverage_status": "missing_verified_images",
+      "image_rights_audit_status": "not_applicable_no_verified_image",
+      "image_coverage_note": "Exact public-usable image not verified; do not use placeholder art or generic relatives as a species image.",
+      "hidden": true,
+      "list_visibility": "hidden-missing-verified-image",
+      "display_status": "suppressed_from_normal_cards",
+      "suppression_reason": "Missing exact public-usable species image; suppressed from normal cards until reviewed image/source support exists.",
+      "needs_exact_image": true,
+      "placeholder_image_removed": true
     },
     {
       "slug": "butterball",
@@ -1784,8 +1794,7 @@
         "spore_print": "",
         "season_note": "Usually encountered from July through September in the Upper Midwest / Great Lakes window.",
         "research_notes": [
-          "Needs source links and fuller field notes.",
-          "Placeholder image inserted pending real public-usable photo."
+          "Needs source links and fuller field notes."
         ],
         "cap_surface": [
           "Dry to slightly tacky"
@@ -1882,7 +1891,8 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Xerocomus_hortonii_00.jpg"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "source_note": "Stale placeholder-image note removed because a real image is already present."
     }
   ]
 }
