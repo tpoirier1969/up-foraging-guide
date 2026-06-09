@@ -9,7 +9,7 @@
     "split_parts_total": 4,
     "split_series": "data/plants-4*.json",
     "source_group": "data/plants-4",
-    "last_content_update": "v4.3.128-r2026-06-09-tree-shrub-source-cleanup1",
+    "last_content_update": "v4.3.130-r2026-06-09-plant-source-cleanup1",
     "last_content_update_date": "2026-06-09"
   },
   "records": [
@@ -18,7 +18,7 @@
       "display_name": "Sassafras",
       "common_name": "Sassafras",
       "category": "Tree Product",
-      "notes": "Small tree with mitten, unlobed, and three-lobed leaves on the same plant. This entry is tree-first and now absorbs the former Sassafras root bark listing so the app has one Sassafras page.",
+      "notes": "Small tree with mitten-shaped, unlobed, and three-lobed leaves often on the same plant. This entry keeps Sassafras as one tree-level page and treats leaf seasoning separately from historical root-bark/root-beer use.",
       "months_available": [
         "January",
         "February",
@@ -34,25 +34,29 @@
         "December"
       ],
       "links": [
-        "https://burdockandrose.com/2022/10/03/foraging-sassafras-rootbeer/",
-        "https://www.law.cornell.edu/cfr/text/21/172.580"
+        "https://plants.ces.ncsu.edu/plants/sassafras-albidum/",
+        "https://www.law.cornell.edu/cfr/text/21/189.180",
+        "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-172/subpart-F/section-172.580",
+        "https://www.srs.fs.usda.gov/pubs/misc/ag_654/volume_2/sassafras/albidum.htm"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Sassafras_albidum_3_lobe_variations_B.JPG"
       ],
-      "medicinal_uses": "Historical/traditional use exists, but root bark and safrole raise safety concerns; this is not treated as a medicinal recommendation.",
-      "culinary_uses": "Dried leaves can be used as filé-style seasoning. Root bark is historically associated with root-beer flavor, but safrole/safety concerns mean this guide should treat root-bark use as historical rather than routine food.",
+      "medicinal_uses": "Traditional medicinal use exists, especially around bark/root preparations, but this guide does not recommend medicinal use. Root bark and root tea should be treated as historical use only because of safrole concerns.",
+      "culinary_uses": "Dried sassafras leaves can be used as filé-style seasoning. Root bark and sassafras root tea are not recommended in this guide because safrole-containing sassafras has federal regulatory and safety concerns.",
       "plant_name": "Sassafras",
       "photo_scientific_name": "Sassafras albidum",
       "scientific_name": "Sassafras albidum",
       "general_notes": "",
       "record_type": "plant",
       "lane": "",
-      "review_status": "needs_review",
+      "review_status": "ok",
       "search_aliases": [
         "Sassafras root bark",
         "sassafras-root-bark",
-        "root beer plant"
+        "root beer plant",
+        "filé powder",
+        "gumbo filé"
       ],
       "commonness": "",
       "food_quality": "",
@@ -73,7 +77,7 @@
         "Sandy / dry upland"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Sassafras_albidum_3_lobe_variations_B.JPG?width=480",
-      "edibility_detail": "Leaves are the safer culinary angle for filé-style seasoning. Root bark/root tea should be treated with caution because safrole-containing sassafras has regulatory and safety concerns.",
+      "edibility_detail": "Leaf use is the safer culinary angle: dried leaves may be used as filé-style seasoning. Do not use this app as a recommendation for sassafras root bark, sassafras oil, or root tea.",
       "month_numbers": [
         1,
         2,
@@ -89,7 +93,6 @@
         12
       ],
       "observedPart": [
-        "Root",
         "Leaf"
       ],
       "size": [
@@ -101,20 +104,14 @@
       ],
       "weekPrecision": "month-window-reviewed",
       "usable_parts": [
-        "Root bark",
-        "Leaf seasoning",
-        "Bark / cambium"
+        "Leaf seasoning"
       ],
       "plant_lanes": [
-        "roots-tubers",
-        "trees-shrubs-sap",
-        "tea-infusions"
+        "trees-shrubs-sap"
       ],
       "plant_lane_note": "Explicit plant-lane placement: Roots / Tubers, Trees / Shrubs, Tea / Infusions.",
-      "plant_card_note": "Leaves can be dried for filé-style seasoning; root bark is historical root-beer flavoring but should be treated cautiously because of safrole concerns.",
-      "plant_data_flags": [
-        "needs_safety_wording_review"
-      ],
+      "plant_card_note": "Use leaf seasoning only: dried sassafras leaves may be used as filé-style seasoning. Root bark, sassafras oil, and root tea are historical uses and are not recommended here because of safrole concerns.",
+      "plant_data_flags": [],
       "former_slugs": [
         "sassafras-root-bark"
       ],
@@ -152,7 +149,34 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Sassafras_albidum_3_lobe_variations_B.JPG"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "use_links": [
+        {
+          "label": "NC State Extension: Sassafras (Sassafras albidum)",
+          "url": "https://plants.ces.ncsu.edu/plants/sassafras-albidum/",
+          "link_type": "identification_leaf_use_safety",
+          "source_quality": "extension"
+        },
+        {
+          "label": "21 CFR 189.180: Safrole",
+          "url": "https://www.law.cornell.edu/cfr/text/21/189.180",
+          "link_type": "safrole_regulatory_safety",
+          "source_quality": "federal_regulation"
+        },
+        {
+          "label": "21 CFR 172.580: Safrole-free extract of sassafras",
+          "url": "https://www.ecfr.gov/current/title-21/chapter-I/subchapter-B/part-172/subpart-F/section-172.580",
+          "link_type": "safrole_free_extract_regulation",
+          "source_quality": "federal_regulation"
+        },
+        {
+          "label": "USFS Silvics: Sassafras albidum",
+          "url": "https://www.srs.fs.usda.gov/pubs/misc/ag_654/volume_2/sassafras/albidum.htm",
+          "link_type": "identification_range_ecology",
+          "source_quality": "government"
+        }
+      ],
+      "safety_note": "Federal food rules distinguish safrole-free sassafras extract from safrole-containing sassafras bark/root preparations. Do not treat homemade root bark tea or sassafras oil as equivalent to safrole-free commercial flavoring."
     },
     {
       "slug": "spruce",
@@ -554,9 +578,7 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Roots / Tubers, Nuts / Seeds, Tea / Infusions.",
       "plant_card_note": "Useful parts: leaf / green, root / tuber / bulb, seed / nut / cone. Edible, but carrot-family caution applies: identification should be solid.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_data_flags": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Osmorhiza%20claytonii%20-%20Sweet%20Cicely.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Osmorhiza%20claytonii%20511186734.jpg"
@@ -695,7 +717,25 @@
           }
         ]
       },
-      "image_coverage_status": "verified_images"
+      "image_coverage_status": "verified_images",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/osmorhiza/claytonii/",
+        "https://plants.usda.gov/plant-profile/OSCL"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Osmorhiza claytonii",
+          "url": "https://gobotany.nativeplanttrust.org/species/osmorhiza/claytonii/",
+          "link_type": "identification_range_scope",
+          "source_quality": "botanical_reference"
+        },
+        {
+          "label": "USDA PLANTS: Osmorhiza claytonii",
+          "url": "https://plants.usda.gov/plant-profile/OSCL",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ]
     },
     {
       "slug": "sweet-flag",
@@ -940,12 +980,28 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Trees / Shrubs, Tea / Infusions.",
       "plant_card_note": "Useful parts: leaf / tea. Used mainly as tea or flavoring.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_data_flags": [],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Normalized image fields after homepage thumbnail failures; CC0 primary retained and support foliage image added."
+      "image_coverage_note": "Normalized image fields after homepage thumbnail failures; CC0 primary retained and support foliage image added.",
+      "links": [
+        "https://plants.ces.ncsu.edu/plants/comptonia-peregrina/",
+        "https://plants.usda.gov/plant-profile/COPE80"
+      ],
+      "use_links": [
+        {
+          "label": "NC State Extension: Sweet Fern (Comptonia peregrina)",
+          "url": "https://plants.ces.ncsu.edu/plants/comptonia-peregrina/",
+          "link_type": "identification_range_habitat",
+          "source_quality": "extension"
+        },
+        {
+          "label": "USDA PLANTS: Comptonia peregrina",
+          "url": "https://plants.usda.gov/plant-profile/COPE80",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ]
     },
     {
       "slug": "thimbleberries",
@@ -1192,9 +1248,7 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
       "plant_card_note": "Useful parts: fruit / berry. Edible ripe fruit.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_data_flags": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Vaccinium%20myrtilloides.jpg"
       ],
@@ -1238,7 +1292,25 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Vaccinium%20myrtilloides.jpg"
       ],
       "image_coverage_status": "fallback_verified_image",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/vaccinium/myrtilloides/",
+        "https://plants.usda.gov/plant-profile/VAMY2"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Vaccinium myrtilloides",
+          "url": "https://gobotany.nativeplanttrust.org/species/vaccinium/myrtilloides/",
+          "link_type": "identification_range_habitat",
+          "source_quality": "botanical_reference"
+        },
+        {
+          "label": "USDA PLANTS: Vaccinium myrtilloides",
+          "url": "https://plants.usda.gov/plant-profile/VAMY2",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ]
     },
     {
       "slug": "violet",
@@ -1309,9 +1381,7 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Tea / Infusions.",
       "plant_card_note": "Useful parts: leaf / green, flower. Widely edible leaves and flowers, especially young leaves.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_data_flags": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Viola_sororia_in_Wisconsin.jpg"
       ],
@@ -1355,7 +1425,26 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Viola_sororia_in_Wisconsin.jpg"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "links": [
+        "https://plants.ces.ncsu.edu/plants/viola-sororia/",
+        "https://plants.usda.gov/plant-profile/VIOLA"
+      ],
+      "use_links": [
+        {
+          "label": "NC State Extension: Common Blue Violet (Viola sororia)",
+          "url": "https://plants.ces.ncsu.edu/plants/viola-sororia/",
+          "link_type": "representative_identification_edible_use",
+          "source_quality": "extension",
+          "notes": "Representative source for broad Viola spp. record; current image also uses Viola sororia as representative."
+        },
+        {
+          "label": "USDA PLANTS: Viola",
+          "url": "https://plants.usda.gov/plant-profile/VIOLA",
+          "link_type": "range_taxonomy_broad_scope",
+          "source_quality": "government"
+        }
+      ]
     },
     {
       "slug": "wild-blackberries",
@@ -1413,9 +1502,7 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
       "plant_card_note": "Useful parts: fruit / berry. Edible ripe fruit. Harvest dark glossy berries at full ripeness.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_data_flags": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Rubus_allegheniensis_%284788809635%29.jpg"
       ],
@@ -1459,7 +1546,26 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Rubus_allegheniensis_%284788809635%29.jpg"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "links": [
+        "https://plants.ces.ncsu.edu/plants/rubus-allegheniensis/",
+        "https://plants.usda.gov/plant-profile/RUAL"
+      ],
+      "use_links": [
+        {
+          "label": "NC State Extension: Allegheny Blackberry (Rubus allegheniensis)",
+          "url": "https://plants.ces.ncsu.edu/plants/rubus-allegheniensis/",
+          "link_type": "representative_identification_edible_use",
+          "source_quality": "extension",
+          "notes": "Representative source for broad wild blackberry / Rubus spp. record."
+        },
+        {
+          "label": "USDA PLANTS: Rubus allegheniensis",
+          "url": "https://plants.usda.gov/plant-profile/RUAL",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ]
     },
     {
       "slug": "wild-carrot",

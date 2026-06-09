@@ -9,7 +9,7 @@
     "split_parts_total": 4,
     "split_series": "data/plants*.json",
     "source_group": "data/plants",
-    "last_content_update": "v4.3.128-r2026-06-09-tree-shrub-source-cleanup1",
+    "last_content_update": "v4.3.130-r2026-06-09-plant-source-cleanup1",
     "last_content_update_date": "2026-06-09"
   },
   "records": [
@@ -111,8 +111,24 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Nuts / Seeds, Trees / Shrubs.",
       "plant_card_note": "Useful parts: seed / nut / cone. Edible nuts, though years of heavy production can vary a lot.",
-      "plant_data_flags": [
-        "needs_source_links"
+      "plant_data_flags": [],
+      "links": [
+        "https://plants.ces.ncsu.edu/plants/fagus-grandifolia/",
+        "https://plants.usda.gov/plant-profile/FAGR"
+      ],
+      "use_links": [
+        {
+          "label": "NC State Extension: American Beech (Fagus grandifolia)",
+          "url": "https://plants.ces.ncsu.edu/plants/fagus-grandifolia/",
+          "link_type": "identification_edible_use_safety",
+          "source_quality": "extension"
+        },
+        {
+          "label": "USDA PLANTS: Fagus grandifolia",
+          "url": "https://plants.usda.gov/plant-profile/FAGR",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
       ]
     },
     {
@@ -943,24 +959,9 @@
         "April"
       ],
       "images": [
-        {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Betula_papyrifera.jpg/480px-Betula_papyrifera.jpg",
-          "source": "commons-hardwired",
-          "title": "Paper birch whole tree",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Betula_papyrifera.jpg"
-        },
-        {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Betula_papyrifera-bark.jpg/480px-Betula_papyrifera-bark.jpg",
-          "source": "commons-hardwired",
-          "title": "Paper birch bark",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Betula_papyrifera-bark.jpg"
-        },
-        {
-          "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/NAS-069_Betula_papyrifera.png/480px-NAS-069_Betula_papyrifera.png",
-          "source": "commons-hardwired",
-          "title": "Paper birch botanical illustration",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:NAS-069_Betula_papyrifera.png"
-        }
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Betula_papyrifera.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Betula_papyrifera-bark.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/NAS-069_Betula_papyrifera.png"
       ],
       "medicinal_uses": "Traditional use centers on sap, bark, and leaf tea as mild tonic or urinary-support material.",
       "culinary_uses": "Sap can be tapped in late winter to spring for fresh drinking or reduction into syrup; inner bark and cambium have historical famine-food use but sap is the main practical foraging use.",
@@ -981,46 +982,106 @@
       ],
       "images_structured": [
         {
-          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Betula_papyrifera.jpg/480px-Betula_papyrifera.jpg",
-          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Betula_papyrifera.jpg/480px-Betula_papyrifera.jpg",
-          "full": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Betula_papyrifera.jpg/480px-Betula_papyrifera.jpg",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Betula_papyrifera.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Betula_papyrifera.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Betula_papyrifera.jpg",
           "title": "Paper birch whole tree",
           "part_or_stage": "whole_plant",
-          "source": "commons-hardwired",
+          "source": "wikimedia-commons-open-license",
+          "sourceLabel": "Wikimedia Commons",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Betula_papyrifera.jpg",
           "source_page": "https://commons.wikimedia.org/wiki/File:Betula_papyrifera.jpg",
-          "credit": ""
+          "author": "WindBorneListener",
+          "credit": "WindBorneListener, CC0 1.0 Universal, via Wikimedia Commons",
+          "license": "CC0 1.0 Universal / Public Domain Dedication",
+          "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+          "rights_status": "public_domain_cc0",
+          "commercial_use": true,
+          "commercial_use_allowed": true,
+          "modification_allowed": true,
+          "attribution_required": false,
+          "share_alike_required": false,
+          "needs_commercial_replacement": false,
+          "rights_notes": "Public-domain/CC0 style reuse; commercial use and modification allowed without attribution requirement.",
+          "rights_note": "Public-domain/CC0 style reuse; commercial use and modification allowed without attribution requirement.",
+          "rights_checked_build": "v4.3.129-r2026-06-09-sassafras-birch-juniper-cleanup1",
+          "rights_checked_date": "2026-06-09",
+          "checked_build": "v4.3.129-r2026-06-09-sassafras-birch-juniper-cleanup1",
+          "checked_date": "2026-06-09",
+          "image_role": "lead image"
         },
         {
-          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Betula_papyrifera-bark.jpg/480px-Betula_papyrifera-bark.jpg",
-          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Betula_papyrifera-bark.jpg/480px-Betula_papyrifera-bark.jpg",
-          "full": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Betula_papyrifera-bark.jpg/480px-Betula_papyrifera-bark.jpg",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Betula_papyrifera-bark.jpg?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Betula_papyrifera-bark.jpg?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Betula_papyrifera-bark.jpg",
           "title": "Paper birch bark",
-          "part_or_stage": "general",
-          "source": "commons-hardwired",
+          "part_or_stage": "bark detail",
+          "source": "wikimedia-commons-open-license",
+          "sourceLabel": "Wikimedia Commons",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Betula_papyrifera-bark.jpg",
           "source_page": "https://commons.wikimedia.org/wiki/File:Betula_papyrifera-bark.jpg",
-          "credit": ""
+          "author": "Rob Duval",
+          "credit": "Rob Duval, CC BY-SA 3.0, via Wikimedia Commons",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "rights_status": "verified_open_license",
+          "commercial_use": true,
+          "commercial_use_allowed": true,
+          "modification_allowed": true,
+          "attribution_required": true,
+          "share_alike_required": true,
+          "needs_commercial_replacement": false,
+          "rights_notes": "Commercial use and modification allowed; attribution required and share-alike/copyleft terms may apply to adapted versions.",
+          "rights_note": "Commercial use and modification allowed; attribution required and share-alike/copyleft terms may apply to adapted versions.",
+          "rights_checked_build": "v4.3.129-r2026-06-09-sassafras-birch-juniper-cleanup1",
+          "rights_checked_date": "2026-06-09",
+          "checked_build": "v4.3.129-r2026-06-09-sassafras-birch-juniper-cleanup1",
+          "checked_date": "2026-06-09",
+          "image_role": "bark detail"
         },
         {
-          "thumb": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/NAS-069_Betula_papyrifera.png/480px-NAS-069_Betula_papyrifera.png",
-          "detail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/NAS-069_Betula_papyrifera.png/480px-NAS-069_Betula_papyrifera.png",
-          "full": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/NAS-069_Betula_papyrifera.png/480px-NAS-069_Betula_papyrifera.png",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/NAS-069_Betula_papyrifera.png?width=480",
+          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/NAS-069_Betula_papyrifera.png?width=900",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/NAS-069_Betula_papyrifera.png",
           "title": "Paper birch botanical illustration",
-          "part_or_stage": "general",
-          "source": "commons-hardwired",
+          "part_or_stage": "botanical illustration",
+          "source": "wikimedia-commons-open-license",
+          "sourceLabel": "Wikimedia Commons",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:NAS-069_Betula_papyrifera.png",
           "source_page": "https://commons.wikimedia.org/wiki/File:NAS-069_Betula_papyrifera.png",
-          "credit": ""
+          "author": "François André Michaux; Augustus Lucas Hillhouse; iii; eee",
+          "credit": "François André Michaux / The North American Sylva, Public Domain, via Wikimedia Commons",
+          "license": "Public Domain / Public Domain Mark 1.0",
+          "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
+          "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+          "rights_status": "public_domain",
+          "commercial_use": true,
+          "commercial_use_allowed": true,
+          "modification_allowed": true,
+          "attribution_required": false,
+          "share_alike_required": false,
+          "needs_commercial_replacement": false,
+          "rights_notes": "Public-domain/CC0 style reuse; commercial use and modification allowed without attribution requirement.",
+          "rights_note": "Public-domain/CC0 style reuse; commercial use and modification allowed without attribution requirement.",
+          "rights_checked_build": "v4.3.129-r2026-06-09-sassafras-birch-juniper-cleanup1",
+          "rights_checked_date": "2026-06-09",
+          "checked_build": "v4.3.129-r2026-06-09-sassafras-birch-juniper-cleanup1",
+          "checked_date": "2026-06-09",
+          "image_role": "supporting illustration"
         }
       ],
-      "list_thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Betula_papyrifera.jpg/480px-Betula_papyrifera.jpg",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Betula_papyrifera.jpg?width=480",
       "detail_images": [
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Betula_papyrifera.jpg/480px-Betula_papyrifera.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Betula_papyrifera-bark.jpg/480px-Betula_papyrifera-bark.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/NAS-069_Betula_papyrifera.png/480px-NAS-069_Betula_papyrifera.png"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Betula_papyrifera.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Betula_papyrifera-bark.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/NAS-069_Betula_papyrifera.png?width=900"
       ],
       "enlarge_images": [
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/5/56/Betula_papyrifera.jpg/480px-Betula_papyrifera.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Betula_papyrifera-bark.jpg/480px-Betula_papyrifera-bark.jpg",
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/NAS-069_Betula_papyrifera.png/480px-NAS-069_Betula_papyrifera.png"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Betula_papyrifera.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Betula_papyrifera-bark.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/NAS-069_Betula_papyrifera.png"
       ],
       "edibility_detail": "Sap is the main beginner-friendly use. Bark/cambium uses are more situational and should not be confused with routine harvesting.",
       "month_numbers": [
@@ -1052,9 +1113,28 @@
       "plant_lane_note": "Explicit plant-lane placement: Trees / Shrubs, Tea / Infusions.",
       "plant_card_note": "Useful parts: sap, bark / cambium, leaf / tea. Sap is the main beginner-friendly use. Bark/cambium uses are more situational and should not be confused with routine harvesting.",
       "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ]
+        "needs_source_links"
+      ],
+      "links": [
+        "https://plants.ces.ncsu.edu/plants/betula-papyrifera/",
+        "https://plants.usda.gov/plant-profile/BEPA"
+      ],
+      "use_links": [
+        {
+          "label": "NC State Extension: Paper Birch (Betula papyrifera)",
+          "url": "https://plants.ces.ncsu.edu/plants/betula-papyrifera/",
+          "link_type": "identification_range_traits",
+          "source_quality": "extension"
+        },
+        {
+          "label": "USDA PLANTS: Betula papyrifera",
+          "url": "https://plants.usda.gov/plant-profile/BEPA",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ],
+      "image_coverage_status": "verified_images",
+      "image_rights_audit_status": "rights_metadata_added"
     },
     {
       "slug": "black-cherry",
