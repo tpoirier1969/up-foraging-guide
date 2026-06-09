@@ -9,8 +9,8 @@
     "split_parts_total": 4,
     "split_series": "data/plants-3*.json",
     "source_group": "data/plants-3",
-    "last_content_update": "v4.3.125-r2026-06-07-cherry-scope-lane-cleanup1",
-    "last_content_update_date": "2026-06-07"
+    "last_content_update": "v4.3.128-r2026-06-09-tree-shrub-source-cleanup1",
+    "last_content_update_date": "2026-06-09"
   },
   "records": [
     {
@@ -163,9 +163,7 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
       "plant_card_note": "Useful parts: fruit / berry. Edible ripe fruit. Best when fully colored and sweet.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_data_flags": [],
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Amelanchier-canadensis-fruit.jpg?width=480",
@@ -204,7 +202,25 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Amelanchier-canadensis-fruit.jpg"
       ],
       "image_coverage_status": "partial_verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "links": [
+        "https://hort.extension.wisc.edu/articles/serviceberry-amelanchier-spp/",
+        "https://plants.usda.gov/plant-profile/AMEL"
+      ],
+      "use_links": [
+        {
+          "label": "Wisconsin Horticulture: Serviceberry (Amelanchier spp.)",
+          "url": "https://hort.extension.wisc.edu/articles/serviceberry-amelanchier-spp/",
+          "link_type": "identification_edible_use_broad_scope",
+          "source_quality": "extension"
+        },
+        {
+          "label": "USDA PLANTS: Amelanchier",
+          "url": "https://plants.usda.gov/plant-profile/AMEL",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ]
     },
     {
       "slug": "juniper",

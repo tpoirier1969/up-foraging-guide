@@ -9,8 +9,8 @@
     "split_parts_total": 4,
     "split_series": "data/plants-4*.json",
     "source_group": "data/plants-4",
-    "last_content_update": "v4.3.126-r2026-06-07-apiaceae-safety-source-cleanup1",
-    "last_content_update_date": "2026-06-07"
+    "last_content_update": "v4.3.128-r2026-06-09-tree-shrub-source-cleanup1",
+    "last_content_update_date": "2026-06-09"
   },
   "records": [
     {
@@ -354,10 +354,7 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs, Tea / Infusions.",
       "plant_card_note": "Useful parts: fruit / berry. Edible fruit clusters, usually used as a souring ingredient rather than eaten whole.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ],
+      "plant_data_flags": [],
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Rhus_typhina_fruit.jpg?width=480",
@@ -452,16 +449,39 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Staghorn%20Sumac%20fruit.jpg"
       ],
       "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Rhus_typhina_fruit.jpg?width=900"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Rhus_typhina_fruit.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Rhus%20typhina%20429.jpg?width=900",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Staghorn%20Sumac%20fruit.jpg?width=900"
       ],
       "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Rhus_typhina_fruit.jpg"
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Rhus_typhina_fruit.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Rhus%20typhina%20429.jpg",
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Staghorn%20Sumac%20fruit.jpg"
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
       "confused_with": [
         "poison-sumac"
-      ]
+      ],
+      "links": [
+        "https://plants.ces.ncsu.edu/plants/rhus-typhina/",
+        "https://plants.usda.gov/plant-profile/RHTY"
+      ],
+      "use_links": [
+        {
+          "label": "NC State Extension: Staghorn Sumac (Rhus typhina)",
+          "url": "https://plants.ces.ncsu.edu/plants/rhus-typhina/",
+          "link_type": "identification_edible_use_safety_comparison",
+          "source_quality": "extension"
+        },
+        {
+          "label": "USDA PLANTS: Rhus typhina",
+          "url": "https://plants.usda.gov/plant-profile/RHTY",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ],
+      "look_alike_notes": "Staghorn sumac has upright red fuzzy fruit clusters and fuzzy twigs; poison sumac has whitish berries and grows in wetter swampy habitats. Do not use white-berried sumac."
     },
     {
       "slug": "sweet-cicely",

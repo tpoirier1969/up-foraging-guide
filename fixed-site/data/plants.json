@@ -9,8 +9,8 @@
     "split_parts_total": 4,
     "split_series": "data/plants*.json",
     "source_group": "data/plants",
-    "last_content_update": "v4.3.126-r2026-06-07-apiaceae-safety-source-cleanup1",
-    "last_content_update_date": "2026-06-07"
+    "last_content_update": "v4.3.128-r2026-06-09-tree-shrub-source-cleanup1",
+    "last_content_update_date": "2026-06-09"
   },
   "records": [
     {
@@ -1427,9 +1427,7 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
       "plant_card_note": "Useful parts: fruit / berry. Edible ripe berries; flavor and size vary by species and site.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_data_flags": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Vaccinium_angustifolium%2C_Pancake_Bay_PP.jpg"
       ],
@@ -1473,7 +1471,25 @@
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Representative lowbush blueberry image added for broad Vaccinium spp. record; label as representative, not every blueberry species."
+      "image_coverage_note": "Representative lowbush blueberry image added for broad Vaccinium spp. record; label as representative, not every blueberry species.",
+      "links": [
+        "https://plants.ces.ncsu.edu/plants/vaccinium-angustifolium/",
+        "https://plants.usda.gov/plant-profile/VACCIN"
+      ],
+      "use_links": [
+        {
+          "label": "NC State Extension: Lowbush Blueberry (Vaccinium angustifolium)",
+          "url": "https://plants.ces.ncsu.edu/plants/vaccinium-angustifolium/",
+          "link_type": "representative_identification_edible_use",
+          "source_quality": "extension"
+        },
+        {
+          "label": "USDA PLANTS: Vaccinium",
+          "url": "https://plants.usda.gov/plant-profile/VACCIN",
+          "link_type": "range_taxonomy_broad_scope",
+          "source_quality": "government"
+        }
+      ]
     },
     {
       "slug": "bunchberry",
