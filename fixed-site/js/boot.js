@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.134-r2026-06-09-plant-lane-ui-fix1";
-const DISPLAY_VERSION = "V4.3.134-r26-06-09";
+const APP_VERSION = "v4.3.135-r2026-06-09-plant-lane-wiring-fix1";
+const DISPLAY_VERSION = "V4.3.135-r26-06-09";
 window.UP_FORAGING_APP_VERSION = APP_VERSION;
 window.UP_FORAGING_DISPLAY_VERSION = DISPLAY_VERSION;
 

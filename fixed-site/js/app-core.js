@@ -252,6 +252,13 @@ function sanitizeTraitFiltersForRoute(route, filterFields = []) {
   for (const key of keys) {
     const selected = String(state.filters[key] || "").trim();
     if (!selected) continue;
+    if (key === "plantLane") {
+      // Plant-lane buttons are rendered separately from the select-based trait filters.
+      // They intentionally do not appear in filterFields, so validating them against
+      // activeKeys here would immediately clear the click selection before the list
+      // can be filtered. Leave plantLane alone unless an explicit clear action resets it.
+      continue;
+    }
     const validValues = validValuesByKey.get(key);
     // Filters shared across mushroom lanes should not silently zero out another lane.
     // If the selected value is not available for the current lane, clear it for this view.
