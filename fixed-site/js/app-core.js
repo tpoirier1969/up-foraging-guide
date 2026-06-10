@@ -14,6 +14,15 @@ let searchInputDebounceTimer = null;
 let plantLaneDelegationInstalled = false;
 const SEARCH_DEBOUNCE_MS = 3000;
 const SEARCH_RESULT_LIMIT = 80;
+const VALID_PLANT_LANE_IDS = new Set([
+  "leaves-greens",
+  "flowers",
+  "berries-fruits",
+  "roots-tubers",
+  "nuts-seeds",
+  "trees-shrubs-sap",
+  "tea-infusions"
+]);
 
 const IN_SEASON_ROUTE = "mushrooms-in-season";
 const MONTHS = [
@@ -32,14 +41,19 @@ function routePartsFromHash() {
   return { route: routePart || "home", params: new URLSearchParams(queryPart) };
 }
 
-function plantLaneHash(lane = "") {
+function normalizePlantLane(lane = "") {
   const cleanLane = String(lane || "").trim();
+  return VALID_PLANT_LANE_IDS.has(cleanLane) ? cleanLane : "";
+}
+
+function plantLaneHash(lane = "") {
+  const cleanLane = normalizePlantLane(lane);
   return cleanLane ? `#/plants?plantLane=${encodeURIComponent(cleanLane)}` : "#/plants";
 }
 
 function syncRouteFilters(route, params) {
   if (route === "plants") {
-    state.filters.plantLane = params.get("plantLane") || "";
+    state.filters.plantLane = normalizePlantLane(params.get("plantLane") || "");
   }
 }
 
@@ -541,6 +555,15 @@ function wireCommonEvents(route) {
   });
   document.getElementById("traitClearBtn")?.addEventListener("click", () => {
     clearTraitFiltersForRoute(route);
+    if (route === "plants") {
+      const cleanHash = "#/plants";
+      if (location.hash === cleanHash) {
+        renderCurrentRoute();
+      } else {
+        location.hash = cleanHash;
+      }
+      return;
+    }
     renderCurrentRoute();
   });
   document.querySelectorAll("[data-caution-filter]").forEach((select) => {
