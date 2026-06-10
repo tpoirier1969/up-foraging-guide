@@ -9,8 +9,8 @@
     "split_parts_total": 4,
     "split_series": "data/plants-2*.json",
     "source_group": "data/plants-2",
-    "last_content_update": "v4.3.126-r2026-06-07-apiaceae-safety-source-cleanup1",
-    "last_content_update_date": "2026-06-07"
+    "last_content_update": "v4.3.140-r2026-06-10-active-source-stale-cleanup1",
+    "last_content_update_date": "2026-06-10"
   },
   "records": [
     {
@@ -482,9 +482,7 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits.",
       "plant_card_note": "Useful parts: fruit / berry. Edible ripe fruit. This is best treated as a practical berry bucket near blackberry.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_data_flags": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Rubus_flagellaris_UGA1120430.jpg"
       ],
@@ -528,7 +526,26 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Rubus_flagellaris_UGA1120430.jpg"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/genus/rubus/",
+        "https://plants.usda.gov/plant-profile/RUBUS"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Rubus genus",
+          "url": "https://gobotany.nativeplanttrust.org/genus/rubus/",
+          "link_type": "broad_identification_scope",
+          "source_quality": "botanical_reference",
+          "notes": "Broad bramble/dewberry context for this practical Rubus spp. fruit bucket."
+        },
+        {
+          "label": "USDA PLANTS: Rubus",
+          "url": "https://plants.usda.gov/plant-profile/RUBUS",
+          "link_type": "range_taxonomy_broad_scope",
+          "source_quality": "government"
+        }
+      ]
     },
     {
       "slug": "eastern-hemlock",
@@ -585,9 +602,7 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Trees / Shrubs, Tea / Infusions.",
       "plant_card_note": "Useful parts: leaf / tea. Tips and tea are the practical use. Positive ID matters so you do not confuse conifers casually.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_data_flags": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Eastern%20hemlock%20underside%20sdetwiler.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/%28ms%29%20Tsuga%20canadensis%202.jpg"
@@ -660,7 +675,25 @@
       "confused_with": [
         "yew"
       ],
-      "image_coverage_status": "verified_images"
+      "image_coverage_status": "verified_images",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/tsuga/canadensis/",
+        "https://plants.usda.gov/plant-profile/TSCA"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Tsuga canadensis",
+          "url": "https://gobotany.nativeplanttrust.org/species/tsuga/canadensis/",
+          "link_type": "identification_range_habitat",
+          "source_quality": "botanical_reference"
+        },
+        {
+          "label": "USDA PLANTS: Tsuga canadensis",
+          "url": "https://plants.usda.gov/plant-profile/TSCA",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ]
     },
     {
       "slug": "elder",

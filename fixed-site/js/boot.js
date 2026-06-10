@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.139-r2026-06-10-mushroom-image-rights-cleanup1";
-const DISPLAY_VERSION = "V4.3.139-r26-06-10";
+const APP_VERSION = "v4.3.140-r2026-06-10-active-source-stale-cleanup1";
+const DISPLAY_VERSION = "V4.3.140-r26-06-10";
 window.UP_FORAGING_APP_VERSION = APP_VERSION;
 window.UP_FORAGING_DISPLAY_VERSION = DISPLAY_VERSION;
 

@@ -15,7 +15,7 @@
     "source_group": "data/mushrooms/mushrooms-boletes-porcini-tylopilus-3",
     "last_image_recovery_batch": "v4.3.81-r2026-05-18-image-recovery-audit1",
     "last_image_recovery_date": "2026-05-18",
-    "last_content_update": "v4.3.139-r2026-06-10-mushroom-image-rights-cleanup1",
+    "last_content_update": "v4.3.140-r2026-06-10-active-source-stale-cleanup1",
     "last_content_update_date": "2026-06-10"
   },
   "records": [
@@ -244,7 +244,6 @@
         "spore_print": "",
         "season_note": "July through September in the Upper Michigan season window; eastern sources describe it as a summer-and-fall oak-associated bolete.",
         "research_notes": [
-          "Needs source links and fuller field notes.",
           "Pale cap, smooth white stem, yellowish-to-olive pore surface, oak/hardwood association, and inconsistent bluish/pinkish staining are the checks."
         ],
         "cap_surface": [
@@ -271,7 +270,7 @@
         "Imleria",
         "Brown cap allies"
       ],
-      "weekPrecision": "needs-review",
+      "weekPrecision": "species-level-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
@@ -348,7 +347,16 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "use_links": [
+        {
+          "label": "MushroomExpert: Imleria pallida",
+          "url": "https://www.mushroomexpert.com/imleria_pallida.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference"
+        }
+      ]
     },
     {
       "slug": "porphyrellus-nebulosus",
@@ -403,7 +411,7 @@
         "spore_print": "",
         "season_note": "July through September in the Upper Michigan season window; treated conservatively with eastern Tylopilus/Porphyrellus-type summer-and-fall boletes.",
         "research_notes": [
-          "Needs source links and fuller field notes.",
+          "Still blocked: no species-level non-Wikipedia source and no exact public-usable image verified; keep suppressed from normal cards.",
           "Use the dark cap, darkening pore surface, spore color, host context, and bruising/staining behavior to separate this from other dusky boletes.",
           "Suppressed from normal cards because no exact public-usable image is verified."
         ],
@@ -431,7 +439,7 @@
         "Porphyrellus",
         "Dark-spored / obscure"
       ],
-      "weekPrecision": "needs-review",
+      "weekPrecision": "blocked-no-exact-image",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
@@ -491,7 +499,17 @@
       "display_status": "suppressed_from_normal_cards",
       "suppression_reason": "Missing exact public-usable species image; suppressed from normal cards until reviewed image/source support exists.",
       "needs_exact_image": true,
-      "placeholder_image_removed": true
+      "placeholder_image_removed": true,
+      "use_links": [
+        {
+          "label": "MushroomExpert: Tylopilus / dark-pored bolete context",
+          "url": "https://mushroomexpert.com/tylopilus.html",
+          "link_type": "genus_context",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Genus/key context only; species-level source and exact public-usable image are still needed before activation."
+        }
+      ]
     },
     {
       "slug": "porphyrellus-sordidus",
@@ -716,7 +734,7 @@
         "spore_print": "",
         "season_note": "July through September; treated conservatively with other eastern Gyroporus/boletes until species-level Upper Michigan timing is better documented.",
         "research_notes": [
-          "Needs source links and fuller field notes."
+          "Still partial: genus-level source only; species-level source and image-rights metadata modernization are still needed for full cleanup."
         ],
         "stem_feature": [
           "Brittle or hollowing Gyroporus-type stem"
@@ -792,6 +810,16 @@
         7,
         8,
         9
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Gyroporus genus overview",
+          "url": "https://www.mushroomexpert.com/gyroporus.html",
+          "link_type": "genus_context",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Genus-level support only; species-level source and image-rights modernization remain blockers for full cleanup."
+        }
       ]
     },
     {
@@ -813,8 +841,7 @@
         9
       ],
       "links": [
-        "https://www.mushroomexpert.com/tylopilus_rubrobrunneus.html",
-        "https://mushroomexpert.com/tylopilus.html"
+        "https://www.mushroomexpert.com/tylopilus_rubrobrunneus.html"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus_rubrobrunneus_89303.jpg"
@@ -850,7 +877,6 @@
         "spore_print": "",
         "season_note": "July through September in the Upper Michigan season window; eastern sources describe it as a summer-and-fall hardwood bolete.",
         "research_notes": [
-          "Needs source links and fuller field notes.",
           "Purple-brown to reddish-brown cap, pinkish pores, bitter taste, and stem developing olive shades help separate it from mild Tylopilus species."
         ],
         "cap_surface": [
@@ -878,7 +904,7 @@
         "Tylopilus",
         "Pinkish pores / bitter allies"
       ],
-      "weekPrecision": "needs-review",
+      "weekPrecision": "species-level-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
@@ -962,7 +988,16 @@
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "source_note": "Stale placeholder-image note removed because a real image is already present."
+      "source_note": "Stale placeholder-image note removed because a real image is already present.",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Tylopilus rubrobrunneus",
+          "url": "https://www.mushroomexpert.com/tylopilus_rubrobrunneus.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference"
+        }
+      ]
     },
     {
       "slug": "russells-bolete",
@@ -983,7 +1018,7 @@
         9
       ],
       "links": [
-        "https://en.wikipedia.org/wiki/Aureoboletus_russellii"
+        "https://www.mushroomexpert.com/aureoboletus_russellii.html"
       ],
       "images": [],
       "scientific_name": "Aureoboletus russellii",
@@ -1019,7 +1054,7 @@
         "spore_print": "",
         "season_note": "July through September in the Upper Michigan season window; treated as a summer-and-fall eastern bolete until local timing is better documented.",
         "research_notes": [
-          "Needs source links and fuller field notes.",
+          "Still blocked from normal cards: species-level source added, but no exact public-usable image is verified.",
           "Look for the shaggy or jagged stem surface, yellow-brown to reddish-brown cap that may crack into patches, and oak/hemlock/pine associations.",
           "Suppressed from normal cards because no exact public-usable image is verified."
         ],
@@ -1047,7 +1082,7 @@
         "Aureoboletus allies",
         "Reticulate stem"
       ],
-      "weekPrecision": "needs-review",
+      "weekPrecision": "species-level-source-image-blocked",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
@@ -1110,9 +1145,19 @@
       "hidden": true,
       "list_visibility": "hidden-missing-verified-image",
       "display_status": "suppressed_from_normal_cards",
-      "suppression_reason": "Missing exact public-usable species image; suppressed from normal cards until reviewed image/source support exists.",
+      "suppression_reason": "Missing exact public-usable species image; suppressed from normal cards until reviewed image support exists.",
       "needs_exact_image": true,
-      "placeholder_image_removed": true
+      "placeholder_image_removed": true,
+      "use_links": [
+        {
+          "label": "MushroomExpert: Aureoboletus russellii",
+          "url": "https://www.mushroomexpert.com/aureoboletus_russellii.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Species-level source replacing prior Wikipedia-only source; record stays hidden until exact public-usable image exists."
+        }
+      ]
     },
     {
       "slug": "xanthoconium-affine",
@@ -1170,7 +1215,6 @@
         "spore_print": "",
         "season_note": "July through September in the Upper Michigan season window; eastern sources describe it as a summer-and-fall hardwood bolete.",
         "research_notes": [
-          "Needs source links and fuller field notes.",
           "Brown cap sometimes with pale spots, whitish pores becoming yellow-brown, yellow-brown spore print, and no dramatic staining separate it from many olive-spored boletes."
         ],
         "cap_surface": [
@@ -1198,7 +1242,7 @@
         "Xanthoconium",
         "Brown cap allies"
       ],
-      "weekPrecision": "needs-review",
+      "weekPrecision": "species-level-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
@@ -1286,7 +1330,16 @@
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
       "image_scope_note": "Exact species image verified from Commons/Mushroom Observer; not a porcini/king-bolete stand-in.",
-      "source_note": "Stale placeholder-image note removed because a real image is already present."
+      "source_note": "Stale placeholder-image note removed because a real image is already present.",
+      "use_links": [
+        {
+          "label": "MushroomExpert: Xanthoconium affine",
+          "url": "https://www.mushroomexpert.com/xanthoconium_affine.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference"
+        }
+      ]
     },
     {
       "slug": "tylopilus-appalachiensis",
@@ -1341,7 +1394,7 @@
         "spore_print": "",
         "season_note": "July through September in the Upper Michigan season window; treated conservatively with eastern Tylopilus summer-and-fall boletes.",
         "research_notes": [
-          "Needs source links and fuller field notes.",
+          "Still blocked: no species-level non-Wikipedia source and no exact public-usable image verified; keep suppressed from normal cards.",
           "Use hardwood association, pore-surface bruising brown, pinkish Tylopilus pore maturity, and lack of dramatic reticulation to keep it separate.",
           "Suppressed from normal cards because no exact public-usable image is verified."
         ],
@@ -1370,7 +1423,7 @@
         "Tylopilus",
         "Pinkish pores / bitter allies"
       ],
-      "weekPrecision": "needs-review",
+      "weekPrecision": "blocked-no-exact-image",
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
@@ -1429,7 +1482,17 @@
       "display_status": "suppressed_from_normal_cards",
       "suppression_reason": "Missing exact public-usable species image; suppressed from normal cards until reviewed image/source support exists.",
       "needs_exact_image": true,
-      "placeholder_image_removed": true
+      "placeholder_image_removed": true,
+      "use_links": [
+        {
+          "label": "MushroomExpert: Tylopilus genus context",
+          "url": "https://mushroomexpert.com/tylopilus.html",
+          "link_type": "genus_context",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Genus/key context only; species-level source and exact public-usable image are still needed before activation."
+        }
+      ]
     },
     {
       "slug": "tylopilus-badiceps",

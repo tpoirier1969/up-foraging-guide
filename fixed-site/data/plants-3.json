@@ -9,8 +9,8 @@
     "split_parts_total": 4,
     "split_series": "data/plants-3*.json",
     "source_group": "data/plants-3",
-    "last_content_update": "v4.3.132-r2026-06-09-high-risk-blocked-cleanup1",
-    "last_content_update_date": "2026-06-09"
+    "last_content_update": "v4.3.140-r2026-06-10-active-source-stale-cleanup1",
+    "last_content_update_date": "2026-06-10"
   },
   "records": [
     {
@@ -685,9 +685,7 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Nuts / Seeds.",
       "plant_card_note": "Common cooked green; look for mealy young leaves and avoid contaminated sites.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_data_flags": [],
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/20170613Chenopodium_album.jpg?width=480",
@@ -773,6 +771,25 @@
         "Lamb’s quarters",
         "White goosefoot",
         "Goosefoot"
+      ],
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/chenopodium/album/",
+        "https://plants.usda.gov/plant-profile/CHAL7"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Chenopodium album",
+          "url": "https://gobotany.nativeplanttrust.org/species/chenopodium/album/",
+          "link_type": "identification_range_scope",
+          "source_quality": "botanical_reference",
+          "notes": "Supports the Chenopodium album group context used by this common cooked-green record."
+        },
+        {
+          "label": "USDA PLANTS: Chenopodium album",
+          "url": "https://plants.usda.gov/plant-profile/CHAL7",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
       ]
     },
     {
@@ -926,9 +943,7 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits.",
       "plant_card_note": "Useful parts: fruit / berry. Edible ripe fruit, usually best cooked or sweetened.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_data_flags": [],
       "search_aliases": [
         "lingonberry",
         "mountain cranberry",
@@ -974,7 +989,25 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/20220805_143048_Vaccinium_vitis-idaea.jpg"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/vaccinium/vitis-idaea/",
+        "https://plants.usda.gov/plant-profile/VAVI"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Vaccinium vitis-idaea",
+          "url": "https://gobotany.nativeplanttrust.org/species/vaccinium/vitis-idaea/",
+          "link_type": "identification_range_habitat_edible_fruit",
+          "source_quality": "botanical_reference"
+        },
+        {
+          "label": "USDA PLANTS: Vaccinium vitis-idaea",
+          "url": "https://plants.usda.gov/plant-profile/VAVI",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ]
     },
     {
       "slug": "small-cranberry",
@@ -1026,9 +1059,7 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits.",
       "plant_card_note": "Useful parts: fruit / berry. Edible ripe fruit, usually best cooked or sweetened.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_data_flags": [],
       "search_aliases": [
         "small cranberry",
         "bog cranberry",
@@ -1073,7 +1104,25 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Vaccinium_oxycoccos_kz01.jpg"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/vaccinium/oxycoccos/",
+        "https://plants.usda.gov/plant-profile/VAOX"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Vaccinium oxycoccos",
+          "url": "https://gobotany.nativeplanttrust.org/species/vaccinium/oxycoccos/",
+          "link_type": "identification_range_habitat",
+          "source_quality": "botanical_reference"
+        },
+        {
+          "label": "USDA PLANTS: Vaccinium oxycoccos",
+          "url": "https://plants.usda.gov/plant-profile/VAOX",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ]
     },
     {
       "slug": "maple",
@@ -1190,8 +1239,32 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Trees / Shrubs.",
       "plant_card_note": "Useful parts: sap. Sap is the practical use. Tree identification matters before tapping, and yield varies by species and weather.",
-      "plant_data_flags": [
-        "needs_source_links"
+      "plant_data_flags": [],
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/acer/saccharum/",
+        "https://plants.usda.gov/plant-profile/ACSA3",
+        "https://ohioline.osu.edu/factsheet/f-36"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Acer saccharum",
+          "url": "https://gobotany.nativeplanttrust.org/species/acer/saccharum/",
+          "link_type": "identification_range_habitat",
+          "source_quality": "botanical_reference"
+        },
+        {
+          "label": "USDA PLANTS: Acer saccharum",
+          "url": "https://plants.usda.gov/plant-profile/ACSA3",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        },
+        {
+          "label": "Ohio State Extension: Hobby Maple Syrup Production",
+          "url": "https://ohioline.osu.edu/factsheet/f-36",
+          "link_type": "sap_syrup_use_safety_process",
+          "source_quality": "extension",
+          "notes": "Supports maple tree tapping/sap-to-syrup context; image rights remain a separate future cleanup item."
+        }
       ]
     },
     {
@@ -1244,9 +1317,7 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
       "plant_card_note": "Useful parts: fruit / berry. Edible ripe fruit, but very perishable and messy.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_data_flags": [],
       "search_aliases": [
         "white mulberry",
         "escaped mulberry",
@@ -1291,7 +1362,25 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Rosales_-_Morus_alba_-_1.jpg"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "links": [
+        "https://plants.ces.ncsu.edu/plants/morus-alba/",
+        "https://plants.usda.gov/plant-profile/MOAL"
+      ],
+      "use_links": [
+        {
+          "label": "NC State Extension: White Mulberry (Morus alba)",
+          "url": "https://plants.ces.ncsu.edu/plants/morus-alba/",
+          "link_type": "identification_edible_use_scope",
+          "source_quality": "extension"
+        },
+        {
+          "label": "USDA PLANTS: Morus alba",
+          "url": "https://plants.usda.gov/plant-profile/MOAL",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ]
     },
     {
       "slug": "nannyberry",
@@ -1353,10 +1442,7 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
       "plant_card_note": "Useful parts: fruit / berry. Edible ripe fruit. Best when fully dark and soft.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ],
+      "plant_data_flags": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Viburnum_lentago_NRCS-005.jpg"
       ],
@@ -1400,7 +1486,25 @@
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Verified open-license image coverage added."
+      "image_coverage_note": "Verified open-license image coverage added.",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/viburnum/lentago/",
+        "https://plants.usda.gov/plant-profile/VILE"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Viburnum lentago",
+          "url": "https://gobotany.nativeplanttrust.org/species/viburnum/lentago/",
+          "link_type": "identification_range_habitat",
+          "source_quality": "botanical_reference"
+        },
+        {
+          "label": "USDA PLANTS: Viburnum lentago",
+          "url": "https://plants.usda.gov/plant-profile/VILE",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ]
     },
     {
       "slug": "nettles",
