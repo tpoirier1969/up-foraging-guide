@@ -26,9 +26,27 @@ function versionedPath(path) {
   return path.includes("?") ? path : `${path}?v=${encodeURIComponent(APP_VERSION)}`;
 }
 
+function routePartsFromHash() {
+  const raw = String(location.hash || "#/home").replace(/^#\/?/, "") || "home";
+  const [routePart, queryPart = ""] = raw.split("?");
+  return { route: routePart || "home", params: new URLSearchParams(queryPart) };
+}
+
+function plantLaneHash(lane = "") {
+  const cleanLane = String(lane || "").trim();
+  return cleanLane ? `#/plants?plantLane=${encodeURIComponent(cleanLane)}` : "#/plants";
+}
+
+function syncRouteFilters(route, params) {
+  if (route === "plants") {
+    state.filters.plantLane = params.get("plantLane") || "";
+  }
+}
+
 function parseRoute() {
-  const raw = String(location.hash || "#/home").replace(/^#\/?/, "");
-  return raw || "home";
+  const { route, params } = routePartsFromHash();
+  syncRouteFilters(route, params);
+  return route;
 }
 
 function routeTitle(route) {
@@ -456,16 +474,26 @@ function installPlantLaneDelegation() {
     if (laneButton) {
       event.preventDefault();
       const lane = laneButton.dataset.plantLane || "";
-      state.filters.plantLane = state.filters.plantLane === lane ? "" : lane;
-      renderCurrentRoute();
+      const nextLane = state.filters.plantLane === lane ? "" : lane;
+      const nextHash = plantLaneHash(nextLane);
+      if (location.hash === nextHash) {
+        state.filters.plantLane = nextLane;
+        renderCurrentRoute();
+      } else {
+        location.hash = nextHash;
+      }
       return;
     }
 
     const clearButton = event.target?.closest?.(".plant-lane-switcher [data-plant-lane-clear], .plant-lane-switcher #plantLaneClearBtn");
     if (clearButton) {
       event.preventDefault();
-      state.filters.plantLane = "";
-      renderCurrentRoute();
+      if (location.hash === "#/plants") {
+        state.filters.plantLane = "";
+        renderCurrentRoute();
+      } else {
+        location.hash = "#/plants";
+      }
     }
   });
 }

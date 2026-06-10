@@ -88,7 +88,7 @@ const PLANT_LANES = [
   },
   {
     id: "trees-shrubs-sap",
-    label: "Trees / Shrubs",
+    label: "Trees / Shrubs / Sap",
     short: "Woody trees and shrubs, including sap or bark uses",
     patterns: [/\btree\b|\btrees\b|\bshrub\b|\bshrubs\b|\bwoody\b|\bbramble\b|\bconifer\b|\bmaple\b|\bbirch\b|\bpine\b|\bspruce\b|\bhemlock\b|\bwillow\b/i]
   },
@@ -810,7 +810,7 @@ export function getFilterFieldsForRoute(records, route, filters = {}) {
 }
 
 export function hasActiveTraitFilters(route, filters = {}) {
-  return filterDefinitionsForRoute(route).some((def) => !!filters?.[def.key]);
+  return filterDefinitionsForRoute(route).some((def) => !!filters?.[def.key]) || (route === "plants" && !!filters?.plantLane);
 }
 
 function hasFilterValueMissing(record, valueKey) {
