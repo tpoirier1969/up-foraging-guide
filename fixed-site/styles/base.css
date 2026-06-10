@@ -355,14 +355,21 @@ html.image-audit-mode .record-image-cell[data-image-rights-status="commercial_ok
 html.image-audit-mode .record-image-cell[data-image-rights-status="needs_review"] .image-meta-line::after{background:#fff0df;color:#7a3e10;border-color:rgba(122,62,16,.22);}
 html.image-audit-mode .record-image-cell[data-image-rights-status="replace_before_commercial"] .image-meta-line::after,
 html.image-audit-mode .record-image-cell[data-image-rights-status="missing_image"] .image-meta-line::after{background:#fbe5e5;color:#782323;border-color:rgba(120,35,35,.24);}
-/* v4.3.134: compact, functional plant-lane quick buttons. */
-.plant-lane-switcher .lane-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;}
-.plant-lane-switcher .lane-card{min-height:0;padding:8px 10px;border-radius:12px;gap:2px;line-height:1.12;}
-.plant-lane-switcher .lane-card strong{font-size:.86rem;line-height:1.08;margin-bottom:1px;}
-.plant-lane-switcher .lane-card span{font-size:.68rem;line-height:1.12;}
+/* v4.3.138: plant-lane quick buttons fit one row on normal desktop/tablet width. */
+.plant-lane-switcher .lane-grid{grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;}
+.plant-lane-switcher .lane-card{min-height:0;padding:6px 7px;border-radius:10px;gap:1px;line-height:1.05;}
+.plant-lane-switcher .lane-card strong{font-size:.74rem;line-height:1.02;margin-bottom:1px;}
+.plant-lane-switcher .lane-card span{font-size:.56rem;line-height:1.08;}
 .plant-lane-switcher .plant-lane-count{font-weight:800;}
+@media (max-width:900px) and (min-width:701px){
+  .plant-lane-switcher .lane-grid{grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;}
+  .plant-lane-switcher .lane-card{padding:5px 6px;border-radius:9px;}
+  .plant-lane-switcher .lane-card strong{font-size:.68rem;}
+  .plant-lane-switcher .lane-card span{font-size:.52rem;}
+}
 @media (max-width:700px){
   .plant-lane-switcher .lane-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:6px !important;}
   .plant-lane-switcher .lane-card{padding:8px 7px;border-radius:11px;}
+  .plant-lane-switcher .lane-card strong{font-size:.82rem;line-height:1.08;}
   .plant-lane-switcher .lane-card span{display:none;}
 }
