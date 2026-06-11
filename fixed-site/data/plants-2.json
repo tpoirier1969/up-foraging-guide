@@ -9,7 +9,7 @@
     "split_parts_total": 4,
     "split_series": "data/plants-2*.json",
     "source_group": "data/plants-2",
-    "last_content_update": "v4.3.141-r2026-06-11-common-alias-source-cleanup1",
+    "last_content_update": "v4.3.143-r2026-06-11-common-plant-source-cleanup2",
     "last_content_update_date": "2026-06-11"
   },
   "records": [
@@ -423,12 +423,20 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Roots / Tubers.",
       "plant_card_note": "Useful parts: stem / shoot / stalk, flower, root / tuber / bulb. Edible with known culinary use, though some people do not tolerate it well.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "partial_rights_metadata_added"
+      "image_rights_audit_status": "partial_rights_metadata_added",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/hemerocallis/fulva/"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Hemerocallis fulva",
+          "url": "https://gobotany.nativeplanttrust.org/species/hemerocallis/fulva/",
+          "link_type": "identification_range",
+          "source_quality": "botanical_reference"
+        }
+      ],
+      "source_note": "Source links added for identification/range context; food-use wording remains modest and caution-framed where appropriate."
     },
     {
       "slug": "dewberries-very-similar-to-blackberry",
@@ -764,10 +772,7 @@
         "tea-infusions"
       ],
       "plant_lane_note": "Explicit plant-lane placement: Flowers, Berries / Fruits, Trees / Shrubs, Tea / Infusions.",
-      "plant_card_note": "Useful parts: flower, fruit / berry. Flowers are broadly used; berries should be fully ripe and usually cooked. Unripe fruit and non-fruit parts are not beginner food.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_card_note": "Use flowers and fully ripe berries only; cook berries for normal food use and avoid unripe fruit, leaves, bark, roots, and stems.",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Sambucus_canadensis_flower_UMFS.jpg?width=480",
@@ -868,7 +873,40 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Sambucus_canadensis_flower_UMFS.jpg"
       ],
       "image_coverage_status": "partial_verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "links": [
+        "https://plants.ces.ncsu.edu/plants/sambucus-canadensis/",
+        "https://plants.usda.gov/plant-profile/SACA2"
+      ],
+      "use_links": [
+        {
+          "label": "NC State Extension: Sambucus canadensis",
+          "url": "https://plants.ces.ncsu.edu/plants/sambucus-canadensis/",
+          "link_type": "identification_edible_use_safety",
+          "source_quality": "extension",
+          "notes": "Supports American elderberry identification, cooked fruit/flower use, and low-severity poison caution."
+        },
+        {
+          "label": "USDA PLANTS: Sambucus canadensis",
+          "url": "https://plants.usda.gov/plant-profile/SACA2",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ],
+      "search_aliases": [
+        "elderberry",
+        "American elderberry",
+        "common elderberry",
+        "elderflower",
+        "Sambucus canadensis",
+        "Sambucus nigra subsp. canadensis"
+      ],
+      "common_names": [
+        "Elderberry",
+        "American elderberry",
+        "Common elderberry",
+        "Elderflower"
+      ]
     },
     {
       "slug": "evening-primrose",
@@ -997,11 +1035,20 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Roots / Tubers.",
       "plant_card_note": "Useful parts: leaf / green, flower, root / tuber / bulb. Edible with preparation; more of a broad-use species than a top-tier foraging food.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "partial_rights_metadata_added"
+      "image_rights_audit_status": "partial_rights_metadata_added",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/oenothera/biennis/"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Oenothera biennis",
+          "url": "https://gobotany.nativeplanttrust.org/species/oenothera/biennis/",
+          "link_type": "identification_range",
+          "source_quality": "botanical_reference"
+        }
+      ],
+      "source_note": "Source links added for identification/range context; food-use wording remains modest and caution-framed where appropriate."
     },
     {
       "slug": "fiddlehead-ferns",
@@ -1057,10 +1104,7 @@
         "leaves-greens"
       ],
       "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens.",
-      "plant_card_note": "Useful parts: stem / shoot / stalk. Cook thoroughly before eating. Do not eat raw fiddleheads.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_card_note": "Only ostrich fern fiddleheads are treated here; not all fern fiddleheads are edible. Clean well and cook thoroughly; do not eat raw or undercooked.",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Matteuccia_struthiopteris.jpg?width=480",
@@ -1130,7 +1174,45 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Matteuccia_struthiopteris.jpg"
       ],
       "image_coverage_status": "partial_verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "links": [
+        "https://extension.umaine.edu/publications/4198e/",
+        "https://gobotany.nativeplanttrust.org/species/matteuccia/struthiopteris/",
+        "https://plants.usda.gov/plant-profile/MAST"
+      ],
+      "use_links": [
+        {
+          "label": "University of Maine Extension: Facts on Fiddleheads",
+          "url": "https://extension.umaine.edu/publications/4198e/",
+          "link_type": "edible_use_safety_preparation",
+          "source_quality": "extension",
+          "notes": "Supports ostrich fern fiddlehead identification and the hard cook-thoroughly/no-raw guidance."
+        },
+        {
+          "label": "Go Botany: Matteuccia struthiopteris",
+          "url": "https://gobotany.nativeplanttrust.org/species/matteuccia/struthiopteris/",
+          "link_type": "identification_range_habitat",
+          "source_quality": "botanical_reference"
+        },
+        {
+          "label": "USDA PLANTS: Matteuccia struthiopteris",
+          "url": "https://plants.usda.gov/plant-profile/MAST",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ],
+      "search_aliases": [
+        "ostrich fern",
+        "ostrich fern fiddleheads",
+        "fiddleheads",
+        "Matteuccia struthiopteris",
+        "Matteuccia pensylvanica"
+      ],
+      "common_names": [
+        "Ostrich fern fiddleheads",
+        "Fiddleheads",
+        "Ostrich fern"
+      ]
     },
     {
       "slug": "fireweed",
@@ -1264,11 +1346,37 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Tea / Infusions.",
       "plant_card_note": "Useful parts: stem / shoot / stalk, leaf / tea, flower. Best when young. Older stems get tough quickly.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "partial_rights_metadata_added"
+      "image_rights_audit_status": "partial_rights_metadata_added",
+      "links": [
+        "https://plants.usda.gov/plant-profile/CHAN9",
+        "https://www.fs.usda.gov/database/feis/plants/forb/chaang/all.html"
+      ],
+      "use_links": [
+        {
+          "label": "USDA PLANTS: Chamerion angustifolium",
+          "url": "https://plants.usda.gov/plant-profile/CHAN9",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        },
+        {
+          "label": "USFS FEIS: Chamerion angustifolium",
+          "url": "https://www.fs.usda.gov/database/feis/plants/forb/chaang/all.html",
+          "link_type": "habitat_ecology_range",
+          "source_quality": "government"
+        }
+      ],
+      "search_aliases": [
+        "great willowherb",
+        "rosebay willowherb",
+        "Chamerion angustifolium",
+        "Chamaenerion angustifolium",
+        "Epilobium angustifolium"
+      ],
+      "common_names": [
+        "Fireweed",
+        "Rosebay willowherb"
+      ]
     },
     {
       "slug": "fox-grapes",
@@ -1320,10 +1428,6 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits.",
       "plant_card_note": "Useful parts: fruit / berry. Edible ripe grapes; many people prefer them processed.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Vitis_labrusca_154618896.jpg"
       ],
@@ -1367,7 +1471,35 @@
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Verified open-license image coverage added."
+      "image_coverage_note": "Verified open-license image coverage added.",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/vitis/labrusca/",
+        "https://plants.usda.gov/plant-profile/VILA8"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Vitis labrusca",
+          "url": "https://gobotany.nativeplanttrust.org/species/vitis/labrusca/",
+          "link_type": "identification_range_habitat",
+          "source_quality": "botanical_reference"
+        },
+        {
+          "label": "USDA PLANTS: Vitis labrusca",
+          "url": "https://plants.usda.gov/plant-profile/VILA8",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ],
+      "search_aliases": [
+        "fox grape",
+        "wild grape",
+        "Vitis labrusca",
+        "Concord grape relative"
+      ],
+      "common_names": [
+        "Fox grape",
+        "Wild grape"
+      ]
     },
     {
       "slug": "garlic-mustard",
@@ -1435,10 +1567,6 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers, Nuts / Seeds.",
       "plant_card_note": "Useful parts: leaf / green, flower, seed / nut / cone. Edible and often worth using because it is invasive.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Alliaria_petiolata_marais-belloy-sur-somme_80_26042007_3.jpg"
       ],
@@ -1482,7 +1610,19 @@
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Verified open-license image coverage added."
+      "image_coverage_note": "Verified open-license image coverage added.",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/alliaria/petiolata/"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Alliaria petiolata",
+          "url": "https://gobotany.nativeplanttrust.org/species/alliaria/petiolata/",
+          "link_type": "identification_range_food_context",
+          "source_quality": "botanical_reference"
+        }
+      ],
+      "source_note": "Source links added for identification/range context; food-use wording remains modest and caution-framed where appropriate."
     },
     {
       "slug": "goldenrod",
@@ -1546,10 +1686,6 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Flowers, Tea / Infusions.",
       "plant_card_note": "Useful parts: flower / tea, leaf / tea. Mostly a tea and herb plant, not a calorie food. Correct ID matters because it is a broad genus entry.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Solidago_canadensis_20050815_248.jpg"
       ],
@@ -1593,7 +1729,19 @@
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Verified representative image added; this is labeled as representative coverage, not an exact image for every member of the group."
+      "image_coverage_note": "Verified representative image added; this is labeled as representative coverage, not an exact image for every member of the group.",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/genus/solidago/"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Solidago genus",
+          "url": "https://gobotany.nativeplanttrust.org/genus/solidago/",
+          "link_type": "identification_scope",
+          "source_quality": "botanical_reference"
+        }
+      ],
+      "source_note": "Broad practical record; source links support genus/scope or representative species context."
     },
     {
       "slug": "gooseberries",
@@ -1649,10 +1797,6 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
       "plant_card_note": "Useful parts: fruit / berry. Edible berries, usually best ripe and often best processed.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ],
       "images_structured": [
         {
           "title": "Smooth gooseberry fruit representative",
@@ -1697,7 +1841,37 @@
       ],
       "image_coverage_status": "verified_representative_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_scope_note": "Representative Ribes hirtellum fruit image; source identifies cultivated fruit, so a wild fruit-with-leaf/stem image is still desirable later."
+      "image_scope_note": "Representative Ribes hirtellum fruit image; source identifies cultivated fruit, so a wild fruit-with-leaf/stem image is still desirable later.",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/ribes/hirtellum/",
+        "https://plants.usda.gov/plant-profile/RIHI"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Ribes hirtellum",
+          "url": "https://gobotany.nativeplanttrust.org/species/ribes/hirtellum/",
+          "link_type": "identification_range_habitat_representative_scope",
+          "source_quality": "botanical_reference",
+          "notes": "Representative native gooseberry source within the broader Ribes spp. gooseberry record."
+        },
+        {
+          "label": "USDA PLANTS: Ribes hirtellum",
+          "url": "https://plants.usda.gov/plant-profile/RIHI",
+          "link_type": "range_taxonomy_representative_scope",
+          "source_quality": "government"
+        }
+      ],
+      "search_aliases": [
+        "wild gooseberry",
+        "Ribes hirtellum",
+        "hairy-stemmed gooseberry",
+        "Ribes spp."
+      ],
+      "common_names": [
+        "Gooseberries",
+        "Wild gooseberries",
+        "Hairy-stemmed gooseberry"
+      ]
     },
     {
       "slug": "goosefoot-close-cousin-of-lamb-s-quarters",
@@ -1751,10 +1925,6 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens.",
       "plant_card_note": "Useful parts: leaf / green. Treat like the lamb’s quarters lane: young greens are the main use.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Melganzenvoet_bloeiwijze_Chenopodium_album.jpg"
       ],
@@ -1798,7 +1968,26 @@
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Verified representative image added; this is labeled as representative coverage, not an exact image for every member of the group."
+      "image_coverage_note": "Verified representative image added; this is labeled as representative coverage, not an exact image for every member of the group.",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/genus/chenopodium/",
+        "https://gobotany.nativeplanttrust.org/species/chenopodium/album/"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Chenopodium genus",
+          "url": "https://gobotany.nativeplanttrust.org/genus/chenopodium/",
+          "link_type": "identification_scope",
+          "source_quality": "botanical_reference"
+        },
+        {
+          "label": "Go Botany: Chenopodium album",
+          "url": "https://gobotany.nativeplanttrust.org/species/chenopodium/album/",
+          "link_type": "representative_identification",
+          "source_quality": "botanical_reference"
+        }
+      ],
+      "source_note": "Broad practical record; source links support genus/scope or representative species context."
     },
     {
       "slug": "ground-cherries",
@@ -1853,10 +2042,6 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits.",
       "plant_card_note": "Useful parts: fruit / berry. Eat only fully ripe fruit; green fruit and many other plant parts are not the same story.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Physalis_heterophylla_Clammy_Ground_Cherry_fruit_and_leaves.jpg"
       ],
@@ -1900,7 +2085,26 @@
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Verified representative image added; this is labeled as representative coverage, not an exact image for every member of the group."
+      "image_coverage_note": "Verified representative image added; this is labeled as representative coverage, not an exact image for every member of the group.",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/genus/physalis/",
+        "https://gobotany.nativeplanttrust.org/species/physalis/heterophylla/"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Physalis genus",
+          "url": "https://gobotany.nativeplanttrust.org/genus/physalis/",
+          "link_type": "identification_scope",
+          "source_quality": "botanical_reference"
+        },
+        {
+          "label": "Go Botany: Physalis heterophylla",
+          "url": "https://gobotany.nativeplanttrust.org/species/physalis/heterophylla/",
+          "link_type": "representative_identification",
+          "source_quality": "botanical_reference"
+        }
+      ],
+      "source_note": "Broad practical record; source links support genus/scope or representative species context."
     },
     {
       "slug": "groundnut",
@@ -1964,10 +2168,6 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Roots / Tubers.",
       "plant_card_note": "Useful parts: root / tuber / bulb. Edible tubers with real food value, though harvest takes patience.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ],
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Apios_americana_flowers.JPG?width=480",
@@ -2006,7 +2206,19 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Apios_americana_flowers.JPG"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/apios/americana/"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Apios americana",
+          "url": "https://gobotany.nativeplanttrust.org/species/apios/americana/",
+          "link_type": "identification_range",
+          "source_quality": "botanical_reference"
+        }
+      ],
+      "source_note": "Source links added for identification/range context; food-use wording remains modest and caution-framed where appropriate."
     },
     {
       "slug": "hawthorn",
@@ -2330,9 +2542,6 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
       "plant_card_note": "Useful parts: fruit / berry. Edible, but often best after frost or cooking. Raw flavor varies a lot.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Viburnum_trilobum_%28Whitefish_Island%29_1.JPG"
       ],
@@ -2375,7 +2584,37 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Viburnum_trilobum_%28Whitefish_Island%29_1.JPG"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/viburnum/opulus/",
+        "https://plants.usda.gov/plant-profile/VIOPA"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Viburnum opulus",
+          "url": "https://gobotany.nativeplanttrust.org/species/viburnum/opulus/",
+          "link_type": "identification_edible_use_habitat",
+          "source_quality": "botanical_reference",
+          "notes": "Supports highbush-cranberry identification and jam/jelly/sauce use; app record is scoped to the native American highbush cranberry form."
+        },
+        {
+          "label": "USDA PLANTS: Viburnum opulus var. americanum",
+          "url": "https://plants.usda.gov/plant-profile/VIOPA",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ],
+      "search_aliases": [
+        "highbush cranberry",
+        "American highbush cranberry",
+        "Viburnum trilobum",
+        "Viburnum opulus var. americanum",
+        "Viburnum opulus"
+      ],
+      "common_names": [
+        "Highbush cranberry",
+        "American highbush cranberry"
+      ]
     },
     {
       "slug": "honeysuckle",
@@ -2433,9 +2672,6 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Flowers, Trees / Shrubs, Tea / Infusions.",
       "plant_card_note": "Useful parts: flower. Think flowers/nectar, not berries. This is a cautionary broad-genus entry.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Wild_honeysuckle_Bashakill_%2831658%29.jpg"
       ],
@@ -2479,7 +2715,19 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Wild_honeysuckle_Bashakill_%2831658%29.jpg"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/genus/lonicera/"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Lonicera genus",
+          "url": "https://gobotany.nativeplanttrust.org/genus/lonicera/",
+          "link_type": "identification_scope",
+          "source_quality": "botanical_reference"
+        }
+      ],
+      "source_note": "Broad honeysuckle bucket sourced for genus-level ID context; keep flower-only framing and avoid casual berry use."
     },
     {
       "slug": "hop",
@@ -2542,10 +2790,6 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Flowers.",
       "plant_card_note": "Useful parts: stem / shoot / stalk, flower. Shoots are the approachable edible use; cone use is more aromatic/herbal than snack food.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Hopfen1.jpg"
       ],
@@ -2589,7 +2833,19 @@
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Verified open-license image coverage added."
+      "image_coverage_note": "Verified open-license image coverage added.",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/humulus/lupulus/"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Humulus lupulus",
+          "url": "https://gobotany.nativeplanttrust.org/species/humulus/lupulus/",
+          "link_type": "identification_range",
+          "source_quality": "botanical_reference"
+        }
+      ],
+      "source_note": "Source links added for identification/range context; food-use wording remains modest and caution-framed where appropriate."
     },
     {
       "slug": "huckleberries",
@@ -2641,9 +2897,6 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
       "plant_card_note": "Useful parts: fruit / berry. Edible ripe fruit.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Black-huckleberry-Acadia.jpg"
       ],
@@ -2687,7 +2940,35 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Black-huckleberry-Acadia.jpg"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/gaylussacia/baccata/",
+        "https://plants.usda.gov/plant-profile/GABA"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Gaylussacia baccata",
+          "url": "https://gobotany.nativeplanttrust.org/species/gaylussacia/baccata/",
+          "link_type": "identification_range_habitat_representative_scope",
+          "source_quality": "botanical_reference"
+        },
+        {
+          "label": "USDA PLANTS: Gaylussacia baccata",
+          "url": "https://plants.usda.gov/plant-profile/GABA",
+          "link_type": "range_taxonomy_representative_scope",
+          "source_quality": "government"
+        }
+      ],
+      "search_aliases": [
+        "black huckleberry",
+        "Gaylussacia baccata",
+        "huckleberry",
+        "dangleberry"
+      ],
+      "common_names": [
+        "Huckleberries",
+        "Black huckleberry"
+      ]
     },
     {
       "slug": "jerusalem-artichoke",
@@ -2754,10 +3035,6 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Roots / Tubers, Flowers.",
       "plant_card_note": "Useful parts: root / tuber / bulb, flower. Edible tubers, often best harvested after frost or in cool seasons.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ],
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Helianthus_tuberosus_kz6.jpg?width=480",
@@ -2796,7 +3073,19 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Helianthus_tuberosus_kz6.jpg"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/helianthus/tuberosus/"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Helianthus tuberosus",
+          "url": "https://gobotany.nativeplanttrust.org/species/helianthus/tuberosus/",
+          "link_type": "identification_range",
+          "source_quality": "botanical_reference"
+        }
+      ],
+      "source_note": "Source links added for identification/range context; food-use wording remains modest and caution-framed where appropriate."
     }
   ]
 }

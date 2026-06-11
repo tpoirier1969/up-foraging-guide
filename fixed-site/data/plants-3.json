@@ -9,7 +9,7 @@
     "split_parts_total": 4,
     "split_series": "data/plants-3*.json",
     "source_group": "data/plants-3",
-    "last_content_update": "v4.3.141-r2026-06-11-common-alias-source-cleanup1",
+    "last_content_update": "v4.3.143-r2026-06-11-common-plant-source-cleanup2",
     "last_content_update_date": "2026-06-11"
   },
   "records": [
@@ -680,10 +680,10 @@
         "Tender shoots"
       ],
       "plant_lanes": [
-        "edible",
-        "caution"
+        "leaves-greens",
+        "nuts-seeds"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Nuts / Seeds.",
+      "plant_lane_note": "Leaves / Greens for young cooked tops; Nuts / Seeds only as a non-beginner seed/processing context.",
       "plant_card_note": "Common cooked green; look for mealy young leaves and avoid contaminated sites.",
       "plant_data_flags": [],
       "images_structured": [
@@ -843,10 +843,6 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
       "plant_card_note": "Useful parts: fruit / berry. Edible ripe fruit. One of the best practical wild blueberry species.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Vaccinium_angustifolium%2C_Pancake_Bay_PP.jpg"
       ],
@@ -890,7 +886,42 @@
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Verified open-license image coverage added."
+      "image_coverage_note": "Verified open-license image coverage added.",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/vaccinium/angustifolium/",
+        "https://plants.ces.ncsu.edu/plants/vaccinium-angustifolium/",
+        "https://plants.usda.gov/plant-profile/VAAN"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Vaccinium angustifolium",
+          "url": "https://gobotany.nativeplanttrust.org/species/vaccinium/angustifolium/",
+          "link_type": "identification_range_habitat",
+          "source_quality": "botanical_reference"
+        },
+        {
+          "label": "NC State Extension: Vaccinium angustifolium",
+          "url": "https://plants.ces.ncsu.edu/plants/vaccinium-angustifolium/",
+          "link_type": "identification_edible_landscape_context",
+          "source_quality": "extension"
+        },
+        {
+          "label": "USDA PLANTS: Vaccinium angustifolium",
+          "url": "https://plants.usda.gov/plant-profile/VAAN",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ],
+      "search_aliases": [
+        "lowbush blueberry",
+        "low bush blueberry",
+        "wild blueberry",
+        "Vaccinium angustifolium"
+      ],
+      "common_names": [
+        "Lowbush blueberry",
+        "Wild blueberry"
+      ]
     },
     {
       "slug": "lowbush-cranberries",
@@ -1574,16 +1605,10 @@
         "Seed / nut / cone"
       ],
       "plant_lanes": [
-        "edible",
-        "medicinal",
-        "other-use",
-        "caution"
+        "leaves-greens"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens, Nuts / Seeds, Tea / Infusions.",
-      "plant_card_note": "Useful cooked spring green, but gloves and heat/drying matter; raw plants sting.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_lane_note": "Young cooked greens; handle with gloves and cook, blanch, or dry to neutralize the sting.",
+      "plant_card_note": "Wear gloves. Do not eat raw stinging nettle; cooking, blanching, or drying neutralizes the stinging hairs.",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Urtica_dioica_001.JPG?width=480",
@@ -1636,7 +1661,8 @@
         "American stinging nettle",
         "Urtica gracilis",
         "Urtica dioica subsp. gracilis",
-        "Urtica dioica"
+        "Urtica dioica",
+        "nettle greens"
       ],
       "aliases": [
         "stinging-nettle"
@@ -1645,6 +1671,32 @@
         "Stinging nettle",
         "American stinging nettle",
         "Nettles"
+      ],
+      "links": [
+        "https://plants.ces.ncsu.edu/plants/urtica-dioica/",
+        "https://gobotany.nativeplanttrust.org/species/urtica/dioica/",
+        "https://plants.usda.gov/plant-profile/URDI"
+      ],
+      "use_links": [
+        {
+          "label": "NC State Extension: Urtica dioica",
+          "url": "https://plants.ces.ncsu.edu/plants/urtica-dioica/",
+          "link_type": "identification_edible_use_safety",
+          "source_quality": "extension",
+          "notes": "Supports stinging hairs/contact caution and cooking young shoots/greens."
+        },
+        {
+          "label": "Go Botany: Urtica dioica",
+          "url": "https://gobotany.nativeplanttrust.org/species/urtica/dioica/",
+          "link_type": "identification_range_habitat",
+          "source_quality": "botanical_reference"
+        },
+        {
+          "label": "USDA PLANTS: Urtica dioica",
+          "url": "https://plants.usda.gov/plant-profile/URDI",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
       ]
     },
     {
@@ -1697,10 +1749,9 @@
         "stinging-nettle"
       ],
       "plant_lanes": [
-        "edible",
-        "caution"
+        "leaves-greens"
       ],
-      "plant_lane_note": "Edible cooked green with stinging-hair caution.",
+      "plant_lane_note": "Leaves / Greens only; cook before eating and handle with gloves.",
       "plant_card_note": "Alternate-leaved woodland nettle; use gloves and cook before eating.",
       "plant_data_flags": [
         "added_from_ghost_reference_cleanup"
@@ -1917,9 +1968,20 @@
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
       "plant_card_note": "Useful parts: fruit / berry. Edible ripe fruit.",
       "plant_data_flags": [
-        "needs_source_links",
         "needs_image_coverage"
-      ]
+      ],
+      "links": [
+        "https://plants.usda.gov/plant-profile/VAOV"
+      ],
+      "use_links": [
+        {
+          "label": "USDA PLANTS: Vaccinium ovalifolium",
+          "url": "https://plants.usda.gov/plant-profile/VAOV",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ],
+      "source_note": "Source links added for identification/range context; food-use wording remains modest and caution-framed where appropriate."
     },
     {
       "slug": "pin-cherries",
@@ -2555,10 +2617,6 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens.",
       "plant_card_note": "Useful parts: leaf / green, stem / shoot / stalk. Edible and crisp, especially when young and fresh.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Portulaca_oleracea_plant.jpg"
       ],
@@ -2602,7 +2660,19 @@
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Verified open-license image coverage added."
+      "image_coverage_note": "Verified open-license image coverage added.",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/portulaca/oleracea/"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Portulaca oleracea",
+          "url": "https://gobotany.nativeplanttrust.org/species/portulaca/oleracea/",
+          "link_type": "identification_range",
+          "source_quality": "botanical_reference"
+        }
+      ],
+      "source_note": "Source links added for identification/range context; food-use wording remains modest and caution-framed where appropriate."
     },
     {
       "slug": "ramps",
@@ -2898,9 +2968,6 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
       "plant_card_note": "Useful parts: fruit / berry. Edible ripe berries, though many people prefer them sweetened or processed.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
       "search_aliases": [
         "swamp red currant",
         "wild red currant",
@@ -2945,7 +3012,30 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Ribes_triste_6_(5098098380).jpg"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/ribes/triste/",
+        "https://plants.usda.gov/plant-profile/RITR"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Ribes triste",
+          "url": "https://gobotany.nativeplanttrust.org/species/ribes/triste/",
+          "link_type": "identification_range_habitat",
+          "source_quality": "botanical_reference"
+        },
+        {
+          "label": "USDA PLANTS: Ribes triste",
+          "url": "https://plants.usda.gov/plant-profile/RITR",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ],
+      "common_names": [
+        "Swamp red currant",
+        "Wild red currant",
+        "Red currant"
+      ]
     },
     {
       "slug": "red-sorrel",
@@ -3129,10 +3219,6 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits.",
       "plant_card_note": "Useful parts: fruit / berry. Edible ripe fruit, usually best processed.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Frost_grapes_and_leaves_%28Southeast_Michigan%29.JPG"
       ],
@@ -3176,7 +3262,36 @@
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Verified open-license image coverage added."
+      "image_coverage_note": "Verified open-license image coverage added.",
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/vitis/riparia/",
+        "https://plants.usda.gov/plant-profile/VIRI"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Vitis riparia",
+          "url": "https://gobotany.nativeplanttrust.org/species/vitis/riparia/",
+          "link_type": "identification_range_habitat",
+          "source_quality": "botanical_reference"
+        },
+        {
+          "label": "USDA PLANTS: Vitis riparia",
+          "url": "https://plants.usda.gov/plant-profile/VIRI",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ],
+      "search_aliases": [
+        "river grape",
+        "riverbank grape",
+        "wild grape",
+        "frost grape",
+        "Vitis riparia"
+      ],
+      "common_names": [
+        "Riverbank grape",
+        "River grape"
+      ]
     },
     {
       "category": "Berry",
@@ -3196,7 +3311,7 @@
         "berries"
       ],
       "plant_lanes": [
-        "plants"
+        "berries-fruits"
       ],
       "plant_data_flags": [],
       "image_rights_audit_status": "rights_metadata_added",
@@ -3288,7 +3403,8 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Mitchella_repens_partridgeberry_Liberty_Grove_Door_County_Wisconsin.jpg"
       ],
       "image_coverage_status": "verified_images",
-      "image_coverage_note": "Added in ghost-reference cleanup pass 2."
+      "image_coverage_note": "Added in ghost-reference cleanup pass 2.",
+      "plant_lane_note": "Berries / Fruits only; minor woodland nibble, not a bulk food."
     }
   ]
 }

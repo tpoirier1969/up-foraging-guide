@@ -1,7 +1,7 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.141-r2026-06-11-common-alias-source-cleanup1";
-const DISPLAY_VERSION = "V4.3.141-r26-06-11";
+const APP_VERSION = "v4.3.143-r2026-06-11-common-plant-source-cleanup2";
+const DISPLAY_VERSION = "V4.3.143-r26-06-11";
 window.UP_FORAGING_APP_VERSION = APP_VERSION;
 window.UP_FORAGING_DISPLAY_VERSION = DISPLAY_VERSION;
 
