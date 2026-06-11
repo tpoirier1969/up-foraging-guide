@@ -9,7 +9,7 @@
     "split_parts_total": 4,
     "split_series": "data/plants*.json",
     "source_group": "data/plants",
-    "last_content_update": "v4.3.143-r2026-06-11-common-plant-source-cleanup2",
+    "last_content_update": "v4.3.145-r2026-06-11-version-standard-alias-cleanup1",
     "last_content_update_date": "2026-06-11"
   },
   "records": [
@@ -766,6 +766,14 @@
           "link_type": "range_taxonomy",
           "source_quality": "government"
         }
+      ],
+      "search_aliases": [
+        "American linden",
+        "linden",
+        "linden flowers",
+        "basswood flowers",
+        "linden tea",
+        "Tilia americana"
       ]
     },
     {
@@ -1511,7 +1519,10 @@
         "black raspberries",
         "blackcap raspberry",
         "blackcaps",
-        "Rubus occidentalis"
+        "Rubus occidentalis",
+        "wild black raspberry",
+        "black cap raspberry",
+        "blackcap"
       ],
       "common_names": [
         "Black raspberry",
@@ -2478,7 +2489,15 @@
           "source_quality": "botanical_reference"
         }
       ],
-      "source_note": "Source links added for identification/range context; food-use wording remains modest and caution-framed where appropriate."
+      "source_note": "Source links added for identification/range context; food-use wording remains modest and caution-framed where appropriate.",
+      "search_aliases": [
+        "chokeberry",
+        "chokeberries",
+        "black chokeberry",
+        "aronia",
+        "black aronia",
+        "Aronia melanocarpa"
+      ]
     },
     {
       "slug": "chokecherries",
@@ -2506,7 +2525,7 @@
         "Forest edge / openings",
         "Shoreline / riverbank"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Prunus_virginiana_flowers.jpg?width=320",
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Prunus%20virginiana%2C%20cerises%20de%20virginie%2C%20chokecherries%20%284838133461%29.jpg?width=320",
       "edibility_detail": "Edible ripe fruit, but usually processed because of puckery astringency.",
       "look_alikes": [
         "Other cherries"
@@ -2541,9 +2560,40 @@
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
       "plant_card_note": "Useful parts: fruit / berry. Edible ripe fruit, but usually processed because of puckery astringency.",
       "images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Prunus%20virginiana%2C%20cerises%20de%20virginie%2C%20chokecherries%20%284838133461%29.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Prunus_virginiana_flowers.jpg"
       ],
       "images_structured": [
+        {
+          "title": "Chokecherry fruit clusters",
+          "thumb": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Prunus%20virginiana%2C%20cerises%20de%20virginie%2C%20chokecherries%20%284838133461%29.jpg?width=320",
+          "detail": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Prunus%20virginiana%2C%20cerises%20de%20virginie%2C%20chokecherries%20%284838133461%29.jpg?width=960",
+          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Prunus%20virginiana%2C%20cerises%20de%20virginie%2C%20chokecherries%20%284838133461%29.jpg",
+          "source": "wikimedia-commons-open-license",
+          "sourceLabel": "Wikimedia Commons",
+          "source_page": "https://commons.wikimedia.org/wiki/File:Prunus_virginiana,_cerises_de_virginie,_chokecherries_(4838133461).jpg",
+          "sourcePage": "https://commons.wikimedia.org/wiki/File:Prunus_virginiana,_cerises_de_virginie,_chokecherries_(4838133461).jpg",
+          "credit": "Charles de Mille-Isles, CC BY 2.0, via Wikimedia Commons",
+          "author": "Charles de Mille-Isles",
+          "license": "CC BY 2.0",
+          "license_url": "https://creativecommons.org/licenses/by/2.0/",
+          "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+          "part_or_stage": "fruit_clusters",
+          "image_role": "primary field identification image",
+          "rights_status": "commercial_ok",
+          "commercial_use": true,
+          "commercial_use_allowed": true,
+          "modification_allowed": true,
+          "attribution_required": true,
+          "share_alike_required": false,
+          "needs_commercial_replacement": false,
+          "rights_checked_date": "2026-06-11",
+          "checked_date": "2026-06-11",
+          "rights_checked_build": "v4.3.145-r2026-06-11-version-standard-alias-cleanup1",
+          "checked_build": "v4.3.145-r2026-06-11-version-standard-alias-cleanup1",
+          "rights_note": "Commercial use and modification allowed under CC BY 2.0; attribution required.",
+          "rights_notes": "Commercial use and modification allowed under CC BY 2.0; attribution required."
+        },
         {
           "title": "Chokecherry flower racemes and leaves",
           "thumb": "https://commons.wikimedia.org/wiki/Special:Redirect/file/Prunus_virginiana_flowers.jpg?width=320",
@@ -2559,7 +2609,7 @@
           "license_url": "",
           "licenseUrl": "",
           "part_or_stage": "flowers_and_leaves",
-          "image_role": "minimum/secondary field identification image",
+          "image_role": "supporting field identification image",
           "rights_status": "commercial_ok",
           "commercial_use": true,
           "commercial_use_allowed": true,
@@ -2576,16 +2626,19 @@
         }
       ],
       "detail_images": [
+        "https://commons.wikimedia.org/wiki/Special:Redirect/file/Prunus%20virginiana%2C%20cerises%20de%20virginie%2C%20chokecherries%20%284838133461%29.jpg?width=960",
         "https://commons.wikimedia.org/wiki/Special:Redirect/file/Prunus_virginiana_flowers.jpg?width=960"
       ],
       "enlarge_images": [
+        "https://commons.wikimedia.org/wiki/Special:FilePath/Prunus%20virginiana%2C%20cerises%20de%20virginie%2C%20chokecherries%20%284838133461%29.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Prunus_virginiana_flowers.jpg"
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Minimum image coverage added with flower/leaf image; fruiting raceme image still preferred later.",
+      "image_coverage_note": "Verified open-license fruit image added as primary; flower/leaf image retained as supporting identification image.",
       "links": [
-        "https://gobotany.nativeplanttrust.org/species/prunus/virginiana/"
+        "https://gobotany.nativeplanttrust.org/species/prunus/virginiana/",
+        "https://plants.usda.gov/plant-profile/PRVI"
       ],
       "use_links": [
         {
@@ -2593,9 +2646,22 @@
           "url": "https://gobotany.nativeplanttrust.org/species/prunus/virginiana/",
           "link_type": "identification_range",
           "source_quality": "botanical_reference"
+        },
+        {
+          "label": "USDA PLANTS: Prunus virginiana",
+          "url": "https://plants.usda.gov/plant-profile/PRVI",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
         }
       ],
-      "source_note": "Source links added for identification/range context; food-use wording remains modest and caution-framed where appropriate."
+      "source_note": "Source links added for identification/range context; food-use wording remains modest and caution-framed where appropriate.",
+      "search_aliases": [
+        "chokecherry",
+        "choke cherry",
+        "chokecherries",
+        "wild chokecherry",
+        "Prunus virginiana"
+      ]
     },
     {
       "slug": "clover",

@@ -9,7 +9,7 @@
     "split_parts_total": 4,
     "split_series": "data/plants-3*.json",
     "source_group": "data/plants-3",
-    "last_content_update": "v4.3.143-r2026-06-11-common-plant-source-cleanup2",
+    "last_content_update": "v4.3.145-r2026-06-11-version-standard-alias-cleanup1",
     "last_content_update_date": "2026-06-11"
   },
   "records": [
@@ -2003,7 +2003,9 @@
       ],
       "links": [
         "https://www.dnr.state.mn.us/trees/pin-cherry.html",
-        "https://research.fs.usda.gov/feis/species-reviews/prupen"
+        "https://research.fs.usda.gov/feis/species-reviews/prupen",
+        "https://gobotany.nativeplanttrust.org/species/prunus/pensylvanica/",
+        "https://plants.usda.gov/plant-profile/PRPE2"
       ],
       "medicinal_uses": "Not treated as a medicinal plant in this guide.",
       "culinary_uses": "Small sour fruits are mainly useful for jelly, syrup, preserves, or cooked fruit preparations.",
@@ -2033,9 +2035,7 @@
       ],
       "plant_lane_note": "Fruit is the useful part; flowers are listed for identification timing, not as a food lane.",
       "plant_card_note": "Small sour red cherries ripen in mid-to-late summer and are better for jelly or preserves than fresh eating. Avoid pits and non-fruit parts.",
-      "plant_data_flags": [
-        "needs_image_coverage"
-      ],
+      "plant_data_flags": [],
       "month_numbers": [
         5,
         6,
@@ -2090,7 +2090,29 @@
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Verified open-license image coverage added."
+      "image_coverage_note": "Verified open-license fruit/leaf image already present; stale needs_image_coverage flag cleared.",
+      "search_aliases": [
+        "pin cherry",
+        "pin cherries",
+        "fire cherry",
+        "bird cherry",
+        "wild red cherry",
+        "Prunus pensylvanica"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Prunus pensylvanica",
+          "url": "https://gobotany.nativeplanttrust.org/species/prunus/pensylvanica/",
+          "link_type": "identification_range",
+          "source_quality": "botanical_reference"
+        },
+        {
+          "label": "USDA PLANTS: Prunus pensylvanica",
+          "url": "https://plants.usda.gov/plant-profile/PRPE2",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ]
     },
     {
       "slug": "pine",

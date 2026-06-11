@@ -1,7 +1,12 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const APP_VERSION = "v4.3.144-r2026-06-11-image-rights-cleanup1";
-const DISPLAY_VERSION = "V4.3.144-r26-06-11";
+const FALLBACK_VERSION_INFO = Object.freeze({
+  version: "dev",
+  display_version: "Version unavailable",
+  cache_bust: "dev"
+});
+let APP_VERSION = FALLBACK_VERSION_INFO.version;
+let DISPLAY_VERSION = FALLBACK_VERSION_INFO.display_version;
 window.UP_FORAGING_APP_VERSION = APP_VERSION;
 window.UP_FORAGING_DISPLAY_VERSION = DISPLAY_VERSION;
 
@@ -10,6 +15,44 @@ function esc(value) {
     .replaceAll("&", "&amp;")
     .replaceAll("<", "&lt;")
     .replaceAll(">", "&gt;");
+}
+
+async function loadVersionInfo() {
+  try {
+    const response = await fetch(`version.json?ts=${Date.now()}`, { cache: "no-store" });
+    if (!response.ok) throw new Error(`version.json returned HTTP ${response.status}`);
+    const info = await response.json();
+    const version = String(info?.version || info?.app_version || "").trim();
+    const displayVersion = String(info?.display_version || info?.displayVersion || "").trim();
+    APP_VERSION = version || FALLBACK_VERSION_INFO.version;
+    DISPLAY_VERSION = displayVersion || APP_VERSION || FALLBACK_VERSION_INFO.display_version;
+    window.UP_FORAGING_APP_VERSION = APP_VERSION;
+    window.UP_FORAGING_DISPLAY_VERSION = DISPLAY_VERSION;
+    return info;
+  } catch (err) {
+    console.warn("Could not load version.json; using fallback version.", err);
+    APP_VERSION = FALLBACK_VERSION_INFO.version;
+    DISPLAY_VERSION = FALLBACK_VERSION_INFO.display_version;
+    window.UP_FORAGING_APP_VERSION = APP_VERSION;
+    window.UP_FORAGING_DISPLAY_VERSION = DISPLAY_VERSION;
+    return FALLBACK_VERSION_INFO;
+  }
+}
+
+function versionedHref(href, version) {
+  const raw = String(href || "");
+  if (!raw || !version) return raw;
+  const [withoutHash, hash = ""] = raw.split("#");
+  const [path] = withoutHash.split("?");
+  return `${path}?v=${encodeURIComponent(version)}${hash ? `#${hash}` : ""}`;
+}
+
+function applyStaticAssetVersion(version) {
+  document.querySelectorAll("link[data-versioned][href]").forEach((link) => {
+    const current = link.getAttribute("href") || "";
+    const next = versionedHref(current, version);
+    if (next && current !== next) link.setAttribute("href", next);
+  });
 }
 
 function setupImageAuditMode() {
@@ -61,6 +104,9 @@ function showVersion() {
 async function start() {
   setupImageAuditMode();
   setupMobileMenu();
+  showVersion();
+  await loadVersionInfo();
+  applyStaticAssetVersion(APP_VERSION);
   showVersion();
   try {
     const mod = await import(`./app-core.js?v=${encodeURIComponent(APP_VERSION)}`);
