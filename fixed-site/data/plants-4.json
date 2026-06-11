@@ -9,8 +9,8 @@
     "split_parts_total": 4,
     "split_series": "data/plants-4*.json",
     "source_group": "data/plants-4",
-    "last_content_update": "v4.3.131-r2026-06-09-common-low-risk-activation1",
-    "last_content_update_date": "2026-06-09"
+    "last_content_update": "v4.3.141-r2026-06-11-common-alias-source-cleanup1",
+    "last_content_update_date": "2026-06-11"
   },
   "records": [
     {
@@ -2316,8 +2316,9 @@
         "July"
       ],
       "links": [
+        "https://gobotany.nativeplanttrust.org/species/fragaria/virginiana/",
         "https://plants.ces.ncsu.edu/plants/fragaria-virginiana/common-name/wild-strawberry/",
-        "https://edibleplantdb.org/plants/4558/fragaria-virginiana"
+        "https://plants.usda.gov/plant-profile/FRVI"
       ],
       "medicinal_uses": "Leaf tea has traditional use, but this guide treats it mainly as a fruit and tea plant.",
       "culinary_uses": "Small ripe berries are eaten fresh or used like cultivated strawberries; leaves can be used for mild tea.",
@@ -2401,7 +2402,38 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Fragaria_virginiana_-_Virginia_Strawberry.jpg"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "search_aliases": [
+        "wild strawberry",
+        "wild strawberries",
+        "Virginia strawberry",
+        "common strawberry",
+        "Fragaria virginiana"
+      ],
+      "common_names": [
+        "Wild strawberry",
+        "Virginia strawberry"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Fragaria virginiana",
+          "url": "https://gobotany.nativeplanttrust.org/species/fragaria/virginiana/",
+          "link_type": "identification_range_habitat",
+          "source_quality": "botanical_reference"
+        },
+        {
+          "label": "NC State Extension: Wild Strawberry (Fragaria virginiana)",
+          "url": "https://plants.ces.ncsu.edu/plants/fragaria-virginiana/common-name/wild-strawberry/",
+          "link_type": "identification_edible_use",
+          "source_quality": "extension"
+        },
+        {
+          "label": "USDA PLANTS: Fragaria virginiana",
+          "url": "https://plants.usda.gov/plant-profile/FRVI",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ]
     },
     {
       "slug": "willow",
@@ -2794,8 +2826,12 @@
       "lane": "",
       "review_status": "ok",
       "search_aliases": [
+        "wood sorrel",
+        "wood-sorrel",
         "yellow woodsorrel",
         "yellow wood sorrel",
+        "yellow oxalis",
+        "sour grass",
         "Oxalis stricta"
       ],
       "commonness": "",
@@ -2885,7 +2921,27 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Oxalis_stricta_-_flower%2C_leaves_%2818439230793%29.jpg"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "common_names": [
+        "Wood sorrel",
+        "Yellow woodsorrel",
+        "Yellow oxalis",
+        "Sour grass"
+      ],
+      "use_links": [
+        {
+          "label": "USFS Plant of the Week: Oxalis stricta",
+          "url": "https://www.fs.usda.gov/wildflowers/plant-of-the-week/oxalis_stricta.shtml",
+          "link_type": "identification_range_habitat",
+          "source_quality": "government"
+        },
+        {
+          "label": "Michigan State Extension: Yellow woodsorrel",
+          "url": "https://www.canr.msu.edu/resources/yellow-woodsorrel-oxalis-stricta/",
+          "link_type": "identification_context",
+          "source_quality": "extension"
+        }
+      ]
     },
     {
       "slug": "yarrow",

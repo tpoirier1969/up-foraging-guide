@@ -9,8 +9,8 @@
     "split_parts_total": 4,
     "split_series": "data/plants-2*.json",
     "source_group": "data/plants-2",
-    "last_content_update": "v4.3.140-r2026-06-10-active-source-stale-cleanup1",
-    "last_content_update_date": "2026-06-10"
+    "last_content_update": "v4.3.141-r2026-06-11-common-alias-source-cleanup1",
+    "last_content_update_date": "2026-06-11"
   },
   "records": [
     {
@@ -2114,8 +2114,8 @@
     },
     {
       "slug": "hazel",
-      "display_name": "Hazel",
-      "common_name": "Hazel",
+      "display_name": "Hazelnuts / Hazel",
+      "common_name": "Hazelnuts / Hazel",
       "category": "Tree Product",
       "notes": "This copyback combines the old app material for American hazelnut and beaked hazelnut: rounded leaves and edible nuts, with beaked or leafy husks depending on species.",
       "months_available": [
@@ -2124,7 +2124,7 @@
       ],
       "medicinal_uses": "Primarily a food nut shrub.",
       "culinary_uses": "Nuts are edible raw or roasted and can be ground into meal.",
-      "plant_name": "Hazel",
+      "plant_name": "Hazelnuts / Hazel",
       "photo_scientific_name": "Corylus americana",
       "scientific_name": "Corylus americana / Corylus cornuta",
       "general_notes": "",
@@ -2171,12 +2171,9 @@
         "nuts-seeds",
         "trees-shrubs-sap"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Nuts / Seeds, Trees / Shrubs.",
+      "plant_lane_note": "Explicit plant-lane placement: Nuts / Seeds, Trees / Shrubs / Sap.",
       "plant_card_note": "Useful parts: seed / nut / cone. Edible ripe nuts. Usually gathered before squirrels clean you out.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ],
+      "plant_data_flags": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Corylus_cornuta_fruit_%285097503079%29.jpg"
       ],
@@ -2220,7 +2217,51 @@
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Verified representative image added; this is labeled as representative coverage, not an exact image for every member of the group."
+      "image_coverage_note": "Verified representative image added; this is labeled as representative coverage, not an exact image for every member of the group.",
+      "search_aliases": [
+        "hazel",
+        "hazelnut",
+        "hazelnuts",
+        "beaked hazelnut",
+        "beaked hazel",
+        "American hazelnut",
+        "American hazel",
+        "Corylus cornuta",
+        "Corylus americana"
+      ],
+      "common_names": [
+        "Hazel",
+        "Hazelnut",
+        "Beaked hazelnut",
+        "American hazelnut"
+      ],
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/corylus/cornuta/",
+        "https://plants.usda.gov/plant-profile/COCO6",
+        "https://plants.usda.gov/plant-profile/COAM3"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Corylus cornuta",
+          "url": "https://gobotany.nativeplanttrust.org/species/corylus/cornuta/",
+          "link_type": "identification_range_habitat",
+          "source_quality": "botanical_reference",
+          "notes": "Supports beaked hazelnut identification and scope within the combined hazel/hazelnut record."
+        },
+        {
+          "label": "USDA PLANTS: Corylus cornuta",
+          "url": "https://plants.usda.gov/plant-profile/COCO6",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        },
+        {
+          "label": "USDA PLANTS: Corylus americana",
+          "url": "https://plants.usda.gov/plant-profile/COAM3",
+          "link_type": "range_taxonomy_representative_scope",
+          "source_quality": "government",
+          "notes": "Included because the record also covers American hazelnut."
+        }
+      ]
     },
     {
       "slug": "highbush-cranberries-viburnum",

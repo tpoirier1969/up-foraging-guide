@@ -9,8 +9,8 @@
     "split_parts_total": 4,
     "split_series": "data/plants*.json",
     "source_group": "data/plants",
-    "last_content_update": "v4.3.140-r2026-06-10-active-source-stale-cleanup1",
-    "last_content_update_date": "2026-06-10"
+    "last_content_update": "v4.3.141-r2026-06-11-common-alias-source-cleanup1",
+    "last_content_update_date": "2026-06-11"
   },
   "records": [
     {
@@ -1418,11 +1418,9 @@
         "berries-fruits",
         "trees-shrubs-sap"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs.",
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs / Sap.",
       "plant_card_note": "Useful parts: fruit / berry. Edible ripe fruit. Best fully dark and easily removed from the receptacle.",
-      "plant_data_flags": [
-        "needs_source_links"
-      ],
+      "plant_data_flags": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Rubus_occidentalis_2008_07_06.JPG"
       ],
@@ -1465,7 +1463,36 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Rubus_occidentalis_2008_07_06.JPG"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "search_aliases": [
+        "black raspberry",
+        "black raspberries",
+        "blackcap raspberry",
+        "blackcaps",
+        "Rubus occidentalis"
+      ],
+      "common_names": [
+        "Black raspberry",
+        "Blackcap raspberry"
+      ],
+      "links": [
+        "https://plants.ces.ncsu.edu/plants/rubus-occidentalis/",
+        "https://plants.usda.gov/plant-profile/RUOC"
+      ],
+      "use_links": [
+        {
+          "label": "NC State Extension: Black Raspberry (Rubus occidentalis)",
+          "url": "https://plants.ces.ncsu.edu/plants/rubus-occidentalis/",
+          "link_type": "identification_edible_use",
+          "source_quality": "extension"
+        },
+        {
+          "label": "USDA PLANTS: Rubus occidentalis",
+          "url": "https://plants.usda.gov/plant-profile/RUOC",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ]
     },
     {
       "slug": "blueberries",

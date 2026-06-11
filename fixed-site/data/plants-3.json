@@ -9,8 +9,8 @@
     "split_parts_total": 4,
     "split_series": "data/plants-3*.json",
     "source_group": "data/plants-3",
-    "last_content_update": "v4.3.140-r2026-06-10-active-source-stale-cleanup1",
-    "last_content_update_date": "2026-06-10"
+    "last_content_update": "v4.3.141-r2026-06-11-common-alias-source-cleanup1",
+    "last_content_update_date": "2026-06-11"
   },
   "records": [
     {
@@ -2704,8 +2704,8 @@
     },
     {
       "slug": "raspberries",
-      "display_name": "Raspberries",
-      "common_name": "Raspberries",
+      "display_name": "Red raspberries",
+      "common_name": "Red raspberries",
       "category": "Fruit",
       "notes": "Cane-forming bramble with aggregate fruits that separate from the core when picked.",
       "months_available": [
@@ -2756,12 +2756,9 @@
         "trees-shrubs-sap",
         "tea-infusions"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs, Tea / Infusions.",
+      "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs / Sap, Tea / Infusions.",
       "plant_card_note": "Useful parts: fruit / berry, leaf / tea. Edible ripe fruit. This broad entry stands in for the general raspberry bucket.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ],
+      "plant_data_flags": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/20190803_Rubus_idaeus.jpg"
       ],
@@ -2805,7 +2802,48 @@
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Verified representative image added; this is labeled as representative coverage, not an exact image for every member of the group."
+      "image_coverage_note": "Verified representative image added; this is labeled as representative coverage, not an exact image for every member of the group.",
+      "search_aliases": [
+        "red raspberry",
+        "red raspberries",
+        "American red raspberry",
+        "wild red raspberry",
+        "Rubus strigosus",
+        "Rubus idaeus"
+      ],
+      "common_names": [
+        "Red raspberry",
+        "American red raspberry",
+        "Wild red raspberry",
+        "Raspberry"
+      ],
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/rubus/strigosus/",
+        "https://plants.usda.gov/plant-profile/RUST",
+        "https://gobotany.nativeplanttrust.org/species/rubus/idaeus/"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Rubus strigosus",
+          "url": "https://gobotany.nativeplanttrust.org/species/rubus/strigosus/",
+          "link_type": "identification_range_habitat",
+          "source_quality": "botanical_reference",
+          "notes": "Supports American red raspberry scope for this practical red raspberry bucket."
+        },
+        {
+          "label": "USDA PLANTS: Rubus strigosus",
+          "url": "https://plants.usda.gov/plant-profile/RUST",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        },
+        {
+          "label": "Go Botany: Rubus idaeus",
+          "url": "https://gobotany.nativeplanttrust.org/species/rubus/idaeus/",
+          "link_type": "representative_taxonomy_scope",
+          "source_quality": "botanical_reference",
+          "notes": "Included because the existing representative image/source scope includes the red raspberry group."
+        }
+      ]
     },
     {
       "slug": "red-currants",
@@ -2966,10 +3004,7 @@
       ],
       "plant_lane_note": "Explicit plant-lane placement: Leaves / Greens.",
       "plant_card_note": "Useful parts: leaf / green. Edible in small amounts; tartness is the point.",
-      "plant_data_flags": [
-        "needs_source_links",
-        "needs_image_coverage"
-      ],
+      "plant_data_flags": [],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/20170331Rumex_acetosella1.jpg"
       ],
@@ -3013,7 +3048,35 @@
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Verified open-license image coverage added."
+      "image_coverage_note": "Verified open-license image coverage added.",
+      "search_aliases": [
+        "red sorrel",
+        "sheep sorrel",
+        "sour weed",
+        "Rumex acetosella"
+      ],
+      "common_names": [
+        "Red sorrel",
+        "Sheep sorrel"
+      ],
+      "links": [
+        "https://gobotany.nativeplanttrust.org/species/rumex/acetosella/",
+        "https://plants.usda.gov/plant-profile/RUAC3"
+      ],
+      "use_links": [
+        {
+          "label": "Go Botany: Rumex acetosella",
+          "url": "https://gobotany.nativeplanttrust.org/species/rumex/acetosella/",
+          "link_type": "identification_range_habitat",
+          "source_quality": "botanical_reference"
+        },
+        {
+          "label": "USDA PLANTS: Rumex acetosella",
+          "url": "https://plants.usda.gov/plant-profile/RUAC3",
+          "link_type": "range_taxonomy",
+          "source_quality": "government"
+        }
+      ]
     },
     {
       "slug": "riverbank-grape",
