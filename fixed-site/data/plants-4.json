@@ -9,7 +9,7 @@
     "split_parts_total": 4,
     "split_series": "data/plants-4*.json",
     "source_group": "data/plants-4",
-    "last_content_update": "v4.3.145-r2026-06-11-version-standard-alias-cleanup1",
+    "last_content_update": "v4.3.148-r2026-06-11-mushroom-wild-ginger-cleanup1",
     "last_content_update_date": "2026-06-11"
   },
   "records": [
@@ -1923,7 +1923,7 @@
       "slug": "wild-ginger",
       "display_name": "Wild ginger",
       "common_name": "Wild ginger",
-      "category": "Root",
+      "category": "Caution / Historical",
       "notes": "Low woodland groundcover with paired heart-shaped leaves and hidden brown-purple flowers near the ground. Historical rhizome use exists, but safety concerns make this a questionable food entry.",
       "months_available": [
         "April",
@@ -1934,16 +1934,18 @@
       ],
       "links": [
         "https://www.fs.usda.gov/wildflowers/plant-of-the-week/asarum_canadense.shtml",
-        "https://www.britannica.com/plant/wild-ginger"
+        "https://wayback.archive-it.org/7993/20171114232638/https://www.fda.gov/Food/RecallsOutbreaksEmergencies/SafetyAlertsAdvisories/ucm095272.htm",
+        "https://monographs.iarc.who.int/list-of-classifications",
+        "https://plants.usda.gov/DocumentLibrary/plantguide/pdf/pg_asca.pdf"
       ],
-      "medicinal_uses": "Historical medicinal use exists, but internal use needs caution and is not recommended by this guide.",
-      "culinary_uses": "Historical rhizome flavoring only; not treated as a practical edible plant in this guide until safety is reviewed.",
+      "medicinal_uses": "Historical medicinal use exists, but internal use is not recommended by this guide because of aristolochic-acid safety concerns.",
+      "culinary_uses": "Historical rhizome flavoring only. This guide does not recommend internal use or food use.",
       "general_notes": "",
       "record_type": "plant",
       "lane": "",
-      "review_status": "needs_review",
+      "review_status": "ok",
       "commonness": "",
-      "food_quality": "",
+      "food_quality": "Do not use internally",
       "non_edible_severity": "",
       "habitat": [
         "Rich woods",
@@ -1951,18 +1953,11 @@
         "Shady deciduous forest"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Asarum_canadense.jpg?width=480",
-      "usable_parts": [
-        "Historical rhizome use"
-      ],
-      "plant_lanes": [
-        "roots-tubers"
-      ],
-      "plant_lane_note": "Kept temporarily as a root entry but flagged because food-side use is questionable.",
-      "plant_card_note": "Historical rhizome/flavoring plant, but modern safety concerns make it a candidate to move out of edible Plants.",
-      "plant_data_flags": [
-        "needs_edible_use_review",
-        "needs_safety_wording_review"
-      ],
+      "usable_parts": [],
+      "plant_lanes": [],
+      "plant_lane_note": "Removed from edible plant lanes; retained only as a caution/historical-use record.",
+      "plant_card_note": "Historical wild ginger use is noted for context only. Do not use internally; this is not treated as an edible root/tuber in this guide.",
+      "plant_data_flags": [],
       "scientific_name": "Asarum canadense",
       "month_numbers": [
         4,
@@ -1971,7 +1966,7 @@
         7,
         8
       ],
-      "edibility_detail": "Flagged for safety review. This may belong outside the edible Plants section because of modern safety concerns around wild ginger/internal use.",
+      "edibility_detail": "Historical use only; internal use is not recommended. Do not use wild ginger rhizomes, leaves, teas, tinctures, or preparations as food or medicine.",
       "observedPart": [
         "Root",
         "Leaf",
@@ -2015,7 +2010,43 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Asarum_canadense.jpg"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "safety_note": "Aristolochic-acid concerns in Aristolochiaceae/Asarum support conservative hard-block wording: historical use only; internal use not recommended.",
+      "hard_rule": "Do not ingest wild ginger or use it as a tea, root substitute, tincture, or medicine.",
+      "use_links": [
+        {
+          "label": "US Forest Service: Wild ginger plant profile",
+          "url": "https://www.fs.usda.gov/wildflowers/plant-of-the-week/asarum_canadense.shtml",
+          "link_type": "identification",
+          "applies_to_part": "whole plant",
+          "source_quality": "government botanical reference",
+          "notes": "Botanical profile for Asarum canadense; used for ID/context, not as a food-safety clearance."
+        },
+        {
+          "label": "FDA archived alert: botanical products containing aristolochic acid",
+          "url": "https://wayback.archive-it.org/7993/20171114232638/https://www.fda.gov/Food/RecallsOutbreaksEmergencies/SafetyAlertsAdvisories/ucm095272.htm",
+          "link_type": "safety",
+          "applies_to_part": "internal use",
+          "source_quality": "archived government safety alert",
+          "notes": "FDA warning about botanical products containing aristolochic acid and kidney/cancer risks; supports conservative internal-use hard-blocking."
+        },
+        {
+          "label": "IARC classifications: aristolochic acids and plants containing them",
+          "url": "https://monographs.iarc.who.int/list-of-classifications",
+          "link_type": "safety",
+          "applies_to_part": "internal use",
+          "source_quality": "cancer agency classification",
+          "notes": "IARC classifies aristolochic acids and plants containing them as carcinogenic hazards; used with FDA warning for conservative no-internal-use framing."
+        },
+        {
+          "label": "USDA Plant Guide: Canadian wildginger",
+          "url": "https://plants.usda.gov/DocumentLibrary/plantguide/pdf/pg_asca.pdf",
+          "link_type": "historical_context",
+          "applies_to_part": "rhizome",
+          "source_quality": "government plant guide",
+          "notes": "Historical/ethnobotanical context only; not used as a modern food-safety clearance."
+        }
+      ]
     },
     {
       "slug": "wild-mustard-greens",

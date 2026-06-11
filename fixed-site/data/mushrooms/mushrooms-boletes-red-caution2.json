@@ -44,7 +44,7 @@
       "rule": "Clear stale image-only review only when at least two distinct real source-image URLs exist; keep one-photo and placeholder records in review."
     },
     "source_group": "data/mushrooms/mushrooms-boletes-red-caution2",
-    "last_content_update": "v4.3.133-r2026-06-09-mushroom-placeholder-status-cleanup1",
+    "last_content_update": "v4.3.148-r2026-06-11-mushroom-wild-ginger-cleanup1",
     "last_content_update_date": "2026-06-09"
   },
   "records": [
@@ -360,7 +360,8 @@
       "enlarge_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/2016-08-06%20Caloboletus%20peckii%20%28Frost%29%20Vizzini%20643530.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2016-08-06%20Caloboletus%20peckii%20%28Frost%29%20Vizzini%20643530.jpg?width=480"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2016-08-06%20Caloboletus%20peckii%20%28Frost%29%20Vizzini%20643530.jpg?width=480",
+      "image_rights_audit_status": "needs_rights_metadata_cleanup"
     },
     {
       "slug": "exsudoporus-frostii",
@@ -396,7 +397,7 @@
         "scientific_name": "Exsudoporus frostii",
         "entry_scope": "species",
         "edibility_status": "review_required",
-        "caution_level": "medium",
+        "caution_level": "high",
         "summary": "Candy Apple Bolete: sticky bright red cap, red pores, coarsely reticulate red/yellow stem, and prompt blue bruising.",
         "ecology": "mycorrhizal bolete",
         "substrate": [
@@ -507,7 +508,7 @@
       "overview": "",
       "other_uses": "",
       "edibility_notes": "Avoid for food in this guide; keep as an identification/caution record.",
-      "review_status": "ok",
+      "review_status": "needs_review",
       "edible_use": {
         "has_ingestible_use": false,
         "method": "",
@@ -539,8 +540,8 @@
           "notes": ""
         }
       ],
-      "needs_review": false,
-      "mushroom_card_note": "Candy Apple Bolete: sticky bright red cap, red pores, coarsely reticulate red/yellow stem, and prompt blue bruising.",
+      "needs_review": true,
+      "mushroom_card_note": "Candy Apple Bolete caution/review record: red pores plus blue bruising keep this out of casual food use until expert review and image-rights cleanup are complete.",
       "use_roles": [
         "ID / caution"
       ],
@@ -576,7 +577,9 @@
         }
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Exsudoporus%20frostii.jpg?width=480",
-      "image_coverage_status": "verified_images"
+      "image_coverage_status": "verified_images",
+      "image_rights_audit_status": "needs_rights_metadata_cleanup",
+      "source_note": "Status kept as needs-review until image-rights metadata and red-pored bolete caution framing are fully normalized."
     },
     {
       "slug": "curry-bolete",
@@ -599,20 +602,14 @@
       "links": [
         "https://www.mushroomexpert.com/boletus_sensibilis.html"
       ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20sensibilis%20%28%E2%80%9CCurry%20Bolete%E2%80%9D%29%20%2852737207200%29.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20sensibilis%2095061.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20sensibilis%2099990.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20piperatus.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20piperatus%20%2838067564261%29.jpg"
-      ],
+      "images": [],
       "scientific_name": "Boletus sensibilis",
       "mushroom_profile": {
         "scientific_name": "Boletus sensibilis",
         "entry_scope": "species",
         "edibility_status": "toxic_or_dangerous",
         "caution_level": "high",
-        "summary": "Minimal bolete seed entry for Curry Bolete.",
+        "summary": "Sensitive Bolete / Boletus sensibilis caution record; suppressed until exact verified images are available.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -640,9 +637,7 @@
         ],
         "spore_print": "",
         "season_note": "Summer and fall under hardwoods.",
-        "research_notes": [
-          "Needs source links and fuller field notes."
-        ],
+        "research_notes": [],
         "cap_surface": [
           "Dry to slightly tacky",
           "Dry",
@@ -757,35 +752,18 @@
         "preparation_notes": "",
         "warnings": ""
       },
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20piperatus.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20piperatus.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20piperatus.jpg",
-          "source": "commons-photo-patch",
-          "title": "Peppery / curry bolete field view",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Chalciporus_piperatus.jpg"
-        },
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20piperatus%20%2838067564261%29.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20piperatus%20%2838067564261%29.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20piperatus%20%2838067564261%29.jpg",
-          "source": "commons-photo-patch",
-          "title": "Peppery bolete supporting field view",
-          "part_or_stage": "field view",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Chalciporus_piperatus_%2838067564261%29.jpg"
-        }
-      ],
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20piperatus.jpg?width=900",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20piperatus%20%2838067564261%29.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20piperatus.jpg",
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20piperatus%20%2838067564261%29.jpg"
-      ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Chalciporus%20piperatus.jpg?width=480"
+      "images_structured": [],
+      "detail_images": [],
+      "enlarge_images": [],
+      "list_thumbnail": "",
+      "image_coverage_status": "missing_verified_images",
+      "image_rights_audit_status": "needs_exact_species_image",
+      "hidden": true,
+      "list_visibility": "hidden-missing-verified-image",
+      "display_status": "suppressed_from_normal_cards",
+      "suppression_reason": "Wrong Peppery Bolete / Chalciporus piperatus images were removed; exact public-usable Boletus sensibilis images are not yet verified.",
+      "mushroom_card_note": "Sensitive Bolete / Boletus sensibilis caution record suppressed until exact verified images are available; do not use Peppery Bolete images here.",
+      "source_note": "Wrong Chalciporus piperatus images removed in v4.3.148; exact Boletus sensibilis image rights still needed before normal visibility."
     },
     {
       "slug": "cyanoboletus-cyaneitinctus",
