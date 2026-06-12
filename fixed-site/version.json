@@ -1,13 +1,13 @@
 {
-  "version": "v4.3.151-r2026-06-12-render-list-blocker-fix1",
-  "display_version": "V4.3.151-r26-06-12",
-  "release": "v4.3.151",
-  "release_name": "render-list-blocker-fix1",
-  "cache_bust": "v4.3.151-r2026-06-12-render-list-blocker-fix1",
+  "version": "v4.3.152-r2026-06-12-search-history-polish1",
+  "display_version": "V4.3.152-r26-06-12",
+  "release": "v4.3.152",
+  "release_name": "search-history-polish1",
+  "cache_bust": "v4.3.152-r2026-06-12-search-history-polish1",
   "date": "2026-06-12",
   "notes": [
-    "Fixed render-list suppressed-record guard by defining isSuppressed locally instead of calling an undefined helper.",
-    "Preserved caution Critical field check and Season filters during filter normalization so lookalike filter selections actually apply.",
-    "Retained v4.3.150 search responsiveness, search q= URLs, version.json loading, and image-rights/data fixes."
+    "Fixed debounce-driven search URL updates so typing replaces the current search URL instead of pushing partial search history entries.",
+    "Preserved v4.3.151 render-list blocker fix and caution filter normalization.",
+    "Preserved cumulative v4.3.145-v4.3.150 data, image-rights, and safety cleanup."
   ]
 }

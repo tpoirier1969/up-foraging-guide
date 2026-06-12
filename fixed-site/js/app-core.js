@@ -609,7 +609,7 @@ function wireCommonEvents(route) {
         if (searchStatus) searchStatus.textContent = "Search is blank. Start typing to search.";
         searchInputDebounceTimer = setTimeout(() => {
           if (location.hash === "#/search") renderCurrentRoute();
-          else location.hash = "#/search";
+          else location.replace("#/search");
         }, 200);
         return;
       }
@@ -618,7 +618,7 @@ function wireCommonEvents(route) {
         state.filters.search = value;
         const nextHash = searchHash(value);
         if (location.hash === nextHash) renderCurrentRoute();
-        else location.hash = nextHash;
+        else location.replace(nextHash);
       }, SEARCH_DEBOUNCE_MS);
     });
     window.requestAnimationFrame(() => {
