@@ -7,6 +7,20 @@ const MONTHS = [
   "July","August","September","October","November","December"
 ];
 
+
+function isSuppressed(record = {}) {
+  if (!record || typeof record !== "object") return false;
+  const hidden = record.hidden === true || String(record.hidden || "").toLowerCase() === "true";
+  const displayStatus = String(record.display_status || record.displayStatus || "").toLowerCase();
+  const listVisibility = String(record.list_visibility || record.listVisibility || "").toLowerCase();
+  const suppressionReason = String(record.suppression_reason || record.suppressionReason || "").trim();
+  return hidden
+    || displayStatus.includes("suppressed")
+    || listVisibility.includes("hidden")
+    || listVisibility.includes("suppressed")
+    || !!suppressionReason;
+}
+
 const PLANT_FILTER_DEFS = [
   { key: "plantMonth", label: "Season", blankLabel: "Any season", valueKey: "month" },
   { key: "plantPart", label: "Part / clue", blankLabel: "Any part", valueKey: "plantPart" },
@@ -1153,7 +1167,9 @@ function normalizeFilters(filtersOrSearch) {
       search: filtersOrSearch,
       medicinalAction: "",
       medicinalSystem: "",
-      medicinalTerm: ""
+      medicinalTerm: "",
+      cautionCriticalCheck: "",
+      cautionSeason: ""
     };
   }
   return {
@@ -1199,6 +1215,8 @@ function normalizeFilters(filtersOrSearch) {
     cautionForm: filtersOrSearch?.cautionForm || "",
     cautionConfusedWith: filtersOrSearch?.cautionConfusedWith || "",
     cautionAffectedSystem: filtersOrSearch?.cautionAffectedSystem || "",
+    cautionCriticalCheck: filtersOrSearch?.cautionCriticalCheck || "",
+    cautionSeason: filtersOrSearch?.cautionSeason || "",
     sortSpecies: filtersOrSearch?.sortSpecies || "default"
   };
 }

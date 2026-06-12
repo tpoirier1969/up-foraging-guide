@@ -1,14 +1,13 @@
 {
-  "version": "v4.3.150-r2026-06-12-ui-image-rights-cleanup1",
-  "display_version": "V4.3.150-r26-06-12",
-  "release": "v4.3.150",
-  "release_name": "ui-image-rights-cleanup1",
-  "cache_bust": "v4.3.150-r2026-06-12-ui-image-rights-cleanup1",
+  "version": "v4.3.151-r2026-06-12-render-list-blocker-fix1",
+  "display_version": "V4.3.151-r26-06-12",
+  "release": "v4.3.151",
+  "release_name": "render-list-blocker-fix1",
+  "cache_bust": "v4.3.151-r2026-06-12-render-list-blocker-fix1",
   "date": "2026-06-12",
   "notes": [
-    "Reduced search typing delay and made search query URLs shareable with q=.",
-    "Hardened normal list/search filters so suppressed records cannot leak without hidden=true.",
-    "Kept version loading centralized through fixed-site/version.json without the fallback badge flicker.",
-    "Rights-cleaned Chalciporus pseudorubinellus image metadata while keeping the record in review status."
+    "Fixed render-list suppressed-record guard by defining isSuppressed locally instead of calling an undefined helper.",
+    "Preserved caution Critical field check and Season filters during filter normalization so lookalike filter selections actually apply.",
+    "Retained v4.3.150 search responsiveness, search q= URLs, version.json loading, and image-rights/data fixes."
   ]
 }
