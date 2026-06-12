@@ -12,7 +12,7 @@ let loadAppDataPromise = null;
 let renderToken = 0;
 let searchInputDebounceTimer = null;
 let plantLaneDelegationInstalled = false;
-const SEARCH_DEBOUNCE_MS = 3000;
+const SEARCH_DEBOUNCE_MS = 750;
 const SEARCH_RESULT_LIMIT = 80;
 const VALID_PLANT_LANE_IDS = new Set([
   "leaves-greens",
@@ -51,9 +51,17 @@ function plantLaneHash(lane = "") {
   return cleanLane ? `#/plants?plantLane=${encodeURIComponent(cleanLane)}` : "#/plants";
 }
 
+function searchHash(query = "") {
+  const cleanQuery = String(query || "").trim();
+  return cleanQuery ? `#/search?q=${encodeURIComponent(cleanQuery)}` : "#/search";
+}
+
 function syncRouteFilters(route, params) {
   if (route === "plants") {
     state.filters.plantLane = normalizePlantLane(params.get("plantLane") || "");
+  }
+  if (route === "search") {
+    state.filters.search = String(params.get("q") || "").trim();
   }
 }
 
@@ -514,16 +522,28 @@ function installPlantLaneDelegation() {
 
 function wireCommonEvents(route) {
   wireSearchBlock("homeSearch", "homeSearchBtn", (value) => {
-    state.filters.search = value;
-    location.hash = "#/search";
+    state.filters.search = String(value || "").trim();
+    location.hash = searchHash(state.filters.search);
   });
   wireSearchBlock("speciesSearch", "speciesSearchBtn", (value) => {
     clearTimeout(searchInputDebounceTimer);
     state.filters.search = String(value || "").trim();
+    if (route === "search") {
+      const nextHash = searchHash(state.filters.search);
+      if (location.hash === nextHash) renderCurrentRoute();
+      else location.hash = nextHash;
+      return;
+    }
     renderCurrentRoute();
   });
   document.getElementById("speciesClearBtn")?.addEventListener("click", () => {
     clearRouteFilters(route);
+    if (route === "search") {
+      const nextHash = "#/search";
+      if (location.hash === nextHash) renderCurrentRoute();
+      else location.hash = nextHash;
+      return;
+    }
     renderCurrentRoute();
   });
   document.getElementById("medicinalActionFilter")?.addEventListener("change", (event) => {
@@ -587,13 +607,18 @@ function wireCommonEvents(route) {
       if (!value) {
         state.filters.search = "";
         if (searchStatus) searchStatus.textContent = "Search is blank. Start typing to search.";
-        searchInputDebounceTimer = setTimeout(() => renderCurrentRoute(), 250);
+        searchInputDebounceTimer = setTimeout(() => {
+          if (location.hash === "#/search") renderCurrentRoute();
+          else location.hash = "#/search";
+        }, 200);
         return;
       }
-      if (searchStatus) searchStatus.textContent = `Waiting ${Math.round(SEARCH_DEBOUNCE_MS / 1000)} seconds after typing stops before loading results…`;
+      if (searchStatus) searchStatus.textContent = "Loading shortly after typing stops…";
       searchInputDebounceTimer = setTimeout(() => {
         state.filters.search = value;
-        renderCurrentRoute();
+        const nextHash = searchHash(value);
+        if (location.hash === nextHash) renderCurrentRoute();
+        else location.hash = nextHash;
       }, SEARCH_DEBOUNCE_MS);
     });
     window.requestAnimationFrame(() => {
@@ -855,7 +880,8 @@ async function renderSpeciesRoute(route, token) {
       ${controlsHtml(route, "Search all species", [], false, "")}
       <section class="panel empty-state">
         <h2>Search</h2>
-        <p>Start typing to search the guide. Results are intentionally not loaded until after you pause, so the page does not try to render the entire species list at once.</p>
+        <p>Type a plant, mushroom, look-alike, color, month, or use.</p>
+        <p class="muted small">Try: <a href="#/search?q=morel">morel</a>, <a href="#/search?q=blueberry">blueberry</a>, <a href="#/search?q=Amanita">Amanita</a>, <a href="#/search?q=tea">tea</a>, or <a href="#/search?q=June">June</a>.</p>
       </section>
     `);
     wireCommonEvents(route);

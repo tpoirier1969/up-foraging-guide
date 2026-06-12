@@ -1,15 +1,14 @@
 {
-  "version": "v4.3.149-r2026-06-12-sensitive-bolete-visibility-cleanup1",
-  "display_version": "V4.3.149-r26-06-12",
-  "build_date": "2026-06-12",
-  "release": "v4.3.149",
-  "release_name": "sensitive-bolete-visibility-cleanup1",
-  "cache_bust": "v4.3.149-r2026-06-12-sensitive-bolete-visibility-cleanup1",
+  "version": "v4.3.150-r2026-06-12-ui-image-rights-cleanup1",
+  "display_version": "V4.3.150-r26-06-12",
+  "release": "v4.3.150",
+  "release_name": "ui-image-rights-cleanup1",
+  "cache_bust": "v4.3.150-r2026-06-12-ui-image-rights-cleanup1",
+  "date": "2026-06-12",
   "notes": [
-    "Cumulative supervisor package including v4.3.145 through v4.3.148 cleanup work.",
-    "Restored Sensitive Bolete / curry-bolete with exact verified Boletus sensibilis images from Wikimedia Commons / Mushroom Observer.",
-    "Kept Sensitive Bolete as an avoid/caution identification record, not a food target.",
-    "Suppressed Exsudoporus frostii from normal cards and removed its unverified image set until image-rights metadata is completed.",
-    "Maintained centralized runtime versioning through fixed-site/version.json."
+    "Reduced search typing delay and made search query URLs shareable with q=.",
+    "Hardened normal list/search filters so suppressed records cannot leak without hidden=true.",
+    "Kept version loading centralized through fixed-site/version.json without the fallback badge flicker.",
+    "Rights-cleaned Chalciporus pseudorubinellus image metadata while keeping the record in review status."
   ]
 }

@@ -104,7 +104,6 @@ function showVersion() {
 async function start() {
   setupImageAuditMode();
   setupMobileMenu();
-  showVersion();
   await loadVersionInfo();
   applyStaticAssetVersion(APP_VERSION);
   showVersion();

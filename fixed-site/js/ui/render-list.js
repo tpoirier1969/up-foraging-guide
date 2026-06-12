@@ -156,7 +156,7 @@ function usablePartsForRecord(record = {}) {
 
 export function renderPlantLaneControls(records = [], filters = {}) {
   const selected = String(filters?.plantLane || "");
-  const baseRecords = (records || []).filter((record) => !record?.hidden && routeMatch(record, "plants"));
+  const baseRecords = (records || []).filter((record) => !isSuppressed(record) && routeMatch(record, "plants"));
   const counts = new Map(PLANT_LANES.map((lane) => [lane.id, 0]));
   for (const record of baseRecords) {
     for (const lane of plantLanesForRecord(record)) {
@@ -772,7 +772,7 @@ function matchesTraitFiltersExcept(record, route, filters = {}, exceptKey = "") 
 export function getFilterFieldsForRoute(records, route, filters = {}) {
   const defs = filterDefinitionsForRoute(route);
   if (!defs.length) return [];
-  const baseRecords = (records || []).filter((record) => !record?.hidden && routeMatch(record, route));
+  const baseRecords = (records || []).filter((record) => !isSuppressed(record) && routeMatch(record, route));
   return defs.map((def) => {
     const selected = String(filters?.[def.key] || "").trim();
     const recordsForThisField = baseRecords.filter((record) => matchesTraitFiltersExcept(record, route, filters, def.key));
@@ -1382,7 +1382,7 @@ function countOptions(records = [], getter, labels = {}) {
 }
 
 export function getCautionFilterFields(records = [], filters = {}) {
-  const baseRecords = (records || []).filter((record) => !record?.hidden && routeMatch(record, "lookalikes"));
+  const baseRecords = (records || []).filter((record) => !isSuppressed(record) && routeMatch(record, "lookalikes"));
   const severityLabels = { deadly: "Deadly / organ damage", poisonous: "Poisonous", caution: "Caution / avoid" };
   const formLabels = { "gilled": "Gilled", "spongelike-boletes": "Spongelike / bolete", "puffball-like": "Puffball / earthball-like", "morel-like": "Morel / cup-like", "other": "Other" };
   const confusionLabels = Object.fromEntries(CAUTION_CONFUSION_GROUPS.map((g) => [g.value, g.label]));
@@ -1420,7 +1420,7 @@ export function filterRecords(records, route, filtersOrSearch = "") {
   const searchApplies = route === "general" || route === "search";
   const q = searchApplies ? String(filters.search || "").trim().toLowerCase() : "";
   return (records || []).filter((record) => {
-    if (record.hidden) return false;
+    if (isSuppressed(record)) return false;
     const matchRoute = route === "search" ? "general" : route;
     if (!routeMatch(record, matchRoute)) return false;
     if (matchRoute === "plants" && filters.plantLane && !plantLaneIdsForRecord(record).has(filters.plantLane)) return false;
