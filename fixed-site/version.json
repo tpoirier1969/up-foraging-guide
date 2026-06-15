@@ -1,13 +1,13 @@
 {
-  "version": "v4.3.153-r2026-06-12-source-path-guard1",
-  "display_version": "V4.3.153-r26-06-12",
-  "release": "v4.3.153",
-  "release_name": "source-path-guard1",
-  "cache_bust": "v4.3.153-r2026-06-12-source-path-guard1",
-  "date": "2026-06-12",
+  "version": "v4.3.154-r2026-06-15-fast-shell1",
+  "display_version": "V4.3.154-r26-06-15",
+  "release": "v4.3.154",
+  "release_name": "fast-shell1",
+  "cache_bust": "v4.3.154-r2026-06-15-fast-shell1",
+  "date": "2026-06-15",
   "notes": [
-    "Included canonical sources.js in the cumulative package with the mushroom caution/look-alikes path pointing to data/mushrooms/mushrooms-caution-lookalikes.json.",
-    "Preserved v4.3.152 search-history polish and v4.3.151 render-list blocker fix.",
-    "Confirmed cumulative package still includes fixed giant-puffball metadata and prior safety/image cleanup."
+    "Trimmed startup head assets by removing extra icon and manifest requests from the fixed-site entry page.",
+    "Switched the fixed-site page background override to a solid color to reduce paint work on slower phones.",
+    "Added content-visibility containment for record cards so long lists do less offscreen rendering work."
   ]
 }
