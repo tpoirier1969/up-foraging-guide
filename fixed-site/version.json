@@ -1,14 +1,14 @@
 {
-  "version": "v4.3.162-r2026-06-23-mushroom-medicinal-route-cleanup1",
-  "display_version": "V4.3.162-r26-06-23",
-  "release": "v4.3.162",
-  "release_name": "mushroom-medicinal-route-cleanup1",
-  "cache_bust": "v4.3.162-r2026-06-23-mushroom-medicinal-route-cleanup1",
+  "version": "v4.3.163-r2026-06-23-mushroom-route-gate-hotfix1",
+  "display_version": "V4.3.163-r26-06-23",
+  "release": "v4.3.163",
+  "release_name": "mushroom-route-gate-hotfix1",
+  "cache_bust": "v4.3.163-r2026-06-23-mushroom-route-gate-hotfix1",
   "date": "2026-06-23",
   "notes": [
-    "Tightened mushroom edible-route classification so medicinal-only, tea-extract-only, other-use, warning/comparison, caution, emergency-only, and non-culinary tea records do not appear in normal edible mushroom lane lists.",
-    "Reclassified Chaga as a medicinal/traditional tea fungus rather than a normal edible mushroom while keeping it visible in medicinal/other-use contexts.",
-    "Added Memorial Sloan Kettering Chaga safety/source link and strengthened Chaga medication/kidney/oxalate caution framing.",
-    "Cleaned placeholder medicinal text handling so phrases like primarily culinary in this guide or no practical medicinal use do not make records appear medicinal."
+    "Hotfix for v4.3.162 edible mushroom route gate overreach.",
+    "Restored the v4.3.161 edible-section gate behavior so edible June mushroom counts return to prior levels.",
+    "Kept Chaga reclassified as a medicinal/traditional tea fungus so it does not appear as a normal edible mushroom.",
+    "Leaves broader medicinal/other-use route cleanup for a separate audited pass instead of broad-filtering valid edible/caution records."
   ]
 }
