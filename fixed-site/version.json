@@ -1,15 +1,14 @@
 {
-  "version": "v4.3.161-r2026-06-23-source-review-cleanup1",
-  "display_version": "V4.3.161-r26-06-23",
-  "release": "v4.3.161",
-  "release_name": "source-review-cleanup1",
-  "cache_bust": "v4.3.161-r2026-06-23-source-review-cleanup1",
+  "version": "v4.3.162-r2026-06-23-mushroom-medicinal-route-cleanup1",
+  "display_version": "V4.3.162-r26-06-23",
+  "release": "v4.3.162",
+  "release_name": "mushroom-medicinal-route-cleanup1",
+  "cache_bust": "v4.3.162-r2026-06-23-mushroom-medicinal-route-cleanup1",
   "date": "2026-06-23",
   "notes": [
-    "Focused source/review cleanup on the v4.3.160 live line.",
-    "Corrected Gyroporus borealis/smithii food_quality_score to match avoid/not-recommended framing while leaving review-needed status intact.",
-    "Added USDA FEIS Rubus parviflorus range, habitat, ecology, and regional relevance support to Thimbleberries without treating common ripe-fruit edibility as unresolved.",
-    "Cleaned Xanthoconium purpureum stale source-note text, added structured MushroomExpert ID support, and moved use_roles away from normal food-card framing.",
-    "Left Chalciporus pseudorubinellus, Chalciporus rubinellus, and Porphyrellus porphyrosporus review flags unchanged pending stronger species-level sources."
+    "Tightened mushroom edible-route classification so medicinal-only, tea-extract-only, other-use, warning/comparison, caution, emergency-only, and non-culinary tea records do not appear in normal edible mushroom lane lists.",
+    "Reclassified Chaga as a medicinal/traditional tea fungus rather than a normal edible mushroom while keeping it visible in medicinal/other-use contexts.",
+    "Added Memorial Sloan Kettering Chaga safety/source link and strengthened Chaga medication/kidney/oxalate caution framing.",
+    "Cleaned placeholder medicinal text handling so phrases like primarily culinary in this guide or no practical medicinal use do not make records appear medicinal."
   ]
 }

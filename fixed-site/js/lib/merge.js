@@ -41,6 +41,8 @@ const PLACEHOLDER_MEDICINAL_PATTERNS = [
   /^primarily culinary curiosity\.?$/,
   /^minimal food-medicine importance(?: in this context)?\.?$/,
   /^mostly of curiosity or minor traditional interest rather than a major local food species\.?$/,
+  /^primarily culinary in this guide\.?$/,
+  /^no practical medicinal use in this guide\.?$/,
   /^mostly culinary, though related species are used in traditional food-medicine contexts\.?$/,
   /^no reliable medicinal use(?: is recorded)?(?: for this guide entry)?(?: unless noted in other uses or source links)?\.?$/,
   /^no medicinal use(?: for foraging purposes| in this guide)?\.?$/,
@@ -506,7 +508,7 @@ export function deriveIngestibleUse(record = {}) {
   ]);
 
   const tagImpliesFoodUse = foodRole === "food"
-    || foodRole === "tea_extract_only"
+    || foodRole === "culinary_tea"
     || useTags.includes("E")
     || useTags.includes("TEA")
     || (useTags.includes("T") && !useTags.includes("M"));
@@ -613,6 +615,37 @@ function isAvoidFoodQuality(value = "") {
   return /\b(not recommended|avoid|inedible)\b/i.test(String(value || ""));
 }
 
+function isNonFoodListRole(value = "") {
+  const role = String(value || "").trim().toLowerCase();
+  if (!role) return false;
+  if ([
+    "avoid",
+    "emergency_only",
+    "medicinal_only",
+    "tea_extract_only",
+    "other_use",
+    "caution"
+  ].includes(role)) return true;
+  return /\b(warning|comparison|medicinal[-_ ]only|tea[-_ ]extract[-_ ]only|other[-_ ]use)\b/i.test(role);
+}
+
+function isNonFoodListEdibilityStatus(value = "") {
+  const status = String(value || "").trim().toLowerCase();
+  if (!status) return false;
+  return [
+    "not_edible",
+    "poisonous",
+    "deadly",
+    "inedible_bitter",
+    "caution",
+    "emergency_only",
+    "non_culinary_tea_use",
+    "medicinal_tea_only",
+    "traditional_tea_only",
+    "edible_with_caution_not_recommended"
+  ].includes(status);
+}
+
 
 function isNicheBitterBoleteRecord(record = {}) {
   const slug = String(record.slug || "").toLowerCase();
@@ -672,8 +705,8 @@ export function isEdibleForSection(record = {}) {
 
   // Avoid / medicinal-only / non-edible records must not be pulled into edible lists
   // merely because they have a food-quality label or old scaffold text.
-  if (["avoid", "emergency_only", "medicinal_only", "tea_extract_only"].includes(foodRole)) return false;
-  if (["not_edible", "poisonous", "deadly", "inedible_bitter"].includes(edibility)) return false;
+  if (isNonFoodListRole(foodRole)) return false;
+  if (isNonFoodListEdibilityStatus(edibility)) return false;
   if (isNonEdibleCautionSeverity(severity)) return false;
   if (isAvoidFoodQuality(foodQuality)) return false;
 
