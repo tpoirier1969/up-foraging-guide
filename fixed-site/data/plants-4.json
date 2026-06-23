@@ -9,8 +9,8 @@
     "split_parts_total": 4,
     "split_series": "data/plants-4*.json",
     "source_group": "data/plants-4",
-    "last_content_update": "v4.3.148-r2026-06-11-mushroom-wild-ginger-cleanup1",
-    "last_content_update_date": "2026-06-11"
+    "last_content_update": "v4.3.161-r2026-06-23-source-review-cleanup1",
+    "last_content_update_date": "2026-06-23"
   },
   "records": [
     {
@@ -1124,7 +1124,8 @@
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
       "links": [
-        "https://plants.usda.gov/plant-profile/RUPA"
+        "https://plants.usda.gov/plant-profile/RUPA",
+        "https://www.fs.usda.gov/database/feis/plants/shrub/rubpar/all.html"
       ],
       "use_links": [
         {
@@ -1132,6 +1133,13 @@
           "url": "https://plants.usda.gov/plant-profile/RUPA",
           "link_type": "range_taxonomy",
           "source_quality": "government"
+        },
+        {
+          "label": "USDA FEIS: Rubus parviflorus",
+          "url": "https://www.fs.usda.gov/database/feis/plants/shrub/rubpar/all.html",
+          "link_type": "range_habitat_ecology_regional_relevance",
+          "source_quality": "government",
+          "notes": "USDA Forest Service FEIS profile for thimbleberry taxonomy, distribution, Great Lakes occurrence, and mesic/riparian habitat context."
         }
       ]
     },
