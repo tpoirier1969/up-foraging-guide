@@ -1109,14 +1109,37 @@ function makeMeta(record, route = "general", options = {}) {
   return bits.filter(Boolean).join("");
 }
 
+function normalizeSearchText(value = "") {
+  return String(value || "")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/&/g, " and ")
+    .replace(/['’]/g, "")
+    .replace(/[^a-z0-9]+/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+}
+
 function matchesSearch(record, q) {
   const rare = record.rare_profile || {};
   const medicinal = record.medicinal || {};
-  const hay = [
+  const profile = record.mushroom_profile || {};
+  const rawHay = [
     record.display_name,
     record.common_name,
     ...(record.common_names || []),
+    ...(record.alternate_names || []),
+    ...(record.alt_names || []),
+    ...(record.aliases || []),
+    ...(record.search_terms || []),
+    ...(record.search_aliases || []),
+    ...(record.other_names || []),
+    ...(profile.common_names || []),
+    ...(profile.alternate_names || []),
+    ...(profile.aliases || []),
     record.scientific_name,
+    profile.scientific_name,
     record.slug,
     record.category,
     record.foraging_class,
@@ -1142,7 +1165,6 @@ function matchesSearch(record, q) {
     record.danger_level,
     record.poisoning_effects,
     record.toxicity_notes,
-    ...(record.search_aliases || []),
     ...(record.usable_parts || []),
     ...(record.plant_lanes || []),
     ...(record.plant_data_flags || []),
@@ -1154,8 +1176,11 @@ function matchesSearch(record, q) {
     ...(record.medicinalTerms || []),
     ...(record.affected_systems || []),
     ...(rare.key_features || [])
-  ].join(" ").toLowerCase();
-  return hay.includes(q);
+  ].join(" ");
+  const query = normalizeSearchText(q);
+  if (!query) return true;
+  const hay = normalizeSearchText(rawHay);
+  return hay.includes(query);
 }
 
 function arrayHas(valueList, selected) {
