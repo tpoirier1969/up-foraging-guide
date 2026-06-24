@@ -947,6 +947,8 @@ function useRoleLabels(record = {}, info = {}) {
   const roles = [];
   if (explicit.length) {
     explicit.forEach((role) => roles.push(role));
+    const hasFoodRole = roles.some((role) => /\b(food|culinary|edible)\b/i.test(String(role || "")));
+    if (info.edible && !hasFoodRole) roles.unshift("Food");
   } else {
     if (info.edible) roles.push("Food");
     if (hasTeaUse(record)) roles.push("Tea");

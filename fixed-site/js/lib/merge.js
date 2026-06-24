@@ -154,7 +154,8 @@ const FOOD_USE_METHODS = [
 
 const PREPARATION_REQUIRED_PATTERN = /\b(cook|cooked|boil|boiled|bake|baked|roast|roasted|fry|fried|sauté|saute|steep|steeped|brew|brewed|tea|infusion|dry|dried|process|processed|prepare|prepared|only after|not raw|raw|uncooked)\b/i;
 const CONDITIONAL_DANGER_PATTERN = /\b(raw|uncooked|under.?cooked|must be cooked|only cooked|cooked thoroughly|properly prepared|prepared correctly|after cooking|when cooked|boiled|parboiled|tea|infusion)\b/i;
-const NEGATIVE_FOOD_CONTEXT = /\b(too tough to eat|not (?:used|eaten|treated) as (?:an )?(?:edible|food)|not (?:an )?edible(?: species| entry)?|not a food|not food|not recommended as food|not recommended as a substitute food|avoid eating|do not eat|don't eat|never eat|unsafe to eat|inedible)\b/i;
+const NEGATIVE_FOOD_CONTEXT = /\b(too tough to eat|not (?:used|eaten|treated|promoted|recommended) as (?:an? |a )?(?:routine |normal |casual )?(?:edible|food|food target|table mushroom|wild food)|not (?:an )?edible(?: species| entry)?|not a food|not food|not recommended as (?:a )?(?:routine |normal )?(?:edible|food|food target|table mushroom)|not recommended as a substitute food|not a normal (?:wild food|table mushroom)|not promoted as food|not a food target|not a food recommendation|do not (?:treat|use) (?:this record )?as (?:a )?(?:food target|food recommendation)|avoid eating|do not eat|don't eat|never eat|unsafe to eat|inedible)\b/i;
+const NON_FOOD_TARGET_CONTEXT = /\b(emergency(?:-| )only|survival(?:-| )only|famine food|not (?:promoted|recommended|treated|used) as (?:a )?(?:food|food target|food recommendation|routine edible|normal edible|table mushroom|wild food)|not a normal (?:wild food|table mushroom)|not a food target|not a food recommendation|do not (?:treat|use) (?:this record )?as (?:a )?(?:food target|food recommendation)|warning\s*\/\s*comparison|look[- ]?alike comparison|id\s*\/\s*comparison)\b/i;
 
 export function isPlaceholderMedicinalText(value) {
   const normalized = normalizeMedicinalText(value);
@@ -610,9 +611,63 @@ function isNonEdibleCautionSeverity(severity = "") {
 }
 
 function isAvoidFoodQuality(value = "") {
-  return /\b(not recommended|avoid|inedible)\b/i.test(String(value || ""));
+  const text = String(value || "");
+  return /\b(not recommended|avoid|inedible)\b/i.test(text) || NON_FOOD_TARGET_CONTEXT.test(text);
 }
 
+function hasFoodUseRole(record = {}) {
+  const roles = ensureArray(record.use_roles).map((role) => String(role || "").trim().toLowerCase());
+  return roles.some((role) => /\b(food|culinary|edible)\b/.test(role));
+}
+
+function isEmergencyOrSurvivalOnlyRecord(record = {}) {
+  const text = [
+    normalizedEdibilityStatus(record),
+    normalizedFoodRole(record),
+    normalizedNonEdibleSeverity(record),
+    record.food_quality,
+    record.culinary_uses,
+    record.edibility_notes,
+    record.edibility_detail
+  ].map((value) => String(value || "").toLowerCase()).join(" ");
+  return /\b(emergency[_ -]?only|survival[_ -]?only|emergency food only|survival food only|famine food)\b/.test(text);
+}
+
+function isWarningComparisonRecord(record = {}) {
+  const foodRole = normalizedFoodRole(record);
+  const edibility = normalizedEdibilityStatus(record);
+  const roles = ensureArray(record.use_roles).map((role) => String(role || "").trim().toLowerCase());
+  if (["medicinal_only", "tea_extract_only", "emergency_only", "survival_only"].includes(foodRole)) return false;
+  if (["medicinal_tea_only", "non_culinary_tea_use", "emergency_only", "survival_only"].includes(edibility)) return false;
+  if (/\b(warning|comparison)\b/.test(foodRole)) return true;
+  const foodValidRole = foodRole === "food" || foodRole === "caution" || foodRole.startsWith("edible") || edibility.startsWith("edible_with");
+  if (hasFoodUseRole(record) || foodValidRole) return false;
+  return roles.some((role) => /\b(warning|look[- ]?alike comparison|id\s*\/\s*comparison|id comparison|id\s*\/\s*caution|id caution)\b/.test(role));
+}
+
+function hasNonFoodTargetText(record = {}) {
+  const text = [
+    record.culinary_uses,
+    record.edibility_notes,
+    record.edibility_detail,
+    record.food_quality,
+    record.overview,
+    record.general_notes,
+    record.notes
+  ].map(cleanUserFacingText).join(" ");
+  return NON_FOOD_TARGET_CONTEXT.test(text);
+}
+
+function isNormalEdibleRouteBlocked(record = {}) {
+  const edibility = normalizedEdibilityStatus(record);
+  const foodRole = normalizedFoodRole(record);
+  if (["avoid", "emergency_only", "survival_only", "medicinal_only", "tea_extract_only", "warning", "warning / comparison", "comparison_only"].includes(foodRole)) return true;
+  if (["emergency_only", "survival_only", "medicinal_tea_only", "medicinal_only", "warning_comparison", "comparison_only"].includes(edibility)) return true;
+  if (isEmergencyOrSurvivalOnlyRecord(record)) return true;
+  if (isWarningComparisonRecord(record)) return true;
+  if (hasNonFoodTargetText(record) && !hasFoodUseRole(record) && foodRole !== "food") return true;
+  return false;
+}
 
 function isNicheBitterBoleteRecord(record = {}) {
   const slug = String(record.slug || "").toLowerCase();
@@ -647,6 +702,7 @@ function hasPositiveFoodSignal(record = {}) {
   const text = [record.culinary_uses, record.edibility_notes, record.edibility_detail, record.food_role, record.edibility_status].map(cleanUserFacingText).join(" ").toLowerCase();
   if (!text || isBuildNoteText(text)) return false;
   if (/\b(not recommended|avoid|inedible|poison|toxic|unsafe|caution only)\b/.test(text)) return false;
+  if (NON_FOOD_TARGET_CONTEXT.test(text)) return false;
   return /\b(choice|excellent|good edible|worthwhile edible|edible|culinary|sauté|saute|fry|fried|cook|cooked|dry|dried|seasoning|powder|soup|broth|tea|infusion)\b/.test(text);
 }
 
@@ -670,9 +726,9 @@ export function isEdibleForSection(record = {}) {
   // It should remain visible in the pored-mushroom edible list as a niche/acquired-taste edible.
   if (isNicheBitterBoleteRecord(record)) return true;
 
-  // Avoid / medicinal-only / non-edible records must not be pulled into edible lists
-  // merely because they have a food-quality label or old scaffold text.
-  if (["avoid", "emergency_only", "medicinal_only", "tea_extract_only"].includes(foodRole)) return false;
+  // Avoid / medicinal-only / emergency-only / warning-comparison records must not be pulled
+  // into edible lists merely because old scaffold text contains words like "edible" or "food".
+  if (isNormalEdibleRouteBlocked(record)) return false;
   if (["not_edible", "poisonous", "deadly", "inedible_bitter"].includes(edibility)) return false;
   if (isNonEdibleCautionSeverity(severity)) return false;
   if (isAvoidFoodQuality(foodQuality)) return false;
@@ -705,6 +761,7 @@ export function isCautionRecord(record = {}) {
   if (isTeaOnlyUseText(record.other_uses)) return false;
   if (isBenignNonCulinarySeverity(severity) && !hasAbsoluteDangerLabel(record)) return false;
 
+  if (isWarningComparisonRecord(record)) return true;
   if (hasAbsoluteDangerLabel(record)) return true;
   if (isDangerSeverity(dangerText)) return true;
   if (["not_edible", "poisonous", "deadly", "inedible_bitter"].includes(edibility)) return true;
@@ -820,7 +877,7 @@ export function normalizeRecord(record) {
   const normalizedEdibilityNotes = edibleUse.has_ingestible_use && !absoluteDanger
     ? firstUserFacingText(edibleUseNote, cleanedEdibility)
     : cleanedEdibility;
-  const edibleUseForDisplay = (absoluteDanger || rawFoodRole === "avoid" || rawEdibility === "not_edible" || isNonEdibleCautionSeverity(fixed.non_edible_severity))
+  const edibleUseForDisplay = (absoluteDanger || rawFoodRole === "avoid" || rawEdibility === "not_edible" || isEmergencyOrSurvivalOnlyRecord(fixed) || isWarningComparisonRecord(fixed) || isNonEdibleCautionSeverity(fixed.non_edible_severity))
     ? { ...edibleUse, has_ingestible_use: false, method: "", notes: "", preparation_required: false }
     : edibleUse;
 
