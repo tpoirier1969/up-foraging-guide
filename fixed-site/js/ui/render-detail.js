@@ -125,30 +125,152 @@ function fieldOrProfile(record = {}, key, profileKey = key) {
 }
 
 function measurementLineText(label, value) {
-  const text = clean(value);
+  const text = cleanMeasurementValue(value);
   if (!text) return "";
   return `${label}: ${text}`;
 }
 
 function measurementPair(cmValue, inchValue) {
-  const cm = clean(cmValue);
-  const inches = clean(inchValue);
+  const cm = cleanMeasurementValue(cmValue);
+  const inches = cleanMeasurementValue(inchValue);
   if (cm && inches) return `${cm} / ${inches}`;
   return cm || inches || "";
 }
 
-function measurementBlockText(record = {}) {
+function cleanMeasurementValue(value) {
+  if (value === undefined || value === null) return "";
+  if (Array.isArray(value)) return value.map(cleanMeasurementValue).filter(Boolean).join(", ");
+  if (typeof value === "boolean") return "";
+  if (typeof value === "number") return clean(String(value));
+  if (typeof value === "object") {
+    const text = value.text || value.value || value.range || value.measurement || value.label || "";
+    if (text) return clean(text);
+    return Object.entries(value)
+      .filter(([key]) => !/^(source|source_url|url|citation|note_key|needs_|missing_)/i.test(key))
+      .map(([key, val]) => measurementLineText(titleFromMeasurementKey(key), val))
+      .filter(Boolean)
+      .join("; ");
+  }
+  return clean(value);
+}
+
+function titleFromMeasurementKey(key = "") {
+  const normalized = String(key || "")
+    .replace(/([a-z])([A-Z])/g, "$1 $2")
+    .replace(/[_-]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .toLowerCase();
+  const labels = {
+    overall: "Overall",
+    overall_size: "Overall",
+    size: "Size",
+    height: "Height",
+    plant_height: "Plant height",
+    tree_height: "Tree height",
+    shrub_height: "Shrub height",
+    cap: "Cap",
+    cap_size: "Cap",
+    cap_width: "Cap width",
+    stem: "Stem",
+    stem_size: "Stem",
+    stipe: "Stem / stipe",
+    thickness: "Flesh / body thickness",
+    fruit_body: "Fruiting body",
+    fruiting_body: "Fruiting body",
+    bracket: "Bracket / shelf",
+    shelf: "Shelf / bracket",
+    pore_surface: "Pore surface",
+    leaf: "Leaf",
+    leaves: "Leaves",
+    flower: "Flower",
+    flowers: "Flowers",
+    fruit: "Fruit",
+    berry: "Berry / fruit",
+    berries: "Berries / fruit",
+    nut: "Nut",
+    nuts: "Nuts",
+    seed: "Seed",
+    seeds: "Seeds",
+    cone: "Cone",
+    cones: "Cones",
+    root: "Root",
+    roots: "Roots",
+    tuber: "Tuber",
+    tubers: "Tubers",
+    shoot: "Shoot",
+    shoots: "Shoots",
+    stalk: "Stalk",
+    stalks: "Stalks",
+    thallus: "Thallus",
+    lobe: "Lobe",
+    lobes: "Lobes",
+    needles: "Needles",
+    needle: "Needle",
+    bark: "Bark",
+    cambium: "Cambium",
+    notes: "Notes",
+    measurement_status: "Measurement status"
+  };
+  if (labels[normalized]) return labels[normalized];
+  return titleFromSlugOrName(normalized.replace(/\s+/g, "-"));
+}
+
+function pushMeasurementLine(lines, seen, label, value) {
+  const text = cleanMeasurementValue(value);
+  if (!text) return;
+  const key = `${normalizeForDuplicateCheck(label)}:${normalizeForDuplicateCheck(text)}`;
+  if (seen.has(key)) return;
+  seen.add(key);
+  lines.push({ label, text });
+}
+
+function measurementEntries(record = {}) {
   const profile = record.mushroom_profile || {};
   const m = record.field_measurements || record.measurements || profile.field_measurements || {};
-  const values = [
-    measurementLineText("Overall", m.overall || m.overall_size || measurementPair(record.size_cm || profile.size_cm || profile.overall_size_cm, record.size_inches || record.size_in || profile.size_inches || profile.overall_size_inches)),
-    measurementLineText("Cap", m.cap || m.cap_size || measurementPair(record.cap_size_cm || profile.cap_size_cm || profile.cap_height_cm, record.cap_size_inches || record.cap_size_in || profile.cap_size_inches || profile.cap_height_inches)),
-    measurementLineText("Cap width", m.cap_width || measurementPair(record.cap_width_cm || profile.cap_width_cm, record.cap_width_inches || record.cap_width_in || profile.cap_width_inches)),
-    measurementLineText("Stem", m.stem || m.stem_size || measurementPair(record.stem_size_cm || profile.stem_size_cm || profile.stem_height_cm, record.stem_size_inches || record.stem_size_in || profile.stem_size_inches || profile.stem_height_inches)),
-    measurementLineText("Flesh / body thickness", m.thickness || measurementPair(record.thickness_cm || profile.thickness_cm, record.thickness_inches || record.thickness_in || profile.thickness_inches)),
-    measurementLineText("Notes", m.notes)
-  ].filter(Boolean);
-  return values.join("; ");
+  const lines = [];
+  const seen = new Set();
+
+  pushMeasurementLine(lines, seen, "Overall", m.overall || m.overall_size || measurementPair(record.size_cm || profile.size_cm || profile.overall_size_cm, record.size_inches || record.size_in || profile.size_inches || profile.overall_size_inches));
+  pushMeasurementLine(lines, seen, "Size class", record.size || profile.size);
+  pushMeasurementLine(lines, seen, "Height", m.height || m.plant_height || measurementPair(record.height_cm || profile.height_cm, record.height_inches || record.height_in || profile.height_inches));
+  pushMeasurementLine(lines, seen, "Cap", m.cap || m.cap_size || measurementPair(record.cap_size_cm || profile.cap_size_cm || profile.cap_height_cm, record.cap_size_inches || record.cap_size_in || profile.cap_size_inches || profile.cap_height_inches));
+  pushMeasurementLine(lines, seen, "Cap width", m.cap_width || measurementPair(record.cap_width_cm || profile.cap_width_cm, record.cap_width_inches || record.cap_width_in || profile.cap_width_inches));
+  pushMeasurementLine(lines, seen, "Stem", m.stem || m.stem_size || m.stipe || measurementPair(record.stem_size_cm || profile.stem_size_cm || profile.stem_height_cm, record.stem_size_inches || record.stem_size_in || profile.stem_size_inches || profile.stem_height_inches));
+  pushMeasurementLine(lines, seen, "Flesh / body thickness", m.thickness || measurementPair(record.thickness_cm || profile.thickness_cm, record.thickness_inches || record.thickness_in || profile.thickness_inches));
+
+  const orderedExtraKeys = [
+    "fruit_body", "fruiting_body", "bracket", "shelf", "pore_surface",
+    "leaf", "leaves", "flower", "flowers", "fruit", "berry", "berries",
+    "nut", "nuts", "seed", "seeds", "cone", "cones", "root", "roots",
+    "tuber", "tubers", "shoot", "shoots", "stalk", "stalks",
+    "needle", "needles", "bark", "cambium", "thallus", "lobe", "lobes"
+  ];
+  for (const key of orderedExtraKeys) pushMeasurementLine(lines, seen, titleFromMeasurementKey(key), m[key]);
+
+  for (const [key, value] of Object.entries(m || {})) {
+    if (/^(overall|overall_size|height|plant_height|cap|cap_size|cap_width|stem|stem_size|stipe|thickness|notes)$/i.test(key)) continue;
+    if (/^(source|source_url|url|citation|needs_|missing_)/i.test(key)) continue;
+    if (orderedExtraKeys.includes(key)) continue;
+    pushMeasurementLine(lines, seen, titleFromMeasurementKey(key), value);
+  }
+
+  pushMeasurementLine(lines, seen, "Notes", m.notes);
+  if (m.missing_measurement_reason) pushMeasurementLine(lines, seen, "Measurement status", m.missing_measurement_reason);
+
+  return lines;
+}
+
+function measurementBlockText(record = {}) {
+  return measurementEntries(record)
+    .map(({ label, text }) => `${label}: ${text}`)
+    .join("; ");
+}
+
+function sizeScaleBlock(record = {}) {
+  const lines = measurementEntries(record);
+  if (!lines.length) return "";
+  return `<section class="detail-block size-scale-block"><h4>Size / Scale</h4><dl class="kv">${lines.map(({ label, text }) => `<dt>${esc(label)}</dt><dd>${esc(text)}</dd>`).join("")}</dl></section>`;
 }
 
 function ecologyContextText(record = {}) {
@@ -892,7 +1014,6 @@ function mushroomMedicinalBlock(medicinal) {
 function mushroomIdentificationBlock(record, fieldIdentification) {
   const profile = record.mushroom_profile || {};
   const fieldContext = ecologyContextText(record);
-  const sizeText = measurementBlockText(record);
   const clueText = uniqueLines([
     fieldIdentification,
     record.identification_tips,
@@ -907,7 +1028,6 @@ function mushroomIdentificationBlock(record, fieldIdentification) {
 
   const lines = [
     lineIf("Identification tips", clueText),
-    lineIf("Size", sizeText),
     lineIf("When to find", fieldContext.when),
     lineIf("Season clue", fieldContext.seasonNote),
     lineIf("Where to look", fieldContext.habitats),
@@ -989,6 +1109,7 @@ function renderMushroomDetail(record, context) {
       ${mushroomSummaryBlock(record, typeLabel, habitats, overview)}
       ${foodUseBlock(record, "Culinary Uses")}
       ${mushroomMedicinalBlock(medicinal)}
+      ${sizeScaleBlock(record)}
       ${mushroomIdentificationBlock(record, fieldIdentification)}
       ${mushroomNotesBlock(record, notes, generalNotes, otherUses)}
       ${mushroomSeasonalityBlock(record)}
@@ -1049,6 +1170,7 @@ export function renderDetail(record) {
         </dl>
       </section>
 
+      ${sizeScaleBlock(record)}
       ${boleteDetailBlock(record)}
       ${foodUseBlock(record)}
       ${medicinalUses ? `<section class="detail-block"><h4>Medicinal uses</h4><p>${esc(medicinalUses)}</p></section>` : ""}

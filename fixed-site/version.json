@@ -1,14 +1,15 @@
 {
-  "version": "v4.3.172-r2026-06-24-gilled-bolete-list-and-size-fix1",
-  "display_version": "V4.3.172-r26-06-24",
-  "release": "v4.3.172",
-  "release_name": "gilled-bolete-list-and-size-fix1",
-  "cache_bust": "v4.3.172-r2026-06-24-gilled-bolete-list-and-size-fix1",
+  "version": "v4.3.173-r2026-06-24-universal-size-detail-support1",
+  "display_version": "V4.3.173-r26-06-24",
+  "release": "v4.3.173",
+  "release_name": "universal-size-detail-support1",
+  "cache_bust": "v4.3.173-r2026-06-24-universal-size-detail-support1",
   "date": "2026-06-24",
   "notes": [
-    "Dual-lists Phylloporus gilled boletes under both Gilled and Spongelike/Boletes so they are discoverable from either mushroom-form route, not search-only.",
-    "Adds source-backed field measurements for Phylloporus rhodoxanthus, including cap and stem size ranges.",
-    "Adds matching field measurements and clearer card/detail size notes for Phylloporus leucomycelinus.",
-    "Keeps the records food-valid but caution-framed; no source-clearing or image changes were made."
+    "Adds universal Size / Scale detail support for all species records, not only mushrooms.",
+    "Renders existing size, field_measurements, measurements, and common cap/stem/plant-part measurement fields in a dedicated detail-page block.",
+    "Supports future worker-added part-level measurements for leaves, flowers, fruit, berries, nuts, cones, roots, stalks, thallus, brackets, shelves, and other ID-relevant structures.",
+    "Moves mushroom measurements into the same Size / Scale detail block to avoid burying size inside the identification text.",
+    "No species size data was bulk-added in this package; this is foundation UI/model support for upcoming sourced size-data batches."
   ]
 }
