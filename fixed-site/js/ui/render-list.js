@@ -1304,11 +1304,29 @@ function mushroomRouteLane(record) {
   return "other";
 }
 
+function isGilledBoleteRecord(record = {}) {
+  const text = [
+    record.slug,
+    record.display_name,
+    record.common_name,
+    record.scientific_name,
+    record.mushroom_family,
+    record.mushroom_profile?.scientific_name,
+    record.mushroom_profile?.summary,
+    ...asList(record.common_names),
+    ...asList(record.search_aliases),
+    ...asList(record.boleteGroup),
+    ...asList(record.boleteSubgroup)
+  ].join(" | ").toLowerCase();
+  return /\bphylloporus\b|\bphylloporopsis\b|gilled bolete/.test(text);
+}
+
 function mushroomRouteMatch(record, route) {
   const routeLane = mushroomRouteLane(record);
-  if (route === "boletes") return routeLane === "boletes";
-  if (route === "mushrooms-gilled") return routeLane === "gilled";
-  if (route === "mushrooms-other") return routeLane === "other";
+  const gilledBolete = isGilledBoleteRecord(record);
+  if (route === "boletes") return routeLane === "boletes" || gilledBolete;
+  if (route === "mushrooms-gilled") return routeLane === "gilled" || gilledBolete;
+  if (route === "mushrooms-other") return routeLane === "other" && !gilledBolete;
   return true;
 }
 
