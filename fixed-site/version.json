@@ -1,15 +1,14 @@
 {
-  "version": "v4.3.173-r2026-06-24-universal-size-detail-support1",
-  "display_version": "V4.3.173-r26-06-24",
-  "release": "v4.3.173",
-  "release_name": "universal-size-detail-support1",
-  "cache_bust": "v4.3.173-r2026-06-24-universal-size-detail-support1",
+  "version": "v4.3.174-r2026-06-24-safety-size-data-pass1",
+  "display_version": "V4.3.174-r26-06-24",
+  "release": "v4.3.174",
+  "release_name": "safety-size-data-pass1",
+  "cache_bust": "v4.3.174-r2026-06-24-safety-size-data-pass1",
   "date": "2026-06-24",
   "notes": [
-    "Adds universal Size / Scale detail support for all species records, not only mushrooms.",
-    "Renders existing size, field_measurements, measurements, and common cap/stem/plant-part measurement fields in a dedicated detail-page block.",
-    "Supports future worker-added part-level measurements for leaves, flowers, fruit, berries, nuts, cones, roots, stalks, thallus, brackets, shelves, and other ID-relevant structures.",
-    "Moves mushroom measurements into the same Size / Scale detail block to avoid burying size inside the identification text.",
-    "No species size data was bulk-added in this package; this is foundation UI/model support for upcoming sourced size-data batches."
+    "Adds the first sourced Size / Scale data batch after universal size-detail support.",
+    "Targets high-danger mushroom warning/lookalike records with MushroomExpert-backed cap/stem measurements.",
+    "Adds high-priority plant and caution/lookalike measurements for Apiaceae, fiddleheads, cattail, and sassafras using extension, government, or botanical sources.",
+    "Does not change edible routing, toxicity status, medicinal claims, or source-review decisions; this is size/ID data only."
   ]
 }
