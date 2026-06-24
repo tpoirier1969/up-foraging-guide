@@ -275,8 +275,8 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Juniperus_communis_002.JPG",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Juniperus_communis_cones.jpg"
       ],
-      "culinary_uses": "Berry-like cones are used sparingly as seasoning, tea, or flavoring rather than bulk food.",
-      "medicinal_uses": "Traditional aromatic and urinary herb used in teas and preparations.",
+      "culinary_uses": "Berry-like cones are used sparingly as seasoning, aromatic tea, or flavoring rather than bulk food.",
+      "medicinal_uses": "Traditional urinary-herb use exists; this guide treats it as medicinal/traditional context, not ordinary food use.",
       "general_notes": "",
       "record_type": "plant",
       "lane": "",
@@ -388,7 +388,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Juniperus_communis_002.JPG",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Juniperus_communis_cones.jpg"
       ],
-      "edibility_detail": "Used in small amounts as flavoring or tea. Not a bulk fruit.",
+      "edibility_detail": "Use only small amounts as seasoning, flavoring, or aromatic tea. Not a bulk fruit; medicinal urinary-use claims are separate traditional context.",
       "look_alikes": [
         "Other junipers"
       ],
@@ -426,7 +426,7 @@
         "tea-infusions"
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Trees / Shrubs, Tea / Infusions.",
-      "plant_card_note": "Useful parts: fruit / berry. Used in small amounts as flavoring or tea. Not a bulk fruit.",
+      "plant_card_note": "Berry-like cones are a small-amount seasoning/flavoring and possible aromatic tea. Traditional urinary-herb use is medicinal context, not ordinary food use.",
       "plant_data_flags": [],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
@@ -454,7 +454,24 @@
           "link_type": "identification_taxonomy",
           "source_quality": "botanical_reference"
         }
-      ]
+      ],
+      "food_role": "food",
+      "edibility_status": "edible",
+      "use_tags": [
+        "E",
+        "T",
+        "M"
+      ],
+      "use_roles": [
+        "Food",
+        "Medicinal / traditional"
+      ],
+      "edible_use": {
+        "has_ingestible_use": true,
+        "method": "Small-amount seasoning / aromatic tea",
+        "preparation_required": false,
+        "notes": "Berry-like cones are a small-amount seasoning/flavoring and possible aromatic tea. Traditional urinary-herb use is medicinal context, not ordinary food use."
+      }
     },
     {
       "slug": "labrador-tea",
@@ -2183,8 +2200,8 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Pinus_strobus.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/NAS-145_Pinus_strobus.png"
       ],
-      "medicinal_uses": "Needle tea and resin/gum have traditional respiratory, aromatic, and topical-use associations; this guide treats those as traditional-use context.",
-      "culinary_uses": "Needles/tips are used for tea and flavoring; some species provide edible nuts; resin/gum has traditional chew/pitch use but is not a bulk food.",
+      "medicinal_uses": "Needle tea and resin/gum have traditional respiratory, aromatic, and topical-use associations; this guide treats those as traditional-use context, not medical advice.",
+      "culinary_uses": "Needles/tips are used for tea and flavoring. Some pine species provide edible nuts, but this broad entry does not treat pine nuts as a general foraging target. Resin/gum is traditional/other-use, not bulk food.",
       "plant_name": "Pine",
       "photo_scientific_name": "Pinus spp.",
       "scientific_name": "Pinus spp.",
@@ -2266,7 +2283,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Pinus_strobus.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/NAS-145_Pinus_strobus.png"
       ],
-      "edibility_detail": "Needle tea is the most approachable use. Pine nuts depend heavily on species, and resin/gum use is more traditional than routine food.",
+      "edibility_detail": "Needle tea is the approachable culinary use. Pine nuts depend heavily on species and are not routed as a broad pine target; resin/gum is traditional/other-use rather than routine food.",
       "month_numbers": [
         1,
         2,
@@ -2296,16 +2313,14 @@
       "weekPrecision": "month-window-reviewed",
       "usable_parts": [
         "Leaf / tea",
-        "Seed / nut / cone",
-        "Resin / gum"
+        "Resin / gum traditional use"
       ],
       "plant_lanes": [
-        "nuts-seeds",
         "trees-shrubs-sap",
         "tea-infusions"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Nuts / Seeds, Trees / Shrubs, Tea / Infusions.",
-      "plant_card_note": "Needles/tips are the practical tea/flavoring use; some pines provide nuts, and resin/gum is more traditional than routine food.",
+      "plant_lane_note": "Explicit plant-lane placement: Trees / Shrubs, Tea / Infusions. Broad pine-nut use is not routed here; resin/gum is traditional/other-use rather than routine food.",
+      "plant_card_note": "Needles/tips are the practical tea/flavoring use. Pine nuts are species-dependent and not treated as a broad pine target here; resin/gum is traditional/other-use rather than routine food.",
       "plant_data_flags": [
         "needs_image_coverage"
       ],
@@ -2314,7 +2329,27 @@
         "pine-resin-gum"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "food_role": "food",
+      "edibility_status": "edible",
+      "use_tags": [
+        "E",
+        "T",
+        "M",
+        "O"
+      ],
+      "use_roles": [
+        "Food",
+        "Medicinal / traditional",
+        "Other use"
+      ],
+      "edible_use": {
+        "has_ingestible_use": true,
+        "method": "Needle/tip tea or flavoring",
+        "preparation_required": false,
+        "notes": "Needles/tips are the practical culinary tea/flavoring use. Pine nuts are species-dependent and are not treated as a broad pine target here; resin/gum is traditional/other-use, not routine food."
+      },
+      "other_uses": "Resin/gum has traditional chew, pitch, and topical-use context; not a routine food target."
     },
     {
       "slug": "pine-needles-tea",

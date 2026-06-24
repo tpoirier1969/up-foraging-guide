@@ -952,8 +952,8 @@
         "July",
         "August"
       ],
-      "medicinal_uses": "Traditional tea herb for colds, mild sore throat, and general aromatic support.",
-      "culinary_uses": "Leaves can be used fresh or dried for tea and aromatic seasoning.",
+      "medicinal_uses": "Traditional aromatic tea use exists, including cold-season folk use; this guide treats that as traditional context, not medical advice.",
+      "culinary_uses": "Leaves and flowers can be used fresh or dried for aromatic culinary tea and seasoning.",
       "general_notes": "",
       "record_type": "plant",
       "lane": "",
@@ -995,7 +995,7 @@
         "tea-infusions"
       ],
       "plant_lane_note": "Explicit plant-lane placement: Flowers, Tea / Infusions.",
-      "plant_card_note": "Useful parts: leaf / tea, flower / tea. Leaves can be used fresh or dried for tea and aromatic seasoning.",
+      "plant_card_note": "Leaves and flowers can be used fresh or dried for aromatic culinary tea and seasoning. Traditional cold-season uses are separate traditional context, not medical advice.",
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Monarda_fistulosa_Arkansas.jpg"
       ],
@@ -1050,7 +1050,25 @@
           "source_quality": "botanical_reference"
         }
       ],
-      "source_note": "Source links added for identification/range context; food-use wording remains modest and caution-framed where appropriate."
+      "source_note": "Source links added for identification/range context; food-use wording remains modest and caution-framed where appropriate.",
+      "food_role": "food",
+      "edibility_status": "edible",
+      "use_tags": [
+        "E",
+        "T",
+        "M"
+      ],
+      "use_roles": [
+        "Food",
+        "Medicinal / traditional"
+      ],
+      "edible_use": {
+        "has_ingestible_use": true,
+        "method": "Culinary aromatic tea / seasoning",
+        "preparation_required": false,
+        "notes": "Leaves and flowers can be used fresh or dried for aromatic culinary tea and seasoning. Traditional cold-season uses are context, not medical advice."
+      },
+      "edibility_detail": "Culinary tea and seasoning use only; do not treat the record as medicinal dosing."
     },
     {
       "slug": "birch",
@@ -1067,8 +1085,8 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Betula_papyrifera-bark.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/NAS-069_Betula_papyrifera.png"
       ],
-      "medicinal_uses": "Traditional use centers on sap, bark, and leaf tea as mild tonic or urinary-support material.",
-      "culinary_uses": "Sap can be tapped in late winter to spring for fresh drinking or reduction into syrup; inner bark and cambium have historical famine-food use but sap is the main practical foraging use.",
+      "medicinal_uses": "Leaf and bark tea have traditional medicinal context; this guide does not treat them as ordinary culinary tea or medical advice.",
+      "culinary_uses": "Sap can be tapped in late winter to spring for fresh drinking or reduction into syrup. Bark/cambium is not treated as routine food here.",
       "plant_name": "Birch",
       "photo_scientific_name": "Betula spp.",
       "scientific_name": "Betula spp.",
@@ -1187,7 +1205,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Betula_papyrifera-bark.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/NAS-069_Betula_papyrifera.png"
       ],
-      "edibility_detail": "Sap is the main beginner-friendly use. Bark/cambium uses are more situational and should not be confused with routine harvesting.",
+      "edibility_detail": "Sap is the normal edible use. Bark/cambium belongs to emergency/historical context; leaf/bark tea belongs to traditional medicinal context, not routine edible-beverage routing.",
       "month_numbers": [
         3,
         4
@@ -1207,15 +1225,14 @@
       "weekPrecision": "month-window-reviewed",
       "usable_parts": [
         "Sap",
-        "Bark / cambium",
-        "Leaf / tea"
+        "Bark / cambium emergency use",
+        "Leaf / bark medicinal tea"
       ],
       "plant_lanes": [
-        "trees-shrubs-sap",
-        "tea-infusions"
+        "trees-shrubs-sap"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Trees / Shrubs, Tea / Infusions.",
-      "plant_card_note": "Useful parts: sap, bark / cambium, leaf / tea. Sap is the main beginner-friendly use. Bark/cambium uses are more situational and should not be confused with routine harvesting.",
+      "plant_lane_note": "Explicit plant-lane placement: Trees / Shrubs / Sap. Sap is the normal edible use; bark/cambium is historical emergency context and leaf/bark tea is traditional medicinal context, not routine edible tea.",
+      "plant_card_note": "Sap is the normal edible use. Bark/cambium is historical emergency/famine context, and leaf/bark tea is traditional medicinal context rather than routine food.",
       "plant_data_flags": [],
       "links": [
         "https://plants.ces.ncsu.edu/plants/betula-papyrifera/",
@@ -1236,7 +1253,26 @@
         }
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "food_role": "food",
+      "edibility_status": "edible",
+      "use_tags": [
+        "E",
+        "M",
+        "O"
+      ],
+      "use_roles": [
+        "Food",
+        "Medicinal / traditional",
+        "Other use"
+      ],
+      "edible_use": {
+        "has_ingestible_use": true,
+        "method": "Sap / syrup",
+        "preparation_required": false,
+        "notes": "Sap is the normal edible use. Bark/cambium is historical emergency/famine context, and leaf/bark tea is traditional medicinal context rather than routine food."
+      },
+      "other_uses": "Bark/cambium has historical emergency/famine-food context; do not treat it as routine harvesting or normal food."
     },
     {
       "slug": "black-cherry",

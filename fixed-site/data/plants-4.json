@@ -201,8 +201,8 @@
       "links": [
         "https://www.srs.fs.usda.gov/pubs/misc/ag_654/volume_1/picea/glauca.htm"
       ],
-      "medicinal_uses": "Traditional use includes needle/tip tea and pitch/resin preparations; this guide treats those as traditional-use context.",
-      "culinary_uses": "Tender new spring tips can be used fresh or cooked for tea, syrup, jelly, seasoning, or bright evergreen flavor. Resin/gum has traditional chew/topical use but is not bulk food.",
+      "medicinal_uses": "Traditional use includes needle/tip tea and pitch/resin preparations; this guide treats therapeutic or topical claims as traditional context, not medical advice.",
+      "culinary_uses": "Tender new spring tips can be used fresh or cooked for tea, syrup, jelly, seasoning, or bright evergreen flavor. Resin/gum is traditional/other-use, not normal food.",
       "plant_name": "Spruce",
       "photo_scientific_name": "Picea spp.",
       "scientific_name": "Picea spp.",
@@ -231,14 +231,14 @@
         "tea-infusions"
       ],
       "plant_lane_note": "Young spring tips belong in Leaves/Greens and Tea; resin/gum keeps it in Trees/Shrubs.",
-      "plant_card_note": "Young soft spring tips are the useful edible/tea part; resin/gum is more traditional than routine food. Confirm true spruce before using.",
+      "plant_card_note": "Young spring tips are the edible tea/flavoring part. Resin/gum is traditional/other-use, not normal food. Confirm true spruce before using.",
       "plant_data_flags": [],
       "month_numbers": [
         5,
         6,
         7
       ],
-      "edibility_detail": "Use positively identified spruce. Young tips are the practical food/tea part; mature needles and resin are much more resinous.",
+      "edibility_detail": "Use positively identified spruce. Young tips are the practical food/tea part; mature needles and resin are more resinous and resin/gum belongs to traditional/other-use context.",
       "observedPart": [
         "Leaf",
         "Resin / gum",
@@ -329,7 +329,27 @@
         "spruce tip syrup",
         "Picea",
         "Picea spp."
-      ]
+      ],
+      "food_role": "food",
+      "edibility_status": "edible",
+      "use_tags": [
+        "E",
+        "T",
+        "M",
+        "O"
+      ],
+      "use_roles": [
+        "Food",
+        "Medicinal / traditional",
+        "Other use"
+      ],
+      "edible_use": {
+        "has_ingestible_use": true,
+        "method": "Young spring tips / culinary tea",
+        "preparation_required": false,
+        "notes": "Young spring tips are the edible tea/flavoring part. Resin/gum is traditional/other-use, not normal food."
+      },
+      "other_uses": "Resin/gum has traditional chew/topical/pitch context; not a normal food target."
     },
     {
       "slug": "staghorn-sumac",
@@ -2832,8 +2852,8 @@
           "rights_status": "public_domain"
         }
       ],
-      "medicinal_uses": "Traditional tea and aromatic medicinal plant.",
-      "culinary_uses": "Leaves and berries are used in tea, candying, and flavoring rather than as bulk food.",
+      "medicinal_uses": "Traditional aromatic medicinal use exists; this guide treats that as historical/traditional context, not dosing guidance.",
+      "culinary_uses": "Leaves and berries are used in modest amounts for tea, candying, and flavoring rather than as bulk food.",
       "plant_name": "Wintergreen",
       "photo_scientific_name": "Gaultheria procumbens",
       "scientific_name": "Gaultheria procumbens",
@@ -2918,7 +2938,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Gaultheria-procumbens-habit.JPG",
         "https://commons.wikimedia.org/wiki/Special:FilePath/FountainSpringsWintergreen.png"
       ],
-      "edibility_detail": "Edible in modest use as tea, flavoring, or small fruit.",
+      "edibility_detail": "Edible in modest culinary use as tea, flavoring, or small fruit. Do not treat as medicinal dosing or bulk use.",
       "look_alikes": [
         "Partridgeberry"
       ],
@@ -2953,7 +2973,7 @@
         "tea-infusions"
       ],
       "plant_lane_note": "Explicit plant-lane placement: Berries / Fruits, Tea / Infusions.",
-      "plant_card_note": "Useful parts: fruit / berry, leaf / tea. Edible in modest use as tea, flavoring, or small fruit.",
+      "plant_card_note": "Useful parts: fruit / berry, leaf / tea. Edible in modest use as tea, flavoring, or small fruit; do not treat as medicinal dosing.",
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
       "links": [
@@ -2993,7 +3013,19 @@
         "Teaberry",
         "Checkerberry",
         "Boxberry"
-      ]
+      ],
+      "food_role": "food",
+      "edibility_status": "edible",
+      "use_roles": [
+        "Food",
+        "Medicinal / traditional"
+      ],
+      "edible_use": {
+        "has_ingestible_use": true,
+        "method": "Modest culinary tea / flavoring / small fruit",
+        "preparation_required": false,
+        "notes": "Leaves and berries are culinary flavoring/tea/small-fruit uses in modest amounts. Do not treat this as medicinal dosing."
+      }
     },
     {
       "slug": "wood-sorrel",

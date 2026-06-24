@@ -1,14 +1,14 @@
 {
-  "version": "v4.3.168-r2026-06-24-food-valid-fused-status-cleanup1",
-  "display_version": "V4.3.168-r26-06-24",
-  "release": "v4.3.168",
-  "release_name": "food-valid-fused-status-cleanup1",
-  "cache_bust": "v4.3.168-r2026-06-24-food-valid-fused-status-cleanup1",
+  "version": "v4.3.169-r2026-06-24-plant-tea-medicinal-split-cleanup1",
+  "display_version": "V4.3.169-r26-06-24",
+  "release": "v4.3.169",
+  "release_name": "plant-tea-medicinal-split-cleanup1",
+  "cache_bust": "v4.3.169-r2026-06-24-plant-tea-medicinal-split-cleanup1",
   "date": "2026-06-24",
   "notes": [
-    "Continues the separated edible + caution/preparation/other-use model after v4.3.167.",
-    "Normalizes a first batch of food-valid mushrooms from fused edibility_status values to simple edible status while preserving caution, preparation, expert-ID, and lookalike warnings in separate fields.",
-    "Adds/strengthens cooked-food edible_use details where the existing record already required cooking or preparation.",
-    "Moves Jewelweed from medicinal-only wording to topical/other-use-only framing; it remains visible but is not treated as food."
+    "Plant tea / medicinal / other-use split cleanup after v4.3.168.",
+    "Keeps ordinary culinary teas and flavoring uses food-valid while separating therapeutic, medicinal, emergency, resin/gum, bark/cambium, and other-use contexts.",
+    "Clarifies Birch sap as the normal edible use, Pine needle/tip tea as the broad food use, and separates broad pine nuts/resin/gum from normal edible routing.",
+    "No route-code or schema changes; existing fields now carry clearer food, medicinal/traditional, and other-use roles."
   ]
 }
