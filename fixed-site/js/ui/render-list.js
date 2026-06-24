@@ -1521,7 +1521,71 @@ function generatedMushroomSnippet(record = {}) {
   return isUnhelpfulListText(text) ? "" : text;
 }
 
-function cardSnippet(record) {
+function trimBriefText(value = "", maxLength = 180) {
+  const text = String(value || "").replace(/\s+/g, " ").trim();
+  if (!text || text.length <= maxLength) return text;
+  const cut = text.slice(0, maxLength + 1);
+  const sentenceBreak = Math.max(cut.lastIndexOf(". "), cut.lastIndexOf("; "));
+  if (sentenceBreak >= 80) return cut.slice(0, sentenceBreak + 1).trim();
+  const wordBreak = cut.lastIndexOf(" ");
+  return `${cut.slice(0, wordBreak > 80 ? wordBreak : maxLength).replace(/[,. ;:]+$/g, "").trim()}…`;
+}
+
+function otherUseListNote(record = {}) {
+  const direct = firstCleanListText([
+    record.other_uses,
+    record.otherUses,
+    record.practical_uses,
+    record.utility_uses,
+    record.craft_uses,
+    record.fiber_uses,
+    record.tinder_uses
+  ]);
+  const edibility = String(record.edibility_status || record.mushroom_profile?.edibility_status || "").toLowerCase();
+  const foodRole = String(record.food_role || "").toLowerCase();
+  const useRoles = asList(record.use_roles).join(" ").toLowerCase();
+  const usableParts = asList(record.usable_parts).join(" ").toLowerCase();
+  const plantNote = firstCleanListText([record.plant_card_note, record.plant_lane_note]);
+  const medicinalSummary = firstCleanListText([record.medicinal?.summary, record.medicinal_uses])
+    .replace(/^primarily culinary in this guide\.?$/i, "");
+  const fallbackValues = [
+    record.overview,
+    record.notes,
+    record.general_notes,
+    record.edibility_notes,
+    record.edibility_detail
+  ];
+  const fallbackText = firstCleanListText(fallbackValues);
+  const utilityFallback = firstCleanListText(fallbackValues.filter((value) => /tinder|ember|fire|craft|dye|fiber|cordage|scour|scouring|display|decorative|teaching|ecology/.test(String(value || "").toLowerCase())));
+
+  if (edibility.includes("emergency") || foodRole.includes("emergency") || foodRole.includes("survival")) {
+    return trimBriefText(direct ? `Emergency / survival context; ${direct}` : "Emergency / survival context; not a normal food target.");
+  }
+
+  if (direct) return trimBriefText(direct.replace(/^(Other uses?|Practical uses?):\s*/i, ""));
+
+  if (/look[- ]?alike|comparison|warning|caution|id/.test(useRoles)) {
+    return "Field identification / look-alike comparison.";
+  }
+
+  if (/resin|gum|pitch|sap/.test(`${usableParts} ${plantNote} ${fallbackText}`)) {
+    return trimBriefText(plantNote || fallbackText || "Resin, gum, pitch, or sap use noted; open details for safe ID and use notes.");
+  }
+
+  if (utilityFallback) {
+    return trimBriefText(utilityFallback);
+  }
+
+  if (medicinalSummary) {
+    return trimBriefText(`Traditional / medicinal-use context; ${medicinalSummary}`);
+  }
+
+  if (useRoles.includes("other use")) return "Other-use record; open details for the specific use notes.";
+  return "Open details for the other-use notes.";
+}
+
+function cardSnippet(record, route = "general") {
+  if (route === "other-uses") return `Other use: ${otherUseListNote(record)}`;
   const rare = record.rare_profile || {};
   const candidates = [
     record.plant_card_note,
@@ -1543,8 +1607,8 @@ function cardSnippet(record) {
   return firstCleanListText(candidates).replace(/^Food\/beverage use:\s*/i, "Food use: ");
 }
 
-function cardSnippetHtml(record) {
-  const snippet = cardSnippet(record).slice(0, 260);
+function cardSnippetHtml(record, route = "general") {
+  const snippet = trimBriefText(cardSnippet(record, route), route === "other-uses" ? 220 : 260);
   return snippet ? `<p>${esc(snippet)}</p>` : "";
 }
 
@@ -1733,7 +1797,7 @@ export function renderRecordCards(records, route = "general") {
         <h3 class="record-title-line"><button class="record-title-button" type="button" data-detail="${esc(record.slug)}">${esc(record.display_name || record.common_name || record.slug || "Untitled")}</button>${lookalikeRiskTitleBadge(record)}</h3>
         <p class="muted small">${esc(record.scientific_name || "")}</p>
         <div class="record-meta">${makeMeta(record, route, { includeLookalikeRisk: false })}</div>
-        ${cardSnippetHtml(record)}
+        ${cardSnippetHtml(record, route)}
         <div class="control-row">
           <button class="primary" type="button" data-detail="${esc(record.slug)}">Open details</button>
           ${shouldShowReviewOk(record) ? `<button class="warn" type="button" data-review-action="mark-ok" data-slug="${esc(record.slug)}">Mark OK</button>` : ""}

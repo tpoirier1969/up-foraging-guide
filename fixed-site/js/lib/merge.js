@@ -134,7 +134,7 @@ const FORAGING_CLASS_MAP = new Map([
   ["mushroom", "mushroom"]
 ]);
 
-const OTHER_USE_KEYWORDS = /\b(artist|art|draw|drawing|scratch|scratched|tinder|fire ?starter|kindling|dye|dyestuff|pigment|ink|fiber|fibre|cordage|rope|twine|basket|weav|craft|tool|utility|polish|stain|smudge|resin|pitch|glue|adhesive|soap|container|whistle|broom|brush|mat|thatch|fungus paper|amadou)\b/i;
+const OTHER_USE_KEYWORDS = /\b(artist|art|draw|drawing|scratch|scratched|tinder|fire ?starter|kindling|dye|dyestuff|pigment|fiber|fibre|cordage|rope|twine|weav|craft|tool|utility|polish|stain|smudge|resin|pitch|glue|adhesive|soap|container|whistle|broom|brush|mat|thatch|fungus paper|amadou)\b/i;
 const NEGATIVE_OTHER_USE_PATTERN = /\b(no practical non[- ]food use|no practical use|no reliable non[- ]food use|no other use recorded|no known practical use|no known non[- ]food use|not used for craft|no known craft use)\b/i;
 
 // Food-list eligibility is deliberately narrower than "can be ingested".
