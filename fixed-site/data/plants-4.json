@@ -109,7 +109,7 @@
       "plant_lanes": [
         "trees-shrubs-sap"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Roots / Tubers, Trees / Shrubs, Tea / Infusions.",
+      "plant_lane_note": "Explicit plant-lane placement: Trees / Shrubs. Leaf seasoning only; root bark, sassafras oil, and root tea are historical uses and are not recommended here because of safrole concerns.",
       "plant_card_note": "Use leaf seasoning only: dried sassafras leaves may be used as filé-style seasoning. Root bark, sassafras oil, and root tea are historical uses and are not recommended here because of safrole concerns.",
       "plant_data_flags": [],
       "former_slugs": [
@@ -176,7 +176,16 @@
           "source_quality": "government"
         }
       ],
-      "safety_note": "Federal food rules distinguish safrole-free sassafras extract from safrole-containing sassafras bark/root preparations. Do not treat homemade root bark tea or sassafras oil as equivalent to safrole-free commercial flavoring."
+      "safety_note": "Federal food rules distinguish safrole-free sassafras extract from safrole-containing sassafras bark/root preparations. Do not treat homemade root bark tea or sassafras oil as equivalent to safrole-free commercial flavoring.",
+      "food_role": "food",
+      "edibility_status": "edible",
+      "use_tags": [
+        "E"
+      ],
+      "use_roles": [
+        "Food"
+      ],
+      "caution_reason": "Use dried leaves only; root bark, sassafras oil, and root tea are not recommended because of safrole concerns."
     },
     {
       "slug": "spruce",
@@ -2614,7 +2623,7 @@
           "rights_status": "commercial_ok_sharealike"
         }
       ],
-      "culinary_uses": "Not a primary food plant; practical use centers more on medicinal bark and occasional emergency sap/cambium traditions than on casual eating.",
+      "culinary_uses": "Not a normal edible or culinary tea plant in this guide. Practical use centers on medicinal/traditional bark and occasional emergency sap/cambium traditions, not casual eating.",
       "medicinal_uses": "Classic bark medicine associated with pain, fever, and inflammation traditions.",
       "general_notes": "",
       "record_type": "plant",
@@ -2733,7 +2742,7 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Salix_discolor(01).jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/S_discolor_female_flowers_01.JPG"
       ],
-      "edibility_detail": "Not a routine food entry. Bark use belongs in the medicine lane and carries medication-style cautions.",
+      "edibility_detail": "Medicinal/traditional bark use only; not routine food or ordinary culinary tea. Emergency sap/cambium context belongs in Other Uses.",
       "month_numbers": [
         3,
         4,
@@ -2751,15 +2760,14 @@
       ],
       "weekPrecision": "month-window-reviewed",
       "usable_parts": [
-        "Bark / cambium",
-        "Leaf / tea"
+        "Bark / medicinal use",
+        "Sap / cambium emergency use"
       ],
       "plant_lanes": [
-        "trees-shrubs-sap",
-        "tea-infusions"
+        "trees-shrubs-sap"
       ],
-      "plant_lane_note": "Explicit plant-lane placement: Trees / Shrubs, Tea / Infusions.",
-      "plant_card_note": "Useful parts: bark / cambium, leaf / tea. Not a routine food entry. Bark use belongs in the medicine lane and carries medication-style cautions.",
+      "plant_lane_note": "Explicit plant-lane placement: Trees / Shrubs. Bark use is medicinal/traditional, not ordinary edible tea; sap/cambium context is emergency/historical only.",
+      "plant_card_note": "Bark use is medicinal/traditional, not ordinary edible tea. Sap/cambium is emergency/historical context only.",
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
       "links": [
@@ -2773,7 +2781,18 @@
           "source_quality": "botanical_reference"
         }
       ],
-      "source_note": "Source links added for identification/range context; food-use wording remains modest and caution-framed where appropriate."
+      "source_note": "Source links added for identification/range context; food-use wording remains modest and caution-framed where appropriate.",
+      "food_role": "medicinal_only",
+      "edibility_status": "medicinal_traditional_only",
+      "use_tags": [
+        "M",
+        "O"
+      ],
+      "use_roles": [
+        "Medicinal / traditional",
+        "Other use"
+      ],
+      "other_uses": "Emergency/historical sap or cambium context; not a normal food target."
     },
     {
       "slug": "wintergreen",

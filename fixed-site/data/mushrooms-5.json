@@ -2193,11 +2193,11 @@
       "record_type": "mushroom",
       "primary_type": "mushroom",
       "kingdom_type": "fungus",
-      "foraging_class": "edible_with_caution",
+      "foraging_class": "mushroom",
       "lane": "other",
-      "food_role": "edible_with_caution",
-      "food_quality": "Edible but usually tough",
-      "edibility_status": "edible_with_caution",
+      "food_role": "food",
+      "food_quality": "Niche edible; usually tough",
+      "edibility_status": "edible",
       "edibility_detail": "Edible when young and tender, but commonly tough or leathery. Use only tender margins or use for broth/duxelles-style preparations after confident identification.",
       "culinary_uses": "Niche edible. Best treated as a tough, flavorful polypore: trim tender young margins, cook thoroughly, or use for stock/broth rather than expecting hen-of-the-woods texture.",
       "medicinal_uses": "",
@@ -2401,7 +2401,14 @@
       "enlarge_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Black-staining_Polypore_(28516000724).jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Black-staining_Polypore_(28198769584).jpg"
-      ]
+      ],
+      "caution_reason": "Young tender margins only; commonly tough; confirm the hardwood-base polypore carefully.",
+      "edible_use": {
+        "has_ingestible_use": true,
+        "method": "Cooked food / broth",
+        "preparation_required": true,
+        "notes": "Use young tender margins or broth/stock preparations after confident identification; older material is commonly tough."
+      }
     },
     {
       "slug": "berkeley-s-polypore",
@@ -6287,16 +6294,16 @@
       "kingdom_type": "fungus",
       "foraging_class": "mushroom",
       "lane": "gilled",
-      "food_role": "caution",
-      "food_quality": "Common ID mushroom; not promoted as food",
+      "food_role": "warning / comparison",
+      "food_quality": "ID / caution group; not promoted as food",
       "food_quality_score": 1,
-      "edibility_status": "edible_with_caution_not_recommended",
-      "non_edible_severity": "caution",
+      "edibility_status": "warning_comparison",
+      "non_edible_severity": "Caution / not promoted as food",
       "danger_level": "caution",
       "review_status": "complete",
       "commonness": "Common",
       "commonness_score": 4,
-      "foraging_value": "Common ID / caution group",
+      "foraging_value": "ID / caution group",
       "foraging_value_score": 2,
       "months_available": [
         "May",
@@ -6374,7 +6381,7 @@
           "notes": "Clustered growth, mica-like granules, gills darkening to black, and black spore print."
         }
       ],
-      "mushroom_card_note": "Common clustered inky-cap group; useful for ID, not promoted as food.",
+      "mushroom_card_note": "Clustered inky-cap ID group; not promoted as food in this guide.",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinellus_micaceus_Glimmer-Tintling.jpg?width=480",
@@ -6419,7 +6426,11 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Coprinellus_micaceus_Glimmer-Tintling.jpg"
       ],
       "image_coverage_status": "verified_representative_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "use_roles": [
+        "ID / comparison",
+        "ID / caution"
+      ]
     }
   ]
 }

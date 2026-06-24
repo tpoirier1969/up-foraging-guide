@@ -1,15 +1,14 @@
 {
-  "version": "v4.3.166-r2026-06-24-edible-caution-route-organization1",
-  "display_version": "V4.3.166-r26-06-24",
-  "release": "v4.3.166",
-  "release_name": "edible-caution-route-organization1",
-  "cache_bust": "v4.3.166-r2026-06-24-edible-caution-route-organization1",
+  "version": "v4.3.167-r2026-06-24-edibility-field-alignment-cleanup1",
+  "display_version": "V4.3.167-r26-06-24",
+  "release": "v4.3.167",
+  "release_name": "edibility-field-alignment-cleanup1",
+  "cache_bust": "v4.3.167-r2026-06-24-edibility-field-alignment-cleanup1",
   "date": "2026-06-24",
   "notes": [
-    "Keeps legitimate edible-with-caution and edible-with-preparation mushrooms in normal edible routes; caution/prep remain warning badges and notes, not route blockers.",
-    "Blocks emergency-only, survival-only, medicinal-only, tea-extract-only, warning/comparison, and non-food-target records from normal edible mushroom routes while keeping them visible in appropriate caution, other-use, medicinal, search, or detail contexts.",
-    "Treats explicit warning/comparison use roles as non-food unless the record also has a real food/edible role or food-valid status.",
-    "Adds Food to the Uses tag for edible cards whose explicit use_roles only listed comparison context, so edible-with-caution records still read as food-valid while keeping comparison notes.",
-    "Includes the v4.3.165 Other Uses list-note behavior so this package can be applied over v4.3.164 if needed."
+    "Starts data-level alignment for the separated edible + caution/preparation/other-use model.",
+    "Normalizes selected warning/comparison and emergency-only records away from normal edible routing without suppressing useful records.",
+    "Keeps selected legitimate edible records food-valid while moving caution, young-only, prep, poor-quality, and comparison context into additive warning/card notes.",
+    "Clarifies selected plant records where ordinary edible use, medicinal/traditional tea, root/bark warnings, and emergency/other-use context were mixed together."
   ]
 }
