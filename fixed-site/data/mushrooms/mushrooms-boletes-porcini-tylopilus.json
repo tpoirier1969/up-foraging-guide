@@ -120,17 +120,17 @@
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
-      "general_notes": "",
+      "general_notes": "Source/status cleanup v4.3.170: record remains visible but review-needed; current attached data does not yet clear species-level edible use.",
       "record_type": "mushroom",
       "lane": "bolete",
-      "review_status": "ok",
+      "review_status": "needs_review",
       "host_filter_tokens": [
         "Softwood",
         "Pine",
         "Hardwood"
       ],
       "commonness": "Uncommon",
-      "food_quality": "Choice",
+      "food_quality": "Source-limited / expert ID only",
       "non_edible_severity": "",
       "commonness_score": 2,
       "food_quality_score": 5,
@@ -144,7 +144,7 @@
         "bitter-bolete",
         "blue-staining-red-pored-boletes-caution-group"
       ],
-      "edibility_detail": "Source-limited edible/caution entry. Use only when porcini-type traits are confirmed: pale pores, mild taste, firm flesh, and no red pore surface.",
+      "edibility_detail": "Source-limited edible/caution entry. Treat as review-needed until strong species-level non-Wikipedia morphology and edible-use support is attached. Use only when porcini-type traits are confirmed: pale pores, mild taste, firm flesh, and no red pore surface.",
       "food_role": "food",
       "edibility_status": "edible_with_caution",
       "field_identification": "Porcini-like bolete with whitish to yellow pores, firm white flesh, brown cap, and possible faint/limited blue staining. Compare against bitter Tylopilus and red/yellow boletes.",
@@ -167,12 +167,12 @@
       "look_alike_notes": "",
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "A porcini-type edible when confidently identified and in good condition.",
+      "edibility_notes": "A porcini-type edible by some accounts when confidently identified and in good condition, but this record is not source-cleared yet.",
       "edible_use": {
         "has_ingestible_use": true,
-        "method": "Food",
-        "preparation_required": false,
-        "notes": "Cook thoroughly; reject old, moldy, waterlogged, buggy, bitter, red-pored, or strongly blue-staining specimens."
+        "method": "Cooked food / expert ID only",
+        "preparation_required": true,
+        "notes": "Cook thoroughly; reject old, moldy, waterlogged, buggy, bitter, red-pored, or strongly blue-staining specimens. Source review remains pending."
       },
       "medicinal": {
         "has_meaningful_content": false,
@@ -222,13 +222,14 @@
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subcaerulescens%2035861.jpg?width=480",
       "safety": "Edible with caution",
       "food_value": "Choice",
-      "foraging_value": "Choice",
-      "quality_notes": "Porcini-type table value when firm, young, non-buggy, and correctly identified.",
+      "foraging_value": "Source-limited edible-caution; review needed",
+      "quality_notes": "Potential porcini-type table value only when firm, young, non-buggy, correctly identified, and supported by stronger source review.",
       "eating_use_notes": "Cook thoroughly; reject old, moldy, waterlogged, buggy, bitter, red-pored, or strongly blue-staining specimens.",
       "risk_reason": "Source review still pending for this uncommon porcini-type bolete; use only with expert-level confidence and reject bitter, red-pored, or strongly blue-staining boletes.",
       "hard_rule": "Use only when porcini-type traits are confirmed: pale pores, mild taste, firm flesh, and no red pore surface.",
       "use_roles": [
-        "Food"
+        "Food",
+        "ID / caution"
       ],
       "danger_level": "",
       "lookalike_risk": {
@@ -310,7 +311,8 @@
         "Boletus subcaerulescens",
         "Boletus edulis subsp. subcaerulescens",
         "Boletus separans var. subcaerulescens"
-      ]
+      ],
+      "needs_review": true
     },
     {
       "slug": "tylopilus-intermedius",
