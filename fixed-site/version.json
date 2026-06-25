@@ -1,15 +1,14 @@
 {
-  "version": "v4.3.175-r2026-06-25-mushroom-edibility-source-route-alignment1",
-  "display_version": "V4.3.175-r26-06-25",
-  "release": "v4.3.175",
-  "release_name": "mushroom-edibility-source-route-alignment1",
-  "cache_bust": "v4.3.175-r2026-06-25-mushroom-edibility-source-route-alignment1",
+  "version": "v4.3.176-r2026-06-25-visible-mushroom-image-rights-cleanup1",
+  "display_version": "V4.3.176-r26-06-25",
+  "release": "v4.3.176",
+  "release_name": "visible-mushroom-image-rights-cleanup1",
+  "cache_bust": "v4.3.176-r2026-06-25-visible-mushroom-image-rights-cleanup1",
   "date": "2026-06-25",
   "notes": [
-    "Demotes source-blocked Leccinum and porcini/bolete records from normal edible-food routing to ID/caution or ID/comparison framing until stronger mushroom edible-use support is attached.",
-    "Keeps legitimate edible-with-caution or edible-with-preparation records edible when the record is food-valid; caution, prep, expert-ID, young-only, and reaction warnings remain additive badges/notes rather than route blockers.",
-    "Fixes Birch Bolete / Leccinum scabrum preparation alignment so thorough cooking is represented as required while keeping the record edible-with-caution.",
-    "Normalizes review-needed flags on selected avoid/comparison boletes whose edibility status already said review-required.",
-    "Marks Old Man of the Woods as edible-young-with-caution while preserving source-review debt for edible-use support."
+    "Removes visible mushroom images whose stored rights metadata used inadequate Commons-only or “See Wikimedia Commons file page” license wording rather than exact file-page author/license/license-url details.",
+    "Clears dropped images from images, images_structured, detail_images, enlarge_images, and list_thumbnail for the affected records.",
+    "Keeps affected records visible and safely framed where appropriate; this package changes image exposure only and does not alter edible routing, toxicity status, source-review decisions, or route/classifier code.",
+    "Targets ghost-bolete, leccinum-insolens, leccinum-insolens-var-brunneo-maculatum, charcoal-burners-mild-flexible-gill-russulas, and hemileccinum-subglabripes."
   ]
 }
