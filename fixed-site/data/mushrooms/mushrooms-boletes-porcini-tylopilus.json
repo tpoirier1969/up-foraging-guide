@@ -13,8 +13,8 @@
     "split_parts_total": 4,
     "split_series": "data/mushrooms/mushrooms-boletes-porcini-tylopilus*.json",
     "source_group": "data/mushrooms/mushrooms-boletes-porcini-tylopilus",
-    "last_content_update": "v4.3.141-r2026-06-11-common-alias-source-cleanup1",
-    "last_content_update_date": "2026-06-11"
+    "last_content_update": "v4.3.178-r2026-06-25-porcini-bolete-source-upgrades1",
+    "last_content_update_date": "2026-06-25"
   },
   "records": [
     {
@@ -950,7 +950,8 @@
         9
       ],
       "links": [
-        "https://www.mushroomexpert.com/boletus_atkinsonii.html"
+        "https://www.mushroomexpert.com/boletus_atkinsonii.html",
+        "https://boletes.wpamushroomclub.org/product/boletus-atkinsonii/"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20atkinsonii%20630278.jpg",
@@ -961,7 +962,7 @@
       "mushroom_profile": {
         "scientific_name": "Boletus atkinsonii",
         "entry_scope": "species",
-        "edibility_status": "review_required",
+        "edibility_status": "edible_with_caution",
         "caution_level": "medium",
         "summary": "Eastern porcini-group bolete with wrinkled grayish-brown cap, hardwood association, white flesh, and a magenta/purple ammonia reaction on the cap.",
         "ecology": "bolete",
@@ -1026,8 +1027,8 @@
       "is_non_edible": false,
       "commonness": "Rare",
       "commonness_score": 1,
-      "food_quality": "Fair",
-      "food_quality_score": 3,
+      "food_quality": "Good to choice",
+      "food_quality_score": 4,
       "lane": "bolete",
       "look_alikes": [
         "false-king-bolete",
@@ -1038,10 +1039,10 @@
         "bitter-bolete"
       ],
       "general_notes": "",
-      "edibility_detail": "Good forage only after careful porcini-group confirmation.",
+      "edibility_detail": "Edible with expert-level porcini-group confirmation; do not use as a generic brown bolete.",
       "food_role": "food",
-      "needs_review": true,
-      "review_status": "needs_review",
+      "needs_review": false,
+      "review_status": "ok",
       "mushroom_card_note": "Eastern porcini-group bolete with wrinkled grayish-brown cap, hardwood association, white flesh, and a magenta/purple ammonia reaction on the cap.",
       "field_identification": "Porcini-type build, wrinkled or pocked grayish-brown cap, white pores becoming yellow/olive, prominent stem reticulation, white non-staining flesh, and hardwood association. Chemical reaction can help separate it from nearby edulis-like species.",
       "use_roles": [
@@ -1089,7 +1090,29 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20atkinsonii%20687057.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20atkinsonii%20347687.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20atkinsonii%20630278.jpg?width=480"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20atkinsonii%20630278.jpg?width=480",
+      "use_links": [
+        {
+          "label": "Bolete Filter / Western Pennsylvania Mushroom Club: Boletus atkinsonii",
+          "url": "https://boletes.wpamushroomclub.org/product/boletus-atkinsonii/",
+          "link_type": "edible_use_and_identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "regional bolete reference",
+          "notes": "Supports Michigan presence, oak/beech morphology, confusion with Boletus variipes-fagicola, chemical test notes, and edible-use as Choice."
+        }
+      ],
+      "edibility_status": "edible_with_caution",
+      "edible_use": {
+        "has_ingestible_use": true,
+        "method": "Food",
+        "preparation_required": false,
+        "notes": "Cook only confidently identified young, firm specimens; reject bitter, old, buggy, waterlogged, red-pored, or strongly blue-staining lookalikes."
+      },
+      "eating_use_notes": "Cook only confirmed young, firm specimens; reject bitter, old, buggy, waterlogged, red-pored, or strongly blue-staining lookalikes.",
+      "quality_notes": "Potentially useful porcini-group bolete when oak/beech habitat, field traits, and lookalike checks all fit; keep expert-ID framing.",
+      "safety": "Edible with caution",
+      "risk_reason": "Risk is confusing porcini-group boletes with bitter, red-pored, strongly blue-staining, or otherwise unsafe boletes.",
+      "hard_rule": "Do not use as a generic brown bolete; confirm the full porcini-group field-trait set before considering food use."
     },
     {
       "slug": "boletus-variipes-fagicola",
@@ -1110,7 +1133,8 @@
         10
       ],
       "links": [
-        "https://www.mushroomexpert.com/boletus_variipes.html"
+        "https://www.mushroomexpert.com/boletus_variipes.html",
+        "https://boletes.wpamushroomclub.org/product/boletus-variipes/"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20variipes%20531448.jpg",
@@ -1152,7 +1176,7 @@
         "spore_print": "",
         "season_note": "Late summer and fall under oaks and other eastern hardwoods.",
         "research_notes": [
-          "Needs source links and fuller field notes."
+          "v4.3.178: edible-use source support added from Bolete Filter / Western Pennsylvania Mushroom Club; keep expert-ID and condition cautions."
         ],
         "cap_surface": [
           "Dry to slightly tacky",
@@ -1233,6 +1257,14 @@
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
           "notes": "Oak/hardwood association, non-bruising pores, and reticulate stem."
+        },
+        {
+          "label": "Bolete Filter / Western Pennsylvania Mushroom Club: Boletus variipes",
+          "url": "https://boletes.wpamushroomclub.org/product/boletus-variipes/",
+          "link_type": "edible_use_and_identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "regional bolete reference",
+          "notes": "Supports Michigan presence, reticulate-stem porcini traits, var. fagicola as a darker cap/stem form, and edible-use as Choice."
         }
       ],
       "record_type": "mushroom",
@@ -1318,7 +1350,7 @@
       "safety": "Edible with caution",
       "food_value": "Good to choice",
       "foraging_value": "Good to choice",
-      "quality_notes": "Porcini ally with useful food value when reticulate stem, pale-to-yellow/olive pores, non-staining white flesh, and oak/hardwood habitat all fit.",
+      "quality_notes": "Porcini ally with edible-use source support when reticulate stem, pale-to-yellow/olive pores, non-staining white flesh, and oak/hardwood habitat all fit.",
       "eating_use_notes": "Cook confirmed young, firm specimens; reject bitter, old, buggy, or waterlogged specimens.",
       "risk_reason": "Risk is over-broad use of variable-stalk/porcini-like names without confirming reticulation, pores, flesh, taste, and host habitat.",
       "hard_rule": "Use the visible canonical record only when reticulate-stem and porcini-type traits are confirmed.",
@@ -1396,7 +1428,8 @@
       "data_flags": [
         "placeholder_image_removed"
       ],
-      "image_coverage_status": "verified_images"
+      "image_coverage_status": "verified_images",
+      "needs_review": false
     },
     {
       "slug": "bothia-castanella",
@@ -1555,7 +1588,8 @@
         9
       ],
       "links": [
-        "https://www.mushroomexpert.com/boletus_auripes.html"
+        "https://www.mushroomexpert.com/boletus_auripes.html",
+        "https://boletes.wpamushroomclub.org/product/boletus-auripes/"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20auripes%20245660.jpg",
@@ -1567,7 +1601,7 @@
       "mushroom_profile": {
         "scientific_name": "Boletus auripes",
         "entry_scope": "species",
-        "edibility_status": "review_required",
+        "edibility_status": "edible_with_caution",
         "caution_level": "medium",
         "summary": "Minimal bolete seed entry for Butter Foot Bolete.",
         "ecology": "bolete",
@@ -1597,7 +1631,7 @@
         "spore_print": "",
         "season_note": "July through September in hardwoods.",
         "research_notes": [
-          "Needs source links and fuller field notes."
+          "v4.3.178: edible-use source support added from Bolete Filter / Western Pennsylvania Mushroom Club; keep expert-ID and condition cautions."
         ],
         "cap_surface": [
           "Dry to slightly tacky",
@@ -1680,6 +1714,14 @@
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
           "notes": "Yellow stem, oak association, non-bruising yellow pores, and reticulation."
+        },
+        {
+          "label": "Bolete Filter / Western Pennsylvania Mushroom Club: Boletus auripes",
+          "url": "https://boletes.wpamushroomclub.org/product/boletus-auripes/",
+          "link_type": "edible_use_and_identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "regional bolete reference",
+          "notes": "Supports Michigan presence, yellow stem and yellow pore traits, non-staining behavior, chemical test notes, and edible-use as Choice."
         }
       ],
       "record_type": "mushroom",
@@ -1811,7 +1853,14 @@
         ]
       },
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20auripes%20245660.jpg?width=480",
-      "image_coverage_status": "verified_images"
+      "image_coverage_status": "verified_images",
+      "needs_review": false,
+      "use_roles": [
+        "Food"
+      ],
+      "quality_notes": "Good edible-use source support added; keep expert-ID framing around yellow stem, yellow pores, oak/hardwood habitat, fine reticulation, and non-staining flesh.",
+      "risk_reason": "Risk is confusion with red/orange-pored, blue-staining, bitter, or otherwise unsafe boletes.",
+      "hard_rule": "Do not use as a generic yellow bolete; confirm yellow stem, yellow pores, hardwood habitat, fine reticulation, and lack of blue bruising."
     }
   ]
 }
