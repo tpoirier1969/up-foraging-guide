@@ -1084,7 +1084,7 @@
       "display_name": "Suede Bolete",
       "common_name": "Suede Bolete",
       "category": "Mushroom",
-      "culinary_uses": "Sometimes treated as edible, but this guide keeps it cautious because the North American group is complex.",
+      "culinary_uses": "Do not use this app entry as a food recommendation. Keep it for recognition/comparison until source review is cleared.",
       "medicinal_uses": "",
       "notes": "",
       "months_available": [
@@ -1145,7 +1145,8 @@
         "spore_print": "",
         "season_note": "July through October in hardwoods.",
         "research_notes": [
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "Food-route demoted in v4.3.175 until stronger species-level edible-use support is attached."
         ],
         "lane": "bolete",
         "host_filter_tokens": [
@@ -1185,10 +1186,10 @@
       "is_medicinal": false,
       "is_non_edible": false,
       "commonness": "Occasional",
-      "food_quality": "Fair",
-      "food_role": "food",
-      "edibility_status": "edible_with_caution",
-      "edibility_detail": "Use only with confident ID; not a beginner target.",
+      "food_quality": "Not recommended until source-cleared",
+      "food_role": "avoid",
+      "edibility_status": "review_required",
+      "edibility_detail": "Do not eat from this app entry. Use it for recognition and comparison only until stronger species-level edible-use support is attached.",
       "field_identification": "Finely velvety yellowish to brown cap, yellow to olive-yellow pores, possible blue bruising, hardwood association, and reddish granules/ribbing near the stem apex.",
       "use_links": [
         {
@@ -1228,12 +1229,12 @@
       "other_uses": "",
       "edibility_notes": "Often listed as edible, but this is a species-group entry; use only young, firm specimens after careful ID.",
       "general_notes": "",
-      "non_edible_severity": "",
+      "non_edible_severity": "Caution / source review; not recommended as food",
       "edible_use": {
-        "has_ingestible_use": true,
-        "method": "Food",
+        "has_ingestible_use": false,
+        "method": "",
         "preparation_required": false,
-        "notes": "Often listed as edible, but this is a species-group entry; use only young, firm specimens after careful ID."
+        "notes": ""
       },
       "medicinal": {
         "has_meaningful_content": false,
@@ -1243,13 +1244,12 @@
         "warnings": ""
       },
       "needs_review": true,
-      "mushroom_card_note": "Suede Bolete group: velvety yellow-brown hardwood bolete with yellow pores and possible blue bruising; likely a species complex.",
+      "mushroom_card_note": "Suede Bolete group is kept as ID/comparison only until edible-use support for the North American aggregate is attached.",
       "use_roles": [
-        "Food",
         "ID / comparison"
       ],
-      "foraging_value": "Occasional / niche use",
-      "foraging_value_score": 2,
+      "foraging_value": "ID value / source review",
+      "foraging_value_score": 1,
       "v4288_checked": true,
       "images_structured": [
         {
@@ -1358,7 +1358,17 @@
         "blue-staining-red-pored-boletes-caution-group"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Xerocomus%20subtomentosus%20%282%29.JPG?width=480",
-      "image_coverage_status": "verified_images"
+      "image_coverage_status": "verified_images",
+      "food_quality_score": 1,
+      "recognition_only": true,
+      "safety": "Source review; do not eat from this app entry",
+      "food_value": "Recognition only / not a food target in this guide",
+      "danger_level": "Caution / source review; not recommended as food",
+      "eating_use_notes": "Do not use this app entry as a food recommendation.",
+      "hard_rule": "Do not eat from this app entry. Use it for recognition and comparison only until source review is cleared.",
+      "source_review_notes": [
+        "Source-blocked edible/caution claim normalized to comparison/ID use in v4.3.175; food route should remain off until strong mushroom source support is attached."
+      ]
     }
   ]
 }

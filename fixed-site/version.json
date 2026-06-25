@@ -1,14 +1,15 @@
 {
-  "version": "v4.3.174-r2026-06-24-safety-size-data-pass1",
-  "display_version": "V4.3.174-r26-06-24",
-  "release": "v4.3.174",
-  "release_name": "safety-size-data-pass1",
-  "cache_bust": "v4.3.174-r2026-06-24-safety-size-data-pass1",
-  "date": "2026-06-24",
+  "version": "v4.3.175-r2026-06-25-mushroom-edibility-source-route-alignment1",
+  "display_version": "V4.3.175-r26-06-25",
+  "release": "v4.3.175",
+  "release_name": "mushroom-edibility-source-route-alignment1",
+  "cache_bust": "v4.3.175-r2026-06-25-mushroom-edibility-source-route-alignment1",
+  "date": "2026-06-25",
   "notes": [
-    "Adds the first sourced Size / Scale data batch after universal size-detail support.",
-    "Targets high-danger mushroom warning/lookalike records with MushroomExpert-backed cap/stem measurements.",
-    "Adds high-priority plant and caution/lookalike measurements for Apiaceae, fiddleheads, cattail, and sassafras using extension, government, or botanical sources.",
-    "Does not change edible routing, toxicity status, medicinal claims, or source-review decisions; this is size/ID data only."
+    "Demotes source-blocked Leccinum and porcini/bolete records from normal edible-food routing to ID/caution or ID/comparison framing until stronger mushroom edible-use support is attached.",
+    "Keeps legitimate edible-with-caution or edible-with-preparation records edible when the record is food-valid; caution, prep, expert-ID, young-only, and reaction warnings remain additive badges/notes rather than route blockers.",
+    "Fixes Birch Bolete / Leccinum scabrum preparation alignment so thorough cooking is represented as required while keeping the record edible-with-caution.",
+    "Normalizes review-needed flags on selected avoid/comparison boletes whose edibility status already said review-required.",
+    "Marks Old Man of the Woods as edible-young-with-caution while preserving source-review debt for edible-use support."
   ]
 }
