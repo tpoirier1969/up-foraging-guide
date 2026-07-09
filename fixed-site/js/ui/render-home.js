@@ -209,26 +209,28 @@ export function renderHome(species, errors = [], rareSpecies = []) {
 
   return `
     <section class="home-page">
-      <section class="home-hero-row">
-        <section class="panel home-search-panel" aria-labelledby="homeSearchHeading">
-          <div class="home-section-kicker">Start here</div>
-          <h2 id="homeSearchHeading">Search the guide</h2>
+      <section class="home-hero-row home-hero-row-compact">
+        <section class="panel home-search-panel" aria-label="Search the guide">
           <div class="control-row home-search-row">
             <input id="homeSearch" type="search" value="" placeholder="Search plants, mushrooms, uses, cautions" autocomplete="off">
             <button id="homeSearchBtn" class="primary" type="button">Search</button>
           </div>
         </section>
 
-        <section class="home-safety-card home-safety-compact" aria-labelledby="homeSafetyHeading">
-          <div class="home-section-kicker">Safety</div>
-          <h3 id="homeSafetyHeading">Use this guide carefully</h3>
-          <p>Field guide only — verify ID, look-alikes, and preparation before eating.</p>
-          <details>
-            <summary>Read the full safety note</summary>
-            <p>This guide was made as a practical local reference, not a final authority. Treat unknown plants and mushrooms as unsafe until confirmed with multiple trusted sources.</p>
-            <p>Foraging mistakes can make you sick or worse, especially with mushrooms and toxic look-alikes. Confirm the exact species, edible part, season, and preparation before using anything.</p>
-            <p>Suggestions and corrections are welcome at <a href="mailto:tpoirier@nmu.edu">tpoirier@nmu.edu</a>.</p>
-          </details>
+        <section class="home-safety-card home-safety-compact" aria-label="Foraging safety note">
+          <p>Field guide only - verify ID and Preparation</p>
+          <button class="home-safety-link" type="button" onclick="document.getElementById('homeSafetyDialog')?.showModal()">Read the full safety note</button>
+          <dialog id="homeSafetyDialog" class="home-safety-dialog">
+            <article class="home-safety-dialog-card">
+              <h3>Use this guide carefully</h3>
+              <p>This guide was made as a practical local reference, not a final authority. Treat unknown plants and mushrooms as unsafe until confirmed with multiple trusted sources.</p>
+              <p>Foraging mistakes can make you sick or worse, especially with mushrooms and toxic look-alikes. Confirm the exact species, edible part, season, and preparation before using anything.</p>
+              <p>Suggestions and corrections are welcome at <a href="mailto:tpoirier@nmu.edu">tpoirier@nmu.edu</a>.</p>
+              <form method="dialog">
+                <button class="primary" type="submit">Close</button>
+              </form>
+            </article>
+          </dialog>
         </section>
       </section>
 
@@ -286,17 +288,6 @@ export function renderHome(species, errors = [], rareSpecies = []) {
           <div class="home-snapshot-chip"><strong>${otherUses.length}</strong><span>other uses</span></div>
           <div class="home-snapshot-chip"><strong>${caution.length}</strong><span>caution species</span></div>
           <div class="home-snapshot-chip"><strong>${Array.isArray(rareSpecies) ? rareSpecies.length : 0}</strong><span>rare entries</span></div>
-        </div>
-      </section>
-
-      <section class="panel home-browse-panel" aria-labelledby="homeBrowseHeading">
-        <div class="home-section-kicker">Browse</div>
-        <h3 id="homeBrowseHeading">Jump into the guide</h3>
-        <div class="home-browse-grid">
-          <a class="lane-card" href="#/plants"><strong>Plants</strong><span>Food, medicine, caution, and uses</span></a>
-          <a class="lane-card" href="#/mushrooms"><strong>Mushrooms</strong><span>Food-valid records, groups, and cautions</span></a>
-          <a class="lane-card" href="#/lookalikes"><strong>Caution</strong><span>Dangerous and confusing look-alikes</span></a>
-          <a class="lane-card" href="#/rare"><strong>Rare</strong><span>Protected and sensitive species</span></a>
         </div>
       </section>
 
