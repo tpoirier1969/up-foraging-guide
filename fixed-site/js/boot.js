@@ -1,10 +1,11 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
-const FALLBACK_VERSION_INFO = Object.freeze({
-  version: "dev",
-  display_version: "Version unavailable",
-  cache_bust: "dev"
+const BUNDLED_VERSION_INFO = Object.freeze({
+  version: "v4.3.185-r2026-07-09-version-badge-cache-guard1",
+  display_version: "V4.3.185-r26-07-09",
+  cache_bust: "v4.3.185-r2026-07-09-version-badge-cache-guard1"
 });
+const FALLBACK_VERSION_INFO = BUNDLED_VERSION_INFO;
 let APP_VERSION = FALLBACK_VERSION_INFO.version;
 let DISPLAY_VERSION = FALLBACK_VERSION_INFO.display_version;
 window.UP_FORAGING_APP_VERSION = APP_VERSION;
@@ -17,15 +18,40 @@ function esc(value) {
     .replaceAll(">", "&gt;");
 }
 
+function releaseNumber(value) {
+  const match = String(value || "").match(/v4\.3\.(\d+)/i);
+  return match ? Number(match[1]) : 0;
+}
+
+function chooseVersionInfo(info = {}) {
+  const loadedVersion = String(info?.version || info?.app_version || "").trim();
+  const loadedDisplayVersion = String(info?.display_version || info?.displayVersion || "").trim();
+  const loadedRelease = releaseNumber(loadedVersion || loadedDisplayVersion);
+  const bundledRelease = releaseNumber(BUNDLED_VERSION_INFO.version);
+
+  // If the server or browser hands back an older version.json, keep the bundled
+  // version so the badge cannot regress after first paint.
+  if (loadedRelease && bundledRelease && loadedRelease < bundledRelease) {
+    console.warn(`Ignoring stale version.json (${loadedVersion || loadedDisplayVersion}); bundled app is ${BUNDLED_VERSION_INFO.version}.`);
+    return BUNDLED_VERSION_INFO;
+  }
+
+  const version = loadedVersion || BUNDLED_VERSION_INFO.version;
+  return {
+    ...info,
+    version,
+    display_version: loadedDisplayVersion || version || BUNDLED_VERSION_INFO.display_version,
+    cache_bust: String(info?.cache_bust || info?.cacheBust || version || BUNDLED_VERSION_INFO.cache_bust).trim()
+  };
+}
+
 async function loadVersionInfo() {
   try {
     const response = await fetch(`version.json?ts=${Date.now()}`, { cache: "no-store" });
     if (!response.ok) throw new Error(`version.json returned HTTP ${response.status}`);
-    const info = await response.json();
-    const version = String(info?.version || info?.app_version || "").trim();
-    const displayVersion = String(info?.display_version || info?.displayVersion || "").trim();
-    APP_VERSION = version || FALLBACK_VERSION_INFO.version;
-    DISPLAY_VERSION = displayVersion || APP_VERSION || FALLBACK_VERSION_INFO.display_version;
+    const info = chooseVersionInfo(await response.json());
+    APP_VERSION = info.version || FALLBACK_VERSION_INFO.version;
+    DISPLAY_VERSION = info.display_version || APP_VERSION || FALLBACK_VERSION_INFO.display_version;
     window.UP_FORAGING_APP_VERSION = APP_VERSION;
     window.UP_FORAGING_DISPLAY_VERSION = DISPLAY_VERSION;
     return info;
@@ -104,6 +130,7 @@ function showVersion() {
 async function start() {
   setupImageAuditMode();
   setupMobileMenu();
+  showVersion();
   await loadVersionInfo();
   applyStaticAssetVersion(APP_VERSION);
   showVersion();

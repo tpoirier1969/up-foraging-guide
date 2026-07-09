@@ -1,15 +1,14 @@
 {
-  "version": "v4.3.184-r2026-07-09-other-use-review-category-clarity1",
-  "display_version": "V4.3.184-r26-07-09",
-  "release": "v4.3.184",
-  "release_name": "other-use-review-category-clarity1",
-  "cache_bust": "v4.3.184-r2026-07-09-other-use-review-category-clarity1",
+  "version": "v4.3.185-r2026-07-09-version-badge-cache-guard1",
+  "display_version": "V4.3.185-r26-07-09",
+  "release": "v4.3.185",
+  "release_name": "version-badge-cache-guard1",
+  "cache_bust": "v4.3.185-r2026-07-09-version-badge-cache-guard1",
   "date": "2026-07-09",
   "notes": [
-    "Tightens Other Uses routing so field-identification, look-alike, comparison, warning, and emergency/survival-only text does not create false Other Use entries.",
-    "Keeps true Other Uses for real non-food practical uses such as tinder, dye, fiber, pitch/resin, craft/material, drawing/scouring, and similar utility uses.",
-    "Hides false Other Uses text from detail pages unless the record has a real practical other-use signal; affected records remain visible through their existing normal routes such as Caution, ID/comparison, food, medicinal, or search.",
-    "Adds short explanatory text to the Other Uses and Needs Review pages to clarify that Other Uses means real practical uses and Needs Review is a work queue, not a species type.",
-    "No species records, edible statuses, toxicity statuses, medicinal action fields, map features, or image fields changed."
+    "Hotfixes the visible version badge so it cannot regress to an older installed version if the browser, server, or CDN returns stale version.json during startup.",
+    "Adds a bundled version floor in fixed-site/js/boot.js and shows the bundled version immediately before the version.json fetch completes.",
+    "Adds a version query to the boot.js script tag in index.html to force the updated boot loader to be fetched.",
+    "No species records, route/category logic, data JSON, image fields, UI layout, color scheme, edible statuses, medicinal fields, or map features changed."
   ]
 }
