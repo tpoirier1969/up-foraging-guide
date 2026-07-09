@@ -1,9 +1,9 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
 const BUNDLED_VERSION_INFO = Object.freeze({
-  version: "v4.3.185-r2026-07-09-version-badge-cache-guard1",
-  display_version: "V4.3.185-r26-07-09",
-  cache_bust: "v4.3.185-r2026-07-09-version-badge-cache-guard1"
+  version: "v4.3.186-r2026-07-09-earth-leaf-color-tune1",
+  display_version: "V4.3.186-r26-07-09",
+  cache_bust: "v4.3.186-r2026-07-09-earth-leaf-color-tune1"
 });
 const FALLBACK_VERSION_INFO = BUNDLED_VERSION_INFO;
 let APP_VERSION = FALLBACK_VERSION_INFO.version;

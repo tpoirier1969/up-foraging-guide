@@ -1,14 +1,15 @@
 {
-  "version": "v4.3.185-r2026-07-09-version-badge-cache-guard1",
-  "display_version": "V4.3.185-r26-07-09",
-  "release": "v4.3.185",
-  "release_name": "version-badge-cache-guard1",
-  "cache_bust": "v4.3.185-r2026-07-09-version-badge-cache-guard1",
+  "version": "v4.3.186-r2026-07-09-earth-leaf-color-tune1",
+  "display_version": "V4.3.186-r26-07-09",
+  "release": "v4.3.186",
+  "release_name": "earth-leaf-color-tune1",
+  "cache_bust": "v4.3.186-r2026-07-09-earth-leaf-color-tune1",
   "date": "2026-07-09",
   "notes": [
-    "Hotfixes the visible version badge so it cannot regress to an older installed version if the browser, server, or CDN returns stale version.json during startup.",
-    "Adds a bundled version floor in fixed-site/js/boot.js and shows the bundled version immediately before the version.json fetch completes.",
-    "Adds a version query to the boot.js script tag in index.html to force the updated boot loader to be fetched.",
-    "No species records, route/category logic, data JSON, image fields, UI layout, color scheme, edible statuses, medicinal fields, or map features changed."
+    "Color-only UI follow-up after v4.3.185: removes the tan-to-light-green page gradient and switches the app background to a solid dirt-brown tone.",
+    "Retunes main app panels to a light-leaf-green medium surface and detail/modal surfaces to a lighter leaf-green surface.",
+    "Uses sky blue as the secondary light accent for inputs, support badges, image placeholders, and other places that need a lighter contrast color.",
+    "Updates the boot.js bundled version floor and index.html boot query so the version badge remains aligned with the installed package.",
+    "No species records, route/category logic, edible statuses, toxicity statuses, medicinal fields, image fields, map features, or home-page structure changed."
   ]
 }
