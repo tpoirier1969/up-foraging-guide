@@ -111,8 +111,8 @@ function stableSeasonRank(record) {
   const cautionScore = info.caution ? 2 : 0;
   const reviewScore = record?.needs_review || record?.review_status === "needs_review" ? 1 : 0;
   const imageScore = hasPreferredImageCandidate(record) ? 0 : 1;
-  const mushroomBonus = info.isMushroom ? 0 : 0.1;
-  return `${cautionScore}${reviewScore}${imageScore}${mushroomBonus}-${name}`;
+  const plantBonus = info.isPlant ? 0 : 0.1;
+  return `${cautionScore}${reviewScore}${imageScore}${plantBonus}-${name}`;
 }
 
 function isHighlightCandidate(record, month) {
@@ -150,7 +150,6 @@ function pickHighlights(species, month) {
   const highlights = [];
   takeUnique(highlights, plantCandidates, 4);
   takeUnique(highlights, mushroomCandidates, 8);
-  takeUnique(highlights, plantCandidates, 8);
   takeUnique(highlights, allCandidates, 8);
   return highlights.slice(0, 8);
 }
@@ -174,84 +173,81 @@ function recordCautionLabel(record) {
   return "In season";
 }
 
+function dashboardTile({ value, label, href, icon = "•", tone = "" }) {
+  return `
+    <a class="home-dashboard-tile ${esc(tone)}" href="${esc(href)}">
+      <span class="home-dashboard-icon" aria-hidden="true">${esc(icon)}</span>
+      <strong>${esc(value)}</strong>
+      <span>${esc(label)}</span>
+    </a>
+  `;
+}
+
 export function renderHome(species, errors = [], rareSpecies = []) {
   const month = currentMonthName();
 
-  const plants = (species || []).filter((record) => {
+  const activeRecords = (species || []).filter((record) => !record?.hidden);
+
+  const plants = activeRecords.filter((record) => {
     const info = classifyRecord(record);
-    return !record?.hidden && info.isPlant && info.edible;
+    return info.isPlant && info.edible;
   });
 
-  const mushrooms = (species || []).filter((record) => {
+  const mushrooms = activeRecords.filter((record) => {
     const info = classifyRecord(record);
-    return !record?.hidden && info.isMushroom && info.edible;
+    return info.isMushroom && info.edible;
   });
 
   const plantsInSeason = plants.filter((record) => isInSeason(record, month));
   const mushroomsInSeason = mushrooms.filter((record) => isInSeason(record, month));
 
-  const medicinal = (species || []).filter((record) => {
-    if (record?.hidden) return false;
-    return classifyRecord(record).medicinal;
-  });
-
-  const otherUses = (species || []).filter((record) => {
-    if (record?.hidden) return false;
-    return classifyRecord(record).otherUses;
-  });
-
-  const caution = (species || []).filter((record) => {
-    if (record?.hidden) return false;
-    return classifyRecord(record).caution;
-  });
-
+  const medicinal = activeRecords.filter((record) => classifyRecord(record).medicinal);
+  const otherUses = activeRecords.filter((record) => classifyRecord(record).otherUses);
+  const caution = activeRecords.filter((record) => classifyRecord(record).caution);
   const highlights = pickHighlights(species, month);
+  const rareCount = Array.isArray(rareSpecies) ? rareSpecies.length : 0;
 
   return `
-    <section class="home-page">
-      <section class="home-hero-row home-hero-row-compact">
-        <section class="panel home-search-panel" aria-label="Search the guide">
-          <div class="control-row home-search-row">
-            <input id="homeSearch" type="search" value="" placeholder="Search plants, mushrooms, uses, cautions" autocomplete="off">
-            <button id="homeSearchBtn" class="primary" type="button">Search</button>
+    <section class="home-page option-one-home">
+      <section class="home-dashboard-panel" aria-label="Foraging guide dashboard">
+        <div class="home-dashboard-hero">
+          <div>
+            <div class="home-section-kicker">Upper Michigan</div>
+            <h2>Foraging Guide</h2>
+            <p>Plants, mushrooms, medicinal traditions, caution records, and practical uses — organized for safer field reference.</p>
           </div>
-        </section>
+          <form class="home-search-form" onsubmit="event.preventDefault();document.getElementById('homeSearchBtn')?.click();">
+            <input id="homeSearch" type="search" value="" placeholder="Search plants, mushrooms, uses, cautions" autocomplete="off">
+            <button id="homeSearchBtn" class="primary" type="submit" aria-label="Search the guide">Search</button>
+          </form>
+        </div>
 
-        <section class="home-safety-card home-safety-compact" aria-label="Foraging safety note">
-          <p>Field guide only - verify ID and Preparation</p>
-          <button class="home-safety-link" type="button" onclick="document.getElementById('homeSafetyDialog')?.showModal()">Read the full safety note</button>
-          <dialog id="homeSafetyDialog" class="home-safety-dialog">
-            <article class="home-safety-dialog-card">
-              <h3>Use this guide carefully</h3>
-              <p>This guide was made as a practical local reference, not a final authority. Treat unknown plants and mushrooms as unsafe until confirmed with multiple trusted sources.</p>
-              <p>Foraging mistakes can make you sick or worse, especially with mushrooms and toxic look-alikes. Confirm the exact species, edible part, season, and preparation before using anything.</p>
-              <p>Suggestions and corrections are welcome at <a href="mailto:tpoirier@nmu.edu">tpoirier@nmu.edu</a>.</p>
-              <form method="dialog">
-                <button class="primary" type="submit">Close</button>
-              </form>
-            </article>
-          </dialog>
-        </section>
-      </section>
+        <div class="home-dashboard-grid" aria-label="Guide sections and counts">
+          ${dashboardTile({ value: activeRecords.length, label: "guide records", href: "#/search", icon: "⌕" })}
+          ${dashboardTile({ value: plants.length, label: "edible plants", href: "#/plants", icon: "☘" })}
+          ${dashboardTile({ value: mushrooms.length, label: "edible mushrooms", href: "#/mushrooms", icon: "△" })}
+          ${dashboardTile({ value: medicinal.length, label: "medicinal", href: "#/medicinal", icon: "✚" })}
+          ${dashboardTile({ value: caution.length, label: "caution", href: "#/lookalikes", icon: "!", tone: "warn" })}
+          ${dashboardTile({ value: otherUses.length, label: "other uses", href: "#/other-uses", icon: "✦" })}
+        </div>
 
-      <section class="panel home-season-panel" aria-labelledby="homeSeasonHeading">
-        <div class="home-season-heading">
+        <div class="home-season-heading home-option-heading">
           <div>
             <div class="home-section-kicker">${esc(month)}</div>
-            <h2 id="homeSeasonHeading">Species in Season</h2>
-            <p class="results-meta">Likely current-season edible plants and mushrooms. Confirm ID and preparation before using.</p>
+            <h3>Likely in season now</h3>
+            <p class="results-meta">Edible plant and mushroom records with image coverage. Verify ID, part, season, and preparation before use.</p>
           </div>
           <div class="home-season-actions">
-            <a class="buttonish primary" href="#/mushrooms-in-season">View mushrooms in season</a>
+            <a class="buttonish primary" href="#/mushrooms-in-season">Mushrooms in season</a>
             <a class="buttonish" href="#/plants">Browse plants</a>
           </div>
         </div>
 
         ${highlights.length ? `
-          <div class="home-season-grid">
+          <div class="home-season-grid home-option-card-grid">
             ${highlights.map((record) => `
               <button
-                class="home-season-card"
+                class="home-season-card home-option-species-card"
                 type="button"
                 data-detail="${esc(record.slug)}"
                 aria-label="Open details for ${esc(record.display_name || record.common_name || record.slug || "Untitled")}" 
@@ -272,23 +268,35 @@ export function renderHome(species, errors = [], rareSpecies = []) {
         `}
       </section>
 
-      <section class="panel home-snapshot-panel" aria-labelledby="homeSnapshotHeading">
-        <div class="home-snapshot-heading">
-          <div>
-            <div class="home-section-kicker">At a glance</div>
-            <h3 id="homeSnapshotHeading">Guide Snapshot</h3>
+      <section class="home-support-row" aria-label="Safety and quick context">
+        <section class="home-safety-card home-safety-compact option-one-safety" aria-label="Foraging safety note">
+          <p>Field guide only — verify ID and preparation.</p>
+          <button class="home-safety-link" type="button" onclick="document.getElementById('homeSafetyDialog')?.showModal()">Read the full safety note</button>
+          <dialog id="homeSafetyDialog" class="home-safety-dialog">
+            <article class="home-safety-dialog-card">
+              <h3>Use this guide carefully</h3>
+              <p>This guide was made as a practical local reference, not a final authority. Treat unknown plants and mushrooms as unsafe until confirmed with multiple trusted sources.</p>
+              <p>Foraging mistakes can make you sick or worse, especially with mushrooms and toxic look-alikes. Confirm the exact species, edible part, season, and preparation before using anything.</p>
+              <p>Suggestions and corrections are welcome at <a href="mailto:tpoirier@nmu.edu">tpoirier@nmu.edu</a>.</p>
+              <form method="dialog">
+                <button class="primary" type="submit">Close</button>
+              </form>
+            </article>
+          </dialog>
+        </section>
+        <section class="panel home-snapshot-panel option-one-snapshot" aria-labelledby="homeSnapshotHeading">
+          <div class="home-snapshot-heading">
+            <div>
+              <div class="home-section-kicker">At a glance</div>
+              <h3 id="homeSnapshotHeading">Current guide balance</h3>
+            </div>
           </div>
-        </div>
-        <div class="home-snapshot-strip" aria-label="Guide counts">
-          <div class="home-snapshot-chip"><strong>${plantsInSeason.length}</strong><span>plants in season</span></div>
-          <div class="home-snapshot-chip"><strong>${mushroomsInSeason.length}</strong><span>mushrooms in season</span></div>
-          <div class="home-snapshot-chip"><strong>${plants.length}</strong><span>edible plants</span></div>
-          <div class="home-snapshot-chip"><strong>${mushrooms.length}</strong><span>edible mushrooms</span></div>
-          <div class="home-snapshot-chip"><strong>${medicinal.length}</strong><span>medicinal species</span></div>
-          <div class="home-snapshot-chip"><strong>${otherUses.length}</strong><span>other uses</span></div>
-          <div class="home-snapshot-chip"><strong>${caution.length}</strong><span>caution species</span></div>
-          <div class="home-snapshot-chip"><strong>${Array.isArray(rareSpecies) ? rareSpecies.length : 0}</strong><span>rare entries</span></div>
-        </div>
+          <div class="home-snapshot-strip" aria-label="Guide counts">
+            <div class="home-snapshot-chip"><strong>${plantsInSeason.length}</strong><span>plants in season</span></div>
+            <div class="home-snapshot-chip"><strong>${mushroomsInSeason.length}</strong><span>mushrooms in season</span></div>
+            <div class="home-snapshot-chip"><strong>${rareCount}</strong><span>rare entries</span></div>
+          </div>
+        </section>
       </section>
 
       ${errors.length ? `

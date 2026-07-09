@@ -1,9 +1,9 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
 const BUNDLED_VERSION_INFO = Object.freeze({
-  version: "v4.3.190-r2026-07-09-texture-correction1",
-  display_version: "V4.3.190-r26-07-09",
-  cache_bust: "v4.3.190-r2026-07-09-texture-correction1"
+  version: "v4.3.191-r2026-07-09-option-one-ui-foundation1",
+  display_version: "V4.3.191-r26-07-09",
+  cache_bust: "v4.3.191-r2026-07-09-option-one-ui-foundation1"
 });
 const FALLBACK_VERSION_INFO = BUNDLED_VERSION_INFO;
 let APP_VERSION = FALLBACK_VERSION_INFO.version;
