@@ -3,7 +3,7 @@ import { MEDICINAL_VOCAB } from "./data/medicinal-vocabulary.js";
 import { renderPage, openModal, closeModal, els } from "./ui/dom.js";
 import { markActiveNav } from "./ui/nav.js";
 import { esc } from "./lib/escape.js";
-import { isEdibleForSection } from "./lib/merge.js";
+import { classifyRecord, getMedicinalData, isEdibleForSection } from "./lib/merge.js";
 
 const APP_VERSION = new URL(import.meta.url).searchParams.get("v") || window.UP_FORAGING_APP_VERSION || "dev";
 const REVIEW_STORAGE_KEY = "foraging_review_overlay_v1";
@@ -177,6 +177,55 @@ function optionHtml(values, current, blankLabel) {
     .join("");
 }
 
+function medicinalOptionCounts(records = [], getter = () => []) {
+  const counts = new Map();
+  for (const record of records || []) {
+    if (record?.hidden || !classifyRecord(record).medicinal) continue;
+    const values = getter(getMedicinalData(record)) || [];
+    for (const value of values) {
+      const cleanValue = String(value || "").trim();
+      if (!cleanValue) continue;
+      counts.set(cleanValue, (counts.get(cleanValue) || 0) + 1);
+    }
+  }
+  return counts;
+}
+
+function medicinalOptionsFromCounts(counts = new Map(), preferredOrder = [], selected = "") {
+  const order = new Map((preferredOrder || []).map((value, index) => [String(value || ""), index]));
+  const values = [...counts.keys()].sort((a, b) => {
+    const ai = order.has(a) ? order.get(a) : Number.MAX_SAFE_INTEGER;
+    const bi = order.has(b) ? order.get(b) : Number.MAX_SAFE_INTEGER;
+    if (ai !== bi) return ai - bi;
+    return String(a).localeCompare(String(b));
+  });
+  const options = values.map((value) => ({ value, label: `${value} (${counts.get(value) || 0})` }));
+  if (selected && !counts.has(selected)) options.push({ value: selected, label: `${selected} (0)` });
+  return options;
+}
+
+function medicinalFilterFields() {
+  const records = state.species || [];
+  return {
+    actions: medicinalOptionsFromCounts(
+      medicinalOptionCounts(records, (medicinal) => medicinal.actions),
+      MEDICINAL_VOCAB.actions,
+      state.filters.medicinalAction
+    ),
+    systems: medicinalOptionsFromCounts(
+      medicinalOptionCounts(records, (medicinal) => medicinal.body_systems),
+      MEDICINAL_VOCAB.bodySystems,
+      state.filters.medicinalSystem
+    ),
+    terms: medicinalOptionsFromCounts(
+      medicinalOptionCounts(records, (medicinal) => medicinal.medical_terms),
+      MEDICINAL_VOCAB.symptoms,
+      state.filters.medicinalTerm
+    )
+  };
+}
+
+
 const PLANT_TRAIT_FILTER_KEYS = [
   "plantMonth", "plantPart", "plantHabitat", "plantSize", "plantTaste",
   "plantFlowerColor", "plantFruitColor", "plantLeafShape", "plantLeafArrangement", "plantStem",
@@ -322,25 +371,35 @@ function controlsHtml(route = "general", placeholder = "Search species", filterF
   const search = state.filters.search || "";
   const sortControls = renderSortControls(route);
   if (route === "medicinal") {
+    const medicinalFilters = medicinalFilterFields();
+    const activeFilters = state.filters.medicinalAction || state.filters.medicinalSystem || state.filters.medicinalTerm;
+    const filterCells = [
+      medicinalFilters.actions.length ? `
+        <div class="medicinal-filter-cell">
+          <label for="medicinalActionFilter" class="muted small">Source-supported action</label>
+          <select id="medicinalActionFilter" style="width:100%">${optionHtml(medicinalFilters.actions, state.filters.medicinalAction, "Any action")}</select>
+        </div>` : "",
+      medicinalFilters.systems.length ? `
+        <div class="medicinal-filter-cell">
+          <label for="medicinalSystemFilter" class="muted small">Body system</label>
+          <select id="medicinalSystemFilter" style="width:100%">${optionHtml(medicinalFilters.systems, state.filters.medicinalSystem, "Any body system")}</select>
+        </div>` : "",
+      medicinalFilters.terms.length ? `
+        <div class="medicinal-filter-cell">
+          <label for="medicinalTermFilter" class="muted small">Medical term / caution</label>
+          <select id="medicinalTermFilter" style="width:100%">${optionHtml(medicinalFilters.terms, state.filters.medicinalTerm, "Any medical term")}</select>
+        </div>` : ""
+    ].filter(Boolean).join("");
+
     return `
       <section class="panel">
-        <div class="medicinal-filter-row">
-          <div class="medicinal-filter-cell">
-            <label for="medicinalActionFilter" class="muted small">Action</label>
-            <select id="medicinalActionFilter" style="width:100%">${optionHtml(MEDICINAL_VOCAB.actions, state.filters.medicinalAction, "Any action")}</select>
-          </div>
-          <div class="medicinal-filter-cell">
-            <label for="medicinalSystemFilter" class="muted small">Body system</label>
-            <select id="medicinalSystemFilter" style="width:100%">${optionHtml(MEDICINAL_VOCAB.bodySystems, state.filters.medicinalSystem, "Any body system")}</select>
-          </div>
-          <div class="medicinal-filter-cell">
-            <label for="medicinalTermFilter" class="muted small">Medical term</label>
-            <select id="medicinalTermFilter" style="width:100%">${optionHtml(MEDICINAL_VOCAB.symptoms, state.filters.medicinalTerm, "Any medical term")}</select>
-          </div>
+        <div class="medicinal-filter-row medicinal-filter-row-live">
+          ${filterCells || `<p class="muted small" style="margin:0;">No source-supported medicinal action filters are ready yet. Medicinal/traditional records can still appear below without action tags.</p>`}
           <div class="medicinal-filter-actions">
-            ${(state.filters.medicinalAction || state.filters.medicinalSystem || state.filters.medicinalTerm) ? `<button id="speciesClearBtn" type="button">Clear</button>` : ""}
+            ${activeFilters ? `<button id="speciesClearBtn" type="button">Clear</button>` : ""}
           </div>
         </div>
+        <p class="muted small" style="margin:.65rem 0 0;">Action filters show only structured, source-supported tags. Traditional-use records without sourced action tags remain visible but are not force-fit into medical categories.</p>
       </section>
       ${sortControls}
     `;

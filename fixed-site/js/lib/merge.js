@@ -39,6 +39,25 @@ const PLACEHOLDER_MEDICINAL_PATTERNS = [
   /^mostly culinary\.?$/,
   /^mainly culinary\.?$/,
   /^primarily culinary curiosity\.?$/,
+  /^primarily culinary in this guide\.?$/,
+  /^primarily culinary\/id interest in this guide\.?$/,
+  /^primarily a food(?: |$)/,
+  /^mostly a food(?: |$)/,
+  /^mostly fruit use(?: |$)/,
+  /^mostly a fruit(?: |$)/,
+  /^mainly a food(?: |$)/,
+  /^mainly fruit(?: |$)/,
+  /^not treated as a medicinal plant in this guide\.?$/,
+  /^not treated as a medicinal plant(?: |$)/,
+  /^no practical medicinal use(?: in this guide)?\.?$/,
+  /^mostly culinary here\.?$/,
+  /^mostly a flavoring green here\.?$/,
+  /^mostly a food weed here\.?$/,
+  /^mostly a fruit entry\.?$/,
+  /^primarily a fruit(?: tree| shrub| vine| entry)?\.?$/,
+  /^primarily a food berry(?: group| entry)?\.?$/,
+  /^mostly a food berry(?: group| species| entry)?(?: in this guide| here)?\.?$/,
+  /^mostly fruit use in this guide\.?$/,
   /^minimal food-medicine importance(?: in this context)?\.?$/,
   /^mostly of curiosity or minor traditional interest rather than a major local food species\.?$/,
   /^mostly culinary, though related species are used in traditional food-medicine contexts\.?$/,
@@ -284,24 +303,117 @@ function deriveRareProfile(record) {
   return hasAny ? profile : null;
 }
 
+
+function medicinalRoleSignals(record = {}) {
+  const roleText = [
+    record.food_role,
+    record.edibility_status,
+    record.primary_use,
+    record.use_type,
+    ...(ensureArray(record.use_roles)),
+    ...(ensureArray(record.use_tags))
+  ].join(" ").toLowerCase();
+  return /\b(medicinal|traditional medicine|traditional use|medicinal_only|medicinal tea|medicinal\/traditional|tea_extract_only|non_culinary_tea_use|non-culinary tea|\bm\b)\b/.test(roleText);
+}
+
+const MEDICINAL_ACTION_ALIASES = new Map([
+  ["anti inflammatory", "Anti-inflammatory"],
+  ["anti-inflammatory", "Anti-inflammatory"],
+  ["antimicrobial", "Antimicrobial"],
+  ["antibacterial", "Antimicrobial"],
+  ["antifungal", "Antimicrobial"],
+  ["antioxidant", "Antioxidant"],
+  ["immune support", "Immune support"],
+  ["immune-support", "Immune support"],
+  ["immunomodulating", "Immune support"],
+  ["immune modulating", "Immune support"],
+  ["immune-modulating", "Immune support"],
+  ["immunomodulatory", "Immune support"],
+  ["digestive support", "Digestive support"],
+  ["respiratory support", "Respiratory support"],
+  ["circulatory support", "Circulatory support"],
+  ["nervous system support", "Nervous system support"],
+  ["analgesic", "Analgesic / pain relief"],
+  ["pain relief", "Analgesic / pain relief"],
+  ["astringent", "Astringent"],
+  ["diuretic", "Diuretic / urinary support"],
+  ["diuretic / urinary support", "Diuretic / urinary support"],
+  ["tonic", "Tonic / restorative"],
+  ["restorative", "Tonic / restorative"],
+  ["tonic / restorative", "Tonic / restorative"],
+  ["vulnerary", "Vulnerary / wound support"],
+  ["wound support", "Vulnerary / wound support"],
+  ["vulnerary / wound support", "Vulnerary / wound support"],
+  ["sedative", "Sedative / calming"],
+  ["calming", "Sedative / calming"],
+  ["stimulant", "Stimulant"],
+  ["warming", "Warming"],
+  ["cooling", "Cooling"],
+  ["antiviral", "Antiviral"],
+  ["demulcent", "Demulcent / soothing"],
+  ["soothing", "Demulcent / soothing"],
+  ["carminative", "Carminative / gas relief"],
+  ["gas relief", "Carminative / gas relief"],
+  ["nutritive", "Nutritive / nutrient-dense"],
+  ["nutrient dense", "Nutritive / nutrient-dense"],
+  ["nutritive / nutrient-dense", "Nutritive / nutrient-dense"],
+  ["prebiotic", "Prebiotic / gut support"],
+  ["liver support", "Liver support"],
+  ["women's health support", "Women's health support"],
+  ["womens health support", "Women's health support"],
+  ["expectorant", "Expectorant / decongestant"],
+  ["decongestant", "Expectorant / decongestant"]
+]);
+
+function normalizeMedicinalActionLabel(value = "") {
+  const raw = String(value || "").replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
+  if (!raw) return "";
+  const key = raw.toLowerCase();
+  if (/preliminary metabolic support|metabolic support/.test(key)) return "";
+  return MEDICINAL_ACTION_ALIASES.get(key) || raw;
+}
+
+function sourceSupportedMedicinalActions(record = {}, existing = {}) {
+  const evidence = String(existing.evidence_tier || record.medicinal_evidence_tier || "").toLowerCase();
+  const linkText = [
+    ...(ensureArray(record.use_links)),
+    ...(ensureArray(record.links))
+  ].map((item) => typeof item === "string" ? item : [item?.label, item?.url, item?.source_quality, item?.notes, item?.link_type].join(" ")).join(" ").toLowerCase();
+  const sourceSignals = /memorial sloan|mskcc|nih|pubmed|ncbi|review article|clinical|peer[- ]?review|research background|source_quality.*(?:medical|peer|review)|traditional use \/ preclinical/.test(`${evidence} ${linkText}`);
+  return sourceSignals;
+}
+
+function normalizeMedicinalActions(values = [], record = {}, existing = {}) {
+  if (!sourceSupportedMedicinalActions(record, existing)) return [];
+  return uniq(ensureArray(values).map(normalizeMedicinalActionLabel).filter(Boolean));
+}
+
 function deriveMedicinal(record) {
+  const roleSignals = medicinalRoleSignals(record);
+  const legacyActionsRaw = uniq(record.medicinalAction);
+  const legacyBodySystems = uniq(record.medicinalSystem);
+  const legacyMedicalTerms = uniq(record.medicinalTerms);
+  const legacySummary = hasRealMedicinalText(record.medicinal_uses) ? cleanUserFacingText(record.medicinal_uses) : "";
+
   if (record.medicinal && typeof record.medicinal === "object") {
     const existing = record.medicinal;
-    const actions = uniq(existing.actions);
-    const bodySystems = uniq(existing.body_systems);
-    const medicalTerms = uniq(existing.medical_terms);
-    const claims = Array.isArray(existing.claims) ? existing.claims : [];
-    const summary = hasRealMedicinalText(existing.summary) ? cleanUserFacingText(existing.summary) : "";
+    const summary = hasRealMedicinalText(existing.summary) ? cleanUserFacingText(existing.summary) : legacySummary;
     const preparationNotes = cleanUserFacingText(existing.preparation_notes);
     const warnings = cleanUserFacingText(existing.warnings);
-    const hasMeaningful = existing.has_meaningful_content === true
-      || !!summary
+    const claims = Array.isArray(existing.claims) ? existing.claims : [];
+    const rawActions = existing.actions !== undefined ? existing.actions : legacyActionsRaw;
+    const structuredTagsSupported = sourceSupportedMedicinalActions(record, existing);
+    const actions = normalizeMedicinalActions(rawActions, record, existing);
+    const bodySystems = structuredTagsSupported ? uniq(existing.body_systems !== undefined ? existing.body_systems : legacyBodySystems) : [];
+    const medicalTerms = structuredTagsSupported ? uniq(existing.medical_terms !== undefined ? existing.medical_terms : legacyMedicalTerms) : [];
+    const hasMeaningful = !!summary
       || actions.length > 0
       || bodySystems.length > 0
       || medicalTerms.length > 0
       || claims.length > 0
       || !!preparationNotes
-      || !!warnings;
+      || !!warnings
+      || roleSignals;
 
     return {
       has_meaningful_content: hasMeaningful,
@@ -317,16 +429,16 @@ function deriveMedicinal(record) {
     };
   }
 
-  const actions = uniq(record.medicinalAction);
-  const bodySystems = uniq(record.medicinalSystem);
-  const medicalTerms = uniq(record.medicinalTerms);
-  const summary = hasRealMedicinalText(record.medicinal_uses) ? cleanUserFacingText(record.medicinal_uses) : "";
+  const structuredTagsSupported = sourceSupportedMedicinalActions(record, {});
+  const actions = normalizeMedicinalActions(legacyActionsRaw, record, {});
+  const bodySystems = structuredTagsSupported ? legacyBodySystems : [];
+  const medicalTerms = structuredTagsSupported ? legacyMedicalTerms : [];
+  const summary = legacySummary;
   const hasMeaningful = !!summary
     || actions.length > 0
     || bodySystems.length > 0
     || medicalTerms.length > 0
-    || record.primary_use === "medicinal"
-    || record.food_role === "medicinal_only";
+    || roleSignals;
 
   return {
     has_meaningful_content: hasMeaningful,
