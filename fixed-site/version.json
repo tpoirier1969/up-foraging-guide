@@ -1,15 +1,15 @@
 {
-  "version": "v4.3.189-r2026-07-09-medicinal-action-ui-hotfix1",
-  "display_version": "V4.3.189-r26-07-09",
-  "release": "v4.3.189",
-  "release_name": "medicinal-action-ui-hotfix1",
-  "cache_bust": "v4.3.189-r2026-07-09-medicinal-action-ui-hotfix1",
+  "version": "v4.3.190-r2026-07-09-texture-correction1",
+  "display_version": "V4.3.190-r26-07-09",
+  "release": "v4.3.190",
+  "release_name": "texture-correction1",
+  "cache_bust": "v4.3.190-r2026-07-09-texture-correction1",
   "date": "2026-07-09",
   "notes": [
-    "Combined follow-up after v4.3.188: fixes home safety overflow and color/texture tuning while also cleaning medicinal action filter behavior.",
-    "Retunes the medium green panel color to #B4C9A4FF, increases contrast of the approved textures, and fixes the home safety caveat/dialog wrapping so the warning button and popup stay inside the viewport.",
-    "Medicinal action filters now show only structured, source-supported action tags that actually exist in the loaded records; empty hard-coded categories are no longer shown as selectable zero-count buckets.",
-    "Normalizes Chaga's immunomodulating tag to the existing Immune support action vocabulary and keeps weak/unsupported structured action tags out of action filters while leaving traditional-use records visible.",
-    "No species edibility, toxicity, food-route, Other Uses route, map feature, or image-rights change is included; the orange-latex milkcap image remains unchanged pending a verified replacement image."
+    "Visual correction after v4.3.189: keeps the requested medium green #B4C9A4FF and removes the obvious crossed-line grid texture look.",
+    "Replaces the medium green texture with a much subtler leaf-vein style treatment, the light green detail texture with speckled paper-fiber styling, and the light blue accent texture with contour/topographic ring styling.",
+    "Keeps the home safety overflow fixes from v4.3.189 unchanged.",
+    "Updates boot.js bundled version floor and index.html boot query so the version badge stays aligned.",
+    "No species records, medicinal action logic, route/category logic, edible status, toxicity status, image fields, or map features changed."
   ]
 }

@@ -2,7 +2,7 @@
   --bg:#663C05FF;
   --bg-deep:#4D2D04FF;
   --panel:#B4C9A4FF;
-  --panel-alt:#A9BE98FF;
+  --panel-alt:#B4C9A4FF;
   --panel-light:#C1D8B2FF;
   --sky:#D8EEF7;
   --sky-line:#7FA8B8;
@@ -625,4 +625,66 @@ input[type="search"],select,textarea,.note-box{
   .home-safety-link{width:100%;justify-content:center;}
   .home-safety-dialog{width:calc(100vw - 20px);max-width:calc(100vw - 20px) !important;}
   .home-safety-dialog-card{padding:14px;}
+}
+
+
+/* v4.3.190: texture correction — remove crossed-line grid look and use distinct subtle textures. */
+:root{
+  --panel:#B4C9A4FF;
+  --panel-alt:#B4C9A4FF;
+}
+.site-header,
+.panel,
+.record-card,
+.home-safety-card,
+.home-search-panel,
+.home-safety-compact,
+.home-season-panel,
+.home-snapshot-panel{
+  background-color:var(--panel) !important;
+  background-image:
+    linear-gradient(180deg, rgba(255,255,255,.12), rgba(255,255,255,.02) 32%),
+    linear-gradient(72deg, transparent 0 47%, rgba(52,85,38,.060) 47.35% 47.75%, transparent 48.1%),
+    linear-gradient(102deg, transparent 0 55%, rgba(255,255,255,.042) 55.25% 55.65%, transparent 56%),
+    radial-gradient(ellipse at 20% 18%, rgba(255,255,255,.070) 0 6%, transparent 28%),
+    radial-gradient(ellipse at 84% 78%, rgba(52,85,38,.045) 0 7%, transparent 31%) !important;
+  background-size:auto, 520px 520px, 640px 640px, 520px 420px, 620px 520px !important;
+  background-position:0 0, -90px -60px, 120px 80px, 0 0, 0 0 !important;
+}
+.detail-block,
+.modal-card,
+.credit-card,
+.lane-card,
+.home-season-card,
+.home-focus-stat-card,
+.home-snapshot-chip,
+.home-safety-dialog-card{
+  background-color:var(--panel-light) !important;
+  background-image:
+    linear-gradient(180deg, rgba(255,255,255,.20), rgba(255,255,255,.04) 30%),
+    radial-gradient(circle at 12% 24%, rgba(255,255,255,.18) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 64% 76%, rgba(80,105,70,.055) 0 1px, transparent 1.5px),
+    linear-gradient(8deg, rgba(255,255,255,.055), transparent 24%, rgba(82,108,74,.030) 56%, transparent 78%) !important;
+  background-size:auto, 34px 38px, 42px 46px, 260px 260px !important;
+  background-position:0 0, 0 0, 18px 12px, 0 0 !important;
+}
+input[type="search"],select,textarea,.note-box,button.subtle,.tag,.image-source-badge{
+  background-color:var(--sky) !important;
+  background-image:
+    linear-gradient(180deg, rgba(255,255,255,.68), rgba(255,255,255,.12) 56%),
+    radial-gradient(ellipse at 18% 24%, transparent 0 36px, rgba(58,111,133,.115) 37px 38px, transparent 39px),
+    radial-gradient(ellipse at 78% 62%, transparent 0 48px, rgba(58,111,133,.090) 49px 50px, transparent 51px),
+    radial-gradient(ellipse at 42% 88%, transparent 0 34px, rgba(58,111,133,.070) 35px 36px, transparent 37px) !important;
+  background-size:auto, 180px 130px, 230px 170px, 190px 150px !important;
+  background-position:0 0, 0 0, 46px 14px, 22px 38px !important;
+}
+body{
+  background-color:var(--bg);
+  background-image:
+    radial-gradient(ellipse at 14% 18%, rgba(255,255,255,.060) 0 5%, transparent 20%),
+    radial-gradient(ellipse at 76% 24%, rgba(0,0,0,.085) 0 7%, transparent 24%),
+    radial-gradient(ellipse at 28% 74%, rgba(255,255,255,.048) 0 6%, transparent 23%),
+    radial-gradient(ellipse at 86% 82%, rgba(0,0,0,.075) 0 7%, transparent 25%),
+    linear-gradient(180deg, rgba(255,255,255,.020), rgba(0,0,0,.045));
+  background-size:460px 380px,620px 520px,520px 440px,680px 560px,auto;
 }
