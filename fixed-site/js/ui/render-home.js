@@ -105,13 +105,14 @@ function hasPreferredImageCandidate(record) {
   return convenience.some((url) => !isPlaceholderImageUrl(url));
 }
 
-function shuffle(values) {
-  const list = [...values];
-  for (let i = list.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [list[i], list[j]] = [list[j], list[i]];
-  }
-  return list;
+function stableSeasonRank(record) {
+  const name = String(record?.display_name || record?.common_name || record?.slug || "").toLowerCase();
+  const info = classifyRecord(record);
+  const cautionScore = info.caution ? 2 : 0;
+  const reviewScore = record?.needs_review || record?.review_status === "needs_review" ? 1 : 0;
+  const imageScore = hasPreferredImageCandidate(record) ? 0 : 1;
+  const mushroomBonus = info.isMushroom ? 0 : 0.1;
+  return `${cautionScore}${reviewScore}${imageScore}${mushroomBonus}-${name}`;
 }
 
 function isHighlightCandidate(record, month) {
@@ -119,15 +120,14 @@ function isHighlightCandidate(record, month) {
   const info = classifyRecord(record);
   if (!info.edible) return false;
   if (!isInSeason(record, month)) return false;
-  if (!hasPreferredImageCandidate(record)) return false;
+  if (!hasUsableImageCandidate(record)) return false;
   return info.isPlant || info.isMushroom;
 }
 
 function rankedHighlightCandidates(records = [], month, matcher = () => true) {
-  const candidates = records.filter((record) => isHighlightCandidate(record, month) && matcher(classifyRecord(record)));
-  const preferred = candidates.filter(hasPreferredImageCandidate);
-  const fallback = candidates.filter((record) => !hasPreferredImageCandidate(record));
-  return [...shuffle(preferred), ...shuffle(fallback)];
+  return records
+    .filter((record) => isHighlightCandidate(record, month) && matcher(classifyRecord(record)))
+    .sort((a, b) => stableSeasonRank(a).localeCompare(stableSeasonRank(b)));
 }
 
 function takeUnique(target, candidates, count) {
@@ -148,15 +148,30 @@ function pickHighlights(species, month) {
   const allCandidates = rankedHighlightCandidates(records, month, (info) => info.isPlant || info.isMushroom);
 
   const highlights = [];
-  takeUnique(highlights, plantCandidates, 3);
-  takeUnique(highlights, mushroomCandidates, 6);
-  takeUnique(highlights, plantCandidates, 6);
-  takeUnique(highlights, allCandidates, 6);
-  return highlights.slice(0, 6);
+  takeUnique(highlights, plantCandidates, 4);
+  takeUnique(highlights, mushroomCandidates, 8);
+  takeUnique(highlights, plantCandidates, 8);
+  takeUnique(highlights, allCandidates, 8);
+  return highlights.slice(0, 8);
 }
 
 function renderHomeImage(record) {
   return renderImageSlot(record, "card", { showMeta: false });
+}
+
+function recordTypeLabel(record) {
+  const info = classifyRecord(record);
+  if (info.isMushroom) return "Mushroom";
+  if (info.isPlant) return "Plant";
+  return "Species";
+}
+
+function recordCautionLabel(record) {
+  const info = classifyRecord(record);
+  if (info.caution) return "Caution";
+  if (record?.edibility_status && String(record.edibility_status).includes("caution")) return "Use caution";
+  if (record?.preparation_required || record?.edible_use?.preparation_required) return "Prep required";
+  return "In season";
 }
 
 export function renderHome(species, errors = [], rareSpecies = []) {
@@ -193,53 +208,95 @@ export function renderHome(species, errors = [], rareSpecies = []) {
   const highlights = pickHighlights(species, month);
 
   return `
-    <section class="panel home-focus-panel">
-      <section class="home-safety-card">
-        <h3>Use this guide carefully</h3>
-        <p>This guide was put together by an amateur forager, not a scientist. I made it to be a reminder of things I've known, and it is not intended to be a one-stop app for all things foraging. It is also still very much being developed, with species records, images, filters, credits, and safety notes still being improved.</p>
-        <p>Treat all plants, especially mushrooms, as potentially inedible and dangerous. Do not eat anything until you know the species and know how to prepare it. Foraging can be a fun and rewarding way to make some great meals, just do it wisely.</p>
-        <p>The guide includes sections on plants, mushrooms, medicinals, other uses, rare species, and cautionary look-alikes. There's a timeline that will show you the species you'll likely find in the woods each month, plus references and credits. I am very open to suggestions, corrections, better local observations, and anything I should fix or improve; email me at <a href="mailto:tpoirier@nmu.edu">tpoirier@nmu.edu</a>.</p>
+    <section class="home-page">
+      <section class="home-hero-row">
+        <section class="panel home-search-panel" aria-labelledby="homeSearchHeading">
+          <div class="home-section-kicker">Start here</div>
+          <h2 id="homeSearchHeading">Search the guide</h2>
+          <div class="control-row home-search-row">
+            <input id="homeSearch" type="search" value="" placeholder="Search plants, mushrooms, uses, cautions" autocomplete="off">
+            <button id="homeSearchBtn" class="primary" type="button">Search</button>
+          </div>
+        </section>
+
+        <section class="home-safety-card home-safety-compact" aria-labelledby="homeSafetyHeading">
+          <div class="home-section-kicker">Safety</div>
+          <h3 id="homeSafetyHeading">Use this guide carefully</h3>
+          <p>Field guide only — verify ID, look-alikes, and preparation before eating.</p>
+          <details>
+            <summary>Read the full safety note</summary>
+            <p>This guide was made as a practical local reference, not a final authority. Treat unknown plants and mushrooms as unsafe until confirmed with multiple trusted sources.</p>
+            <p>Foraging mistakes can make you sick or worse, especially with mushrooms and toxic look-alikes. Confirm the exact species, edible part, season, and preparation before using anything.</p>
+            <p>Suggestions and corrections are welcome at <a href="mailto:tpoirier@nmu.edu">tpoirier@nmu.edu</a>.</p>
+          </details>
+        </section>
       </section>
 
-      <section class="panel">
-        <div class="control-row">
-          <input id="homeSearch" type="search" value="" placeholder="Search the guide" style="flex:1;min-width:280px">
-          <button id="homeSearchBtn" class="primary" type="button">Search</button>
+      <section class="panel home-season-panel" aria-labelledby="homeSeasonHeading">
+        <div class="home-season-heading">
+          <div>
+            <div class="home-section-kicker">${esc(month)}</div>
+            <h2 id="homeSeasonHeading">Species in Season</h2>
+            <p class="results-meta">Likely current-season edible plants and mushrooms. Confirm ID and preparation before using.</p>
+          </div>
+          <div class="home-season-actions">
+            <a class="buttonish primary" href="#/mushrooms-in-season">View mushrooms in season</a>
+            <a class="buttonish" href="#/plants">Browse plants</a>
+          </div>
+        </div>
+
+        ${highlights.length ? `
+          <div class="home-season-grid">
+            ${highlights.map((record) => `
+              <button
+                class="home-season-card"
+                type="button"
+                data-detail="${esc(record.slug)}"
+                aria-label="Open details for ${esc(record.display_name || record.common_name || record.slug || "Untitled")}" 
+              >
+                ${renderHomeImage(record)}
+                <div class="home-season-card-body">
+                  <strong>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</strong>
+                  <div class="home-season-tags">
+                    <span class="tag good">${esc(recordTypeLabel(record))}</span>
+                    <span class="tag ${classifyRecord(record).caution ? "warn" : "review"}">${esc(recordCautionLabel(record))}</span>
+                  </div>
+                </div>
+              </button>
+            `).join("")}
+          </div>
+        ` : `
+          <div class="empty-state">No image-backed edible records matched ${esc(month)}. Browse the full seasonal lists for more records.</div>
+        `}
+      </section>
+
+      <section class="panel home-snapshot-panel" aria-labelledby="homeSnapshotHeading">
+        <div class="home-snapshot-heading">
+          <div>
+            <div class="home-section-kicker">At a glance</div>
+            <h3 id="homeSnapshotHeading">Guide Snapshot</h3>
+          </div>
+        </div>
+        <div class="home-snapshot-strip" aria-label="Guide counts">
+          <div class="home-snapshot-chip"><strong>${plantsInSeason.length}</strong><span>plants in season</span></div>
+          <div class="home-snapshot-chip"><strong>${mushroomsInSeason.length}</strong><span>mushrooms in season</span></div>
+          <div class="home-snapshot-chip"><strong>${plants.length}</strong><span>edible plants</span></div>
+          <div class="home-snapshot-chip"><strong>${mushrooms.length}</strong><span>edible mushrooms</span></div>
+          <div class="home-snapshot-chip"><strong>${medicinal.length}</strong><span>medicinal species</span></div>
+          <div class="home-snapshot-chip"><strong>${otherUses.length}</strong><span>other uses</span></div>
+          <div class="home-snapshot-chip"><strong>${caution.length}</strong><span>caution species</span></div>
+          <div class="home-snapshot-chip"><strong>${Array.isArray(rareSpecies) ? rareSpecies.length : 0}</strong><span>rare entries</span></div>
         </div>
       </section>
 
-      <div class="home-focus-heading">
-        <h2>In Focus Right Now</h2>
-        <p class="results-meta">${esc(month)}</p>
-      </div>
-
-      <section class="panel">
-        <div class="home-focus-stats">
-          <div class="home-focus-stat-card"><strong>${plantsInSeason.length}</strong><span>plants in season</span></div>
-          <div class="home-focus-stat-card"><strong>${mushroomsInSeason.length}</strong><span>mushrooms in season</span></div>
-          <div class="home-focus-stat-card"><strong>${plants.length}</strong><span>edible plants</span></div>
-          <div class="home-focus-stat-card"><strong>${mushrooms.length}</strong><span>edible mushrooms</span></div>
-          <div class="home-focus-stat-card"><strong>${medicinal.length}</strong><span>medicinal species</span></div>
-          <div class="home-focus-stat-card"><strong>${otherUses.length}</strong><span>other uses</span></div>
-          <div class="home-focus-stat-card"><strong>${caution.length}</strong><span>caution species</span></div>
-          <div class="home-focus-stat-card"><strong>${Array.isArray(rareSpecies) ? rareSpecies.length : 0}</strong><span>rare / endangered entries</span></div>
-        </div>
-      </section>
-
-      <section class="panel">
-        <h3>Some Species In Season</h3>
-        <div class="home-focus-highlights">
-          ${highlights.map((record) => `
-            <button
-              class="home-focus-card"
-              type="button"
-              data-detail="${esc(record.slug)}"
-              aria-label="Open details for ${esc(record.display_name || record.common_name || record.slug || "Untitled")}" 
-            >
-              <div class="home-focus-caption"><strong>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</strong></div>
-              ${renderHomeImage(record)}
-            </button>
-          `).join("")}
+      <section class="panel home-browse-panel" aria-labelledby="homeBrowseHeading">
+        <div class="home-section-kicker">Browse</div>
+        <h3 id="homeBrowseHeading">Jump into the guide</h3>
+        <div class="home-browse-grid">
+          <a class="lane-card" href="#/plants"><strong>Plants</strong><span>Food, medicine, caution, and uses</span></a>
+          <a class="lane-card" href="#/mushrooms"><strong>Mushrooms</strong><span>Food-valid records, groups, and cautions</span></a>
+          <a class="lane-card" href="#/lookalikes"><strong>Caution</strong><span>Dangerous and confusing look-alikes</span></a>
+          <a class="lane-card" href="#/rare"><strong>Rare</strong><span>Protected and sensitive species</span></a>
         </div>
       </section>
 
