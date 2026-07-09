@@ -1,4 +1,4 @@
-import { classifyRecord } from "../lib/merge.js?v=v4.2.40-r2026-04-27-list-lookalike-cleanup1";
+import { classifyRecord } from "../lib/merge.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
@@ -17,33 +17,102 @@ function currentMonthName() {
   return MONTHS[new Date().getMonth()] || MONTHS[0];
 }
 
+function monthNumberFromName(month) {
+  const index = MONTHS.indexOf(month);
+  return index >= 0 ? index + 1 : 0;
+}
+
+function normalizeMonthNumber(value) {
+  const number = Number(value);
+  return Number.isInteger(number) && number >= 1 && number <= 12 ? number : 0;
+}
+
 function isInSeason(record, month) {
-  return Array.isArray(record?.months_available) && record.months_available.includes(month);
+  const monthNumber = monthNumberFromName(month);
+  const namedMonths = Array.isArray(record?.months_available) ? record.months_available : [];
+  if (namedMonths.includes(month)) return true;
+
+  const numericMonths = [
+    ...(Array.isArray(record?.month_numbers) ? record.month_numbers : []),
+    ...(Array.isArray(record?.season_months) ? record.season_months : [])
+  ]
+    .map(normalizeMonthNumber)
+    .filter(Boolean);
+
+  return monthNumber > 0 && numericMonths.includes(monthNumber);
 }
 
-function hasAnyImageCandidate(record) {
-  const structured = Array.isArray(record?.images_structured) ? record.images_structured : [];
-  if (structured.length) return true;
-  if (record?.list_thumbnail) return true;
-  const detailImages = Array.isArray(record?.detail_images) ? record.detail_images : [];
-  if (detailImages.length) return true;
-  const enlargeImages = Array.isArray(record?.enlarge_images) ? record.enlarge_images : [];
-  if (enlargeImages.length) return true;
-  const images = Array.isArray(record?.images) ? record.images : [];
-  if (!images.length) return false;
-  const first = images[0];
-  if (typeof first === "string") return !!first;
-  if (first && typeof first === "object") return !!(first.thumb || first.src || first.detail || first.full);
-  return false;
+function asList(value) {
+  if (Array.isArray(value)) return value;
+  if (value === undefined || value === null) return [];
+  return [value];
 }
 
-function shuffle(values) {
-  const list = [...values];
-  for (let i = list.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [list[i], list[j]] = [list[j], list[i]];
-  }
-  return list;
+function imageUrlFromCandidate(value) {
+  if (!value) return "";
+  if (typeof value === "string") return value.trim();
+  if (typeof value !== "object") return "";
+  return String(value.thumb || value.detail || value.full || value.src || value.url || "").trim();
+}
+
+function isPlaceholderImageUrl(value) {
+  const text = String(value || "").trim().toLowerCase();
+  if (!text) return true;
+  return text.startsWith("data:image/svg")
+    || text.includes("image%20needed")
+    || text.includes("image needed")
+    || text.includes("needs%20photo")
+    || text.includes("needs photo")
+    || text.includes("placeholder image")
+    || text.includes("public%20usable%20photo%20not%20yet%20found")
+    || text.includes("public usable photo not yet found");
+}
+
+function collectImageCandidates(record = {}) {
+  const candidates = [];
+  const push = (value) => {
+    const url = imageUrlFromCandidate(value);
+    if (url) candidates.push(url);
+  };
+
+  asList(record.images_structured).forEach((item) => {
+    if (item && typeof item === "object") {
+      push(item.thumb);
+      push(item.detail);
+      push(item.full);
+    } else {
+      push(item);
+    }
+  });
+  push(record.list_thumbnail);
+  asList(record.detail_images).forEach(push);
+  asList(record.enlarge_images).forEach(push);
+  asList(record.images).forEach(push);
+  return candidates;
+}
+
+function hasUsableImageCandidate(record) {
+  return collectImageCandidates(record).some((url) => !isPlaceholderImageUrl(url));
+}
+
+function hasPreferredImageCandidate(record) {
+  const structured = asList(record?.images_structured)
+    .flatMap((item) => item && typeof item === "object" ? [item.thumb, item.detail, item.full] : [item])
+    .filter(Boolean);
+  if (structured.some((url) => !isPlaceholderImageUrl(url))) return true;
+
+  const convenience = [record?.list_thumbnail, ...asList(record?.detail_images), ...asList(record?.enlarge_images)].filter(Boolean);
+  return convenience.some((url) => !isPlaceholderImageUrl(url));
+}
+
+function stableSeasonRank(record) {
+  const name = String(record?.display_name || record?.common_name || record?.slug || "").toLowerCase();
+  const info = classifyRecord(record);
+  const cautionScore = info.caution ? 2 : 0;
+  const reviewScore = record?.needs_review || record?.review_status === "needs_review" ? 1 : 0;
+  const imageScore = hasPreferredImageCandidate(record) ? 0 : 1;
+  const mushroomBonus = info.isMushroom ? 0 : 0.1;
+  return `${cautionScore}${reviewScore}${imageScore}${mushroomBonus}-${name}`;
 }
 
 function isHighlightCandidate(record, month) {
@@ -51,16 +120,58 @@ function isHighlightCandidate(record, month) {
   const info = classifyRecord(record);
   if (!info.edible) return false;
   if (!isInSeason(record, month)) return false;
-  if (!hasAnyImageCandidate(record)) return false;
+  if (!hasUsableImageCandidate(record)) return false;
   return info.isPlant || info.isMushroom;
 }
 
+function rankedHighlightCandidates(records = [], month, matcher = () => true) {
+  return records
+    .filter((record) => isHighlightCandidate(record, month) && matcher(classifyRecord(record)))
+    .sort((a, b) => stableSeasonRank(a).localeCompare(stableSeasonRank(b)));
+}
+
+function takeUnique(target, candidates, count) {
+  const seen = new Set(target.map((record) => record?.slug).filter(Boolean));
+  for (const record of candidates) {
+    if (!record?.slug || seen.has(record.slug)) continue;
+    target.push(record);
+    seen.add(record.slug);
+    if (target.length >= count) break;
+  }
+  return target;
+}
+
 function pickHighlights(species, month) {
-  return shuffle((species || []).filter((record) => isHighlightCandidate(record, month))).slice(0, 6);
+  const records = species || [];
+  const plantCandidates = rankedHighlightCandidates(records, month, (info) => info.isPlant);
+  const mushroomCandidates = rankedHighlightCandidates(records, month, (info) => info.isMushroom);
+  const allCandidates = rankedHighlightCandidates(records, month, (info) => info.isPlant || info.isMushroom);
+
+  const highlights = [];
+  takeUnique(highlights, plantCandidates, 4);
+  takeUnique(highlights, mushroomCandidates, 8);
+  takeUnique(highlights, plantCandidates, 8);
+  takeUnique(highlights, allCandidates, 8);
+  return highlights.slice(0, 8);
 }
 
 function renderHomeImage(record) {
   return renderImageSlot(record, "card", { showMeta: false });
+}
+
+function recordTypeLabel(record) {
+  const info = classifyRecord(record);
+  if (info.isMushroom) return "Mushroom";
+  if (info.isPlant) return "Plant";
+  return "Species";
+}
+
+function recordCautionLabel(record) {
+  const info = classifyRecord(record);
+  if (info.caution) return "Caution";
+  if (record?.edibility_status && String(record.edibility_status).includes("caution")) return "Use caution";
+  if (record?.preparation_required || record?.edible_use?.preparation_required) return "Prep required";
+  return "In season";
 }
 
 export function renderHome(species, errors = [], rareSpecies = []) {
@@ -97,53 +208,86 @@ export function renderHome(species, errors = [], rareSpecies = []) {
   const highlights = pickHighlights(species, month);
 
   return `
-    <section class="panel home-focus-panel">
-      <section class="home-safety-card">
-        <h3>Use this guide carefully</h3>
-        <p>This guide was put together by an amateur forager, not a scientist. I made it to be a reminder of things I've known, it is not intended to be a one-stop app for all things foraging.</p>
-        <p>Treat all plants, especially mushrooms, as potentially inedible and dangerous. Do not eat anything until you know the species and know how to prepare it. Foraging can be a fun and rewarding way to make some great meals, just do it wisely.</p>
-        <p>The guide includes sections on plants, mushrooms, medicinals, other uses, rare species, and cautionary look-alikes. There's a timeline that will show you the species you'll likely find in the woods each month, plus references and credits.</p>
+    <section class="home-page">
+      <section class="home-hero-row home-hero-row-compact">
+        <section class="panel home-search-panel" aria-label="Search the guide">
+          <div class="control-row home-search-row">
+            <input id="homeSearch" type="search" value="" placeholder="Search plants, mushrooms, uses, cautions" autocomplete="off">
+            <button id="homeSearchBtn" class="primary" type="button">Search</button>
+          </div>
+        </section>
+
+        <section class="home-safety-card home-safety-compact" aria-label="Foraging safety note">
+          <p>Field guide only - verify ID and Preparation</p>
+          <button class="home-safety-link" type="button" onclick="document.getElementById('homeSafetyDialog')?.showModal()">Read the full safety note</button>
+          <dialog id="homeSafetyDialog" class="home-safety-dialog">
+            <article class="home-safety-dialog-card">
+              <h3>Use this guide carefully</h3>
+              <p>This guide was made as a practical local reference, not a final authority. Treat unknown plants and mushrooms as unsafe until confirmed with multiple trusted sources.</p>
+              <p>Foraging mistakes can make you sick or worse, especially with mushrooms and toxic look-alikes. Confirm the exact species, edible part, season, and preparation before using anything.</p>
+              <p>Suggestions and corrections are welcome at <a href="mailto:tpoirier@nmu.edu">tpoirier@nmu.edu</a>.</p>
+              <form method="dialog">
+                <button class="primary" type="submit">Close</button>
+              </form>
+            </article>
+          </dialog>
+        </section>
       </section>
 
-      <section class="panel">
-        <div class="control-row">
-          <input id="homeSearch" type="search" value="" placeholder="Search the guide" style="flex:1;min-width:280px">
-          <button id="homeSearchBtn" class="primary" type="button">Search</button>
+      <section class="panel home-season-panel" aria-labelledby="homeSeasonHeading">
+        <div class="home-season-heading">
+          <div>
+            <div class="home-section-kicker">${esc(month)}</div>
+            <h2 id="homeSeasonHeading">Species in Season</h2>
+            <p class="results-meta">Likely current-season edible plants and mushrooms. Confirm ID and preparation before using.</p>
+          </div>
+          <div class="home-season-actions">
+            <a class="buttonish primary" href="#/mushrooms-in-season">View mushrooms in season</a>
+            <a class="buttonish" href="#/plants">Browse plants</a>
+          </div>
         </div>
+
+        ${highlights.length ? `
+          <div class="home-season-grid">
+            ${highlights.map((record) => `
+              <button
+                class="home-season-card"
+                type="button"
+                data-detail="${esc(record.slug)}"
+                aria-label="Open details for ${esc(record.display_name || record.common_name || record.slug || "Untitled")}" 
+              >
+                ${renderHomeImage(record)}
+                <div class="home-season-card-body">
+                  <strong>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</strong>
+                  <div class="home-season-tags">
+                    <span class="tag good">${esc(recordTypeLabel(record))}</span>
+                    <span class="tag ${classifyRecord(record).caution ? "warn" : "review"}">${esc(recordCautionLabel(record))}</span>
+                  </div>
+                </div>
+              </button>
+            `).join("")}
+          </div>
+        ` : `
+          <div class="empty-state">No image-backed edible records matched ${esc(month)}. Browse the full seasonal lists for more records.</div>
+        `}
       </section>
 
-      <div class="home-focus-heading">
-        <h2>In Focus Right Now</h2>
-        <p class="results-meta">${esc(month)}</p>
-      </div>
-
-      <section class="panel">
-        <div class="home-focus-stats">
-          <div class="home-focus-stat-card"><strong>${plantsInSeason.length}</strong><span>plants in season</span></div>
-          <div class="home-focus-stat-card"><strong>${mushroomsInSeason.length}</strong><span>mushrooms in season</span></div>
-          <div class="home-focus-stat-card"><strong>${plants.length}</strong><span>edible plants</span></div>
-          <div class="home-focus-stat-card"><strong>${mushrooms.length}</strong><span>edible mushrooms</span></div>
-          <div class="home-focus-stat-card"><strong>${medicinal.length}</strong><span>medicinal species</span></div>
-          <div class="home-focus-stat-card"><strong>${otherUses.length}</strong><span>other uses</span></div>
-          <div class="home-focus-stat-card"><strong>${caution.length}</strong><span>caution species</span></div>
-          <div class="home-focus-stat-card"><strong>${Array.isArray(rareSpecies) ? rareSpecies.length : 0}</strong><span>rare / endangered entries</span></div>
+      <section class="panel home-snapshot-panel" aria-labelledby="homeSnapshotHeading">
+        <div class="home-snapshot-heading">
+          <div>
+            <div class="home-section-kicker">At a glance</div>
+            <h3 id="homeSnapshotHeading">Guide Snapshot</h3>
+          </div>
         </div>
-      </section>
-
-      <section class="panel">
-        <h3>Some Species In Season</h3>
-        <div class="home-focus-highlights">
-          ${highlights.map((record) => `
-            <button
-              class="home-focus-card"
-              type="button"
-              data-detail="${esc(record.slug)}"
-              aria-label="Open details for ${esc(record.display_name || record.common_name || record.slug || "Untitled")}" 
-            >
-              <div class="home-focus-caption"><strong>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</strong></div>
-              ${renderHomeImage(record)}
-            </button>
-          `).join("")}
+        <div class="home-snapshot-strip" aria-label="Guide counts">
+          <div class="home-snapshot-chip"><strong>${plantsInSeason.length}</strong><span>plants in season</span></div>
+          <div class="home-snapshot-chip"><strong>${mushroomsInSeason.length}</strong><span>mushrooms in season</span></div>
+          <div class="home-snapshot-chip"><strong>${plants.length}</strong><span>edible plants</span></div>
+          <div class="home-snapshot-chip"><strong>${mushrooms.length}</strong><span>edible mushrooms</span></div>
+          <div class="home-snapshot-chip"><strong>${medicinal.length}</strong><span>medicinal species</span></div>
+          <div class="home-snapshot-chip"><strong>${otherUses.length}</strong><span>other uses</span></div>
+          <div class="home-snapshot-chip"><strong>${caution.length}</strong><span>caution species</span></div>
+          <div class="home-snapshot-chip"><strong>${Array.isArray(rareSpecies) ? rareSpecies.length : 0}</strong><span>rare entries</span></div>
         </div>
       </section>
 

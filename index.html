@@ -5,17 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
   <title>Upper Michigan Foraging Guide</title>
   <meta name="theme-color" content="#2f5d46">
-  <link rel="manifest" href="site.webmanifest?v=v4.3.105-r2026-06-01-image-coverage-pass5">
-  <link rel="icon" type="image/png" sizes="32x32" href="assets/icons/up-foraging-guide-icon-32.png?v=v4.3.105-r2026-06-01-image-coverage-pass5">
-  <link rel="apple-touch-icon" sizes="180x180" href="assets/icons/up-foraging-guide-icon-180.png?v=v4.3.105-r2026-06-01-image-coverage-pass5">
-  <link rel="icon" type="image/png" sizes="192x192" href="assets/icons/up-foraging-guide-icon-192.png?v=v4.3.105-r2026-06-01-image-coverage-pass5">
-  <link rel="icon" type="image/png" sizes="512x512" href="assets/icons/up-foraging-guide-icon-512.png?v=v4.3.105-r2026-06-01-image-coverage-pass5">
-  <link rel="stylesheet" href="styles/base.css?v=v4.3.105-r2026-06-01-image-coverage-pass5">
+  <link rel="stylesheet" href="styles/base.css" data-versioned>
   <style>
+    .record-card{content-visibility:auto;contain-intrinsic-size:260px;}
     .image-lightbox[hidden]{display:none !important;}
     .image-lightbox{position:fixed;inset:0;z-index:2147483647;display:grid;place-items:center;padding:20px;}
     .image-lightbox-backdrop{position:absolute;inset:0;background:rgba(10,14,10,.78);backdrop-filter:blur(2px);}
-    .image-lightbox-card{position:relative;z-index:1;width:min(1100px,96vw);max-height:94vh;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:10px;background:#fffdf9;border:1px solid rgba(255,255,255,.28);border-radius:20px;box-shadow:0 24px 80px rgba(0,0,0,.38);padding:12px;}
+    .image-lightbox-card{position:relative;z-index:1;width:min(1100px,96vw);max-height:94vh;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:10px;background:#fff8ea;border:1px solid rgba(255,255,255,.42);border-radius:20px;box-shadow:0 24px 80px rgba(0,0,0,.38);padding:12px;}
     .image-lightbox-close{justify-self:end;}
     .image-lightbox-body{min-height:0;display:grid;place-items:center;overflow:auto;background:#111;border-radius:14px;}
     .image-lightbox-image{max-width:100%;max-height:78vh;width:auto;height:auto;object-fit:contain;}
@@ -83,6 +79,23 @@
       .modal-card{width:calc(100vw - 20px);max-width:calc(100vw - 20px);}
     }
     @media (min-width: 701px){.main-nav{display:flex !important;}.mobile-menu-toggle{display:none !important;}}
+    .plant-lane-switcher .lane-grid{grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;}
+    .plant-lane-switcher .lane-card{min-height:0;padding:6px 7px;border-radius:10px;gap:1px;line-height:1.05;}
+    .plant-lane-switcher .lane-card strong{font-size:.74rem;line-height:1.02;margin-bottom:1px;}
+    .plant-lane-switcher .lane-card span{font-size:.56rem;line-height:1.08;}
+    .plant-lane-switcher .plant-lane-count{font-weight:800;}
+    @media (max-width:900px) and (min-width:701px){
+      .plant-lane-switcher .lane-grid{grid-template-columns:repeat(7,minmax(0,1fr));gap:5px;}
+      .plant-lane-switcher .lane-card{padding:5px 6px;border-radius:9px;}
+      .plant-lane-switcher .lane-card strong{font-size:.68rem;}
+      .plant-lane-switcher .lane-card span{font-size:.52rem;}
+    }
+    @media (max-width:700px){
+      .plant-lane-switcher .lane-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;gap:6px !important;}
+      .plant-lane-switcher .lane-card{padding:8px 7px;border-radius:11px;}
+      .plant-lane-switcher .lane-card strong{font-size:.82rem;line-height:1.08;}
+      .plant-lane-switcher .lane-card span{display:none;}
+    }
   </style>
 </head>
 <body>
@@ -123,6 +136,6 @@
       <div id="modalContent"></div>
     </article>
   </dialog>
-  <script type="module" src="js/boot.js?v=v4.3.105-r2026-06-01-image-coverage-pass5"></script>
+  <script type="module" src="js/boot.js"></script>
 </body>
 </html>
