@@ -71,6 +71,14 @@ function parseRoute() {
   return route;
 }
 
+
+function routeIntro(route) {
+  return {
+    "other-uses": "True non-food practical uses only: tinder, dye, fiber, pitch, craft, material, scouring, or similar uses. Look-alikes and ID comparisons remain in their normal caution or ID sections, not here.",
+    review: "Review is a work queue, not a species type. Records here may also remain in their normal food, caution, medicinal, rare, or ID/comparison sections."
+  }[route] || "";
+}
+
 function routeTitle(route) {
   return {
     home: "Home",
@@ -910,9 +918,10 @@ async function renderSpeciesRoute(route, token) {
     ? `<p class="muted small">Showing the first ${visibleRecords.length} of ${sorted.length} matches. Keep typing to narrow the list.</p>`
     : "";
   const title = route === "search" ? `Search results (${filtered.length})` : `${routeTitle(route)} (${filtered.length})`;
+  const intro = routeIntro(route);
   renderPage(`
     ${controlsHtml(route, route === "search" ? "Search all species" : `Search ${routeTitle(route).toLowerCase()}`, filterFields, activeTraitFilters, plantLaneControls)}
-    <section class="panel"><h2>${esc(title)}</h2>${limitNote}</section>
+    <section class="panel"><h2>${esc(title)}</h2>${intro ? `<p class="muted small">${esc(intro)}</p>` : ""}${limitNote}</section>
     ${visibleRecords.length ? renderRecordCards(visibleRecords, route) : `<section class="panel empty-state"><h3>No species found</h3></section>`}
   `);
   wireCommonEvents(route);

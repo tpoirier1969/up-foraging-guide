@@ -134,8 +134,10 @@ const FORAGING_CLASS_MAP = new Map([
   ["mushroom", "mushroom"]
 ]);
 
-const OTHER_USE_KEYWORDS = /\b(artist|art|draw|drawing|scratch|scratched|tinder|fire ?starter|kindling|dye|dyestuff|pigment|fiber|fibre|cordage|rope|twine|weav|craft|tool|utility|polish|stain|smudge|resin|pitch|glue|adhesive|soap|container|whistle|broom|brush|mat|thatch|fungus paper|amadou)\b/i;
+const OTHER_USE_KEYWORDS = /\b(artist|art|draw|drawing|scratch|scratched|display|teaching specimen|tinder|ember|fire ?starter|kindling|dye|dyestuff|pigment|fiber|fibre|cordage|rope|twine|weav|craft|tool|utility|polish|scour|scouring|strop|razor[- ]?strop|stain|smudge|resin|pitch|gum|glue|adhesive|soap|container|whistle|broom|brush|mat|thatch|fungus paper|amadou|material use)\b/i;
 const NEGATIVE_OTHER_USE_PATTERN = /\b(no practical non[- ]food use|no practical use|no reliable non[- ]food use|no other use recorded|no known practical use|no known non[- ]food use|not used for craft|no known craft use)\b/i;
+const FALSE_OTHER_USE_CONTEXT_PATTERN = /\b(field identification|field id|identification\s*\/|id\s*\/\s*(?:comparison|caution)|safety comparison|look[- ]?alike(?:s)?|comparison species|comparison record|warning group|warning species|confused with|distinguish from|similar species|not a use target)\b/i;
+const EMERGENCY_SURVIVAL_CONTEXT_PATTERN = /\b(emergency(?:-| )only|survival(?:-| )only|survival food|emergency food|famine food)\b/i;
 
 // Food-list eligibility is deliberately narrower than "can be ingested".
 // Medicinal-only tinctures, extracts, and decoctions should stay medicinal, not edible.
@@ -547,15 +549,36 @@ function hasAbsoluteDangerLabel(record = {}) {
   return isDangerSeverity(`${severity} ${dangerText}`);
 }
 
+function hasFalseOtherUseContext(value = "") {
+  const text = String(value || "").replace(/\s+/g, " ").trim();
+  return !!text && FALSE_OTHER_USE_CONTEXT_PATTERN.test(text);
+}
+
+function hasEmergencySurvivalOnlyOtherUseContext(record = {}, value = "") {
+  const roleText = [record.food_role, record.edibility_status, record.non_edible_severity].join(" ");
+  const text = `${roleText} ${value}`;
+  return EMERGENCY_SURVIVAL_CONTEXT_PATTERN.test(text) && !OTHER_USE_KEYWORDS.test(value);
+}
+
+function hasRealOtherUseText(record = {}, value = "") {
+  const text = cleanUserFacingText(value);
+  if (!text) return false;
+  if (isTeaOnlyUseText(text)) return false;
+  if (isNegativeOtherUseText(text)) return false;
+  if (hasFalseOtherUseContext(text)) return false;
+  if (hasEmergencySurvivalOnlyOtherUseContext(record, text)) return false;
+  return OTHER_USE_KEYWORDS.test(text);
+}
+
 export function hasMeaningfulOtherUses(record = {}) {
   const direct = cleanUserFacingText(record.other_uses);
-  if (direct && !isTeaOnlyUseText(direct) && !isNegativeOtherUseText(direct)) return true;
+  if (hasRealOtherUseText(record, direct)) return true;
 
   const explicit = [record.practical_uses, record.utility_uses, record.craft_uses, record.fiber_uses, record.tinder_uses]
     .map(cleanUserFacingText)
     .filter(Boolean)
     .join(" ");
-  if (explicit && !isTeaOnlyUseText(explicit) && !isNegativeOtherUseText(explicit)) return true;
+  if (hasRealOtherUseText(record, explicit)) return true;
 
   const inferredText = [
     cleanUserFacingText(record.overview),
@@ -566,6 +589,7 @@ export function hasMeaningfulOtherUses(record = {}) {
     cleanUserFacingText(record.habitat_detail)
   ].join(" ");
 
+  if (hasEmergencySurvivalOnlyOtherUseContext(record, inferredText)) return false;
   return OTHER_USE_KEYWORDS.test(inferredText);
 }
 

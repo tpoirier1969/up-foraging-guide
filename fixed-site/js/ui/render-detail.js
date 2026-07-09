@@ -1,6 +1,6 @@
 import { esc } from "../lib/escape.js";
 import { state } from "../state.js";
-import { getMedicinalData, isBuildNoteText, cleanUserFacingText } from "../lib/merge.js";
+import { getMedicinalData, isBuildNoteText, cleanUserFacingText, hasMeaningfulOtherUses } from "../lib/merge.js";
 import { renderImageSlot } from "../lib/image-slot.js";
 
 const MONTHS = [
@@ -1131,7 +1131,7 @@ export function renderDetail(record) {
   const habitats = Array.isArray(record.habitats) && record.habitats.length
     ? record.habitats.join(", ")
     : (Array.isArray(record.habitat) ? record.habitat.join(", ") : (record.habitat_detail || ""));
-  const otherUses = clean(record.other_uses);
+  const otherUses = hasMeaningfulOtherUses(record) ? clean(record.other_uses) : "";
   const notes = !isBuildNoteText(record.notes) ? clean(record.notes) : "";
   const generalNotes = !isBuildNoteText(record.general_notes) ? clean(record.general_notes) : "";
   const overview = clean(record.overview);
