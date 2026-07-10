@@ -122,6 +122,12 @@
         <a href="#/credits" data-nav="credits"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="12" cy="12" r="7"/><path d="M14.5 9.6a3.2 3.2 0 1 0 0 4.8"/></svg></span><span>Credits</span></a>
         <a href="#/search" data-nav="search"><span class="nav-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><circle cx="10.5" cy="10.5" r="5.8"/><path d="m15.2 15.2 4.3 4.3"/></svg></span><span>Search</span></a>
       </nav>
+      <section class="sidebar-safety" aria-label="Foraging safety note">
+        <button class="sidebar-safety-button" type="button" onclick="document.getElementById('globalSafetyDialog')?.showModal()">
+          <span class="sidebar-safety-icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M12 3.8 19 7v5.4c0 4.2-2.8 7.2-7 8.8-4.2-1.6-7-4.6-7-8.8V7l7-3.2Z"/><path d="M12 8v5"/><path d="M12 16h.01"/></svg></span>
+          <span>Read the Full<br>Safety Note</span>
+        </button>
+      </section>
     </header>
     <main class="page-root" id="pageRoot" aria-live="polite">
       <section class="panel">
@@ -130,12 +136,24 @@
       </section>
     </main>
   </div>
+
+  <dialog id="globalSafetyDialog" class="home-safety-dialog global-safety-dialog">
+    <article class="home-safety-dialog-card">
+      <h3>Use this guide carefully</h3>
+      <p>This guide was made as a practical local reference, not a final authority. Treat unknown plants and mushrooms as unsafe until confirmed with multiple trusted sources.</p>
+      <p>Foraging mistakes can make you sick or worse, especially with mushrooms and toxic look-alikes. Confirm the exact species, edible part, season, and preparation before using anything.</p>
+      <p>Suggestions and corrections are welcome at <a href="mailto:tpoirier@nmu.edu">tpoirier@nmu.edu</a>.</p>
+      <form method="dialog">
+        <button class="primary" type="submit">Close</button>
+      </form>
+    </article>
+  </dialog>
   <dialog id="detailModal" class="detail-modal">
     <article class="modal-card">
       <button id="closeModalBtn" class="close-btn" type="button" aria-label="Close">×</button>
       <div id="modalContent"></div>
     </article>
   </dialog>
-  <script type="module" src="js/boot.js?v=v4.3.195-r2026-07-10-option-one-fidelity2"></script>
+  <script type="module" src="js/boot.js?v=v4.3.197-r2026-07-10-option-one-fidelity3"></script>
 </body>
 </html>

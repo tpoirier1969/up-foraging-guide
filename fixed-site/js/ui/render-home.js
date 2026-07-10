@@ -151,7 +151,7 @@ function pickHighlights(species, month) {
   takeUnique(highlights, plantCandidates, 4);
   takeUnique(highlights, mushroomCandidates, 8);
   takeUnique(highlights, allCandidates, 8);
-  return highlights.slice(0, 8);
+  return highlights.slice(0, 5);
 }
 
 function renderHomeImage(record) {
@@ -231,7 +231,7 @@ export function renderHome(species, errors = [], rareSpecies = []) {
         <div class="home-dashboard-hero">
           <div class="home-dashboard-copy">
             <div class="home-section-kicker">Upper Michigan</div>
-            <h2>Foraging Guide</h2>
+            <h2>Welcome to the Foraging Guide</h2>
             <p>Plants, mushrooms, medicinal traditions, caution records, and practical uses — organized for safer field reference.</p>
           </div>
           <form class="home-search-form" onsubmit="event.preventDefault();document.getElementById('homeSearchBtn')?.click();">
@@ -289,36 +289,6 @@ export function renderHome(species, errors = [], rareSpecies = []) {
         `}
       </section>
 
-      <section class="home-support-row" aria-label="Safety and quick context">
-        <section class="home-safety-card home-safety-compact option-one-safety" aria-label="Foraging safety note">
-          <p>Field guide only — verify ID and preparation.</p>
-          <button class="home-safety-link" type="button" onclick="document.getElementById('homeSafetyDialog')?.showModal()">Read the full safety note</button>
-          <dialog id="homeSafetyDialog" class="home-safety-dialog">
-            <article class="home-safety-dialog-card">
-              <h3>Use this guide carefully</h3>
-              <p>This guide was made as a practical local reference, not a final authority. Treat unknown plants and mushrooms as unsafe until confirmed with multiple trusted sources.</p>
-              <p>Foraging mistakes can make you sick or worse, especially with mushrooms and toxic look-alikes. Confirm the exact species, edible part, season, and preparation before using anything.</p>
-              <p>Suggestions and corrections are welcome at <a href="mailto:tpoirier@nmu.edu">tpoirier@nmu.edu</a>.</p>
-              <form method="dialog">
-                <button class="primary" type="submit">Close</button>
-              </form>
-            </article>
-          </dialog>
-        </section>
-        <section class="panel home-snapshot-panel option-one-snapshot" aria-labelledby="homeSnapshotHeading">
-          <div class="home-snapshot-heading">
-            <div>
-              <div class="home-section-kicker">At a glance</div>
-              <h3 id="homeSnapshotHeading">Current guide balance</h3>
-            </div>
-          </div>
-          <div class="home-snapshot-strip" aria-label="Guide counts">
-            <div class="home-snapshot-chip"><strong>${plantsInSeason.length}</strong><span>plants in season</span></div>
-            <div class="home-snapshot-chip"><strong>${mushroomsInSeason.length}</strong><span>mushrooms in season</span></div>
-            <div class="home-snapshot-chip"><strong>${rareCount}</strong><span>rare entries</span></div>
-          </div>
-        </section>
-      </section>
 
       ${errors.length ? `
         <section class="error-box">
