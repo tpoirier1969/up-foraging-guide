@@ -167,10 +167,15 @@ function recordTypeLabel(record) {
 
 function recordCautionLabel(record) {
   const info = classifyRecord(record);
-  if (info.caution) return "Caution";
+  if (info.caution) return "Use caution";
   if (record?.edibility_status && String(record.edibility_status).includes("caution")) return "Use caution";
   if (record?.preparation_required || record?.edible_use?.preparation_required) return "Prep required";
   return "In season";
+}
+
+function cardScientificLabel(record) {
+  const value = record?.scientific_name || record?.latin_name || record?.species_name || "";
+  return value ? `<span class="home-season-scientific">${esc(value)}</span>` : "";
 }
 
 function dashboardIconSvg(name = "search") {
@@ -188,16 +193,17 @@ function dashboardIconSvg(name = "search") {
 function dashboardTile({ value, label, href, icon = "search", tone = "" }) {
   return `
     <a class="home-dashboard-tile ${esc(tone)}" href="${esc(href)}">
+      <div class="home-dashboard-stat">
+        <strong>${esc(value)}</strong>
+        <span>${esc(label)}</span>
+      </div>
       <span class="home-dashboard-icon" aria-hidden="true">${dashboardIconSvg(icon)}</span>
-      <strong>${esc(value)}</strong>
-      <span>${esc(label)}</span>
     </a>
   `;
 }
 
 export function renderHome(species, errors = [], rareSpecies = []) {
   const month = currentMonthName();
-
   const activeRecords = (species || []).filter((record) => !record?.hidden);
 
   const plants = activeRecords.filter((record) => {
@@ -223,7 +229,7 @@ export function renderHome(species, errors = [], rareSpecies = []) {
     <section class="home-page option-one-home">
       <section class="home-dashboard-panel" aria-label="Foraging guide dashboard">
         <div class="home-dashboard-hero">
-          <div>
+          <div class="home-dashboard-copy">
             <div class="home-section-kicker">Upper Michigan</div>
             <h2>Foraging Guide</h2>
             <p>Plants, mushrooms, medicinal traditions, caution records, and practical uses — organized for safer field reference.</p>
@@ -264,9 +270,12 @@ export function renderHome(species, errors = [], rareSpecies = []) {
                 data-detail="${esc(record.slug)}"
                 aria-label="Open details for ${esc(record.display_name || record.common_name || record.slug || "Untitled")}" 
               >
-                ${renderHomeImage(record)}
+                <div class="home-season-image-wrap">${renderHomeImage(record)}</div>
                 <div class="home-season-card-body">
-                  <strong>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</strong>
+                  <div class="home-season-card-head">
+                    <strong>${esc(record.display_name || record.common_name || record.slug || "Untitled")}</strong>
+                    ${cardScientificLabel(record)}
+                  </div>
                   <div class="home-season-tags">
                     <span class="tag good">${esc(recordTypeLabel(record))}</span>
                     <span class="tag ${classifyRecord(record).caution ? "warn" : "review"}">${esc(recordCautionLabel(record))}</span>
