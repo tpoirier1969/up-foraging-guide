@@ -255,10 +255,6 @@ export function renderHome(species, errors = [], rareSpecies = []) {
             <h3>Likely in season now</h3>
             <p class="results-meta">Edible plant and mushroom records with image coverage. Verify ID, part, season, and preparation before use.</p>
           </div>
-          <div class="home-season-actions">
-            <a class="buttonish primary" href="#/mushrooms-in-season">Mushrooms in season</a>
-            <a class="buttonish" href="#/plants">Browse plants</a>
-          </div>
         </div>
 
         ${highlights.length ? `

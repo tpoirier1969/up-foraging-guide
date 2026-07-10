@@ -2724,10 +2724,7 @@ button.primary,.buttonish.primary{
 .home-dashboard-icon svg{width:21px !important;height:21px !important;}
 
 .home-season-heading{
-  display:flex !important;
-  justify-content:space-between !important;
-  align-items:flex-start !important;
-  gap:16px !important;
+  display:block !important;
   padding-top:4px !important;
 }
 .home-season-heading h3{
@@ -3123,8 +3120,8 @@ body{
   color:var(--opt1-final-cream) !important;
   background-color:var(--opt1-final-panel) !important;
   background-image:
-    linear-gradient(90deg,rgba(49,78,30,.82),rgba(88,108,49,.72)),
-    url("../assets/ui/option1-fidelity4-panel-bg.jpg") !important;
+    linear-gradient(90deg,rgba(49,74,30,.50),rgba(83,99,47,.36)),
+    url("../assets/ui/option1-fidelity5-panel-bg.jpg") !important;
   background-size:cover,cover !important;
   background-position:center center,center center !important;
   background-repeat:no-repeat,no-repeat !important;
@@ -3284,10 +3281,7 @@ button:not(.record-title-button):not(.home-focus-card):not(.home-search-submit):
 .home-dashboard-icon svg{width:21px !important;height:21px !important;}
 
 .home-season-heading{
-  display:flex !important;
-  justify-content:space-between !important;
-  align-items:flex-start !important;
-  gap:16px !important;
+  display:block !important;
   padding-top:4px !important;
 }
 .home-season-heading h3{
@@ -3489,3 +3483,7 @@ button.sidebar-safety-button:not(.record-title-button),
   box-shadow:none !important;
 }
 button.sidebar-safety-button:hover{background:rgba(31,17,7,.72) !important;}
+
+
+/* v4.3.199: removes the two extra home action buttons and replaces the green panel with a quieter organic olive texture. */
+.option-one-home .home-season-actions{display:none !important;}
