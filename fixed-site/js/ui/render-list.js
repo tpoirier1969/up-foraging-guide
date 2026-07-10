@@ -179,7 +179,13 @@ export function renderPlantLaneControls(records = [], filters = {}) {
   }
   const buttonHtml = (lane) => {
     const active = selected === lane.id;
-    return `<button class="lane-card${active ? " active" : ""}" type="button" data-plant-lane="${esc(lane.id)}" aria-pressed="${active ? "true" : "false"}"><strong>${esc(lane.label)} <span class="plant-lane-count">${counts.get(lane.id) || 0}</span></strong><span>${esc(lane.short)}</span></button>`;
+    return `<button class="lane-card${active ? " active" : ""}" type="button" data-plant-lane="${esc(lane.id)}" aria-pressed="${active ? "true" : "false"}">
+      <span class="lane-card-head">
+        <span class="lane-card-title">${esc(lane.label)}</span>
+        <span class="plant-lane-count">${counts.get(lane.id) || 0}</span>
+      </span>
+      <span class="lane-card-desc">${esc(lane.short)}</span>
+    </button>`;
   };
   const selectedLabel = PLANT_LANES.find((lane) => lane.id === selected)?.label || "";
   return `
