@@ -236,7 +236,7 @@ export function renderHome(species, errors = [], rareSpecies = []) {
           </div>
           <form class="home-search-form" onsubmit="event.preventDefault();document.getElementById('homeSearchBtn')?.click();">
             <input id="homeSearch" type="search" value="" placeholder="Search plants, mushrooms, uses, cautions" autocomplete="off">
-            <button id="homeSearchBtn" class="primary" type="submit" aria-label="Search the guide">Search</button>
+            <button id="homeSearchBtn" class="home-search-submit" type="submit" aria-label="Search the guide"><span aria-hidden="true">${dashboardIconSvg("search")}</span></button>
           </form>
         </div>
 
