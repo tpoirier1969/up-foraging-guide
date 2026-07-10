@@ -3488,3 +3488,386 @@ button.sidebar-safety-button:hover{background:rgba(31,17,7,.72) !important;}
 /* v4.3.199: removes the two extra home action buttons and replaces the green panel with a quieter organic olive texture. */
 /* v4.3.200: retunes the green panel toward the approved Option 1 leafy olive texture while leaving home highlight behavior untouched. */
 .option-one-home .home-season-actions{display:none !important;}
+
+
+/* v4.3.201: Option 1 mobile fidelity correction.
+   Builds the approved phone-style shell with a compact top bar,
+   a bottom tab bar, and a genuinely mobile home layout. */
+.mobile-search-link,
+.mobile-tabbar{display:none !important;}
+
+@media (max-width:700px){
+  body{
+    background-attachment:scroll,scroll !important;
+  }
+
+  .app-shell{
+    max-width:430px !important;
+    grid-template-columns:1fr !important;
+    gap:10px !important;
+    padding:10px 10px calc(94px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .site-header{
+    position:sticky !important;
+    top:8px !important;
+    z-index:60 !important;
+    min-height:0 !important;
+    display:grid !important;
+    grid-template-columns:44px minmax(0,1fr) 44px !important;
+    align-items:center !important;
+    gap:10px !important;
+    padding:10px 12px !important;
+    border-radius:20px !important;
+  }
+
+  .brand-row{
+    grid-column:2 !important;
+    display:block !important;
+    min-width:0 !important;
+  }
+
+  .brand-row > div:first-child{
+    display:block !important;
+  }
+
+  .brand-row h1{
+    justify-content:center !important;
+    gap:8px !important;
+    font-size:.9rem !important;
+    line-height:1.08 !important;
+  }
+
+  .brand-row h1 span:last-child{
+    max-width:none !important;
+  }
+
+  .subhead,
+  .version-pill{display:none !important;}
+
+  .mobile-menu-toggle,
+  .mobile-search-link{
+    display:grid !important;
+    width:44px !important;
+    height:44px !important;
+    min-height:44px !important;
+    padding:0 !important;
+    border-radius:14px !important;
+    border:1px solid rgba(246,235,198,.16) !important;
+    background:rgba(39,24,11,.72) !important;
+    color:var(--opt1-final-gold) !important;
+    box-shadow:none !important;
+  }
+
+  .mobile-menu-toggle{
+    grid-column:1 !important;
+    justify-self:start !important;
+    position:relative !important;
+    font-size:0 !important;
+  }
+
+  .mobile-menu-toggle::before{
+    content:"☰";
+    font-size:1.18rem;
+    line-height:1;
+  }
+
+  body.nav-open .mobile-menu-toggle::before{
+    content:"✕";
+    font-size:1rem;
+  }
+
+  .mobile-search-link{
+    grid-column:3 !important;
+    place-items:center !important;
+    text-decoration:none !important;
+  }
+
+  .mobile-search-link svg{
+    width:20px !important;
+    height:20px !important;
+    fill:none !important;
+    stroke:currentColor !important;
+    stroke-width:1.8 !important;
+    stroke-linecap:round !important;
+    stroke-linejoin:round !important;
+  }
+
+  .main-nav{
+    display:none !important;
+    grid-column:1 / -1 !important;
+    margin-top:2px !important;
+    padding:10px !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+    border:1px solid rgba(246,235,198,.14) !important;
+    border-radius:18px !important;
+    background:rgba(33,20,8,.96) !important;
+    box-shadow:0 16px 34px rgba(0,0,0,.28) !important;
+    max-height:min(54vh, 460px) !important;
+    overflow:auto !important;
+  }
+
+  body.nav-open .main-nav{display:grid !important;}
+
+  .main-nav a{
+    min-height:44px !important;
+    padding:10px 12px !important;
+    border-radius:14px !important;
+    background:rgba(255,248,219,.06) !important;
+    border:1px solid rgba(255,248,219,.08) !important;
+    font-size:.82rem !important;
+  }
+
+  .main-nav a.active{
+    background:rgba(255,248,219,.15) !important;
+    border-color:rgba(255,248,219,.18) !important;
+    padding-left:12px !important;
+  }
+
+  .sidebar-safety{
+    display:none !important;
+    grid-column:1 / -1 !important;
+    margin-top:0 !important;
+    padding-top:0 !important;
+  }
+
+  body.nav-open .sidebar-safety{display:block !important;}
+
+  .sidebar-safety-button{
+    min-height:50px !important;
+    border-radius:14px !important;
+  }
+
+  .page-root{
+    gap:12px !important;
+    padding-bottom:8px !important;
+  }
+
+  .home-dashboard-panel,
+  .panel,
+  .home-snapshot-panel{
+    border-radius:22px !important;
+  }
+
+  .home-dashboard-panel{
+    padding:16px !important;
+    gap:16px !important;
+  }
+
+  .home-dashboard-hero{
+    grid-template-columns:1fr !important;
+    gap:14px !important;
+  }
+
+  .home-dashboard-copy{max-width:none !important;}
+
+  .home-section-kicker{
+    font-size:.62rem !important;
+    margin-bottom:6px !important;
+  }
+
+  .home-dashboard-hero h2{
+    max-width:none !important;
+    font-size:1.42rem !important;
+    line-height:1.1 !important;
+    margin-bottom:6px !important;
+  }
+
+  .home-dashboard-hero p{
+    max-width:none !important;
+    font-size:.84rem !important;
+    line-height:1.4 !important;
+  }
+
+  .home-search-form{
+    grid-template-columns:minmax(0,1fr) 44px !important;
+    gap:8px !important;
+    margin-top:0 !important;
+  }
+
+  .home-search-form input[type="search"]{
+    min-height:44px !important;
+    padding:10px 12px !important;
+    border-radius:13px !important;
+    font-size:.84rem !important;
+  }
+
+  .home-search-submit{
+    width:44px !important;
+    min-width:44px !important;
+    min-height:44px !important;
+    padding:0 !important;
+    border-radius:13px !important;
+    display:grid !important;
+    place-items:center !important;
+  }
+
+  .home-dashboard-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+  }
+
+  .home-dashboard-tile{
+    min-height:72px !important;
+    padding:10px 11px !important;
+    border-radius:14px !important;
+  }
+
+  .home-dashboard-tile strong{
+    font-size:1.08rem !important;
+  }
+
+  .home-dashboard-stat span,
+  .home-dashboard-tile span:last-child{
+    font-size:.67rem !important;
+    line-height:1.1 !important;
+  }
+
+  .home-dashboard-icon,
+  .home-dashboard-icon svg{
+    width:18px !important;
+    height:18px !important;
+  }
+
+  .home-season-heading{
+    display:block !important;
+    padding-top:2px !important;
+  }
+
+  .home-season-heading h3{
+    font-size:1rem !important;
+    margin-bottom:6px !important;
+  }
+
+  .results-meta{
+    font-size:.79rem !important;
+    line-height:1.35 !important;
+  }
+
+  .home-season-grid{
+    display:grid !important;
+    grid-template-columns:none !important;
+    grid-auto-flow:column !important;
+    grid-auto-columns:minmax(112px, 35vw) !important;
+    gap:10px !important;
+    overflow-x:auto !important;
+    overflow-y:hidden !important;
+    padding:2px 2px 8px !important;
+    scroll-snap-type:x proximity !important;
+  }
+
+  .home-season-grid::-webkit-scrollbar{
+    height:6px;
+  }
+
+  .home-season-grid::-webkit-scrollbar-thumb{
+    background:rgba(246,235,198,.22);
+    border-radius:999px;
+  }
+
+  .home-season-card{
+    min-width:0 !important;
+    padding:8px !important;
+    border-radius:14px !important;
+    gap:8px !important;
+    scroll-snap-align:start !important;
+  }
+
+  .home-season-image-wrap{
+    border-radius:9px !important;
+  }
+
+  .home-season-card .record-image{
+    aspect-ratio:1 / 1 !important;
+    border-radius:9px !important;
+  }
+
+  .home-season-card-body{
+    gap:6px !important;
+    padding:0 1px 1px !important;
+  }
+
+  .home-season-card strong{
+    font-size:.76rem !important;
+    line-height:1.18 !important;
+    display:-webkit-box !important;
+    -webkit-line-clamp:2 !important;
+    -webkit-box-orient:vertical !important;
+    overflow:hidden !important;
+  }
+
+  .home-season-scientific{
+    font-size:.62rem !important;
+    line-height:1.15 !important;
+    display:-webkit-box !important;
+    -webkit-line-clamp:2 !important;
+    -webkit-box-orient:vertical !important;
+    overflow:hidden !important;
+  }
+
+  .home-season-tags{
+    gap:4px !important;
+  }
+
+  .home-season-card .tag,
+  .home-season-tags .tag{
+    font-size:.58rem !important;
+    padding:3px 6px !important;
+  }
+
+  .mobile-tabbar{
+    position:fixed !important;
+    left:max(10px, env(safe-area-inset-left)) !important;
+    right:max(10px, env(safe-area-inset-right)) !important;
+    bottom:calc(10px + env(safe-area-inset-bottom)) !important;
+    z-index:70 !important;
+    display:grid !important;
+    grid-template-columns:repeat(5,minmax(0,1fr)) !important;
+    gap:6px !important;
+    padding:8px !important;
+    border-radius:20px !important;
+    background:rgba(31,19,8,.96) !important;
+    border:1px solid rgba(246,235,198,.15) !important;
+    box-shadow:0 18px 36px rgba(0,0,0,.34) !important;
+    backdrop-filter:blur(10px) !important;
+  }
+
+  .mobile-tabbar a,
+  .mobile-tabbar button{
+    appearance:none !important;
+    display:grid !important;
+    justify-items:center !important;
+    align-content:center !important;
+    gap:4px !important;
+    min-height:46px !important;
+    padding:4px 2px !important;
+    border:0 !important;
+    border-radius:14px !important;
+    background:transparent !important;
+    color:rgba(250,242,218,.72) !important;
+    text-decoration:none !important;
+    font-size:.64rem !important;
+    font-weight:560 !important;
+    line-height:1.05 !important;
+    box-shadow:none !important;
+  }
+
+  .mobile-tabbar .nav-icon{
+    width:18px !important;
+    height:18px !important;
+    color:var(--opt1-final-gold) !important;
+  }
+
+  .mobile-tabbar .nav-icon svg{
+    width:18px !important;
+    height:18px !important;
+  }
+
+  .mobile-tabbar a.active,
+  .mobile-tabbar button.active,
+  body.nav-open .mobile-more-button{
+    background:rgba(255,248,219,.12) !important;
+    color:#fff6db !important;
+  }
+}
