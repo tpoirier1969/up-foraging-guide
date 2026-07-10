@@ -1258,3 +1258,108 @@ button:not(.record-title-button):not(.home-focus-card),.buttonish{
   .main-nav a{font-weight:600;}
   .home-dashboard-hero h2{font-size:2.05rem;}
 }
+
+
+/* v4.3.193 — restore visible warm line icons and improve readability. */
+:root{
+  --accent:#e5d6a3;
+  --accent-warm:#e5d6a3;
+  --accent-soft:#c7d38d;
+}
+.brand-row h1{
+  display:flex;
+  align-items:flex-start;
+  gap:10px;
+  padding-left:0 !important;
+  font-weight:650;
+  letter-spacing:-.01em;
+}
+.brand-row h1::before{content:none !important;display:none !important;}
+.brand-icon,.nav-icon,.home-dashboard-icon svg{
+  flex:0 0 auto;
+  display:inline-block;
+  color:var(--accent-warm);
+}
+.brand-icon{
+  width:30px;
+  height:30px;
+  border:1px solid rgba(229,214,163,.24);
+  border-radius:10px;
+  display:grid;
+  place-items:center;
+  background:rgba(229,214,163,.08);
+}
+.brand-icon svg,.nav-icon svg,.home-dashboard-icon svg{
+  width:100%;
+  height:100%;
+  display:block;
+  fill:none;
+  stroke:currentColor;
+  stroke-width:1.75;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+.brand-icon svg{width:21px;height:21px;}
+.main-nav a{
+  display:flex !important;
+  align-items:center;
+  gap:11px;
+  padding-left:12px !important;
+  min-height:42px;
+  font-weight:620;
+  font-size:.95rem;
+}
+.main-nav a::before{content:none !important;display:none !important;background-image:none !important;}
+.nav-icon{width:20px;height:20px;opacity:.92;}
+.main-nav a:hover .nav-icon,.main-nav a.active .nav-icon{opacity:1;color:#f0dfaa;}
+.home-dashboard-icon{
+  display:grid !important;
+  place-items:center;
+  width:34px;
+  height:34px;
+  background-image:none !important;
+  color:#e5d6a3 !important;
+  opacity:.95;
+}
+.home-dashboard-icon svg{width:30px;height:30px;}
+.home-dashboard-tile.warn .home-dashboard-icon{color:#f0c878 !important;}
+.home-dashboard-tile strong{font-weight:680;}
+.home-dashboard-tile span:last-child{font-size:.9rem;font-weight:620;}
+.home-dashboard-hero h2{font-weight:650;letter-spacing:-.04em;}
+button:not(.record-title-button):not(.home-focus-card),.buttonish{font-weight:650;}
+
+/* Make detail/card text easier to read, especially lane cards and small labels. */
+.tag{font-size:.9rem;line-height:1.22;padding:4px 9px;}
+.home-season-tags .tag{font-size:.82rem;padding:4px 8px;}
+.home-option-species-card strong{font-size:1.02rem;line-height:1.18;font-weight:650;}
+.home-season-card-body{gap:8px;text-shadow:0 1px 1px rgba(0,0,0,.20);}
+.results-meta{font-size:.98rem;line-height:1.42;}
+.plant-lane-switcher .lane-grid{
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr)) !important;
+  gap:10px !important;
+}
+.plant-lane-switcher .lane-card{
+  padding:12px 13px !important;
+  border-radius:14px !important;
+  gap:5px !important;
+  line-height:1.22 !important;
+}
+.plant-lane-switcher .lane-card strong{
+  font-size:.96rem !important;
+  line-height:1.15 !important;
+  margin-bottom:2px !important;
+}
+.plant-lane-switcher .lane-card span{
+  display:block !important;
+  font-size:.78rem !important;
+  line-height:1.25 !important;
+}
+.plant-lane-switcher .plant-lane-count{font-size:.8rem;}
+.record-card h3,.record-title-button{font-weight:650;}
+.record-card,.detail-block,.modal-card{font-size:1rem;line-height:1.45;}
+.small{font-size:.94rem;}
+@media (max-width:700px){
+  .plant-lane-switcher .lane-grid{grid-template-columns:repeat(2,minmax(0,1fr)) !important;}
+  .plant-lane-switcher .lane-card span{display:none !important;}
+  .plant-lane-switcher .lane-card strong{font-size:.9rem !important;}
+}

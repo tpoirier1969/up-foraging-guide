@@ -173,10 +173,22 @@ function recordCautionLabel(record) {
   return "In season";
 }
 
-function dashboardTile({ value, label, href, icon = "•", tone = "" }) {
+function dashboardIconSvg(name = "search") {
+  const icons = {
+    search: `<svg viewBox="0 0 24 24" focusable="false"><circle cx="10.5" cy="10.5" r="5.8"/><path d="m15.2 15.2 4.3 4.3"/></svg>`,
+    plant: `<svg viewBox="0 0 24 24" focusable="false"><path d="M12 20V9"/><path d="M12 10C8 5.5 4.5 5.5 3.5 7.5 6 12 9.5 12 12 10Z"/><path d="M12 12.5c4-4.4 7.4-4.2 8.5-2.1-2.4 4.4-6 4.5-8.5 2.1Z"/><path d="M12 20c1.2-3.5 3.6-5.5 7-6"/></svg>`,
+    mushroom: `<svg viewBox="0 0 24 24" focusable="false"><path d="M5 11c.6-4.2 4-6.5 7-6.5s6.4 2.3 7 6.5H5Z"/><path d="M9.5 11c.1 2.1-.8 4.6-2 7h9c-1.2-2.4-2.1-4.9-2-7"/><path d="M5.5 11.2c1.7 1.1 4 .9 6.5.1 2.5.8 4.8 1 6.5-.1"/></svg>`,
+    medicinal: `<svg viewBox="0 0 24 24" focusable="false"><path d="M12 5v14"/><path d="M5 12h14"/><path d="M7.5 7.5h9v9h-9z"/></svg>`,
+    caution: `<svg viewBox="0 0 24 24" focusable="false"><path d="M12 3.5 21 19H3L12 3.5Z"/><path d="M12 9v4.2"/><path d="M12 16.5h.01"/></svg>`,
+    other: `<svg viewBox="0 0 24 24" focusable="false"><path d="M12 3.5v17"/><path d="M3.5 12h17"/><path d="M6 6l12 12"/><path d="M18 6 6 18"/></svg>`
+  };
+  return icons[name] || icons.search;
+}
+
+function dashboardTile({ value, label, href, icon = "search", tone = "" }) {
   return `
     <a class="home-dashboard-tile ${esc(tone)}" href="${esc(href)}">
-      <span class="home-dashboard-icon" aria-hidden="true">${esc(icon)}</span>
+      <span class="home-dashboard-icon" aria-hidden="true">${dashboardIconSvg(icon)}</span>
       <strong>${esc(value)}</strong>
       <span>${esc(label)}</span>
     </a>
@@ -223,12 +235,12 @@ export function renderHome(species, errors = [], rareSpecies = []) {
         </div>
 
         <div class="home-dashboard-grid" aria-label="Guide sections and counts">
-          ${dashboardTile({ value: activeRecords.length, label: "guide records", href: "#/search", icon: "⌕" })}
-          ${dashboardTile({ value: plants.length, label: "edible plants", href: "#/plants", icon: "☘" })}
-          ${dashboardTile({ value: mushrooms.length, label: "edible mushrooms", href: "#/mushrooms", icon: "△" })}
-          ${dashboardTile({ value: medicinal.length, label: "medicinal", href: "#/medicinal", icon: "✚" })}
-          ${dashboardTile({ value: caution.length, label: "caution", href: "#/lookalikes", icon: "!", tone: "warn" })}
-          ${dashboardTile({ value: otherUses.length, label: "other uses", href: "#/other-uses", icon: "✦" })}
+          ${dashboardTile({ value: activeRecords.length, label: "guide records", href: "#/search", icon: "search" })}
+          ${dashboardTile({ value: plants.length, label: "edible plants", href: "#/plants", icon: "plant" })}
+          ${dashboardTile({ value: mushrooms.length, label: "edible mushrooms", href: "#/mushrooms", icon: "mushroom" })}
+          ${dashboardTile({ value: medicinal.length, label: "medicinal", href: "#/medicinal", icon: "medicinal" })}
+          ${dashboardTile({ value: caution.length, label: "caution", href: "#/lookalikes", icon: "caution", tone: "warn" })}
+          ${dashboardTile({ value: otherUses.length, label: "other uses", href: "#/other-uses", icon: "other" })}
         </div>
 
         <div class="home-season-heading home-option-heading">
