@@ -12,7 +12,9 @@
     "last_content_update": "v4.3.120-r2026-06-04-content-expansion1",
     "last_content_update_date": "2026-06-04",
     "last_data_integration": "v4.3.83-r2026-05-18-data-integration1",
-    "last_data_integration_date": "2026-05-18"
+    "last_data_integration_date": "2026-05-18",
+    "last_updated": "2026-07-13",
+    "version": "v4.3.207-r2026-07-13-chanterelle-spore-id-batch4"
   },
   "records": [
     {
@@ -6696,11 +6698,11 @@
       "display_name": "Chanterelles group",
       "common_name": "Chanterelles group",
       "scientific_name": "Cantharellus / Craterellus chanterelle-type mushrooms",
-      "edibility_detail": "Use this record as a comparison/safety aid, not as a casual eating recommendation.",
-      "overview": "Broad group record to resolve generic chanterelle references. Exact local species and complexes remain separate records.",
+      "edibility_detail": "Comparison record only. Do not treat this broad group entry as authorization to eat a mushroom.",
+      "overview": "Comparison record for true chanterelle-type mushrooms. Use the specific edible records for food decisions; this entry only explains the shared structure and the hard separation from true-gilled orange mushrooms.",
       "notes": "Broad group record to resolve generic chanterelle references. Exact local species and complexes remain separate records.",
-      "general_notes": "Broad group record to resolve generic chanterelle references. Exact local species and complexes remain separate records.",
-      "field_identification": "Chanterelles have blunt folds or ridges rather than thin true gills; color alone is not enough. Use the specific chanterelle records for actual ID.",
+      "general_notes": "North American chanterelles include multiple species and complexes. Spore-print color can be white, cream, yellow, pinkish, or salmon and is useful only when the print is thick enough to judge.",
+      "field_identification": "True chanterelles and close Craterellus relatives grow from soil or, for some yellowfeet, extremely decayed moss-covered wood. Their fertile surface is smooth, wrinkled, or made of blunt false gills that fork, cross-vein, and run down the stem. The ridges are part of the flesh, not thin separable blades. Firm pale flesh and a fruity odor support the ID, but color alone does not.",
       "months_available": [
         "June",
         "July",
@@ -6725,10 +6727,97 @@
         "jack-o-lantern",
         "false-chanterelle"
       ],
-      "mushroom_profile": {},
-      "mushroom_card_note": "Chanterelles have blunt folds or ridges rather than thin true gills; color alone is not enough. Use the specific chanterelle records for actual ID.",
-      "links": [],
-      "use_links": [],
+      "mushroom_profile": {
+        "lane": "chanterelle",
+        "mushroom_group": "chanterelles and trumpets",
+        "mushroom_profile_type": "warning_comparison_group",
+        "underside": [
+          "Smooth",
+          "Wrinkled",
+          "False gills / ridges"
+        ],
+        "underside_type": [
+          "Smooth to false-gilled fertile surface"
+        ],
+        "true_gills_present": false,
+        "false_gill_features": [
+          "Blunt",
+          "Forking",
+          "Cross-veined",
+          "Decurrent",
+          "Part of the flesh"
+        ],
+        "substrate": [
+          "Ground",
+          "Very decayed moss-covered wood in some yellowfeet"
+        ],
+        "growth_from_wood": "Not from sound wood, stumps, or buried roots",
+        "spore_print": "Variable by species: white, cream, yellow, pinkish, or salmon",
+        "spore_print_color": [
+          "White",
+          "Cream",
+          "Yellow",
+          "Pinkish",
+          "Salmon"
+        ],
+        "texture": [
+          "Firm in most Cantharellus",
+          "Thin or hollow in some Craterellus"
+        ],
+        "smell": [
+          "Often fruity or apricot-like",
+          "Sometimes faint"
+        ],
+        "key_filters": [
+          "No true blade-like gills",
+          "False gills are blunt and forked",
+          "Usually ground-growing",
+          "Color alone is not diagnostic",
+          "Use specific record for food"
+        ],
+        "caution_level": "high",
+        "flesh_color": [
+          "White to pale yellow in many Cantharellus",
+          "Brownish to yellowish in some Craterellus"
+        ],
+        "staining": [
+          "Variable by species; record bruising or darkening rather than assuming none"
+        ],
+        "habitat": [
+          "Hardwood and conifer forest floor",
+          "Mossy northern conifer bogs",
+          "Very decayed moss-covered wood in some yellowfeet"
+        ],
+        "growth_form": [
+          "Single",
+          "Scattered",
+          "Groups",
+          "Loose clusters"
+        ]
+      },
+      "mushroom_card_note": "Comparison only: blunt false gills or smooth wrinkles, not thin true gills; use a specific chanterelle record for food.",
+      "links": [
+        "https://www.mushroomexpert.com/cantharellaceae.html",
+        "https://www.mushroomexpert.com/cantharellus_cibarius.html"
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Chanterelles and trumpets",
+          "url": "https://www.mushroomexpert.com/cantharellaceae.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Smooth, wrinkled, false-gilled, and trumpet-shaped fertile surfaces."
+        },
+        {
+          "label": "MushroomExpert: eastern Cantharellus “cibarius” group",
+          "url": "https://www.mushroomexpert.com/cantharellus_cibarius.html",
+          "link_type": "identification/taxonomy",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Eastern species complexity and variable spore-print and false-gill colors."
+        }
+      ],
       "search_aliases": [
         "chanterelles",
         "golden-chanterelle",

@@ -1,9 +1,9 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
 const BUNDLED_VERSION_INFO = Object.freeze({
-  version: "v4.3.206-r2026-07-13-milkcap-spore-id-batch3",
-  display_version: "V4.3.206-r26-07-13",
-  cache_bust: "v4.3.206-r2026-07-13-milkcap-spore-id-batch3"
+  version: "v4.3.207-r2026-07-13-chanterelle-spore-id-batch4",
+  display_version: "V4.3.207-r26-07-13",
+  cache_bust: "v4.3.207-r2026-07-13-chanterelle-spore-id-batch4"
 });
 const FALLBACK_VERSION_INFO = BUNDLED_VERSION_INFO;
 let APP_VERSION = FALLBACK_VERSION_INFO.version;

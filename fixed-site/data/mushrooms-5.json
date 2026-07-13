@@ -48,7 +48,7 @@
     "last_data_integration": "v4.3.83-r2026-05-18-data-integration1",
     "last_data_integration_date": "2026-05-18",
     "last_updated": "2026-07-13",
-    "version": "v4.3.206-r2026-07-13-milkcap-spore-id-batch3"
+    "version": "v4.3.207-r2026-07-13-chanterelle-spore-id-batch4"
   },
   "records": [
     {
@@ -361,7 +361,7 @@
       ],
       "medicinal_uses": "Primarily culinary in this guide.",
       "culinary_uses": "Choice edible chanterelle-type mushrooms when positively identified. Cook; do not confuse with jack-o'-lanterns or true-gilled orange mushrooms.",
-      "general_notes": "",
+      "general_notes": "Do not label eastern North American yellow chanterelles as European Cantharellus cibarius. This record intentionally stays at complex level because several eastern species overlap strongly in ordinary field appearance.",
       "record_type": "mushroom",
       "lane": "other",
       "review_status": "complete",
@@ -375,8 +375,8 @@
       ],
       "foraging_value": "Prime foraging — species complex",
       "foraging_value_score": 5,
-      "field_identification": "Ground-growing chanterelle relatives with blunt false gills, ridges, wrinkles, or a smooth underside rather than thin blade-like true gills. The false gills usually run down the stem, fork, cross-vein, or look melted into the cap. Flesh is usually firm and pale inside, often with a fruity or apricot-like smell. Do not identify by orange/yellow color alone.",
-      "mushroom_card_note": "Conifer-associated yellow chanterelle complex; confirm blunt false gills, not true blade-like gills.",
+      "field_identification": "Yellow to orange-yellow chanterelle-type mushrooms growing from soil in conifer-associated woods. The underside has blunt, forked, often cross-veined false gills that run down the stem and look molded into the flesh rather than forming thin separable blades. The stem is solid and fleshy, the interior is white to pale yellow, and the odor may be fruity or apricot-like. Exact eastern North American species can require a thick spore print, careful false-gill color, host-tree notes, microscopy, or DNA.",
+      "mushroom_card_note": "Yellow chanterelle complex with conifers; blunt false gills, firm pale flesh, and soil growth.",
       "month_numbers": [
         7,
         8,
@@ -388,77 +388,113 @@
         9
       ],
       "mushroom_profile": {
-        "season_note": "Summer through fall.",
-        "mushroom_group": "chanterelles",
-        "mushroom_profile_type": "group",
+        "lane": "chanterelle",
+        "mushroom_group": "yellow chanterelles",
+        "mushroom_profile_type": "broad_species_complex",
+        "underside": [
+          "False gills / ridges"
+        ],
         "underside_type": [
-          "false gills",
-          "wrinkles",
-          "smooth underside in smooth chanterelles"
+          "Blunt decurrent ridges / false gills"
+        ],
+        "fertile_surface": [
+          "Forked and cross-veined false gills"
         ],
         "true_gills_present": false,
         "false_gill_features": [
-          "blunt",
-          "forking",
-          "cross-veined",
-          "decurrent",
-          "melted into cap"
-        ],
-        "cap_color": [
-          "yellow",
-          "golden yellow",
-          "orange-yellow",
-          "pale yellow",
-          "peach",
-          "cinnabar red in cinnabar chanterelles"
-        ],
-        "stem_color": [
-          "yellow",
-          "pale yellow",
-          "orange-yellow",
-          "same as cap or paler"
-        ],
-        "flesh_color": [
-          "white",
-          "pale yellow",
-          "yellowish"
-        ],
-        "spore_print": [
-          "white",
-          "cream",
-          "yellowish",
-          "pinkish in some species"
-        ],
-        "smell": [
-          "fruity",
-          "apricot-like",
-          "sweet",
-          "not distinctive in some species"
-        ],
-        "taste": [
-          "mild to slightly peppery in some species; not a primary beginner ID trait"
+          "Blunt",
+          "Forking",
+          "Cross-veined",
+          "Decurrent",
+          "Not separable blades"
         ],
         "substrate": [
           "Ground"
         ],
         "growth_from_wood": false,
-        "host_trees": [
-          "oak",
-          "beech",
-          "maple",
-          "birch",
-          "hemlock",
-          "pine",
-          "mixed hardwoods",
-          "mixed woods depending on species"
+        "host_filter_tokens": [
+          "Conifer"
         ],
+        "host_trees": [
+          "Spruce",
+          "Fir",
+          "Pine",
+          "Hemlock",
+          "Other conifers"
+        ],
+        "habitat": [
+          "Conifer forest floor",
+          "Mossy conifer woods",
+          "Mixed woods with nearby conifers"
+        ],
+        "cap_color": [
+          "Yellow",
+          "Golden yellow",
+          "Orange-yellow"
+        ],
+        "cap_shape": [
+          "Convex",
+          "Flat",
+          "Shallowly depressed or vase-shaped"
+        ],
+        "cap_surface": [
+          "Smooth",
+          "Dry to slightly moist"
+        ],
+        "stem_color": [
+          "Yellow",
+          "Golden yellow",
+          "Paler than cap"
+        ],
+        "stem_feature": [
+          "Solid",
+          "Fleshy",
+          "No ring",
+          "No volva"
+        ],
+        "flesh_color": [
+          "White",
+          "Pale yellow"
+        ],
+        "texture": [
+          "Firm",
+          "Fleshy"
+        ],
+        "staining": [
+          "Species-dependent; document any browning or darkening"
+        ],
+        "smell": [
+          "Fruity",
+          "Apricot-like",
+          "Sometimes faint"
+        ],
+        "taste": [
+          "Mild",
+          "Sometimes slightly peppery"
+        ],
+        "spore_print": "Species-dependent: white, cream, yellow, pinkish, or salmon",
+        "spore_print_color": [
+          "White",
+          "Cream",
+          "Yellow",
+          "Pinkish",
+          "Salmon"
+        ],
+        "growth_form": [
+          "Single",
+          "Scattered",
+          "Groups"
+        ],
+        "season_note": "Mainly summer through early fall.",
         "key_filters": [
-          "false gills",
-          "ground-growing",
-          "fruity smell",
-          "firm pale flesh",
-          "not growing directly from wood"
-        ]
+          "Conifer association",
+          "Blunt decurrent false gills",
+          "Ground growth",
+          "Firm pale interior",
+          "Thick spore print needed for finer separation",
+          "No true gills"
+        ],
+        "caution_level": "high"
       },
       "edibility_status": "edible_with_confident_id",
       "food_role": "food",
@@ -561,7 +597,7 @@
       "risk_reason": "The main danger is confusing true chanterelles with jack-o’-lanterns or false chanterelles. Jack-o’-lanterns are poisonous.",
       "symptoms_body_systems": "If confused with jack-o’-lantern: gastrointestinal tract, with cramps, vomiting, and diarrhea.",
       "field_traits_that_create_risk": "True chanterelles have blunt, forked ridges or false gills that look melted into the underside, grow from soil, and are usually singly or loosely scattered. Jack-o’-lanterns grow in dense clusters from wood or buried roots and have sharp true gills.",
-      "hard_rule": "Do not eat any “chanterelle” unless the underside has blunt ridges, not blade-like gills, and the mushroom is not growing from wood.",
+      "hard_rule": "Use only firm, ground-growing chanterelles with blunt false gills. Thin blade-like gills or clustered growth from wood or buried roots rule the mushroom out.",
       "caution_reason": "The main danger is confusing true chanterelles with jack-o’-lanterns or false chanterelles. Jack-o’-lanterns are poisonous.",
       "look_alikes": [
         "jack-o-lantern",
@@ -611,7 +647,25 @@
             "hard_rule": "Sharp separable true gills mean do not eat as chanterelle."
           }
         ]
-      }
+      },
+      "use_links": [
+        {
+          "label": "MushroomExpert: eastern Cantharellus “cibarius” group",
+          "url": "https://www.mushroomexpert.com/cantharellus_cibarius.html",
+          "link_type": "identification/taxonomy",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Explains eastern North American species complexity, false-gill color, host documentation, and variable spore-print colors."
+        },
+        {
+          "label": "MushroomExpert: Chanterelles and trumpets",
+          "url": "https://www.mushroomexpert.com/cantharellaceae.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Family-level distinction between smooth, wrinkled, false-gilled surfaces and true blade-like gills."
+        }
+      ]
     },
     {
       "slug": "yellow-chanterelles-hardwood-associated-complex",
@@ -635,7 +689,7 @@
       ],
       "medicinal_uses": "Primarily culinary in this guide.",
       "culinary_uses": "Choice edible chanterelle-type mushrooms when positively identified. Cook; check false gills, growth from soil, and lack of jack-o'-lantern clustering on wood.",
-      "general_notes": "",
+      "general_notes": "Do not label eastern North American yellow chanterelles as European Cantharellus cibarius. This record intentionally stays at complex level because several eastern species overlap strongly in ordinary field appearance.",
       "record_type": "mushroom",
       "lane": "other",
       "review_status": "complete",
@@ -649,8 +703,8 @@
       ],
       "foraging_value": "Prime foraging — species complex",
       "foraging_value_score": 5,
-      "field_identification": "Ground-growing chanterelle relatives with blunt false gills, ridges, wrinkles, or a smooth underside rather than thin blade-like true gills. The false gills usually run down the stem, fork, cross-vein, or look melted into the cap. Flesh is usually firm and pale inside, often with a fruity or apricot-like smell. Do not identify by orange/yellow color alone.",
-      "mushroom_card_note": "Hardwood yellow chanterelle complex; false gills/ridges are the key separator from jack-o'-lantern.",
+      "field_identification": "Yellow to orange-yellow chanterelle-type mushrooms growing from soil in hardwood-associated woods. The underside has blunt, forked, often cross-veined false gills that run down the stem and look molded into the flesh rather than forming thin separable blades. The stem is solid and fleshy, the interior is white to pale yellow, and the odor may be fruity or apricot-like. Exact eastern North American species can require a thick spore print, careful false-gill color, host-tree notes, microscopy, or DNA.",
+      "mushroom_card_note": "Yellow chanterelle complex with hardwoods; blunt false gills, firm pale flesh, and soil growth.",
       "month_numbers": [
         7,
         8,
@@ -662,77 +716,112 @@
         9
       ],
       "mushroom_profile": {
-        "season_note": "Summer through fall.",
-        "mushroom_group": "chanterelles",
-        "mushroom_profile_type": "group",
+        "lane": "chanterelle",
+        "mushroom_group": "yellow chanterelles",
+        "mushroom_profile_type": "broad_species_complex",
+        "underside": [
+          "False gills / ridges"
+        ],
         "underside_type": [
-          "false gills",
-          "wrinkles",
-          "smooth underside in smooth chanterelles"
+          "Blunt decurrent ridges / false gills"
+        ],
+        "fertile_surface": [
+          "Forked and cross-veined false gills"
         ],
         "true_gills_present": false,
         "false_gill_features": [
-          "blunt",
-          "forking",
-          "cross-veined",
-          "decurrent",
-          "melted into cap"
-        ],
-        "cap_color": [
-          "yellow",
-          "golden yellow",
-          "orange-yellow",
-          "pale yellow",
-          "peach",
-          "cinnabar red in cinnabar chanterelles"
-        ],
-        "stem_color": [
-          "yellow",
-          "pale yellow",
-          "orange-yellow",
-          "same as cap or paler"
-        ],
-        "flesh_color": [
-          "white",
-          "pale yellow",
-          "yellowish"
-        ],
-        "spore_print": [
-          "white",
-          "cream",
-          "yellowish",
-          "pinkish in some species"
-        ],
-        "smell": [
-          "fruity",
-          "apricot-like",
-          "sweet",
-          "not distinctive in some species"
-        ],
-        "taste": [
-          "mild to slightly peppery in some species; not a primary beginner ID trait"
+          "Blunt",
+          "Forking",
+          "Cross-veined",
+          "Decurrent",
+          "Not separable blades"
         ],
         "substrate": [
           "Ground"
         ],
         "growth_from_wood": false,
-        "host_trees": [
-          "oak",
-          "beech",
-          "maple",
-          "birch",
-          "hemlock",
-          "pine",
-          "mixed hardwoods",
-          "mixed woods depending on species"
+        "host_filter_tokens": [
+          "Hardwood"
         ],
+        "host_trees": [
+          "Oak",
+          "Beech",
+          "Maple",
+          "Birch",
+          "Other hardwoods"
+        ],
+        "habitat": [
+          "Hardwood forest floor",
+          "Mixed woods with nearby hardwoods"
+        ],
+        "cap_color": [
+          "Yellow",
+          "Golden yellow",
+          "Orange-yellow"
+        ],
+        "cap_shape": [
+          "Convex",
+          "Flat",
+          "Shallowly depressed or vase-shaped"
+        ],
+        "cap_surface": [
+          "Smooth",
+          "Dry to slightly moist"
+        ],
+        "stem_color": [
+          "Yellow",
+          "Golden yellow",
+          "Paler than cap"
+        ],
+        "stem_feature": [
+          "Solid",
+          "Fleshy",
+          "No ring",
+          "No volva"
+        ],
+        "flesh_color": [
+          "White",
+          "Pale yellow"
+        ],
+        "texture": [
+          "Firm",
+          "Fleshy"
+        ],
+        "staining": [
+          "Species-dependent; document any browning or darkening"
+        ],
+        "smell": [
+          "Fruity",
+          "Apricot-like",
+          "Sometimes faint"
+        ],
+        "taste": [
+          "Mild",
+          "Sometimes slightly peppery"
+        ],
+        "spore_print": "Species-dependent: white, cream, yellow, pinkish, or salmon",
+        "spore_print_color": [
+          "White",
+          "Cream",
+          "Yellow",
+          "Pinkish",
+          "Salmon"
+        ],
+        "growth_form": [
+          "Single",
+          "Scattered",
+          "Groups"
+        ],
+        "season_note": "Mainly summer through early fall.",
         "key_filters": [
-          "false gills",
-          "ground-growing",
-          "fruity smell",
-          "firm pale flesh",
-          "not growing directly from wood"
-        ]
+          "Hardwood association",
+          "Blunt decurrent false gills",
+          "Ground growth",
+          "Firm pale interior",
+          "Thick spore print needed for finer separation",
+          "No true gills"
+        ],
+        "caution_level": "high"
       },
       "edibility_status": "edible_with_confident_id",
       "food_role": "food",
@@ -835,7 +924,7 @@
       "risk_reason": "The main danger is confusing true chanterelles with jack-o’-lanterns or false chanterelles. Jack-o’-lanterns are poisonous.",
       "symptoms_body_systems": "If confused with jack-o’-lantern: gastrointestinal tract, with cramps, vomiting, and diarrhea.",
       "field_traits_that_create_risk": "True chanterelles have blunt, forked ridges or false gills that look melted into the underside, grow from soil, and are usually singly or loosely scattered. Jack-o’-lanterns grow in dense clusters from wood or buried roots and have sharp true gills.",
-      "hard_rule": "Do not eat any “chanterelle” unless the underside has blunt ridges, not blade-like gills, and the mushroom is not growing from wood.",
+      "hard_rule": "Use only firm, ground-growing chanterelles with blunt false gills. Thin blade-like gills or clustered growth from wood or buried roots rule the mushroom out.",
       "caution_reason": "The main danger is confusing true chanterelles with jack-o’-lanterns or false chanterelles. Jack-o’-lanterns are poisonous.",
       "look_alikes": [
         "jack-o-lantern",
@@ -885,7 +974,25 @@
             "hard_rule": "Sharp separable true gills mean do not eat as chanterelle."
           }
         ]
-      }
+      },
+      "use_links": [
+        {
+          "label": "MushroomExpert: eastern Cantharellus “cibarius” group",
+          "url": "https://www.mushroomexpert.com/cantharellus_cibarius.html",
+          "link_type": "identification/taxonomy",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Explains eastern North American species complexity, false-gill color, host documentation, and variable spore-print colors."
+        },
+        {
+          "label": "MushroomExpert: Chanterelles and trumpets",
+          "url": "https://www.mushroomexpert.com/cantharellaceae.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Family-level distinction between smooth, wrinkled, false-gilled surfaces and true blade-like gills."
+        }
+      ]
     },
     {
       "slug": "yellow-fly-agaric-guessowii",
@@ -1282,7 +1389,7 @@
       ],
       "medicinal_uses": "Primarily culinary in this guide.",
       "culinary_uses": "Good fresh or dried; small mushrooms dry well and rehydrate into soups and sauces.",
-      "general_notes": "Useful late-season chanterelle relative. The hollow yellow foot and blunt ridges are better clues than cap color.",
+      "general_notes": "The yellow hollow stem, brown perforated cap, mossy conifer-bog habitat, and white spore print are more useful than the common name. Eastern and western North American yellowfoot populations may not all represent the same species, so this remains a cautious eastern group record.",
       "record_type": "mushroom",
       "lane": "other",
       "review_status": "needs_review",
@@ -1295,8 +1402,8 @@
       ],
       "foraging_value": "Good forage",
       "foraging_value_score": 4,
-      "field_identification": "Ground-growing chanterelle relatives with blunt false gills, ridges, wrinkles, or a smooth underside rather than thin blade-like true gills. The false gills usually run down the stem, fork, cross-vein, or look melted into the cap. Flesh is usually firm and pale inside, often with a fruity or apricot-like smell. Do not identify by orange/yellow color alone.",
-      "mushroom_card_note": "Small late-season chanterelle relative: hollow yellow foot and blunt decurrent ridges.",
+      "field_identification": "Small late-season chanterelle relative from mossy northern conifer bogs and very well-decayed moss-covered wood. The brown to blackish-brown cap becomes vase-shaped and often develops a central opening. The underside has yellowish to grayish, forked, cross-veined false gills running down the stem. The thin stem is waxy, yellow to orange-yellow, and becomes hollow. Flesh is thin and brownish to yellowish, and the spore print is white.",
+      "mushroom_card_note": "Late-season yellowfoot: brown perforated cap, forked false gills, hollow yellow stem, mossy conifer habitat.",
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Craterellus_tubaeformis_2009_G1.jpg?width=480",
@@ -1343,104 +1450,105 @@
       ],
       "mushroom_profile": {
         "lane": "chanterelle",
+        "mushroom_group": "yellowfoot chanterelles",
+        "mushroom_profile_type": "species_or_tight_group",
         "underside": [
           "False gills / ridges"
         ],
+        "underside_type": [
+          "Well-developed false gills"
+        ],
+        "fertile_surface": [
+          "Forked cross-veined false gills"
+        ],
+        "true_gills_present": false,
+        "false_gill_features": [
+          "Forking",
+          "Cross-veined",
+          "Decurrent",
+          "Yellowish to grayish"
+        ],
         "substrate": [
-          "Ground"
+          "Mossy ground",
+          "Very well-decayed moss-covered wood"
         ],
+        "growth_from_wood": "Sometimes from thoroughly decayed moss-covered wood",
         "host_filter_tokens": [
-          "Conifer",
-          "Mixed woods",
-          "Wetland edge"
+          "Conifer"
         ],
-        "ring": [
-          "None"
+        "host_trees": [
+          "Conifers"
+        ],
+        "habitat": [
+          "Cold conifer bogs",
+          "Moss",
+          "Northern conifer forest",
+          "Well-decayed moss-covered logs"
+        ],
+        "cap_color": [
+          "Dark yellowish brown",
+          "Blackish brown",
+          "Grayish brown"
+        ],
+        "cap_shape": [
+          "Convex when young",
+          "Vase-shaped",
+          "Perforated center at maturity"
+        ],
+        "cap_surface": [
+          "Bald",
+          "Sticky or waxy when fresh",
+          "Wavy irregular margin"
+        ],
+        "stem_color": [
+          "Orange",
+          "Orangish yellow",
+          "Dull yellow to brownish with age"
+        ],
+        "stem_feature": [
+          "Hollow",
+          "Waxy surface",
+          "No ring",
+          "No volva"
+        ],
+        "flesh_color": [
+          "Brownish",
+          "Yellowish"
         ],
         "texture": [
-          "Thin / flexible"
-        ],
-        "smell": [
-          "fruity",
-          "apricot-like",
-          "sweet",
-          "not distinctive in some species"
+          "Thin",
+          "Insubstantial"
         ],
         "staining": [
           "None notable"
         ],
-        "cap_surface": [
-          "Brown to yellow-brown",
-          "Thin wavy cap"
-        ],
-        "stem_feature": [
-          "Yellow to orange hollow stem"
-        ],
-        "spore_print": [
-          "white",
-          "cream",
-          "yellowish",
-          "pinkish in some species"
-        ],
-        "growth_form": [
-          "Groups in moss"
-        ],
-        "season_note": "Summer through fall.",
-        "mushroom_group": "chanterelles",
-        "mushroom_profile_type": "group",
-        "underside_type": [
-          "false gills",
-          "wrinkles",
-          "smooth underside in smooth chanterelles"
-        ],
-        "true_gills_present": false,
-        "false_gill_features": [
-          "blunt",
-          "forking",
-          "cross-veined",
-          "decurrent",
-          "melted into cap"
-        ],
-        "cap_color": [
-          "yellow",
-          "golden yellow",
-          "orange-yellow",
-          "pale yellow",
-          "peach",
-          "cinnabar red in cinnabar chanterelles"
-        ],
-        "stem_color": [
-          "yellow",
-          "pale yellow",
-          "orange-yellow",
-          "same as cap or paler"
-        ],
-        "flesh_color": [
-          "white",
-          "pale yellow",
-          "yellowish"
+        "smell": [
+          "Not distinctive",
+          "Slightly fragrant"
         ],
         "taste": [
-          "mild to slightly peppery in some species; not a primary beginner ID trait"
+          "Not distinctive"
         ],
-        "growth_from_wood": false,
-        "host_trees": [
-          "oak",
-          "beech",
-          "maple",
-          "birch",
-          "hemlock",
-          "pine",
-          "mixed hardwoods",
-          "mixed woods depending on species"
+        "spore_print": "White",
+        "spore_print_color": [
+          "White"
         ],
+        "growth_form": [
+          "Single",
+          "Scattered",
+          "Loose clusters",
+          "Large groups"
+        ],
+        "season_note": "Fall, often late in the season.",
         "key_filters": [
-          "false gills",
-          "ground-growing",
-          "fruity smell",
-          "firm pale flesh",
-          "not growing directly from wood"
-        ]
+          "Brown vase-shaped cap",
+          "Central opening at maturity",
+          "Forked cross-veined false gills",
+          "Hollow waxy yellow stem",
+          "White spore print",
+          "Mossy conifer bog habitat"
+        ],
+        "caution_level": "high"
       },
       "food_role": "food",
       "edibility_status": "edible_with_caution",
@@ -1500,7 +1608,7 @@
       "risk_reason": "The main danger is confusing true chanterelles with jack-o’-lanterns or false chanterelles. Jack-o’-lanterns are poisonous.",
       "symptoms_body_systems": "If confused with jack-o’-lantern: gastrointestinal tract, with cramps, vomiting, and diarrhea.",
       "field_traits_that_create_risk": "True chanterelles have blunt, forked ridges or false gills that look melted into the underside, grow from soil, and are usually singly or loosely scattered. Jack-o’-lanterns grow in dense clusters from wood or buried roots and have sharp true gills.",
-      "hard_rule": "Do not eat any “chanterelle” unless the underside has blunt ridges, not blade-like gills, and the mushroom is not growing from wood.",
+      "hard_rule": "Do not use this record for a solid-stemmed yellow chanterelle or any mushroom with thin true gills. Confirm the hollow waxy yellow stem and forked, cross-veined false gills.",
       "caution_reason": "The main danger is confusing true chanterelles with jack-o’-lanterns or false chanterelles. Jack-o’-lanterns are poisonous.",
       "lookalike_risk": {
         "level": 1,
