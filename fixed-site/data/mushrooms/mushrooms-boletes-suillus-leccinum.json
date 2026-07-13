@@ -16,7 +16,11 @@
     "last_image_recovery_batch": "v4.3.81-r2026-05-18-image-recovery-audit1",
     "last_image_recovery_date": "2026-05-18",
     "last_content_update": "v4.3.139-r2026-06-10-mushroom-image-rights-cleanup1",
-    "last_content_update_date": "2026-06-10"
+    "last_content_update_date": "2026-06-10",
+    "last_updated": "2026-07-13",
+    "version": "v4.3.208-r2026-07-13-leccinum-distinctive-edibles-batch5",
+    "last_leccinum_distinctive_batch": "v4.3.208-r2026-07-13-leccinum-distinctive-edibles-batch5",
+    "last_leccinum_distinctive_batch_date": "2026-07-13"
   },
   "records": [
     {
@@ -568,10 +572,10 @@
     },
     {
       "slug": "leccinum-scabrum",
-      "display_name": "Birch Bolete",
-      "common_name": "Birch Bolete",
+      "display_name": "Birch scaber-stalk / Leccinum scabrum group",
+      "common_name": "Birch scaber-stalk / Leccinum scabrum group",
       "category": "Mushroom",
-      "culinary_uses": "Some Leccinum are eaten, but this group needs thorough cooking and careful host/tree notes. Do not treat scaber-stalk boletes as beginner mushrooms.",
+      "culinary_uses": "Not recommended as a normal food target in this guide until an Upper Michigan collection is securely placed in the birch-associated complex and edible-use support is resolved.",
       "medicinal_uses": "",
       "notes": "",
       "months_available": [
@@ -587,7 +591,10 @@
         10
       ],
       "links": [
-        "https://www.mushroomexpert.com/leccinum.html"
+        "https://www.mushroomexpert.com/leccinum.html",
+        "https://www.mushroomexpert.com/leccinum_holopus.html",
+        "https://www.mushroomexpert.com/leccinum_albellum.html",
+        "https://namyco.org/interests/toxicology/mushroom-poisoning-syndromes/"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum_scabrum.png",
@@ -597,54 +604,55 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20scabrum%20%281%29.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20Scabrum%20%3B.jpg"
       ],
-      "scientific_name": "Leccinum scabrum",
+      "scientific_name": "Leccinum scabrum group",
       "mushroom_profile": {
-        "scientific_name": "Leccinum scabrum",
-        "entry_scope": "species",
-        "edibility_status": "edible_with_caution",
-        "caution_level": "medium",
-        "summary": "Minimal bolete seed entry for Birch Bolete.",
+        "scientific_name": "Leccinum scabrum group",
+        "entry_scope": "species complex / birch-associated group",
+        "edibility_status": "review_required",
+        "caution_level": "high",
+        "summary": "Birch-associated brown scaber-stalk group; exact North American application of the European name Leccinum scabrum remains review-sensitive.",
         "ecology": "bolete",
         "substrate": [
-          "Forest soil"
+          "Forest soil under birch"
         ],
         "host_trees": [
           "Birch",
-          "Aspen / poplar"
+          "Paper birch"
         ],
-        "host_certainty": "unknown",
+        "host_certainty": "high for birch association; exact species unresolved",
         "underside": [
           "Pores"
         ],
-        "ring": "Unknown",
+        "ring": "None",
         "texture": [
-          "Fleshy / firm",
-          "Soft-fleshed bolete"
+          "Fleshy / firm when young",
+          "Quickly soft or spongy with age"
         ],
-        "odor": "Unknown",
+        "odor": "Mild / not distinctive",
         "staining": [
-          "Unknown",
-          "Staining varies by species; slice and observe over 30 minutes"
+          "Usually little change or slow gray-brown discoloration",
+          "Observe cut flesh for at least 30 minutes"
         ],
         "taste": [
           "Mild / not distinctive"
         ],
-        "spore_print": "",
-        "season_note": "July through October.",
+        "spore_print": "Olive-brown to brown",
+        "season_note": "July through October with birch.",
         "research_notes": [
-          "Needs source links and fuller field notes."
+          "Needs source links and fuller field notes.",
+          "Treat as a birch-associated group unless a modern local source or voucher supports the exact species name."
         ],
         "cap_surface": [
           "Dry to slightly tacky",
-          "Dry cap; color varies by species"
+          "Tan to brown"
         ],
         "stem_feature": [
-          "Scabers",
-          "Scabers on stem"
+          "Dark scabers on pale stem",
+          "No ring"
         ],
         "pore_color": [
-          "Whitish to grayish pores",
-          "Whitish to grayish or yellowish pores depending on species"
+          "Whitish when young",
+          "Grayish to brownish with age"
         ],
         "growth_form": [
           "Cap and stem"
@@ -657,12 +665,15 @@
         ],
         "host_filter_tokens": [
           "Hardwood",
-          "Birch",
-          "Aspen / poplar"
+          "Birch"
         ],
         "lane": "bolete",
         "smell": [
           "Mild / not distinctive"
+        ],
+        "spore_print_color": [
+          "Olive-brown",
+          "Brown"
         ]
       },
       "mushroom_family": "Leccinum / scaber stalks",
@@ -679,16 +690,15 @@
       "weekPrecision": "species-level-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false,
+      "is_non_edible": true,
       "commonness": "Occasional",
       "commonness_score": 4,
-      "food_quality": "Fair to good when expertly confirmed",
-      "food_quality_score": 4,
+      "food_quality": "Not recommended",
+      "food_quality_score": 1,
       "lane": "bolete",
       "host_filter_tokens": [
-        "Hardwood",
         "Birch",
-        "Aspen / poplar"
+        "Hardwood"
       ],
       "look_alikes": [
         "scaber-stalk-boletes-birch-aspen-boletes",
@@ -703,22 +713,46 @@
         "blue-staining-red-pored-boletes-caution-group"
       ],
       "general_notes": "",
-      "edibility_detail": "Do not present scaber-stalk boletes as beginner-safe. If host tree, scabers, pores, staining, or freshness are uncertain, do not eat.",
-      "food_role": "food",
-      "edibility_status": "edible_with_caution",
-      "field_identification": "Leccinum-type boletes have pore surfaces and a central stem covered with scabers rather than glandular dots or netting. Host tree is a key identification clue; many are birch, aspen, oak, or other specific-tree associates.",
+      "edibility_detail": "European birch boletes are widely eaten, but North American name application and individual reactions remain unresolved. Keep this record for identification, not meal authorization.",
+      "food_role": "avoid",
+      "edibility_status": "review_required",
+      "field_identification": "Birch-associated bolete with a tan to brown cap, whitish pores aging grayish, and a white or pale stem covered with dark scabers. Slice and observe for slow discoloration. Pale bog forms may instead fit Leccinum holopus; pale oak forms fit Leccinum albellum.",
       "use_links": [
         {
-          "label": "MushroomExpert: The Genus Leccinum",
+          "label": "MushroomExpert: the genus Leccinum",
           "url": "https://www.mushroomexpert.com/leccinum.html",
           "link_type": "identification",
-          "applies_to_part": "whole mushroom",
+          "applies_to_part": "whole group",
           "source_quality": "mycology reference",
-          "notes": "Scabers, host specificity, pore/staining notes, and North American ID caution."
+          "notes": "North American Leccinum key and taxonomy context."
+        },
+        {
+          "label": "MushroomExpert: Leccinum holopus",
+          "url": "https://www.mushroomexpert.com/leccinum_holopus.html",
+          "link_type": "look-alike / identification",
+          "applies_to_part": "pale birch-associated comparison",
+          "source_quality": "mycology reference",
+          "notes": "Northern birch associate documented from Michigan and Wisconsin."
+        },
+        {
+          "label": "MushroomExpert: Leccinum albellum",
+          "url": "https://www.mushroomexpert.com/leccinum_albellum.html",
+          "link_type": "look-alike / identification",
+          "applies_to_part": "pale oak-associated comparison",
+          "source_quality": "mycology reference",
+          "notes": "Separates a pale oak associate from pale birch-associated Leccinum."
+        },
+        {
+          "label": "NAMA: Mushroom Poisoning Syndromes",
+          "url": "https://namyco.org/interests/toxicology/mushroom-poisoning-syndromes/",
+          "link_type": "safety",
+          "applies_to_part": "general adverse reaction response",
+          "source_quality": "mycological association toxicology reference",
+          "notes": "General GI-poisoning guidance; not species-level edible proof."
         }
       ],
       "record_type": "mushroom",
-      "review_status": "ok",
+      "review_status": "needs_review",
       "common_names": [
         "Birch Bolete",
         "scaber-stalk-boletes-birch-aspen-boletes",
@@ -739,19 +773,19 @@
       "look_alike_notes": "",
       "overview": "",
       "other_uses": "",
-      "edibility_notes": "Some Leccinum are eaten, but this group needs thorough cooking and careful host/tree notes.",
+      "edibility_notes": "Retained for identification and comparison; do not treat this record as meal authorization.",
       "search_aliases": [
         "scaber-stalk-boletes-birch-aspen-boletes",
         "Scaber-stalk boletes / birch-aspen boletes",
         "Scaber-stalk boletes",
         "Birch-aspen boletes"
       ],
-      "non_edible_severity": "",
+      "non_edible_severity": "Caution / not recommended pending review",
       "edible_use": {
-        "has_ingestible_use": true,
-        "method": "Cooked food / expert ID only",
-        "preparation_required": true,
-        "notes": "Only use young firm specimens when birch/aspen host, scabers, pore color, and staining behavior fit; cook thoroughly. Start with a small serving."
+        "has_ingestible_use": false,
+        "method": "",
+        "preparation_required": false,
+        "notes": "No app-approved food use while this record remains under review."
       },
       "medicinal": {
         "has_meaningful_content": false,
@@ -789,15 +823,15 @@
           "sourcePage": "https://commons.wikimedia.org/wiki/File:Leccinum_Scabrum_%3B.jpg"
         }
       ],
-      "safety": "Edible with high caution",
-      "food_value": "Fair to good when expertly confirmed",
-      "foraging_value": "Fair to good when expertly confirmed",
+      "safety": "Caution / not recommended as food pending review",
+      "food_value": "Not recommended",
+      "foraging_value": "Identification / caution",
       "quality_notes": "Quality varies by age and species concept; older scaber-stalks soften, bug up, and darken when cooked.",
-      "eating_use_notes": "Only use young firm specimens when birch/aspen host, scabers, pore color, and staining behavior fit; cook thoroughly. Start with a small serving.",
-      "risk_reason": "Leccinum/scaber-stalk boletes have species-level uncertainty and reported GI reactions; this is a safety caution, not just a quality issue.",
-      "hard_rule": "Do not present scaber-stalk boletes as beginner-safe. If host tree, scabers, pores, staining, or freshness are uncertain, do not eat.",
+      "eating_use_notes": "No app-approved food use while this record remains under review.",
+      "risk_reason": "The European name is often applied broadly in North America, while host, species limits, condition, and individual reactions can all affect safety.",
+      "hard_rule": "Do not eat from this app record. Confirm birch host and exact taxonomic placement before any independent expert food decision.",
       "use_roles": [
-        "Food",
+        "ID / comparison",
         "ID / caution"
       ],
       "danger_level": "",
@@ -866,8 +900,11 @@
       },
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20scabrum%20%2823691548239%29.jpg?width=480",
       "image_coverage_status": "verified_images",
-      "mushroom_card_note": "Birch-associated scaber-stalk bolete; edible only with expert-level ID, young firm specimens, and thorough cooking.",
-      "caution_reason": "Leccinum/scaber-stalk boletes have species-level uncertainty and reported GI reactions; caution is safety and preparation-related, not a route blocker."
+      "mushroom_card_note": "Birch-associated scaber-stalk group; useful for identification, but not an app-approved food target while North American taxonomy and safety support remain unresolved.",
+      "caution_reason": "Leccinum/scaber-stalk boletes have species-level uncertainty and reported GI reactions; caution is safety and preparation-related, not a route blocker.",
+      "needs_review": true,
+      "review_blocker": "North American birch-associated scaber-stalks can be difficult to resolve to the European name Leccinum scabrum without stronger local taxonomy/voucher support.",
+      "foraging_value_score": 1
     },
     {
       "slug": "blue-staining-slippery-jack",

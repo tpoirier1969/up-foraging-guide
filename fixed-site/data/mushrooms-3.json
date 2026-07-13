@@ -48,7 +48,11 @@
     "last_content_update": "v4.3.82-r2026-05-18-danger-entries-forage-display1",
     "last_content_update_date": "2026-05-18",
     "last_data_integration": "v4.3.83-r2026-05-18-data-integration1",
-    "last_data_integration_date": "2026-05-18"
+    "last_data_integration_date": "2026-05-18",
+    "last_updated": "2026-07-13",
+    "version": "v4.3.208-r2026-07-13-leccinum-distinctive-edibles-batch5",
+    "last_leccinum_distinctive_batch": "v4.3.208-r2026-07-13-leccinum-distinctive-edibles-batch5",
+    "last_leccinum_distinctive_batch_date": "2026-07-13"
   },
   "records": [
     {
@@ -2600,12 +2604,12 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Lobster_Mushroom_(Hypomyces_lactifluorum)_-_La_P%C3%AAche,_Qu%C3%A9bec_2016-09-20.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Lobster_Mushroom_cross-section.jpg"
       ],
-      "medicinal_uses": "Original app included medicinal notes or related use context for this entry. Detailed copyback is still pending.",
-      "culinary_uses": "Detailed culinary and caution notes are still being copied back.",
+      "medicinal_uses": "",
+      "culinary_uses": "Choice edible when fully transformed, fresh, firm, and clean. Trim dirty folds, slice to inspect the interior, cook thoroughly, and reject partial, soft, slimy, moldy, sour, purple, or foul specimens.",
       "general_notes": "Best learned as a transformation fungus rather than a normal cap-and-gill mushroom.",
       "record_type": "mushroom",
       "lane": "other",
-      "review_status": "ok",
+      "review_status": "complete",
       "host_filter_tokens": [
         "Hardwood",
         "Conifer / softwood"
@@ -2637,10 +2641,11 @@
       "edibility_detail": "Choice edible when fresh, firm, and fully transformed. This is a parasitic fungus on other mushrooms, usually Russula or Lactarius. Eat only firm, fresh, fully orange specimens with the host mushroom clearly transformed.",
       "mushroom_profile": {
         "underside": [
-          "Deformed / obscured"
+          "Deformed / obscured",
+          "Host gills reduced or buried"
         ],
         "substrate": [
-          "Ground"
+          "Ground in forest soil"
         ],
         "host_filter_tokens": [
           "Hardwood",
@@ -2655,7 +2660,7 @@
           "mild to seafood-like in some specimens"
         ],
         "staining": [
-          "Orange-red exterior"
+          "Orange-red exterior; no diagnostic bruise test"
         ],
         "cap_surface": [
           "Orange-red crust"
@@ -2663,7 +2668,7 @@
         "stem_feature": [
           "Distorted host mushroom form"
         ],
-        "spore_print": "not usually practical",
+        "spore_print": "Not a practical cap-on-paper field test; the host hymenium is overgrown and the parasite produces spores from embedded perithecia",
         "growth_form": [
           "Parasitized irregular cap"
         ],
@@ -2673,7 +2678,7 @@
         "branching_form": [
           "Single distorted fruitbody"
         ],
-        "season_note": "Mid-summer through fall.",
+        "season_note": "Mid-summer through fall; July through September in the app.",
         "mushroom_group": "parasitized mushrooms",
         "mushroom_profile_type": "species",
         "scientific_name": "Hypomyces lactifluorum",
@@ -2706,17 +2711,23 @@
           "seafood-like or mild when fresh"
         ],
         "host_trees": [
-          "oak",
-          "poplar",
-          "mixed hardwoods",
-          "mixed woods"
+          "Mixed hardwoods",
+          "Mixed conifer woods",
+          "Host-tree association follows the Russula/Lactarius host"
         ],
         "key_filters": [
-          "orange crust",
-          "parasitized mushroom",
-          "warty surface",
-          "gills obscured"
-        ]
+          "orange-red crust",
+          "fully parasitized mushroom",
+          "warty pimply surface",
+          "gills obscured",
+          "firm pale interior"
+        ],
+        "entry_scope": "species / parasitized host complex",
+        "edibility_status": "edible_with_caution",
+        "caution_level": "medium",
+        "summary": "Bright orange-red Hypomyces crust thoroughly transforms a Russula, Lactarius, or Lactifluus host into a dense irregular fruitbody with obscured gills.",
+        "spore_print_color": [],
+        "host_certainty": "host mushroom group known; exact host often obscured"
       },
       "commonness_score": 3,
       "food_quality_score": 5,
@@ -2841,7 +2852,41 @@
             "hard_rule": "If it has true orange gills, route away from the edible target."
           }
         ]
-      }
+      },
+      "links": [
+        "https://botit.botany.wisc.edu/toms_fungi/aug2001.html",
+        "https://pubmed.ncbi.nlm.nih.gov/29470885/"
+      ],
+      "use_links": [
+        {
+          "label": "Tom Volk, UW–La Crosse: Hypomyces lactifluorum",
+          "url": "https://botit.botany.wisc.edu/toms_fungi/aug2001.html",
+          "link_type": "identification / ecology / food context",
+          "applies_to_part": "whole parasitized mushroom",
+          "source_quality": "university mycology reference",
+          "notes": "Describes the orange Hypomyces crust, white host interior, Russula/Lactarius hosts, and long food-use history."
+        },
+        {
+          "label": "Genome study: lobster mushroom DNA and metabolite transformation",
+          "url": "https://pubmed.ncbi.nlm.nih.gov/29470885/",
+          "link_type": "research / host transformation",
+          "applies_to_part": "infected Russula host and Hypomyces parasite",
+          "source_quality": "peer-reviewed primary research",
+          "notes": "Documents parasite/host DNA distribution and metabolite changes in wild lobster mushrooms."
+        }
+      ],
+      "use_roles": [
+        "Food",
+        "ID / caution"
+      ],
+      "edible_use": {
+        "has_ingestible_use": true,
+        "method": "Cooked food",
+        "preparation_required": true,
+        "notes": "Use only fully transformed, firm, fresh specimens; cut open and reject partial infection, rot, slime, mold, sour odor, or soft interior."
+      },
+      "needs_review": false,
+      "source_note": "v4.3.208 replaces stale culinary placeholder text, adds primary/university sources, and clarifies that a normal spore print is not a practical field test."
     },
     {
       "slug": "meadow-mushroom",

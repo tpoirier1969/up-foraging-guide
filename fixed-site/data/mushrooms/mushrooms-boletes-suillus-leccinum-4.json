@@ -21,15 +21,19 @@
     "last_completion_wave": "v4.3.63-r2026-05-14-mushroom-completion-wave1",
     "completion_wave_rule": "Handoff ZIPs should contain 15–25 completed species; each touched species must be completed for current schema with photo rights metadata.",
     "last_content_update": "v4.3.133-r2026-06-09-mushroom-placeholder-status-cleanup1",
-    "last_content_update_date": "2026-06-09"
+    "last_content_update_date": "2026-06-09",
+    "last_updated": "2026-07-13",
+    "version": "v4.3.208-r2026-07-13-leccinum-distinctive-edibles-batch5",
+    "last_leccinum_distinctive_batch": "v4.3.208-r2026-07-13-leccinum-distinctive-edibles-batch5",
+    "last_leccinum_distinctive_batch_date": "2026-07-13"
   },
   "records": [
     {
       "slug": "leccinum-versipelle",
-      "display_name": "Orange Birch Bolete",
-      "common_name": "Orange Birch Bolete",
+      "display_name": "Orange birch scaber-stalk group",
+      "common_name": "Orange birch scaber-stalk group",
       "category": "Mushroom",
-      "culinary_uses": "Use only firm, fresh specimens and cook thoroughly. Treat the stem as often fibrous/tough. Do not sample raw or undercooked Leccinum.",
+      "culinary_uses": "Not recommended as a normal food target in this guide while the North American orange-birch complex and adverse-reaction history remain unresolved.",
       "medicinal_uses": "",
       "notes": "",
       "months_available": [
@@ -45,42 +49,83 @@
         10
       ],
       "links": [
-        "https://en.wikipedia.org/wiki/Leccinum_versipelle"
+        "https://www.mushroomexpert.com/leccinum.html",
+        "https://namyco.org/interests/toxicology/mushroom-poisoning-syndromes/"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/2006-09-02%20Leccinum%20versipelle.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Leccinum%20versipelle%2001.JPG"
       ],
-      "scientific_name": "Leccinum versipelle",
+      "scientific_name": "Leccinum versipelle group",
       "mushroom_profile": {
         "underside": [
           "Pores"
         ],
         "substrate": [
-          "Forest soil"
+          "Forest soil under birch"
         ],
         "host_filter_tokens": [
-          "Birch",
-          "Aspen",
-          "Poplar"
+          "Hardwood",
+          "Birch"
         ],
         "host_trees": [
           "Birch",
-          "Aspen / poplar possible in broader complex references"
+          "Paper birch"
         ],
         "growth_form": [
           "Cap and stem"
         ],
         "stem_feature": [
-          "Dark scabers / rough stalk"
+          "Dense dark gray-brown to black scabers",
+          "Pale stem",
+          "No ring"
         ],
         "pore_color": [
-          "Whitish to grayish or pale brownish"
+          "Grayish white to gray-brown"
         ],
         "staining": [
-          "May stain reddish/grayish/dark when cut or bruised"
+          "Flesh may turn pinkish or gray, then dark gray to blackish",
+          "Pores bruise brownish to grayish"
         ],
-        "season_note": "Summer through fall; confirm locally with host trees and current field guides."
+        "season_note": "July through October with birch; exact North American species application remains review-sensitive.",
+        "scientific_name": "Leccinum versipelle group",
+        "entry_scope": "orange birch-associated species group",
+        "edibility_status": "review_required",
+        "caution_level": "high",
+        "summary": "Orange-capped birch-associated scaber-stalk group with dark scabers and flesh that may pink, gray, or blacken.",
+        "host_certainty": "high for birch association; exact species unresolved",
+        "ring": "None",
+        "texture": [
+          "Fleshy / firm when young",
+          "Stem often fibrous"
+        ],
+        "odor": "Mild / not distinctive",
+        "smell": [
+          "Mild / not distinctive"
+        ],
+        "taste": [
+          "Mild / not distinctive"
+        ],
+        "spore_print": "Yellow-brown to olive-brown",
+        "spore_print_color": [
+          "Yellow-brown",
+          "Olive-brown"
+        ],
+        "cap_surface": [
+          "Dry to finely felted",
+          "Orange to orange-brown",
+          "Margin may overhang pores"
+        ],
+        "flesh_color": [
+          "White",
+          "Darkens after cutting"
+        ],
+        "fertile_surface": [
+          "Pores"
+        ],
+        "research_notes": [
+          "Use the group-level label until a modern North American source or voucher supports an exact species determination."
+        ]
       },
       "mushroom_family": "Leccinum / scaber stalks",
       "boleteGroup": [
@@ -96,27 +141,34 @@
       "weekPrecision": "species-level-reviewed",
       "primary_type": "mushroom",
       "is_medicinal": false,
-      "is_non_edible": false,
+      "is_non_edible": true,
       "commonness": "Occasional",
-      "food_quality": "Edible with strict cooking caution and source review",
-      "food_role": "food",
-      "edibility_status": "edible_with_preparation",
-      "edibility_detail": "Often listed as edible after thorough cooking, but Leccinum reactions vary and this guide treats it as edible-with-preparation and source-review-needed.",
-      "field_identification": "Look for birch association, an orange to orange-brown cap, pale pore surface, and a white to pale stem covered with dark rough scabers. Slice and watch flesh color changes; compare carefully with other orange-capped Leccinum.",
+      "food_quality": "Not recommended",
+      "food_role": "avoid",
+      "edibility_status": "review_required",
+      "edibility_detail": "Often described as edible after thorough cooking, but exact North American species application and reaction reports keep it in identification/caution routing.",
+      "field_identification": "Birch-associated orange to orange-brown scaber-stalk with pale grayish pores and a pale stem densely covered in dark scabers. Cut flesh may pass through pink or gray tones and become dark gray to blackish. Similar orange-capped North American Leccinum require host and taxonomy checks.",
       "use_links": [
         {
-          "label": "Leccinum versipelle overview and edibility caution",
-          "url": "https://en.wikipedia.org/wiki/Leccinum_versipelle",
-          "link_type": "identification",
-          "applies_to_part": "whole mushroom",
-          "source_quality": "reference overview",
-          "notes": "General description, birch association, and cooking caution."
+          "label": "MushroomExpert: the genus Leccinum",
+          "url": "https://www.mushroomexpert.com/leccinum.html",
+          "link_type": "identification / taxonomy",
+          "applies_to_part": "whole group",
+          "source_quality": "mycology reference",
+          "notes": "North American Leccinum key and species-complex context."
+        },
+        {
+          "label": "NAMA: Mushroom Poisoning Syndromes",
+          "url": "https://namyco.org/interests/toxicology/mushroom-poisoning-syndromes/",
+          "link_type": "safety",
+          "applies_to_part": "general adverse reaction response",
+          "source_quality": "mycological association toxicology reference",
+          "notes": "General GI-poisoning guidance; not species-level edible proof."
         }
       ],
       "host_filter_tokens": [
-        "Hardwood",
         "Birch",
-        "Aspen / poplar"
+        "Hardwood"
       ],
       "lane": "bolete",
       "record_type": "mushroom",
@@ -144,14 +196,14 @@
       "look_alike_notes": "Separate from brown birch bolete and other orange scaber-stalks by cap color, host clues, staining, pore surface, and scaber pattern. Do not rely on cap color alone.",
       "overview": "Orange-capped birch-associated scaber-stalk bolete with pale pores and a rough, dark-scabered stem. It is treated here as a cautious edible only after firm identification and thorough cooking.",
       "other_uses": "",
-      "edibility_notes": "Caution-level edible. Reports for Leccinum vary, and this record should not be treated as a casual beginner edible. Thorough cooking is essential; avoid old, buggy, soft, or uncertain specimens.",
+      "edibility_notes": "Retained for identification and comparison; do not treat this record as meal authorization.",
       "general_notes": "Source/status cleanup v4.3.170: Wikipedia-only edible-use support is not enough to clear mushroom review; keep visible and caution-framed pending stronger source support.",
-      "non_edible_severity": "",
+      "non_edible_severity": "Caution / not recommended pending review",
       "edible_use": {
-        "has_ingestible_use": true,
-        "method": "Cooked food / preparation required",
-        "preparation_required": true,
-        "notes": "Thorough cooking is required. Some Leccinum are eaten, but this record remains source-review-needed and not beginner-safe."
+        "has_ingestible_use": false,
+        "method": "",
+        "preparation_required": false,
+        "notes": "No app-approved food use while this record remains under review."
       },
       "medicinal": {
         "has_meaningful_content": false,
@@ -160,14 +212,13 @@
         "preparation_notes": "",
         "warnings": ""
       },
-      "mushroom_card_note": "Orange-capped birch/aspen-associated Leccinum with pale pores and a scabered stem that darkens with age.",
+      "mushroom_card_note": "Orange birch scaber-stalk group; exact North American species and food safety remain on HOLD.",
       "use_roles": [
-        "Food",
         "ID / comparison",
         "ID / caution"
       ],
-      "foraging_value": "Use with caution; source review needed",
-      "foraging_value_score": 2,
+      "foraging_value": "Identification / caution",
+      "foraging_value_score": 1,
       "needs_review": true,
       "v4287_checked": true,
       "images_structured": [
@@ -302,9 +353,14 @@
           }
         ]
       },
-      "eating_use_notes": "Cook thoroughly; use only fresh, firm, confidently identified specimens; start with a small serving.",
-      "hard_rule": "Do not eat raw or undercooked Leccinum. Do not use this record if host, scabers, pore color, or staining behavior are uncertain.",
-      "caution_reason": "Preparation and reaction risk; caution is additive and does not by itself remove this food-valid record from edible routes."
+      "eating_use_notes": "No app-approved food use while this record remains under review.",
+      "hard_rule": "Do not eat from this app record. Birch host, scabers, pores, staining, and expert taxonomic confirmation are all required before any outside food decision.",
+      "caution_reason": "Preparation risk, reported group reactions, and unresolved North American species boundaries.",
+      "review_blocker": "European-name application and exact Upper Michigan species resolution remain uncertain; broad orange-capped Leccinum should not be treated as one species.",
+      "risk_reason": "Orange-capped Leccinum are difficult to separate, and raw, undercooked, or misidentified specimens have a history of gastrointestinal problems.",
+      "food_quality_score": 1,
+      "safety": "Caution / not recommended as food pending review",
+      "food_value": "Not recommended"
     },
     {
       "slug": "suillus-spraguei",
@@ -1378,7 +1434,7 @@
       "display_name": "Snell's Bolete",
       "common_name": "Snell's Bolete",
       "category": "Mushroom",
-      "culinary_uses": "Culinary specifics still need review.",
+      "culinary_uses": "Not a food target in this guide; retained for identification and comparison.",
       "medicinal_uses": "",
       "notes": "",
       "months_available": [
@@ -1400,9 +1456,9 @@
       "scientific_name": "Leccinum snellii",
       "mushroom_profile": {
         "scientific_name": "Leccinum snellii",
-        "entry_scope": "species",
+        "entry_scope": "legacy species seed / review hold",
         "edibility_status": "review_required",
-        "caution_level": "medium",
+        "caution_level": "high",
         "summary": "Leccinum/Snellii comparison record; needs field images and stronger species-source support before food use.",
         "ecology": "bolete",
         "substrate": [
@@ -1411,7 +1467,7 @@
         "host_trees": [
           "Hardwoods"
         ],
-        "host_certainty": "unknown",
+        "host_certainty": "unverified",
         "underside": "Pores",
         "ring": "None",
         "texture": [
@@ -1422,12 +1478,13 @@
           "Unknown",
           "Staining behavior needs confirmation"
         ],
-        "spore_print": "",
+        "spore_print": "Olive-brown to brown at Leccinum-group level; exact species value not verified",
         "season_note": "July through October; treated with Leccinum-type late-summer and fall timing until local timing is better documented.",
         "research_notes": [
           "Needs source links and fuller field notes.",
           "Treat as a scabered-stem Leccinum-type bolete. Confirm host, cap color, pore color, and staining before applying the name.",
-          "Suppressed from normal cards because no exact public-usable image is verified."
+          "Suppressed from normal cards because no exact public-usable image is verified.",
+          "Retained as a comparison lead only; do not infer local presence or edible status from the legacy name."
         ],
         "cap_surface": [
           "Cap color needs confirmation"
@@ -1437,6 +1494,10 @@
         ],
         "pore_color": [
           "Pores"
+        ],
+        "spore_print_color": [
+          "Olive-brown",
+          "Brown"
         ]
       },
       "mushroom_family": "Leccinum / scaber stalks",
@@ -1459,11 +1520,11 @@
       ],
       "commonness": "",
       "food_quality": "",
-      "non_edible_severity": "",
+      "non_edible_severity": "Caution / not recommended as food",
       "needs_review": true,
-      "mushroom_card_note": "Leccinum/Snellii comparison record; needs field images and stronger species-source support before food use.",
-      "field_identification": "Treat as a scabered-stem Leccinum-type bolete. Confirm host, cap color, pore color, and staining before applying the name.",
-      "edibility_detail": "Not recommended as a casual edible target in this app; keep for identification comparison until better documented.",
+      "mushroom_card_note": "Snell's Bolete — legacy comparison record; not a food target and not locally cleared.",
+      "field_identification": "Use only as a Leccinum/scaber-stalk comparison lead. Confirm the exact host tree, cap surface and color, pore color, scaber color/pattern, and flesh staining over at least 30 minutes before applying this name. This record is not cleared as an Upper Michigan food target.",
+      "edibility_detail": "Do not eat from this app entry. Use it for recognition and comparison only.",
       "use_roles": [
         "ID / comparison"
       ],
@@ -1488,7 +1549,26 @@
       "display_status": "suppressed_from_normal_cards",
       "suppression_reason": "Missing exact public-usable species image; suppressed from normal cards until reviewed image/source support exists.",
       "needs_exact_image": true,
-      "placeholder_image_removed": true
+      "placeholder_image_removed": true,
+      "food_role": "avoid",
+      "edibility_status": "review_required",
+      "edible_use": {
+        "has_ingestible_use": false,
+        "method": "",
+        "preparation_required": false,
+        "notes": ""
+      },
+      "recognition_only": true,
+      "safety": "Recognition-only; do not eat from this app entry",
+      "food_value": "Recognition only / not a food target in this guide",
+      "danger_level": "Caution / not recommended as food",
+      "eating_use_notes": "Do not use this app entry as a food recommendation.",
+      "hard_rule": "Do not eat from this app entry. Use it for recognition and comparison only.",
+      "review_blocker": "Exact modern taxonomy, Upper Michigan occurrence, host association, and species-level field profile were not established from a strong source in this pass.",
+      "source_review_notes": [
+        "Exact modern taxonomy, Upper Michigan occurrence, host association, and species-level field profile were not established from a strong source in this pass."
+      ],
+      "source_note": "v4.3.208 HOLD: route normalized to ID/comparison only; exact modern taxonomy and Upper Michigan evidence still required."
     },
     {
       "slug": "sour-cap-suillus",

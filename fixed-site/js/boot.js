@@ -1,9 +1,9 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
 const BUNDLED_VERSION_INFO = Object.freeze({
-  version: "v4.3.207-r2026-07-13-chanterelle-spore-id-batch4",
-  display_version: "V4.3.207-r26-07-13",
-  cache_bust: "v4.3.207-r2026-07-13-chanterelle-spore-id-batch4"
+  version: "v4.3.208-r2026-07-13-leccinum-distinctive-edibles-batch5",
+  display_version: "V4.3.208-r26-07-13",
+  cache_bust: "v4.3.208-r2026-07-13-leccinum-distinctive-edibles-batch5"
 });
 const FALLBACK_VERSION_INFO = BUNDLED_VERSION_INFO;
 let APP_VERSION = FALLBACK_VERSION_INFO.version;
