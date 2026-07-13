@@ -2518,7 +2518,7 @@
       "food_role": "avoid",
       "food_quality": "Poisonous",
       "edibility_status": "poisonous",
-      "edibility_detail": "Poisonous group; not edible.",
+      "edibility_detail": "Poisonous / do not eat. White fibrecaps belong to a difficult Inocybe complex; many Inocybe species cause muscarinic poisoning, and exact species identification commonly requires microscopy.",
       "culinary_uses": "Do not eat Inocybe/fibrecap mushrooms.",
       "medicinal_uses": "",
       "other_uses": "",
@@ -2609,7 +2609,7 @@
         "ring": [
           "Absent"
         ],
-        "spore_print": "Brown",
+        "spore_print": "Dull brown",
         "spore_print_color": [
           "Brown"
         ],
@@ -2666,17 +2666,26 @@
           "applies_to_part": "whole mushroom",
           "source_quality": "occurrence/taxon reference",
           "notes": "Taxon/complex page for field reference."
+        },
+        {
+          "label": "Lurie et al. 2009: Inocybe mushroom poisoning case series",
+          "url": "https://doi.org/10.1080/15563650903008448",
+          "link_type": "toxicology",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "peer-reviewed clinical toxicology",
+          "notes": "Supports muscarinic poisoning from Inocybe species and the need for exact species identification; MushroomExpert supplies the white-fibrecap morphology and dull-brown spore print."
         }
       ],
       "links": [
         "https://www.mushroomexpert.com/inocybe_geophylla.html",
-        "https://www.inaturalist.org/taxa/1366601-Inocybe-geophylla"
+        "https://www.inaturalist.org/taxa/1366601-Inocybe-geophylla",
+        "https://doi.org/10.1080/15563650903008448"
       ],
       "image_coverage_status": "verified_images",
-      "review_status": "needs_review",
-      "completion_status": "incomplete",
+      "review_status": "complete",
+      "completion_status": "complete",
       "non_edible_severity": "Poisonous",
-      "danger_level": "Poisonous",
+      "danger_level": "Poisonous — muscarinic syndrome risk",
       "poisoning_effects": "Sweating, salivation, tearing, vomiting, diarrhea, low blood pressure, irregular pulse, and breathing difficulty.",
       "affected_systems": [
         "autonomic nervous system",
@@ -2815,13 +2824,13 @@
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Inocybe%20geophylla%2091986576.jpg?width=480",
       "image_recovery_status": "covered",
-      "safety": "Poisonous",
-      "risk_reason": "Many Inocybe/fibrecap species contain muscarine or other toxins, and species-level identification is difficult.",
+      "safety": "Poisonous — muscarine-risk Inocybe; do not eat",
+      "risk_reason": "Small white or lilac fibrous caps are not harmless look-alikes. Inocybe species are difficult to identify and may contain clinically significant muscarine.",
       "symptoms_body_systems": "Involuntary nervous system and gastrointestinal tract; sweating, salivation, tearing, vomiting, diarrhea, low blood pressure, irregular pulse, and breathing difficulty.",
       "field_traits_that_create_risk": "Small brown, tan, gray, or whitish fibrous caps, often splitting or radially fibrous; attached gills; many grow with trees and can look like harmless little woodland mushrooms.",
       "hard_rule": "Do not eat Inocybe/fibrecap mushrooms. Treat small fibrous brown or pale woodland mushrooms as unsafe.",
       "caution_reason": "Muscarine/toxin risk and difficult species-level ID.",
-      "toxicity_notes": "Muscarine syndrome and other toxin risk.",
+      "toxicity_notes": "Inocybe poisonings can produce a rapid cholinergic or muscarinic syndrome. Do not taste or consume small white fibrecaps; seek poison-control or emergency guidance after ingestion.",
       "medicinal": {
         "has_meaningful_content": false,
         "summary": "",
@@ -2831,7 +2840,24 @@
       },
       "medicinalAction": [],
       "medicinalSystem": [],
-      "medicinalTerms": []
+      "medicinalTerms": [],
+      "symptoms": [
+        "Heavy salivation, tearing, and sweating",
+        "Nausea, vomiting, abdominal cramps, and diarrhea",
+        "Pinpoint pupils, blurred vision, slow heart rate, or low blood pressure",
+        "Breathing difficulty in severe cases"
+      ],
+      "affected_body_systems": [
+        "Autonomic nervous system",
+        "Gastrointestinal",
+        "Cardiovascular",
+        "Respiratory"
+      ],
+      "source_review_outcome": "PASS",
+      "needs_review": false,
+      "source_review_notes": [
+        "v4.3.205 cleared review using MushroomExpert for identification and dull-brown print, plus peer-reviewed Clinical Toxicology support for muscarinic Inocybe poisoning."
+      ]
     },
     {
       "slug": "sulfur-tuft",
@@ -3130,7 +3156,7 @@
       "food_role": "avoid",
       "food_quality": "Not recommended",
       "food_quality_score": 1,
-      "edibility_status": "not_edible",
+      "edibility_status": "not_recommended",
       "non_edible_severity": "Inedible / not recommended",
       "danger_level": "Inedible / not recommended",
       "overview": "Large scaly brown-spored mushroom growing in clusters on wood or at tree bases. Included mainly as a honey-mushroom look-alike and caution species.",
@@ -3138,7 +3164,7 @@
       "general_notes": "Large scaly brown-spored mushroom growing in clusters on wood or at tree bases. Included mainly as a honey-mushroom look-alike and caution species.",
       "field_identification": "Look for conspicuous buff to tawny scales on both cap and stem, attached gills that become greenish-yellow then rusty brown, a ring or ring zone, cinnamon-brown spore print, and clustered growth on hardwood or conifer wood or at tree bases.",
       "culinary_uses": "Do not treat as a food mushroom in this guide. It can resemble honey mushrooms from a distance but has brown spores, attached gills that become rusty brown, and heavy shaggy scales on cap and stem.",
-      "edibility_detail": "Avoid for food in this guide; included for identification and honey-mushroom comparison.",
+      "edibility_detail": "Not recommended for food in this guide. Retained as a honey-mushroom comparison record; the active strong source supports identification but does not establish edible use.",
       "edible_use": {
         "has_ingestible_use": false,
         "method": "",
@@ -3356,11 +3382,18 @@
         10,
         11
       ],
-      "review_status": "needs_review",
-      "completion_status": "incomplete",
+      "review_status": "complete",
+      "completion_status": "complete",
       "mushroom_card_note": "Shaggy-scaled brown-spored wood cluster; do not mistake for honey mushrooms.",
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Krumskr%C3%A6llet%20sk%C3%A6lhat%20%28Pholiota%20squarrosa%29%201.jpg?width=480",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "safety": "Caution / identification-comparison record",
+      "risk_reason": "Large clustered wood mushroom with heavy cap-and-stem scales, attached gills that age rusty brown, and cinnamon-brown spores. It overlaps visually with honey mushrooms and other Pholiota species, and certain identification can require microscopy.",
+      "source_review_outcome": "PASS",
+      "source_review_notes": [
+        "v4.3.205 cleared review by finalizing this as a non-food comparison record. MushroomExpert supports the morphology and warns that certain identification can require microscopy; no unsupported poisoning claim is used."
+      ],
+      "needs_review": false
     },
     {
       "slug": "false-chanterelle",
@@ -3396,7 +3429,7 @@
       "general_notes": "Orange, soft-fleshed gilled mushroom that superficially resembles chanterelles but has true, repeatedly forked orange gills rather than blunt chanterelle ridges.",
       "field_identification": "Look for a soft, flimsy orange to brownish-orange cap, true blade-like gills that run down the stem and fork repeatedly, white spore print, and growth on forest litter or woody debris, often under conifers. True chanterelles are firmer and have blunt ridges, not thin detachable gills.",
       "culinary_uses": "Not recommended. This guide treats false chanterelle as a caution/look-alike, not as a food mushroom.",
-      "edibility_detail": "Avoid for food in this guide because it is easily confused with chanterelles by beginners and has a history of gastrointestinal caution in field guides.",
+      "edibility_detail": "Not recommended from this guide. Published treatment of edibility is inconsistent, and the species is easily confused with true chanterelles and poisonous jack-o’-lanterns. This is a conservative routing decision, not a claim that every ingestion causes poisoning.",
       "edible_use": {
         "has_ingestible_use": false,
         "method": "",
@@ -3643,14 +3676,22 @@
         10,
         11
       ],
-      "review_status": "needs_review",
-      "completion_status": "incomplete",
+      "review_status": "complete",
+      "completion_status": "complete",
       "mushroom_card_note": "Orange chanterelle look-alike with true forked gills; not a beginner edible.",
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2011-09-16%20Hygrophoropsis%20aurantiaca.jpg?width=480",
       "image_rights_audit_status": "rights_metadata_added",
       "aliases": [
         "false-chanterelle"
-      ]
+      ],
+      "safety": "Caution / not a food target in this guide",
+      "risk_reason": "True repeatedly forked orange gills and soft flesh distinguish it from chanterelle ridges, but orange-gilled look-alikes include poisonous Omphalotus. Edibility reports conflict, so this guide routes it to avoid.",
+      "source_review_outcome": "PASS",
+      "source_review_notes": [
+        "v4.3.205 completed the record as a conservatively routed caution entry: identification is source-supported, while conflicting edible-use reports are stated explicitly rather than converted into a universal toxicity claim.",
+        "v4.3.205 cleared review because the record now makes a safe final decision—avoid in this guide—without overstating disputed toxicity."
+      ],
+      "needs_review": false
     },
     {
       "slug": "cortinarius-webcap-warning-group",
@@ -5062,7 +5103,7 @@
       "overview": "Safety bucket for orange mushrooms with true gills that are often confused with chanterelles.",
       "notes": "Chanterelles have blunt ridges/false gills, not thin true gills. Orange true-gilled mushrooms include poisonous jack-o’-lanterns and other non-chanterelles.",
       "general_notes": "",
-      "field_identification": "Use this as a stop sign: orange color is not enough. Check for true gills, growth in clusters on wood/buried roots, strong orange flesh, or other traits that separate jack-o’-lanterns and false chanterelles from true chanterelles.",
+      "field_identification": "Use this as a stop sign: orange color is not enough. Check whether the underside has true blade-like gills or blunt chanterelle ridges, whether it grows from wood or buried roots, and then use the exact species record. This warning group has no single spore-print color because it combines unrelated taxa.",
       "months_available": [
         "June",
         "July",
@@ -5120,10 +5161,32 @@
           "Often clustered for jack-o-lanterns",
           "Terrestrial or wood-associated depending species"
         ],
-        "hard_rule": "Do not identify chanterelles by orange color alone; inspect underside structure."
+        "hard_rule": "Do not identify chanterelles by orange color alone; inspect underside structure.",
+        "spore_print": "Variable by species; use exact species record",
+        "spore_print_color": []
       },
-      "links": [],
-      "use_links": [],
+      "links": [
+        "https://www.mushroomexpert.com/hygrophoropsis_aurantiaca.html",
+        "https://www.mushroomexpert.com/omphalotus_illudens.html"
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Hygrophoropsis aurantiaca",
+          "url": "https://www.mushroomexpert.com/hygrophoropsis_aurantiaca.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Representative orange true-gilled chanterelle look-alike with white spore print."
+        },
+        {
+          "label": "MushroomExpert: Omphalotus illudens",
+          "url": "https://www.mushroomexpert.com/omphalotus_illudens.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Representative clustered orange true-gilled wood mushroom; shows why the warning group cannot have one diagnostic spore-print color."
+        }
+      ],
       "search_aliases": [
         "orange gilled mushrooms",
         "orange-gilled mushrooms",
@@ -5185,7 +5248,9 @@
       ],
       "image_coverage_status": "verified_representative_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Representative warning image; not a universal image for all orange-gilled mushrooms."
+      "image_coverage_note": "Representative warning image; not a universal image for all orange-gilled mushrooms.",
+      "spore_print_guidance": "Variable by species; a group-level spore print is not diagnostic. Use the exact species record.",
+      "source_review_outcome": "PASS"
     },
     {
       "slug": "small-brown-mushrooms-lbm",

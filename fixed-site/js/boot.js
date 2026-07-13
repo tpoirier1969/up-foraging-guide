@@ -1,9 +1,9 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
 const BUNDLED_VERSION_INFO = Object.freeze({
-  version: "v4.3.204-r2026-07-13-gilled-spore-id-batch1",
-  display_version: "V4.3.204-r26-07-13",
-  cache_bust: "v4.3.204-r2026-07-13-gilled-spore-id-batch1"
+  version: "v4.3.205-r2026-07-13-gilled-spore-id-batch2",
+  display_version: "V4.3.205-r26-07-13",
+  cache_bust: "v4.3.205-r2026-07-13-gilled-spore-id-batch2"
 });
 const FALLBACK_VERSION_INFO = BUNDLED_VERSION_INFO;
 let APP_VERSION = FALLBACK_VERSION_INFO.version;
