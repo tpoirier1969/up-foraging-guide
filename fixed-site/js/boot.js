@@ -1,9 +1,9 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
 const BUNDLED_VERSION_INFO = Object.freeze({
-  version: "v4.3.203-r2026-07-13-mobile-nav-filter-cleanup9",
-  display_version: "V4.3.203-r26-07-13",
-  cache_bust: "v4.3.203-r2026-07-13-mobile-nav-filter-cleanup9"
+  version: "v4.3.204-r2026-07-13-gilled-spore-id-batch1",
+  display_version: "V4.3.204-r26-07-13",
+  cache_bust: "v4.3.204-r2026-07-13-gilled-spore-id-batch1"
 });
 const FALLBACK_VERSION_INFO = BUNDLED_VERSION_INFO;
 let APP_VERSION = FALLBACK_VERSION_INFO.version;
