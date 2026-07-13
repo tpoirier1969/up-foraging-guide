@@ -3979,3 +3979,207 @@ button.sidebar-safety-button:hover{background:rgba(31,17,7,.72) !important;}
     display:none !important;
   }
 }
+
+
+/* v4.3.203: single mobile menu, restored app icon, and filter cleanup. */
+.brand-icon{
+  overflow:hidden !important;
+  padding:0 !important;
+  background:transparent !important;
+  border-color:rgba(246,235,198,.18) !important;
+}
+.brand-icon img{
+  display:block !important;
+  width:100% !important;
+  height:100% !important;
+  object-fit:cover !important;
+  border-radius:inherit !important;
+}
+.mobile-tabbar{display:none !important;}
+
+/* The old plant-lane button panel is intentionally retired. The working plant
+   select filters remain the only plant-filter system shown to users. */
+.plant-lane-switcher{display:none !important;}
+
+.trait-filter-groups{
+  display:grid;
+  gap:10px;
+}
+.trait-filter-group{
+  border:1px solid rgba(245,234,195,.14);
+  border-radius:16px;
+  background:rgba(31,51,18,.10);
+  overflow:hidden;
+}
+.trait-filter-group summary{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:10px;
+  min-height:44px;
+  padding:10px 13px;
+  cursor:pointer;
+  color:#fff3d3;
+  font-size:.9rem;
+  font-weight:620;
+  list-style:none;
+}
+.trait-filter-group summary::-webkit-details-marker{display:none;}
+.trait-filter-group summary::after{
+  content:"+";
+  font-size:1.05rem;
+  line-height:1;
+  color:var(--opt1-final-gold,#e2d29b);
+}
+.trait-filter-group[open] summary::after{content:"−";}
+.trait-filter-group summary span{
+  margin-left:auto;
+  padding:3px 7px;
+  border-radius:999px;
+  color:rgba(255,246,220,.76);
+  background:rgba(255,255,255,.06);
+  font-size:.72rem;
+  font-weight:560;
+}
+.trait-filter-group-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:12px;
+  padding:0 12px 13px;
+}
+.trait-filter-cell{min-width:0;}
+.trait-filter-cell select{min-width:0;max-width:100%;}
+
+@media (max-width:700px){
+  .app-shell{
+    max-width:430px !important;
+    padding:8px 8px 18px !important;
+    gap:9px !important;
+  }
+
+  .site-header{
+    top:6px !important;
+    grid-template-columns:68px minmax(0,1fr) 68px !important;
+    gap:6px !important;
+    padding:6px 8px !important;
+    border-radius:16px !important;
+  }
+
+  .brand-row{
+    grid-column:2 !important;
+    min-width:0 !important;
+    text-align:center !important;
+  }
+
+  .brand-row h1{
+    justify-content:center !important;
+    align-items:center !important;
+    gap:6px !important;
+    font-size:.78rem !important;
+    line-height:1.02 !important;
+    white-space:normal !important;
+  }
+
+  .brand-icon{
+    width:22px !important;
+    height:22px !important;
+    flex:0 0 22px !important;
+    border-radius:6px !important;
+  }
+
+  .mobile-menu-toggle{
+    grid-column:1 !important;
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+    gap:5px !important;
+    width:68px !important;
+    height:36px !important;
+    min-height:36px !important;
+    padding:0 7px !important;
+    border-radius:11px !important;
+    font-size:.72rem !important;
+    line-height:1 !important;
+    white-space:nowrap !important;
+    overflow:visible !important;
+  }
+
+  .mobile-menu-toggle::before{
+    content:"☰" !important;
+    flex:0 0 auto !important;
+    font-size:.94rem !important;
+    line-height:1 !important;
+  }
+
+  body.nav-open .mobile-menu-toggle::before{
+    content:"×" !important;
+    font-size:1rem !important;
+  }
+
+  .mobile-search-link{
+    grid-column:3 !important;
+    justify-self:end !important;
+    width:36px !important;
+    height:36px !important;
+    min-height:36px !important;
+    border-radius:11px !important;
+  }
+
+  .mobile-search-link svg{
+    width:18px !important;
+    height:18px !important;
+  }
+
+  .main-nav{
+    grid-column:1 / -1 !important;
+    margin-top:0 !important;
+    padding:8px !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:6px !important;
+    border-radius:14px !important;
+    max-height:min(62vh,500px) !important;
+  }
+
+  .main-nav a{
+    min-height:40px !important;
+    padding:8px 9px !important;
+    border-radius:11px !important;
+    font-size:.76rem !important;
+  }
+
+  .page-root{padding-bottom:0 !important;}
+
+  .trait-filter-group-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+    padding:0 9px 10px !important;
+  }
+
+  .trait-filter-group summary{
+    min-height:40px !important;
+    padding:8px 10px !important;
+    font-size:.8rem !important;
+  }
+
+  .trait-filter-cell label{
+    display:block !important;
+    min-height:2.2em !important;
+    margin-bottom:4px !important;
+    font-size:.68rem !important;
+    line-height:1.1 !important;
+  }
+
+  .trait-filter-cell select{
+    width:100% !important;
+    min-width:0 !important;
+    height:40px !important;
+    padding:7px 24px 7px 8px !important;
+    font-size:.72rem !important;
+    text-overflow:ellipsis !important;
+  }
+
+  .plant-trait-filter-panel .trait-filter-grid{
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    gap:8px !important;
+  }
+}

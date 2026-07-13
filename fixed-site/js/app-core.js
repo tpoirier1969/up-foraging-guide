@@ -58,7 +58,7 @@ function searchHash(query = "") {
 
 function syncRouteFilters(route, params) {
   if (route === "plants") {
-    state.filters.plantLane = normalizePlantLane(params.get("plantLane") || "");
+    state.filters.plantLane = "";
   }
   if (route === "search") {
     state.filters.search = String(params.get("q") || "").trim();
@@ -289,25 +289,65 @@ function renderSortControls(route) {
   `;
 }
 
+function mushroomFilterGroupForKey(key = "") {
+  if (["mushroomMonth", "mushroomReviewFlag"].includes(key)) return "season";
+  if (["mushroomCapColor", "mushroomCapSurface", "mushroomUnderside", "mushroomUndersideColor", "mushroomSporePrintColor", "mushroomBoleteGroup"].includes(key)) return "cap";
+  if (["mushroomStemColor", "mushroomStemFeature", "mushroomRing", "mushroomFleshColor", "mushroomStaining", "mushroomTexture"].includes(key)) return "body";
+  return "habitat";
+}
+
+function traitFilterCell(field) {
+  return `
+    <div class="medicinal-filter-cell trait-filter-cell">
+      <label for="traitFilter_${esc(field.key)}" class="muted small">${esc(field.label)}</label>
+      <select id="traitFilter_${esc(field.key)}" data-trait-filter="${esc(field.key)}" style="width:100%">
+        ${optionHtml(field.options, state.filters[field.key] || "", field.blankLabel || "Any")}
+      </select>
+    </div>
+  `;
+}
+
 function renderTraitFilters(route, filterFields = [], activeTraitFilters = false) {
   if (!filterFields.length) return "";
+  const isMushroomRoute = isMushroomFilterRoute(route);
   const title = isPlantFilterRoute(route) ? "Plant filters" : (route === "boletes" ? "Spongelike mushroom filters" : "Mushroom filters");
+
+  let filterMarkup = `
+    <div class="medicinal-filter-row trait-filter-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;align-items:end;">
+      ${filterFields.map(traitFilterCell).join("")}
+    </div>
+  `;
+
+  if (isMushroomRoute) {
+    const groups = [
+      { id: "season", label: "Season & review", open: true },
+      { id: "cap", label: "Cap & underside", open: true },
+      { id: "body", label: "Stem, flesh & texture", open: false },
+      { id: "habitat", label: "Habitat, trees & sensory clues", open: false }
+    ];
+    filterMarkup = `<div class="trait-filter-groups">
+      ${groups.map((group) => {
+        const fields = filterFields.filter((field) => mushroomFilterGroupForKey(field.key) === group.id);
+        if (!fields.length) return "";
+        return `
+          <details class="trait-filter-group" ${group.open ? "open" : ""}>
+            <summary>${esc(group.label)} <span>${fields.length}</span></summary>
+            <div class="trait-filter-group-grid">
+              ${fields.map(traitFilterCell).join("")}
+            </div>
+          </details>
+        `;
+      }).join("")}
+    </div>`;
+  }
+
   return `
-    <section class="panel">
+    <section class="panel trait-filter-panel ${isMushroomRoute ? "mushroom-trait-filter-panel" : "plant-trait-filter-panel"}">
       <div class="home-focus-heading">
         <h3>${esc(title)}</h3>
         ${activeTraitFilters ? `<button id="traitClearBtn" type="button">Clear filters</button>` : ""}
       </div>
-      <div class="medicinal-filter-row" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;align-items:end;">
-        ${filterFields.map((field) => `
-          <div class="medicinal-filter-cell">
-            <label for="traitFilter_${esc(field.key)}" class="muted small">${esc(field.label)}</label>
-            <select id="traitFilter_${esc(field.key)}" data-trait-filter="${esc(field.key)}" style="width:100%">
-              ${optionHtml(field.options, state.filters[field.key] || "", field.blankLabel || "Any")}
-            </select>
-          </div>
-        `).join("")}
-      </div>
+      ${filterMarkup}
     </section>
   `;
 }
@@ -367,7 +407,7 @@ function sanitizeTraitFiltersForRoute(route, filterFields = []) {
   return changed;
 }
 
-function controlsHtml(route = "general", placeholder = "Search species", filterFields = [], activeTraitFilters = false, plantLaneControls = "") {
+function controlsHtml(route = "general", placeholder = "Search species", filterFields = [], activeTraitFilters = false) {
   const search = state.filters.search || "";
   const sortControls = renderSortControls(route);
   if (route === "medicinal") {
@@ -421,7 +461,7 @@ function controlsHtml(route = "general", placeholder = "Search species", filterF
     `;
   }
   if (isPlantFilterRoute(route) || isMushroomFilterRoute(route)) {
-    return `${mushroomLaneNavHtml(route)}${plantLaneControls}${renderTraitFilters(route, filterFields, activeTraitFilters)}${sortControls}`;
+    return `${mushroomLaneNavHtml(route)}${renderTraitFilters(route, filterFields, activeTraitFilters)}${sortControls}`;
   }
   return sortControls;
 }
@@ -936,7 +976,6 @@ async function renderSpeciesRoute(route, token) {
     getFilterFieldsForRoute,
     hasActiveTraitFilters,
     sortRecords,
-    renderPlantLaneControls,
     getCautionFilterFields,
     hasActiveCautionFilters
   } = await importModule("./ui/render-list.js");
@@ -944,7 +983,7 @@ async function renderSpeciesRoute(route, token) {
 
   if (route === "search" && !String(state.filters.search || "").trim()) {
     renderPage(`
-      ${controlsHtml(route, "Search all species", [], false, "")}
+      ${controlsHtml(route, "Search all species", [], false)}
       <section class="panel empty-state">
         <h2>Search</h2>
         <p>Type a plant, mushroom, look-alike, color, month, or use.</p>
@@ -969,7 +1008,6 @@ async function renderSpeciesRoute(route, token) {
     : ((route === "lookalikes" || route === "caution")
       ? hasActiveCautionFilters(state.filters)
       : hasActiveTraitFilters(matchRoute, state.filters));
-  const plantLaneControls = route === "plants" ? renderPlantLaneControls(state.species, state.filters) : "";
   const filtered = filterRecords(state.species, matchRoute, state.filters);
   const sorted = sortRecords(filtered, state.filters.sortSpecies || "default");
   const visibleRecords = route === "search" ? sorted.slice(0, SEARCH_RESULT_LIMIT) : sorted;
@@ -979,7 +1017,7 @@ async function renderSpeciesRoute(route, token) {
   const title = route === "search" ? `Search results (${filtered.length})` : `${routeTitle(route)} (${filtered.length})`;
   const intro = routeIntro(route);
   renderPage(`
-    ${controlsHtml(route, route === "search" ? "Search all species" : `Search ${routeTitle(route).toLowerCase()}`, filterFields, activeTraitFilters, plantLaneControls)}
+    ${controlsHtml(route, route === "search" ? "Search all species" : `Search ${routeTitle(route).toLowerCase()}`, filterFields, activeTraitFilters)}
     <section class="panel"><h2>${esc(title)}</h2>${intro ? `<p class="muted small">${esc(intro)}</p>` : ""}${limitNote}</section>
     ${visibleRecords.length ? renderRecordCards(visibleRecords, route) : `<section class="panel empty-state"><h3>No species found</h3></section>`}
   `);
