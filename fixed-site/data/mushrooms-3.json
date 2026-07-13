@@ -50,9 +50,11 @@
     "last_data_integration": "v4.3.83-r2026-05-18-data-integration1",
     "last_data_integration_date": "2026-05-18",
     "last_updated": "2026-07-13",
-    "version": "v4.3.208-r2026-07-13-leccinum-distinctive-edibles-batch5",
+    "version": "v4.3.209-r2026-07-13-unusual-form-spore-handling6",
     "last_leccinum_distinctive_batch": "v4.3.208-r2026-07-13-leccinum-distinctive-edibles-batch5",
-    "last_leccinum_distinctive_batch_date": "2026-07-13"
+    "last_leccinum_distinctive_batch_date": "2026-07-13",
+    "last_unusual_form_spore_batch": "v4.3.209-r2026-07-13-unusual-form-spore-handling6",
+    "last_unusual_form_spore_batch_date": "2026-07-13"
   },
   "records": [
     {
@@ -143,7 +145,12 @@
         "growth_form": [
           "Cap and stem"
         ],
-        "season_note": "Spring morel season, usually May in Upper Michigan."
+        "season_note": "Spring morel season, usually May in Upper Michigan.",
+        "fertile_surface": [
+          "Asci lining the cap pits; ridges largely sterile"
+        ],
+        "spore_print": "Yellowish-orange to whitish deposit may occur; it is not a primary field-safety test.",
+        "spore_print_color": []
       },
       "commonness_score": 3,
       "food_quality_score": 3,
@@ -335,7 +342,8 @@
             "hard_rule": "Top-attached free-hanging cap means Verpa caution, not true morel."
           }
         ]
-      }
+      },
+      "source_note": "v4.3.209 adds ascospore-deposit context while keeping cap attachment and a cleanly hollow interior as the required field checks."
     },
     {
       "slug": "hedgehog-mushrooms",
@@ -2641,8 +2649,8 @@
       "edibility_detail": "Choice edible when fresh, firm, and fully transformed. This is a parasitic fungus on other mushrooms, usually Russula or Lactarius. Eat only firm, fresh, fully orange specimens with the host mushroom clearly transformed.",
       "mushroom_profile": {
         "underside": [
-          "Deformed / obscured",
-          "Host gills reduced or buried"
+          "Host underside deformed or obscured by parasite crust",
+          "Original host gills reduced or buried"
         ],
         "substrate": [
           "Ground in forest soil"
@@ -2673,7 +2681,7 @@
           "Parasitized irregular cap"
         ],
         "fertile_surface": [
-          "Often obscured by parasite"
+          "Orange-red parasite crust with embedded perithecia"
         ],
         "branching_form": [
           "Single distorted fruitbody"
@@ -2855,7 +2863,8 @@
       },
       "links": [
         "https://botit.botany.wisc.edu/toms_fungi/aug2001.html",
-        "https://pubmed.ncbi.nlm.nih.gov/29470885/"
+        "https://pubmed.ncbi.nlm.nih.gov/29470885/",
+        "https://www.mushroomexpert.com/hypomyces_lactifluorum.html"
       ],
       "use_links": [
         {
@@ -2873,6 +2882,14 @@
           "applies_to_part": "infected Russula host and Hypomyces parasite",
           "source_quality": "peer-reviewed primary research",
           "notes": "Documents parasite/host DNA distribution and metabolite changes in wild lobster mushrooms."
+        },
+        {
+          "label": "MushroomExpert: Hypomyces lactifluorum",
+          "url": "https://www.mushroomexpert.com/hypomyces_lactifluorum.html",
+          "link_type": "identification / fertile structure",
+          "applies_to_part": "parasite crust and transformed host",
+          "source_quality": "mycology reference",
+          "notes": "Orange parasite coating, embedded perithecia, and transformed host morphology."
         }
       ],
       "use_roles": [
@@ -2886,7 +2903,7 @@
         "notes": "Use only fully transformed, firm, fresh specimens; cut open and reject partial infection, rot, slime, mold, sour odor, or soft interior."
       },
       "needs_review": false,
-      "source_note": "v4.3.208 replaces stale culinary placeholder text, adds primary/university sources, and clarifies that a normal spore print is not a practical field test."
+      "source_note": "v4.3.209 identifies the orange-red parasite crust and embedded perithecia as the fertile structure; the overgrown host hymenium does not provide a practical cap print."
     },
     {
       "slug": "meadow-mushroom",

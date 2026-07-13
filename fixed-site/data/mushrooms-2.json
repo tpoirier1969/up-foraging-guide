@@ -46,7 +46,11 @@
     "last_content_update": "v4.3.148-r2026-06-11-mushroom-wild-ginger-cleanup1",
     "last_content_update_date": "2026-06-09",
     "last_data_integration": "v4.3.83-r2026-05-18-data-integration1",
-    "last_data_integration_date": "2026-05-18"
+    "last_data_integration_date": "2026-05-18",
+    "last_updated": "2026-07-13",
+    "version": "v4.3.209-r2026-07-13-unusual-form-spore-handling6",
+    "last_unusual_form_spore_batch": "v4.3.209-r2026-07-13-unusual-form-spore-handling6",
+    "last_unusual_form_spore_batch_date": "2026-07-13"
   },
   "records": [
     {
@@ -3184,18 +3188,23 @@
         "stem_feature": [
           "No real stem"
         ],
-        "spore_print": "Olive-brown at maturity",
+        "spore_print": "No conventional cap-on-paper print; the internal gleba changes from white to olive-yellow and eventually brownish spore dust.",
         "growth_form": [
           "Puffball"
         ],
         "fertile_surface": [
-          "Internal spore mass"
+          "Internal basidium-bearing gleba / spore mass"
         ],
         "branching_form": [
           "Single ball"
         ],
         "season_note": "Late summer into fall in open ground and edges.",
-        "caution_level": "medium"
+        "caution_level": "medium",
+        "spore_print_color": [],
+        "flesh_color": [
+          "Pure white and uniform when immature",
+          "Olive-yellow to brownish as spores mature"
+        ]
       },
       "commonness_score": 3,
       "food_quality_score": 4,
@@ -3380,7 +3389,8 @@
           }
         ]
       },
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "source_note": "v4.3.209 separates mature internal gleba color from a conventional deposited spore print."
     },
     {
       "slug": "gem-studded-puffball",
@@ -3446,7 +3456,7 @@
           "No gills or pores"
         ],
         "growth_form": [
-          "Puffball",
+          "Enclosed puffball with sterile base",
           "Terrestrial rounded fruitbody"
         ],
         "flesh_color": [
@@ -3460,11 +3470,26 @@
           "Ground",
           "Forest litter"
         ],
-        "spore_print": "Brown when mature",
-        "hard_rule": "Slice every puffball-like mushroom; eat only if the interior is completely white and uniform."
+        "spore_print": "No conventional cap-on-paper print; mature upper gleba and spore powder are olive-brown and are released through an apical pore by raindrops and wind.",
+        "hard_rule": "Slice every puffball-like mushroom; eat only if the interior is completely white and uniform.",
+        "spore_print_color": [],
+        "fertile_surface": [
+          "Internal gleba"
+        ]
       },
-      "links": [],
-      "use_links": [],
+      "links": [
+        "https://www.mushroomexpert.com/lycoperdon_perlatum.html"
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Lycoperdon perlatum",
+          "url": "https://www.mushroomexpert.com/lycoperdon_perlatum.html",
+          "link_type": "identification / spore release",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Gem-studded puffball morphology, internal gleba maturation, and apical-pore spore release."
+        }
+      ],
       "search_aliases": [
         "Lycoperdon perlatum",
         "common puffball",
@@ -3524,7 +3549,8 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Lycoperdon_perlatum,_Common_Puffball,_2.jpg"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "source_note": "v4.3.209 separates mature internal gleba color and release through an apical pore from a normal cap print."
     },
     {
       "slug": "pear-shaped-puffball",
@@ -3595,8 +3621,8 @@
           "No gills or pores"
         ],
         "growth_form": [
-          "Puffball",
-          "Pear-shaped clustered fruitbodies"
+          "Clustered enclosed puffballs on dead wood",
+          "Pear-shaped fruitbodies"
         ],
         "flesh_color": [
           "Pure white when edible; yellow/olive/brown when too old"
@@ -3607,11 +3633,26 @@
           "Stumps",
           "Buried wood"
         ],
-        "spore_print": "Brown when mature",
-        "hard_rule": "Slice every puffball-like mushroom; eat only if the interior is completely white and uniform."
+        "spore_print": "No conventional cap-on-paper print; internal gleba changes from white to yellowish or olive and eventually brownish spore dust, released through an apical pore by raindrops and wind.",
+        "hard_rule": "Slice every puffball-like mushroom; eat only if the interior is completely white and uniform.",
+        "spore_print_color": [],
+        "fertile_surface": [
+          "Internal gleba"
+        ]
       },
-      "links": [],
-      "use_links": [],
+      "links": [
+        "https://www.mushroomexpert.com/lycoperdon_pyriforme.html"
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Apioperdon / Lycoperdon pyriforme",
+          "url": "https://www.mushroomexpert.com/lycoperdon_pyriforme.html",
+          "link_type": "identification / taxonomy / spore release",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Wood-growing clustered puffball morphology, internal gleba maturation, apical-pore release, and taxonomy context."
+        }
+      ],
       "search_aliases": [
         "Apioperdon pyriforme",
         "Lycoperdon pyriforme",
@@ -3669,7 +3710,8 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Apioperdon_pyriforme_342180954.jpg"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "source_note": "v4.3.209 separates mature internal gleba color from a conventional print and retains Apioperdon/Lycoperdon synonym context."
     }
   ]
 }

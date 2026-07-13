@@ -48,9 +48,11 @@
     "last_data_integration": "v4.3.83-r2026-05-18-data-integration1",
     "last_data_integration_date": "2026-05-18",
     "last_updated": "2026-07-13",
-    "version": "v4.3.208-r2026-07-13-leccinum-distinctive-edibles-batch5",
+    "version": "v4.3.209-r2026-07-13-unusual-form-spore-handling6",
     "last_leccinum_distinctive_batch": "v4.3.208-r2026-07-13-leccinum-distinctive-edibles-batch5",
-    "last_leccinum_distinctive_batch_date": "2026-07-13"
+    "last_leccinum_distinctive_batch_date": "2026-07-13",
+    "last_unusual_form_spore_batch": "v4.3.209-r2026-07-13-unusual-form-spore-handling6",
+    "last_unusual_form_spore_batch_date": "2026-07-13"
   },
   "records": [
     {
@@ -74,7 +76,8 @@
         "December"
       ],
       "links": [
-        "https://www.mushroomexpert.com/fungionwood/poroid%20fungi/species%20pages/Ganoderma%20applanatum.htm"
+        "https://www.mushroomexpert.com/fungionwood/poroid%20fungi/species%20pages/Ganoderma%20applanatum.htm",
+        "https://www.mushroomexpert.com/ganoderma_applanatum.html"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Ganoderma_applanatum_1259894.jpg",
@@ -144,7 +147,7 @@
         "stem_feature": [
           "Sessile / no stem"
         ],
-        "spore_print": "White",
+        "spore_print": "Brown to orangish brown",
         "growth_form": [
           "Shelf / bracket"
         ],
@@ -155,7 +158,11 @@
           "Single shelves or overlapping brackets"
         ],
         "season_note": "Perennial bracket visible year-round.",
-        "caution_level": "low"
+        "caution_level": "low",
+        "spore_print_color": [
+          "Brown",
+          "Orangish brown"
+        ]
       },
       "commonness_score": 4,
       "food_quality_score": 1,
@@ -268,10 +275,19 @@
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
           "notes": "Poroid shelf traits, pore-surface bruising, and hardwood substrate."
+        },
+        {
+          "label": "MushroomExpert: Ganoderma applanatum",
+          "url": "https://www.mushroomexpert.com/ganoderma_applanatum.html",
+          "link_type": "identification / spore deposit",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Pored perennial conk morphology and brown to orangish-brown spore deposit."
         }
       ],
       "look_alike_notes": "Compare with birch polypore and hoof/tinder conk; artist's conk has a white pore surface that bruises/scratches brown.",
-      "completion_status": "complete"
+      "completion_status": "complete",
+      "source_note": "Spore deposit corrected in v4.3.209: spores are released through the pore surface and form a brown to orangish-brown deposit."
     },
     {
       "slug": "ash-tree-bolete",
@@ -1943,18 +1959,19 @@
         "stem_feature": [
           "Hollow stem"
         ],
-        "spore_print": "Pale cream",
+        "spore_print": "Pale cream to ochraceous deposit may occur; spores are produced in asci in the pitted cap surface, and a print is not the practical field identification test.",
         "growth_form": [
           "Morel"
         ],
         "fertile_surface": [
-          "Outer ridges and pits"
+          "Asci lining the cap pits; ridges largely sterile"
         ],
         "branching_form": [
           "Single fruitbody"
         ],
         "season_note": "Primarily a spring mushroom, often during leaf-out and warming soil.",
-        "caution_level": "medium"
+        "caution_level": "medium",
+        "spore_print_color": []
       },
       "commonness_score": 3,
       "food_quality_score": 5,
@@ -2094,7 +2111,8 @@
         ]
       },
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "source_note": "v4.3.209 clarifies ascospore production and keeps print color secondary to true-morel structure; exact complex separation may require microscopy or DNA."
     },
     {
       "slug": "black-trumpet",

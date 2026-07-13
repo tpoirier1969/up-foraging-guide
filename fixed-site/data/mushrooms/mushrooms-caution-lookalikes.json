@@ -14,7 +14,9 @@
     "last_data_integration": "v4.3.83-r2026-05-18-data-integration1",
     "last_data_integration_date": "2026-05-18",
     "last_updated": "2026-07-13",
-    "version": "v4.3.207-r2026-07-13-chanterelle-spore-id-batch4"
+    "version": "v4.3.209-r2026-07-13-unusual-form-spore-handling6",
+    "last_unusual_form_spore_batch": "v4.3.209-r2026-07-13-unusual-form-spore-handling6",
+    "last_unusual_form_spore_batch_date": "2026-07-13"
   },
   "records": [
     {
@@ -4406,10 +4408,50 @@
       ],
       "mushroom_profile": {
         "edibility_status": "Do not eat / caution record",
-        "key_warning": "Do not eat free-hanging “early morels”: if the cap is attached only at the top or the stem has cottony pith instead of being cleanly hollow, treat it as Verpa and reject it."
+        "key_warning": "Do not eat free-hanging “early morels”: if the cap is attached only at the top or the stem has cottony pith instead of being cleanly hollow, treat it as Verpa and reject it.",
+        "growth_form": [
+          "Thimble or skirt-like cap attached only at the stem apex"
+        ],
+        "fertile_surface": [
+          "Asci on the outer cap surface"
+        ],
+        "spore_print": "A pale external deposit may occur, but cap-on-paper printing is not a practical safety test and color varies within the group.",
+        "spore_print_color": [],
+        "texture": [
+          "Hollow or loosely stuffed stem with cottony or pithy material"
+        ]
       },
-      "links": [],
-      "use_links": [],
+      "links": [
+        "https://www.mushroomexpert.com/verpa_bohemica.html",
+        "https://www.mushroomexpert.com/verpa_conica.html",
+        "https://www.michigan.gov/dnr/things-to-do/morels/morel-identification"
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Verpa bohemica",
+          "url": "https://www.mushroomexpert.com/verpa_bohemica.html",
+          "link_type": "identification / fertile surface",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Apex-attached cap, cottony stem interior, and ascomycete structure."
+        },
+        {
+          "label": "MushroomExpert: Verpa conica",
+          "url": "https://www.mushroomexpert.com/verpa_conica.html",
+          "link_type": "identification / spore deposit",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Apex-attached cap, cottony-pithy stem, asci on cap surface, and pale-orangish deposit."
+        },
+        {
+          "label": "Michigan DNR: Morel mushroom identification",
+          "url": "https://www.michigan.gov/dnr/things-to-do/morels/morel-identification",
+          "link_type": "Michigan safety / comparison",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "government",
+          "notes": "Michigan morel identification and Verpa/false-morel avoidance context."
+        }
+      ],
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Verpa%20bohemica%20117436559.jpg?width=480",
@@ -4504,7 +4546,8 @@
         "hard_rule": "Do not eat free-hanging “early morels”: if the cap is attached only at the top or the stem has cottony pith instead of being cleanly hollow, treat it as Verpa and reject it.",
         "dangerous_lookalikes": []
       },
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "source_note": "v4.3.209 adds ascomycete spore handling while retaining the conservative reject-as-morel rule; exact Verpa species may require microscopy."
     },
     {
       "slug": "alcohol-inky-cap",
@@ -4733,10 +4776,32 @@
       ],
       "mushroom_profile": {
         "edibility_status": "Do not eat / caution record",
-        "key_warning": "Slice every puffball-like mushroom top-to-bottom; if you see any hidden cap, stem, gills, ring, or cup/volva structure, treat it as a possible deadly Amanita button and do not eat it."
+        "key_warning": "Slice every puffball-like mushroom top-to-bottom; if you see any hidden cap, stem, gills, ring, or cup/volva structure, treat it as a possible deadly Amanita button and do not eat it.",
+        "growth_form": [
+          "Enclosed button or egg developing into a cap-and-stem Amanita"
+        ],
+        "fertile_surface": [
+          "Developing gills enclosed at button stage; exposed gills at maturity"
+        ],
+        "spore_print": "No usable print at the closed button stage; mature destroying angels produce a white spore print.",
+        "spore_print_color": [],
+        "texture": [
+          "Structured interior may reveal cap, gills, stem, veil or ring, and basal volva"
+        ]
       },
-      "links": [],
-      "use_links": [],
+      "links": [
+        "https://www.mushroomexpert.com/amanita_bisporigera.html"
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Amanita bisporigera",
+          "url": "https://www.mushroomexpert.com/amanita_bisporigera.html",
+          "link_type": "identification / deadly look-alike",
+          "applies_to_part": "button and mature mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Destroying angel button and mature structure, white gills, white spore print, ring, and volva."
+        }
+      ],
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Amanita%20bisporigera%20destroying%20angel%20skirt.jpg?width=480",
@@ -4837,7 +4902,8 @@
         "hard_rule": "Slice every puffball-like mushroom top-to-bottom; if you see any hidden cap, stem, gills, ring, or cup/volva structure, treat it as a possible deadly Amanita button and do not eat it.",
         "dangerous_lookalikes": []
       },
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "source_note": "v4.3.209 distinguishes the unprintable closed button stage from the mature white-spored Amanita and preserves the top-to-bottom cut test."
     },
     {
       "slug": "entoloma-warning-group",
@@ -6105,10 +6171,34 @@
         "hedgehog-mushrooms",
         "dryad-s-saddle-pheasant-back"
       ],
-      "mushroom_profile": {},
+      "mushroom_profile": {
+        "underside": [
+          "Teeth / spines"
+        ],
+        "fertile_surface": [
+          "Hymenium coating the teeth or spines"
+        ],
+        "growth_form": [
+          "Cap and stem with toothed underside"
+        ],
+        "spore_print": "Variable by exact genus or species; representative Sarcodon species may produce a brown deposit.",
+        "spore_print_color": [],
+        "caution_level": "medium"
+      },
       "mushroom_card_note": "Look for a toothed underside rather than gills or pores, often with scaly or rough caps. Many are bitter or taxonomy-heavy; do not treat as beginner food.",
-      "links": [],
-      "use_links": [],
+      "links": [
+        "https://www.mushroomexpert.com/sarcodon_imbricatus.html"
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Sarcodon imbricatus",
+          "url": "https://www.mushroomexpert.com/sarcodon_imbricatus.html",
+          "link_type": "representative identification / spore deposit",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Representative toothed Sarcodon morphology, brown deposit, and microscopy/taxonomy limits."
+        }
+      ],
       "search_aliases": [
         "Sarcodon / scaly toothed mushrooms",
         "Hawk’s wing / Sarcodon group",
@@ -6168,7 +6258,8 @@
       ],
       "image_coverage_status": "verified_representative_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Added in ghost-reference cleanup pass 2 to resolve previously unresolved look-alike/reference targets."
+      "image_coverage_note": "Added in ghost-reference cleanup pass 2 to resolve previously unresolved look-alike/reference targets.",
+      "source_note": "Broad Sarcodon/Hydnellum comparison group: microscopy is often required, and a representative Sarcodon brown deposit is not assigned to every included genus."
     },
     {
       "category": "Mushroom",
@@ -6233,10 +6324,38 @@
         "tremella-leafy-jelly-fungi",
         "amber-jelly-roll"
       ],
-      "mushroom_profile": {},
+      "mushroom_profile": {
+        "underside": [
+          "No gills, pores, or teeth; exposed gelatinous surfaces"
+        ],
+        "fertile_surface": [
+          "Exposed smooth to ridged gelatinous hymenium"
+        ],
+        "growth_form": [
+          "Gelatinous lobes or buttons",
+          "Fused jelly masses"
+        ],
+        "texture": [
+          "Gelatinous"
+        ],
+        "spore_print": "White in representative Exidia species; use the exact species record for deposit color.",
+        "spore_print_color": [],
+        "caution_level": "medium"
+      },
       "mushroom_card_note": "Gelatinous lobes/buttons on dead wood, often amber, brown, blackish, or translucent. Use as a comparison group, not a species-level eating recommendation.",
-      "links": [],
-      "use_links": [],
+      "links": [
+        "https://www.mushroomexpert.com/exidia_recisa.html"
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Exidia recisa",
+          "url": "https://www.mushroomexpert.com/exidia_recisa.html",
+          "link_type": "representative identification / fertile surface",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Representative Exidia morphology, exposed gelatinous surface, and white deposit; not proof of one universal group color."
+        }
+      ],
       "search_aliases": [
         "Amber jelly roll / Exidia group",
         "Exidia species",
@@ -6294,7 +6413,8 @@
       ],
       "image_coverage_status": "verified_representative_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Added in ghost-reference cleanup pass 2 to resolve previously unresolved look-alike/reference targets."
+      "image_coverage_note": "Added in ghost-reference cleanup pass 2 to resolve previously unresolved look-alike/reference targets.",
+      "source_note": "Broad comparison group: exposed jelly surfaces bear the hymenium, but no universal group-level deposit color is assigned."
     },
     {
       "category": "Mushroom",
@@ -6935,10 +7055,43 @@
         "earthballs-scleroderma",
         "white-amanita-button-warning"
       ],
-      "mushroom_profile": {},
-      "mushroom_card_note": "Only consider puffball-type mushrooms when the interior is completely white and uniform when sliced. Any gills, outline of a cap/stem, yellowing, browning, marbling, or powdery dar",
-      "links": [],
-      "use_links": [],
+      "mushroom_profile": {
+        "underside": [
+          "No external gills or pores; enclosed gleba"
+        ],
+        "growth_form": [
+          "Enclosed puffball fruitbody"
+        ],
+        "fertile_surface": [
+          "Internal spore mass / gleba"
+        ],
+        "texture": [
+          "Soft and uniform while immature",
+          "Powdery at maturity"
+        ],
+        "flesh_color": [
+          "Completely white and uniform when immature",
+          "Mature color varies by species"
+        ],
+        "spore_print": "No conventional cap-on-paper print; spores mature internally in the gleba, and mature gleba color and release method vary by species.",
+        "spore_print_color": [],
+        "caution_level": "high",
+        "hard_rule": "Slice every puffball-like mushroom from top through the base; reject any hidden cap, gills, stem, ring, volva, marbling, gelatinous layer, yellowing, browning, or powdery interior."
+      },
+      "mushroom_card_note": "Only consider puffball-type mushrooms when the interior is completely white, uniform, and featureless when sliced. Any hidden mushroom structure, marbling, yellowing, browning, or powdery dark interior means stop.",
+      "links": [
+        "https://www.mushroomexpert.com/lycoperdon_perlatum.html"
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Lycoperdon perlatum",
+          "url": "https://www.mushroomexpert.com/lycoperdon_perlatum.html",
+          "link_type": "representative identification / spore release",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Representative puffball internal gleba maturation and apical-pore spore release."
+        }
+      ],
       "search_aliases": [
         "puffballs",
         "true puffballs"
@@ -6994,7 +7147,8 @@
       ],
       "image_coverage_status": "verified_representative_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_note": "Added in ghost-reference cleanup pass 2 to resolve previously unresolved look-alike/reference targets."
+      "image_coverage_note": "Added in ghost-reference cleanup pass 2 to resolve previously unresolved look-alike/reference targets.",
+      "source_note": "Broad warning group: mature gleba color is not a conventional spore print and varies by exact species."
     }
   ]
 }

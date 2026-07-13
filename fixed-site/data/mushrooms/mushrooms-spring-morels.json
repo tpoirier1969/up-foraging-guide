@@ -7,7 +7,11 @@
     "purpose": "Canonical spring morel records for the active mushroom data source list.",
     "last_completion_wave": "v4.3.61-r2026-05-14-mushroom-completion-wave1-15species",
     "last_data_integration": "v4.3.83-r2026-05-18-data-integration1",
-    "last_data_integration_date": "2026-05-18"
+    "last_data_integration_date": "2026-05-18",
+    "last_updated": "2026-07-13",
+    "version": "v4.3.209-r2026-07-13-unusual-form-spore-handling6",
+    "last_unusual_form_spore_batch": "v4.3.209-r2026-07-13-unusual-form-spore-handling6",
+    "last_unusual_form_spore_batch_date": "2026-07-13"
   },
   "records": [
     {
@@ -97,7 +101,12 @@
         "growth_form": [
           "Morel-like fruitbody"
         ],
-        "season_note": "Late May into early June in northern Michigan; Michigan DNR says white/common morels fruit in the latter half of May."
+        "season_note": "Late May into early June in northern Michigan; Michigan DNR says white/common morels fruit in the latter half of May.",
+        "fertile_surface": [
+          "Asci lining the cap pits; ridges largely sterile"
+        ],
+        "spore_print": "Pale cream to yellowish deposit may occur, but conventional printing is not a practical true-morel safety test.",
+        "spore_print_color": []
       },
       "field_identification": "True white/yellow morels have a pitted honeycomb cap with ridges and pits, the cap is attached to the stem for most or all of its length, and the mushroom is hollow from cap tip through stem when sliced lengthwise.",
       "mushroom_card_note": "True morels: hollow inside, pitted cap, cap attached to stem; false morels are the stop sign.",
@@ -290,7 +299,8 @@
             "hard_rule": "Top-attached free-hanging cap means Verpa caution, not true morel."
           }
         ]
-      }
+      },
+      "source_note": "v4.3.209 adds ascospore handling while keeping hollow structure, pitted cap, and attachment as the required field checks; exact complex member may require DNA."
     },
     {
       "slug": "burn-site-morel",
@@ -387,9 +397,10 @@
           "Pine / conifer burn sites"
         ],
         "fertile_surface": [
-          "Pitted cap; no gills or pores"
+          "Asci lining the pitted cap surface; no gills or pores"
         ],
-        "spore_print": "Not useful for casual field ID"
+        "spore_print": "Not useful for casual field identification; spores are produced in asci in the pitted cap surface, and exact burn-morel species may require microscopic or molecular work.",
+        "spore_print_color": []
       },
       "field_identification": "Fire-associated true morel: hollow from cap tip through stem, pitted cap with darker ridges at maturity, no cottony/chambered interior like false morels, and a strong recent-burn context. Search especially in the first spring after a conifer/pine burn; in Michigan this is a northern spring morel and the burn history, hollow body, pitted cap, and season should all agree before considering it.",
       "mushroom_card_note": "Localized true morel of recent burn sites; clean off ash and cook thoroughly.",
@@ -543,7 +554,8 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/2014-04-20_Morchella_septimelata_M._Kuo_415921.jpg"
       ],
       "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "image_rights_audit_status": "rights_metadata_added",
+      "source_note": "v4.3.209 clarifies ascospore production and keeps burn habitat secondary to true-morel structure; review remains open for the declared species-level measurement gap."
     }
   ]
 }

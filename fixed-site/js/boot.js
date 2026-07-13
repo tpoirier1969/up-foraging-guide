@@ -1,9 +1,9 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
 const BUNDLED_VERSION_INFO = Object.freeze({
-  version: "v4.3.208-r2026-07-13-leccinum-distinctive-edibles-batch5",
-  display_version: "V4.3.208-r26-07-13",
-  cache_bust: "v4.3.208-r2026-07-13-leccinum-distinctive-edibles-batch5"
+  version: "v4.3.209-r2026-07-13-unusual-form-spore-handling6",
+  display_version: "V4.3.209-r26-07-13",
+  cache_bust: "v4.3.209-r2026-07-13-unusual-form-spore-handling6"
 });
 const FALLBACK_VERSION_INFO = BUNDLED_VERSION_INFO;
 let APP_VERSION = FALLBACK_VERSION_INFO.version;
