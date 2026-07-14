@@ -476,7 +476,49 @@ Do not split canonical JSON files just for tool comfort if the app works and ZIP
 
 ---
 
-## 15. Final principle
+## 15. Canonical data-file organization
+
+Canonical data files must represent logical, stable biological, morphological, or safety groups. Physical file placement is for maintenance organization; app routes and useful-part presentation remain controlled by record fields.
+
+Required rules:
+
+```text
+Filenames must roughly describe the records contained inside.
+Do not distribute records into arbitrary size chunks, worker batches, chronological batches, use-only buckets, or miscellaneous numbered files.
+Before creating a new canonical file, check whether the record belongs in an existing logical file.
+Keep adding related records to the existing logical file until it becomes materially unwieldy to inspect, fetch, edit, validate, or package through the normal repository workflow.
+Only then create a numbered continuation using the exact same descriptive base name, such as mushrooms-gilled-2.json.
+A numbered suffix means overflow of the same logical group. It must not represent a new unrelated group or historical work batch.
+Very small files require a clear categorical reason. Two-record overflow fragments should normally be recombined.
+Do not use ambiguous canonical names such as other1, other2, red-caution2, plants-3, or mushrooms-5.
+Every canonical record must appear exactly once across SPECIES_PATHS.
+Before moving records, create an old-file to new-file ledger for every slug.
+File moves must not change record content, routes, images, rights metadata, review status, safety fields, seasons, or edible/medicinal classification unless those changes are separately authorized.
+File metadata must describe the current file. Remove stale manifests, obsolete source counts, and historical split declarations that no longer match the live structure.
+After reorganization, update fixed-site/js/data/sources.js and verify every active path exists and parses.
+Retired canonical files must be listed explicitly as obsolete and safe to delete only after every moved slug is verified in the replacement files.
+```
+
+### Plants with multiple useful parts
+
+Store each plant once according to its stable botanical identity or growth form, not according to one selected useful part.
+
+Examples:
+
+```text
+Burdock remains an herbaceous forb even though roots and young stalks may be useful.
+Dandelion remains an herbaceous forb while leaves, flowers, roots, and tea uses stay in record fields and routes.
+Elder remains a woody shrub while flowers and berries stay in record fields and routes.
+Cattail belongs in aquatic/emergent wetland plants because that is its stable growth form, not merely because it has edible rhizomes.
+```
+
+Use fields such as `usable_parts`, `plant_lanes`, `observedPart`, and `use_tags` to represent every supported useful part. A plant must not be duplicated across physical files merely because it has several uses.
+
+Small logical files are allowed when the category itself is narrow and stable, such as lichens, ferns/horsetails, aquatic plants, or a dedicated caution group. Small files are not allowed merely because a worker or tool preferred shorter chunks.
+
+---
+
+## 16. Final principle
 
 This is a safety-sensitive foraging app.
 
