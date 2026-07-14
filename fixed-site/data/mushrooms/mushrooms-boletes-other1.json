@@ -22,7 +22,9 @@
     "split_series": "data/mushrooms/mushrooms-boletes-other1*.json",
     "source_group": "data/mushrooms/mushrooms-boletes-other1",
     "last_image_recovery_batch": "v4.3.81-r2026-05-18-image-recovery-audit1",
-    "last_image_recovery_date": "2026-05-18"
+    "last_image_recovery_date": "2026-05-18",
+    "last_content_update": "v4.3.211-r2026-07-14-bolete-taxonomy-source-closeout8",
+    "last_content_update_date": "2026-07-14"
   },
   "records": [
     {
@@ -393,15 +395,16 @@
         "entry_scope": "species",
         "edibility_status": "not_edible",
         "caution_level": "medium",
-        "summary": "Dry, smooth to slightly wrinkled cap; yellow to greenish-yellow pore surface that usually does not bruise; yellowish stem with reddish colorations and tiny dots; flesh may stain bluish in some collections",
+        "summary": "Oak-associated eastern bolete with a dry granular-young cap, white pores becoming yellow and sometimes bruising cinnamon, and a yellow stem with an orange apex and longitudinal lines.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
         ],
         "host_trees": [
+          "Oak",
           "Hardwoods"
         ],
-        "host_certainty": "unknown",
+        "host_certainty": "probable/field-guide",
         "underside": [
           "Pores"
         ],
@@ -411,8 +414,8 @@
         ],
         "odor": "Unknown",
         "staining": [
-          "Unknown",
-          "Pores usually not bruising; flesh may stain bluish"
+          "Flesh does not stain",
+          "Pores may bruise cinnamon"
         ],
         "taste": [
           "Mild / not distinctive"
@@ -420,17 +423,16 @@
         "spore_print": "",
         "season_note": "Summer and fall; species-level local timing needs more checking.",
         "cap_surface": [
-          "Dry to slightly tacky",
-          "Dry",
-          "Smooth to slightly wrinkled"
+          "Dry cap; granular when young, becoming smoother with age"
         ],
         "stem_feature": [
-          "Smooth to netted stem",
-          "Tiny dots on yellowish/reddish stem"
+          "Yellow stem",
+          "Orange apical zone",
+          "Longitudinal lines"
         ],
         "pore_color": [
-          "Whitish to yellow pores",
-          "Yellow becoming greenish yellow"
+          "White pores becoming yellow",
+          "May bruise cinnamon"
         ],
         "growth_form": [
           "Cap and stem"
@@ -443,7 +445,8 @@
         ],
         "lane": "bolete",
         "host_filter_tokens": [
-          "Hardwood"
+          "Hardwood",
+          "Oak"
         ],
         "smell": [
           "Mild / not distinctive"
@@ -476,7 +479,7 @@
       "edibility_detail": "Avoid for food in this guide; keep as an identification/caution record.",
       "food_role": "avoid",
       "edibility_status": "not_edible",
-      "field_identification": "Dry, smooth to slightly wrinkled cap; yellow to greenish-yellow pore surface that usually does not bruise; yellowish stem with reddish colorations and tiny dots; flesh may stain bluish in some collections. Reported under hardwoods in eastern North America.",
+      "field_identification": "Look for a dry cap that is granular when young and smoother later, white pores becoming yellow and sometimes bruising cinnamon, nonstaining flesh, and a yellow longitudinally lined stem with an orange apical zone under oak.",
       "use_links": [
         {
           "label": "MushroomExpert Boletus key: Aureoboletus roxanae",
@@ -488,7 +491,7 @@
         }
       ],
       "record_type": "mushroom",
-      "review_status": "ok",
+      "review_status": "needs_review",
       "common_names": [
         "Aureoboletus roxanae"
       ],
@@ -520,7 +523,7 @@
         "preparation_notes": "",
         "warnings": ""
       },
-      "needs_review": false,
+      "needs_review": true,
       "images_structured": [
         {
           "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20roxanae%20%28Frost%29%20Klofac%20657418.jpg?width=480",
@@ -655,7 +658,8 @@
       "image_rights_audit_status": "rights_metadata_added",
       "image_coverage_status": "verified_images",
       "image_rights_notes": "Image rights normalized in v4.3.158-r2026-06-18-commons-image-rights-cleanup1. Retained visible images have exact Commons file-page author, source, license, and reuse metadata.",
-      "source_note": "Image rights normalized in v4.3.158-r2026-06-18-commons-image-rights-cleanup1; no retained visible image uses old placeholder image-source or vague Commons-only licensing."
+      "source_note": "Image rights normalized in v4.3.158-r2026-06-18-commons-image-rights-cleanup1; no retained visible image uses old placeholder image-source or vague Commons-only licensing. v4.3.211 corrects a materially wrong-species profile mapping from the exact eastern bolete key; print and Upper Michigan occurrence remain review-needed.",
+      "taxonomy_note": "The scientific name is retained, but v4.3.211 replaces profile traits that had been copied from neighboring Hemileccinum subglabripes."
     },
     {
       "slug": "boletellus-chrysenteroides",
@@ -1046,8 +1050,7 @@
         9
       ],
       "links": [
-        "https://www.mushroomexpert.com/buchwaldoboletus_hemichrysus.html",
-        "https://en.wikipedia.org/wiki/Buchwaldoboletus_sphaerocephalus"
+        "https://www.nrs.fs.usda.gov/pubs/jrnl/2011/nrs_2011_ortiz-santana_001.pdf"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Buchwaldoboletus%20sphaerocephalus%201.jpg",
@@ -1060,7 +1063,7 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Yellow wood-associated Buchwaldoboletus with bluing flesh; use as a taxonomy-aware comparison record, not a food target.",
+        "summary": "Distinct North American Buchwaldoboletus documented from Michigan, typically clustered on pine sawdust, pine stumps, or similar lignicolous settings; exact macro print and UP occurrence remain unresolved.",
         "ecology": "bolete",
         "substrate": [
           "Pine sawdust",
@@ -1071,9 +1074,11 @@
           "Softwood / conifer"
         ],
         "host_trees": [
-          "Pine / conifer wood"
+          "Pine sawdust",
+          "Pine stumps",
+          "Conifer wood"
         ],
-        "host_certainty": "probable/field-guide",
+        "host_certainty": "supported/primary-survey",
         "underside": [
           "Pores"
         ],
@@ -1132,14 +1137,14 @@
       "food_role": "avoid",
       "edibility_status": "not_edible",
       "non_edible_severity": "Caution / not recommended as food",
-      "review_status": "ok",
+      "review_status": "needs_review",
       "edible_use": {
         "has_ingestible_use": false,
         "method": "",
         "preparation_required": false,
         "notes": ""
       },
-      "needs_review": false,
+      "needs_review": true,
       "mushroom_card_note": "Yellow wood-associated Buchwaldoboletus with bluing flesh; use as a taxonomy-aware comparison record, not a food target.",
       "field_identification": "Yellow to yellow-brown bolete on or near pine wood/sawdust or wood-decay situations, with yellow pores/stem, yellow basal mycelium, and flesh that can bruise blue. Compare carefully with Buchwaldoboletus hemichrysus and B. lignicola; taxonomy and names in this group are tangled.",
       "use_roles": [
@@ -1147,23 +1152,31 @@
       ],
       "foraging_value": "ID / taxonomy review",
       "foraging_value_score": 1,
-      "taxonomy_note": "Reviewed in v4.2.93: treated as Buchwaldoboletus sphaerocephalus in the app, with synonym/complex warning against B. hemichrysus and B. lignicola.",
+      "taxonomy_note": "USDA Forest Service survey supports B. sphaerocephalus as distinct from B. hemichrysus and B. lignicola in North America, including Michigan.",
       "use_links": [
         {
           "label": "Wikimedia Commons: Buchwaldoboletus sphaerocephalus",
           "url": "https://commons.wikimedia.org/wiki/Category:Buchwaldoboletus_sphaerocephalus",
-          "link_type": "identification",
+          "link_type": "image_reference",
           "applies_to_part": "whole mushroom",
-          "source_quality": "taxon/media reference",
-          "notes": "Taxon category, synonyms, and public image set."
+          "source_quality": "media reference",
+          "notes": "Media/taxon context only; not used as final proof for taxonomy, ecology, range, or spore-print claims."
         },
         {
-          "label": "MushroomExpert: Buchwaldoboletus hemichrysus",
+          "label": "MushroomExpert: Buchwaldoboletus hemichrysus comparison",
           "url": "https://www.mushroomexpert.com/buchwaldoboletus_hemichrysus.html",
-          "link_type": "identification",
+          "link_type": "lookalike_comparison",
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
-          "notes": "Comparison group and wood-associated Buchwaldoboletus traits."
+          "notes": "Different species retained only for comparison; not proof for B. sphaerocephalus."
+        },
+        {
+          "label": "USDA Forest Service: Buchwaldoboletus survey",
+          "url": "https://www.nrs.fs.usda.gov/pubs/jrnl/2011/nrs_2011_ortiz-santana_001.pdf",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "primary taxonomic survey",
+          "notes": "Exact North American species concept, Michigan occurrence, pine-sawdust/stump ecology, and separation from related wood boletes."
         }
       ],
       "images_structured": [
@@ -1269,7 +1282,7 @@
       "image_rights_audit_status": "rights_metadata_added",
       "image_coverage_status": "verified_images",
       "image_rights_notes": "Image rights normalized in v4.3.158-r2026-06-18-commons-image-rights-cleanup1. Retained visible images have exact Commons file-page author, source, license, and reuse metadata.",
-      "source_note": "Image rights normalized in v4.3.158-r2026-06-18-commons-image-rights-cleanup1; no retained visible image uses old placeholder image-source or vague Commons-only licensing."
+      "source_note": "Image rights normalized in v4.3.158-r2026-06-18-commons-image-rights-cleanup1; no retained visible image uses old placeholder image-source or vague Commons-only licensing. v4.3.211 replaces the mismatched B. hemichrysus source trail and restores review-needed status for print and UP-locality debt."
     },
     {
       "slug": "chalciporus-piperatoides",

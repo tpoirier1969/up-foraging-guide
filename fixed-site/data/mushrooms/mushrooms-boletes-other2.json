@@ -19,7 +19,9 @@
     "last_remaining_review_cleanup": "v4.2.93-r2026-04-30-bolete-other-final-review1",
     "last_food_caution_cleanup": "v4.2.94-r2026-04-30-food-caution-language1",
     "split_parts_total": 1,
-    "source_group": "data/mushrooms/mushrooms-boletes-other2"
+    "source_group": "data/mushrooms/mushrooms-boletes-other2",
+    "last_content_update": "v4.3.211-r2026-07-14-bolete-taxonomy-source-closeout8",
+    "last_content_update_date": "2026-07-14"
   },
   "records": [
     {
@@ -945,7 +947,7 @@
           "On earthballs / other fungi",
           "On earthball fungus"
         ],
-        "host_certainty": "unknown",
+        "host_certainty": "supported/exact-species",
         "underside": [
           "Pores"
         ],
@@ -985,6 +987,10 @@
         ],
         "smell": [
           "Mild / not distinctive"
+        ],
+        "host_trees": [
+          "Scleroderma earthballs",
+          "Scleroderma citrinum often"
         ]
       },
       "mushroom_family": "Oddballs / veined / shaggy boletes",
@@ -1106,7 +1112,7 @@
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2012-09-04%20Pseudoboletus%20parasiticus%20%28Bull.%29%20Sutara%20258674.jpg?width=480",
       "image_rights_audit_status": "rights_metadata_added",
       "image_coverage_status": "verified_images",
-      "source_note": "Unverified Flickr-numbered structured images dropped in v4.3.155; verified Mushroom Observer / Wikimedia image now used as the visible image set."
+      "source_note": "Unverified Flickr-numbered structured images dropped in v4.3.155; verified Mushroom Observer / Wikimedia image now used as the visible image set. v4.3.211 strengthens the exact earthball-host source trail; the reported olive-brown print remains uninstalled pending direct field-guide wording."
     },
     {
       "slug": "pseudomerulius-curtisii",
@@ -1507,7 +1513,7 @@
         "taste": [
           "Mild / not distinctive"
         ],
-        "spore_print": "",
+        "spore_print": "Olive.",
         "season_note": "July through September in the Upper Michigan season window; eastern sources describe it as a summer-and-fall mixed hardwood/pine-oak bolete.",
         "pore_color": [
           "Bright yellow pores; not bruising"
@@ -1520,6 +1526,9 @@
         ],
         "fertile_surface": [
           "Pores"
+        ],
+        "spore_print_color": [
+          "Olive"
         ]
       },
       "mushroom_family": "Long-stemmed & textured boletes",
@@ -1569,7 +1578,8 @@
         8,
         9
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20betula%2090342936.jpg"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Aureoboletus%20betula%2090342936.jpg",
+      "source_note": "v4.3.211 adds an exact-species or defensible complex-level macroscopic spore-print description and normalized filter values; spore color alone is not proof of species identity or edibility."
     },
     {
       "slug": "aureoboletus-auriporus",
@@ -1755,9 +1765,8 @@
       "medicinal_uses": "",
       "notes": "",
       "links": [
-        "https://www.mushroomexpert.com/buchwaldoboletus_hemichrysus.html",
-        "https://en.wikipedia.org/wiki/Buchwaldoboletus_lignicola",
-        "https://www.sciencedirect.com/science/article/pii/S1754504822000022"
+        "https://www.sciencedirect.com/science/article/pii/S1754504822000022",
+        "https://www.nrs.fs.usda.gov/pubs/jrnl/2011/nrs_2011_ortiz-santana_001.pdf"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Buchwaldoboletus%20lignicola%20102704.jpg",
@@ -1769,7 +1778,7 @@
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Wood-associated Buchwaldoboletus tied to conifer wood and possibly Phaeolus schweinitzii; keep as an oddball ID record.",
+        "summary": "Distinct wood-associated Buchwaldoboletus on dead conifer wood, often linked with Phaeolus schweinitzii; exact macro print and Michigan/UP occurrence remain unresolved.",
         "ecology": "bolete",
         "substrate": [
           "Dead conifer wood",
@@ -1779,10 +1788,11 @@
           "Softwood / conifer"
         ],
         "host_trees": [
-          "Conifer wood",
-          "Phaeolus schweinitzii association possible"
+          "Dead conifer wood",
+          "Pine or larch wood",
+          "Association with Phaeolus schweinitzii documented"
         ],
-        "host_certainty": "probable/field-guide",
+        "host_certainty": "supported/primary-survey",
         "underside": [
           "Pores"
         ],
@@ -1825,8 +1835,8 @@
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
-      "review_status": "ok",
-      "needs_review": false,
+      "review_status": "needs_review",
+      "needs_review": true,
       "mushroom_card_note": "Wood-associated Buchwaldoboletus tied to conifer wood and possibly Phaeolus schweinitzii; keep as an oddball ID record.",
       "field_identification": "Yellow-brown cap, yellow pore surface, wood association, and possible relationship with the dyer’s polypore Phaeolus schweinitzii are the useful clues. Compare with B. hemichrysus and B. sphaerocephalus.",
       "edibility_detail": "ID/comparison only in this guide. Confirm wood association and compare carefully with B. hemichrysus and B. sphaerocephalus.",
@@ -1840,21 +1850,31 @@
         {
           "label": "Wikimedia Commons: Buchwaldoboletus lignicola",
           "url": "https://commons.wikimedia.org/wiki/Buchwaldoboletus_lignicola",
-          "link_type": "identification",
+          "link_type": "image_reference",
           "applies_to_part": "whole mushroom",
-          "source_quality": "taxon/media reference",
-          "notes": "Taxon page and public images."
+          "source_quality": "media reference",
+          "notes": "Media/taxon context only; not used as final proof for taxonomy, ecology, range, or spore-print claims."
         },
         {
           "label": "Wikimedia Commons file: Buchwaldoboletus lignicola pore surface",
           "url": "https://commons.wikimedia.org/wiki/File:Buchwaldoboletus_lignicola_102705.jpg",
+          "link_type": "image_reference",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "media reference",
+          "notes": "Media/taxon context only; not used as final proof for taxonomy, ecology, range, or spore-print claims."
+        },
+        {
+          "label": "USDA Forest Service: Buchwaldoboletus survey",
+          "url": "https://www.nrs.fs.usda.gov/pubs/jrnl/2011/nrs_2011_ortiz-santana_001.pdf",
           "link_type": "identification",
           "applies_to_part": "whole mushroom",
-          "source_quality": "image reference",
-          "notes": "Pore-surface context."
+          "source_quality": "primary taxonomic survey",
+          "notes": "Exact North American taxonomy, conifer-wood ecology, and distinction from B. hemichrysus and B. sphaerocephalus."
         }
       ],
-      "edibility_notes": "ID/comparison only in this guide. Confirm wood association and compare carefully with B. hemichrysus and B. sphaerocephalus."
+      "edibility_notes": "ID/comparison only in this guide. Confirm wood association and compare carefully with B. hemichrysus and B. sphaerocephalus.",
+      "taxonomy_note": "USDA Forest Service survey supports B. lignicola as distinct from B. hemichrysus and B. sphaerocephalus.",
+      "source_note": "v4.3.211 replaces a wrong-species source trail with the exact USDA survey and restores review-needed status for print and regional debt."
     }
   ]
 }

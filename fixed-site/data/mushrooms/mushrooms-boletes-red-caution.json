@@ -6,7 +6,7 @@
     "split_file": "data/mushrooms/mushrooms-boletes-red-caution.json",
     "split_role": "Expanded red/yellow, blue-staining, red-pored, and caution-lane bolete records.",
     "source_record_count_before_split": 209,
-    "record_count": 10,
+    "record_count": 9,
     "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
     "last_credibility_batch": "v4.2.97-r2026-04-30-red-caution-review1",
     "split_part": 1,
@@ -17,7 +17,6 @@
       "records_reviewed": [
         "boletus-bicoloroides",
         "boletus-miniato-olivaceus",
-        "boletus-rubissimus",
         "boletus-rufocinnamomeus",
         "boletus-speciosus",
         "boletus-subdepauperatus",
@@ -26,17 +25,13 @@
         "boletus-vermiculosoides",
         "boletus-vermiculosus",
         "butyriboletus-brunneus",
-        "caloboletus-calopus",
         "caloboletus-inedulis",
         "caloboletus-peckii",
         "exsudoporus-frostii",
-        "cyanoboletus-cyaneitinctus",
         "dark-capped-scarletina-complex",
         "suillellus-hypocarycinus",
         "hortiboletus-campestris",
         "hortiboletus-flavorubellus",
-        "butyriboletus-taughannockensis",
-        "lanmaoa-fallax",
         "lurid-bolete",
         "neoboletus-pseudosulphureus",
         "neoboletus-subluridellus"
@@ -44,8 +39,8 @@
       "rule": "Clear stale image-only review only when at least two distinct real source-image URLs exist; keep one-photo and placeholder records in review."
     },
     "source_group": "data/mushrooms/mushrooms-boletes-red-caution",
-    "last_content_update": "v4.3.133-r2026-06-09-mushroom-placeholder-status-cleanup1",
-    "last_content_update_date": "2026-06-09"
+    "last_content_update": "v4.3.211-r2026-07-14-bolete-taxonomy-source-closeout8",
+    "last_content_update_date": "2026-07-14"
   },
   "records": [
     {
@@ -405,10 +400,10 @@
       "scientific_name": "Boletus bicoloroides",
       "mushroom_profile": {
         "scientific_name": "Boletus bicoloroides",
-        "entry_scope": "species",
+        "entry_scope": "historical species comparison",
         "edibility_status": "review_required",
         "caution_level": "high",
-        "summary": "Rare bicolor-like red/yellow bolete recorded from Michigan sources; treat as a specialist ID with low local confidence rather than a food target.",
+        "summary": "Historical Michigan Boletus bicoloroides comparison concept; specialist microscopy is required and modern generic placement remains unresolved.",
         "ecology": "mycorrhizal bolete",
         "substrate": [
           "Forest soil"
@@ -489,7 +484,7 @@
       "needs_review": true,
       "review_status": "needs_review",
       "mushroom_card_note": "Rare bicolor-like red/yellow bolete recorded from Michigan sources; treat as a specialist ID with low local confidence rather than a food target.",
-      "field_identification": "Bicolor-like bolete with red/yellow colors and blue-staining flesh; key characters include long amyloid spores and a stem described as completely red in older treatments. Field ID should be treated as tentative without microscopy.",
+      "field_identification": "Use only as a specialist comparison for a red-stemmed Michigan bolete with unusually long, strongly amyloid spores. Do not infer Upper Michigan occurrence or identify from color alone.",
       "use_roles": [
         "ID / caution"
       ],
@@ -530,12 +525,14 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "taxonomy_note": "Historical Smith–Thiers Michigan concept; modern phylogenetic placement and exact macroscopic print remain unresolved.",
+      "source_note": "v4.3.211 narrows this to a historical Michigan specialist comparison and explicitly leaves the spore-print field blank."
     },
     {
       "slug": "boletus-miniato-olivaceus",
-      "display_name": "Boletus Miniato-Olivaceus",
-      "common_name": "Boletus Miniato-Olivaceus",
+      "display_name": "Miniato-olivaceus-type Red/Yellow Bolete",
+      "common_name": "Miniato-olivaceus-type Red/Yellow Bolete",
       "category": "Mushroom",
       "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
       "medicinal_uses": "",
@@ -560,10 +557,10 @@
       "scientific_name": "Boletus miniato-olivaceus",
       "mushroom_profile": {
         "scientific_name": "Boletus miniato-olivaceus",
-        "entry_scope": "species",
+        "entry_scope": "historical comparison group",
         "edibility_status": "review_required",
         "caution_level": "high",
-        "summary": "Red-capped, blue-staining bolete in a hard-to-separate caution group; olive tones in the cap and red/yellow staining details matter.",
+        "summary": "Historical Boletus miniato-olivaceus-type red/yellow bolete comparison; species boundaries in this complex remain unresolved.",
         "ecology": "mycorrhizal bolete",
         "substrate": [
           "Forest soil"
@@ -645,7 +642,7 @@
       "needs_review": true,
       "review_status": "needs_review",
       "mushroom_card_note": "Red-capped, blue-staining bolete in a hard-to-separate caution group; olive tones in the cap and red/yellow staining details matter.",
-      "field_identification": "Small to medium red-capped bolete with yellow pores that blue and cap tones that can move toward olive. Compare with Boletus bicolor, sensibilis, pseudosensibilis, and other red-capped blue-stainers.",
+      "field_identification": "Use only as a comparison label within the difficult eastern red-capped, blue-staining bolete complex. Microscopy and modern type-based work are required.",
       "use_roles": [
         "ID / caution"
       ],
@@ -686,160 +683,14 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
-    },
-    {
-      "slug": "boletus-rubissimus",
-      "display_name": "Boletus Rubissimus",
-      "common_name": "Boletus Rubissimus",
-      "category": "Mushroom",
-      "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
-      "medicinal_uses": "",
-      "notes": "",
-      "months_available": [
-        "July",
-        "August",
-        "September"
-      ],
-      "month_numbers": [
-        7,
-        8,
-        9
-      ],
-      "links": [
-        "https://www.mushroomexpert.com/boletes.html",
-        "https://www.mushroomexpert.com/boletes_red_capped_blue_staining.html"
-      ],
-      "images": [],
-      "scientific_name": "Boletus rubissimus",
-      "mushroom_profile": {
-        "scientific_name": "Boletus rubissimus",
-        "entry_scope": "species",
-        "edibility_status": "review_required",
-        "caution_level": "high",
-        "summary": "Red-pored/blue-staining bolete retained as a caution/comparison species; source coverage and photos are still weak.",
-        "ecology": "mycorrhizal bolete",
-        "substrate": [
-          "Forest soil"
-        ],
-        "wood_type": [
-          "Hardwood"
-        ],
-        "host_trees": [
-          "Hardwoods"
-        ],
-        "host_certainty": "unknown",
-        "underside": [
-          "Pores"
-        ],
-        "ring": "Unknown",
-        "texture": [
-          "Fleshy / firm"
-        ],
-        "odor": "Unknown",
-        "staining": [
-          "Blue staining possible"
-        ],
-        "taste": [
-          "Unknown"
-        ],
-        "spore_print": "",
-        "season_note": "Summer to fall; confirm locally.",
-        "cap_surface": [
-          "Red to brownish red cap"
-        ],
-        "stem_feature": [
-          "Red/yellow bolete stem clues need confirmation"
-        ],
-        "pore_color": [
-          "Red to orange-red pores"
-        ],
-        "growth_form": [
-          "Cap and stem"
-        ],
-        "fertile_surface": [
-          "Pores"
-        ],
-        "fruitbody_shape": [
-          "Convex cap with central stem"
-        ]
       },
-      "mushroom_family": "Red-staining & red-pored caution boletes",
-      "boleteGroup": [
-        "Red-staining & red-pored caution boletes"
-      ],
-      "boleteSubgroup": [
-        "Boletus",
-        "Blue staining / caution"
-      ],
-      "weekPrecision": "needs-review",
-      "primary_type": "mushroom",
-      "is_medicinal": false,
-      "is_non_edible": false,
-      "commonness": "Rare",
-      "commonness_score": 1,
-      "food_quality": "Not recommended",
-      "food_quality_score": 1,
-      "lane": "bolete",
-      "look_alikes": [
-        "blue-staining-red-pored-boletes-caution-group",
-        "lurid-bolete",
-        "red-mouth-bolete"
-      ],
-      "confused_with": [
-        "blue-staining-red-pored-boletes-caution-group",
-        "red-mouth-bolete"
-      ],
-      "general_notes": "",
-      "edibility_detail": "Do not eat red/yellow blue-staining boletes from this record without specialist confirmation.",
-      "food_role": "avoid",
-      "edibility_status": "review_required",
-      "non_edible_severity": "Caution / not recommended as food",
-      "review_status": "needs_review",
-      "edible_use": {
-        "has_ingestible_use": false,
-        "method": "",
-        "preparation_required": false,
-        "notes": ""
-      },
-      "needs_review": true,
-      "mushroom_card_note": "Red-pored/blue-staining bolete retained as a caution/comparison species; source coverage and photos are still weak.",
-      "field_identification": "Treat as a red/orange-pored bolete needing specialist confirmation. Use pore color, blue staining, cap/stem color, host tree, and microscopy rather than name-matching.",
-      "use_roles": [
-        "ID / caution"
-      ],
-      "foraging_value": "ID value / comparison",
-      "foraging_value_score": 1,
-      "record_type": "mushroom",
-      "kingdom_type": "mushroom",
-      "foraging_class": "mushroom",
-      "safety": "Recognition-only / red-yellow bolete caution",
-      "food_value": "Not a food target in this guide",
-      "danger_level": "Caution / not recommended as food",
-      "risk_reason": "Red/yellow blue-staining bolete in a hard-to-separate caution group; field confidence is not high enough for food use.",
-      "quality_notes": "Included for recognition, comparison, or caution rather than table value.",
-      "eating_use_notes": "Do not use this app entry as a food recommendation.",
-      "hard_rule": "Do not eat red/yellow blue-staining boletes from this record without specialist confirmation.",
-      "images_structured": [],
-      "detail_images": [],
-      "enlarge_images": [],
-      "list_thumbnail": "",
-      "hidden": true,
-      "list_visibility": "hidden-missing-verified-image",
-      "display_status": "suppressed_from_normal_cards",
-      "suppression_reason": "Placeholder/data image removed; exact public-usable image not verified. Hidden from normal card/search/list views instead of showing fake or blank image cards.",
-      "image_coverage_status": "missing_verified_images",
-      "image_rights_audit_status": "not_applicable_no_verified_image",
-      "image_coverage_note": "Exact public-usable photo not yet verified. Do not use generic relatives or placeholder art as a species image.",
-      "data_flags": [
-        "needs_exact_image",
-        "placeholder_image_removed"
-      ]
+      "taxonomy_note": "Historical eastern North American concept; not presented as a settled modern species.",
+      "source_note": "v4.3.211 reframes this as a historical comparison group and leaves the print blank."
     },
     {
       "slug": "boletus-rufocinnamomeus",
-      "display_name": "Boletus Rufocinnamomeus",
-      "common_name": "Boletus Rufocinnamomeus",
+      "display_name": "Rufocinnamomeus–Subluridellus Complex",
+      "common_name": "Rufocinnamomeus–Subluridellus Complex",
       "category": "Mushroom",
       "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
       "medicinal_uses": "",
@@ -862,10 +713,10 @@
       "scientific_name": "Boletus rufocinnamomeus",
       "mushroom_profile": {
         "scientific_name": "Boletus rufocinnamomeus",
-        "entry_scope": "species",
+        "entry_scope": "historical comparison complex",
         "edibility_status": "review_required",
         "caution_level": "high",
-        "summary": "Cinnamon-red bolete seed record; kept for comparison, not food use, until stronger field-source coverage exists.",
+        "summary": "Historical red-pored bolete complex involving B. rufocinnamomeus, B. subluridellus, and B. roseobadius; species limits remain unresolved.",
         "ecology": "mycorrhizal bolete",
         "substrate": [
           "Forest soil"
@@ -944,7 +795,7 @@
       "review_status": "needs_review",
       "needs_review": true,
       "mushroom_card_note": "Cinnamon-red bolete seed record; kept for comparison, not food use, until stronger field-source coverage exists.",
-      "field_identification": "Use as a tentative red/brown bolete comparison record. Confirm cap color, pore surface, staining, host, and microscopy before accepting the name.",
+      "field_identification": "Treat as a specialist historical complex, not a confident field species. Microscopy may not reliably separate the named concepts; type-based molecular work is needed.",
       "use_roles": [
         "ID / caution"
       ],
@@ -966,7 +817,9 @@
       "data_flags": [
         "needs_exact_image",
         "placeholder_image_removed"
-      ]
+      ],
+      "taxonomy_note": "Boletus rufocinnamomeus is retained as a historical complex anchor, not a settled independent modern species.",
+      "source_note": "v4.3.211 consolidates the record conceptually with the unresolved subluridellus/roseobadius complex and leaves the print blank."
     },
     {
       "slug": "boletus-speciosus",
@@ -1167,10 +1020,10 @@
       "scientific_name": "Boletus subdepauperatus",
       "mushroom_profile": {
         "scientific_name": "Boletus subdepauperatus",
-        "entry_scope": "species",
+        "entry_scope": "historical species comparison",
         "edibility_status": "review_required",
         "caution_level": "high",
-        "summary": "Small red/brown blue-staining bolete; best treated as a key-out comparison record, not a basket mushroom.",
+        "summary": "Historical Smith–Thiers comparison concept; modern placement, exact print, and Upper Michigan occurrence remain unresolved.",
         "ecology": "mycorrhizal bolete",
         "substrate": [
           "Forest soil"
@@ -1250,7 +1103,7 @@
       "review_status": "needs_review",
       "needs_review": true,
       "mushroom_card_note": "Small red/brown blue-staining bolete; best treated as a key-out comparison record, not a basket mushroom.",
-      "field_identification": "Small bolete in the red/brown, blue-staining group. MushroomExpert keys it among smaller boletes with pore-surface and staining details; field name should remain tentative.",
+      "field_identification": "Retain only as a historical small-bolete comparison. Exact species-level use requires the original treatment, microscopy, and modern revision.",
       "use_roles": [
         "ID / caution"
       ],
@@ -1272,7 +1125,9 @@
       "data_flags": [
         "needs_exact_image",
         "placeholder_image_removed"
-      ]
+      ],
+      "taxonomy_note": "Historical North American name retained provisionally; no modern generic placement or Upper Michigan occurrence is established.",
+      "source_note": "v4.3.211 removes false modern certainty while preserving the suppressed historical comparison record."
     },
     {
       "slug": "boletus-subfraternus",
@@ -1464,7 +1319,8 @@
       ],
       "links": [
         "https://www.mushroomexpert.com/boletus_05.html",
-        "https://www.mushroomexpert.com/boletus_vermiculosoides.html"
+        "https://www.mushroomexpert.com/boletus_vermiculosoides.html",
+        "https://quod.lib.umich.edu/f/fung1tc/AGK0838.0001.001/344?rgn=full+text;view=image"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subgraveolens%2075322.jpg"
@@ -1502,7 +1358,7 @@
         "taste": [
           "Unknown"
         ],
-        "spore_print": "",
+        "spore_print": "Olive, drying olive-brown.",
         "season_note": "Summer to fall; confirm locally.",
         "cap_surface": [
           "Brown to reddish-brown cap"
@@ -1522,6 +1378,10 @@
         ],
         "fruitbody_shape": [
           "Convex cap with central stem"
+        ],
+        "spore_print_color": [
+          "Olive",
+          "Olive-brown"
         ]
       },
       "mushroom_family": "Red-staining & red-pored caution boletes",
@@ -1581,7 +1441,8 @@
       "enlarge_images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subgraveolens%2075322.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subgraveolens%2075322.jpg?width=480"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20subgraveolens%2075322.jpg?width=480",
+      "source_note": "v4.3.211 adds an exact-species or defensible complex-level macroscopic spore-print description and normalized filter values; spore color alone is not proof of species identity or edibility."
     },
     {
       "slug": "boletus-vermiculosoides",

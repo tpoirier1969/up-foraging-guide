@@ -15,8 +15,8 @@
     "source_group": "data/mushrooms/mushrooms-boletes-porcini-tylopilus-3",
     "last_image_recovery_batch": "v4.3.81-r2026-05-18-image-recovery-audit1",
     "last_image_recovery_date": "2026-05-18",
-    "last_content_update": "v4.3.178-r2026-06-25-porcini-bolete-source-upgrades1",
-    "last_content_update_date": "2026-06-25"
+    "last_content_update": "v4.3.211-r2026-07-14-bolete-taxonomy-source-closeout8",
+    "last_content_update_date": "2026-07-14"
   },
   "records": [
     {
@@ -393,12 +393,13 @@
         9
       ],
       "links": [
-        "https://mushroomexpert.com/tylopilus.html"
+        "https://mushroomexpert.com/tylopilus.html",
+        "https://www.mushroomexpert.com/tylopilus.html"
       ],
       "images": [],
-      "scientific_name": "Porphyrellus nebulosus",
+      "scientific_name": "Tylopilus nebulosus",
       "mushroom_profile": {
-        "scientific_name": "Porphyrellus nebulosus",
+        "scientific_name": "Tylopilus nebulosus",
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "medium",
@@ -470,7 +471,8 @@
       "foraging_value": "ID value / comparison",
       "foraging_value_score": 1,
       "search_aliases": [
-        "Porphyrellus nebulosus"
+        "Porphyrellus nebulosus",
+        "Boletus nebulosus"
       ],
       "host_filter_tokens": [
         "Hardwoods",
@@ -525,7 +527,13 @@
           "source_quality": "mycology reference",
           "notes": "Genus/key context only; species-level source and exact public-usable image are still needed before activation."
         }
-      ]
+      ],
+      "aliases": [
+        "Porphyrellus nebulosus",
+        "Boletus nebulosus"
+      ],
+      "taxonomy_note": "Current supported North American treatment uses Tylopilus nebulosus; older Porphyrellus and Boletus combinations remain search aliases. Exact macro print and Great Lakes range remain unresolved.",
+      "source_note": "v4.3.211 corrects the genus while retaining review and suppression because exact macroscopic print and Great Lakes occurrence are still unproved."
     },
     {
       "slug": "porphyrellus-sordidus",
@@ -547,7 +555,8 @@
       ],
       "links": [
         "https://en.wikipedia.org/wiki/Porphyrellus_sordidus",
-        "https://mushroomexpert.com/tylopilus.html"
+        "https://mushroomexpert.com/tylopilus.html",
+        "https://archive.org/details/mushroomsotherfu0000phil/page/284"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus_sordidus_101028.jpg"
@@ -581,7 +590,7 @@
         "taste": [
           "Unknown / not recommended"
         ],
-        "spore_print": "",
+        "spore_print": "Reddish brown.",
         "season_note": "July through September in the Upper Michigan season window; treated conservatively with eastern Tylopilus/Porphyrellus-type summer-and-fall boletes.",
         "research_notes": [
           "Needs source links and fuller field notes.",
@@ -601,6 +610,9 @@
         ],
         "growth_form": [
           "Cap and stem"
+        ],
+        "spore_print_color": [
+          "Reddish brown"
         ]
       },
       "mushroom_family": "Dark-pored & obscure boletes",
@@ -698,7 +710,7 @@
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "source_note": "Stale placeholder-image note removed because a real image is already present."
+      "source_note": "Stale placeholder-image note removed because a real image is already present. v4.3.211 adds an exact-species or defensible complex-level macroscopic spore-print description and normalized filter values; spore color alone is not proof of species identity or edibility."
     },
     {
       "slug": "gyroporus-purpurinus",
@@ -1387,7 +1399,8 @@
         9
       ],
       "links": [
-        "https://mushroomexpert.com/tylopilus.html"
+        "https://mushroomexpert.com/tylopilus.html",
+        "https://www.mushroomexpert.com/tylopilus.html"
       ],
       "images": [],
       "scientific_name": "Tylopilus appalachiensis",
@@ -1454,8 +1467,8 @@
       "primary_type": "mushroom",
       "is_medicinal": false,
       "is_non_edible": false,
-      "review_status": "ok",
-      "needs_review": false,
+      "review_status": "needs_review",
+      "needs_review": true,
       "mushroom_card_note": "Tylopilus appalachiensis: hardwood Tylopilus with brown-bruising pore surface; keep separate from mild edible-looking boletes.",
       "field_identification": "Use hardwood association, pore-surface bruising brown, pinkish Tylopilus pore maturity, and lack of dramatic reticulation to keep it separate.",
       "edibility_detail": "Do not use this record as a food recommendation; treat it as comparison/recognition until reviewed with stronger local evidence.",
@@ -1519,7 +1532,8 @@
           "source_quality": "mycology reference",
           "notes": "Genus/key context only; species-level source and exact public-usable image are still needed before activation."
         }
-      ]
+      ],
+      "source_note": "v4.3.211 restores review-needed status: the exact species is recognized in a North American key, but a macroscopic print and Great Lakes occurrence remain unverified."
     },
     {
       "slug": "tylopilus-badiceps",
@@ -1831,7 +1845,8 @@
       ],
       "links": [
         "https://mushroomexpert.com/tylopilus.html",
-        "https://en.wikipedia.org/wiki/Tylopilus_ferrugineus"
+        "https://en.wikipedia.org/wiki/Tylopilus_ferrugineus",
+        "https://www.mushroomexpert.com/tylopilus_ferrugineus.html"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Tylopilus_ferrugineus_162998.jpg"
@@ -1864,7 +1879,7 @@
         "taste": [
           "Mild / not bitter"
         ],
-        "spore_print": "",
+        "spore_print": "Brownish pink to pinkish brown.",
         "season_note": "July through September in the Upper Michigan season window; treated conservatively with eastern Tylopilus summer-and-fall boletes.",
         "research_notes": [
           "Needs source links and fuller field notes.",
@@ -1884,6 +1899,9 @@
         ],
         "growth_form": [
           "Cap and stem"
+        ],
+        "spore_print_color": [
+          "Pinkish brown"
         ]
       },
       "mushroom_family": "Pink-pored Tylopilus & bitter allies",
@@ -1978,9 +1996,19 @@
       ],
       "image_coverage_status": "verified_images",
       "image_rights_audit_status": "rights_metadata_added",
-      "source_note": "Stale placeholder-image note removed because a real image is already present.",
+      "source_note": "Stale placeholder-image note removed because a real image is already present. v4.3.211 adds an exact-species or defensible complex-level macroscopic spore-print description and normalized filter values; spore color alone is not proof of species identity or edibility.",
       "source_review_notes": [
         "Review flags normalized in v4.3.175: route remains comparison/avoid until review is cleared."
+      ],
+      "use_links": [
+        {
+          "label": "MushroomExpert: Tylopilus ferrugineus",
+          "url": "https://www.mushroomexpert.com/tylopilus_ferrugineus.html",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Exact species treatment and brownish-pink to pinkish-brown macroscopic spore print."
+        }
       ]
     }
   ]

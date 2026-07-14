@@ -15,8 +15,8 @@
     "source_group": "data/mushrooms/mushrooms-boletes-suillus-leccinum",
     "last_image_recovery_batch": "v4.3.81-r2026-05-18-image-recovery-audit1",
     "last_image_recovery_date": "2026-05-18",
-    "last_content_update": "v4.3.139-r2026-06-10-mushroom-image-rights-cleanup1",
-    "last_content_update_date": "2026-06-10",
+    "last_content_update": "v4.3.211-r2026-07-14-bolete-taxonomy-source-closeout8",
+    "last_content_update_date": "2026-07-14",
     "last_updated": "2026-07-13",
     "version": "v4.3.208-r2026-07-13-leccinum-distinctive-edibles-batch5",
     "last_leccinum_distinctive_batch": "v4.3.208-r2026-07-13-leccinum-distinctive-edibles-batch5",
@@ -500,7 +500,7 @@
         }
       ],
       "record_type": "mushroom",
-      "review_status": "ok",
+      "review_status": "needs_review",
       "common_names": [
         "Ashtray Bolete"
       ],
@@ -571,7 +571,9 @@
       "use_roles": [
         "ID / comparison"
       ],
-      "recognition_only": true
+      "recognition_only": true,
+      "needs_review": true,
+      "source_note": "v4.3.211 restores review-needed status because the exact macroscopic print and Upper Michigan voucher remain unresolved."
     },
     {
       "slug": "leccinum-scabrum",
@@ -954,7 +956,7 @@
           "Two-needle pines",
           "Pine"
         ],
-        "host_certainty": "low",
+        "host_certainty": "supported/field-guide",
         "underside": [
           "Pores"
         ],
@@ -1167,7 +1169,8 @@
             "hard_rule": "Bitter taste means not food; one specimen can ruin the pan."
           }
         ]
-      }
+      },
+      "source_note": "v4.3.211 confirms the exact North American Suillus tomentosus concept and two-needle-pine/jack-pine ecology; the macroscopic print remains blank until the underlying field-guide passage is directly acquired."
     },
     {
       "slug": "boreal-bolete",

@@ -6,7 +6,7 @@
     "split_file": "data/mushrooms/mushrooms-boletes-red-caution2.json",
     "split_role": "Expanded red/yellow, blue-staining, red-pored, and caution-lane bolete records.",
     "source_record_count_before_split": 209,
-    "record_count": 10,
+    "record_count": 8,
     "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
     "last_credibility_batch": "v4.2.97-r2026-04-30-red-caution-review1",
     "split_part": 1,
@@ -17,7 +17,6 @@
       "records_reviewed": [
         "boletus-bicoloroides",
         "boletus-miniato-olivaceus",
-        "boletus-rubissimus",
         "boletus-rufocinnamomeus",
         "boletus-speciosus",
         "boletus-subdepauperatus",
@@ -26,17 +25,13 @@
         "boletus-vermiculosoides",
         "boletus-vermiculosus",
         "butyriboletus-brunneus",
-        "caloboletus-calopus",
         "caloboletus-inedulis",
         "caloboletus-peckii",
         "exsudoporus-frostii",
-        "cyanoboletus-cyaneitinctus",
         "dark-capped-scarletina-complex",
         "suillellus-hypocarycinus",
         "hortiboletus-campestris",
         "hortiboletus-flavorubellus",
-        "butyriboletus-taughannockensis",
-        "lanmaoa-fallax",
         "lurid-bolete",
         "neoboletus-pseudosulphureus",
         "neoboletus-subluridellus"
@@ -44,8 +39,8 @@
       "rule": "Clear stale image-only review only when at least two distinct real source-image URLs exist; keep one-photo and placeholder records in review."
     },
     "source_group": "data/mushrooms/mushrooms-boletes-red-caution2",
-    "last_content_update": "v4.3.148-r2026-06-11-mushroom-wild-ginger-cleanup1",
-    "last_content_update_date": "2026-06-09"
+    "last_content_update": "v4.3.211-r2026-07-14-bolete-taxonomy-source-closeout8",
+    "last_content_update_date": "2026-07-14"
   },
   "records": [
     {
@@ -179,17 +174,26 @@
       "detail_images": [],
       "enlarge_images": [],
       "list_thumbnail": "",
-      "source_note": "Reviewed avoid record normalized; image rights metadata modernization remains a separate task where needed. v4.3.210 adds the source-backed macro spore-print description and normalized color filters; spore color alone is not proof of species identity or edibility.",
+      "source_note": "Reviewed avoid record normalized; image rights metadata modernization remains a separate task where needed. v4.3.210 adds the source-backed macro spore-print description and normalized color filters; spore color alone is not proof of species identity or edibility. v4.3.211 removes the separate wrong-continent C. calopus card and keeps the historical name only as comparison/search context here.",
       "image_coverage_status": "missing_verified_images",
       "image_rights_audit_status": "not_applicable_no_verified_image",
       "image_coverage_note": "Exact public-usable image not currently verified; visible images removed pending exact file-page rights metadata.",
       "image_rights_notes": "Visible Commons image(s) removed in v4.3.181 because stored metadata did not include exact file-page author/license/license-url rights details; do not restore until exact rights are verified.",
-      "needs_exact_image": true
+      "needs_exact_image": true,
+      "aliases": [
+        "Caloboletus calopus (European species; historically misapplied in North America)",
+        "Boletus calopus (historical misapplication)"
+      ],
+      "search_aliases": [
+        "Caloboletus calopus",
+        "Boletus calopus"
+      ],
+      "taxonomy_note": "True Caloboletus calopus is European; historical North American use of that name is retained only as a misapplication alias under C. inedulis."
     },
     {
       "slug": "caloboletus-peckii",
-      "display_name": "Caloboletus Peckii",
-      "common_name": "Caloboletus Peckii",
+      "display_name": "Peck's Bolete",
+      "common_name": "Peck's Bolete",
       "category": "Mushroom",
       "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison. Do not taste unknown red/yellow or blue-staining boletes; bitterness is not a beginner safety test.",
       "medicinal_uses": "",
@@ -206,12 +210,13 @@
       ],
       "links": [
         "https://www.mushroomexpert.com/boletes.html",
-        "https://www.mushroomexpert.com/caloboletus_inedulis.html"
+        "https://www.mushroomexpert.com/caloboletus_inedulis.html",
+        "https://doi.org/10.11646/phytotaxa.234.1.3"
       ],
       "images": [],
-      "scientific_name": "Caloboletus peckii",
+      "scientific_name": "Butyriboletus peckii",
       "mushroom_profile": {
-        "scientific_name": "Caloboletus peckii",
+        "scientific_name": "Butyriboletus peckii",
         "entry_scope": "species",
         "edibility_status": "review_required",
         "caution_level": "high",
@@ -317,7 +322,17 @@
       "image_coverage_status": "missing_verified_images",
       "image_coverage_note": "Exact public-usable image not currently verified; visible images removed pending exact file-page rights metadata.",
       "image_rights_notes": "Visible Commons image(s) removed in v4.3.181 because stored metadata did not include exact file-page author/license/license-url rights details; do not restore until exact rights are verified.",
-      "needs_exact_image": true
+      "needs_exact_image": true,
+      "aliases": [
+        "Boletus peckii",
+        "Caloboletus peckii"
+      ],
+      "search_aliases": [
+        "Boletus peckii",
+        "Caloboletus peckii"
+      ],
+      "taxonomy_note": "Current supported combination is Butyriboletus peckii; older Boletus and Caloboletus combinations remain aliases. Exact print and Upper Michigan occurrence remain unresolved.",
+      "source_note": "v4.3.211 corrects the genus but keeps review-needed status and a blank print pending exact species treatment."
     },
     {
       "slug": "exsudoporus-frostii",
@@ -775,143 +790,6 @@
       ]
     },
     {
-      "slug": "cyanoboletus-cyaneitinctus",
-      "display_name": "Cyanoboletus Cyaneitinctus",
-      "common_name": "Cyanoboletus Cyaneitinctus",
-      "category": "Mushroom",
-      "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
-      "medicinal_uses": "",
-      "notes": "",
-      "months_available": [
-        "July",
-        "August",
-        "September"
-      ],
-      "month_numbers": [
-        7,
-        8,
-        9
-      ],
-      "links": [
-        "https://www.mushroomexpert.com/boletes.html",
-        "https://www.mushroomexpert.com/boletes_red_capped_blue_staining.html"
-      ],
-      "images": [],
-      "scientific_name": "Cyanoboletus cyaneitinctus",
-      "mushroom_profile": {
-        "scientific_name": "Cyanoboletus cyaneitinctus",
-        "entry_scope": "species",
-        "edibility_status": "review_required",
-        "caution_level": "high",
-        "summary": "Very blue-staining bolete-style record; retained as caution/comparison until source and image confidence improve.",
-        "ecology": "mycorrhizal bolete",
-        "substrate": [
-          "Forest soil"
-        ],
-        "wood_type": [
-          "Hardwood"
-        ],
-        "host_trees": [
-          "Hardwoods"
-        ],
-        "host_certainty": "unknown",
-        "underside": [
-          "Pores"
-        ],
-        "ring": "Unknown",
-        "texture": [
-          "Fleshy / firm"
-        ],
-        "odor": "Unknown",
-        "staining": [
-          "Strong blue staining"
-        ],
-        "taste": [
-          "Unknown"
-        ],
-        "spore_print": "",
-        "season_note": "Summer to fall; confirm locally.",
-        "cap_surface": [
-          "Brown to reddish-brown cap possible"
-        ],
-        "stem_feature": [
-          "Stem details need confirmation"
-        ],
-        "pore_color": [
-          "Pored underside",
-          "Blue staining"
-        ],
-        "growth_form": [
-          "Cap and stem"
-        ],
-        "fertile_surface": [
-          "Pores"
-        ],
-        "fruitbody_shape": [
-          "Convex cap with central stem"
-        ]
-      },
-      "mushroom_family": "Red-staining & red-pored caution boletes",
-      "boleteGroup": [
-        "Red-staining & red-pored caution boletes"
-      ],
-      "boleteSubgroup": [
-        "Cyanoboletus",
-        "Blue staining / caution"
-      ],
-      "weekPrecision": "needs-review",
-      "primary_type": "mushroom",
-      "is_medicinal": false,
-      "is_non_edible": false,
-      "commonness": "Rare",
-      "commonness_score": 1,
-      "food_quality": "Not recommended",
-      "food_quality_score": 1,
-      "lane": "bolete",
-      "look_alikes": [
-        "blue-staining-red-pored-boletes-caution-group",
-        "lurid-bolete",
-        "red-mouth-bolete"
-      ],
-      "confused_with": [
-        "blue-staining-red-pored-boletes-caution-group",
-        "red-mouth-bolete"
-      ],
-      "general_notes": "",
-      "edibility_detail": "Comparison/caution only until verified.",
-      "food_role": "avoid",
-      "edibility_status": "review_required",
-      "non_edible_severity": "Caution / not recommended as food",
-      "review_status": "needs_review",
-      "edible_use": {
-        "has_ingestible_use": false,
-        "method": "",
-        "preparation_required": false,
-        "notes": ""
-      },
-      "needs_review": true,
-      "mushroom_card_note": "Very blue-staining bolete-style record; retained as caution/comparison until source and image confidence improve.",
-      "field_identification": "Use as a blue-staining bolete comparison record. Confirm pore color, cap color, staining speed/intensity, host, and current taxonomy before treating as settled.",
-      "use_roles": [
-        "ID / caution"
-      ],
-      "foraging_value": "Use with caution",
-      "foraging_value_score": 1,
-      "images_structured": [],
-      "detail_images": [],
-      "enlarge_images": [],
-      "list_thumbnail": "",
-      "image_coverage_status": "missing_verified_images",
-      "image_rights_audit_status": "not_applicable_no_verified_image",
-      "image_coverage_note": "Exact public-usable image not verified; do not use placeholder art or generic relatives as a species image.",
-      "hidden": true,
-      "list_visibility": "hidden-missing-verified-image",
-      "display_status": "suppressed_from_normal_cards",
-      "suppression_reason": "Missing exact public-usable species image; suppressed from normal cards until reviewed image/source support exists.",
-      "needs_exact_image": true,
-      "placeholder_image_removed": true
-    },
-    {
       "slug": "dark-capped-scarletina-complex",
       "display_name": "Dark-capped Scarletina Complex",
       "common_name": "Dark-capped Scarletina Complex",
@@ -1108,10 +986,10 @@
       "scientific_name": "Suillellus hypocarycinus",
       "mushroom_profile": {
         "scientific_name": "Suillellus hypocarycinus",
-        "entry_scope": "species",
+        "entry_scope": "historical species comparison",
         "edibility_status": "review_required",
         "caution_level": "high",
-        "summary": "Hickory-associated red-pored bolete record; needs local image confidence before moving out of review.",
+        "summary": "Historical North American hickory-associated bolete concept; exact print, modern phylogenetic placement, and Upper Michigan occurrence remain unresolved.",
         "ecology": "mycorrhizal bolete",
         "substrate": [
           "Forest soil"
@@ -1217,7 +1095,12 @@
       "display_status": "suppressed_from_normal_cards",
       "suppression_reason": "Missing exact public-usable species image; suppressed from normal cards until reviewed image/source support exists.",
       "needs_exact_image": true,
-      "placeholder_image_removed": true
+      "placeholder_image_removed": true,
+      "taxonomy_note": "Provisional historical concept based on Boletus hypocarycinus; current placement is not treated as DNA-confirmed.",
+      "aliases": [
+        "Boletus hypocarycinus"
+      ],
+      "source_note": "v4.3.211 adds cautious historical framing and leaves the macroscopic print blank."
     },
     {
       "slug": "hortiboletus-campestris",
@@ -1361,8 +1244,8 @@
     },
     {
       "slug": "hortiboletus-flavorubellus",
-      "display_name": "Hortiboletus Flavorubellus",
-      "common_name": "Hortiboletus Flavorubellus",
+      "display_name": "Boletus flavorubellus Historical Concept",
+      "common_name": "Boletus flavorubellus Historical Concept",
       "category": "Mushroom",
       "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
       "medicinal_uses": "",
@@ -1382,13 +1265,13 @@
         "https://www.mushroomexpert.com/boletus_campestris.html"
       ],
       "images": [],
-      "scientific_name": "Hortiboletus flavorubellus",
+      "scientific_name": "Boletus flavorubellus",
       "mushroom_profile": {
-        "scientific_name": "Hortiboletus flavorubellus",
-        "entry_scope": "species",
+        "scientific_name": "Boletus flavorubellus",
+        "entry_scope": "historical comparison",
         "edibility_status": "review_required",
         "caution_level": "high",
-        "summary": "Small red/yellow bolete-style record; needs better source support before it should be trusted beyond comparison.",
+        "summary": "Historical small red/yellow bolete comparison concept; a valid Hortiboletus transfer and exact print have not been verified.",
         "ecology": "mycorrhizal bolete",
         "substrate": [
           "Forest soil"
@@ -1488,163 +1371,15 @@
       "display_status": "suppressed_from_normal_cards",
       "suppression_reason": "Missing exact public-usable species image; suppressed from normal cards until reviewed image/source support exists.",
       "needs_exact_image": true,
-      "placeholder_image_removed": true
-    },
-    {
-      "slug": "butyriboletus-taughannockensis",
-      "display_name": "Igor's Bolete",
-      "common_name": "Igor's Bolete",
-      "category": "Mushroom",
-      "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
-      "medicinal_uses": "",
-      "notes": "",
-      "months_available": [
-        "July",
-        "August",
-        "September"
+      "placeholder_image_removed": true,
+      "aliases": [
+        "Hortiboletus flavorubellus"
       ],
-      "month_numbers": [
-        7,
-        8,
-        9
+      "search_aliases": [
+        "Hortiboletus flavorubellus"
       ],
-      "links": [
-        "https://www.mushroomexpert.com/boletes.html",
-        "https://www.mushroomexpert.com/butyriboletus_brunneus.html"
-      ],
-      "images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus_taughannockensis_Safonov_656183.jpg"
-      ],
-      "scientific_name": "Butyriboletus taughannockensis",
-      "mushroom_profile": {
-        "scientific_name": "Butyriboletus taughannockensis",
-        "entry_scope": "species",
-        "edibility_status": "review_required",
-        "caution_level": "high",
-        "summary": "Butyriboletus-style eastern bolete kept as a cautious comparison record until stronger local/source confidence is added.",
-        "ecology": "mycorrhizal bolete",
-        "substrate": [
-          "Forest soil"
-        ],
-        "wood_type": [
-          "Hardwood"
-        ],
-        "host_trees": [
-          "Hardwoods"
-        ],
-        "host_certainty": "unknown",
-        "underside": [
-          "Pores"
-        ],
-        "ring": "Unknown",
-        "texture": [
-          "Fleshy / firm"
-        ],
-        "odor": "Unknown",
-        "staining": [
-          "Staining details need confirmation"
-        ],
-        "taste": [
-          "Unknown"
-        ],
-        "spore_print": "",
-        "season_note": "Summer to fall; confirm locally.",
-        "cap_surface": [
-          "Brown to yellow-brown cap possible"
-        ],
-        "stem_feature": [
-          "Reticulate stem likely"
-        ],
-        "pore_color": [
-          "Yellow pores"
-        ],
-        "growth_form": [
-          "Cap and stem"
-        ],
-        "fertile_surface": [
-          "Pores"
-        ],
-        "fruitbody_shape": [
-          "Convex cap with central stem"
-        ]
-      },
-      "mushroom_family": "Red-staining & red-pored caution boletes",
-      "boleteGroup": [
-        "Red-staining & red-pored caution boletes"
-      ],
-      "boleteSubgroup": [
-        "Butyriboletus",
-        "Blue staining / caution"
-      ],
-      "weekPrecision": "needs-review",
-      "primary_type": "mushroom",
-      "is_medicinal": false,
-      "is_non_edible": false,
-      "commonness": "Rare",
-      "commonness_score": 1,
-      "food_quality": "Not recommended",
-      "food_quality_score": 1,
-      "lane": "bolete",
-      "look_alikes": [
-        "blue-staining-red-pored-boletes-caution-group",
-        "lurid-bolete",
-        "red-mouth-bolete"
-      ],
-      "confused_with": [
-        "blue-staining-red-pored-boletes-caution-group",
-        "red-mouth-bolete"
-      ],
-      "general_notes": "",
-      "edibility_detail": "Comparison/caution only until better documented.",
-      "food_role": "avoid",
-      "review_status": "needs_review",
-      "needs_review": true,
-      "mushroom_card_note": "Butyriboletus-style eastern bolete kept as a cautious comparison record until stronger local/source confidence is added.",
-      "field_identification": "Treat as a buttery-yellow/red-staining Butyriboletus comparison record. Confirm host, reticulate stem, pore color, staining, and current name before relying on it.",
-      "use_roles": [
-        "ID / caution"
-      ],
-      "foraging_value": "Use with caution",
-      "foraging_value_score": 1,
-      "edibility_status": "review_required",
-      "non_edible_severity": "Caution / not a beginner food target",
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus_taughannockensis_Safonov_656183.jpg?width=480",
-      "images_structured": [
-        {
-          "thumb": "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus_taughannockensis_Safonov_656183.jpg?width=480",
-          "detail": "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus_taughannockensis_Safonov_656183.jpg?width=900",
-          "full": "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus_taughannockensis_Safonov_656183.jpg",
-          "title": "Igor's bolete / Butyriboletus taughannockensis",
-          "part_or_stage": "whole fruiting body with field notes in source",
-          "source": "wikimedia-commons-open-license",
-          "sourceLabel": "Wikimedia Commons",
-          "sourcePage": "https://commons.wikimedia.org/wiki/File:Butyriboletus_taughannockensis_Safonov_656183.jpg",
-          "source_page": "https://commons.wikimedia.org/wiki/File:Butyriboletus_taughannockensis_Safonov_656183.jpg",
-          "author": "I. G. Safonov / IGSafonov",
-          "credit": "I. G. Safonov / IGSafonov, CC BY-SA 3.0, via Wikimedia Commons / Mushroom Observer",
-          "license": "CC BY-SA 3.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
-          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
-          "rights_status": "commercial_ok_sharealike",
-          "commercial_use": true,
-          "commercial_use_allowed": true,
-          "modification_allowed": true,
-          "attribution_required": true,
-          "share_alike_required": true,
-          "needs_commercial_replacement": false,
-          "rights_notes": "Commercial use and modification allowed; attribution required and share-alike/copyleft terms may apply to adapted versions.",
-          "rights_note": "Commercial use and modification allowed; attribution required and share-alike/copyleft terms may apply to adapted versions.",
-          "image_role": "primary field image"
-        }
-      ],
-      "detail_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus_taughannockensis_Safonov_656183.jpg?width=900"
-      ],
-      "enlarge_images": [
-        "https://commons.wikimedia.org/wiki/Special:FilePath/Butyriboletus_taughannockensis_Safonov_656183.jpg"
-      ],
-      "image_coverage_status": "verified_images",
-      "image_rights_audit_status": "rights_metadata_added"
+      "taxonomy_note": "Reverted to the documented historical Boletus flavorubellus concept pending a valid modern combination and type-based revision.",
+      "source_note": "v4.3.211 removes the unsupported Hortiboletus certainty and keeps the record suppressed/review-needed."
     }
   ]
 }

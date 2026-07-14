@@ -13,14 +13,14 @@
     "split_parts_total": 4,
     "split_series": "data/mushrooms/mushrooms-boletes-porcini-tylopilus-2*.json",
     "source_group": "data/mushrooms/mushrooms-boletes-porcini-tylopilus-2",
-    "last_content_update": "v4.3.178-r2026-06-25-porcini-bolete-source-upgrades1",
-    "last_content_update_date": "2026-06-25"
+    "last_content_update": "v4.3.211-r2026-07-14-bolete-taxonomy-source-closeout8",
+    "last_content_update_date": "2026-07-14"
   },
   "records": [
     {
       "slug": "gyroporus-borealis-smithii",
-      "display_name": "Chestnut Bolete",
-      "common_name": "Chestnut Bolete",
+      "display_name": "Chestnut Bolete Complex",
+      "common_name": "Chestnut Bolete Complex",
       "category": "Mushroom",
       "culinary_uses": "Some Gyroporus chestnut boletes are edible, but this guide treats the borealis/smithii record conservatively until the species split is better confirmed regionally.",
       "medicinal_uses": "",
@@ -41,13 +41,13 @@
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/2018-08-22_Gyroporus_borealis_Davoodian,_O._Asher,_Sturgeon,_Ammirati_%26_Delaney_915318.jpg"
       ],
-      "scientific_name": "Gyroporus borealis/smithii",
+      "scientific_name": "Gyroporus castaneus complex",
       "mushroom_profile": {
-        "scientific_name": "Gyroporus borealis/smithii",
-        "entry_scope": "species",
+        "scientific_name": "Gyroporus castaneus complex",
+        "entry_scope": "complex",
         "edibility_status": "review_required",
         "caution_level": "medium",
-        "summary": "Chestnut-type Gyroporus: brittle hollow stem, chestnut-brown cap, and yellowish spore-print group; treat species boundary as conservative.",
+        "summary": "Chestnut-bolete complex covering the broad North American Gyroporus castaneus concept, including proposed G. borealis and G. smithii segregates that are not safely separated in the field.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -71,7 +71,7 @@
         "taste": [
           "Mild / not distinctive"
         ],
-        "spore_print": "",
+        "spore_print": "Pale yellow.",
         "season_note": "July through September.",
         "research_notes": [
           "Species boundary remains conservative; do not promote as food without stronger regional species-level confidence.",
@@ -94,6 +94,9 @@
         ],
         "fruitbody_shape": [
           "Convex cap with central stem"
+        ],
+        "spore_print_color": [
+          "Pale yellow"
         ]
       },
       "mushroom_family": "Gyroporus / brittle hollow-stem boletes",
@@ -123,7 +126,7 @@
       "review_status": "needs_review",
       "needs_review": true,
       "mushroom_card_note": "Chestnut-type Gyroporus: brittle hollow stem, chestnut-brown cap, and yellowish spore-print group; treat species boundary as conservative.",
-      "field_identification": "Gyroporus records should be checked for brittle/hollow stem tissue, dry cap, lack of strong reticulation, and association with hardwoods or mixed woods.",
+      "field_identification": "Use chestnut-brown cap and stem, white to pale yellow pores, brittle hollowing stem, and pale-yellow print only for broad complex-level identification. Narrow borealis/smithii assignments require specialist microscopic and multilocus work.",
       "use_roles": [
         "ID / caution"
       ],
@@ -132,7 +135,9 @@
       "search_aliases": [
         "Chestnut bolete",
         "Gyroporus borealis",
-        "Gyroporus smithii"
+        "Gyroporus smithii",
+        "chestnut bolete",
+        "Gyroporus castaneus"
       ],
       "v4288_checked": true,
       "record_type": "mushroom",
@@ -201,7 +206,15 @@
           "source_quality": "mycology reference",
           "notes": "Genus-level support for brittle/hollow-stemmed Gyroporus recognition; species split remains conservative in this app record."
         }
-      ]
+      ],
+      "aliases": [
+        "Gyroporus borealis",
+        "Gyroporus smithii",
+        "Gyroporus purpurinus",
+        "Gyroporus castaneus sensu lato"
+      ],
+      "taxonomy_note": "Retained as a broad Gyroporus castaneus complex. The proposed G. borealis and G. smithii segregates are not treated as independently field-identifiable app species without stronger multilocus support.",
+      "source_note": "v4.3.211 adds a defensible complex-level pale-yellow print while keeping review open for narrow segregate taxonomy."
     },
     {
       "slug": "porphyrellus-porphyrosporus",
@@ -389,7 +402,13 @@
           "notes": "Genus/key context only; a species-level non-Wikipedia source is still needed before review status can be cleared."
         }
       ],
-      "research_notes": "Image rights metadata normalized. Species-level non-Wikipedia source still needed before needs_review can be cleared."
+      "research_notes": "Image rights metadata normalized. Species-level non-Wikipedia source still needed before needs_review can be cleared.",
+      "hidden": true,
+      "list_visibility": "hidden-range-unverified",
+      "display_status": "suppressed_from_normal_cards",
+      "suppression_reason": "Strong accessible North American treatment supports a western conifer-associated concept, not an Upper Michigan species; suppressed pending verified Great Lakes material.",
+      "range_note": "Western North American comparison concept; Upper Michigan occurrence is not established.",
+      "source_note": "v4.3.211 suppresses this record from normal Upper Michigan cards because the defensible North American concept is western and regional material has not been verified."
     },
     {
       "slug": "false-king-bolete",
@@ -410,7 +429,8 @@
         9
       ],
       "links": [
-        "https://www.mushroomexpert.com/boletus_huronensis.html"
+        "https://www.mushroomexpert.com/boletus_huronensis.html",
+        "https://boletes.wpamushroomclub.org/product/boletus-huronensis/"
       ],
       "images": [],
       "scientific_name": "Boletus huronensis",
@@ -444,7 +464,7 @@
         "taste": [
           "Not recommended"
         ],
-        "spore_print": "",
+        "spore_print": "Olive-brown to brown.",
         "season_note": "Summer and fall, Great Lakes/eastern North America.",
         "research_notes": [
           "No verified public-usable image is currently attached; record is suppressed from normal cards until an exact image is verified.",
@@ -467,6 +487,10 @@
         ],
         "fruitbody_shape": [
           "Convex cap with central stem"
+        ],
+        "spore_print_color": [
+          "Olive-brown",
+          "Brown"
         ]
       },
       "mushroom_family": "Porcini & brown allies",
@@ -546,8 +570,17 @@
           "applies_to_part": "whole mushroom",
           "source_quality": "mycology reference",
           "notes": "Supports False King Bolete / Boletus huronensis caution context for porcini-like boletes."
+        },
+        {
+          "label": "The Bolete Filter: Boletus huronensis",
+          "url": "https://boletes.wpamushroomclub.org/product/boletus-huronensis/",
+          "link_type": "identification",
+          "applies_to_part": "whole mushroom",
+          "source_quality": "mycology reference",
+          "notes": "Exact species treatment, Great Lakes range, hemlock ecology, staining, and practical spore-print filters."
         }
-      ]
+      ],
+      "source_note": "v4.3.211 adds an exact-species or defensible complex-level macroscopic spore-print description and normalized filter values; spore color alone is not proof of species identity or edibility."
     },
     {
       "slug": "retiboletus-griseus",
@@ -1365,7 +1398,8 @@
         9
       ],
       "links": [
-        "https://mushroomexpert.com/tylopilus.html"
+        "https://mushroomexpert.com/tylopilus.html",
+        "https://doi.org/10.3852/11-376"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Sutorius%20eximius%2095313.jpg",
@@ -1401,7 +1435,7 @@
         "taste": [
           "Bitter or not recommended"
         ],
-        "spore_print": "",
+        "spore_print": "Pinkish to reddish brown, sometimes amber-brown.",
         "season_note": "July through September.",
         "research_notes": [
           "Needs source links and fuller field notes.",
@@ -1424,6 +1458,10 @@
         ],
         "fruitbody_shape": [
           "Convex cap with central stem"
+        ],
+        "spore_print_color": [
+          "Pinkish brown",
+          "Reddish brown"
         ]
       },
       "mushroom_family": "Dark-pored & obscure boletes",
@@ -1509,7 +1547,8 @@
         "method": "",
         "preparation_required": false,
         "notes": ""
-      }
+      },
+      "source_note": "v4.3.211 adds an exact-species or defensible complex-level macroscopic spore-print description and normalized filter values; spore color alone is not proof of species identity or edibility."
     },
     {
       "slug": "noble-bolete",

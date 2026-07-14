@@ -6,7 +6,7 @@
     "split_file": "data/mushrooms/mushrooms-boletes-red-caution2-2.json",
     "split_role": "Expanded red/yellow, blue-staining, red-pored, and caution-lane bolete records.",
     "source_record_count_before_split": 209,
-    "record_count": 3,
+    "record_count": 2,
     "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
     "last_credibility_batch": "v4.2.97-r2026-04-30-red-caution-review1",
     "split_part": 2,
@@ -17,7 +17,6 @@
       "records_reviewed": [
         "boletus-bicoloroides",
         "boletus-miniato-olivaceus",
-        "boletus-rubissimus",
         "boletus-rufocinnamomeus",
         "boletus-speciosus",
         "boletus-subdepauperatus",
@@ -26,17 +25,13 @@
         "boletus-vermiculosoides",
         "boletus-vermiculosus",
         "butyriboletus-brunneus",
-        "caloboletus-calopus",
         "caloboletus-inedulis",
         "caloboletus-peckii",
         "exsudoporus-frostii",
-        "cyanoboletus-cyaneitinctus",
         "dark-capped-scarletina-complex",
         "suillellus-hypocarycinus",
         "hortiboletus-campestris",
         "hortiboletus-flavorubellus",
-        "butyriboletus-taughannockensis",
-        "lanmaoa-fallax",
         "lurid-bolete",
         "neoboletus-pseudosulphureus",
         "neoboletus-subluridellus"
@@ -44,8 +39,8 @@
       "rule": "Clear stale image-only review only when at least two distinct real source-image URLs exist; keep one-photo and placeholder records in review."
     },
     "source_group": "data/mushrooms/mushrooms-boletes-red-caution2-2",
-    "last_content_update": "v4.3.133-r2026-06-09-mushroom-placeholder-status-cleanup1",
-    "last_content_update_date": "2026-06-09"
+    "last_content_update": "v4.3.211-r2026-07-14-bolete-taxonomy-source-closeout8",
+    "last_content_update_date": "2026-07-14"
   },
   "records": [
     {
@@ -160,8 +155,8 @@
       "general_notes": "",
       "edibility_detail": "Comparison/caution only.",
       "food_role": "avoid",
-      "needs_review": false,
-      "review_status": "ok",
+      "needs_review": true,
+      "review_status": "needs_review",
       "mushroom_card_note": "Red/yellow blue-staining bolete; treat as a specialist ID with low local confidence rather than a food target.",
       "field_identification": "Use red/yellow cap and stem pattern, yellow pores with blue staining, hardwood association, and current Lanmaoa/Boletus taxonomy as the ID frame.",
       "use_roles": [
@@ -209,149 +204,9 @@
       ],
       "image_rights_audit_status": "rights_metadata_added",
       "image_scope_note": "Exact Lanmaoa borealis image; Commons/iNaturalist review confirms CC0 licensing.",
-      "source_note": "Status normalized for avoid/comparison use; broader Lanmaoa taxonomy and local confidence remain cautious context."
-    },
-    {
-      "slug": "lanmaoa-fallax",
-      "display_name": "Lanmaoa Fallax",
-      "common_name": "Lanmaoa Fallax",
-      "category": "Mushroom",
-      "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
-      "medicinal_uses": "",
-      "notes": "",
-      "months_available": [
-        "July",
-        "August",
-        "September"
-      ],
-      "month_numbers": [
-        7,
-        8,
-        9
-      ],
-      "links": [
-        "https://www.mushroomexpert.com/boletes.html",
-        "https://www.mushroomexpert.com/boletes_red_capped_blue_staining.html",
-        "https://www.mushroomexpert.com/boletus_pseudosensibilis.html"
-      ],
-      "images": [],
-      "scientific_name": "Lanmaoa fallax",
-      "mushroom_profile": {
-        "scientific_name": "Lanmaoa fallax",
-        "entry_scope": "species",
-        "edibility_status": "review_required",
-        "caution_level": "high",
-        "summary": "Lanmaoa/Boletus fallax-style record; needs images and modern taxonomy confidence before being treated as settled.",
-        "ecology": "mycorrhizal bolete",
-        "substrate": [
-          "Forest soil"
-        ],
-        "wood_type": [
-          "Hardwood"
-        ],
-        "host_trees": [
-          "Hardwoods"
-        ],
-        "host_certainty": "unknown",
-        "underside": [
-          "Pores"
-        ],
-        "ring": "Unknown",
-        "texture": [
-          "Fleshy / firm"
-        ],
-        "odor": "Unknown",
-        "staining": [
-          "Blue staining"
-        ],
-        "taste": [
-          "Unknown"
-        ],
-        "spore_print": "",
-        "season_note": "Summer to fall; confirm locally.",
-        "cap_surface": [
-          "Red to brownish-red cap"
-        ],
-        "stem_feature": [
-          "Yellow/red stem clues"
-        ],
-        "pore_color": [
-          "Yellow pores",
-          "Blue staining"
-        ],
-        "growth_form": [
-          "Cap and stem"
-        ],
-        "fertile_surface": [
-          "Pores"
-        ],
-        "fruitbody_shape": [
-          "Convex cap with central stem"
-        ]
-      },
-      "mushroom_family": "Red-staining & red-pored caution boletes",
-      "boleteGroup": [
-        "Red-staining & red-pored caution boletes"
-      ],
-      "boleteSubgroup": [
-        "Lanmaoa",
-        "Blue staining / caution"
-      ],
-      "weekPrecision": "needs-review",
-      "primary_type": "mushroom",
-      "is_medicinal": false,
-      "is_non_edible": false,
-      "commonness": "Rare",
-      "commonness_score": 1,
-      "food_quality": "Not recommended",
-      "food_quality_score": 1,
-      "lane": "bolete",
-      "look_alikes": [
-        "blue-staining-red-pored-boletes-caution-group",
-        "lurid-bolete",
-        "red-mouth-bolete"
-      ],
-      "confused_with": [
-        "blue-staining-red-pored-boletes-caution-group",
-        "red-mouth-bolete"
-      ],
-      "general_notes": "",
-      "edibility_detail": "Comparison/caution only.",
-      "food_role": "avoid",
-      "edibility_status": "review_required",
-      "non_edible_severity": "Caution / not recommended as food",
-      "review_status": "needs_review",
-      "edible_use": {
-        "has_ingestible_use": false,
-        "method": "",
-        "preparation_required": false,
-        "notes": ""
-      },
-      "needs_review": true,
-      "mushroom_card_note": "Lanmaoa/Boletus fallax-style record; needs images and modern taxonomy confidence before being treated as settled.",
-      "field_identification": "Treat as a red/yellow blue-staining Lanmaoa comparison. Confirm cap color, pore bruising, stem color pattern, hardwood host, and microscopy/current name.",
-      "use_roles": [
-        "ID / caution"
-      ],
-      "foraging_value": "Use with caution",
-      "foraging_value_score": 1,
-      "images_structured": [],
-      "detail_images": [],
-      "enlarge_images": [],
-      "list_thumbnail": "",
-      "image_coverage_status": "missing_verified_images",
-      "image_rights_audit_status": "not_applicable_no_verified_image",
-      "image_coverage_note": "Exact public-usable image not verified; do not use placeholder art or generic relatives as a species image.",
-      "data_flags": [
-        "needs_exact_image",
-        "placeholder_image_removed"
-      ],
-      "hidden": true,
-      "list_visibility": "hidden-missing-verified-image",
-      "display_status": "suppressed_from_normal_cards",
-      "suppression_reason": "Missing exact public-usable species image and taxonomy confidence; suppressed from normal cards until reviewed.",
-      "needs_exact_image": true,
-      "placeholder_image_removed": true
+      "source_note": "Status normalized for avoid/comparison use; broader Lanmaoa taxonomy and local confidence remain cautious context. v4.3.211 corrects the overconfident review state and records that existing links to L. pseudosensibilis do not prove this species.",
+      "range_note": "Documented from Michigan in nomenclatural summaries; Upper Peninsula occurrence remains unverified.",
+      "taxonomy_note": "Lanmaoa borealis is retained provisionally, but the app still needs the direct recombination/type source and an exact macroscopic print treatment."
     },
     {
       "slug": "lanmaoa-pallidorosea",
@@ -373,7 +228,9 @@
       "links": [
         "https://www.mushroomexpert.com/boletes.html",
         "https://www.mushroomexpert.com/boletes_red_capped_blue_staining.html",
-        "https://www.mushroomexpert.com/boletus_pseudosensibilis.html"
+        "https://www.mushroomexpert.com/boletus_pseudosensibilis.html",
+        "https://doi.org/10.1007/s13225-019-00421-w",
+        "https://www.mushroomexpert.com/boletus_pallidoroseus.html"
       ],
       "images": [
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20pallidoroseus%20245628.jpg",
@@ -412,7 +269,7 @@
         "taste": [
           "Unknown"
         ],
-        "spore_print": "",
+        "spore_print": "Olive brown.",
         "season_note": "Summer to fall; confirm locally.",
         "cap_surface": [
           "Pale rosy to reddish cap"
@@ -432,6 +289,9 @@
         ],
         "fruitbody_shape": [
           "Convex cap with central stem"
+        ],
+        "spore_print_color": [
+          "Olive-brown"
         ]
       },
       "mushroom_family": "Red-staining & red-pored caution boletes",
@@ -516,7 +376,15 @@
         }
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20pallidoroseus%20245628.jpg",
-      "image_coverage_status": "verified_images"
+      "image_coverage_status": "verified_images",
+      "source_note": "v4.3.211 adds an exact-species or defensible complex-level macroscopic spore-print description and normalized filter values; spore color alone is not proof of species identity or edibility.",
+      "aliases": [
+        "Boletus pallidoroseus"
+      ],
+      "search_aliases": [
+        "Boletus pallidoroseus"
+      ],
+      "taxonomy_note": "The 2019 peer-reviewed combination Lanmaoa pallidorosea is based on the North American Boletus pallidoroseus concept; Upper Michigan occurrence remains unverified."
     }
   ]
 }

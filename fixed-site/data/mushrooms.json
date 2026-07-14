@@ -52,7 +52,9 @@
     "last_leccinum_distinctive_batch": "v4.3.208-r2026-07-13-leccinum-distinctive-edibles-batch5",
     "last_leccinum_distinctive_batch_date": "2026-07-13",
     "last_unusual_form_spore_batch": "v4.3.209-r2026-07-13-unusual-form-spore-handling6",
-    "last_unusual_form_spore_batch_date": "2026-07-13"
+    "last_unusual_form_spore_batch_date": "2026-07-13",
+    "last_content_update": "v4.3.211-r2026-07-14-bolete-taxonomy-source-closeout8",
+    "last_content_update_date": "2026-07-14"
   },
   "records": [
     {
@@ -923,7 +925,7 @@
       "display_name": "Bay Bolete",
       "common_name": "Bay Bolete",
       "category": "Mushroom",
-      "notes": "Bay Bolete is treated here as Imleria badia. Older app data also used the scientific-name slug imleria-badia; that duplicate has been merged into this page.",
+      "notes": "Bay Bolete is the canonical app record for Imleria badia. The former scientific-name slug imleria-badia is retained only as a search/former-slug alias.",
       "months_available": [
         "July",
         "August",
@@ -946,7 +948,8 @@
       "search_aliases": [
         "bay-bolete",
         "Bay Bolete",
-        "Imleria badia"
+        "Imleria badia",
+        "imleria-badia"
       ],
       "host_filter_tokens": [
         "Softwood",
@@ -1097,12 +1100,6 @@
         "preparation_notes": "",
         "warnings": ""
       },
-      "hidden": true,
-      "duplicate_of": "imleria-badia",
-      "alias_record_note": "Hidden from lists as a duplicate/legacy alias of Imleria badia; retained so older look-alike links and searches do not break.",
-      "legacy_alias": true,
-      "list_visibility": "hidden-duplicate",
-      "duplicate_note": "Duplicate Bay Bolete record kept only as a legacy slug alias.",
       "mushroom_family": "Porcini & brown allies",
       "is_medicinal": false,
       "is_non_edible": false,
@@ -1110,7 +1107,8 @@
         "imleria-badia"
       ],
       "aliases": [
-        "imleria-badia"
+        "imleria-badia",
+        "Imleria badia"
       ],
       "images_structured": [
         {
@@ -1172,7 +1170,8 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria_badia_2011_G1.jpg"
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Imleria_badia.jpg?width=480",
-      "completion_status": "complete"
+      "completion_status": "complete",
+      "source_note": "v4.3.211 removes contradictory duplicate metadata that hid the only canonical Bay Bolete profile; no separate imleria-badia record exists in the canonical loader."
     },
     {
       "slug": "bear-s-head-tooth",

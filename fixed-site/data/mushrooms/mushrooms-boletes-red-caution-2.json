@@ -6,7 +6,7 @@
     "split_file": "data/mushrooms/mushrooms-boletes-red-caution-2.json",
     "split_role": "Expanded red/yellow, blue-staining, red-pored, and caution-lane bolete records.",
     "source_record_count_before_split": 209,
-    "record_count": 3,
+    "record_count": 2,
     "last_duplicate_cleanup": "v4.2.70-r2026-04-29-slippery-jack-merge1",
     "last_credibility_batch": "v4.2.97-r2026-04-30-red-caution-review1",
     "split_part": 2,
@@ -17,7 +17,6 @@
       "records_reviewed": [
         "boletus-bicoloroides",
         "boletus-miniato-olivaceus",
-        "boletus-rubissimus",
         "boletus-rufocinnamomeus",
         "boletus-speciosus",
         "boletus-subdepauperatus",
@@ -26,30 +25,28 @@
         "boletus-vermiculosoides",
         "boletus-vermiculosus",
         "butyriboletus-brunneus",
-        "caloboletus-calopus",
         "caloboletus-inedulis",
         "caloboletus-peckii",
         "exsudoporus-frostii",
-        "cyanoboletus-cyaneitinctus",
         "dark-capped-scarletina-complex",
         "suillellus-hypocarycinus",
         "hortiboletus-campestris",
         "hortiboletus-flavorubellus",
-        "butyriboletus-taughannockensis",
-        "lanmaoa-fallax",
         "lurid-bolete",
         "neoboletus-pseudosulphureus",
         "neoboletus-subluridellus"
       ],
       "rule": "Clear stale image-only review only when at least two distinct real source-image URLs exist; keep one-photo and placeholder records in review."
     },
-    "source_group": "data/mushrooms/mushrooms-boletes-red-caution-2"
+    "source_group": "data/mushrooms/mushrooms-boletes-red-caution-2",
+    "last_content_update": "v4.3.211-r2026-07-14-bolete-taxonomy-source-closeout8",
+    "last_content_update_date": "2026-07-14"
   },
   "records": [
     {
       "slug": "boletus-vermiculosus",
-      "display_name": "Brown-pored Bolete — B. vermiculosus",
-      "common_name": "Brown-pored Bolete — B. vermiculosus",
+      "display_name": "Boletus vermiculosus Complex",
+      "common_name": "Boletus vermiculosus Complex",
       "category": "Mushroom",
       "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
       "medicinal_uses": "",
@@ -75,10 +72,10 @@
       "scientific_name": "Boletus vermiculosus",
       "mushroom_profile": {
         "scientific_name": "Boletus vermiculosus",
-        "entry_scope": "species",
+        "entry_scope": "historical comparison complex",
         "edibility_status": "review_required",
         "caution_level": "high",
-        "summary": "Brown-pored oak bolete close to vermiculosoides; keep the name conservative until confirmed.",
+        "summary": "Historical vermiculosus/vermiculosoides/subgraveolens brown-pored complex; exact species limits require modern DNA-informed study.",
         "ecology": "mycorrhizal bolete",
         "substrate": [
           "Forest soil"
@@ -162,7 +159,7 @@
       "common_names": [
         "Brown Pored Bolete"
       ],
-      "field_identification": "Brownish to yellow-brown cap, dark brown to maroon pores aging brownish yellow, blue-green bruising, and oak association. Similar to B. vermiculosoides but traditionally separated by spores/cap tones.",
+      "field_identification": "Use as a complex-level warning/comparison only. Cap, pore color, odor, host, microscopy, and modern sequence data are needed for species-level placement.",
       "review_status": "needs_review",
       "needs_review": true,
       "mushroom_card_note": "Brown-pored oak bolete close to vermiculosoides; keep the name conservative until confirmed.",
@@ -212,7 +209,9 @@
       ],
       "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus%20vermiculosus%20348301.jpg?width=480",
       "image_rights_audit_status": "rights_metadata_added",
-      "image_coverage_status": "verified_images"
+      "image_coverage_status": "verified_images",
+      "taxonomy_note": "Peck historical concept retained within an unresolved eastern North American complex.",
+      "source_note": "v4.3.211 replaces species-level confidence with complex framing; no print value is imported from neighboring taxa."
     },
     {
       "slug": "butyriboletus-brunneus",
@@ -348,140 +347,6 @@
       "image_rights_notes": "Visible Commons image(s) removed in v4.3.181 because stored metadata did not include exact file-page author/license/license-url rights details; do not restore until exact rights are verified.",
       "needs_exact_image": true,
       "source_note": "v4.3.210 adds a limited group-level spore-print description and normalized filters; finer separation remains review-sensitive and may require a thick print or microscopy."
-    },
-    {
-      "slug": "caloboletus-calopus",
-      "display_name": "Caloboletus Calopus",
-      "common_name": "Caloboletus Calopus",
-      "category": "Mushroom",
-      "culinary_uses": "Avoid; bitter Caloboletus species are not for the food list.",
-      "medicinal_uses": "",
-      "notes": "",
-      "months_available": [
-        "July",
-        "August",
-        "September"
-      ],
-      "month_numbers": [
-        7,
-        8,
-        9
-      ],
-      "links": [
-        "https://www.mushroomexpert.com/boletes.html",
-        "https://www.mushroomexpert.com/caloboletus_inedulis.html"
-      ],
-      "images": [],
-      "scientific_name": "Caloboletus calopus",
-      "mushroom_profile": {
-        "scientific_name": "Caloboletus calopus",
-        "entry_scope": "species",
-        "edibility_status": "review_required",
-        "caution_level": "high",
-        "summary": "Bitter red-stemmed Caloboletus-style bolete; not a food target and often tied up with North American name confusion.",
-        "ecology": "mycorrhizal bolete",
-        "substrate": [
-          "Forest soil"
-        ],
-        "wood_type": [
-          "Hardwood"
-        ],
-        "host_trees": [
-          "Hardwoods",
-          "Conifers possible"
-        ],
-        "host_certainty": "unknown",
-        "underside": [
-          "Pores"
-        ],
-        "ring": "Unknown",
-        "texture": [
-          "Fleshy / firm"
-        ],
-        "odor": "Unknown",
-        "staining": [
-          "Blue staining"
-        ],
-        "taste": [
-          "Bitter"
-        ],
-        "spore_print": "",
-        "season_note": "Summer to fall; confirm locally.",
-        "cap_surface": [
-          "Pale to brown cap"
-        ],
-        "stem_feature": [
-          "Red/pinkish reticulate stem"
-        ],
-        "pore_color": [
-          "Yellow pores",
-          "Bruises blue"
-        ],
-        "growth_form": [
-          "Cap and stem"
-        ],
-        "fertile_surface": [
-          "Pores"
-        ],
-        "fruitbody_shape": [
-          "Convex cap with central stem"
-        ]
-      },
-      "mushroom_family": "Red-staining & red-pored caution boletes",
-      "boleteGroup": [
-        "Red-staining & red-pored caution boletes"
-      ],
-      "boleteSubgroup": [
-        "Caloboletus",
-        "Blue staining / caution"
-      ],
-      "weekPrecision": "needs-review",
-      "primary_type": "mushroom",
-      "is_medicinal": false,
-      "is_non_edible": false,
-      "commonness": "Occasional",
-      "commonness_score": 3,
-      "food_quality": "Not recommended",
-      "food_quality_score": 1,
-      "lane": "bolete",
-      "look_alikes": [
-        "blue-staining-red-pored-boletes-caution-group",
-        "lurid-bolete",
-        "red-mouth-bolete"
-      ],
-      "confused_with": [
-        "blue-staining-red-pored-boletes-caution-group",
-        "red-mouth-bolete"
-      ],
-      "general_notes": "",
-      "edibility_detail": "Not recommended; kept as a caution/comparison record.",
-      "food_role": "avoid",
-      "edibility_status": "review_required",
-      "non_edible_severity": "Caution / not recommended as food",
-      "review_status": "ok",
-      "edible_use": {
-        "has_ingestible_use": false,
-        "method": "",
-        "preparation_required": false,
-        "notes": ""
-      },
-      "needs_review": false,
-      "mushroom_card_note": "Bitter red-stemmed Caloboletus-style bolete; not a food target and often tied up with North American name confusion.",
-      "field_identification": "Pale to brown cap, yellow pores that blue, red/pinkish reticulate stem, and bitter taste. North American use of the European name is messy.",
-      "use_roles": [
-        "ID / caution"
-      ],
-      "foraging_value": "Use with caution",
-      "foraging_value_score": 1,
-      "images_structured": [],
-      "detail_images": [],
-      "enlarge_images": [],
-      "list_thumbnail": "",
-      "image_coverage_status": "missing_verified_images",
-      "image_rights_audit_status": "not_applicable_no_verified_image",
-      "image_coverage_note": "Exact public-usable image not currently verified; visible images removed pending exact file-page rights metadata.",
-      "image_rights_notes": "Visible Commons image(s) removed in v4.3.181 because stored metadata did not include exact file-page author/license/license-url rights details; do not restore until exact rights are verified.",
-      "needs_exact_image": true
     }
   ]
 }

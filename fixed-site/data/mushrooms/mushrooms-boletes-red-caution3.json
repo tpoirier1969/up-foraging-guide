@@ -17,7 +17,6 @@
       "records_reviewed": [
         "boletus-bicoloroides",
         "boletus-miniato-olivaceus",
-        "boletus-rubissimus",
         "boletus-rufocinnamomeus",
         "boletus-speciosus",
         "boletus-subdepauperatus",
@@ -26,17 +25,13 @@
         "boletus-vermiculosoides",
         "boletus-vermiculosus",
         "butyriboletus-brunneus",
-        "caloboletus-calopus",
         "caloboletus-inedulis",
         "caloboletus-peckii",
         "exsudoporus-frostii",
-        "cyanoboletus-cyaneitinctus",
         "dark-capped-scarletina-complex",
         "suillellus-hypocarycinus",
         "hortiboletus-campestris",
         "hortiboletus-flavorubellus",
-        "butyriboletus-taughannockensis",
-        "lanmaoa-fallax",
         "lurid-bolete",
         "neoboletus-pseudosulphureus",
         "neoboletus-subluridellus"
@@ -44,8 +39,8 @@
       "rule": "Clear stale image-only review only when at least two distinct real source-image URLs exist; keep one-photo and placeholder records in review."
     },
     "source_group": "data/mushrooms/mushrooms-boletes-red-caution3",
-    "last_content_update": "v4.3.133-r2026-06-09-mushroom-placeholder-status-cleanup1",
-    "last_content_update_date": "2026-06-09"
+    "last_content_update": "v4.3.211-r2026-07-14-bolete-taxonomy-source-closeout8",
+    "last_content_update_date": "2026-07-14"
   },
   "records": [
     {
@@ -278,8 +273,8 @@
     },
     {
       "slug": "lurid-bolete",
-      "display_name": "Lurid Bolete",
-      "common_name": "Lurid Bolete",
+      "display_name": "Lurid-bolete-type Red-pored Boletes",
+      "common_name": "Lurid-bolete-type Red-pored Boletes",
       "category": "Mushroom",
       "culinary_uses": "Avoid in this guide. Red-pored blue-staining boletes are not beginner targets, and species boundaries are messy.",
       "medicinal_uses": "",
@@ -294,13 +289,13 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%201.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%20%28Boletus%20luridus%29%20%2850198792546%29.jpg"
       ],
-      "scientific_name": "Suillellus luridus",
+      "scientific_name": "North American lurid-bolete comparison group",
       "mushroom_profile": {
-        "scientific_name": "Suillellus luridus",
-        "entry_scope": "species",
+        "scientific_name": "North American lurid-bolete comparison group",
+        "entry_scope": "comparison group",
         "edibility_status": "toxic_or_dangerous",
         "caution_level": "high",
-        "summary": "Red/orange-pored, blue-staining bolete group; included for caution and comparison.",
+        "summary": "North American comparison group for lurid-bolete-like red-pored, blue-staining boletes; true European Suillellus luridus is not established as an Upper Michigan species.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -341,21 +336,21 @@
       "general_notes": "",
       "record_type": "mushroom",
       "lane": "bolete",
-      "review_status": "ok",
+      "review_status": "needs_review",
       "commonness": "",
       "food_quality": "Not recommended",
       "non_edible_severity": "Caution / not recommended as food",
       "food_role": "avoid",
       "edibility_status": "not_edible",
       "edibility_detail": "Treat as not recommended; high confusion risk with toxic red-pored boletes.",
-      "field_identification": "Red to orange pore surface, strong blue staining, reticulate or patterned stem, and hardwood association place it in the high-caution red-pored bolete lane.",
+      "field_identification": "Use only as a broad caution/comparison group for red-pored blue-staining boletes. Do not apply the European Suillellus luridus name to Great Lakes material without specialist evidence.",
       "edible_use": {
         "has_ingestible_use": false,
         "method": "",
         "preparation_required": false,
         "notes": ""
       },
-      "needs_review": false,
+      "needs_review": true,
       "mushroom_card_note": "Lurid Bolete group: red/orange-pored, blue-staining bolete; not a beginner edible and not something to toss casually in a pan.",
       "use_roles": [
         "ID / comparison"
@@ -402,7 +397,17 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%201.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Suillellus%20luridus%20%28Boletus%20luridus%29%20%2850198792546%29.jpg"
       ],
-      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-09-13%20Boletus%20luridus%20Schaeff%20104527.jpg?width=480"
+      "list_thumbnail": "https://commons.wikimedia.org/wiki/Special:FilePath/2010-09-13%20Boletus%20luridus%20Schaeff%20104527.jpg?width=480",
+      "aliases": [
+        "Suillellus luridus (European species; historical misapplication)",
+        "Boletus luridus (historical misapplication)"
+      ],
+      "taxonomy_note": "True Suillellus luridus is European. North American look-alikes remain unresolved and are represented here only as a comparison group.",
+      "hidden": true,
+      "list_visibility": "hidden-taxonomy-review",
+      "display_status": "suppressed_from_normal_cards",
+      "suppression_reason": "Previous species card mixed a European taxon with unresolved North American look-alikes and potentially mismatched imagery; suppressed pending a dedicated comparison-group/image pass.",
+      "source_note": "v4.3.211 removes the wrong-continent species claim and suppresses the mixed-concept card."
     },
     {
       "slug": "neoboletus-pseudosulphureus",
@@ -496,8 +501,8 @@
     },
     {
       "slug": "neoboletus-subluridellus",
-      "display_name": "Neoboletus subluridellus",
-      "common_name": "Neoboletus subluridellus",
+      "display_name": "Boletus subluridellus Historical Complex",
+      "common_name": "Boletus subluridellus Historical Complex",
       "category": "Mushroom",
       "culinary_uses": "Not a food target in this guide; retained for identification and caution comparison.",
       "medicinal_uses": "",
@@ -509,13 +514,13 @@
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus_subluridellus_151918.jpg",
         "https://commons.wikimedia.org/wiki/Special:FilePath/Boletus_subluridellus_49762.jpg"
       ],
-      "scientific_name": "Neoboletus subluridellus",
+      "scientific_name": "Boletus subluridellus",
       "mushroom_profile": {
-        "scientific_name": "Neoboletus subluridellus",
-        "entry_scope": "species",
+        "scientific_name": "Boletus subluridellus",
+        "entry_scope": "historical comparison complex",
         "edibility_status": "toxic_or_dangerous",
         "caution_level": "high",
-        "summary": "Red-pored blue-staining Neoboletus comparison species; high caution.",
+        "summary": "Historical Michigan subluridellus/rufocinnamomeus/roseobadius complex; modern transfer and independent species boundaries remain unresolved.",
         "ecology": "bolete",
         "substrate": [
           "Forest soil"
@@ -656,7 +661,12 @@
         "Boletus subluridellus",
         "Neoboletus subluridellus",
         "Boletus section Luridi"
-      ]
+      ],
+      "aliases": [
+        "Neoboletus subluridellus"
+      ],
+      "taxonomy_note": "The app no longer treats the unsupported Neoboletus combination as settled; retained as a historical Michigan complex comparison.",
+      "source_note": "v4.3.211 corrects the active name/scope and leaves the spore print blank."
     },
     {
       "slug": "rubroboletus-rhodosanguineus",
