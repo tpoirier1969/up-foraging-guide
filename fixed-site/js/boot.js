@@ -1,9 +1,9 @@
 const pageRoot = document.getElementById("pageRoot");
 const versionBadge = document.getElementById("versionBadge");
 const BUNDLED_VERSION_INFO = Object.freeze({
-  version: "v4.3.212-r2026-07-14-logical-canonical-data-organization2",
-  display_version: "V4.3.212-r26-07-14",
-  cache_bust: "v4.3.212-r2026-07-14-logical-canonical-data-organization2"
+  version: "v4.3.213-r2026-07-15-canonical-placement-qa1",
+  display_version: "V4.3.213-r26-07-15",
+  cache_bust: "v4.3.213-r2026-07-15-canonical-placement-qa1"
 });
 const FALLBACK_VERSION_INFO = BUNDLED_VERSION_INFO;
 let APP_VERSION = FALLBACK_VERSION_INFO.version;

@@ -22,7 +22,7 @@ export const SPECIES_PATHS = [
   "data/mushrooms/mushrooms-boletes-leccinum-scaber-stalk.json",
   "data/mushrooms/mushrooms-boletes-aureoboletus-textured-allies.json",
   "data/mushrooms/mushrooms-boletes-gyroporus-chalciporus-allies.json",
-  "data/mushrooms/mushrooms-boletes-wood-parasitic-gilled.json"
+  "data/mushrooms/mushrooms-boletes-unusual-wood-gilled-parasitic.json"
 ];
 
 // Retired. Kept as an empty export so older loader/audit code does not break.
