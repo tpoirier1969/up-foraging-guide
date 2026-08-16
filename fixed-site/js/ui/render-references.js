@@ -51,6 +51,26 @@ const MUSHROOM_FIELD_RULES = [
     resourceType: "Field heuristic"
   },
   {
+    title: "Morels: use a 30-day rainfall history, not a fixed days-after-rain countdown",
+    url: "https://pubmed.ncbi.nlm.nih.gov/17363234/",
+    source: "Mycological Research / PubMed",
+    summary: "A five-year Morchella study found abundance was positively related to rain events over 10 mm during the 30 days before fruiting, while temperature better predicted onset. For practical hunting, check whether the previous month has supplied meaningful moisture rather than assuming morels appear a fixed number of days after one storm.",
+    topics: ["mushrooms", "season", "spring", "morels", "rain", "30 days", "temperature"],
+    section: "Mushroom Field Rules",
+    subsection: "Season",
+    resourceType: "Field heuristic"
+  },
+  {
+    title: "Porcini-type boletes: about 10-12 days after a heavy rain is a reasonable watch window, not a guarantee",
+    url: "https://italianmycology.unibo.it/article/view/16464",
+    source: "Italian Journal of Mycology",
+    summary: "A Boletus edulis field study found the strongest positive productivity response about 12 days after intense rainfall of at least 20 mm, with related work reporting community fruiting near day 10. This was European forest research, so use roughly 10-12 days after a soaking rain as a scouting window, not a UP prediction rule.",
+    topics: ["mushrooms", "season", "rain", "Boletus edulis", "porcini", "10 days", "12 days"],
+    section: "Mushroom Field Rules",
+    subsection: "Season",
+    resourceType: "Field heuristic"
+  },
+  {
     title: "Hemlock: do not avoid it",
     url: "https://midwestmycology.org/cantharellus-species/",
     source: "Midwest American Mycological Information",
@@ -136,6 +156,66 @@ const MUSHROOM_FIELD_RULES = [
     source: "MushroomExpert.Com",
     summary: "Shade, moss, low woods, thicker duff, north-facing slopes, creek terraces, and other places that hold moisture can remain productive while exposed sandy uplands dry out. Spruce, hemlock, and birch often occur in these cooler pockets, but moisture retention is the broader field clue.",
     topics: ["mushrooms", "dry weather", "moisture", "moss", "shade", "microclimate", "field strategy"],
+    section: "Mushroom Field Rules",
+    subsection: "Misc Notes",
+    resourceType: "Field heuristic"
+  },
+  {
+    title: "Forest interior can beat the edge for ectomycorrhizal fruiting",
+    url: "https://nph.onlinelibrary.wiley.com/doi/full/10.1002/ppp3.70008",
+    source: "Plants, People, Planet",
+    summary: "A long-term postharvest edge study found ectomycorrhizal mushroom fruiting substantially reduced in edge zones and openings compared with intact forest interior. Edges can still hold particular species, but do not assume brighter edge habitat is generally the best place for mycorrhizal mushrooms.",
+    topics: ["mushrooms", "forest edge", "forest interior", "mycorrhizal", "fragmentation", "field strategy"],
+    section: "Mushroom Field Rules",
+    subsection: "Misc Notes",
+    resourceType: "Field heuristic"
+  },
+  {
+    title: "Older forest is different, not automatically better",
+    url: "https://research.fs.usda.gov/treesearch/5401",
+    source: "USDA Forest Service",
+    summary: "Forest-age studies show ectomycorrhizal species composition changes strongly among young, rotation-age, and old-growth stands, but total richness does not simply climb with age and above-ground sporocarp biomass can even be greater in younger stands. Use stand age to predict a different fungal community, not as a universal quality score.",
+    topics: ["mushrooms", "stand age", "old growth", "young forest", "succession", "mycorrhizal"],
+    section: "Mushroom Field Rules",
+    subsection: "Misc Notes",
+    resourceType: "Field heuristic"
+  },
+  {
+    title: "Jack-pine fungal communities change as the stand ages after fire",
+    url: "https://research.fs.usda.gov/treesearch/45330",
+    source: "USDA Forest Service",
+    summary: "Research in jack-pine stands from 5 to 56 years after wildfire found clear succession in ectomycorrhizal communities as canopy closure and soil nitrogen forms changed. Two jack-pine stands of different ages may therefore support meaningfully different fungi even on similar sandy ground.",
+    topics: ["mushrooms", "jack pine", "stand age", "wildfire", "succession", "mycorrhizal"],
+    section: "Mushroom Field Rules",
+    subsection: "Misc Notes",
+    resourceType: "Field heuristic"
+  },
+  {
+    title: "Soil pH and moisture help define the fungal neighborhood",
+    url: "https://pubmed.ncbi.nlm.nih.gov/36312934/",
+    source: "Peer-reviewed ectomycorrhizal community study",
+    summary: "Ectomycorrhizal community composition can change strongly along soil-pH, soil-moisture, slope-aspect, and temperature gradients. Do not expect identical mushroom communities simply because the same tree species occurs on dry acidic sand and on cooler, richer, moister soil.",
+    topics: ["mushrooms", "soil pH", "soil moisture", "aspect", "habitat", "mycorrhizal"],
+    section: "Mushroom Field Rules",
+    subsection: "Misc Notes",
+    resourceType: "Field heuristic"
+  },
+  {
+    title: "Near Lake Superior, summer mushroom timing can lag inland sites",
+    url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC10753639/",
+    source: "Ecology and Evolution",
+    summary: "Lake Superior measurably cools shoreline and nearby forests during summer, in some settings for kilometers inland. Because mushroom fruiting is temperature-sensitive, nearshore woods may remain cooler and seasonally behind inland sites. Treat this as a microclimate clue rather than a fixed number of days of delay.",
+    topics: ["mushrooms", "Lake Superior", "microclimate", "summer", "cooling", "Upper Michigan"],
+    section: "Mushroom Field Rules",
+    subsection: "Misc Notes",
+    resourceType: "Field heuristic"
+  },
+  {
+    title: "Seeing lots of mushrooms means fruiting conditions are active, not that every underground fungus is fruiting",
+    url: "https://academic.oup.com/femsre/article/31/4/388/2398987",
+    source: "FEMS Microbiology Reviews",
+    summary: "Visible fruiting bodies are poor measures of the entire ectomycorrhizal community underground. A flush of Russulas, Amanitas, boletes, or milkcaps is useful evidence that some fungi are fruiting under current conditions, but it does not reliably predict which other species are about to appear.",
+    topics: ["mushrooms", "indicator fungi", "fruiting", "mycorrhizal", "field strategy"],
     section: "Mushroom Field Rules",
     subsection: "Misc Notes",
     resourceType: "Field heuristic"
